@@ -1,5 +1,62 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.09.13
+
+### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL
+
+**What Changed.** The `-gtk4` suffix was a migration marker from the GTK3 era. GTK4 is
+now the only edition, so there is no GTK3 ATT left to disambiguate from and the suffix
+is dead weight. The GitHub repository, the pacman package, and the URLs printed in the
+startup banner are all now plain `archlinux-tweak-tool`.
+
+The package rename is the part with teeth: `pkgname` is what pacman keys an install on,
+so a bare rename would leave every existing install sitting on the old package forever.
+The PKGBUILD therefore carries the full Arch rename trio — `provides`, `conflicts` and
+`replaces` all naming `archlinux-tweak-tool-gtk4` — so `pacman -Su` offers the swap
+automatically instead of treating the new name as an unrelated package.
+
+Two URLs in the startup banner also pointed at the `erikdubois` org rather than
+`kirodubes`; since those exact lines were being edited anyway, the org was corrected in
+the same pass.
+
+**Technical Details.** `build.sh` derives its package glob from the PKGBUILD
+**directory basename** (`search="$(basename "${SCRIPT_DIR}")"`, then
+`cp -nv /tmp/tempbuild/*"${search}"*pkg.tar.zst`). Renaming `pkgname` alone would have
+built the package successfully and then silently failed to copy it into
+`nemesis_repo/x86_64/` — the glob would no longer match. So the directory
+`KIRO-PKG-BUILD-APPS/archlinux-tweak-tool-gtk4/` was `git mv`d in the same change; the
+two must always move together.
+
+`pkgver`/`pkgrel` were deliberately left at `26.09-03`. `build.sh`'s `bump_version()`
+increments the pkgrel on the next build, and the `replaces` upgrade path does not depend
+on the version being higher.
+
+Inside the PKGBUILD the rename cascades through `_pkgname`, so `url`, `source=` and
+`_licensedir` all followed from the two-line change. The license directory becomes
+`/usr/share/kiro/licenses/archlinux-tweak-tool`; pacman removes the old one along with
+the replaced package.
+
+The install path `usr/share/archlinux-tweak-tool/` never carried the suffix and is
+untouched. Historical CHANGELOG entries are records of what happened, not live
+references, and were left as written.
+
+Follow-up required outside this repo: the old
+`archlinux-tweak-tool-gtk4-26.09-03-x86_64.pkg.tar.zst` and its `.sig` must be removed
+from `nemesis_repo/x86_64/` and the db regenerated. While both names sit in the repo db
+the `replaces` resolution is ambiguous on client machines.
+
+**Files Modified**
+
+- `README.md` — install command and repository link
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py` — startup banner URLs
+- `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt` — package name
+- `CLAUDE.md` — memory-sync path in the session-end checklist
+- `CHANGELOG.md` — this entry
+
+Outside this repo: `KIRO-PKG-BUILD-APPS/archlinux-tweak-tool/` (renamed dir + PKGBUILD),
+`kiro-iso` and `kiro-iso-next` `archiso/packages.x86_64`, `KIRO/0-get-all-projects.sh`.
+
+
 ## 2026.09.05
 
 ### hlwm install reported "ERROR DETECTED" even though it installed fine

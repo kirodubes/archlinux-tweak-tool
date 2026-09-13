@@ -206,7 +206,7 @@ class Main(Gtk.ApplicationWindow):
     def __init__(self, app):
         print("=" * 75)
         print("Arch Linux Tweak Tool - GTK4 Edition")
-        print("Error reporting: https://github.com/erikdubois/archlinux-tweak-tool-gtk4")
+        print("Error reporting: https://github.com/kirodubes/archlinux-tweak-tool")
         print("=" * 75)
         print("Supported distributions: AcreetionOS, Arch, ArchBang, Archcraft, Archman, Artix, Axyl,")
         print("BerserkerOS, BigLinux, BlendOS, Bluestar, CachyOS, Calam-arch, Crystal Linux,")
@@ -214,7 +214,7 @@ class Main(Gtk.ApplicationWindow):
         print("ParchLinux, PrismLinux, RebornOS, StormOS (other Arch-based distros supported)")
         print("=" * 75)
         print("Backups: Files modified by ATT are backed up (-bak extension)")
-        print("Support: https://github.com/erikdubois/archlinux-tweak-tool-gtk4")
+        print("Support: https://github.com/kirodubes/archlinux-tweak-tool")
         print("=" * 75)
 
         _theme_name, _is_dark, _theme_src = _resolve_effective_theme()

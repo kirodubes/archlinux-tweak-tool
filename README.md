@@ -28,7 +28,7 @@ curl -sL bit.ly/nemesis-repo | sudo bash
 Then install 
 
 ```
-sudo pacman -S archlinux-tweak-tool-gtk4-git.
+sudo pacman -S archlinux-tweak-tool
 ```
 
 ## Gallery
@@ -258,7 +258,7 @@ Detailed installation instructions are available in the project's documentation 
 
 ## Support & Documentation
 
-- **GitHub Repository**: [github.com/erikdubois/archlinux-tweak-tool-gtk4](https://github.com/erikdubois/archlinux-tweak-tool-gtk4)
+- **GitHub Repository**: [github.com/kirodubes/archlinux-tweak-tool](https://github.com/kirodubes/archlinux-tweak-tool)
 - **Issue Tracker**: Report bugs and request features on the GitHub repository
 - **YouTube Tutorials**: [ArchLinux Tweak Tool Playlist](https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH)
 

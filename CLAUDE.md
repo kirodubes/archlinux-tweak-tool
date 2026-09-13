@@ -416,7 +416,7 @@ Every session, before writing a single line of code:
 Before closing:
 
 1. Run the app and confirm it still launches without errors
-2. Sync memory to repo: `cp ~/.claude/projects/-home-erik-EDU-archlinux-tweak-tool-gtk4/memory/*.md .claude/memory/`
+2. Sync memory to repo: `cp ~/.claude/projects/-home-erik-KIRO-archlinux-tweak-tool/memory/*.md .claude/memory/`
 3. Sync best practices to repo: `sed -e 's|linux-lqx|<package>|g' -e 's|/home/erik/\.bin/[^ ]*|~/.bin/<your-script>|g' -e 's|erikdubois/[^ ]*|<owner>/<repo>|g' ~/.claude/best_practices.md > BEST_PRACTICES.md`
 4. If a distro was tested this session, update `DISTRO_TESTING.md` with the result
 5. `git add` specific files (never `git add .` — avoid accidentally staging `.env` or large binaries)
