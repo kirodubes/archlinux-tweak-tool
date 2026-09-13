@@ -57,6 +57,43 @@ Outside this repo: `KIRO-PKG-BUILD-APPS/archlinux-tweak-tool/` (renamed dir + PK
 `kiro-iso` and `kiro-iso-next` `archiso/packages.x86_64`, `KIRO/0-get-all-projects.sh`.
 
 
+### Project website added, served from `docs/` on GitHub Pages
+
+**What Changed.** ATT now has a website of its own at
+**https://kirodubes.github.io/archlinux-tweak-tool/** — a one-page site covering what ATT
+is, the transparency promise, the 31 pages, install instructions, all 24 screenshots, the
+tutorial playlist and the funding channels. Until now ATT only appeared as a single card
+on the nemesis_repo landing page.
+
+It ships in this repository under `docs/`, with Pages serving `main` at the `/docs` path,
+so the site URL matches the project name and the site versions alongside the app.
+
+**Technical Details.** Static HTML and CSS, no build step and no framework. The design
+system is the shared Kiro one: `docs/css/style.css` is a verbatim copy of the canonical
+`Kiro-HQ/web-shared/style.css`, so every ATT-specific rule lives in `docs/css/att.css`,
+which loads after it — a `propagate-web-shared.sh` run can overwrite the shared file
+without touching the additions. That script now lists the site as a target, and the footer
+sits between the usual `KIRO:FOOTER` markers.
+
+Six themes (`nordic` default, `slate`, `carbon`, `ember`, plus light `sepia` and `paper`)
+and five accent palettes, both switchable and persisted in `localStorage`, applied before
+first paint. Light grounds share their overrides through a `data-mode="light"` attribute;
+accent text on them is darkened via `--accent-ink` at 55% raw accent — measured as the
+highest share keeping all ten accent/theme combinations above WCAG AA.
+
+The gallery is this repo's own `images/att1.png` … `att24.png` converted to 1280px WebP:
+4.4 MB of PNG became 564 KB, lazy-loaded with explicit dimensions. Screenshots open in a
+native `<dialog>` lightbox with arrow-key navigation and focus return.
+
+Verified before publishing: no horizontal overflow at 400px, clean console, `codespell`
+clean, and no machine-identifying paths in any published file.
+
+**Files Modified**
+
+- `docs/` — new: `index.html`, `css/style.css`, `css/att.css`, `assets/branding/`,
+  `assets/screenshots/att1..24.webp`, and a `docs/README.md` describing the layout,
+  the CSS boundary and how to refresh the screenshots
+
 ## 2026.09.05
 
 ### hlwm install reported "ERROR DETECTED" even though it installed fine

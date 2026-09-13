@@ -1,0 +1,480 @@
+/*
+ * ATT website — page-specific additions.
+ *
+ * Loaded AFTER css/style.css, which is a verbatim copy of the canonical
+ * Kiro-HQ/web-shared/style.css. Never edit css/style.css here: it can be
+ * overwritten by Kiro-HQ/propagate-web-shared.sh. Everything ATT-only
+ * lives in this file so a propagate run cannot wipe it.
+ */
+
+/* ── Stat row ────────────────────────────────────────────────────── */
+.stat-row {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 720px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
+
+.stat {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: rgb(15 23 42 / 0.4);
+  padding: 1.25rem;
+}
+.stat .value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgb(var(--accent-400));
+}
+.stat .label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--text-3);
+}
+
+/* ── Promise list — the three transparency commitments ───────────── */
+.promise {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) { .promise { grid-template-columns: repeat(3, 1fr); } }
+
+.promise li {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid rgb(var(--accent-500) / 0.6);
+  background: rgb(15 23 42 / 0.4);
+  padding: 1.25rem;
+}
+.promise b { display: block; color: var(--text); font-size: 0.95rem; }
+.promise span { display: block; margin-top: 0.375rem; font-size: 0.875rem; color: var(--text-3); }
+
+/* ── Feature cards: page-name chips ──────────────────────────────── */
+.pkg-card .pages {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.pkg-card .pages span {
+  border-radius: 0.25rem;
+  background: var(--border);
+  padding: 0.125rem 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-2);
+}
+
+/* ── Gallery thumbnails as buttons ───────────────────────────────── */
+/* The button wraps only the image — the figcaption stays outside it, so the
+   markup is valid and the accessible name is the button's own aria-label. */
+.shot-btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+  cursor: zoom-in;
+}
+.shot { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+.shot:hover { transform: translateY(-2px); }
+.shot-btn:focus-visible { outline: none; }
+.shot:has(.shot-btn:focus-visible) {
+  border-color: rgb(var(--accent-400));
+  box-shadow: 0 0 0 2px rgb(var(--accent-400) / 0.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .shot:hover { transform: none; }
+}
+
+/* ── Lightbox ────────────────────────────────────────────────────── */
+.lightbox {
+  width: min(96vw, 1280px);
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  border: 1px solid var(--border-2);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  overflow: visible;
+}
+.lightbox::backdrop { background: rgb(2 6 23 / 0.85); }
+.lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--bg);
+}
+
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+.lightbox-caption { color: var(--text-2); }
+.lightbox-count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+.lightbox-nav { display: flex; align-items: center; gap: 0.5rem; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  min-width: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-2);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.icon-btn:hover {
+  border-color: rgb(var(--accent-500) / 0.5);
+  background: rgb(var(--accent-500) / 0.1);
+  color: rgb(var(--accent-200));
+}
+.icon-btn svg { height: 1rem; width: 1rem; }
+
+/* ── Support channel grid ────────────────────────────────────────── */
+.fund-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .fund-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .fund-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.fund-card {
+  display: block;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: rgb(15 23 42 / 0.4);
+  padding: 1.25rem;
+  transition: border-color 0.15s ease;
+}
+.fund-card:hover { border-color: rgb(var(--accent-500) / 0.4); }
+.fund-card b { display: block; font-size: 1rem; color: var(--text); }
+.fund-card span { display: block; margin-top: 0.375rem; font-size: 0.875rem; color: var(--text-3); }
+
+/* ── Watch card ──────────────────────────────────────────────────── */
+.watch-card {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: rgb(15 23 42 / 0.4);
+  padding: 1.5rem;
+}
+.watch-card p { color: var(--text-3); font-size: 0.9375rem; max-width: 38rem; }
+.watch-card b { color: var(--text); }
+
+/* ── Prose list used in the supported-systems section ────────────── */
+.prose-list {
+  margin: 1.5rem 0 0;
+  padding-left: 1.125rem;
+  color: var(--text-2);
+  font-size: 0.9375rem;
+}
+.prose-list li { margin-top: 0.5rem; }
+.prose-list a { color: rgb(var(--accent-300)); text-decoration: underline; text-underline-offset: 2px; }
+.prose-list a:hover { color: rgb(var(--accent-200)); }
+
+/* Inline link inside body copy */
+.lead a, .note a { color: rgb(var(--accent-300)); text-decoration: underline; text-underline-offset: 2px; }
+.lead a:hover, .note a:hover { color: rgb(var(--accent-200)); }
+
+/* ── Header refinements ──────────────────────────────────────────
+   The brand is three words, so it wraps to three lines in the flex
+   header bar at every width. Keep it on one line and let the header
+   stack instead once the pills and swatches stop fitting beside it. */
+.brand span { white-space: nowrap; }
+
+@media (max-width: 700px) {
+  .header-bar { flex-wrap: wrap; }
+  /* The pills, theme picker and swatches together outrun 400px, so let the
+     row wrap rather than push the swatches off-screen. */
+  .header-right { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 0.75rem; }
+}
+@media (max-width: 420px) {
+  .brand { font-size: 1.05rem; }
+  .brand img { height: 1.5rem; width: 1.5rem; }
+}
+
+/* ── Back to top ─────────────────────────────────────────────────
+   Fixed control, revealed by JS once the reader is past the hero.
+   Sits above the footer content and clear of the right edge on phones. */
+.to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-2);
+  background: rgb(15 23 42 / 0.92);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgb(2 6 23 / 0.5);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.to-top:hover {
+  border-color: rgb(var(--accent-500) / 0.6);
+  background: rgb(var(--accent-500) / 0.15);
+  color: rgb(var(--accent-200));
+}
+.to-top svg { height: 0.875rem; width: 0.875rem; }
+
+@media (min-width: 640px) {
+  .to-top { right: 1.5rem; bottom: 1.5rem; }
+}
+
+/* The shared stylesheet sets html{scroll-behavior:smooth} unconditionally;
+   honour a reader who asked for no motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ── Base themes ─────────────────────────────────────────────────
+   The surface palette, switchable and independent of the accent.
+   These redefine the tokens css/style.css sets on :root; att.css loads
+   after it, so the same-specificity [data-theme] rules win.
+
+   Cards in the shared stylesheet hardcode slate-900 (rgb(15 23 42 / 0.4)),
+   so route them through --card-bg here or they stay slate in every theme. */
+:root { --card-bg: rgb(15 23 42 / 0.4); }
+
+/* Carbon — near-black and neutral, no blue cast. */
+:root[data-theme="carbon"] {
+  --bg:       #08090b;
+  --surface:  #111214;
+  --border:   #1e2023;
+  --border-2: #34373d;
+  --muted:    #6f757e;
+  --text-3:   #9aa1ab;
+  --text-2:   #ced3da;
+  --text:     #f6f7f9;
+  --card-bg:  rgb(20 22 25 / 0.65);
+}
+
+/* Nordic — cool blue-grey, lifted and softer than the house slate. */
+:root[data-theme="nordic"] {
+  --bg:       #1c2028;
+  --surface:  #242933;
+  --border:   #2f3542;
+  --border-2: #434c5e;
+  --muted:    #7b8595;
+  --text-3:   #a7b0be;
+  --text-2:   #d3d9e2;
+  --text:     #f2f5f9;
+  --card-bg:  rgb(41 47 59 / 0.6);
+}
+
+/* Ember — warm dark, brown-grey rather than blue. */
+:root[data-theme="ember"] {
+  --bg:       #14100e;
+  --surface:  #1e1917;
+  --border:   #2c2523;
+  --border-2: #453b37;
+  --muted:    #857772;
+  --text-3:   #b0a29c;
+  --text-2:   #ded3cd;
+  --text:     #faf5f2;
+  --card-bg:  rgb(32 27 25 / 0.65);
+}
+
+/* Cards and screenshots follow the active theme. */
+.pkg-card,
+.shot,
+.stat,
+.promise li,
+.fund-card,
+.watch-card { background: var(--card-bg); }
+
+.to-top { background: color-mix(in srgb, var(--surface) 92%, transparent); }
+
+/* ── Theme picker ────────────────────────────────────────────────── */
+.theme-picker { display: inline-flex; align-items: center; }
+
+.theme-select {
+  appearance: none;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-2);
+  background: transparent;
+  padding: 0.25rem 1.5rem 0.25rem 0.625rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  /* Chevron drawn inline so no external asset is needed. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.4rem center;
+  background-size: 0.75rem;
+}
+.theme-select:hover { border-color: rgb(var(--accent-500) / 0.5); color: rgb(var(--accent-200)); }
+.theme-select option { background: var(--surface); color: var(--text); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ── Light themes: Paper and Sepia ───────────────────────────────
+   Not just inverted tokens: several shared components assume
+   light-on-dark (white code keys, pale pill text, a white swatch ring,
+   a pale amber note), so each of those is re-stated for a light ground.
+   --accent-ink darkens whichever accent the visitor picked, since the
+   400-level accents are tuned for a dark background and go weak on white. */
+:root { --accent-ink: rgb(var(--accent-400)); }
+
+:root[data-theme="paper"] {
+  --bg:        #f6f8fa;
+  --surface:   #ffffff;
+  --border:    #e3e8ee;
+  --border-2:  #c5cdd8;
+  --muted:     #6b7480;
+  --text-3:    #59636f;
+  --text-2:    #333d49;
+  --text:      #121821;
+  --card-bg:   rgb(255 255 255 / 0.85);
+}
+
+/* Sepia — warm cream and lower glare than Paper, for long reading. */
+:root[data-theme="sepia"] {
+  --bg:        #f3ebdd;
+  --surface:   #fbf6ec;
+  --border:    #e2d6c2;
+  --border-2:  #c8b89e;
+  --muted:     #756550;
+  --text-3:    #62553f;
+  --text-2:    #453c2d;
+  --text:      #2b2620;
+  --card-bg:   rgb(251 246 236 / 0.8);
+}
+
+/* Shared by every light ground: the 400-level accents are tuned for a dark
+   background and go weak on a pale one, so darken whichever the visitor picked.
+   55% is the highest share of raw accent that still clears WCAG AA (4.5:1) for
+   every accent on both light grounds — measured, worst case gold on sepia at
+   4.72. Raising it makes hover text fail; lowering it muddies the hue. */
+:root[data-mode="light"] {
+  --accent-ink: color-mix(in srgb, rgb(var(--accent-500)) 55%, #0b1220);
+}
+
+/* Accent-coloured text, darkened so it stays readable on white. */
+:root[data-mode="light"] .eyebrow,
+:root[data-mode="light"] .hero h1 .accent,
+:root[data-mode="light"] .stat .value,
+:root[data-mode="light"] .badge,
+:root[data-theme="paper"] code.chip,
+:root[data-mode="light"] .pkg-card .count,
+:root[data-mode="light"] .step-head h3 code,
+:root[data-mode="light"] .code-block .c-section,
+:root[data-mode="light"] .code-block .c-prompt,
+:root[data-mode="light"] .prose-list a,
+:root[data-mode="light"] .lead a { color: var(--accent-ink); }
+
+/* Code blocks: the shared syntax colours include a white key colour. */
+:root[data-mode="light"] .code-block {
+  background: color-mix(in srgb, var(--surface) 70%, var(--border));
+  border-color: var(--border-2);
+}
+:root[data-mode="light"] .code-block .c-key { color: var(--text); }
+:root[data-mode="light"] .code-block .c-val { color: var(--text-2); }
+:root[data-mode="light"] .code-block .c-comment,
+:root[data-mode="light"] .code-block .c-op { color: var(--muted); }
+
+/* The signature note is pale amber text — unreadable on white. */
+:root[data-mode="light"] .note {
+  border-color: rgb(180 130 20 / 0.35);
+  background: rgb(250 204 21 / 0.12);
+  color: #6b4708;
+}
+:root[data-mode="light"] .note b { color: #7a4f06; }
+:root[data-mode="light"] .note code { background: #fdf1c9; color: #6b4708; }
+
+/* Donation pills carry pale text on a pale tint. */
+:root[data-mode="light"] .pill-sponsor { color: #9d174d; border-color: rgb(219 39 119 / 0.35); }
+:root[data-mode="light"] .pill-kofi    { color: #9a3412; border-color: rgb(234 88 12 / 0.35); }
+:root[data-mode="light"] .pill-patreon { color: #9a3412; border-color: rgb(220 90 70 / 0.35); }
+:root[data-mode="light"] .pill-paypal  { color: #1e40af; border-color: rgb(37 99 235 / 0.35); }
+:root[data-mode="light"] .pill-sponsor:hover,
+:root[data-mode="light"] .pill-kofi:hover,
+:root[data-mode="light"] .pill-patreon:hover,
+:root[data-mode="light"] .pill-paypal:hover { color: #111827; }
+
+/* The selected-swatch ring is white — invisible on a white header. */
+:root[data-mode="light"] .swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px rgb(17 24 39 / 0.55), 0 0 0 4px var(--bg);
+}
+
+/* Darker chevron for the picker itself. */
+:root[data-mode="light"] .theme-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7480' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+:root[data-mode="light"] .theme-select:hover,
+:root[data-mode="light"] .copy-btn:hover { color: var(--accent-ink); }
+
+/* Screenshots are dark GTK windows — a light mat keeps them from floating. */
+:root[data-mode="light"] .shot img,
+:root[data-mode="light"] .lightbox img { background: color-mix(in srgb, var(--border) 70%, var(--bg)); }
+
+:root[data-mode="light"] .to-top { box-shadow: 0 4px 12px rgb(17 24 39 / 0.18); }
+
+/* ── Hover states on a light ground ──────────────────────────────
+   The shared stylesheet resolves several hovers to `#fff` (nav links,
+   footer links) and others to the pale accent-200 — both vanish against
+   a light background, so the label disappears exactly when you point at
+   it. Re-point every one of them at readable ink. */
+:root[data-mode="light"] .nav a:hover,
+:root[data-mode="light"] .footer-inner a:hover { color: var(--accent-ink); }
+
+:root[data-mode="light"] .badge:hover,
+:root[data-mode="light"] .copy-btn:hover,
+:root[data-mode="light"] .icon-btn:hover,
+:root[data-mode="light"] .to-top:hover,
+:root[data-mode="light"] .theme-select:hover,
+:root[data-mode="light"] .prose-list a:hover,
+:root[data-mode="light"] .lead a:hover,
+:root[data-mode="light"] .note a:hover { color: var(--accent-ink); }
+
+/* Inline code chips read as accent text too. */
+:root[data-mode="light"] code.chip { color: var(--accent-ink); }
