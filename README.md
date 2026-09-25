@@ -180,6 +180,7 @@ ATT originally developed for **ArcoLinux**, now supports numerous Arch-based dis
 | ParchLinux     | https://parchlinux.ir/                                |
 | PrismLinux     | https://www.prismlinux.org/                           |
 | RebornOS       | https://rebornos.org/                                 |
+| Ryoku          | https://ryoku.dev                                     |
 | StormOS        | https://sourceforge.net/projects/hackman-linux/       |
 | XeroLinux      | https://xerolinux.xyz/                                |
 

@@ -17,6 +17,27 @@ kirodubes/archlinux-tweak-tool#6.
 **Files Modified.**
 - `usr/share/archlinux-tweak-tool/data/bin/build-arch-iso`
 
+### Ryoku added to the supported distributions
+
+**What Changed.** Ryoku (https://ryoku.dev) joins the "Supported distributions" list in the
+startup banner and the README table, alphabetically between RebornOS and StormOS. The matching
+line was added to the package's `readme.install` in KIRO-PKG-BUILD-APPS, which prints the same
+list on install/upgrade. Distro detection in `functions.py` (`ID=` → display name) is not
+extended — that needs Ryoku's real `/etc/os-release` ID.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+- `README.md`
+
+### ruff rule set pinned to the classic defaults
+
+**What Changed.** ruff 0.16 widened its implicit default rule set (YTT, BLE, S, I, RUF…), so the
+global pre-commit ruff gate blocked a one-line banner edit on 19 findings in untouched code.
+`ruff.toml` now sets `select = ["E4", "E7", "E9", "F"]` — exactly what was checked before.
+
+**Files Modified.**
+- `ruff.toml`
+
 ## 2026.09.13
 
 ### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL

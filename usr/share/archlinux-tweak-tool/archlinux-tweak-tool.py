@@ -211,7 +211,7 @@ class Main(Gtk.ApplicationWindow):
         print("Supported distributions: AcreetionOS, Arch, ArchBang, Archcraft, Archman, Artix, Axyl,")
         print("BerserkerOS, BigLinux, BlendOS, Bluestar, CachyOS, Calam-arch, Crystal Linux,")
         print("EndeavourOS, Garuda, Helwan, Liya, LinuxHub Prime, Mabox, Manjaro, Nyarch, Omarchy,")
-        print("ParchLinux, PrismLinux, RebornOS, StormOS (other Arch-based distros supported)")
+        print("ParchLinux, PrismLinux, RebornOS, Ryoku, StormOS (other Arch-based distros supported)")
         print("=" * 75)
         print("Backups: Files modified by ATT are backed up (-bak extension)")
         print("Support: https://github.com/kirodubes/archlinux-tweak-tool")
