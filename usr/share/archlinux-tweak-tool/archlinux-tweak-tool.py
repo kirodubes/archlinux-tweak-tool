@@ -446,6 +446,13 @@ class Main(Gtk.ApplicationWindow):
         GLib.idle_add(self._check_nanorc_prompt)
 
     def _check_nanorc_prompt(self):
+        if self._nanorc_prompt_needed():
+            self._show_nanorc_dialog()
+        else:
+            self._check_tweak_tools_prompt()
+        return False
+
+    def _nanorc_prompt_needed(self):
         if fn.read_att_settings().get("nano_declined", False):
             return False
         if fn.path.isfile(fn.nanorc):
@@ -456,8 +463,80 @@ class Main(Gtk.ApplicationWindow):
                     return False
             except OSError:
                 return False
-        self._show_nanorc_dialog()
-        return False
+        return True
+
+    def _check_tweak_tools_prompt(self, *_args):
+        if fn.read_att_settings().get("tweak_tools_popup_hidden", False):
+            return
+        self._show_tweak_tools_dialog()
+
+    def _show_tweak_tools_dialog(self):
+        fn.log_info("Showing tweak tools overview at startup")
+        dialog = Gtk.Window(title="More Tweak Tools", transient_for=self, modal=True)
+        dialog.set_default_size(620, -1)
+
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        box.set_margin_top(16)
+        box.set_margin_bottom(16)
+        box.set_margin_start(16)
+        box.set_margin_end(16)
+
+        lbl_intro = Gtk.Label(xalign=0)
+        lbl_intro.set_wrap(True)
+        lbl_intro.set_markup(
+            "ATT can also <b>install and launch other tweak tools</b>, each dedicated to one application."
+            " You find them on these pages:"
+        )
+        box.append(lbl_intro)
+
+        tools = [
+            ("Alacritty Tweak Tool", "choose from 300+ Alacritty themes or create new ones", "Shells, Software"),
+            ("Fastfetch Tweak Tool", "configure what Fastfetch shows and how", "Fastfetch"),
+            ("Fish Tweak Tool", "configure the fish shell", "Shells"),
+            ("Hyprland Tweak Tool", "Hyprland setups, backups and restore", "Desktop - Wayland"),
+        ]
+        grid = Gtk.Grid(column_spacing=16, row_spacing=8)
+        grid.set_margin_start(10)
+        for row, (name, what, page) in enumerate(tools):
+            lbl_name = Gtk.Label(xalign=0)
+            lbl_name.set_markup(f"<b>{name}</b>")
+            lbl_what = Gtk.Label(label=what, xalign=0)
+            lbl_what.set_wrap(True)
+            lbl_what.set_hexpand(True)
+            lbl_page = Gtk.Label(xalign=0)
+            lbl_page.set_markup(f"<i>{page}</i>")
+            grid.attach(lbl_name, 0, row, 1, 1)
+            grid.attach(lbl_what, 1, row, 1, 1)
+            grid.attach(lbl_page, 2, row, 1, 1)
+        box.append(grid)
+
+        lbl_repo = Gtk.Label(xalign=0)
+        lbl_repo.set_wrap(True)
+        lbl_repo.set_markup("<i>They install from the Nemesis repo — enable it on the Pacman page first.</i>")
+        box.append(lbl_repo)
+
+        hbox_bottom = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        chk_hide = Gtk.CheckButton(label="Don't show this again")
+        chk_hide.set_hexpand(True)
+        btn_close = Gtk.Button(label="Close")
+        hbox_bottom.append(chk_hide)
+        hbox_bottom.append(btn_close)
+        box.append(hbox_bottom)
+
+        def on_close_request(_window):
+            # Saved on any close (button or window X) so the checkbox is never lost.
+            if chk_hide.get_active():
+                fn.log_info(f"Tweak tools popup hidden — preference saved to {fn.att_settings}")
+                d = fn.read_att_settings()
+                d["tweak_tools_popup_hidden"] = True
+                fn.write_att_settings(d)
+            return False
+
+        dialog.connect("close-request", on_close_request)
+        btn_close.connect("clicked", lambda _w: dialog.close())
+
+        dialog.set_child(box)
+        dialog.present()
 
     def _show_nanorc_dialog(self):
         fn.log_info("Offering ATT nanorc at startup")
@@ -529,6 +608,8 @@ class Main(Gtk.ApplicationWindow):
 
         btn_att.connect("clicked", on_apply)
         btn_default.connect("clicked", on_decline)
+        # Chained after the nanorc dialog so two modals never stack.
+        dialog.connect("destroy", self._check_tweak_tools_prompt)
 
         dialog.present()
 

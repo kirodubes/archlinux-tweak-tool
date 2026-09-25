@@ -2,6 +2,24 @@
 
 ## 2026.09.25
 
+### Startup popup: ATT can install other tweak tools
+
+**What Changed.** At startup ATT now shows a "More Tweak Tools" popup listing the tweak tools
+it can install and launch, and the page each one lives on: Alacritty Tweak Tool (Shells,
+Software), Fastfetch Tweak Tool (Fastfetch), Fish Tweak Tool (Shells) and Hyprland Tweak Tool
+(Desktop - Wayland), plus a note that they come from the Nemesis repo. A "Don't show this
+again" checkbox turns it off for good.
+
+**Technical Details.** The popup is chained after the nanorc offer: `_check_nanorc_prompt()`
+shows the tweak-tools popup directly when no nanorc prompt is needed, otherwise the nanorc
+dialog's `destroy` signal triggers it, so two modals never stack. The opt-out is stored as
+`tweak_tools_popup_hidden` in `~/.config/archlinux-tweak-tool/att_settings.json`, the same
+file as `nano_declined`, and is saved from `close-request` so closing via the window's X
+also honours the checkbox. The nanorc condition checks moved into `_nanorc_prompt_needed()`.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ### `build-arch-iso` no longer dies on an unbound `SUDO_USER` (issue #6)
 
 **What Changed.** Run by hand with no username argument and not via sudo, the vanilla-Arch
