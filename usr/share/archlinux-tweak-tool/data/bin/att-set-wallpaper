@@ -16,15 +16,17 @@ error()     { echo "${RED}[ERROR]${RESET} $*" >&2; exit 1; }
 trap 'error "Command failed at line $LINENO"' ERR
 
 WP="${1:-}"
+MODE="${2:-fill}"
 [[ -z "$WP" ]] && error "No wallpaper path provided"
+[[ "$MODE" =~ ^(fill|fit|center|tile|stretch)$ ]] || error "Unknown mode: $MODE"
 [[ ! -f "$WP" ]] && error "File not found: $WP"
 
 header "Setting wallpaper"
-info "Wallpaper: $WP"
+info "Wallpaper: $WP ($MODE)"
 
 OLD_PID=$(pidof swaybg 2>/dev/null || true)
 
-setsid swaybg -i "$WP" -m fill &
+setsid swaybg -i "$WP" -m "$MODE" &
 
 success "swaybg started"
 

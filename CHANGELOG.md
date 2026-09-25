@@ -38,6 +38,49 @@ global pre-commit ruff gate blocked a one-line banner edit on 19 findings in unt
 **Files Modified.**
 - `ruff.toml`
 
+### Wallpaper tab applies on Wayland — shell-aware fallback chain
+
+**What Changed.** On Wayland the Apply button checked only swaybg → hyprpaper → swww, always
+picked the first *installed* one (swaybg under Hyprland even with hyprpaper running), never
+noticed a failure, and ignored Scale. On a shell that draws its own backdrop it did nothing
+visible: Ryoku (Hyprland + the ryogami quickshell) ships none of those three, so nothing
+happened at all. Apply now walks an ordered fallback chain and uses the first setter that
+applies *and* succeeds:
+
+1. Desktop shells that own the backdrop — **ryogami** (`ryogami wallpaper set`, Ryoku), then
+   **DankMaterialShell** (`dms ipc call wallpaper set`). Starting swaybg under these would be
+   hidden behind the shell's own layer.
+2. A daemon already running in the session — **hyprpaper** (`hyprctl hyprpaper`), **awww**,
+   **swww** — reused rather than stacking a second setter.
+3. Nothing running — start one: **swaybg** (via `att-set-wallpaper`), **awww** / **swww**
+   (daemon started, polled with `query` until it answers), **wbg**.
+
+The Scale dropdown is shown on Wayland again: swaybg takes all five modes (`-m`), awww/swww get
+`--resize crop|fit|no`.
+
+**Technical Details.**
+- The old code passed `WAYLAND_DISPLAY=$WAYLAND_DISPLAY` through a root shell — pkexec strips
+  it, so it expanded empty. `_wayland_user_cmd()` now reads `WAYLAND_DISPLAY` and
+  `HYPRLAND_INSTANCE_SIGNATURE` from the user's own processes via `_get_user_env`, one key per
+  call: that helper stops at the first process holding *any* requested key, and the compositor
+  process itself doesn't carry `WAYLAND_DISPLAY`.
+- Commands are argv lists (no `shell=True`, so `shlex` dropped); each step checks the return
+  code and logs stderr before falling through. The chain runs in a daemon thread and reports
+  back with `GLib.idle_add` — it now waits on exit codes, which must not block the GUI.
+- "Applicable" = binary present, plus for shells/daemons a `pgrep -u <user> -x` hit.
+- hyprpaper's `preload` is best-effort (newer hyprpaper dropped it); `wallpaper` decides.
+- `att-set-wallpaper` takes an optional mode (`$2`, default `fill`), validated against
+  swaybg's five modes.
+- Tested on a Ryoku VM (Hyprland + ryogami), running the chain as root through sudo like pkexec:
+  resolved `wayland-1` + the Hyprland signature, applied via ryogami, and Ryoku's
+  wallpaper state file updated. The swaybg / awww / wbg branches were not run on a live
+  session this pass.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/wallpaper.py`
+- `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
+- `usr/share/archlinux-tweak-tool/data/bin/att-set-wallpaper`
+
 ## 2026.09.13
 
 ### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL

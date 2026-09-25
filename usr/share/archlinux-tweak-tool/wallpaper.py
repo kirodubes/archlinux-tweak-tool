@@ -3,7 +3,6 @@
 # ============================================================
 
 import re
-import shlex
 import shutil
 
 import functions as fn
@@ -83,11 +82,9 @@ _HIDE_PICKER_DESKTOPS = frozenset(
 )
 
 
-def _find_wayland_setter():
-    for tool in ("swaybg", "hyprpaper", "swww"):
-        if shutil.which(tool):
-            return tool
-    return None
+# swaybg's -m modes match the Scale dropdown 1:1; awww/swww only know crop / fit / no
+_SWAYBG_MODES = {"Fill": "fill", "Fit": "fit", "Center": "center", "Tile": "tile", "Stretch": "stretch"}
+_SWWW_RESIZE = {"Fill": "crop", "Fit": "fit", "Center": "no"}
 
 
 def _get_user_env(keys):
@@ -543,37 +540,136 @@ def on_apply_wallpaper(self, _widget=None):
 def _apply_wallpaper(self, path, scale):
     env = _get_user_env(["WAYLAND_DISPLAY", "XDG_SESSION_TYPE"])
     if env["WAYLAND_DISPLAY"] or env["XDG_SESSION_TYPE"] == "wayland":
-        _apply_wayland(self, path)
+        fn.threading.Thread(target=_apply_wayland, args=(self, path, scale), daemon=True).start()
     else:
         _apply_x11(self, path, scale)
 
 
-def _apply_wayland(self, path):
-    tool = _find_wayland_setter()
+def _wayland_user_cmd():
+    """Command prefix that runs as the session user with that user's Wayland env (pkexec strips it from ATT)."""
     uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
-    user_env = f"sudo -u {fn.sudo_username} XDG_RUNTIME_DIR=/run/user/{uid} WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
-    if tool == "swaybg":
-        script = "/usr/share/archlinux-tweak-tool/data/bin/att-set-wallpaper"
-        fn.log_subsection(f"Applying wallpaper — att-set-wallpaper: {path}")
-        fn.subprocess.Popen(f'{user_env} bash "{script}" {shlex.quote(path)}', shell=True)
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-        return
-    if tool == "hyprpaper":
-        fn.log_subsection(f"Applying wallpaper — hyprpaper: {path}")
-        fn.subprocess.Popen(f"{user_env} hyprctl hyprpaper preload {shlex.quote(path)}", shell=True)
-        fn.subprocess.Popen(f"{user_env} hyprctl hyprpaper wallpaper ,{shlex.quote(path)}", shell=True)
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-        return
-    if tool == "swww":
-        fn.log_subsection(f"Applying wallpaper — swww: {path}")
-        fn.subprocess.Popen(f"{user_env} swww img {shlex.quote(path)}", shell=True)
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-        return
-    fn.log_error("No Wayland wallpaper setter found (swaybg / hyprpaper / swww)")
-    fn.show_in_app_notification(self, "No wallpaper setter found — install swaybg, hyprpaper, or swww")
+    # queried one key at a time: _get_user_env stops at the first process holding any requested key,
+    # and the compositor process itself does not carry WAYLAND_DISPLAY
+    display = _get_user_env(["WAYLAND_DISPLAY"])["WAYLAND_DISPLAY"] or "wayland-1"
+    hypr_sig = _get_user_env(["HYPRLAND_INSTANCE_SIGNATURE"])["HYPRLAND_INSTANCE_SIGNATURE"]
+    cmd = ["sudo", "-u", fn.sudo_username, "env", f"XDG_RUNTIME_DIR=/run/user/{uid}", f"WAYLAND_DISPLAY={display}"]
+    if hypr_sig:
+        cmd.append(f"HYPRLAND_INSTANCE_SIGNATURE={hypr_sig}")
+    return cmd
+
+
+def _user_running(name):
+    return fn.subprocess.run(["pgrep", "-u", fn.sudo_username, "-x", name], capture_output=True).returncode == 0
+
+
+def _run_ok(cmd):
+    try:
+        result = fn.subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+    except (FileNotFoundError, fn.subprocess.TimeoutExpired) as e:
+        fn.log_warn(f"  {cmd[-1]}: {e}")
+        return False
+    if result.returncode != 0:
+        fn.log_warn(f"  failed (rc={result.returncode}): {(result.stderr or result.stdout).strip()[:200]}")
+    return result.returncode == 0
+
+
+def _start_daemon_and_img(user, daemon, client, path, scale):
+    """Start awww/swww's daemon detached, wait until it answers, then set the image."""
+    fn.subprocess.Popen(
+        user + ["setsid", daemon], stdout=fn.subprocess.DEVNULL, stderr=fn.subprocess.DEVNULL, start_new_session=True
+    )
+    for _ in range(20):
+        if fn.subprocess.run(user + [client, "query"], capture_output=True).returncode == 0:
+            break
+        fn.time.sleep(0.25)
+    return _run_ok(user + [client, "img", "--resize", _SWWW_RESIZE.get(scale, "crop"), path])
+
+
+def _set_hyprpaper(user, path):
+    # preload is gone in newer hyprpaper — its failure is harmless, only `wallpaper` decides
+    _run_ok(user + ["hyprctl", "hyprpaper", "preload", path])
+    return _run_ok(user + ["hyprctl", "hyprpaper", "wallpaper", f",{path}"])
+
+
+def _start_wbg(user, path):
+    fn.subprocess.run(["pkill", "-u", fn.sudo_username, "-x", "wbg"])
+    fn.subprocess.Popen(
+        user + ["setsid", "wbg", path], stdout=fn.subprocess.DEVNULL, stderr=fn.subprocess.DEVNULL
+    )
+    return True
+
+
+def _wayland_setters(user, path, scale):
+    """Ordered fallback chain of (label, applicable, apply) — first applicable one that succeeds wins."""
+    swww_resize = _SWWW_RESIZE.get(scale, "crop")
+    script = fn.path.join(_DIR, "data", "bin", "att-set-wallpaper")
+    return [
+        # 1. a desktop shell that draws its own backdrop — anything started underneath it stays hidden
+        (
+            "ryogami (Ryoku)",
+            lambda: shutil.which("ryogami") and _user_running("ryogami"),
+            lambda: _run_ok(user + ["ryogami", "wallpaper", "set", path]),
+        ),
+        (
+            "DankMaterialShell",
+            lambda: shutil.which("dms") and _user_running("dms"),
+            lambda: _run_ok(user + ["dms", "ipc", "call", "wallpaper", "set", path]),
+        ),
+        # 2. a wallpaper daemon already running in the session — reuse it rather than stacking a second one
+        (
+            "hyprpaper",
+            lambda: shutil.which("hyprctl") and _user_running("hyprpaper"),
+            lambda: _set_hyprpaper(user, path),
+        ),
+        (
+            "awww",
+            lambda: shutil.which("awww") and _user_running("awww-daemon"),
+            lambda: _run_ok(user + ["awww", "img", "--resize", swww_resize, path]),
+        ),
+        (
+            "swww",
+            lambda: shutil.which("swww") and _user_running("swww-daemon"),
+            lambda: _run_ok(user + ["swww", "img", "--resize", swww_resize, path]),
+        ),
+        # 3. nothing running — start a setter ourselves
+        (
+            "swaybg",
+            lambda: shutil.which("swaybg"),
+            lambda: _run_ok(user + ["bash", script, path, _SWAYBG_MODES.get(scale, "fill")]),
+        ),
+        (
+            "awww (starting awww-daemon)",
+            lambda: shutil.which("awww") and shutil.which("awww-daemon"),
+            lambda: _start_daemon_and_img(user, "awww-daemon", "awww", path, scale),
+        ),
+        (
+            "swww (starting swww-daemon)",
+            lambda: shutil.which("swww") and shutil.which("swww-daemon"),
+            lambda: _start_daemon_and_img(user, "swww-daemon", "swww", path, scale),
+        ),
+        ("wbg", lambda: shutil.which("wbg"), lambda: _start_wbg(user, path)),
+    ]
+
+
+def _apply_wayland(self, path, scale):
+    name = fn.path.basename(path)
+    user = _wayland_user_cmd()
+    tried = []
+    for label, applicable, apply in _wayland_setters(user, path, scale):
+        if not applicable():
+            continue
+        tried.append(label)
+        fn.log_subsection(f"Applying wallpaper — {label}: {path}")
+        if apply():
+            fn.log_success(f"Wallpaper set with {label}: {name}")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {name}")
+            return
+    if tried:
+        fn.log_error(f"Every Wayland wallpaper setter failed ({', '.join(tried)})")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
+    else:
+        fn.log_error("No Wayland wallpaper setter found (ryogami / dms / hyprpaper / awww / swww / swaybg / wbg)")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install swaybg or awww")
 
 
 def _apply_x11(self, path, scale):

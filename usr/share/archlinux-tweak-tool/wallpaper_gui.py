@@ -202,8 +202,6 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     lbl_note.set_margin_top(4)
     hbox_note.append(lbl_note)
     if _on_wayland:
-        lbl_scale.set_visible(False)
-        self.wallpaper_scale_combo.set_visible(False)
         hbox_note.set_visible(False)
 
     box_picker.append(hbox_section_picker)
