@@ -22,11 +22,15 @@ kirodubes/archlinux-tweak-tool#6.
 **What Changed.** Ryoku (https://ryoku.dev) joins the "Supported distributions" list in the
 startup banner and the README table, alphabetically between RebornOS and StormOS. The matching
 line was added to the package's `readme.install` in KIRO-PKG-BUILD-APPS, which prints the same
-list on install/upgrade. Distro detection in `functions.py` (`ID=` → display name) is not
-extended — that needs Ryoku's real `/etc/os-release` ID.
+list on install/upgrade.
+
+`get_distro_label()` now returns "Ryoku": Ryoku's `/etc/os-release` is a plain `ID=arch`, so the
+check keys on `/usr/bin/ryogami` (its desktop shell) and sits just before the generic `ID=arch`
+fallback. Verified on a Ryoku VM.
 
 **Files Modified.**
 - `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+- `usr/share/archlinux-tweak-tool/functions.py`
 - `README.md`
 
 ### ruff rule set pinned to the classic defaults
@@ -37,6 +41,18 @@ global pre-commit ruff gate blocked a one-line banner edit on 19 findings in unt
 
 **Files Modified.**
 - `ruff.toml`
+
+### codespell: repo ignore list + one real typo
+
+**What Changed.** The global pre-commit codespell gate blocked a commit of `functions.py` on
+`browseable` — the actual Samba `smb.conf` option name, which must not be "fixed". A new
+`.codespellrc` ignores `browseable` and `noice` (a widget name in `desktopr_gui.py`, which
+blocked an earlier commit today). The same scan turned up a real misspelling of "available"
+in a service-restart debug message.
+
+**Files Modified.**
+- `.codespellrc` (new)
+- `usr/share/archlinux-tweak-tool/functions.py`
 
 ### Wallpaper tab applies on Wayland — shell-aware fallback chain
 

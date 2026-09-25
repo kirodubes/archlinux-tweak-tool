@@ -907,6 +907,9 @@ def get_distro_label():
             return "Artix"
         if "ID=archman" in content:
             return "ArchMan"
+        # Ryoku ships a plain ID=arch os-release — its ryogami shell is the tell
+        if path.exists("/usr/bin/ryogami"):
+            return "Ryoku"
 
         if "ID=arch" in content:
             return "Arch"
@@ -2149,7 +2152,7 @@ def restart_service(service):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        debug_print("We restarted the following service (if avalable) : " + service)
+        debug_print("We restarted the following service (if available) : " + service)
     except Exception as error:
         debug_print(error)
 

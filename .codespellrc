@@ -1,0 +1,3 @@
+[codespell]
+# browseable = the Samba smb.conf option name; noice = a widget name in desktopr_gui.py
+ignore-words-list = browseable,noice
