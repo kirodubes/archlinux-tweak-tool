@@ -97,6 +97,34 @@ The Scale dropdown is shown on Wayland again: swaybg takes all five modes (`-m`)
 - `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
 - `usr/share/archlinux-tweak-tool/data/bin/att-set-wallpaper`
 
+### Fastfetch page: install / launch Fastfetch Tweak Tool
+
+**What Changed.** The Fastfetch page gains a **Fastfetch Tweak Tool** section — the same shape
+as the Fish Tweak Tool section on the Shell page: installed/not-installed status, Install and
+Remove buttons (terminal, nemesis_repo), a nemesis-repo hint when the repo is off, a Launch
+button enabled only when installed, and an About blurb of what the tool does.
+
+**Technical Details.**
+- Handlers in `fastfetch.py` mirror `shell.py`'s fish-tweak-tool ones one-for-one
+  (`launch_pacman_install_in_terminal` / `_remove_` + a daemon thread that waits, invalidates
+  the package cache and refreshes label + launch button via `GLib.idle_add`); launch uses the
+  same `sudo -E -u <user> env HOME=<home>` idiom so the app runs as the user, not root.
+- Widget names use `fftt` — `ftt` is already Fish Tweak Tool's prefix.
+- The section is built by `fastfetch_gui.append_fftt_section()` and appended on **both** page
+  variants: the full editor, and the "fastfetch configuration file not found" placeholder in
+  `gui.py` — the tweak tool can install and enable fastfetch itself, so that is where it helps
+  most. It is not in `set_fastfetch_ui_sensitive()`'s list, so it stays usable without fastfetch.
+- `search_index.json` regenerated (`gen-search-index.py`) so "tweak tool" / "logo" / "presets"
+  find the Fastfetch page.
+- Smoke-tested headless under GTK4 with a stubbed `fn`: 6 rows, status label and launch-button
+  sensitivity correct for both installed and not-installed.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/fastfetch.py`
+- `usr/share/archlinux-tweak-tool/fastfetch_gui.py`
+- `usr/share/archlinux-tweak-tool/gui.py`
+- `usr/share/archlinux-tweak-tool/search_index.json`
+
 ## 2026.09.13
 
 ### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL

@@ -307,6 +307,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
                 "fastfetch configuration file not found.\nInstall <b>fastfetch</b> and enable it to use this tab."
             )
             vboxstack_fastfetch.append(fastfetch_message)
+            fastfetch_gui.append_fftt_section(self, Gtk, vboxstack_fastfetch, fn)
 
     _defer_tab(vboxstack_fastfetch, _build_fastfetch)
 

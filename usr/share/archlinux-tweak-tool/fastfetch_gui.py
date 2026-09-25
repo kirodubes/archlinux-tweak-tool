@@ -247,4 +247,74 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_fastfetch, fastfetch, fn, base_dir):
     hbox_remove.append(self.btn_remove_fastfetch)
     vboxstack_fastfetch.append(hbox_remove)
 
+    append_fftt_section(self, Gtk, vboxstack_fastfetch, fn)
+
     fn.GLib.idle_add(init_fastfetch_lazy_load, self, fn, priority=fn.GLib.PRIORITY_LOW)
+
+
+def append_fftt_section(self, Gtk, vboxstack_fastfetch, fn):
+    """Append the Fastfetch Tweak Tool install / launch section (also shown when no fastfetch config exists)."""
+    hbox_fftt_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_fftt_title_lbl = Gtk.Label(xalign=0)
+    hbox_fftt_title_lbl.set_markup("<b>Fastfetch Tweak Tool</b>")
+    hbox_fftt_title_lbl.set_margin_start(10)
+    hbox_fftt_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
+    hbox_fftt_title_sep.set_hexpand(True)
+    hbox_fftt_title_sep.set_valign(Gtk.Align.CENTER)
+    hbox_fftt_title.append(hbox_fftt_title_lbl)
+    hbox_fftt_title.append(hbox_fftt_title_sep)
+
+    hbox_fftt_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    self.fftt_status_lbl = Gtk.Label(xalign=0)
+    fastfetch._refresh_fftt_lbl(self)
+    self.fftt_status_lbl.set_margin_start(10)
+    self.fftt_status_lbl.set_margin_end(10)
+    hbox_fftt_status.append(self.fftt_status_lbl)
+
+    hbox_fftt_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_fftt_btns.set_margin_start(10)
+    btn_install_fftt = Gtk.Button(label="Install fastfetch-tweak-tool")
+    btn_install_fftt.connect("clicked", functools.partial(fastfetch.on_install_fastfetch_tweak_tool_clicked, self))
+    btn_remove_fftt = Gtk.Button(label="Remove fastfetch-tweak-tool")
+    btn_remove_fftt.connect("clicked", functools.partial(fastfetch.on_remove_fastfetch_tweak_tool_clicked, self))
+    hbox_fftt_btns.append(btn_install_fftt)
+    hbox_fftt_btns.append(btn_remove_fftt)
+
+    hbox_fftt_repo_note = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    if not fn.check_nemesis_repo_active():
+        fftt_repo_note_lbl = Gtk.Label(xalign=0)
+        fftt_repo_note_lbl.set_markup("<i>Enable the Nemesis repo (Pacman page) to install fastfetch-tweak-tool</i>")
+        fftt_repo_note_lbl.set_margin_start(10)
+        fftt_repo_note_lbl.set_margin_end(10)
+        hbox_fftt_repo_note.append(fftt_repo_note_lbl)
+
+    hbox_fftt_launch = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_fftt_launch.set_margin_start(10)
+    self.btn_launch_fftt = Gtk.Button(label="Launch Fastfetch Tweak Tool")
+    self.btn_launch_fftt.set_sensitive(fn.check_package_installed("fastfetch-tweak-tool"))
+    self.btn_launch_fftt.connect("clicked", functools.partial(fastfetch.on_click_launch_fftt, self))
+    hbox_fftt_launch.append(self.btn_launch_fftt)
+
+    hbox_fftt_about = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    fftt_about_lbl = Gtk.Label(xalign=0)
+    fftt_about_lbl.set_wrap(True)
+    fftt_about_lbl.set_margin_start(10)
+    fftt_about_lbl.set_margin_end(10)
+    fftt_about_lbl.set_margin_top(6)
+    fftt_about_lbl.set_markup(
+        "<b>Design your fastfetch output in clicks, with a live preview.</b>\n\n"
+        "• <b>Modules</b> — show / hide, reorder and edit per-module options\n"
+        "• <b>Logo &amp; Appearance</b> — 500+ built-in logos or your own image; key, title and separator colours\n"
+        "• <b>Install / Enable</b> — install fastfetch, add it to bash / zsh / fish startup, optional lolcat\n"
+        "• <b>Presets &amp; Raw</b> — bundled presets or the Kiro default, restore a backup, edit the JSONC\n"
+        "• <b>Live preview</b> — real fastfetch output as you tweak (with vte4)\n\n"
+        "<i>A backup (config.jsonc.ftt-bak) is written before every save.</i>"
+    )
+    hbox_fftt_about.append(fftt_about_lbl)
+
+    vboxstack_fastfetch.append(hbox_fftt_title)
+    vboxstack_fastfetch.append(hbox_fftt_status)
+    vboxstack_fastfetch.append(hbox_fftt_btns)
+    vboxstack_fastfetch.append(hbox_fftt_repo_note)
+    vboxstack_fastfetch.append(hbox_fftt_launch)
+    vboxstack_fastfetch.append(hbox_fftt_about)
