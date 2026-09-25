@@ -279,8 +279,7 @@ def _append_htt_section(self, Gtk, vboxstack_wayland, wayland, fn):
         "(ML4W, JaKooLit, Omarchy, end-4, HyDE, Caelestia). They <b>replace your Hyprland config</b>, "
         "install many packages and can change far more than Hyprland — on Kiro they overwrite the "
         "Kiro Hyprland setup. Make a snapshot first (its Backup tab, or Timeshift / snapper), and "
-        "use <b>Restore Kiro Hyprland</b> to go back. The tool is early-stage: the config editor is "
-        "not there yet."
+        "use <b>Restore Kiro Hyprland</b> to go back."
     )
     hbox_htt_caution.append(htt_caution_lbl)
 
@@ -327,8 +326,7 @@ def _append_htt_section(self, Gtk, vboxstack_wayland, wayland, fn):
         "project's own installer, with risk markers\n"
         "• <b>Backup</b> — full-system snapshot (snapper on btrfs, Timeshift otherwise) and "
         "<b>Restore Kiro Hyprland</b>\n"
-        "• <b>No black box</b> — every installer runs in a visible terminal; no sudo from the app\n"
-        "• <b>Coming</b> — a config editor for appearance, animations and input"
+        "• <b>No black box</b> — every installer runs in a visible terminal; no sudo from the app"
     )
     hbox_htt_about.append(htt_about_lbl)
 
