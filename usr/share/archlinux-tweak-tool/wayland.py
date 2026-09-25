@@ -282,3 +282,78 @@ def _seed_and_refresh(self, selected):
     if hasattr(self, "wayland_refresh"):
         self.wayland_refresh()
     return False
+
+
+def _refresh_htt_lbl(self):
+    if fn.check_package_installed("hyprland-tweak-tool"):
+        self.htt_status_lbl.set_markup("hyprland-tweak-tool is <b>installed</b>")
+    else:
+        self.htt_status_lbl.set_markup("hyprland-tweak-tool is <b>not installed</b>")
+
+
+def _refresh_htt_launch_btn(self):
+    self.btn_launch_htt.set_sensitive(fn.check_package_installed("hyprland-tweak-tool"))
+
+
+def on_install_hyprland_tweak_tool_clicked(self, _widget):
+    """Install hyprland-tweak-tool from nemesis repo via terminal."""
+    if fn.check_package_installed("hyprland-tweak-tool"):
+        fn.log_info("hyprland-tweak-tool is already installed")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "hyprland-tweak-tool is already installed")
+        return
+    fn.log_subsection("Installing hyprland-tweak-tool...")
+    process = fn.launch_pacman_install_in_terminal("hyprland-tweak-tool")
+    fn.GLib.idle_add(fn.show_in_app_notification, self, "Opening terminal to install hyprland-tweak-tool")
+
+    def wait_install():
+        try:
+            process.wait()
+            fn.invalidate_pkg_cache()
+            fn.log_success("hyprland-tweak-tool installed")
+            fn.GLib.idle_add(_refresh_htt_lbl, self)
+            fn.GLib.idle_add(_refresh_htt_launch_btn, self)
+            fn.GLib.idle_add(fn.show_in_app_notification, self, "hyprland-tweak-tool installed")
+        except Exception as e:
+            fn.log_error(f"Error installing hyprland-tweak-tool: {e}")
+
+    fn.threading.Thread(target=wait_install, daemon=True).start()
+
+
+def on_remove_hyprland_tweak_tool_clicked(self, _widget):
+    """Remove hyprland-tweak-tool via terminal."""
+    if not fn.check_package_installed("hyprland-tweak-tool"):
+        fn.log_info("hyprland-tweak-tool is not installed — nothing to remove")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "hyprland-tweak-tool is not installed")
+        return
+    fn.log_subsection("Removing hyprland-tweak-tool...")
+    process = fn.launch_pacman_remove_in_terminal("hyprland-tweak-tool")
+    fn.GLib.idle_add(fn.show_in_app_notification, self, "Opening terminal to remove hyprland-tweak-tool")
+
+    def wait_remove():
+        try:
+            process.wait()
+            fn.invalidate_pkg_cache()
+            fn.log_success("hyprland-tweak-tool removed")
+            fn.GLib.idle_add(_refresh_htt_lbl, self)
+            fn.GLib.idle_add(_refresh_htt_launch_btn, self)
+            fn.GLib.idle_add(fn.show_in_app_notification, self, "hyprland-tweak-tool removed")
+        except Exception as e:
+            fn.log_error(f"Error removing hyprland-tweak-tool: {e}")
+
+    fn.threading.Thread(target=wait_remove, daemon=True).start()
+
+
+def on_click_launch_htt(self, _widget):
+    """Launch Hyprland Tweak Tool as real user from the Wayland page."""
+    if fn.check_package_installed("hyprland-tweak-tool"):
+        fn.log_subsection("Launching Hyprland Tweak Tool...")
+        fn.subprocess.Popen(
+            "sudo -E -u " + fn.sudo_username + " env HOME=" + fn.home + " hyprland-tweak-tool &",
+            shell=True,
+            stdout=fn.subprocess.PIPE,
+            stderr=fn.subprocess.STDOUT,
+        )
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "Hyprland Tweak Tool launched")
+    else:
+        fn.log_info("hyprland-tweak-tool not installed")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "hyprland-tweak-tool not installed")

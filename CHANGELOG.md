@@ -125,6 +125,31 @@ button enabled only when installed, and an About blurb of what the tool does.
 - `usr/share/archlinux-tweak-tool/gui.py`
 - `usr/share/archlinux-tweak-tool/search_index.json`
 
+### Desktop - Wayland page: install / launch Hyprland Tweak Tool, with a caution
+
+**What Changed.** The bottom of the **Desktop - Wayland** page gains a **Hyprland Tweak Tool**
+section in the same shape as the Fish and Fastfetch Tweak Tool sections (status, Install /
+Remove via terminal, nemesis-repo hint, Launch as the real user, About blurb) — plus a
+**caution** placed above the buttons: the tool's Setups tab runs the community projects' own
+installers (ML4W, JaKooLit, Omarchy, end-4, HyDE, Caelestia), which replace the Hyprland config,
+pull in many packages and on Kiro overwrite the Kiro Hyprland setup. It points to a snapshot
+first (the tool's Backup tab, Timeshift / snapper) and to **Restore Kiro Hyprland** to go back,
+and says the tool is early-stage (no config editor yet).
+
+**Technical Details.**
+- Handlers in `wayland.py` mirror the fish/fastfetch ones; widget prefix `htt`. The section is
+  built by `wayland_gui._append_htt_section()`, appended after the backup note.
+- The caution and About text are taken from hyprland-tweak-tool's own README / CLAUDE.md
+  (Setups hub M1 done, Backup tab done, config editor planned) — not invented.
+- `search_index.json` regenerated.
+- Smoke-tested headless under GTK4 with stubbed `functions` / `desktopr`: 7 rows, status label
+  and launch-button sensitivity correct for installed and not-installed.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/wayland.py`
+- `usr/share/archlinux-tweak-tool/wayland_gui.py`
+- `usr/share/archlinux-tweak-tool/search_index.json`
+
 ## 2026.09.13
 
 ### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL

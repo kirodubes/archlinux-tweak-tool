@@ -249,6 +249,93 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     vboxstack_wayland.append(buttonbox)
     vboxstack_wayland.append(lbl_backup_note)
 
+    _append_htt_section(self, Gtk, vboxstack_wayland, wayland, fn)
+
     self.wayland_refresh = functools.partial(_refresh, self, wayland, desktopr, fn)
     vboxstack_wayland.connect("map", lambda _w: self.wayland_refresh())
     self.wayland_refresh()
+
+
+def _append_htt_section(self, Gtk, vboxstack_wayland, wayland, fn):
+    hbox_htt_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_htt_title.set_margin_top(20)
+    hbox_htt_title_lbl = Gtk.Label(xalign=0)
+    hbox_htt_title_lbl.set_markup("<b>Hyprland Tweak Tool</b>")
+    hbox_htt_title_lbl.set_margin_start(10)
+    hbox_htt_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
+    hbox_htt_title_sep.set_hexpand(True)
+    hbox_htt_title_sep.set_valign(Gtk.Align.CENTER)
+    hbox_htt_title.append(hbox_htt_title_lbl)
+    hbox_htt_title.append(hbox_htt_title_sep)
+
+    # caution sits above the buttons so it is read before anything is clicked
+    hbox_htt_caution = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    htt_caution_lbl = Gtk.Label(xalign=0)
+    htt_caution_lbl.set_wrap(True)
+    htt_caution_lbl.set_margin_start(10)
+    htt_caution_lbl.set_margin_end(10)
+    htt_caution_lbl.set_markup(
+        "<b>⚠ Use with caution.</b> Its Setups tab runs the <b>community projects' own installers</b> "
+        "(ML4W, JaKooLit, Omarchy, end-4, HyDE, Caelestia). They <b>replace your Hyprland config</b>, "
+        "install many packages and can change far more than Hyprland — on Kiro they overwrite the "
+        "Kiro Hyprland setup. Make a snapshot first (its Backup tab, or Timeshift / snapper), and "
+        "use <b>Restore Kiro Hyprland</b> to go back. The tool is early-stage: the config editor is "
+        "not there yet."
+    )
+    hbox_htt_caution.append(htt_caution_lbl)
+
+    hbox_htt_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    self.htt_status_lbl = Gtk.Label(xalign=0)
+    wayland._refresh_htt_lbl(self)
+    self.htt_status_lbl.set_margin_start(10)
+    self.htt_status_lbl.set_margin_end(10)
+    hbox_htt_status.append(self.htt_status_lbl)
+
+    hbox_htt_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_htt_btns.set_margin_start(10)
+    btn_install_htt = Gtk.Button(label="Install hyprland-tweak-tool")
+    btn_install_htt.connect("clicked", functools.partial(wayland.on_install_hyprland_tweak_tool_clicked, self))
+    btn_remove_htt = Gtk.Button(label="Remove hyprland-tweak-tool")
+    btn_remove_htt.connect("clicked", functools.partial(wayland.on_remove_hyprland_tweak_tool_clicked, self))
+    hbox_htt_btns.append(btn_install_htt)
+    hbox_htt_btns.append(btn_remove_htt)
+
+    hbox_htt_repo_note = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    if not fn.check_nemesis_repo_active():
+        htt_repo_note_lbl = Gtk.Label(xalign=0)
+        htt_repo_note_lbl.set_markup("<i>Enable the Nemesis repo (Pacman page) to install hyprland-tweak-tool</i>")
+        htt_repo_note_lbl.set_margin_start(10)
+        htt_repo_note_lbl.set_margin_end(10)
+        hbox_htt_repo_note.append(htt_repo_note_lbl)
+
+    hbox_htt_launch = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_htt_launch.set_margin_start(10)
+    self.btn_launch_htt = Gtk.Button(label="Launch Hyprland Tweak Tool")
+    self.btn_launch_htt.set_sensitive(fn.check_package_installed("hyprland-tweak-tool"))
+    self.btn_launch_htt.connect("clicked", functools.partial(wayland.on_click_launch_htt, self))
+    hbox_htt_launch.append(self.btn_launch_htt)
+
+    hbox_htt_about = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    htt_about_lbl = Gtk.Label(xalign=0)
+    htt_about_lbl.set_wrap(True)
+    htt_about_lbl.set_margin_start(10)
+    htt_about_lbl.set_margin_end(10)
+    htt_about_lbl.set_margin_top(6)
+    htt_about_lbl.set_markup(
+        "<b>A hub for Hyprland setups.</b>\n\n"
+        "• <b>Setups</b> — install ML4W, JaKooLit, Omarchy, end-4, HyDE or Caelestia via each "
+        "project's own installer, with risk markers\n"
+        "• <b>Backup</b> — full-system snapshot (snapper on btrfs, Timeshift otherwise) and "
+        "<b>Restore Kiro Hyprland</b>\n"
+        "• <b>No black box</b> — every installer runs in a visible terminal; no sudo from the app\n"
+        "• <b>Coming</b> — a config editor for appearance, animations and input"
+    )
+    hbox_htt_about.append(htt_about_lbl)
+
+    vboxstack_wayland.append(hbox_htt_title)
+    vboxstack_wayland.append(hbox_htt_caution)
+    vboxstack_wayland.append(hbox_htt_status)
+    vboxstack_wayland.append(hbox_htt_btns)
+    vboxstack_wayland.append(hbox_htt_repo_note)
+    vboxstack_wayland.append(hbox_htt_launch)
+    vboxstack_wayland.append(hbox_htt_about)
