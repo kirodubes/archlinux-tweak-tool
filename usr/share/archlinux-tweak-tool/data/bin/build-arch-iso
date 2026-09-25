@@ -24,7 +24,12 @@ warn()      { echo "${YELLOW}[!!]  $1${RESET}"; }
 error()     { echo "${RED}[XX]  $1${RESET}"; }
 trap 'error "Command failed at line $LINENO"' ERR
 
-BUILD_USER=${1:-$SUDO_USER}
+# ${SUDO_USER:-} so nounset doesn't kill a manual run that has neither an argument nor sudo
+BUILD_USER=${1:-${SUDO_USER:-}}
+if [ -z "$BUILD_USER" ]; then
+    error "No target user — run as 'sudo $(basename "$0")' or '$(basename "$0") <username>' as root"
+    exit 1
+fi
 PROFILE="/usr/share/archiso/configs/releng"
 OUT="/home/$BUILD_USER/ArchISO"
 WORK="$OUT/work"

@@ -1,5 +1,22 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.09.25
+
+### `build-arch-iso` no longer dies on an unbound `SUDO_USER` (issue #6)
+
+**What Changed.** Run by hand with no username argument and not via sudo, the vanilla-Arch
+ISO build script aborted on line 27 with `SUDO_USER: unbound variable` before printing
+anything. It now stops with a clear message saying how to call it. The ATT button path was
+never affected — it always passes the username as `$1`.
+
+**Technical Details.** `set -u` trips on the bare `$SUDO_USER` inside the `${1:-...}`
+fallback. The fallback is now `${SUDO_USER:-}`, followed by an explicit empty check that
+uses the script's existing `error` helper and exits 1. Reported in
+kirodubes/archlinux-tweak-tool#6.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/data/bin/build-arch-iso`
+
 ## 2026.09.13
 
 ### Renamed to `archlinux-tweak-tool` — repo, package, and every user-facing URL
@@ -1681,7 +1698,7 @@ Installing a desktop no longer copies the **entire** `~/.config` to `~/.config-a
 
 - **`desktopr.py` — `install_desktop()`:** removed the unconditional `cp -Rp ~/.config → ~/.config-att/config-att-<ts>` block at the top. Moved the backup *below* the desktop dispatch chain so `src` (the dirs the post-install skel copy will overwrite) is known. New scoped block builds `to_backup` from `basename(src)` entries that exist in `~/.config`, copies each to `~/.config-att/config-att-<ts>/<name>` (existing layout kept — restore path unchanged), one recursive `fn.permissions()` chown over `~/.config-att`. Empty `src` → no backup + explicit log line (never-a-black-box).
 - **Why this is complete coverage:** the only write to `~/.config` in the flow is the `_after_install` skel copy of `src`; `pacman -S` never touches the user's home. The backup stays in the `install_desktop` daemon thread (not `_after_install`, which runs on the GLib main loop and would block the UI). Does **not** shell out to `skell`/`kiro-skell` — those copy *all* of `/etc/skel` (wrong semantics here).
-- **`desktopr_gui.py`:** reworded the two strings that described the old full backup — the `noice` info label and the live `lbl_backup_notice` (dropped "this might take a while").
+- **`desktopr_gui.py`:** reworded the two strings that described the old full backup — the backup info label and the live `lbl_backup_notice` (dropped "this might take a while").
 - `ruff check` and `codespell` clean on both files.
 
 ### Files Modified
