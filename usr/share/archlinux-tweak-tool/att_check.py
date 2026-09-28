@@ -790,7 +790,10 @@ def print_terminal(facts, results, verbose, use_color):
         col = c[r["verdict"]]
         total = len(r["packages"])
         pkg_note = f"  {r['obtainable']}/{total} packages obtainable" if total else ""
-        dyn_note = f", {r['dynamic']} installs decided at runtime, not checked" if r["dynamic"] else ""
+        # Runtime-picked installs are covered by the page's catalog or come from the user's choice,
+        # so the count is only useful when digging in.
+        dyn_note = (f", {r['dynamic']} installs whose package is picked at runtime (from the page's list or "
+                    f"your choice)" if verbose and r["dynamic"] else "")
         print(f"{col[0]}[{r['verdict']:^9}]{col[1]} {bold[0]}{r['title']}{bold[1]}{dim[0]}{pkg_note}{dyn_note}{dim[1]}")
         for tag, text in _problem_lines(r, verbose):
             tc = c[tag]

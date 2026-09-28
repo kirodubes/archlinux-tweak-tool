@@ -99,6 +99,11 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
   is expected. N/A pages now print one dim line (`Btrfs  not used (root is ext4); ATT shows this page
   disabled`) with no verdict column, counts or detail line. They are left out of the summary, show as
   "not used" in the report's Overview table, and are skipped in its Details section.
+- **Runtime-install note only with `--verbose`.** Almost every "N installs decided at runtime" call
+  takes an entry from the page's own catalog, which is already checked, or installs what the user
+  picks (Plymouth/Sddm theme dropdowns filled from the repos/AUR). The default note therefore
+  suggested a gap that isn't there. It now appears only with `--verbose`, reworded as "installs whose
+  package is picked at runtime (from the page's list or your choice)".
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports
