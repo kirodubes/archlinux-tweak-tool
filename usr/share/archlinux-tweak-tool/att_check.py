@@ -404,8 +404,10 @@ def _probe_display_manager(facts):
 # for install calls, `catalog` adds catalog-driven packages, `probes` are the
 # tools/paths the page needs. A title in gui.py missing here reports UNMAPPED.
 
+# Developer-only page (shown only with --dev): hidden on every system, so reporting it says nothing about the box.
+_SKIPPED_PAGES = {"Dev"}
+
 PAGES = {
-    "Dev": {"modules": ("dev_gui",)},
     "Accessibility": {
         "modules": ("accessibility", "accessibility_gui"),
         "catalog": lambda: harvest(importlib.import_module("accessibility").ACCESSIBILITY_APPS),
@@ -525,7 +527,6 @@ def read_gui_pages():
 # The exact gui.py guard each mirror below was written against (ast.unparse form).
 # If gui.py's condition changes, the page reports a guard-drift WARN until this is updated.
 _EXPECTED_GUARDS = {
-    "Dev": "fn.DEV",
     "ISO": "fn.distr not in _ISO_HIDDEN_DISTROS",
     "Sddm": "fn.distr not in _SDDM_HIDDEN_DISTROS and (not (fn.check_service_enabled('plasma-login') "
             "or fn.check_service_enabled('plasmalogin')))",
@@ -539,8 +540,6 @@ def hidden_reason(title, guard, facts, sddm_hidden, iso_hidden):
         return f"unrecognised guard in gui.py: {guard}"
     if guard is None:
         return None
-    if title == "Dev":
-        return "developer page, only shown with --dev"
     if title == "Sddm":
         if facts["distro"] in sddm_hidden:
             return f"hidden on {facts['distro']} (_SDDM_HIDDEN_DISTROS)"
@@ -603,6 +602,7 @@ def run_checks():
     index = PackageIndex(facts)
     gui_pages, sddm_hidden, iso_hidden = read_gui_pages()
     results = []
+    gui_pages = [(t, g) for t, g in gui_pages if t not in _SKIPPED_PAGES]
     for title, guard in gui_pages:
         if title not in PAGES:
             results.append({"title": title, "verdict": FAIL, "packages": [], "dynamic": 0, "obtainable": 0,
