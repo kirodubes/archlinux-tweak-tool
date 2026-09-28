@@ -53,6 +53,9 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
 - **Dev page left out.** It only exists with `--dev`, so it was HIDDEN on every system and the count
   said nothing about the box. It is skipped via `_SKIPPED_PAGES`, which also keeps it from
   reporting as UNMAPPED.
+- **Summary names its pages.** Every verdict except PASS lists the pages it covers, e.g.
+  `N/A 1 (Btrfs)`, one line per verdict. The Markdown report gets the same list as a `## Summary`
+  section above the overview table. Both come from one `summary()` helper.
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports

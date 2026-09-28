@@ -632,6 +632,17 @@ def _colors(enabled):
     return {k: (f"\033[{v}m", "\033[0m") for k, v in codes.items()}
 
 
+def summary(results):
+    """Return [(verdict, text)] per verdict present; every verdict but PASS names its pages."""
+    parts = []
+    for verdict in (PASS, WARN, FAIL, UNCHECKED, HIDDEN, NA):
+        titles = [r["title"] for r in results if r["verdict"] == verdict]
+        if titles:
+            names = "" if verdict == PASS else f" ({', '.join(titles)})"
+            parts.append((verdict, f"{verdict} {len(titles)}{names}"))
+    return parts
+
+
 def _problem_lines(result, verbose):
     lines = []
     if "reason" in result:
@@ -670,9 +681,9 @@ def print_terminal(facts, results, verbose, use_color):
             tc = c[tag]
             print(f"             {tc[0]}{text}{tc[1]}")
 
-    counts = {v: sum(1 for r in results if r["verdict"] == v) for v in (PASS, WARN, FAIL, UNCHECKED, HIDDEN, NA)}
-    print(f"\n{bold[0]}Summary{bold[1]}  " + "  ".join(
-        f"{c[v][0]}{v} {n}{c[v][1]}" for v, n in counts.items() if n))
+    print(f"\n{bold[0]}Summary{bold[1]}")
+    for verdict, text in summary(results):
+        print(f"  {c[verdict][0]}{text}{c[verdict][1]}")
 
 
 def write_markdown(facts, results, verbose):
@@ -687,6 +698,7 @@ def write_markdown(facts, results, verbose):
                 "aur_helper"):
         out.append(f"| {key} | {facts[key]} |")
     out.append(f"| repos | {', '.join(facts['repos']) or 'none'} |")
+    out += ["", "## Summary", ""] + [f"- {text}" for _, text in summary(results)]
     out += ["", "## Overview", "", "| Page | Verdict | Packages obtainable | Notes |", "|---|---|---|---|"]
     for r in results:
         total = len(r["packages"])
