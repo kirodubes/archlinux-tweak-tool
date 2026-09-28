@@ -33,7 +33,6 @@ These are not guards — they are identity corrections. `fn.distr` is normalized
 
 | Page     | Hidden on    | Condition                                                                            |
 |----------|--------------|--------------------------------------------------------------------------------------|
-| Plymouth | `artix`      | artix has no systemd init                                                            |
 | SDDM     | `prismlinux` | `fn.distr not in _SDDM_HIDDEN_DISTROS` (set at top of `gui.py`)                      |
 | SDDM     | any distro   | also hidden if `plasma-login` or `plasmalogin` service is enabled (not distro-keyed) |
 | Streamline | all non-Kiro | shown ONLY on Kiro: `fn.get_distro_label() == "Kiro"` (Kiro = `IMAGE_ID=kiro` in `/etc/os-release`) |
@@ -86,7 +85,7 @@ The `_default_theme` dict maps each distro to the theme users expect when they h
 |--------------|-----------------|-----------------|------------------------------------|
 | `arch`       | yes             | —               | `kernel_distros.py`, `user_gui.py` |
 | `archcraft`  | none            | —               | pending hardware test              |
-| `artix`      | yes             | Plymouth hidden | `gui.py`                           |
+| `artix`      | none            | —               | pending hardware test (Plymouth guard removed 2026-05-16, 7e87b39) |
 | `biglinux`   | re-map only     | —               | `functions.py`                     |
 | `cachyos`    | none            | —               | —                                  |
 | `garuda`     | none            | —               | pending hardware test              |

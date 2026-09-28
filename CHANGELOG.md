@@ -124,6 +124,20 @@ and matches the published nemesis_repo exactly: 485 packages, 404 added and 61 r
 - `usr/share/archlinux-tweak-tool/att_check.py`
 - `CONFIG_SOURCES.md`
 
+### DISTRO_GUARDS.md: drop the stale Artix Plymouth guard
+
+**What Changed.** DISTRO_GUARDS.md still listed the Plymouth page as hidden on Artix. That guard was
+removed from `gui.py` on purpose on 2026-05-16 (7e87b39, "remove distro guards pending hardware
+testing"), and the page has shown on every distro since. The Page Visibility row is gone, and Artix
+is now listed as "none, pending hardware test", like Garuda, Manjaro and Nyarch.
+
+**Technical Details.** Documentation only. The guard stays out until ATT is tested on real Artix
+hardware; `att-check` there will show whether the Plymouth page's tools (initramfs generator,
+bootloader) are present without systemd.
+
+**Files Modified.**
+- `DISTRO_GUARDS.md`
+
 ## 2026.09.25
 
 ### Startup popup: ATT can install other tweak tools
