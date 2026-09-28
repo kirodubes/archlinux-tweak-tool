@@ -95,6 +95,10 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
   (c) `data/bin/` helper scripts the page calls: each must ship (a missing one is a FAIL), and the
   `pacman -S` lines inside are checked as packages.
   Maintenance now checks 5 packages, 3 programs and 6 scripts. No page is UNCHECKED on this box.
+- **Btrfs on ext4 is a quiet note, not a result.** ext4 is the Kiro default, so a disabled Btrfs page
+  is expected. N/A pages now print one dim line (`Btrfs  not used (root is ext4); ATT shows this page
+  disabled`) with no verdict column, counts or detail line. They are left out of the summary, show as
+  "not used" in the report's Overview table, and are skipped in its Details section.
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports

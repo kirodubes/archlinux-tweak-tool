@@ -31,7 +31,7 @@ It walks every ATT page in sidebar order (except the developer-only Dev page) an
 | FAIL    | A hard requirement is missing (e.g. no systemd, no bootloader tool), none of the page's packages are obtainable, or the page is UNMAPPED in the checker |
 | UNCHECKED | The page has nothing statically checkable (no install calls or probes), so no claim is made |
 | HIDDEN  | ATT hides the page on this system (distro guard, Kiro-only, plasma-login enabled) |
-| N/A     | The page is shown but does not apply here (Btrfs on a non-btrfs root) |
+| (dim note) | The page does not apply here and is expected to (Btrfs on the default ext4 root): one quiet line, no verdict, left out of the summary |
 
 It is a **static preflight**: it reads the enabled sync DBs (no `pacman -Sy`), probes tools and paths, and never
 changes the system. It proves the prerequisites are there, not that every apply succeeds. It writes

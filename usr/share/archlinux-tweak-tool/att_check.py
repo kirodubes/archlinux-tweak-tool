@@ -465,7 +465,7 @@ def _probe_kernel_hook(facts):
 def _probe_btrfs(facts):
     if facts["root_fs"] == "btrfs":
         return True, "root filesystem is btrfs", True
-    return False, f"root filesystem is {facts['root_fs']}, not btrfs: ATT shows this page disabled", True
+    return False, f"not used (root is {facts['root_fs']}); ATT shows this page disabled", True
 
 
 def _probe_desktop(facts):
@@ -739,10 +739,15 @@ def _colors(enabled):
     return {k: (f"\033[{v}m", "\033[0m") for k, v in codes.items()}
 
 
+def _na_note(result):
+    return next((label for ok, label, _ in result["probes"] if not ok), "not used on this system")
+
+
 def summary(results):
     """Return [(verdict, text)] per verdict present; every verdict but PASS names its pages."""
     parts = []
-    for verdict in (PASS, WARN, FAIL, UNCHECKED, HIDDEN, NA):
+    # N/A pages (e.g. Btrfs on the default ext4) are expected, not a result, so they stay out of the summary.
+    for verdict in (PASS, WARN, FAIL, UNCHECKED, HIDDEN):
         titles = [r["title"] for r in results if r["verdict"] == verdict]
         if titles:
             names = "" if verdict == PASS else f" ({', '.join(titles)})"
@@ -779,6 +784,9 @@ def print_terminal(facts, results, verbose, use_color):
     print(f"  {'repos':<11} {', '.join(facts['repos']) or 'none'}\n")
 
     for r in results:
+        if r["verdict"] == NA:
+            print(f"{dim[0]}{' ' * 11} {r['title']}  {_na_note(r)}{dim[1]}")
+            continue
         col = c[r["verdict"]]
         total = len(r["packages"])
         pkg_note = f"  {r['obtainable']}/{total} packages obtainable" if total else ""
@@ -808,6 +816,11 @@ def write_markdown(facts, results, verbose):
     out += ["", "## Summary", ""] + [f"- {text}" for _, text in summary(results)]
     out += ["", "## Overview", "", "| Page | Verdict | Packages obtainable | Notes |", "|---|---|---|---|"]
     for r in results:
+        if r["verdict"] == NA:
+            note = _na_note(r)
+            note = note[len("not used "):] if note.startswith("not used (") else note
+            out.append(f"| {r['title']} | not used | - | {note.strip('()')} |")
+            continue
         total = len(r["packages"])
         pkgs = f"{r['obtainable']}/{total}" if total else "-"
         problems = [text for tag, text in _problem_lines(r, False) if tag != PASS and r["verdict"] != UNCHECKED]
@@ -816,7 +829,7 @@ def write_markdown(facts, results, verbose):
     out += ["", "## Details", ""]
     for r in results:
         lines = _problem_lines(r, verbose)
-        if not lines:
+        if not lines or r["verdict"] == NA:
             continue
         out += [f"### {r['title']} — {r['verdict']}", ""]
         out += [f"- {tag}: {text}" for tag, text in lines]
