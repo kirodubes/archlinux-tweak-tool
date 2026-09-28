@@ -817,9 +817,8 @@ def write_markdown(facts, results, verbose):
     out += ["", "## Overview", "", "| Page | Verdict | Packages obtainable | Notes |", "|---|---|---|---|"]
     for r in results:
         if r["verdict"] == NA:
-            note = _na_note(r)
-            note = note[len("not used "):] if note.startswith("not used (") else note
-            out.append(f"| {r['title']} | not used | - | {note.strip('()')} |")
+            note = _na_note(r).replace("not used (", "", 1).replace(")", "", 1)
+            out.append(f"| {r['title']} | not used | - | {note} |")
             continue
         total = len(r["packages"])
         pkgs = f"{r['obtainable']}/{total}" if total else "-"
