@@ -259,29 +259,32 @@ def scan_module(module):
         tree = ast.parse(open(path).read())
     except (OSError, SyntaxError):
         return {}, 0
-    module_consts = _simple_assignments(tree)
+    parents = {child: node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
+    scope_consts = {tree: _simple_assignments(tree)}
     packages, dynamic = {}, 0
-    for func in [tree] + [n for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]:
-        local_consts = _simple_assignments(func) if func is not tree else {}
-        body = func.body if func is tree else [func]
-        for stmt in body:
-            if func is tree and isinstance(stmt, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
-                continue
-            for node in ast.walk(stmt):
-                if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)):
-                    continue
-                spec = _INSTALL_CALLS.get(node.func.attr)
-                if spec is None or len(node.args) <= spec[0]:
-                    continue
-                arg = node.args[spec[0]]
-                names = _const_strings(arg)
-                if names is None and isinstance(arg, ast.Name):
-                    names = local_consts.get(arg.id) or module_consts.get(arg.id)
-                if names is None:
-                    dynamic += 1
-                    continue
-                for name in names:
-                    packages.setdefault(name, spec[1])
+    # One pass over every call, so calls inside nested callbacks are counted exactly once.
+    for node in ast.walk(tree):
+        if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)):
+            continue
+        spec = _INSTALL_CALLS.get(node.func.attr)
+        if spec is None or len(node.args) <= spec[0]:
+            continue
+        arg = node.args[spec[0]]
+        names = _const_strings(arg)
+        if names is None and isinstance(arg, ast.Name):
+            # Resolve the name from the innermost enclosing function outwards, then the module.
+            scope = parents.get(node)
+            while names is None and scope is not None:
+                if isinstance(scope, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Module)):
+                    if scope not in scope_consts:
+                        scope_consts[scope] = _simple_assignments(scope)
+                    names = scope_consts[scope].get(arg.id)
+                scope = parents.get(scope)
+        if names is None:
+            dynamic += 1
+            continue
+        for name in names:
+            packages.setdefault(name, spec[1])
     return packages, dynamic
 
 
@@ -675,7 +678,7 @@ def print_terminal(facts, results, verbose, use_color):
         col = c[r["verdict"]]
         total = len(r["packages"])
         pkg_note = f"  {r['obtainable']}/{total} packages obtainable" if total else ""
-        dyn_note = f", {r['dynamic']} dynamic refs not checked" if r["dynamic"] else ""
+        dyn_note = f", {r['dynamic']} installs decided at runtime, not checked" if r["dynamic"] else ""
         print(f"{col[0]}[{r['verdict']:^9}]{col[1]} {bold[0]}{r['title']}{bold[1]}{dim[0]}{pkg_note}{dyn_note}{dim[1]}")
         for tag, text in _problem_lines(r, verbose):
             tc = c[tag]

@@ -77,6 +77,11 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
 - **Summary names its pages.** Every verdict except PASS lists the pages it covers, e.g.
   `N/A 1 (Btrfs)`, one line per verdict. The Markdown report gets the same list as a `## Summary`
   section above the overview table. Both come from one `summary()` helper.
+- **Fixed the runtime-install count.** `scan_module()` walked each function body separately, so a call
+  inside a nested callback was counted once per enclosing function: Plymouth and Sddm showed 6
+  instead of 2. It is now one pass over all calls, and names resolve from the innermost function
+  outwards. The note is reworded from "dynamic refs not checked" to "installs decided at runtime,
+  not checked". Package counts are unchanged.
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports
