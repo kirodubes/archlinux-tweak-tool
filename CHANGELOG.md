@@ -82,6 +82,19 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
   instead of 2. It is now one pass over all calls, and names resolve from the innermost function
   outwards. The note is reworded from "dynamic refs not checked" to "installs decided at runtime,
   not checked". Package counts are unchanged.
+- **Sees what pages actually run, not just the install helpers.** Maintenance, Packages and Themer
+  showed UNCHECKED although they depend on real tools. The new `scan_commands()` adds three sources
+  for every page:
+  (a) installs written as shell text (`alacritty -e bash -c 'sudo pacman -S --needed reflector'`);
+  only install forms (`-S`/`-Sy`/`-Syu`) count, matched within one line, and docstrings plus
+  log/notification/label text are skipped so prose like "pacman -Sy and save" isn't read as packages;
+  (b) programs run directly through `subprocess` (argv[0] after `sudo`/`env`/`pkexec`, e.g.
+  `alacritty`, `swapon`); a missing one is a WARN, except when the page probes for it first with
+  `shutil.which()` / `path.exists()`, since it is then an optional fallback (e.g. `nitrogen` behind
+  `feh`);
+  (c) `data/bin/` helper scripts the page calls: each must ship (a missing one is a FAIL), and the
+  `pacman -S` lines inside are checked as packages.
+  Maintenance now checks 5 packages, 3 programs and 6 scripts. No page is UNCHECKED on this box.
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports

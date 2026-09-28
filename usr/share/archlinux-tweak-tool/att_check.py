@@ -17,6 +17,7 @@ import datetime
 import importlib
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -286,6 +287,92 @@ def scan_module(module):
         for name in names:
             packages.setdefault(name, spec[1])
     return packages, dynamic
+
+
+_SUBPROCESS_CALLS = {"Popen", "run", "check_output", "call", "check_call", "subprocess_run", "subprocess_call"}
+_COMMAND_PREFIXES = {"sudo", "pkexec", "env", "nohup", "setsid", "exec"}
+# Install forms only (-S / -Sy / -Syu / -Su); -Sc, -Ss, -Si, -Sl, -Sp are not installs.
+_SHELL_INSTALL = re.compile(r"\bpacman[ \t]+-S(?:yy?)?u?[ \t]+([^;&|'\"\n)]+)")
+# A program the code first probes for (shutil.which / path.exists) is an optional fallback, not a requirement.
+_GUARD_CALLS = {"which", "exists", "isfile"}
+# Calls whose string arguments are prose for humans, never commands.
+_PROSE_CALLS = re.compile(r"^(log_\w+|debug_print|show_in_app_notification|set_markup|set_text|set_label|"
+                          r"set_tooltip_text|set_tooltip_markup|Label|print)$")
+_SCRIPT_REF = re.compile(r"data/bin/([A-Za-z0-9_.-]+)")
+_PKG_NAME = re.compile(r"^[a-z0-9@._+-]+$")
+
+
+def _command_from_argv(elts):
+    """First real program in a constant argv list, skipping sudo/env-style prefixes and their flags."""
+    skip_next = False
+    for elt in elts:
+        if skip_next:
+            skip_next = False
+            continue
+        if not (isinstance(elt, ast.Constant) and isinstance(elt.value, str)):
+            return None
+        word = elt.value
+        if word in _COMMAND_PREFIXES or word.startswith("-") or "=" in word:
+            skip_next = word in ("-u", "--user")
+            continue
+        return os.path.basename(word)
+    return None
+
+
+def _shell_packages(text):
+    names = []
+    for match in _SHELL_INSTALL.finditer(text):
+        names += [w for w in match.group(1).split() if not w.startswith("-") and _PKG_NAME.match(w)]
+    return names
+
+
+def scan_commands(module):
+    """AST-scan one module for shell-string installs, directly run programs and data/bin scripts."""
+    path = os.path.join(BASE_DIR, module + ".py")
+    try:
+        tree = ast.parse(open(path).read())
+    except (OSError, SyntaxError):
+        return set(), set(), set()
+    prose = set()
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and node.body:
+            first = node.body[0]
+            if isinstance(first, ast.Expr) and isinstance(first.value, ast.Constant):
+                prose.add(id(first.value))
+        if isinstance(node, ast.Call):
+            name = node.func.attr if isinstance(node.func, ast.Attribute) else getattr(node.func, "id", "")
+            if _PROSE_CALLS.match(name):
+                prose.update(id(sub) for arg in node.args for sub in ast.walk(arg))
+    packages, tools, scripts, guarded = set(), set(), set(), set()
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr in _GUARD_CALLS
+                and node.args and isinstance(node.args[0], ast.Constant) and isinstance(node.args[0].value, str)):
+            guarded.add(os.path.basename(node.args[0].value))
+        if isinstance(node, ast.Constant) and isinstance(node.value, str) and id(node) not in prose:
+            packages.update(_shell_packages(node.value))
+            scripts.update(_SCRIPT_REF.findall(node.value))
+        if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+                and node.func.attr in _SUBPROCESS_CALLS and node.args):
+            continue
+        first = node.args[0]
+        if isinstance(first, (ast.List, ast.Tuple)):
+            tool = _command_from_argv(first.elts)
+        elif isinstance(first, ast.Constant) and isinstance(first.value, str):
+            tool = _command_from_argv([ast.Constant(w) for w in first.value.split()])
+        elif isinstance(first, ast.JoinedStr) and first.values and isinstance(first.values[0], ast.Constant):
+            tool = _command_from_argv([ast.Constant(w) for w in str(first.values[0].value).split()])
+        else:
+            tool = None
+        if tool and _PKG_NAME.match(tool) and tool not in ("bash", "sh"):
+            tools.add(tool)
+    return packages, tools - guarded, scripts
+
+
+def _script_packages(script):
+    try:
+        return _shell_packages(open(os.path.join(BASE_DIR, "data", "bin", script)).read())
+    except OSError:
+        return []
 
 
 def harvest(obj, out=None, repo=None):
@@ -572,6 +659,16 @@ def evaluate_page(title, facts, index):
     if catalog:
         for name, repo_hint in catalog().items():
             packages.setdefault(name, ("repo", repo_hint))
+    tools, scripts = set(), set()
+    for module in spec.get("modules", ()):
+        shell_pkgs, mod_tools, mod_scripts = scan_commands(module)
+        tools |= mod_tools
+        scripts |= mod_scripts
+        for name in shell_pkgs:
+            packages.setdefault(name, ("repo", None))
+    for script in scripts:
+        for name in _script_packages(script):
+            packages.setdefault(name, ("repo", None))
 
     pkg_rows = []
     for name in sorted(packages):
@@ -579,6 +676,13 @@ def evaluate_page(title, facts, index):
         ok, text = index.status(name, kind, repo_hint)
         pkg_rows.append((name, ok, text))
     probe_rows = [probe(facts) for probe in spec.get("probes", ())]
+    # A program the page can install itself is covered by the package rows above.
+    for tool in sorted(tools - set(packages)):
+        present = _which(tool)
+        probe_rows.append((present, f"`{tool}` {'present' if present else 'not installed'} (the page runs it)", False))
+    for script in sorted(scripts):
+        probe_rows.append((os.path.isfile(os.path.join(BASE_DIR, "data", "bin", script)),
+                           f"helper script data/bin/{script} shipped", True))
 
     obtainable = sum(1 for _, ok, _ in pkg_rows if ok)
     missing = [row for row in pkg_rows if not row[1]]
