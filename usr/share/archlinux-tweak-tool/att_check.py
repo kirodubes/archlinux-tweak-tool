@@ -40,7 +40,8 @@ _INSTALL_CALLS = {
 # naming prefixes are a second signal for "this lives in nemesis_repo".
 _NEMESIS_PREFIXES = ("kiro-", "celestial-", "surfn-", "neo-candy-", "edu-")
 
-PASS, WARN, FAIL, HIDDEN, NA = "PASS", "WARN", "FAIL", "HIDDEN", "N/A"
+PASS, WARN, FAIL, HIDDEN, NA, UNCHECKED = "PASS", "WARN", "FAIL", "HIDDEN", "N/A", "UNCHECKED"
+_ESP_DIRS = ("/boot/efi", "/efi", "/boot")
 
 
 # ── system facts ────────────────────────────────────────────────────
@@ -113,9 +114,29 @@ def _initramfs_tool():
     return "none"
 
 
+def _bootloader():
+    # systemd-boot and Limine publish LoaderInfo in efivars, readable without root. Fall back to
+    # ATT's own detection, which needs the ESP readable (it often is 0700 on systemd-boot installs).
+    try:
+        for name in os.listdir("/sys/firmware/efi/efivars"):
+            if name.startswith("LoaderInfo-"):
+                info = open(os.path.join("/sys/firmware/efi/efivars", name), "rb").read()[4:]
+                info = info.decode("utf-16-le", "ignore").rstrip("\x00").lower()
+                if info.startswith("systemd-boot"):
+                    return "systemd-boot"
+                if info.startswith("limine"):
+                    return "limine"
+    except OSError:
+        pass
+    return importlib.import_module("plymouth").detect_bootloader()
+
+
+def _esp_readable():
+    return all(os.access(d, os.R_OK | os.X_OK) for d in _ESP_DIRS if os.path.isdir(d))
+
+
 def collect_facts():
     """Return the system facts shown in the report header."""
-    plymouth = importlib.import_module("plymouth")
     return {
         "distro": fn.distr,
         "label": fn.get_distro_label(),
@@ -124,7 +145,8 @@ def collect_facts():
         "session": os.environ.get("XDG_SESSION_TYPE", "") or "none",
         "desktop": _desktop(),
         "init": _init_system(),
-        "bootloader": plymouth.detect_bootloader(),
+        "bootloader": _bootloader(),
+        "esp_readable": _esp_readable(),
         "initramfs": _initramfs_tool(),
         "root_fs": _root_fstype(),
         "repos": _enabled_repos(),
@@ -279,6 +301,18 @@ def _icon_set(key):
     return harvest(importlib.import_module("icons").ICON_SETS[key]["families"])
 
 
+def _icon_horst():
+    icons = importlib.import_module("icons")
+    families = [icons.ICON_SETS[set_key]["families"].get(fam, []) for _, set_key, fams in icons.HORST_TABS
+                for fam in fams]
+    return harvest(families)
+
+
+def _kernels():
+    return {k["pkg"]: ("chaotic-aur" if k.get("requires_chaotic") else None)
+            for k in importlib.import_module("kernel").KERNELS}
+
+
 # ── probes ──────────────────────────────────────────────────────────
 
 
@@ -295,6 +329,8 @@ def _probe_systemd(facts):
 
 
 def _probe_bootloader(facts):
+    if facts["bootloader"] == "unknown" and not facts["esp_readable"]:
+        return False, "bootloader unknown: the ESP is only readable by root, re-check with ATT itself", False
     return facts["bootloader"] != "unknown", f"bootloader detected ({facts['bootloader']})", True
 
 
@@ -388,12 +424,13 @@ PAGES = {
         "choose_one": True,
     },
     "Fastfetch": {"modules": ("fastfetch", "fastfetch_gui")},
-    "Icons Horst": {"modules": ("icons", "icons_gui"), "choose_one": True},
+    "Icons Horst": {"catalog": _icon_horst, "choose_one": True},
     "Icons Neo Candy": {"catalog": lambda: _icon_set("neocandy"), "choose_one": True},
     "Icons Surfn": {"catalog": lambda: _icon_set("surfn"), "choose_one": True},
     "ISO": {"modules": ("iso", "iso_gui")},
     "Kernels": {
         "modules": ("kernel", "kernel_gui"),
+        "catalog": _kernels,
         "probes": (_probe_bootloader, _probe_bootloader_tool, _probe_initramfs, _probe_kernel_hook),
         "choose_one": True,
     },
@@ -409,7 +446,7 @@ PAGES = {
     },
     "Packages": {"modules": ("packages", "packages_gui")},
     "Pacman": {"modules": ("pacman", "pacman_gui", "pacman_functions"), "probes": (_probe_path(PACMAN_CONF),)},
-    "Plymouth": {"modules": ("plymouth", "plymouth_gui"),
+    "Plymouth": {"modules": ("plymouth", "plymouth_gui"), "catalog": lambda: {"plymouth": None},
                  "probes": (_probe_initramfs, _probe_bootloader)},
     "Privacy": {"modules": ("privacy", "privacy_gui"), "probes": (_probe_path("/etc/hosts"),)},
     "Performance": {"modules": ("performance", "performance_gui"), "probes": (_probe_systemd,)},
@@ -418,7 +455,8 @@ PAGES = {
     "Shells": {"modules": ("shell", "shell_gui", "zsh_theme"),
                "probes": (_probe_path("/etc/shells"), _probe_bin("chsh"))},
     "Software": {"modules": ("software", "software_gui"), "choose_one": True},
-    "Streamline": {"modules": ("streamline", "streamline_gui")},
+    "Streamline": {"modules": ("streamline", "streamline_gui"),
+                   "probes": (_probe_path(os.path.join(BASE_DIR, "data", "streamline_packages.txt")),)},
     "System": {"modules": ("system", "system_gui")},
     "Themer": {"modules": ("themer", "themer_gui")},
     "User": {"modules": ("user", "user_gui"),
@@ -531,6 +569,8 @@ def evaluate_page(title, facts, index):
         verdict = FAIL
     elif missing or soft_fail:
         verdict = WARN
+    elif not pkg_rows and not probe_rows:
+        verdict = UNCHECKED
     else:
         verdict = PASS
     return {"title": title, "verdict": verdict, "packages": pkg_rows, "probes": probe_rows,
@@ -566,7 +606,7 @@ def run_checks():
 
 
 def _colors(enabled):
-    codes = {PASS: "32", WARN: "33", FAIL: "31", HIDDEN: "36", NA: "36", "dim": "2", "bold": "1"}
+    codes = {PASS: "32", WARN: "33", FAIL: "31", HIDDEN: "36", NA: "36", UNCHECKED: "2", "dim": "2", "bold": "1"}
     if not enabled:
         return {k: ("", "") for k in codes}
     return {k: (f"\033[{v}m", "\033[0m") for k, v in codes.items()}
@@ -576,6 +616,8 @@ def _problem_lines(result, verbose):
     lines = []
     if "reason" in result:
         lines.append(("dim", result["reason"]))
+    if result["verdict"] == UNCHECKED:
+        lines.append(("dim", "nothing statically checkable on this page (no install calls or probes)"))
     for ok, label, hard in result["probes"]:
         if verbose or not ok:
             tag = PASS if ok else (FAIL if hard else WARN)
@@ -592,7 +634,7 @@ def print_terminal(facts, results, verbose, use_color):
     bold, dim = c["bold"], c["dim"]
     print(f"{bold[0]}ATT compatibility check — static preflight{bold[1]}")
     print(f"{dim[0]}Checks prerequisites only (packages obtainable, tools and files present). "
-          f"Nothing on this system was changed.{dim[1]}\n")
+          f"Nothing on this system was changed. UNCHECKED = page has nothing statically checkable.{dim[1]}\n")
     for key in ("pretty", "distro", "label", "kernel", "session", "desktop", "init", "bootloader", "initramfs",
                 "root_fs", "aur_helper"):
         print(f"  {key:<11} {facts[key]}")
@@ -603,12 +645,12 @@ def print_terminal(facts, results, verbose, use_color):
         total = len(r["packages"])
         pkg_note = f"  {r['obtainable']}/{total} packages obtainable" if total else ""
         dyn_note = f", {r['dynamic']} dynamic refs not checked" if r["dynamic"] else ""
-        print(f"{col[0]}[{r['verdict']:^6}]{col[1]} {bold[0]}{r['title']}{bold[1]}{dim[0]}{pkg_note}{dyn_note}{dim[1]}")
+        print(f"{col[0]}[{r['verdict']:^9}]{col[1]} {bold[0]}{r['title']}{bold[1]}{dim[0]}{pkg_note}{dyn_note}{dim[1]}")
         for tag, text in _problem_lines(r, verbose):
             tc = c[tag]
-            print(f"          {tc[0]}{text}{tc[1]}")
+            print(f"             {tc[0]}{text}{tc[1]}")
 
-    counts = {v: sum(1 for r in results if r["verdict"] == v) for v in (PASS, WARN, FAIL, HIDDEN, NA)}
+    counts = {v: sum(1 for r in results if r["verdict"] == v) for v in (PASS, WARN, FAIL, UNCHECKED, HIDDEN, NA)}
     print(f"\n{bold[0]}Summary{bold[1]}  " + "  ".join(
         f"{c[v][0]}{v} {n}{c[v][1]}" for v, n in counts.items() if n))
 
@@ -618,7 +660,8 @@ def write_markdown(facts, results, verbose):
     date = datetime.date.today().strftime("%Y.%m.%d")
     path = os.path.join(os.getcwd(), f"att-check-{facts['distro']}-{date}.md")
     out = [f"# ATT compatibility check — {facts['pretty']} ({date})", "",
-           "_Static preflight: prerequisites only, nothing was changed on the system._", "",
+           "_Static preflight: prerequisites only, nothing was changed on the system. "
+           "UNCHECKED = the page has nothing statically checkable._", "",
            "| Fact | Value |", "|---|---|"]
     for key in ("distro", "label", "kernel", "session", "desktop", "init", "bootloader", "initramfs", "root_fs",
                 "aur_helper"):
@@ -628,7 +671,7 @@ def write_markdown(facts, results, verbose):
     for r in results:
         total = len(r["packages"])
         pkgs = f"{r['obtainable']}/{total}" if total else "-"
-        problems = [text for tag, text in _problem_lines(r, False) if tag != PASS]
+        problems = [text for tag, text in _problem_lines(r, False) if tag != PASS and r["verdict"] != UNCHECKED]
         notes = "; ".join(problems[:3]) + (f" (+{len(problems) - 3} more)" if len(problems) > 3 else "")
         out.append(f"| {r['title']} | {r['verdict']} | {pkgs} | {notes.replace('|', '/')} |")
     out += ["", "## Details", ""]
@@ -653,10 +696,10 @@ def main():
     args = parser.parse_args()
 
     if os.geteuid() == 0:
-        print("att-check: run as your normal user, not root.", file=sys.stderr)
+        fn.log_error("att-check: run as your normal user, not root.")
         return 1
     if not _which("pacman"):
-        print("att-check: pacman not found — this is not an Arch-based system.", file=sys.stderr)
+        fn.log_error("att-check: pacman not found, this is not an Arch-based system.")
         return 1
 
     facts, results = run_checks()
@@ -664,7 +707,7 @@ def main():
     print_terminal(facts, results, args.verbose, use_color)
     if not args.no_report:
         try:
-            print(f"\nReport written to {write_markdown(facts, results, args.verbose)}")
+            fn.log_info(f"Report written to {write_markdown(facts, results, args.verbose)}")
         except OSError as e:
-            print(f"\nCould not write the report: {e}", file=sys.stderr)
+            fn.log_error(f"Could not write the report: {e}")
     return 1 if any(r["verdict"] == FAIL for r in results) else 0

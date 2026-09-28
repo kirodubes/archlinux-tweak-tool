@@ -29,6 +29,7 @@ It walks every ATT page in sidebar order and gives each a verdict:
 | PASS    | Every prerequisite is met: packages obtainable, tools and files present |
 | WARN    | The page works, but some items are not obtainable (e.g. packages that need nemesis_repo or chaotic-aur), or an optional probe failed |
 | FAIL    | A hard requirement is missing (e.g. no systemd, no bootloader tool), none of the page's packages are obtainable, or the page is UNMAPPED in the checker |
+| UNCHECKED | The page has nothing statically checkable (no install calls or probes), so no claim is made |
 | HIDDEN  | ATT hides the page on this system (distro guard, Kiro-only, `--dev`) |
 | N/A     | The page is shown but does not apply here (Btrfs on a non-btrfs root) |
 

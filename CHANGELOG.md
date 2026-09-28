@@ -34,6 +34,16 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
 - **Verdict rule**: FAIL when a hard probe fails or none of a page's packages are obtainable; WARN when
   some are not obtainable or a soft probe fails. "Choose one of many" pages (themes, icons, desktops)
   therefore only WARN when part of their catalog is unreachable.
+- **Bootloader without root.** systemd-boot ESPs are often mode 0700, so the unprivileged path check
+  fell through to a leftover `/etc/default/grub` and reported `grub` on a systemd-boot box. The
+  checker now reads the `LoaderInfo` EFI variable first (set by systemd-boot and Limine, readable
+  without root) and only then falls back to `plymouth.detect_bootloader()`. An unknown bootloader
+  behind an unreadable ESP is a WARN ("needs root"), not a FAIL.
+- **No false PASS.** Icons Horst reads `icons.HORST_TABS`, Kernels reads `kernel.KERNELS`
+  (`requires_chaotic` gives the chaotic-aur hint), Plymouth checks `plymouth`, and Streamline checks
+  its `streamline_packages.txt` data file. A page with nothing statically checkable (currently
+  Maintenance, Packages and Themer) is reported as UNCHECKED instead of PASS.
+- CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports
   headless.
