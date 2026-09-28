@@ -2,6 +2,27 @@
 
 ## 2026.09.28
 
+### Wayland page: Miracle removed (15 → 14 sessions, 30 → 29 desktops)
+
+**What Changed.** Miracle (`kiro-miracle` on top of `miracle-wm-git` and `mir`) is gone from ATT and
+from Kiro. `mir` broke when boost moved from 1.91 to 1.92 (soname bump), and it can't be rebuilt
+because its `wlcs` build dependency no longer resolves in any repo the build chroot uses. All of
+`mir`, `miracle-wm-git`, `kiro-miracle`, `wasmedge` and `wasmedge-bin` have been removed from
+nemesis_repo, so ATT would have offered an install that fails.
+
+**Technical Details.**
+- Removed the `miracle-wm` entry from `WAYLAND_WMS`. The Wayland page and `att-check` both read that
+  list, so nothing else needed changing.
+- `nemesis_packages.txt` and `search_index.json` were regenerated with `gen-nemesis-list.py` (480
+  packages, −5) and `gen-search-index.py`, not edited by hand.
+- Users who already installed Miracle keep the packages as foreign/orphans. ATT no longer lists
+  them, so they can be removed with pacman.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/wayland.py`
+- `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+- `usr/share/archlinux-tweak-tool/search_index.json`
+
 ### New `att-check`: per-page compatibility preflight for any Arch-based system
 
 **What Changed.** A new command, `att-check`, answers "would ATT work on this system?" page by page. Run it
