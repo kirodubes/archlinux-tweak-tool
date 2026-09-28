@@ -170,7 +170,6 @@ kiro-labwc
 kiro-leftwm
 kiro-mango
 kiro-mate
-kiro-miracle
 kiro-mirrorlist
 kiro-neo-candy-arc
 kiro-neo-candy-arc-mint-grey
@@ -221,8 +220,6 @@ kiro-zsh-config
 lastpass
 libpamac-aur
 mangowm
-mir
-miracle-wm-git
 neo-candy-arc-breeze-icons-git
 neo-candy-arch-blue-icons-git
 neo-candy-breeze-arc-icons-git
@@ -478,8 +475,6 @@ ttf-material-design-iconic-font
 vimix-cursors
 vimix-icon-theme-git
 volctl
-wasmedge
-wasmedge-bin
 wlroots0.18
 wttr
 xautolock
