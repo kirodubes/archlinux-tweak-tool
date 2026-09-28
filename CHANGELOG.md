@@ -1,5 +1,52 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.09.28
+
+### New `att-check`: per-page compatibility preflight for any Arch-based system
+
+**What Changed.** A new command, `att-check`, answers "would ATT work on this system?" page by page. Run it
+as a normal user on Arch, CachyOS, Garuda or any other Arch-based system. For every page ATT would show,
+it gives PASS / WARN / FAIL / HIDDEN / N/A, lists what is missing and why (e.g. "needs nemesis_repo (not
+enabled)", "no systemd", "AUR package, no AUR helper installed"), prints a summary and writes a Markdown
+report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It is read-only: no
+`pacman -Sy`, no sudo, and nothing written except the report.
+
+**Technical Details.**
+- **Page list and guards are read from `gui.py` by AST**, so the checker can't silently drift. A page
+  added to `gui.py` but missing from `att_check.PAGES` reports UNMAPPED/FAIL, a page removed from
+  `gui.py` reports STALE, and a changed visibility guard (checked against `_EXPECTED_GUARDS`) reports
+  a guard-drift WARN.
+- **Package discovery** has two sources. First, an AST scan of each page's modules for the literal
+  arguments of `launch_pacman_install_in_terminal` / `install_package` / `launch_aur_install_in_terminal`,
+  including names bound by simple `x = "pkg"` / `x = [...]` assignments. Second, per-page catalog
+  adapters: `OFFICE_APPS`, `BACKUP_APPS`, `ACCESSIBILITY_APPS`, `WAYLAND_WMS`, `ICON_SETS`,
+  `THEME_FAMILIES`, `CELESTIAL_FAMILIES`, `btrfs.PACKAGES`, and `desktopr._get_desktop_packages()`.
+  Arguments that can't be resolved are counted as "dynamic refs not checked" rather than hidden.
+- **Resolution** runs one `pacman -Qq`, one `-Sl` and one `-Sg` against the existing sync DBs, then
+  `pacman -Sp` only for names that resolve through `provides`. All of it works unprivileged; a full
+  run takes about 1.6 s.
+- **Probes** reuse the existing helpers (`plymouth.detect_bootloader()`, `fn.get_aur_helper()`,
+  `fn.load_nemesis_packages()`, `fn.check_service_enabled()`) plus per-page checks: systemd, bootloader
+  tool, initramfs generator, `localectl`, `/etc/shells`, `useradd`/`sudo`/wheel, display manager and
+  session. systemd is detected sd_booted-style (`/run/systemd/system`) because `/proc/1/comm` is wrong
+  inside PID namespaces. The desktop comes from `/etc/att/current_desktop` (ATT's own last detection),
+  falling back to the session variables.
+- **Verdict rule**: FAIL when a hard probe fails or none of a page's packages are obtainable; WARN when
+  some are not obtainable or a soft probe fails. "Choose one of many" pages (themes, icons, desktops)
+  therefore only WARN when part of their catalog is unreachable.
+- The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
+  in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports
+  headless.
+- `ATT_CHECK_PACMAN_CONF=<file>` points the checker at another `pacman.conf`. This is a debug hook,
+  used to simulate a vanilla Arch repo set on a Kiro box.
+
+**Files Modified.**
+- `usr/bin/att-check` (new)
+- `usr/share/archlinux-tweak-tool/att_check.py` (new)
+- `DISTRO_TESTING.md`
+- `CLAUDE.md`
+- `CHANGELOG.md`
+
 ## 2026.09.25
 
 ### Startup popup: ATT can install other tweak tools

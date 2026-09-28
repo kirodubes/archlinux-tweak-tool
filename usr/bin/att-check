@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""att-check — per-page compatibility preflight for ArchLinux Tweak Tool (read-only)."""
+
+import os
+import sys
+
+# Resolves to /usr/share/archlinux-tweak-tool when installed and to the repo's
+# usr/share/archlinux-tweak-tool when run from a git checkout.
+sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                                 "..", "share", "archlinux-tweak-tool")))
+
+import att_check  # noqa: E402
+
+sys.exit(att_check.main())

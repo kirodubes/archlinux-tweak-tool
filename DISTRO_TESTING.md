@@ -12,3 +12,29 @@ This file tracks compatibility testing of ArchLinux Tweak Tool (ATT) across supp
 | PrismLinux | 2026.05.05 (desktop)          | <a href="https://prismlinux.org" target="_blank">prismlinux.org</a>                                      |
 | Garuda     | garuda-mokka linux zen 260309 | <a href="https://garudalinux.org" target="_blank">garudalinux.org</a>                                    |
 | Archcraft  |                               | <a href="https://archcraft.io" target="_blank">archcraft.io</a>                                          |
+
+## How to test — `att-check`
+
+On the system under test, as your normal user (not root), run:
+
+```bash
+att-check              # installed package: /usr/bin/att-check
+python3 usr/bin/att-check   # or straight from a git checkout
+```
+
+It walks every ATT page in sidebar order and gives each a verdict:
+
+| Verdict | Meaning |
+|---------|---------|
+| PASS    | Every prerequisite is met: packages obtainable, tools and files present |
+| WARN    | The page works, but some items are not obtainable (e.g. packages that need nemesis_repo or chaotic-aur), or an optional probe failed |
+| FAIL    | A hard requirement is missing (e.g. no systemd, no bootloader tool), none of the page's packages are obtainable, or the page is UNMAPPED in the checker |
+| HIDDEN  | ATT hides the page on this system (distro guard, Kiro-only, `--dev`) |
+| N/A     | The page is shown but does not apply here (Btrfs on a non-btrfs root) |
+
+It is a **static preflight**: it reads the enabled sync DBs (no `pacman -Sy`), probes tools and paths, and never
+changes the system. It proves the prerequisites are there, not that every apply succeeds. It writes
+`att-check-<distro>-<YYYY.MM.DD>.md` to the current directory (skip with `--no-report`); the report holds no hostname,
+username or IPs, so it is safe to paste here. `--verbose` lists every package and probe; the exit code is 1 when any
+page FAILs.
+

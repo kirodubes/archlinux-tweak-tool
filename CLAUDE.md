@@ -127,6 +127,7 @@ usr/share/archlinux-tweak-tool/
 | **functions_backup.py**                 | GTK config backup: copies user's GTK 3/4 config to `/root/.config` so ATT (running as root) respects the desktop theme — called at startup |
 | **functions_startup.py**                | Startup init: checks pacman repo toggles and SDDM config asynchronously via `init_repos_and_sddm()` — called in `_finish_startup_init()`   |
 | **functions_makedir.py**                | Directory creation: ensures `/root/.config` and all ATT user config dirs exist at startup                                                  |
+| **att_check.py** + `usr/bin/att-check`   | Read-only per-page compatibility preflight CLI (see DISTRO_TESTING.md). Page list + guards read from `gui.py` by AST; packages from install-call literals + page catalogs. **A new page in `gui.py` must get an entry in `att_check.PAGES`** (else it reports UNMAPPED), and a changed visibility guard must be mirrored in `_EXPECTED_GUARDS` + `hidden_reason()` |
 | **functions_sddm.py**                   | SDDM-specific config setup (`setup_sddm_config()`): must only run on explicit user action on the SDDM page — never at startup              |
 
 ### Styling
