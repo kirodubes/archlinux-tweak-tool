@@ -36,8 +36,8 @@ _INSTALL_CALLS = {
     "launch_aur_install_in_terminal": (1, "aur"),
 }
 
-# data/nemesis_packages.txt is hand-curated, not a full repo listing, so the Kiro
-# naming prefixes are a second signal for "this lives in nemesis_repo".
+# The Kiro naming prefixes back up data/nemesis_packages.txt for ATT installs whose copy
+# predates the generated list (it was hand-kept and badly incomplete until 2026-09-28).
 _NEMESIS_PREFIXES = ("kiro-", "celestial-", "surfn-", "neo-candy-", "edu-")
 
 PASS, WARN, FAIL, HIDDEN, NA, UNCHECKED = "PASS", "WARN", "FAIL", "HIDDEN", "N/A", "UNCHECKED"

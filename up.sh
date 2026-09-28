@@ -171,6 +171,12 @@ main() {
         python3 "${SCRIPT_DIR}/gen-streamline-list.py" || log_warn "streamline list generation failed — continuing"
     fi
 
+    if [[ -f "${SCRIPT_DIR}/gen-nemesis-list.py" ]]; then
+        log_section "Regenerating nemesis_repo package list"
+        # Non-fatal: a stale list must not block the commit/push.
+        python3 "${SCRIPT_DIR}/gen-nemesis-list.py" || log_warn "nemesis list generation failed — continuing"
+    fi
+
     if [[ -f "${SCRIPT_DIR}/gen-icons-list.py" ]]; then
         log_section "Regenerating Surfn + Neo Candy icon tables + folder thumbnails"
         # Non-fatal: a stale table must not block the commit/push.

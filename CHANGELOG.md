@@ -97,6 +97,33 @@ after repeated trouble with it. Its row was already `--dev`-only, and bauh is in
 - `usr/share/archlinux-tweak-tool/dev_gui.py`
 - `usr/share/archlinux-tweak-tool/search_index.json`
 
+### nemesis_packages.txt is generated again
+
+**What Changed.** `data/nemesis_packages.txt` tells ATT which packages live in nemesis_repo. It is
+used for the "enable nemesis_repo" error hints (`find_package_repo()`) and to grey out desktops that
+need nemesis_repo (`desktopr.desktop_needs_nemesis()`). The list had drifted to 142 names: it listed
+2 of about 123 `kiro-arc-*`/`celestial-*` themes, still carried 55 obsolete `arcolinux-arc-*-git`
+names, and wrongly claimed `hblock`, which is in `extra`. It is now generated on every `up.sh` run
+and matches the published nemesis_repo exactly: 485 packages, 404 added and 61 removed.
+
+**Technical Details.**
+- The generator was removed from `up.sh` in 311c677 (2026-05-09), and the list has been hand-edited
+  since. It now returns as `gen-nemesis-list.py`, following the other `gen-*.py` scripts: it runs
+  non-fatally from `up.sh` and leaves the committed file untouched when no source resolves.
+- Source order: `$NEMESIS_REPO_DIR`, then `~/EDU/nemesis_repo/x86_64` (built `.pkg.tar.zst` names,
+  parsed with `rsplit("-", 3)`, so no hardcoded personal home path like the old inline generator),
+  then `pacman -Slq nemesis_repo`.
+- Verified that the generated list equals `pacman -Slq nemesis_repo` in both directions. The names it
+  dropped (`ohmychadwm-git`, `opera-ffmpeg-codecs-bin`, `kiro-surfn-numixs-blue`,
+  `arcolinux-arc-*`) exist in no enabled repo. `hblock` now correctly resolves to `extra`.
+
+**Files Modified.**
+- `gen-nemesis-list.py` (new)
+- `up.sh`
+- `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+- `usr/share/archlinux-tweak-tool/att_check.py`
+- `CONFIG_SOURCES.md`
+
 ## 2026.09.25
 
 ### Startup popup: ATT can install other tweak tools
