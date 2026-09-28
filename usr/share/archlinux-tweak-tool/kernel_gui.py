@@ -504,8 +504,17 @@ def _populate_kernel_rows(self, Gtk, vbox_kernels, fn, refresh_boot, only_chaoti
     installed_pkgs = kernel.get_installed_kernels()
     cpu_info = kernel.get_cpu_info()
     running_pkg = kernel.get_running_kernel()
+    # Repos drop kernels over time (e.g. chaotic-aur's -x64v3 mainline/vfio builds): hide rows that can't be
+    # installed, but keep installed ones so they stay removable, and hide nothing if the query failed.
+    sync_pkgs = kernel.get_sync_packages()
+    hidden = [k["pkg"] for k in kernel.KERNELS
+              if sync_pkgs and k["pkg"] not in sync_pkgs and k["pkg"] not in installed_pkgs]
+    if hidden:
+        fn.log_info(f"Kernels not in the enabled repos, hidden: {', '.join(hidden)}")
     current_group = None
     for k in kernel.KERNELS:
+        if k["pkg"] in hidden:
+            continue
         is_chaotic = bool(k.get("requires_chaotic"))
         if only_chaotic is True and not is_chaotic:
             continue

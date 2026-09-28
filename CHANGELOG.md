@@ -64,6 +64,33 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
 - `CLAUDE.md`
 - `CHANGELOG.md`
 
+### Kernels page: drop dead kernels, hide ones no repo carries · Software page: remove bauh
+
+**What Changed.** The Kernels page offered `linux-mainline-x64v3` and `linux-vfio-x64v3`. Clicking
+Install failed, because neither package exists anymore: chaotic-aur dropped them, cachyos never had
+them, and the AUR has none. Both entries are gone, and the page now hides any kernel that isn't in the
+enabled repos, so a kernel a repo drops later disappears on its own. bauh is removed from ATT entirely,
+after repeated trouble with it. Its row was already `--dev`-only, and bauh is in no repo Kiro enables.
+
+**Technical Details.**
+- `kernel.get_sync_packages()` is one `pacman -Slq` against the local sync DBs (no refresh).
+  `_populate_kernel_rows()` skips a row when its package is neither in that set nor installed, so an
+  installed kernel that left the repos stays removable. When the query fails, the set is empty and
+  nothing is hidden, so the page never empties on an error. Hidden kernels are logged with
+  `fn.log_info`.
+- The page used to filter only on "chaotic-aur enabled" and CPU flags, never on whether the package
+  exists, which is how the dead entries stayed visible. The first `att-check` run caught both.
+- bauh: removed the Software page row, `on_click_software_bauh` and `on_click_software_bauh_remove`,
+  and the Dev page's bauh binary probe, then regenerated `search_index.json`.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/kernel.py`
+- `usr/share/archlinux-tweak-tool/kernel_gui.py`
+- `usr/share/archlinux-tweak-tool/software.py`
+- `usr/share/archlinux-tweak-tool/software_gui.py`
+- `usr/share/archlinux-tweak-tool/dev_gui.py`
+- `usr/share/archlinux-tweak-tool/search_index.json`
+
 ## 2026.09.25
 
 ### Startup popup: ATT can install other tweak tools

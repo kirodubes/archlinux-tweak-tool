@@ -786,7 +786,6 @@ def gui(self, Gtk, vboxstack_dev, fn):
             ("Bazaar", "/usr/bin/bazaar"),
             ("GNOME Software", "/usr/bin/gnome-software"),
             ("Plasma Discover", "/usr/bin/plasma-discover"),
-            ("Bauh", "/usr/bin/bauh"),
             ("Flatpak", "/usr/bin/flatpak"),
             ("Snap", "/usr/bin/snap"),
             ("pacseek", "/usr/bin/pacseek"),

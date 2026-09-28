@@ -165,27 +165,6 @@ def gui(self, Gtk, vboxstack_software, fn):
     self.btn_software_discover_remove.set_margin_end(10)
     hbox_discover.append(self.btn_software_discover_remove)
 
-    # Bauh
-    hbox_bauh = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.lbl_software_bauh = Gtk.Label(xalign=0)
-    self.lbl_software_bauh.set_markup(
-        "Bauh - Multi-format package manager" + (" <b>installed</b>" if fn.path.exists("/usr/bin/bauh") else "")
-    )
-    btn_bauh_launch = Gtk.Button(label="Launch/Install")
-    btn_bauh_launch.connect("clicked", functools.partial(software.on_click_software_bauh, self))
-    self.btn_software_bauh_remove = Gtk.Button(label="Remove")
-    self.btn_software_bauh_remove.connect("clicked", functools.partial(software.on_click_software_bauh_remove, self))
-    self.lbl_software_bauh.set_margin_start(20)
-    self.lbl_software_bauh.set_margin_end(10)
-    self.lbl_software_bauh.set_hexpand(True)
-    hbox_bauh.append(self.lbl_software_bauh)
-    btn_bauh_launch.set_margin_start(10)
-    btn_bauh_launch.set_margin_end(5)
-    hbox_bauh.append(btn_bauh_launch)
-    self.btn_software_bauh_remove.set_margin_start(5)
-    self.btn_software_bauh_remove.set_margin_end(10)
-    hbox_bauh.append(self.btn_software_bauh_remove)
-
     # PacHub
     hbox_pachub = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pachub = Gtk.Label(xalign=0)
@@ -588,8 +567,6 @@ def gui(self, Gtk, vboxstack_software, fn):
     vboxstack_software.append(hbox_shelly)
     vboxstack_software.append(hbox_gnome)
     vboxstack_software.append(hbox_discover)
-    if fn.DEV:
-        vboxstack_software.append(hbox_bauh)
     vboxstack_software.append(hbox_pachub)
     vboxstack_software.append(hbox_section_aur_helpers)
     vboxstack_software.append(hbox_aur_note)

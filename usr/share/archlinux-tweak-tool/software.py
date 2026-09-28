@@ -409,35 +409,6 @@ def on_click_software_pachub(self, _widget):
         fn.log_error(f"Error with PacHub: {error}")
 
 
-def on_click_software_bauh(self, _widget):
-    """Launch bauh or install it if not present."""
-    try:
-        if fn.path.exists("/usr/bin/bauh"):
-            fn.log_subsection("Launching bauh...")
-            fn.subprocess.Popen(
-                "sudo -E -u " + fn.sudo_username + " bauh &",
-                shell=True,
-                stdout=fn.subprocess.PIPE,
-                stderr=fn.subprocess.STDOUT,
-            )
-            GLib.idle_add(fn.show_in_app_notification, self, "Bauh launched")
-        else:
-            fn.log_subsection("Installing bauh...")
-            process = fn.launch_pacman_install_in_terminal("bauh")
-            GLib.idle_add(fn.show_in_app_notification, self, "bauh installation started")
-            fn.wait_install_and_update(
-                process,
-                "/usr/bin/bauh",
-                self.lbl_software_bauh,
-                "Bauh - Multi-format package manager <b>installed</b>",
-                self,
-                "bauh installation complete",
-                "bauh",
-            )
-    except Exception as error:
-        fn.log_error(f"Error with bauh: {error}")
-
-
 def on_click_software_yay(self, _widget):
     """Install yay-git from chaotic-AUR or build from AUR if unavailable."""
     try:
@@ -1124,24 +1095,6 @@ def on_click_software_pachub_remove(self, _widget):
         )
     except Exception as error:
         fn.log_error(f"Error with pachub removal: {error}")
-
-
-def on_click_software_bauh_remove(self, _widget):
-    """Remove the bauh multi-format package manager."""
-    try:
-        fn.log_subsection("Removing bauh...")
-        process = fn.launch_pacman_remove_recursive_in_terminal("bauh", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "bauh removal started")
-        fn.wait_remove_and_update(
-            process,
-            "/usr/bin/bauh",
-            self.lbl_software_bauh,
-            "Bauh - GUI package manager",
-            self,
-            "bauh removal complete",
-        )
-    except Exception as error:
-        fn.log_error(f"Error with bauh removal: {error}")
 
 
 def on_click_software_archlinux_logout(self, _widget):

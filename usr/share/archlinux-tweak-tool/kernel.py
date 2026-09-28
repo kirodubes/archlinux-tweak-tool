@@ -169,16 +169,6 @@ KERNELS = [
         "url": "https://www.kernel.org/",
     },
     {
-        "pkg": "linux-mainline-x64v3",
-        "headers": "linux-mainline-x64v3-headers",
-        "label": "Linux Mainline x64v3",
-        "description": "Mainline optimized for x86-64-v3",
-        "requires_chaotic": True,
-        "group": "Mainline",
-        "url": "https://www.kernel.org/",
-        "cpu_compat": {"flags": ["avx", "avx2", "bmi1", "bmi2"]},
-    },
-    {
         "pkg": "linux-lts515",
         "headers": "linux-lts515-headers",
         "label": "Linux LTS 5.15",
@@ -323,16 +313,6 @@ KERNELS = [
         "group": "Specialty",
         "url": "https://github.com/archlinux/linux",
     },
-    {
-        "pkg": "linux-vfio-x64v3",
-        "headers": "linux-vfio-x64v3-headers",
-        "label": "Linux VFIO x64v3",
-        "description": "VFIO kernel optimized for x86-64-v3",
-        "requires_chaotic": True,
-        "group": "Specialty",
-        "url": "https://github.com/archlinux/linux",
-        "cpu_compat": {"flags": ["avx", "avx2", "bmi1", "bmi2"]},
-    },
 ]
 
 
@@ -387,6 +367,15 @@ def load_cachyos_kernel_cache(already_shown_pkgs):
             pkg, repo = line, "cachyos"
         pairs.append((pkg, repo))
     return _build_cachyos_dicts(pairs, already_shown_pkgs)
+
+
+def get_sync_packages():
+    """Return the package names in the enabled sync repos (local DBs, no refresh); empty set on failure."""
+    try:
+        result = subprocess.run(["pacman", "-Slq"], capture_output=True, text=True, check=False, timeout=10)
+        return set(result.stdout.split())
+    except Exception:
+        return set()
 
 
 def get_cachyos_available_kernels(already_shown_pkgs):
