@@ -43,6 +43,13 @@ report (`att-check-<distro>-<date>.md`) to bring home for DISTRO_TESTING.md. It 
   (`requires_chaotic` gives the chaotic-aur hint), Plymouth checks `plymouth`, and Streamline checks
   its `streamline_packages.txt` data file. A page with nothing statically checkable (currently
   Maintenance, Packages and Themer) is reported as UNCHECKED instead of PASS.
+- **Readable Btrfs line.** On a non-btrfs root the probe said "root filesystem is btrfs (ext4)" in red,
+  which read as a wrong claim. It now says "root filesystem is ext4, not btrfs: ATT shows this page
+  disabled", and details under an N/A page are printed in the neutral N/A color.
+- **Works over SSH.** An SSH shell has no `XDG_SESSION_TYPE` or `XDG_CURRENT_DESKTOP`, so
+  Accessibility and Wallpaper gave false WARNs ("graphical session (tty)"). Session type and desktop
+  now fall back to the user's x11/wayland session from `loginctl show-session`. Verified in the Kiro
+  VM (XFCE, ext4).
 - CLI messages go through `fn.log_error` / `fn.log_info` (objective 28).
 - The planned `probes.py` extraction from `dev_gui.py` was dropped. The needed helpers already existed
   in `functions.py`, `plymouth.py` and `kernel.py`, and every feature module except `network` imports

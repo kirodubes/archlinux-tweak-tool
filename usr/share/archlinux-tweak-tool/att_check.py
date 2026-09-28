@@ -91,6 +91,24 @@ def _init_system():
     return "systemd" if os.path.isdir("/run/systemd/system") else "non-systemd"
 
 
+def _graphical_login():
+    """Return (type, desktop) of the user's x11/wayland logind session, e.g. when run over SSH."""
+    _, out = _run(["loginctl", "list-sessions", "--no-legend"])
+    for sid in (line.split()[0] for line in out.splitlines() if line.strip()):
+        _, props = _run(["loginctl", "show-session", sid, "-p", "Name", "-p", "Type", "-p", "Desktop"])
+        info = dict(line.split("=", 1) for line in props.splitlines() if "=" in line)
+        if info.get("Name") == fn.sudo_username and info.get("Type") in ("x11", "wayland"):
+            return info["Type"], info.get("Desktop", "")
+    return "", ""
+
+
+def _session():
+    env = os.environ.get("XDG_SESSION_TYPE", "")
+    if env in ("x11", "wayland"):
+        return env
+    return _graphical_login()[0] or env or "none"
+
+
 def _desktop():
     # /etc/att/current_desktop is what ATT's own detect-desktop resolved last run; running
     # that script here would write to /etc, so fall back to the session variables instead.
@@ -103,7 +121,7 @@ def _desktop():
     for key in ("XDG_CURRENT_DESKTOP", "DESKTOP_SESSION", "XDG_SESSION_DESKTOP"):
         if os.environ.get(key):
             return os.environ[key]
-    return "none"
+    return _graphical_login()[1] or "none"
 
 
 def _initramfs_tool():
@@ -142,7 +160,7 @@ def collect_facts():
         "label": fn.get_distro_label(),
         "pretty": _os_release("PRETTY_NAME") or fn.distr,
         "kernel": platform.release(),
-        "session": os.environ.get("XDG_SESSION_TYPE", "") or "none",
+        "session": _session(),
         "desktop": _desktop(),
         "init": _init_system(),
         "bootloader": _bootloader(),
@@ -355,7 +373,9 @@ def _probe_kernel_hook(facts):
 
 
 def _probe_btrfs(facts):
-    return facts["root_fs"] == "btrfs", f"root filesystem is btrfs ({facts['root_fs']})", True
+    if facts["root_fs"] == "btrfs":
+        return True, "root filesystem is btrfs", True
+    return False, f"root filesystem is {facts['root_fs']}, not btrfs: ATT shows this page disabled", True
 
 
 def _probe_desktop(facts):
@@ -620,7 +640,7 @@ def _problem_lines(result, verbose):
         lines.append(("dim", "nothing statically checkable on this page (no install calls or probes)"))
     for ok, label, hard in result["probes"]:
         if verbose or not ok:
-            tag = PASS if ok else (FAIL if hard else WARN)
+            tag = PASS if ok else (NA if result["verdict"] == NA else FAIL if hard else WARN)
             lines.append((tag, label))
     for name, ok, text in result["packages"]:
         if verbose or not ok:
