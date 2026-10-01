@@ -1,7 +1,6 @@
 alacritty-tweak-tool
 arc-gtk-theme
 archlinux-logout
-archlinux-logout-gtk4
 archlinux-tweak-tool
 blueberry
 cachyos-keyring
