@@ -1,6 +1,7 @@
 alacritty-tweak-tool
 arc-gtk-theme
 archlinux-logout
+archlinux-logout-gtk4
 archlinux-tweak-tool
 blueberry
 cachyos-keyring
@@ -324,6 +325,7 @@ neo-candy-vertexed-icons-git
 neo-candy-vimix-black-icons-git
 noctalia-git
 ohmychadwm
+ohmychadwm-appearance
 pacman-hook-kernel-install
 pamac-aur
 plymouth-theme-kiro-logo
