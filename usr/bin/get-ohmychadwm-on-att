@@ -23,7 +23,7 @@ trap 'error "Command failed at line $LINENO"' ERR
 
 packages=(
     alacritty
-    archlinux-logout-gtk4
+    archlinux-logout
     dmenu
     kiro-rofi
     kiro-rofi-themes

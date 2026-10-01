@@ -1,5 +1,19 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.01
+
+### archlinux-logout-gtk4 is now archlinux-logout
+
+**What Changed.** The logout app's package and repo names carried a GTK version suffix that says nothing to users. Everything it installs was already named `archlinux-logout`, so only the package name and the references to it change. ATT installs, removes and lists the logout app under its new package name.
+
+**Technical Details.** Plain name substitution in the per-desktop package lists, the Software page install/remove helpers, the nemesis package list and the ohmychadwm bootstrap script. The binary path checks were already `/usr/bin/archlinux-logout`.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/desktopr.py`
+- `usr/share/archlinux-tweak-tool/software.py`
+- `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+- `usr/bin/get-ohmychadwm-on-att`
+
 ## 2026.09.28
 
 ### Wayland page: Miracle removed (15 → 14 sessions, 30 → 29 desktops)

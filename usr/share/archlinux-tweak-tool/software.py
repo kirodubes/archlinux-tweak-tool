@@ -1098,42 +1098,42 @@ def on_click_software_pachub_remove(self, _widget):
 
 
 def on_click_software_archlinux_logout(self, _widget):
-    """Install archlinux-logout-gtk4 from the nemesis/chaotic-AUR repository."""
+    """Install archlinux-logout from the nemesis/chaotic-AUR repository."""
     try:
-        fn.log_subsection("Installing archlinux-logout-gtk4...")
+        fn.log_subsection("Installing archlinux-logout...")
         if not fn.check_chaotic_aur_active():
-            fn.log_info("chaotic-AUR not active — archlinux-logout-gtk4 needs Chaotic-AUR and nemesis repo")
+            fn.log_info("chaotic-AUR not active — archlinux-logout needs Chaotic-AUR and nemesis repo")
             GLib.idle_add(fn.show_in_app_notification, self, "Enable nemesis/chaotic-AUR in the Pacman tab first")
             return
-        fn.log_info("archlinux-logout-gtk4 is available on the nemesis/chaotic-AUR repository")
+        fn.log_info("archlinux-logout is available on the nemesis/chaotic-AUR repository")
         GLib.idle_add(fn.show_in_app_notification, self, "archlinux-logout is on nemesis/chaotic-AUR — installing...")
-        process = fn.launch_pacman_install_in_terminal("archlinux-logout-gtk4")
+        process = fn.launch_pacman_install_in_terminal("archlinux-logout")
         fn.wait_install_and_update(
             process,
             "/usr/bin/archlinux-logout",
             self.lbl_software_archlinux_logout,
             "ArchLinux Logout - Session logout tool <b>installed</b>",
             self,
-            "archlinux-logout-gtk4 installed",
-            "archlinux-logout-gtk4",
+            "archlinux-logout installed",
+            "archlinux-logout",
         )
     except Exception as error:
         fn.log_error(f"Error with archlinux-logout: {error}")
 
 
 def on_click_software_archlinux_logout_remove(self, _widget):
-    """Remove the archlinux-logout-gtk4 package."""
+    """Remove the archlinux-logout package."""
     try:
-        fn.log_subsection("Removing archlinux-logout-gtk4...")
-        process = fn.launch_pacman_remove_recursive_in_terminal("archlinux-logout-gtk4", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "archlinux-logout-gtk4 removal started")
+        fn.log_subsection("Removing archlinux-logout...")
+        process = fn.launch_pacman_remove_recursive_in_terminal("archlinux-logout", keep_config=True)
+        GLib.idle_add(fn.show_in_app_notification, self, "archlinux-logout removal started")
         fn.wait_remove_and_update(
             process,
             "/usr/bin/archlinux-logout",
             self.lbl_software_archlinux_logout,
             "ArchLinux Logout - Session logout tool",
             self,
-            "archlinux-logout-gtk4 removal complete",
+            "archlinux-logout removal complete",
         )
     except Exception as error:
         fn.log_error(f"Error with archlinux-logout removal: {error}")
