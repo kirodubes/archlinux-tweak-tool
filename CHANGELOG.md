@@ -14,6 +14,16 @@
 - `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
 - `usr/bin/get-ohmychadwm-on-att`
 
+### att-check writes its report to /tmp
+
+**What Changed.** `att-check` used to drop `att-check-<distro>-<date>.md` into whatever directory it ran from, which left stray reports in the home folder. The report now always goes to `/tmp`, and the path is still printed at the end of the run.
+
+**Technical Details.** `write_markdown()` joins the filename onto `/tmp` instead of `os.getcwd()`. `--no-report` is unchanged.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/att_check.py`
+- `DISTRO_TESTING.md`
+
 ## 2026.09.28
 
 ### Wayland page: Miracle removed (15 → 14 sessions, 30 → 29 desktops)

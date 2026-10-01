@@ -35,7 +35,7 @@ It walks every ATT page in sidebar order (except the developer-only Dev page) an
 
 It is a **static preflight**: it reads the enabled sync DBs (no `pacman -Sy`), probes tools and paths, and never
 changes the system. It proves the prerequisites are there, not that every apply succeeds. It writes
-`att-check-<distro>-<YYYY.MM.DD>.md` to the current directory (skip with `--no-report`); the report holds no hostname,
+`/tmp/att-check-<distro>-<YYYY.MM.DD>.md` (skip with `--no-report`); the report holds no hostname,
 username or IPs, so it is safe to paste here. `--verbose` lists every package and probe, plus how many installs pick their package at runtime (from the page's
 list or the user's choice); the exit code is 1 when any
 page FAILs.

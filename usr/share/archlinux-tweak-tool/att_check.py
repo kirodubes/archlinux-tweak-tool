@@ -805,9 +805,9 @@ def print_terminal(facts, results, verbose, use_color):
 
 
 def write_markdown(facts, results, verbose):
-    """Write att-check-<distro>-<date>.md in the current directory; return its path."""
+    """Write att-check-<distro>-<date>.md to /tmp; return its path."""
     date = datetime.date.today().strftime("%Y.%m.%d")
-    path = os.path.join(os.getcwd(), f"att-check-{facts['distro']}-{date}.md")
+    path = os.path.join("/tmp", f"att-check-{facts['distro']}-{date}.md")
     out = [f"# ATT compatibility check — {facts['pretty']} ({date})", "",
            "_Static preflight: prerequisites only, nothing was changed on the system. "
            "UNCHECKED = the page has nothing statically checkable._", "",
