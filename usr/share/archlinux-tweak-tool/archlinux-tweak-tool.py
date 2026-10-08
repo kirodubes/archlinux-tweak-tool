@@ -230,6 +230,9 @@ def _resolve_effective_theme():
     raw = _read_gtk_theme()
     if raw:
         name, dark = _parse_gtk_theme(raw)
+        # Some themes ship only their dark folder (e.g. Sweet-Dark); dropping the suffix would fall back to Adwaita.
+        if not _theme_dir_exists(name) and _theme_dir_exists(raw):
+            name = raw
         return name, dark, "GTK_THEME"
     if _is_plasma_session():
         dark = _plasma_prefers_dark()

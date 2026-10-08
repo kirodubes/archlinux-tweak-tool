@@ -2,6 +2,22 @@
 
 ## 2026.10.08
 
+### A GTK_THEME that only exists as a -Dark folder no longer drops ATT to Adwaita
+
+**What Changed.** When `GTK_THEME` names a dark theme, ATT opens with the light theme name plus dark mode
+(`Arc-Dawn-Dark` → `Arc-Dawn` + dark). Some themes ship only their dark folder, for example `Sweet-Dark` without
+`Sweet`; ATT then asked for a theme that isn't installed and opened in plain Adwaita. ATT now keeps the full name
+when the shortened one isn't installed.
+
+**Technical Details.** In `_resolve_effective_theme()`, the `GTK_THEME` branch now uses the same existence check as
+the gsettings branch: if `_theme_dir_exists()` is false for the stripped name and true for the raw value, the raw
+value is used. Checked by calling `_resolve_effective_theme()` with a dummy `~/.themes/Kirotest-Dark`: it keeps
+`Kirotest-Dark`; `Arc-Dawn-Dark` (both variants installed) still resolves to `Arc-Dawn` + dark; `Adwaita:dark` and
+missing themes behave as before.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ### Qt6 apps started from ATT follow the desktop theme too
 
 **What Changed.** When ATT starts as root it copies the user's GTK and Qt theme settings to `/root`, so apps it
