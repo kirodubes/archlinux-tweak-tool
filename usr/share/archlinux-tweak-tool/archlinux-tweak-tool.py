@@ -187,10 +187,45 @@ def _pick_gtk_theme_for_mode(prefer_dark):
     return "Adwaita"  # always present; honours prefer-dark for its dark variant
 
 
+def _user_gsetting(key):
+    """Read an org.gnome.desktop.interface key from the real user's dconf, or None."""
+    cmd = ["gsettings", "get", "org.gnome.desktop.interface", key]
+    if os.geteuid() == 0:
+        # Root under pkexec has no session bus, so it never sees the user's dconf;
+        # gsettings reads the dconf database file directly, no bus needed.
+        cmd = ["runuser", "-u", fn.sudo_username, "--", "env", "HOME=" + fn.home] + cmd
+    try:
+        result = fn.subprocess.run(cmd, capture_output=True, text=True, timeout=5)
+    except Exception:
+        return None
+    value = result.stdout.strip().strip("'\"")
+    return value if result.returncode == 0 and value else None
+
+
+def _theme_dir_exists(name):
+    return any(fn.path.isdir(base + name) for base in ("/usr/share/themes/", fn.home + "/.themes/"))
+
+
+def _user_gsettings_theme():
+    """(theme_name, prefer_dark) from the user's gsettings — how Wayland editions without GTK_THEME set it."""
+    raw = _user_gsetting("gtk-theme")
+    scheme = _user_gsetting("color-scheme")
+    if not raw and not scheme:
+        return None, False
+    stripped, name_dark = _parse_gtk_theme(raw)
+    dark = scheme == "prefer-dark" or name_dark
+    if raw and _theme_dir_exists(raw):
+        return raw, dark
+    if stripped and _theme_dir_exists(stripped):
+        return stripped, dark
+    return "Adwaita", dark
+
+
 def _resolve_effective_theme():
     """Resolve (theme_name, prefer_dark, source) ATT should apply at startup.
 
-    A forced GTK_THEME wins; otherwise, on Plasma, follow its light/dark mode.
+    A forced GTK_THEME wins; otherwise, on Plasma, follow its light/dark mode;
+    otherwise follow the user's gsettings theme and colour scheme.
     """
     raw = _read_gtk_theme()
     if raw:
@@ -199,6 +234,9 @@ def _resolve_effective_theme():
     if _is_plasma_session():
         dark = _plasma_prefers_dark()
         return _pick_gtk_theme_for_mode(dark), dark, "Plasma"
+    name, dark = _user_gsettings_theme()
+    if name:
+        return name, dark, "gsettings"
     return None, False, None
 
 
@@ -220,7 +258,7 @@ class Main(Gtk.ApplicationWindow):
         _theme_name, _is_dark, _theme_src = _resolve_effective_theme()
         if _theme_name:
             _dark_str = " (dark mode)" if _is_dark else ""
-            _src_str = " — following Plasma" if _theme_src == "Plasma" else ""
+            _src_str = {"Plasma": " — following Plasma", "gsettings": " — following gsettings"}.get(_theme_src, "")
             print(
                 f"[System] Distro={fn.distr} | Theme={_theme_name}{_dark_str}{_src_str} | User={fn.sudo_username}",
                 flush=True,

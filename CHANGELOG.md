@@ -1,5 +1,25 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.08
+
+### ATT follows the user's gsettings theme when no GTK_THEME is set
+
+**What Changed.** On desktops that set the GTK theme only through gsettings, with no `GTK_THEME` in
+`/etc/environment` (the DMS Hyprland and Niri editions, for example), ATT opened in the light default theme even
+when the user had picked a dark one. ATT now reads the user's `gtk-theme` and `color-scheme` and opens with the
+same theme and dark mode.
+
+**Technical Details.** ATT runs as root under pkexec, has no session bus, and so never sees the user's dconf
+settings through GTK. `_resolve_effective_theme()` keeps its order (`GTK_THEME` first, then Plasma) and adds a third
+source: `_user_gsettings_theme()` runs `gsettings get org.gnome.desktop.interface …` as the real user
+(`runuser -u <user> -- env HOME=…`). gsettings reads the dconf database file directly, so it needs no bus. The
+theme name is used as-is when `/usr/share/themes/<name>` or `~/.themes/<name>` exists. Otherwise ATT drops the
+`-dark` suffix (`adw-gtk3-dark` → `adw-gtk3`), and if that doesn't exist either it uses Adwaita. Dark mode is on
+when `color-scheme` is `prefer-dark` or the name ends in `-dark`. The startup banner says "following gsettings".
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ## 2026.10.01
 
 ### archlinux-logout-gtk4 is now archlinux-logout
