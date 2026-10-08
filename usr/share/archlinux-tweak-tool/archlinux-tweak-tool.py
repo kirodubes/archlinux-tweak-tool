@@ -697,16 +697,6 @@ class ATTApplication(Gtk.Application):
             with open("/tmp/att.pid", "w", encoding="utf-8") as f:
                 f.write(str(fn.getpid()))
 
-            theme_name, prefer_dark, _theme_src = _resolve_effective_theme()
-            settings = Gtk.Settings.get_default()
-            if settings is None:
-                fn.log_warn("No GTK display connection — skipping theme setup (launch via the proper launcher / att-dev)")
-            elif theme_name:
-                settings.set_property("gtk-theme-name", theme_name)
-                settings.set_property("gtk-application-prefer-dark-theme", prefer_dark)
-                if _theme_src == "gsettings":
-                    fn.log_info(f"Theme follows the user's gsettings: {theme_name}{' (dark)' if prefer_dark else ''}")
-
             style_provider = Gtk.CssProvider()
             style_provider.load_from_path(base_dir + "/icons.css")
             display = Gdk.Display.get_default()
@@ -808,6 +798,16 @@ if __name__ == "__main__":
         fn.set_dev(True)
 
     fn.init_session_log()
+
+    # The theme goes in through GTK_THEME before the display opens. GTK 4.24 fails to load a theme's gtk.gresource
+    # when gtk-theme-name is changed at runtime, so gresource themes (every Arc theme) left ATT unstyled and
+    # see-through. GTK_THEME also makes GTK ignore later xsettings theme pushes, which would hit the same bug.
+    _theme_name, _prefer_dark, _theme_src = _resolve_effective_theme()
+    if _theme_name:
+        os.environ["GTK_THEME"] = _theme_name + (":dark" if _prefer_dark else "")
+        if _theme_src == "gsettings":
+            fn.log_info(f"Theme follows the user's gsettings: {_theme_name}{' (dark)' if _prefer_dark else ''}")
+
     signal.signal(signal.SIGINT, signal_handler)
     app = ATTApplication()
     _app_ref = app

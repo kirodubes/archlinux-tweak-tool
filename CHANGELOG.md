@@ -2,6 +2,24 @@
 
 ## 2026.10.08
 
+### ATT no longer opens see-through with an Arc theme on GTK 4.24
+
+**What Changed.** Since gtk4 4.24.1, ATT opened with no window background at all, just text over the wallpaper,
+whenever the GTK theme was one of the Arc themes (Arc-Dawn-Dark is the Kiro default). ATT now opens fully themed
+again.
+
+**Technical Details.** ATT picked its theme by setting `Gtk.Settings:gtk-theme-name` after the display was open.
+GTK 4.24.1 loads the theme's CSS on such a runtime change but not its `gtk.gresource`, and every Arc theme's GTK4
+`gtk.css` is a single `@import` from that gresource, so the import fails ("The resource at
+/org/gnome/arc-theme/gtk-main-dark.css does not exist") and no style applies. The same switch works with the 4.22.5
+library, and choosing the theme at startup works on 4.24.1. `_resolve_effective_theme()` now runs in the `__main__`
+block before `app.run()` and exports `GTK_THEME=<name>[:dark]`, so GTK loads the theme when it opens the display. The
+runtime `set_property` calls in `on_activate()` are gone. With `GTK_THEME` set, GTK also ignores later xsettings
+theme pushes, which would trigger the same bug. Plain-CSS themes such as Celestial were never affected.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ### ATT follows the user's gsettings theme when no GTK_THEME is set
 
 **What Changed.** On desktops that set the GTK theme only through gsettings, with no `GTK_THEME` in
