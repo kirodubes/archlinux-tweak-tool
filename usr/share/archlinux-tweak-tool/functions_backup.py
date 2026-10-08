@@ -8,7 +8,7 @@ import os
 
 def backup_gtk_config():
     fn.log_subsection("Backing up GTK + Qt theme config")
-    fn.log_info("  ATT runs as root; copying user GTK 3/4 + Qt (Kvantum/qt5ct) config so apps respect your desktop theme")
+    fn.log_info("  ATT runs as root; copying user GTK 3/4 + Qt (Kvantum/qt5ct/qt6ct) config so apps respect your desktop theme")
     fn.debug_print("backup_gtk_config() START")
     fn.debug_print("=" * 75)
 
@@ -77,11 +77,11 @@ def backup_gtk_config():
     else:
         fn.debug_print("xsettingsd config not found")
 
-    # Qt theming — Kvantum + qt5ct, so root-launched Qt apps follow the desktop theme.
+    # Qt theming — Kvantum + qt5ct + qt6ct, so root-launched Qt apps follow the desktop theme.
     # Qt apps (e.g. Btrfs Assistant) theme via Kvantum, not GTK; root has no Qt config
     # of its own, so without this they fall back to the default Kvantum theme instead of
-    # the user's ArcDark. Mirrors the GTK-4.0 copy above.
-    for qt_dir in ("Kvantum", "qt5ct"):
+    # the user's ArcDark. qt6ct carries the icons and fonts for Qt6 apps. Mirrors the GTK-4.0 copy above.
+    for qt_dir in ("Kvantum", "qt5ct", "qt6ct"):
         qt_src = fn.home + "/.config/" + qt_dir
         qt_dst = "/root/.config/" + qt_dir
         if fn.path.isdir(qt_src) and not os.path.islink(qt_dst):

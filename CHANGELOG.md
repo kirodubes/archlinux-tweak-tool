@@ -2,6 +2,20 @@
 
 ## 2026.10.08
 
+### Qt6 apps started from ATT follow the desktop theme too
+
+**What Changed.** When ATT starts as root it copies the user's GTK and Qt theme settings to `/root`, so apps it
+launches as root look like the rest of the desktop. qt6ct was missing from that copy, so root-run Qt6 apps got the
+Kvantum style but not the user's icon theme and fonts. ATT now copies `~/.config/qt6ct` as well.
+
+**Technical Details.** `backup_gtk_config()` in `functions_backup.py` loops over `("Kvantum", "qt5ct", "qt6ct")`;
+qt6ct gets the same copytree + 0755/0644 permission pass as the others. Kiro ships qt6ct with a `qt6ct.conf` in
+kiro-dot-files from 2026.10.08 on. Tested on the live ISO in VirtualBox: after starting ATT, `/root/.config/qt6ct/`
+exists with `icon_theme=Surfn` and `style=kvantum-dark`.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/functions_backup.py`
+
 ### ATT no longer opens see-through with an Arc theme on GTK 4.24
 
 **What Changed.** Since gtk4 4.24.1, ATT opened with no window background at all, just text over the wallpaper,
