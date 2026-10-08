@@ -258,7 +258,7 @@ class Main(Gtk.ApplicationWindow):
         _theme_name, _is_dark, _theme_src = _resolve_effective_theme()
         if _theme_name:
             _dark_str = " (dark mode)" if _is_dark else ""
-            _src_str = {"Plasma": " — following Plasma", "gsettings": " — following gsettings"}.get(_theme_src, "")
+            _src_str = " — following Plasma" if _theme_src == "Plasma" else ""
             print(
                 f"[System] Distro={fn.distr} | Theme={_theme_name}{_dark_str}{_src_str} | User={fn.sudo_username}",
                 flush=True,

@@ -15,7 +15,7 @@ source: `_user_gsettings_theme()` runs `gsettings get org.gnome.desktop.interfac
 (`runuser -u <user> -- env HOME=…`). gsettings reads the dconf database file directly, so it needs no bus. The
 theme name is used as-is when `/usr/share/themes/<name>` or `~/.themes/<name>` exists. Otherwise ATT drops the
 `-dark` suffix (`adw-gtk3-dark` → `adw-gtk3`), and if that doesn't exist either it uses Adwaita. Dark mode is on
-when `color-scheme` is `prefer-dark` or the name ends in `-dark`. The startup banner says "following gsettings".
+when `color-scheme` is `prefer-dark` or the name ends in `-dark`. The startup banner is unchanged.
 
 **Files Modified.**
 - `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
