@@ -704,6 +704,8 @@ class ATTApplication(Gtk.Application):
             elif theme_name:
                 settings.set_property("gtk-theme-name", theme_name)
                 settings.set_property("gtk-application-prefer-dark-theme", prefer_dark)
+                if _theme_src == "gsettings":
+                    fn.log_info(f"Theme follows the user's gsettings: {theme_name}{' (dark)' if prefer_dark else ''}")
 
             style_provider = Gtk.CssProvider()
             style_provider.load_from_path(base_dir + "/icons.css")
