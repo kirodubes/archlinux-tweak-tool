@@ -74,6 +74,11 @@ def build_env_theme_row(Gtk, self, names_attr, dropdown_attr, on_apply):
     hbox_env_dropdown.set_margin_start(10)
     hbox_env_dropdown.set_margin_end(10)
     hbox_env_dropdown.set_margin_bottom(10)
+    hbox_env_dropdown.set_tooltip_text(
+        "Optional override: GTK_THEME forces this one theme on every GTK app for every user, "
+        "and partly restyles libadwaita apps.\n"
+        "Leave it on None to let each user's own theme settings decide."
+    )
 
     lbl_env_dropdown = Gtk.Label()
     lbl_env_dropdown.set_markup(
@@ -131,15 +136,6 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     is_plasma = "kde" in fn.desktop.lower() or "plasma" in fn.desktop.lower()
     is_kiro = fn.get_distro_label() == "Kiro"
 
-    hbox_gtk_theme = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    hbox_gtk_theme.set_halign(Gtk.Align.CENTER)
-    button_toggle_gtk_theme = Gtk.Button()
-    themes.style_toggle_button(button_toggle_gtk_theme, themes.GTK_TOGGLE_LABEL)
-    button_toggle_gtk_theme.connect("clicked", functools.partial(themes.on_click_toggle_gtk_theme, self))
-    button_toggle_gtk_theme.set_margin_start(10)
-    button_toggle_gtk_theme.set_margin_end(10)
-    hbox_gtk_theme.append(button_toggle_gtk_theme)
-
     hbox_plasma_qt = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_plasma_qt.set_halign(Gtk.Align.CENTER)
     button_toggle_plasma_qt = Gtk.Button()
@@ -153,7 +149,8 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_gtk_theme_hint.set_halign(Gtk.Align.CENTER)
     lbl_gtk_theme_hint = Gtk.Label()
     lbl_gtk_theme_hint.set_markup(
-        '<span size="large">Use the button below to switch the system-wide dark theme on or off.</span>'
+        '<span size="large">The GTK theme is set per user — pick it in your desktop\'s appearance settings.\n'
+        "The setting below is an optional system-wide override; leave it on None normally.</span>"
     )
     lbl_gtk_theme_hint.set_justify(Gtk.Justification.CENTER)
     hbox_gtk_theme_hint.append(lbl_gtk_theme_hint)
@@ -280,11 +277,6 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
         hbox_gtk_theme_hint.set_margin_top(10)
         hbox_gtk_theme_hint.set_margin_bottom(10)
         vboxstack_themes.append(hbox_gtk_theme_hint)
-
-        hbox_gtk_theme.set_margin_start(10)
-        hbox_gtk_theme.set_margin_end(10)
-        hbox_gtk_theme.set_margin_bottom(10)
-        vboxstack_themes.append(hbox_gtk_theme)
 
         if is_plasma:
             hbox_plasma_qt.set_margin_start(10)

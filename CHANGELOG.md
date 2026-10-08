@@ -2,6 +2,25 @@
 
 ## 2026.10.08
 
+### Arc themes page: the dark-theme toggle is gone, the system-wide theme is explained
+
+**What Changed.** The "Enable or Disable the system-wide dark theme (/etc/environment)" button only switched an
+existing `GTK_THEME="Arc-Dawn-Dark"` line on or off. Kiro no longer ships that line, so the button did nothing but
+report "no matching line". It is removed. The hint above it now says the GTK theme is set per user in the desktop's
+appearance settings, and that the system-wide setting below is an optional override, normally left on None. On the
+Arc themes and Celestial themes pages, hovering the "Set the system-wide GTK theme" row explains what the override
+does: one theme forced on every GTK app and every user, libadwaita apps partly restyled.
+
+**Technical Details.** Removed from `themes.py`: `_ARC_DAWN_GTK_LINE`, `_is_arc_dawn_active/_commented`,
+`arc_dawn_gtk_state()`, `_log_gtk_theme_outcome()`, `toggle_arc_dawn_gtk_theme()`, `on_click_toggle_gtk_theme()`
+and `GTK_TOGGLE_LABEL`; nothing else used them. `_toggle_env()` and the env dialog stay for the Plasma Qt toggle,
+whose comment now matches the one Qt line Kiro ships. The drop-down picks a theme or None as before; the tooltip
+sits on the shared `build_env_theme_row()`, so both pages get it. The user-facing texts don't name a distro.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/themes.py`
+- `usr/share/archlinux-tweak-tool/themes_gui.py`
+
 ### A GTK_THEME that only exists as a -Dark folder no longer drops ATT to Adwaita
 
 **What Changed.** When `GTK_THEME` names a dark theme, ATT opens with the light theme name plus dark mode
