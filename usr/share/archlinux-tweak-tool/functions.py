@@ -1061,6 +1061,20 @@ def invalidate_pacman_conf_cache():
     _pacman_conf_cache = None
 
 
+KEEP_KIROTUX_REPO = "/usr/local/bin/kiro-keep-kirotux-repo"
+
+
+def keep_kirotux_repo():
+    """On KiroTux, put [kirotux_repo] back after pacman.conf was replaced (kiro-system-files does the work)."""
+    if not path.isfile(KEEP_KIROTUX_REPO):
+        return  # not a Kiro system: no KiroTux repo to keep
+    try:
+        subprocess.run([KEEP_KIROTUX_REPO], capture_output=True, text=True, timeout=30, check=False)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        log_warn(f"kiro-keep-kirotux-repo: {error}")
+    invalidate_pacman_conf_cache()
+
+
 def invalidate_pkg_cache():
     _pkg_cache.clear()
     _svc_cache.clear()

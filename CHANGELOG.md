@@ -1,5 +1,21 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.10
+
+### pacman.conf resets keep the KiroTux repo
+
+**What Changed.** The three pacman.conf reset buttons (blank, from backup, ATT default) and Maintenance's "Fix
+pacman.conf" replaced the file with a version without `[kirotux_repo]`. On a KiroTux install that stopped updates
+for the KiroTux packages that stay installed. After every reset ATT now runs `kiro-keep-kirotux-repo`
+(kiro-system-files), which puts the section back before `[nemesis_repo]` on KiroTux and does nothing elsewhere.
+
+**Technical Details.** `functions.keep_kirotux_repo()` runs `/usr/local/bin/kiro-keep-kirotux-repo` when it exists
+(not on non-Kiro systems) and clears the pacman.conf cache; `data/bin/att-fix-pacman-conf` calls the same command.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/functions.py`, `usr/share/archlinux-tweak-tool/pacman.py`
+- `usr/share/archlinux-tweak-tool/data/bin/att-fix-pacman-conf`
+
 ## 2026.10.08
 
 ### Arc themes page: the dark-theme toggle is gone, the system-wide theme is explained

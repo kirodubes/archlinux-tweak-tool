@@ -35,6 +35,10 @@ header "Using local pacman.conf"
 info "Source: $LOCAL_CONF"
 if sudo cp "$LOCAL_CONF" /etc/pacman.conf; then
     success "pacman.conf copied from local system"
+    # On KiroTux the Kiro default has no [kirotux_repo]; put it back (no-op on Kiro / other distros).
+    if [[ -x /usr/local/bin/kiro-keep-kirotux-repo ]]; then
+        /usr/local/bin/kiro-keep-kirotux-repo || warn "Could not check [kirotux_repo]"
+    fi
 else
     error "Failed to copy local pacman.conf"
     read -rp "Press Enter to close..."

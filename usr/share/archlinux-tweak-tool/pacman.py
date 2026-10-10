@@ -247,6 +247,7 @@ def reset_pacman_blank(self, _widget):
     fn.log_info_concise(f"  To:   {fn.pacman}")
     fn.shutil.copy(fn.blank_pacman_att, fn.pacman)
     fn.invalidate_pacman_conf_cache()
+    fn.keep_kirotux_repo()
     fn.log_success("Blank pacman.conf created")
     fn.log_info("Add repositories in desired order, ATT will reboot automatically")
     fn.restart_program()
@@ -259,6 +260,7 @@ def reset_pacman_local(self, _widget):
         fn.log_info_concise(f"  To:   {fn.pacman}")
         fn.shutil.copy(fn.pacman + "-bak", fn.pacman)
         fn.invalidate_pacman_conf_cache()
+        fn.keep_kirotux_repo()
         fn.log_success("pacman.conf reset from -bak")
         fn.show_in_app_notification(self, "Default Settings Applied - check in a terminal")
     fn.GLib.timeout_add(500, lambda: update_repos_switches(self))
@@ -270,6 +272,7 @@ def reset_pacman_online(self, _widget):
     fn.log_info_concise(f"  To:   {fn.pacman}")
     fn.shutil.copy(fn.pacman_att, fn.pacman)
     fn.invalidate_pacman_conf_cache()
+    fn.keep_kirotux_repo()
     fn.log_success("ATT version of pacman.conf saved")
     fn.show_in_app_notification(self, "Default Settings Applied - check in a terminal")
     fn.GLib.timeout_add(500, lambda: update_repos_switches(self))
@@ -357,7 +360,7 @@ def set_parallel_downloads(self, _widget):
 
 
 def pop_parallel_downloads(self):
-    """Return the current ParallelDownloads index (0-based) for pre-selecting the dropdown."""
+    """Return the current ParallelDownloads index (0-based) for preselecting the dropdown."""
     if fn.path.isfile(fn.pacman):
         try:
             with open(fn.pacman, "r", encoding="utf-8") as f:
