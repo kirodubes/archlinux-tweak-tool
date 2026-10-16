@@ -620,7 +620,7 @@ _EXPECTED_GUARDS = {
     "ISO": "fn.distr not in _ISO_HIDDEN_DISTROS",
     "Sddm": "fn.distr not in _SDDM_HIDDEN_DISTROS and (not (fn.check_service_enabled('plasma-login') "
             "or fn.check_service_enabled('plasmalogin')))",
-    "Streamline": "fn.get_distro_label() == 'Kiro'",
+    "Streamline": "fn.get_distro_label() in ('Kiro', 'KiroTux')",
 }
 
 
@@ -639,7 +639,7 @@ def hidden_reason(title, guard, facts, sddm_hidden, iso_hidden):
     if title == "ISO":
         return f"hidden on {facts['distro']} (_ISO_HIDDEN_DISTROS)" if facts["distro"] in iso_hidden else None
     if title == "Streamline":
-        return None if facts["label"] == "Kiro" else "Kiro-only page"
+        return None if facts["label"] in ("Kiro", "KiroTux") else "Kiro-only page"
     return None
 
 

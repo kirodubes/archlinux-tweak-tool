@@ -503,7 +503,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
 
     stack.add_titled(vboxstack_software, "stack_software", "Software")  # software installers
 
-    if fn.get_distro_label() == "Kiro":
+    if fn.get_distro_label() in ("Kiro", "KiroTux"):
         # Kiro-only: the category list is sourced from the Kiro ISO package set.
         stack.add_titled(vboxstack_streamline, "stack_streamline", "Streamline")  # remove optional apps by category
 

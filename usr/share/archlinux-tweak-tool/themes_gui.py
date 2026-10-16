@@ -134,7 +134,7 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_info.append(hbox_info_label)
 
     is_plasma = "kde" in fn.desktop.lower() or "plasma" in fn.desktop.lower()
-    is_kiro = fn.get_distro_label() == "Kiro"
+    is_kiro = fn.get_distro_label() in ("Kiro", "KiroTux")
 
     hbox_plasma_qt = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_plasma_qt.set_halign(Gtk.Align.CENTER)

@@ -378,7 +378,7 @@ def on_click_edit_environment(self, _widget):
 
 def on_click_toggle_plasma_qt(self, _widget):
     """On Kiro: comment/uncomment the Plasma-conflicting Qt overrides and pop up the change. Elsewhere: open the file."""
-    if fn.get_distro_label() != "Kiro":
+    if fn.get_distro_label() not in ("Kiro", "KiroTux"):
         open_env_in_terminal(self)
         return
     result = toggle_plasma_qt_overrides(self)

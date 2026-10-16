@@ -34,7 +34,7 @@ def show_support_dialog(self):
     Deliberately NOT modal: a modal window stays pinned on top of ATT, so the browser
     opened by a funding link appears behind it and the user never sees the page.
     """
-    is_kiro = fn.get_distro_label() == "Kiro"
+    is_kiro = fn.get_distro_label() in ("Kiro", "KiroTux")
     project_name = "Kiro" if is_kiro else "ATT"
     title_text = "Support Kiro" if is_kiro else "Support the ATT"
 

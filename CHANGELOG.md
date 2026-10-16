@@ -16,6 +16,20 @@ Noctalia install after ATT had been opened once.
 **Files Modified.**
 - `usr/share/archlinux-tweak-tool/functions.py`, `usr/share/archlinux-tweak-tool/functions_startup.py`
 
+### ATT recognizes KiroTux
+
+**What Changed.** On KiroTux the header read "on Kiro", because KiroTux ships the same `IMAGE_ID=kiro` as Kiro. ATT
+now labels it "KiroTux". Every Kiro-only feature (Streamline page, Plasma Qt toggle, Support dialog) still treats
+KiroTux like Kiro, so only the label changes.
+
+**Technical Details.** `functions.get_distro_label()` returns "KiroTux" when `is_kirotux()` is true on an
+`IMAGE_ID=kiro` system. The `== "Kiro"` checks now accept `("Kiro", "KiroTux")`, including the att_check Streamline
+guard mirror (kept in sync with gui.py so no guard-drift WARN) and the Developer page's Arch-based pairing check.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/functions.py`, `gui.py`, `themes.py`, `themes_gui.py`, `funding.py`,
+  `att_check.py`, `dev_gui.py` (all under `usr/share/archlinux-tweak-tool/`)
+
 ## 2026.10.10
 
 ### pacman.conf resets keep the KiroTux repo

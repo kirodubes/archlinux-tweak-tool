@@ -452,9 +452,9 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _header("Distro Detection")
 
         distr_label = fn.get_distro_label()
-        # Kiro is an Arch-based rebrand (os-release ID=arch, IMAGE_ID=kiro), so base
-        # "arch" + label "Kiro" is the expected pairing — not a detection mismatch.
-        if fn.distr == "arch" and distr_label == "Kiro":
+        # Kiro/KiroTux are Arch-based rebrands (os-release ID=arch, IMAGE_ID=kiro), so base
+        # "arch" + label "Kiro"/"KiroTux" is the expected pairing — not a detection mismatch.
+        if fn.distr == "arch" and distr_label in ("Kiro", "KiroTux"):
             distr_status = "<span foreground='green'>Arch-based (expected)</span>"
         elif fn.distr.lower() == distr_label.lower():
             distr_status = ""

@@ -880,7 +880,7 @@ def get_distro_label():
         with open("/etc/os-release", "r", encoding="utf-8") as f:
             content = f.read()
         if "IMAGE_ID=kiro" in content:
-            return "Kiro"
+            return "KiroTux" if is_kirotux() else "Kiro"
         if "IMAGE_ID=Helwan-Linux-Dev-LTS" in content:
             return "Helwan"
         if "ID=cachyos" in content:
