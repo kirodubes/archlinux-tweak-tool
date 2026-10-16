@@ -1064,6 +1064,15 @@ def invalidate_pacman_conf_cache():
 KEEP_KIROTUX_REPO = "/usr/local/bin/kiro-keep-kirotux-repo"
 
 
+def is_kirotux():
+    """Return True on a system installed from a KiroTux ISO (/etc/dev-rel ISO_CODENAME=kirotux)."""
+    try:
+        with open("/etc/dev-rel", encoding="utf-8") as f:
+            return any(line.strip() == "ISO_CODENAME=kirotux" for line in f)
+    except OSError:
+        return False
+
+
 def keep_kirotux_repo():
     """On KiroTux, put [kirotux_repo] back after pacman.conf was replaced (kiro-system-files does the work)."""
     if not path.isfile(KEEP_KIROTUX_REPO):

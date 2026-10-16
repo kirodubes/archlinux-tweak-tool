@@ -117,7 +117,10 @@ def setup_fastfetch_config():
     fn.debug_print("setup_fastfetch_config() START")
     fn.debug_print("=" * 75)
 
-    if not fn.path.isfile(fn.fastfetch_config):
+    # KiroTux keeps fastfetch's own default (Arch logo); the Kiro config is only placed when picked on the page
+    if fn.is_kirotux():
+        fn.debug_print("KiroTux: leaving fastfetch at its default, no config placed")
+    elif not fn.path.isfile(fn.fastfetch_config):
         fn.debug_print(f"fastfetch config not found at {fn.fastfetch_config}")
         fn.debug_print(f"Copying from template: {fn.fastfetch_kiro}")
         try:
