@@ -1,5 +1,21 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.16
+
+### KiroTux keeps the default fastfetch
+
+**What Changed.** On its first start ATT placed its Kiro fastfetch config in `~/.config/fastfetch/` when none was
+there. On KiroTux that config's logo file (`kiro-color-24.txt`, shipped by kiro-dot-files on Kiro only) is missing,
+so fastfetch showed Kiro's layout with a fallback logo. KiroTux now keeps fastfetch's own default with the Arch logo;
+the Kiro config is placed only when the user picks it on the fastfetch page. Kiro is unchanged.
+
+**Technical Details.** New `functions.is_kirotux()` reads `ISO_CODENAME=kirotux` from `/etc/dev-rel` (Kiro writes
+`kiro`). `functions_startup.setup_fastfetch_config()` skips the copy when it returns True. Found on a KiroTux Niri
+Noctalia install after ATT had been opened once.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/functions.py`, `usr/share/archlinux-tweak-tool/functions_startup.py`
+
 ## 2026.10.10
 
 ### pacman.conf resets keep the KiroTux repo
