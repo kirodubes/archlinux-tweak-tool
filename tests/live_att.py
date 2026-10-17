@@ -349,11 +349,19 @@ def fastfetch_steps(win, st):
 
         def chk(lbl=label, p=preset):
             raw = (read(cfg) or "").lower()
-            modules = [m.lower() for m in fastfetch.get_fastfetch().get("modules", []) if isinstance(m, str)]
+            # entries are plain strings ("os") or objects ({"type": "os", ...}); comments are already stripped
+            modules = [(m if isinstance(m, str) else str(m.get("type", ""))).lower()
+                       for m in fastfetch.get_fastfetch().get("modules", [])]
             # a module the file never lists can't be switched on by commenting, so only judge the ones it has
-            wrong = [a for a, mod in _FF_MODULES.items() if f'"{mod}"' in raw and (mod in modules) != p[a]]
-            record(f"Fastfetch: preset {lbl} applied to config.jsonc", "PASS" if not wrong and owned_by_user(cfg)
-                   else "FAIL", f"wrong modules {wrong}, owned by user {owned_by_user(cfg)}; "
+            # a module entry, commented or not: '"type": "os"' or a bare '"os",' line; never a key like "display": {
+            listed = [a for a, mod in _FF_MODULES.items()
+                      if re.search(rf'"type"\s*:\s*"{mod}"|^\s*(//)?\s*"{mod}"\s*,?\s*$', raw, re.MULTILINE)]
+            wrong = [a for a in listed if (_FF_MODULES[a] in modules) != p[a]]
+            rc, out = sh("sudo", "-u", fn.sudo_username, "fastfetch", "-c", cfg, "--logo", "none", "--pipe")
+            parses = rc == 0 and "error" not in out.lower()
+            record(f"Fastfetch: preset {lbl} applied to config.jsonc", "PASS" if not wrong and parses and
+                   owned_by_user(cfg) else "FAIL", f"wrong modules {wrong}, fastfetch runs {parses}"
+                   f"{'' if parses else ' (' + out[:120] + ')'}, owned by user {owned_by_user(cfg)}; "
                    f"screenshot {shot('fastfetch-' + lbl.lower())}")
         steps.append(Step(f"fastfetch preset {label}", act, chk))
 

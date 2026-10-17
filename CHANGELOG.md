@@ -2,6 +2,29 @@
 
 ## 2026.10.17
 
+### Fastfetch editor no longer breaks the config
+
+**What Changed.** On Kiro, applying a Fastfetch preset could break fastfetch entirely ("failed to parse JSON config
+file"). Unticking Display also commented out the config's top-level `"display"` block. Unticked modules left a
+broken entry behind, and after a reload every module showed as unticked. The editor now switches whole module
+entries on and off, never touches anything outside the module list, and reads the ticks back correctly. A module's
+own colours and icons survive being switched off and on. Found by the live test on a Kiro VM.
+
+**Technical Details.** The old code worked line by line: it (un)commented any line containing `"<module>"` and only
+read string modules. That fits fastfetch's plain list (`"os",`) but not ATT's own Kiro template, where each module
+is a multi-line `{"type": ...}` object. New `_module_blocks()` scans the `modules` array (commented lines
+included), tracking brace depth outside strings. It returns each entry's line range, its type (the string, or the
+object's top-level `"type"`) and whether it is commented out. `apply_config()` comments or uncomments the whole
+range. `get_checkboxes()` ticks a checkbox when one of its types has an active entry (`_MODULE_CHECKBOX` maps
+types to checkboxes; title and underline share one). The separator helpers now skip lines inside the module list,
+so a `"type": "separator"` module is no longer cut in half. Tested on the Kiro template and on `fastfetch
+--gen-config`'s default: every preset still parses in fastfetch, reads back exactly, and switching everything back
+on gives the original file byte for byte. The live test now counts object modules too and runs fastfetch on the
+result as the user.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/fastfetch.py`, `tests/live_att.py`
+
 ### Autostart entries belong to the user; Wallpaper works under Noctalia
 
 **What Changed.** Found by the first live-test run on a KiroTux niri Noctalia install. **(1)** An autostart entry

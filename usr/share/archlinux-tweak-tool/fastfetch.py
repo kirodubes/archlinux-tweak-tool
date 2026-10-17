@@ -107,90 +107,132 @@ def get_term_rc():
         return False
 
 
+# fastfetch module type -> checkbox attribute on the page; title and underline share one checkbox
+_MODULE_CHECKBOX = {
+    "title": "title",
+    "underline": "title",
+    "os": "os",
+    "host": "host",
+    "kernel": "kernel",
+    "uptime": "uptime",
+    "packages": "packages",
+    "shell": "shell",
+    "display": "display",
+    "de": "de",
+    "wm": "wm",
+    "wmtheme": "wmtheme",
+    "theme": "themes",
+    "icons": "icons",
+    "font": "font",
+    "cursor": "cursor",
+    "terminal": "term",
+    "terminalfont": "termfont",
+    "cpu": "cpu",
+    "gpu": "gpu",
+    "memory": "mem",
+    "swap": "swap",
+    "disk": "disks",
+    "localip": "l_ip",
+    "publicip": "p_ip",
+    "battery": "batt",
+    "poweradapter": "pwr",
+    "locale": "local",
+    "colors": "cblocks",
+}
+
+
+def _strip_comment(line):
+    text = line.strip()
+    if text.startswith("//"):
+        return True, text[2:].strip()
+    return False, text
+
+
+def _depth_change(text):
+    depth, in_string, escaped = 0, False, False
+    for ch in text:
+        if escaped:
+            escaped = False
+        elif in_string and ch == "\\":
+            escaped = True
+        elif ch == '"':
+            in_string = not in_string
+        elif not in_string and ch in "{[":
+            depth += 1
+        elif not in_string and ch in "}]":
+            depth -= 1
+    return depth
+
+
+def _module_blocks(lines):
+    """Return (first, last, type, commented) for every entry of the modules array, enabled or commented out."""
+    # Entries are either one string line ("os",) or a multi-line {...} object with a "type" key; Kiro's
+    # config uses objects. Switching a module on or off must (un)comment the WHOLE entry: commenting only the
+    # line that mentions the type broke the JSON (and also hit the top-level "display" block).
+    start = next((i for i, line in enumerate(lines) if '"modules"' in _strip_comment(line)[1] and "[" in line), None)
+    if start is None:
+        return []
+    blocks, i = [], start + 1
+    while i < len(lines):
+        commented, body = _strip_comment(lines[i])
+        if body.startswith("]") and not commented:
+            break
+        if body.startswith("{"):
+            first, depth, kind, flags = i, 0, None, []
+            while i < len(lines):
+                line_commented, line_body = _strip_comment(lines[i])
+                if line_body:
+                    flags.append(line_commented)
+                match = re.search(r'"type"\s*:\s*"([^"]+)"', line_body)
+                if match and kind is None and depth <= 1:
+                    kind = match.group(1).lower()
+                depth += _depth_change(line_body)
+                if depth <= 0:
+                    break
+                i += 1
+            blocks.append((first, i, kind, all(flags)))
+        elif body.startswith('"'):
+            match = re.match(r'"([^"]+)"', body)
+            blocks.append((i, i, match.group(1).lower(), commented))
+        i += 1
+    return blocks
+
+
 def apply_config(self):
-    if fn.path.isfile(fn.fastfetch_config):
-        with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
-            lines = f.readlines()
+    if not fn.path.isfile(fn.fastfetch_config):
+        return
+    with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
+        lines = f.readlines()
 
-        key_to_checkbox = {
-            '"os"': self.os,
-            '"host"': self.host,
-            '"kernel"': self.kernel,
-            '"uptime"': self.uptime,
-            '"packages"': self.packages,
-            '"shell"': self.shell,
-            '"display"': self.display,
-            '"de"': self.de,
-            '"wm"': self.wm,
-            '"wmtheme"': self.wmtheme,
-            '"theme"': self.themes,
-            '"icons"': self.icons,
-            '"font"': self.font,
-            '"cursor"': self.cursor,
-            '"terminal"': self.term,
-            '"terminalfont"': self.termfont,
-            '"cpu"': self.cpu,
-            '"gpu"': self.gpu,
-            '"memory"': self.mem,
-            '"swap"': self.swap,
-            '"disk"': self.disks,
-            '"localIP"': self.l_ip,
-            '"publicip"': self.p_ip,
-            '"battery"': self.batt,
-            '"poweradapter"': self.pwr,
-            '"locale"': self.local,
-            '"title"': self.title,
-            '"underline"': self.title,
-            '"colors"': self.cblocks,
-        }
+    for first, last, kind, commented in _module_blocks(lines):
+        attr = _MODULE_CHECKBOX.get(kind)
+        if attr is None:
+            continue
+        wanted = getattr(self, attr).get_active()
+        for i in range(first, last + 1):
+            if not lines[i].strip():
+                continue
+            if wanted and commented:
+                lines[i] = re.sub(r"^(\s*)//", r"\1", lines[i], count=1)
+            elif not wanted and not commented and not lines[i].strip().startswith("//"):
+                lines[i] = "//" + lines[i]
 
-        for i, line in enumerate(lines):
-            for key, checkbox in key_to_checkbox.items():
-                if key.lower() in line.lower():
-                    if checkbox.get_active() and line.strip().startswith("//"):
-                        lines[i] = line.replace("//", "", 1)
-                    elif not checkbox.get_active() and not line.strip().startswith("//"):
-                        lines[i] = "//" + line
+    with open(fn.fastfetch_config, "w", encoding="utf-8") as f:
+        f.writelines(lines)
 
-        with open(fn.fastfetch_config, "w", encoding="utf-8") as f:
-            f.writelines(lines)
-
-        fn.log_success("Fastfetch settings saved")
-        fn.show_in_app_notification(self, "fastfetch settings saved successfully")
+    fn.log_success("Fastfetch settings saved")
+    fn.show_in_app_notification(self, "fastfetch settings saved successfully")
 
 
 def get_checkboxes(self):
-    config = get_fastfetch()
-    modules = [m.lower() for m in config.get("modules", []) if isinstance(m, str)]
-
-    self.title.set_active("title" in modules)
-    self.os.set_active("os" in modules)
-    self.host.set_active("host" in modules)
-    self.kernel.set_active("kernel" in modules)
-    self.uptime.set_active("uptime" in modules)
-    self.packages.set_active("packages" in modules)
-    self.shell.set_active("shell" in modules)
-    self.display.set_active("display" in modules)
-    self.de.set_active("de" in modules)
-    self.wm.set_active("wm" in modules)
-    self.wmtheme.set_active("wmtheme" in modules)
-    self.themes.set_active("theme" in modules)
-    self.icons.set_active("icons" in modules)
-    self.font.set_active("font" in modules)
-    self.cursor.set_active("cursor" in modules)
-    self.term.set_active("terminal" in modules)
-    self.termfont.set_active("terminalfont" in modules)
-    self.cpu.set_active("cpu" in modules)
-    self.gpu.set_active("gpu" in modules)
-    self.mem.set_active("memory" in modules)
-    self.swap.set_active("swap" in modules)
-    self.disks.set_active("disk" in modules)
-    self.l_ip.set_active("localip" in modules)
-    self.p_ip.set_active("publicip" in modules)
-    self.batt.set_active("battery" in modules)
-    self.pwr.set_active("poweradapter" in modules)
-    self.local.set_active("locale" in modules)
-    self.cblocks.set_active("colors" in modules)
+    lines = []
+    if fn.path.isfile(fn.fastfetch_config):
+        with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+    enabled = {kind for _first, _last, kind, commented in _module_blocks(lines) if not commented}
+    for attr in dict.fromkeys(_MODULE_CHECKBOX.values()):
+        kinds = [kind for kind, a in _MODULE_CHECKBOX.items() if a == attr]
+        getattr(self, attr).set_active(any(kind in enabled for kind in kinds))
 
 
 _PRESET_ALL = {
@@ -314,30 +356,32 @@ def set_checkboxes_none(self):
     _ensure_separator_commented()
 
 
+def _set_separator_commented(commented):
+    # only the display "separator" key: a module of type "separator" is a whole entry, not one line
+    if not fn.path.isfile(fn.fastfetch_config):
+        return
+    with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    in_modules = {i for first, last, _kind, _c in _module_blocks(lines) for i in range(first, last + 1)}
+
+    for i, line in enumerate(lines):
+        if i in in_modules or '"separator"' not in line:
+            continue
+        if commented and not line.strip().startswith("//"):
+            lines[i] = "//" + line
+        elif not commented and line.strip().startswith("//"):
+            lines[i] = re.sub(r"^(\s*)//", r"\1", line, count=1)
+
+    with open(fn.fastfetch_config, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+
+
 def _ensure_separator_uncommented():
-    if fn.path.isfile(fn.fastfetch_config):
-        with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-
-        for i, line in enumerate(lines):
-            if '"separator"' in line and line.strip().startswith("//"):
-                lines[i] = line.lstrip("/")
-
-        with open(fn.fastfetch_config, "w", encoding="utf-8") as f:
-            f.writelines(lines)
+    _set_separator_commented(False)
 
 
 def _ensure_separator_commented():
-    if fn.path.isfile(fn.fastfetch_config):
-        with open(fn.fastfetch_config, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-
-        for i, line in enumerate(lines):
-            if '"separator"' in line and not line.strip().startswith("//"):
-                lines[i] = "//" + line
-
-        with open(fn.fastfetch_config, "w", encoding="utf-8") as f:
-            f.writelines(lines)
+    _set_separator_commented(True)
 
 
 # ====================================================================
