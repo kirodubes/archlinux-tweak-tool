@@ -15,7 +15,9 @@ rewrites the same file in place, so ownership stays). `wallpaper._wayland_setter
 DankMaterialShell, used when `noctalia` runs for the user: `noctalia msg wallpaper-set <path>`, run through
 `_wayland_user_cmd()` (`XDG_RUNTIME_DIR` + `WAYLAND_DISPLAY` are what `noctalia msg` needs). It is the same call
 as kirotux-niri-premium. The live test reads the Noctalia wallpaper back with `wallpaper-get`, and the wrapper puts Noctalia's
-original wallpaper back afterwards. `ATT_LIVE_APP_DIR` lets it drive a checkout instead of the installed package.
+original wallpaper back afterwards. Over SSH on X11 the wrapper takes `XAUTHORITY` from a running session process,
+because the display manager keeps the cookie in its own file (`/tmp/xauth_*`), so `~/.Xauthority` fails.
+`ATT_LIVE_APP_DIR` lets it drive a checkout instead of the installed package.
 
 **Files Modified.**
 - `usr/share/archlinux-tweak-tool/autostart.py`, `usr/share/archlinux-tweak-tool/wallpaper.py`

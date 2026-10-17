@@ -98,7 +98,15 @@ find_session() {
             export WAYLAND_DISPLAY="${socket}"
         elif [[ -S /tmp/.X11-unix/X0 ]]; then
             export DISPLAY=":0"
-            export XAUTHORITY="${XAUTHORITY:-${HOME}/.Xauthority}"
+            # the display manager keeps the cookie in its own file: borrow it from a process of the session
+            local pid auth=""
+            for pid in $(pgrep -u "$(id -u)"); do
+                # some own processes (systemd --user) are not readable: skip them
+                auth="$({ tr '\0' '\n' < "/proc/${pid}/environ"; } 2>/dev/null | sed -n 's/^XAUTHORITY=//p' | head -n1 || true)"
+                [[ -n "${auth}" ]] && break
+            done
+            export XAUTHORITY="${auth:-${HOME}/.Xauthority}"
+            info "XAUTHORITY ${XAUTHORITY}"
         else
             error "No Wayland socket or X display found — log in to a desktop session first"
             exit 1

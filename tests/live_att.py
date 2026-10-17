@@ -567,6 +567,10 @@ def main():
     app = Gtk.Application(application_id="org.kiro.att-livetest", flags=Gio.ApplicationFlags.NON_UNIQUE)
 
     def activate(_app):
+        if Gdk.Display.get_default() is None:
+            print("No display: check DISPLAY/WAYLAND_DISPLAY and XAUTHORITY", flush=True)
+            app.quit()
+            return
         css = Gtk.CssProvider()
         css.load_from_path(os.path.join(APP_DIR, "icons.css"))
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css,
