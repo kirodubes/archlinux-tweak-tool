@@ -1,5 +1,33 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.17
+
+### Live test for test machines (developer only)
+
+**What Changed.** `att-check` proves a page's prerequisites but never presses a button. A new live test drives the
+real, installed ATT window on a test machine and reads every change back, like the tests of the KiroTux premium
+apps. Batch 1 covers a page-build sweep of every page, Autostart, Fastfetch, Shells (config apply and Reset) and
+Wallpaper. It also reports any root-owned file ATT leaves in the home folder. It refuses to run unless
+`/etc/att-live-test-box` exists, backs up what it touches and restores it afterwards. It is not shipped in the
+package.
+
+**Technical Details.** `tests/run-live-att.sh` (user side: guard, session detection over SSH, backup, ownership
+diff, restore, report) starts `tests/live_att.py` as root with `PKEXEC_UID`, the way the launcher's
+`start_in_wayland` does, so `fn.sudo_username`/`fn.home` resolve like in real use. The driver builds `Main` under its
+own `NON_UNIQUE` app id. It switches `att_stack` pages (they build lazily on map) and calls the page callbacks
+directly. It records `show_in_app_notification`, `log_error`, worker-thread crashes and `messagebox`/`confirm_dialog`
+(stubbed: a modal loop would stall the runner, and confirmations are declined). A guarded `subprocess.Popen` and
+`os.system` block any pacman install/remove, AUR helper, terminal or `systemctl enable/start`, so nothing outside
+the batch can run. The pre-state comes from the wrapper, not from ATT's own `-bak` files. New `-bak` files the run
+creates are removed (files and whole folders such as `variety/scripts-bak`). Steps are built only once `att_stack`
+exists, because `Main` builds its pages in an idle callback after `__init__`. ATT's own non-modal startup prompts
+(nanorc, tweak tools) are closed and logged as INFO. `--restore` puts the last backup back after an interrupted run,
+and a new run refuses to start while a backup is unrestored. A background `sudo -v` loop keeps the restore from
+stopping at a password prompt after a long run. Documented in DISTRO_TESTING.md.
+
+**Files Modified.**
+- `tests/live_att.py`, `tests/run-live-att.sh` (new), `DISTRO_TESTING.md`
+
 ## 2026.10.16
 
 ### KiroTux keeps the default fastfetch

@@ -40,3 +40,33 @@ username or IPs, so it is safe to paste here. `--verbose` lists every package an
 list or the user's choice); the exit code is 1 when any
 page FAILs.
 
+
+## Live test — developer only, test machines only
+
+`att-check` never presses a button. [tests/run-live-att.sh](tests/run-live-att.sh) does: it opens the real window of
+the **installed** ATT, drives a batch of pages and reads every change back. It is not shipped in the package
+(the PKGBUILD copies only `usr/`) and it **changes the machine it runs on**, so it refuses to start unless
+`/etc/att-live-test-box` exists. Create that file by hand on throwaway test boxes only.
+
+```bash
+sudo touch /etc/att-live-test-box   # once, on the test box
+bash tests/run-live-att.sh          # as your normal user, while logged in to a desktop session
+```
+
+It runs from a terminal in the session or over SSH (it finds the Wayland socket or X display itself), and:
+
+1. backs up `~/.config/autostart`, `~/.config/fastfetch`, `~/.config/fish`, `~/.bashrc`, `~/.zshrc`, `~/.fehbg`
+   and the running wallpaper;
+2. starts ATT as root with `PKEXEC_UID`, the way the launcher does, and runs [tests/live_att.py](tests/live_att.py):
+   - **page-build sweep**: shows every page, no buttons pressed: each must build without a crash, error or dialog;
+   - **Autostart**: add a test entry, toggle it off and on, remove it;
+   - **Fastfetch**: Reset to ATT defaults, presets Small and All, Reset from backup (skipped without fastfetch);
+   - **Shells**: apply the ATT bash (and fish, when installed) config, then Reset;
+   - **Wallpaper**: apply an image from the ATT wallpaper folder;
+3. reports every **root-owned file ATT left in the home folder**, then restores the backup.
+
+Nothing installs, removes or opens a terminal: any pacman install/remove, AUR helper, terminal or
+`systemctl enable/start` call is blocked and reported as a FAIL. Results go to `/tmp/att-live/report.json`
+with screenshots in `/tmp/att-live/shots/`; the exit code is 1 on any FAIL. If a run is interrupted before its
+restore, `bash tests/run-live-att.sh --restore` puts the backup back (a new run refuses to start until then). A FAIL is a finding about ATT, not
+about the test.
