@@ -152,6 +152,7 @@ kiro-dot-files
 kiro-dusk
 kiro-dwl
 kiro-fish-config
+kiro-gdrive
 kiro-ghostty
 kiro-grub-theme
 kiro-hlwm
