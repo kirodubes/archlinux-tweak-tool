@@ -413,6 +413,10 @@ def _wallpaper_live(path):
     if path in procs:
         return procs
     user = wallpaper._wayland_user_cmd() if os.environ.get("WAYLAND_DISPLAY") else []
+    if user and shutil.which("noctalia"):
+        _rc, out = sh(*user, "noctalia", "msg", "wallpaper-get")
+        if path in out:
+            return out
     for client in ("awww", "swww"):
         if shutil.which(client):
             _rc, out = sh(*user, client, "query")

@@ -68,5 +68,6 @@ It runs from a terminal in the session or over SSH (it finds the Wayland socket 
 Nothing installs, removes or opens a terminal: any pacman install/remove, AUR helper, terminal or
 `systemctl enable/start` call is blocked and reported as a FAIL. Results go to `/tmp/att-live/report.json`
 with screenshots in `/tmp/att-live/shots/`; the exit code is 1 on any FAIL. If a run is interrupted before its
-restore, `bash tests/run-live-att.sh --restore` puts the backup back (a new run refuses to start until then). A FAIL is a finding about ATT, not
+restore, `bash tests/run-live-att.sh --restore` puts the backup back (a new run refuses to start until then).
+To test a checkout before packaging it, point `ATT_LIVE_APP_DIR` at its `usr/share/archlinux-tweak-tool`. A FAIL is a finding about ATT, not
 about the test.

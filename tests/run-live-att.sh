@@ -142,6 +142,9 @@ backup_state() {
             "${client}" query 2>/dev/null | sed -n 's/.*image: //p' | head -n1 > "${OUT}/wall-${client}" || true
         fi
     done
+    if pgrep -u "$(id -un)" -x noctalia >/dev/null; then
+        noctalia msg wallpaper-get 2>/dev/null | head -n1 > "${OUT}/wall-noctalia" || true
+    fi
     LOCK_EXISTED="no"
     if [[ -e /tmp/att.lock ]]; then
         LOCK_EXISTED="yes"
@@ -164,6 +167,7 @@ run_driver() {
     sudo env PKEXEC_UID="$(id -u)" DISPLAY="${DISPLAY:-}" WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-}" \
         XAUTHORITY="${XAUTHORITY:-}" XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR}" GDK_BACKEND="${backend}" \
         GSK_RENDERER=cairo LIBGL_ALWAYS_SOFTWARE=1 ATT_LIVE_OUT="${OUT}" \
+        ATT_LIVE_APP_DIR="${ATT_LIVE_APP_DIR:-/usr/share/archlinux-tweak-tool}" \
         python3 "${SCRIPT_DIR}/live_att.py" > >(tee "${OUT}/console.log") 2>&1 || DRIVER_RC=$?
     kill "${keepalive}" 2>/dev/null || true
     if [[ "${LOCK_EXISTED}" == "no" ]]; then
@@ -227,6 +231,11 @@ restore_wallpaper() {
             info "wallpaper: ${client} back on ${image}"
         fi
     done
+    image="$(cat "${OUT}/wall-noctalia" 2>/dev/null || true)"
+    if [[ -n "${image}" && -f "${image}" ]]; then
+        noctalia msg wallpaper-set "${image}" >/dev/null 2>&1 || true
+        info "wallpaper: Noctalia back on ${image}"
+    fi
     if [[ -f "${HOME}/.fehbg" ]]; then
         bash "${HOME}/.fehbg" >/dev/null 2>&1 || true
     fi

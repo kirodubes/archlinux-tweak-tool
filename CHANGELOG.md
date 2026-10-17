@@ -2,6 +2,25 @@
 
 ## 2026.10.17
 
+### Autostart entries belong to the user; Wallpaper works under Noctalia
+
+**What Changed.** Found by the first live-test run on a KiroTux niri Noctalia install. **(1)** An autostart entry
+added on the Autostart page was owned by root, so the user could not edit their own entry without root. It now
+belongs to the user. **(2)** On a Noctalia desktop the Wallpaper page said "No wallpaper setter found — install
+swaybg or awww". A swaybg wallpaper would stay hidden behind Noctalia's own backdrop anyway. ATT now sets the
+wallpaper through Noctalia itself.
+
+**Technical Details.** `autostart.add_autostart()` calls `fn.permissions()` on the new `.desktop` file (toggling
+rewrites the same file in place, so ownership stays). `wallpaper._wayland_setters()` gains a Noctalia entry after
+DankMaterialShell, used when `noctalia` runs for the user: `noctalia msg wallpaper-set <path>`, run through
+`_wayland_user_cmd()` (`XDG_RUNTIME_DIR` + `WAYLAND_DISPLAY` are what `noctalia msg` needs). It is the same call
+as kirotux-niri-premium. The live test reads the Noctalia wallpaper back with `wallpaper-get`, and the wrapper puts Noctalia's
+original wallpaper back afterwards. `ATT_LIVE_APP_DIR` lets it drive a checkout instead of the installed package.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/autostart.py`, `usr/share/archlinux-tweak-tool/wallpaper.py`
+- `tests/live_att.py`, `tests/run-live-att.sh`, `DISTRO_TESTING.md`
+
 ### Live test for test machines (developer only)
 
 **What Changed.** `att-check` proves a page's prerequisites but never presses a button. A new live test drives the

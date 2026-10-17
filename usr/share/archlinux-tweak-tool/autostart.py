@@ -57,8 +57,11 @@ Terminal=false\n\
 Hidden=false\n"
         )
 
-        with open(fn.home + "/.config/autostart/" + name + ".desktop", "w", encoding="utf-8") as f:
+        desktop_file = fn.home + "/.config/autostart/" + name + ".desktop"
+        with open(desktop_file, "w", encoding="utf-8") as f:
             f.write(content)
+        # ATT runs as root: without this the user could not edit their own autostart entry
+        fn.permissions(desktop_file)
         add_row(self, name)
 
 

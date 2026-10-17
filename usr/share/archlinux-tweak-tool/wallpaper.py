@@ -615,6 +615,11 @@ def _wayland_setters(user, path, scale):
             lambda: shutil.which("dms") and _user_running("dms"),
             lambda: _run_ok(user + ["dms", "ipc", "call", "wallpaper", "set", path]),
         ),
+        (
+            "Noctalia",
+            lambda: shutil.which("noctalia") and _user_running("noctalia"),
+            lambda: _run_ok(user + ["noctalia", "msg", "wallpaper-set", path]),
+        ),
         # 2. a wallpaper daemon already running in the session — reuse it rather than stacking a second one
         (
             "hyprpaper",
@@ -668,7 +673,7 @@ def _apply_wayland(self, path, scale):
         fn.log_error(f"Every Wayland wallpaper setter failed ({', '.join(tried)})")
         fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
     else:
-        fn.log_error("No Wayland wallpaper setter found (ryogami / dms / hyprpaper / awww / swww / swaybg / wbg)")
+        fn.log_error("No Wayland wallpaper setter found (ryogami / dms / noctalia / hyprpaper / awww / swww / swaybg / wbg)")
         fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install swaybg or awww")
 
 
