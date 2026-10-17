@@ -25,21 +25,17 @@ def get_fastfetch():
         return {}
 
 
-def get_position(lists, value):
-    data = []
-    suffixes = [" | lolcat", "\n", " | lolcat\n"]
-    prefix = "#"
+FISH_INTERACTIVE = "status is-interactive; and "
 
-    for string in lists:
-        for item in suffixes:
-            if string in (value + item, prefix + value + item, value, prefix + value):
-                data.append(string)
 
-    if data:
-        position = lists.index(data[0])
-        return position
-    else:
-        return -1
+def _without_fish_guard(line):
+    text = line.strip()
+    return text[len(FISH_INTERACTIVE):] if text.startswith(FISH_INTERACTIVE) else text
+
+
+def _is_fastfetch_line(line):
+    # the plain form, the commented form, and fish's interactive-only form (fastfetch-tweak-tool writes the same)
+    return _without_fish_guard(line).startswith(("fastfetch", "#fastfetch"))
 
 
 def write_configs(util_enabled, lolcat_enabled):
@@ -53,6 +49,9 @@ def write_configs(util_enabled, lolcat_enabled):
     new_state = "#fastfetch"
     if util_enabled:
         new_state = "fastfetch | lolcat" if lolcat_enabled else "fastfetch"
+        if config.endswith("config.fish"):
+            # fish reads config.fish for every shell, also scp/rsync over SSH: fastfetch output there breaks them
+            new_state = FISH_INTERACTIVE + new_state
 
     reporting_section_start = -1
     for i, line in enumerate(lines):
@@ -71,7 +70,7 @@ def write_configs(util_enabled, lolcat_enabled):
 
     fastfetch_line = -1
     for i in range(reporting_section_start, len(lines)):
-        if lines[i].strip().startswith(("fastfetch", "#fastfetch")):
+        if _is_fastfetch_line(lines[i]):
             fastfetch_line = i
             break
 
@@ -88,23 +87,17 @@ def write_configs(util_enabled, lolcat_enabled):
 
 
 def get_term_rc():
-    config_file = ""
-    pos = -1
     try:
         config_file = fn.get_config_file()
     except Exception:
-        config_file = ""
-    if config_file != "":
-        with open(config_file, "r", encoding="utf-8") as myfile:
-            lines = myfile.readlines()
-            pos = get_position(lines, "fastfetch")
-
-    if pos >= 0 and lines[pos].startswith("#"):
         return False
-    elif pos >= 0:
-        return True
-    else:
+    if not config_file or not fn.path.isfile(config_file):
         return False
+    with open(config_file, "r", encoding="utf-8") as myfile:
+        for line in myfile:
+            if _is_fastfetch_line(line):
+                return not _without_fish_guard(line).startswith("#")
+    return False
 
 
 # fastfetch module type -> checkbox attribute on the page; title and underline share one checkbox

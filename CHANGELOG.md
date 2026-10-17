@@ -2,6 +2,27 @@
 
 ## 2026.10.17
 
+### Fastfetch on fish runs only in interactive shells
+
+**What Changed.** Switching fastfetch on put a bare `fastfetch` line in `~/.config/fish/config.fish`. Fish reads
+that file for every shell, including the non-interactive ones that `scp`, `rsync` and `ssh host command` start. So
+fastfetch printed its output there and broke file copies ("scp: Received message too long"). On fish, ATT now
+writes `status is-interactive; and fastfetch` (or `… | lolcat`). Bash and zsh keep the plain line, because their
+rc files already stop early for non-interactive shells. An existing bare line is upgraded the next time the switch
+is used.
+
+**Technical Details.** `write_configs()` adds the `FISH_INTERACTIVE` prefix when the rc is `config.fish`.
+`_is_fastfetch_line()` (via `_without_fish_guard()`) recognizes the plain, commented and guarded forms, both when
+updating the line and in `get_term_rc()`. `get_term_rc()` now uses that helper instead of fastfetch.py's own
+exact-match `get_position()`, which knew no guarded form. That `get_position()` had no other caller and is
+removed. fastfetch-tweak-tool writes and reads the same guarded form, so each tool recognizes the other's line.
+Tested on a scratch config.fish: an old bare line reads as on, enabling upgrades it to one guarded line, lolcat
+and disable work, both tools read each other's line, bash keeps the plain line, and a non-interactive fish
+sourcing the file prints nothing.
+
+**Files Modified.**
+- `usr/share/archlinux-tweak-tool/fastfetch.py`
+
 ### Fastfetch editor no longer breaks the config
 
 **What Changed.** On Kiro, applying a Fastfetch preset could break fastfetch entirely ("failed to parse JSON config
