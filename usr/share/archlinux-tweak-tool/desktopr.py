@@ -101,12 +101,14 @@ if fn.distr:
         "kiro-rofi",
         "kiro-rofi-themes",
         "kiro-powermenu",
+        "pamixer",
     ]
     bspwm = [
         "alacritty",
         "kiro-bspwm",
         "kiro-xfce",
         "kiro-polybar",
+        "ttf-font-awesome",
         "archlinux-logout",
         "kiro-rofi",
         "kiro-rofi-themes",
@@ -134,6 +136,7 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     budgiedesktop = [
         "budgie-desktop",
@@ -185,6 +188,7 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     dusk = [
         "alacritty",
@@ -235,6 +239,7 @@ if fn.distr:
         "kiro-hlwm",
         "kiro-keybindings",
         "kiro-polybar",
+        "ttf-font-awesome",
         "kiro-rofi",
         "kiro-rofi-themes",
         "kiro-xfce",
@@ -359,12 +364,14 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     leftwm = [
         "alacritty",
         "archlinux-logout",
         "kiro-leftwm",
         "kiro-polybar",
+        "ttf-font-awesome",
         "kiro-rofi",
         "kiro-rofi-themes",
         "kiro-xfce",
@@ -398,6 +405,7 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     mate = [
         "mate",
@@ -439,6 +447,7 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     plasma = [
         "plasma",
@@ -476,6 +485,7 @@ if fn.distr:
         "libopenraw",
         "poppler-glib",
         "kiro-powermenu",
+        "pamixer",
     ]
     xfce = [
         "xfce4",
@@ -485,6 +495,7 @@ if fn.distr:
         "libxfce4ui",
         "alacritty",
         "kiro-xfce",
+        "pamixer",
         "dmenu",
         "mugshot",
         "polkit-gnome",

@@ -2,6 +2,14 @@
 
 ## 2026.10.22
 
+### Tiling WM and XFCE installs bring pamixer and Font Awesome
+
+**What Changed.** The Kiro ISO no longer ships `pamixer` and `ttf-font-awesome` on every edition, so the Desktop page now installs them with the editions that use them.
+
+**Technical Details.** `pamixer` added to the awesome, bspwm, chadwm, i3, leftwm, ohmychadwm, qtile and xfce lists (hlwm already had it); `ttf-font-awesome` to bspwm, hlwm and leftwm, next to `kiro-polybar`. Matches the ISO edition blocks.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`
+
 ### fastfetch, gpg.conf and skell mirrored from kiro repos
 
 **What Changed.** The last three ATT config mirrors that still came from old `erikdubois/edu-*` repos now come from the Kiro ones: `fastfetch/config.jsonc` from `kirodubes/kiro-dot-files`, `gpg.conf` and the generated `usr/bin/skell` from `kirodubes/kiro-system-files`. No `edu-` source is left in the sync.
