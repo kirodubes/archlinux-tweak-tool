@@ -1,5 +1,22 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.22
+
+### Desktop installs bring what the Kiro ISO core no longer ships
+
+**What Changed.** The Kiro ISO moved several packages out of its always-installed core and into the edition
+blocks, so a desktop added later through ATT can no longer rely on the core for them. The Desktop page lists now
+match the ISO edition blocks again. The 8 tiling WMs other than ohmychadwm get `dracula-colors-xfce4-terminal` and
+the Thunar thumbnailers (`tumbler`, `ffmpegthumbnailer`, `libgepub`, `libgsf`, `libopenraw`, `poppler-glib`).
+ohmychadwm gets the thumbnailers. awesome also gets `kiro-rofi` and `kiro-rofi-themes`. XFCE gets the Dracula
+colours and the thumbnail helpers.
+
+**Technical Details.** Appended to the per-desktop lists in `desktopr.py`. XFCE gets no separate `tumbler`
+entry because the `xfce4` group already contains it. `lxappearance` and `kiro-xfce` were already in every
+tiling WM list. The installs use `pacman -S --needed`, so packages already present are skipped.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`
+
 ## 2026.10.17
 
 ### Fastfetch on fish runs only in interactive shells
