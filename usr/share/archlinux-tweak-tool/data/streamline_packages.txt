@@ -30,12 +30,15 @@ nomacs
 obs-studio
 peek
 shortwave
-variety
 vlc
 vlc-plugins-base
 vlc-plugins-extra
 vlc-plugins-video-output
 xcolor
+
+###  WALLPAPER
+variety
+kiro-variety-config
 
 ###  PRODUCTIVITY / EDITORS
 baobab
