@@ -100,6 +100,7 @@ if fn.distr:
         "poppler-glib",
         "kiro-rofi",
         "kiro-rofi-themes",
+        "kiro-powermenu",
     ]
     bspwm = [
         "alacritty",
@@ -132,6 +133,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     budgiedesktop = [
         "budgie-desktop",
@@ -182,6 +184,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     dusk = [
         "alacritty",
@@ -224,6 +227,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     hlwm = [
         "alacritty",
@@ -270,6 +274,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     gnome = [
         "gnome",
@@ -353,6 +358,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     leftwm = [
         "alacritty",
@@ -391,6 +397,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     mate = [
         "mate",
@@ -431,6 +438,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     plasma = [
         "plasma",
@@ -467,6 +475,7 @@ if fn.distr:
         "libgsf",
         "libopenraw",
         "poppler-glib",
+        "kiro-powermenu",
     ]
     xfce = [
         "xfce4",

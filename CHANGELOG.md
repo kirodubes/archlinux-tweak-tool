@@ -2,6 +2,14 @@
 
 ## 2026.10.22
 
+### Tiling WM installs bring kiro-powermenu
+
+**What Changed.** The Kiro ISO no longer ships `kiro-powermenu` on every edition, so the Desktop page now installs it with the 9 X11 tiling WMs (awesome, bspwm, chadwm, dusk, hlwm, i3, leftwm, qtile, ohmychadwm), whose keybindings call it.
+
+**Technical Details.** Appended to those 9 lists in `desktopr.py`.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`
+
 ### Desktop installs bring what the Kiro ISO core no longer ships
 
 **What Changed.** The Kiro ISO moved several packages out of its always-installed core and into the edition
