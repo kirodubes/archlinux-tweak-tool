@@ -91,6 +91,15 @@ if fn.distr:
         "vicious",
         "volctl",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
+        "kiro-rofi",
+        "kiro-rofi-themes",
     ]
     bspwm = [
         "alacritty",
@@ -116,6 +125,13 @@ if fn.distr:
         "ttf-hack",
         "volctl",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     budgiedesktop = [
         "budgie-desktop",
@@ -159,6 +175,13 @@ if fn.distr:
         "xfce4-settings",
         "xfce4-taskmanager",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     dusk = [
         "alacritty",
@@ -194,6 +217,13 @@ if fn.distr:
         "xfce4-settings",
         "xfce4-taskmanager",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     hlwm = [
         "alacritty",
@@ -233,6 +263,13 @@ if fn.distr:
         "xfce4-settings",
         "xfce4-taskmanager",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     gnome = [
         "gnome",
@@ -309,6 +346,13 @@ if fn.distr:
         "ttf-hack",
         "volctl",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     leftwm = [
         "alacritty",
@@ -340,6 +384,13 @@ if fn.distr:
         "xfce4-screenshooter",
         "xfce4-taskmanager",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     mate = [
         "mate",
@@ -374,6 +425,12 @@ if fn.distr:
         "xfce4-settings",
         "xfce4-taskmanager",
         "xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     plasma = [
         "plasma",
@@ -403,6 +460,13 @@ if fn.distr:
         "ttf-hack",
         "volctl",
         "xfce4-terminal",
+        "dracula-colors-xfce4-terminal",
+        "tumbler",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
     xfce = [
         "xfce4",
@@ -416,6 +480,12 @@ if fn.distr:
         "mugshot",
         "polkit-gnome",
         "ttf-hack",
+        "dracula-colors-xfce4-terminal",
+        "ffmpegthumbnailer",
+        "libgepub",
+        "libgsf",
+        "libopenraw",
+        "poppler-glib",
     ]
 
 
