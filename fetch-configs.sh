@@ -15,7 +15,7 @@ set -euo pipefail
 #
 # Why:
 #   ATT carries copies of configs owned by other repos (kiro-bash-config,
-#   kiro-zsh-config, kiro-fish-config, edu-dot-files, kiro-iso,
+#   kiro-zsh-config, kiro-fish-config, kiro-dot-files, kiro-iso,
 #   kiro-variety-config) and writes them onto the
 #   user's system. With no sync those copies silently drift from what a real
 #   Kiro install ships. This pulls the canonical version every time, so the
@@ -159,16 +159,16 @@ fetch_all() {
 
 fetch_skell() {
     # ATT ships the skel-restore tool as usr/bin/skell. It is a GENERATED,
-    # verbatim copy of edu-system-files' kiro-skell (the single source of
+    # verbatim copy of kiro-system-files' kiro-skell (the single source of
     # truth) — that script is self-contained on purpose so it runs here with
     # no Kiro-only library. It names itself via "$(basename "$0")", so the
     # copy needs no rewriting: dropped in as skell, it prints "skell".
-    # Edit kiro-skell in edu-system-files, never this generated copy.
-    local url="${RAW_BASE}/erikdubois/edu-system-files/refs/heads/main/usr/local/bin/kiro-skell"
+    # Edit kiro-skell in kiro-system-files, never this generated copy.
+    local url="${RAW_BASE}/kirodubes/kiro-system-files/refs/heads/main/usr/local/bin/kiro-skell"
     local target="${SCRIPT_DIR}/usr/bin/skell"
     local tmp
 
-    log_section "Fetching skell from edu-system-files (kiro-skell)"
+    log_section "Fetching skell from kiro-system-files (kiro-skell)"
 
     tmp="$(mktemp)"
     if ! curl -fsSL "${url}" -o "${tmp}"; then
@@ -185,7 +185,7 @@ fetch_skell() {
 
     install -Dm755 "${tmp}" "${target}"
     rm -f "${tmp}"
-    echo "${GREEN}  ✓ usr/bin/skell${RESET}  — regenerated from edu-system-files/kiro-skell"
+    echo "${GREEN}  ✓ usr/bin/skell${RESET}  — regenerated from kiro-system-files/kiro-skell"
 }
 
 #####################################################################

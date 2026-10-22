@@ -3,7 +3,7 @@
 ATT ships a tree of config files under
 `usr/share/archlinux-tweak-tool/data/`. Some of those files are **copies of
 configs owned by another repo** (kiro-bash-config, kiro-zsh-config,
-kiro-fish-config, edu-dot-files, kiro-iso, …). Those
+kiro-fish-config, kiro-dot-files, kiro-iso, …). Those
 copies have no automated sync, so they silently drift from what a real Kiro
 system ships — and ATT actively *writes its copies onto the user's system* (e.g.
 the "Install the ATT config.fish" button in `shell.py`), so the drift is
@@ -28,8 +28,8 @@ copy here.**
 | `fish/usr/share/kiro/fish/parts/*.fish` | `kiro-fish-config:usr/share/kiro/fish/parts/*.fish` (6 parts) | — |
 | `.bashrc` | `kiro-bash-config:etc/skel/.bashrc-latest` (note the `-latest` suffix) | 6 lines |
 | `.zshrc` | `kiro-zsh-config:etc/skel/.zshrc` | 8 lines |
-| `fastfetch/config.jsonc` | `edu-dot-files:etc/skel/.config/fastfetch/config.jsonc` | 1 line |
-| `gpg.conf` | `edu-system-files:usr/local/share/kiro/gpg.conf` | 2 lines |
+| `fastfetch/config.jsonc` | `kiro-dot-files:etc/skel/.config/fastfetch/config.jsonc` | 1 line |
+| `gpg.conf` | `kiro-system-files:usr/local/share/kiro/gpg.conf` | 2 lines |
 | `variety/variety.conf` | `kiro-variety-config:etc/skel/.config/variety/variety.conf` | 2 lines |
 
 The fish config is a **tree**, not one file: `kiro-fish-config` ships a thin
@@ -43,9 +43,9 @@ package-owned, so ATT leaves it to pacman.
 #### PENDING — source unresolved
 `nano/nanorc`, `sddm/sddm.conf`, `sddm.conf.d/kde_settings.conf` exist **only** in
 the kiro-iso archiso tree, which is **not fetchable via public GitHub raw**
-(`github.com/erikdubois/kiro-iso` → 404; private or unpushed). No public `edu-*`
+(`github.com/erikdubois/kiro-iso` → 404; private or unpushed). No public `kiro-*`
 package ships them. They are commented out in `data-sources.tsv` until a public
-source is chosen (e.g. fold them into `edu-system-files`) or they're reclassified
+source is chosen (e.g. fold them into `kiro-system-files`) or they're reclassified
 as OWN. Note `nanorc`/`sddm.conf` are already 0-line in sync, so the urgency is
 low; `kde_settings.conf` is 4 lines off.
 
@@ -86,7 +86,7 @@ on every invocation. Upstream endpoints are constants at the top of the script
 — that is the place to look if a refresh ever fails.
 
 ## Source-repo layouts differ
-Most MIRROR sources are skel/package paths in the **kiro-*-config / edu-dot-files** repos, but
+Most MIRROR sources are skel/package paths in the **kiro-*-config / kiro-dot-files** repos, but
 `nanorc` + the two sddm files live **directly in kiro-iso** (ISO-native, no
 separate package). A fetch script must handle both repo layouts.
 

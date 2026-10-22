@@ -21,14 +21,14 @@ fish/usr/share/kiro/fish/parts/40-aliases.fish	kirodubes/kiro-fish-config	usr/sh
 fish/usr/share/kiro/fish/parts/50-integrations.fish	kirodubes/kiro-fish-config	usr/share/kiro/fish/parts/50-integrations.fish
 .bashrc	kirodubes/kiro-bash-config	etc/skel/.bashrc-latest
 .zshrc	kirodubes/kiro-zsh-config	etc/skel/.zshrc
-fastfetch/config.jsonc	erikdubois/edu-dot-files	etc/skel/.config/fastfetch/config.jsonc
-gpg.conf	erikdubois/edu-system-files	usr/local/share/kiro/gpg.conf
+fastfetch/config.jsonc	kirodubes/kiro-dot-files	etc/skel/.config/fastfetch/config.jsonc
+gpg.conf	kirodubes/kiro-system-files	usr/local/share/kiro/gpg.conf
 variety/variety.conf	kirodubes/kiro-variety-config	etc/skel/.config/variety/variety.conf
 
 # PENDING — source unresolved. These 3 configs exist ONLY in the kiro-iso archiso
 # tree, which is not fetchable via public GitHub raw (github.com/erikdubois/kiro-iso
-# returns 404 — private or not pushed). No public edu-* package ships them either.
-# Decide a public source (e.g. fold into edu-system-files) or reclassify as OWN
+# returns 404 — private or not pushed). No public kiro-* package ships them either.
+# Decide a public source (e.g. fold into kiro-system-files) or reclassify as OWN
 # before re-enabling. Verified 2026-05-25 dry-run: all three 404.
 #nano/nanorc	erikdubois/kiro-iso	archiso/airootfs/etc/nanorc
 #sddm/sddm.conf	erikdubois/kiro-iso	archiso/airootfs/etc/sddm.conf

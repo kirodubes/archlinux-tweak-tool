@@ -2,6 +2,14 @@
 
 ## 2026.10.22
 
+### fastfetch, gpg.conf and skell mirrored from kiro repos
+
+**What Changed.** The last three ATT config mirrors that still came from old `erikdubois/edu-*` repos now come from the Kiro ones: `fastfetch/config.jsonc` from `kirodubes/kiro-dot-files`, `gpg.conf` and the generated `usr/bin/skell` from `kirodubes/kiro-system-files`. No `edu-` source is left in the sync.
+
+**Technical Details.** Two manifest rows plus the hard-coded `fetch_skell()` URL in `fetch-configs.sh`. All three files are byte-identical at the new GitHub raw sources, so nothing shipped changes. The comments in CONFIG_SOURCES.md, data-sources.tsv and the script follow.
+
+**Files Modified.** `data-sources.tsv`, `CONFIG_SOURCES.md`, `fetch-configs.sh`
+
 ### variety config mirrored from kiro-variety-config
 
 **What Changed.** ATT's copy of `variety.conf` was still fetched from the old `erikdubois/edu-variety-config` repo. It now comes from `kirodubes/kiro-variety-config`, the package Kiro actually ships.
