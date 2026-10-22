@@ -2,6 +2,14 @@
 
 ## 2026.10.22
 
+### variety config mirrored from kiro-variety-config
+
+**What Changed.** ATT's copy of `variety.conf` was still fetched from the old `erikdubois/edu-variety-config` repo. It now comes from `kirodubes/kiro-variety-config`, the package Kiro actually ships.
+
+**Technical Details.** One row in the `fetch-configs.sh` manifest; the shipped file is unchanged, since the kiro-variety-config copy is byte-identical (checked against GitHub raw main). CONFIG_SOURCES.md and the script's header comment follow.
+
+**Files Modified.** `data-sources.tsv`, `CONFIG_SOURCES.md`, `fetch-configs.sh`
+
 ### Tiling WM installs bring kiro-powermenu
 
 **What Changed.** The Kiro ISO no longer ships `kiro-powermenu` on every edition, so the Desktop page now installs it with the 9 X11 tiling WMs (awesome, bspwm, chadwm, dusk, hlwm, i3, leftwm, qtile, ohmychadwm), whose keybindings call it.

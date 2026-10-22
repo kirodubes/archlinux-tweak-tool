@@ -30,7 +30,7 @@ copy here.**
 | `.zshrc` | `kiro-zsh-config:etc/skel/.zshrc` | 8 lines |
 | `fastfetch/config.jsonc` | `edu-dot-files:etc/skel/.config/fastfetch/config.jsonc` | 1 line |
 | `gpg.conf` | `edu-system-files:usr/local/share/kiro/gpg.conf` | 2 lines |
-| `variety/variety.conf` | `edu-variety-config:etc/skel/.config/variety/variety.conf` | 2 lines |
+| `variety/variety.conf` | `kiro-variety-config:etc/skel/.config/variety/variety.conf` | 2 lines |
 
 The fish config is a **tree**, not one file: `kiro-fish-config` ships a thin
 `config.fish` stub that `source`s `/usr/share/kiro/fish/kiro-config.fish`, which in

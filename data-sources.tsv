@@ -23,7 +23,7 @@ fish/usr/share/kiro/fish/parts/50-integrations.fish	kirodubes/kiro-fish-config	u
 .zshrc	kirodubes/kiro-zsh-config	etc/skel/.zshrc
 fastfetch/config.jsonc	erikdubois/edu-dot-files	etc/skel/.config/fastfetch/config.jsonc
 gpg.conf	erikdubois/edu-system-files	usr/local/share/kiro/gpg.conf
-variety/variety.conf	erikdubois/edu-variety-config	etc/skel/.config/variety/variety.conf
+variety/variety.conf	kirodubes/kiro-variety-config	etc/skel/.config/variety/variety.conf
 
 # PENDING — source unresolved. These 3 configs exist ONLY in the kiro-iso archiso
 # tree, which is not fetchable via public GitHub raw (github.com/erikdubois/kiro-iso
