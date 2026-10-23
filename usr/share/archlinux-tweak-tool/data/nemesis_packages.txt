@@ -332,6 +332,7 @@ plymouth-theme-kiro-logo
 plymouth-theme-kiro-logo-nemesis
 plymouth-theme-startrek
 python-pywal
+python-pywal16
 qt5-virtualkeyboard
 sardi-colora-variations-icons-git
 sardi-flat-colora-variations-icons-git
