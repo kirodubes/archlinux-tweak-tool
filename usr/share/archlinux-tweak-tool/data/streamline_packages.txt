@@ -114,7 +114,7 @@ pacquery
 pamac-aur
 pkgfile
 python-pyparted
-python-pywal
+python-pywal16
 rate-mirrors
 time
 
