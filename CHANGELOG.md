@@ -16,7 +16,7 @@
 
 **Technical Details.** Removed `_append_htt_section` and its call from `wayland_gui.py`, and `_refresh_htt_lbl`, `_refresh_htt_launch_btn`, `on_install_hyprland_tweak_tool_clicked`, `on_remove_hyprland_tweak_tool_clicked` and `on_click_launch_htt` from `wayland.py`. `remove_wayland_selection` needs no change: it removes only the `kiro-hyprland` config package, never `hyprland`, so an installed Hyprland Tweak Tool can't block it. `data/nemesis_packages.txt` keeps the name, because the package is still in nemesis_repo.
 
-**Files Modified.** `usr/share/archlinux-tweak-tool/wayland_gui.py`, `usr/share/archlinux-tweak-tool/wayland.py`, `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+**Files Modified.** `usr/share/archlinux-tweak-tool/wayland_gui.py`, `usr/share/archlinux-tweak-tool/wayland.py`, `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`, `CLAUDE.md` (the Wayland WM picker note no longer says `remove_wayland_selection` removes hyprland-tweak-tool)
 
 ### Desktop page: budgie and plasma no longer fail on the pacman lock
 
