@@ -2,6 +2,14 @@
 
 ## 2026.10.25
 
+### Starting ATT while it is open brings its window to the front
+
+**What Changed.** Pressing Ctrl+Alt+E (or the menu entry) while ATT is already open used to pop up "Lock File Found … Click yes to remove the lock file". Now the open ATT window just comes to the front. Tested on a test box: the old version adds the lock dialog, the new one does not.
+
+**Technical Details.** GTK keeps one instance per `application_id`, so a second launch runs `on_activate` again inside the running ATT, which then found its own `/tmp/att.lock`. `on_activate` now presents `get_active_window()` and returns when there is one. The lock check stays for what GTK cannot see: an ATT on another session bus, or a lock left behind by a crash.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ### Desktop - Wayland page: Hyprland Tweak Tool section removed
 
 **What Changed.** Hyprland Tweak Tool is frozen (it now shows a "no longer developed" popup), so ATT no longer offers it. The install, remove and launch section on the Desktop - Wayland page is gone, and so is its row in the list of other tweak tools.

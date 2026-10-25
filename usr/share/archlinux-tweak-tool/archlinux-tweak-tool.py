@@ -687,6 +687,13 @@ class ATTApplication(Gtk.Application):
 
     def on_activate(self, app):
         fn.log_info("ATT application activated")
+        # A second launch (Ctrl+Alt+E, the menu) activates this running ATT again: raise its window instead of
+        # reporting our own lock file. The lock still catches what GTK can't: another session bus, a crash.
+        window = self.get_active_window()
+        if window is not None:
+            fn.log_info("ATT is already open - bringing its window to the front")
+            window.present()
+            return
         # These lines offer protection and grace when a kernel has obfuscated
         # or removed basic OS functionality.
         os_function_support = True
