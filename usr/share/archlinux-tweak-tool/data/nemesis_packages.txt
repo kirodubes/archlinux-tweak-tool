@@ -325,6 +325,7 @@ neo-candy-vertexed-icons-git
 neo-candy-vimix-black-icons-git
 ohmychadwm
 ohmychadwm-appearance
+ohmychadwm-tweak-tool
 pacman-hook-kernel-install
 pamac-aur
 plymouth-theme-kiro-logo
