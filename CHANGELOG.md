@@ -2,6 +2,14 @@
 
 ## 2026.10.25
 
+### Desktop - Wayland page: Hyprland Tweak Tool section removed
+
+**What Changed.** Hyprland Tweak Tool is frozen (it now shows a "no longer developed" popup), so ATT no longer offers it. The install, remove and launch section on the Desktop - Wayland page is gone, and so is its row in the list of other tweak tools.
+
+**Technical Details.** Removed `_append_htt_section` and its call from `wayland_gui.py`, and `_refresh_htt_lbl`, `_refresh_htt_launch_btn`, `on_install_hyprland_tweak_tool_clicked`, `on_remove_hyprland_tweak_tool_clicked` and `on_click_launch_htt` from `wayland.py`. `remove_wayland_selection` still lists `hyprland-tweak-tool`, because the package depends on `hyprland` and `pacman -R hyprland` fails while it is installed. `data/nemesis_packages.txt` keeps the name, because the package is still in nemesis_repo.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/wayland_gui.py`, `usr/share/archlinux-tweak-tool/wayland.py`, `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ### Desktop page: budgie and plasma no longer fail on the pacman lock
 
 **What Changed.** Installing budgie (when catfish is installed) or plasma (when qt5ct is installed) opened two terminals at once, one removing the conflicting package and one installing the desktop. Whenever the install reached pacman first, it failed with `could not lock database`. The removal now runs in the install terminal itself, right before `pacman -S`, and the terminal lists the packages it removes first. Found by the new install-all test on a test box, where it failed on every run.

@@ -534,7 +534,6 @@ class Main(Gtk.ApplicationWindow):
             ("Alacritty Tweak Tool", "choose from 300+ Alacritty themes or create new ones", "Shells, Software"),
             ("Fastfetch Tweak Tool", "configure what Fastfetch shows and how", "Fastfetch"),
             ("Fish Tweak Tool", "configure the fish shell", "Shells"),
-            ("Hyprland Tweak Tool", "Hyprland setups, backups and restore", "Desktop - Wayland"),
         ]
         grid = Gtk.Grid(column_spacing=16, row_spacing=8)
         grid.set_margin_start(10)
