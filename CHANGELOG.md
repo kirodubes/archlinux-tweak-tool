@@ -4,11 +4,11 @@
 
 ### Starting ATT while it is open brings its window to the front
 
-**What Changed.** Pressing Ctrl+Alt+E (or the menu entry) while ATT is already open used to pop up "Lock File Found … Click yes to remove the lock file". Now the open ATT window just comes to the front. Tested on a test box: the old version adds the lock dialog, the new one does not.
+**What Changed.** Pressing Ctrl+Alt+E (or the menu entry) while ATT is already open used to ask for the password again and then show "Lock File Found … Click yes to remove the lock file". Now the open ATT window just comes to the front: no password, no second ATT. Tested on a test box with the real key: start with the password as before, then a second Ctrl+Alt+E raises the window.
 
-**Technical Details.** GTK keeps one instance per `application_id`, so a second launch runs `on_activate` again inside the running ATT, which then found its own `/tmp/att.lock`. `on_activate` now presents `get_active_window()` and returns when there is one. The lock check stays for what GTK cannot see: an ATT on another session bus, or a lock left behind by a crash.
+**Technical Details.** ATT runs as root through `pkexec`, so each launch is a separate root process that GTK's single-instance check cannot see; the second one found the lock file. The launcher `usr/bin/archlinux-tweak-tool` (frozen; changed on explicit instruction) now checks for a running `python3 /usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py` before `pkexec`. If one runs, it activates the ATT window with `xdotool` (X11) or, without xdotool or on Wayland, shows "ATT is already open" with `notify-send`, and exits. Neither is a dependency; without both it just exits. `on_activate` in `archlinux-tweak-tool.py` also presents an open window first, for an ATT started without pkexec. The lock check stays for a lock left behind by a crash.
 
-**Files Modified.** `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+**Files Modified.** `usr/bin/archlinux-tweak-tool`, `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
 
 ### Desktop - Wayland page: Hyprland Tweak Tool section removed
 

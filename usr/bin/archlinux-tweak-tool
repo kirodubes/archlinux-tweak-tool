@@ -13,6 +13,18 @@ if [[ -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" ]]; then
     exit 1
 fi
 
+# ATT already open: bring it to the front instead of asking for the password and starting a second ATT that
+# only finds the lock file. ATT runs as root through pkexec, so GTK cannot tell the two apart itself.
+if pgrep -f '^python3 /usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' >/dev/null; then
+    echo "[INFO]: ATT is already running"
+    if [[ -n "$DISPLAY" ]] && command -v xdotool >/dev/null \
+        && xdotool search --name '^Arch Linux Tweak Tool$' windowactivate >/dev/null 2>&1; then
+        exit 0
+    fi
+    command -v notify-send >/dev/null && notify-send -i archlinux-tweak-tool "Arch Linux Tweak Tool" "ATT is already open."
+    exit 0
+fi
+
 # check session is either one of X11, Wayland or TTY
 SESSION=$(loginctl show-session $(loginctl|grep $(whoami) | awk '{print $1}') -p Type | awk -F= '{print $2}' | grep "x11\|wayland\|tty")
 test -z "$SESSION" && echo "[ERROR]: Failed to verify session for user, SESSION = $SESSION" && exit 1
