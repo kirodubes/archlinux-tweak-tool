@@ -323,7 +323,6 @@ neo-candy-tela-ubuntu-icons-git
 neo-candy-tela-yellow-icons-git
 neo-candy-vertexed-icons-git
 neo-candy-vimix-black-icons-git
-noctalia-git
 ohmychadwm
 ohmychadwm-appearance
 pacman-hook-kernel-install
