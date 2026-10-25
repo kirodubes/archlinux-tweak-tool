@@ -71,3 +71,19 @@ with screenshots in `/tmp/att-live/shots/`; the exit code is 1 on any FAIL. If a
 restore, `bash tests/run-live-att.sh --restore` puts the backup back (a new run refuses to start until then).
 To test a checkout before packaging it, point `ATT_LIVE_APP_DIR` at its `usr/share/archlinux-tweak-tool`. A FAIL is a finding about ATT, not
 about the test.
+
+### Install-all-desktops test
+
+[tests/run-install-all-desktops.sh](tests/run-install-all-desktops.sh) presses what the `--dev` buttons on the
+Desktop page press, unattended. Same guard (`/etc/att-live-test-box`), same way of starting the installed ATT as
+root. It runs `pacman -Syu` first, then [tests/install_all_desktops.py](tests/install_all_desktops.py) calls
+ATT's own `install_all_desktops` (or `install_all_twms` with `--twms`). The alacritty terminal is swapped for a
+shell that answers the two "Press Enter" prompts; everything else is ATT's real code path, skel copy included.
+Per desktop it reports PASS (session file present, every package installed, no ATT error), FAIL or SKIP
+(already installed). Results go to `/tmp/att-install-all/report.json`.
+
+**Nothing is restored**: every desktop stays installed, Plasma and GNOME included (one-way). Test boxes only.
+
+To check that each one also logs in, follow up from the host with
+`~/.bin/kiro-vm-session-cycle.sh -H <ip> -p 22 -s 20 -S <dir>`: it logs into every SDDM session in turn,
+screenshots it, and logs out again.

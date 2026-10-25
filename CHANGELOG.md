@@ -2,6 +2,14 @@
 
 ## 2026.10.25
 
+### Install-all-desktops test (developer only)
+
+**What Changed.** New `tests/run-install-all-desktops.sh` runs the Desktop page's `--dev` "Install all desktops" (or "Install all twms" with `--twms`) on a test box with nobody at the keyboard, and reports for each desktop whether it really installed. Until now those buttons needed someone to press Enter twice per desktop.
+
+**Technical Details.** `tests/install_all_desktops.py` starts the installed ATT's real window as root (same pattern as `live_att.py`) and calls `desktopr.install_all_desktops` itself. It replaces only the `alacritty -e` launch, with `yes '' | bash -c <same command>`, so the install script, the pkexec pacman call and the post-install skel copy all run as ATT's own code. The report checks the session file through `check_desktop`, every package in the desktop's list through `check_package_installed`, and `fn.log_error` calls grouped by desktop. The wrapper takes the same `/etc/att-live-test-box` guard, runs `pacman -Syu` first and restores nothing. When it borrows the X cookie over SSH, it skips cookie files that no longer exist, because processes from an earlier login still point at them. Documented in `DISTRO_TESTING.md`.
+
+**Files Modified.** `tests/run-install-all-desktops.sh` (new), `tests/install_all_desktops.py` (new), `DISTRO_TESTING.md`
+
 ### nemesis_repo list: noctalia-git removed
 
 **What Changed.** `noctalia-git` left nemesis_repo, so ATT no longer counts it as a nemesis_repo package. Nothing in ATT installs it; the KiroTux Noctalia editions use `noctalia` from [extra].
