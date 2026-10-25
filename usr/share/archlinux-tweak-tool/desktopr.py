@@ -641,20 +641,15 @@ def _set_backup_notice(self, visible):
     return False
 
 
-def check_package_and_remove(self, package):
-    if fn.check_package_installed(package):
-        fn.remove_package(self, package)
-
-
 def install_desktop(self, desktop, on_complete=None):
     fn.log_section(f"Installing {desktop} desktop")
     fn.show_in_app_notification(self, f"Opening terminal for {desktop} installation...")
 
     src = []
     twm = False
-
-    check_package_and_remove(self, "rofi-lbonn-wayland-git")
-    check_package_and_remove(self, "rofi-lbonn-wayland-only-git")
+    # removed inside the install terminal, before pacman -S: a separate removal terminal ran at the same time
+    # and the install failed on the pacman database lock (budgie/plasma, install-all test 2026-10-25)
+    conflicts = ["rofi-lbonn-wayland-git", "rofi-lbonn-wayland-only-git"]
 
     if desktop == "awesome":
         command = awesome + default_app
@@ -666,7 +661,7 @@ def install_desktop(self, desktop, on_complete=None):
         src.append("/etc/skel/.config/polybar")
         twm = True
     elif desktop == "budgie-desktop":
-        check_package_and_remove(self, "catfish")
+        conflicts.append("catfish")
         command = budgiedesktop
     elif desktop == "chadwm":
         command = chadwm + default_app
@@ -708,7 +703,7 @@ def install_desktop(self, desktop, on_complete=None):
             "— install it manually from the AUR if needed"
         )
     elif desktop == "plasma":
-        check_package_and_remove(self, "qt5ct")
+        conflicts.append("qt5ct")
         command = plasma
     elif desktop == "qtile":
         command = qtile + default_app
@@ -749,6 +744,18 @@ def install_desktop(self, desktop, on_complete=None):
     if self.ch1.get_active():
         cache_clear = "echo 'Clearing package cache...' && yes | pkexec pacman -Scc && echo '' && "
 
+    to_remove = [pkg for pkg in conflicts if fn.check_package_installed(pkg)]
+    remove_notice = ""
+    remove_step = ""
+    if to_remove:
+        fn.log_info(f"Removing {', '.join(to_remove)} first: it conflicts with {desktop}")
+        remove_notice = f"echo 'Removed first (conflicts with {desktop}): {' '.join(to_remove)}' && echo '' && "
+        # a failed removal must not hide the install: pacman -S --ask=4 can still resolve the conflict itself
+        remove_step = (
+            f"{{ pkexec pacman -R --noconfirm {' '.join(to_remove)} "
+            f"|| echo 'Could not remove {' '.join(to_remove)}, continuing'; }} && echo '' && "
+        )
+
     install_cmd = (
         f"( "
         f"RED=$(tput setaf 1); RESET=$(tput sgr0); "
@@ -757,9 +764,11 @@ def install_desktop(self, desktop, on_complete=None):
         f"echo 'The following packages will be installed:' && "
         f"echo '{package_list}' && "
         f"echo '' && "
+        f"{remove_notice}"
         f"{cache_clear}"
         f"read -p 'Press Enter to begin installation... ' && "
         f"echo '' && "
+        f"{remove_step}"
         f"pkexec pacman -S {' '.join(command)} --needed --noconfirm --ask=4 "
         f"&& echo '' && echo '=== Installation Complete ===' "
         f"|| ( echo '' && echo '=== Installation failed — see errors above ===' && echo '' && "

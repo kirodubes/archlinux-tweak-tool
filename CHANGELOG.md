@@ -2,6 +2,14 @@
 
 ## 2026.10.25
 
+### Desktop page: budgie and plasma no longer fail on the pacman lock
+
+**What Changed.** Installing budgie (when catfish is installed) or plasma (when qt5ct is installed) opened two terminals at once, one removing the conflicting package and one installing the desktop. Whenever the install reached pacman first, it failed with `could not lock database`. The removal now runs in the install terminal itself, right before `pacman -S`, and the terminal lists the packages it removes first. Found by the new install-all test on a test box, where it failed on every run.
+
+**Technical Details.** `check_package_and_remove` (which called `fn.remove_package` and returned without waiting) is gone. `install_desktop` collects a `conflicts` list (the two rofi-lbonn packages, plus catfish for budgie and qt5ct for plasma), keeps the ones that are installed, and puts `{ pkexec pacman -R --noconfirm ... || echo ...; } &&` after the "Press Enter" prompt. A failed removal doesn't stop the install, because `pacman -S --ask=4` can still settle the conflict. Nothing has to wait on the GTK main loop, which matters because `install_all_desktops` calls `install_desktop` from an idle callback. Verified on the test box: budgie installed with catfish present, removal and install in one terminal.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`
+
 ### Install-all-desktops test (developer only)
 
 **What Changed.** New `tests/run-install-all-desktops.sh` runs the Desktop page's `--dev` "Install all desktops" (or "Install all twms" with `--twms`) on a test box with nobody at the keyboard, and reports for each desktop whether it really installed. Until now those buttons needed someone to press Enter twice per desktop.
