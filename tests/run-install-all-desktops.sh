@@ -91,10 +91,15 @@ find_session() {
             export WAYLAND_DISPLAY="${socket}"
         elif [[ -S /tmp/.X11-unix/X0 ]]; then
             export DISPLAY=":0"
-            # the display manager keeps the cookie in its own file: borrow it from a process of the session;
-            # processes left over from an earlier login point at a cookie file that no longer exists
-            local pid auth=""
-            for pid in $(pgrep -u "$(id -u)"); do
+            # the display manager keeps the cookie in its own file: borrow it from a process of the active
+            # seat0 session; processes and cookie files left over from earlier logins hold stale cookies
+            local sid pid pids auth=""
+            for sid in $(loginctl list-sessions --no-legend | awk -v u="$(id -un)" '$3 == u && $4 == "seat0" {print $1}'); do
+                [[ "$(loginctl show-session "${sid}" -P State 2>/dev/null)" == "active" ]] || continue
+                pids="$(cat "/sys/fs/cgroup/user.slice/user-$(id -u).slice/session-${sid}.scope/cgroup.procs" 2>/dev/null || true)"
+                break
+            done
+            for pid in ${pids:-$(pgrep -u "$(id -u)")}; do
                 auth="$({ tr '\0' '\n' < "/proc/${pid}/environ"; } 2>/dev/null | sed -n 's/^XAUTHORITY=//p' | head -n1 || true)"
                 [[ -n "${auth}" && -f "${auth}" ]] && break
                 auth=""
