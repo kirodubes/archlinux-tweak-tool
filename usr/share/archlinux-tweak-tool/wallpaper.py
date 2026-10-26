@@ -444,6 +444,35 @@ def _on_folder_response(self, dialog, result):
         pass
 
 
+def wallpaper_preset_folders():
+    """Return the known wallpaper folders that exist on this system."""
+    candidates = [
+        fn.path.join(_DIR, "walls"),
+        "/usr/share/backgrounds",
+        fn.path.join(fn.home, ".config", "variety"),
+        fn.path.join(fn.home, "Templates", "wallpapers"),
+        fn.path.join(fn.home, "Pictures"),
+    ]
+    return [folder for folder in candidates if fn.path.isdir(folder)]
+
+
+def saved_wallpaper_folder():
+    """Return the folder the picker last loaded, or None if it no longer exists."""
+    folder = fn.read_att_settings().get("wallpaper_folder")
+    return folder if folder and fn.path.isdir(folder) else None
+
+
+def on_wallpaper_preset_selected(self, dropdown, _pspec):
+    """Put the chosen preset folder in the entry and load its thumbnails."""
+    item = dropdown.get_selected_item()
+    if item is None:
+        return
+    folder_path = item.get_string()
+    fn.log_info(f"Wallpaper picker: preset folder {folder_path}")
+    self.wallpaper_folder_entry.set_text(folder_path)
+    _populate_wallpaper_thumbs(self, folder_path)
+
+
 def on_load_wallpaper_folder(self, _widget=None):
     """Load thumbnails from the folder path currently in the entry widget."""
     folder_path = self.wallpaper_folder_entry.get_text().strip()
@@ -463,6 +492,13 @@ def on_stop_wallpaper_loading(self, _widget=None):
 def _populate_wallpaper_thumbs(self, folder_path):
     self._wp_load_gen = getattr(self, "_wp_load_gen", 0) + 1
     current_gen = self._wp_load_gen
+
+    # Every way of loading (preset, Browse, Load) ends here, so this one save remembers them all
+    settings = fn.read_att_settings()
+    if settings.get("wallpaper_folder") != folder_path:
+        settings["wallpaper_folder"] = folder_path
+        fn.write_att_settings(settings)
+        fn.log_info(f"Wallpaper picker: folder remembered in {fn.att_settings}")
 
     child = self.wallpaper_thumb_flow.get_first_child()
     while child is not None:

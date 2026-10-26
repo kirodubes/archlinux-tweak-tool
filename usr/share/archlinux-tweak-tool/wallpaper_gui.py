@@ -133,9 +133,21 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     btn_browse = Gtk.Button(label="Browse")
     btn_browse.connect("clicked", functools.partial(wallpaper.on_browse_wallpaper_folder, self))
 
+    presets = wallpaper.wallpaper_preset_folders()
+    saved = wallpaper.saved_wallpaper_folder()
+    dd_presets = Gtk.DropDown.new_from_strings(presets)
+    dd_presets.set_tooltip_text("Known wallpaper folders - pick one to load it")
+    if saved in presets:
+        dd_presets.set_selected(presets.index(saved))
+    elif saved:
+        # A Browse/typed folder isn't a preset; showing no preset keeps every preset one click away
+        dd_presets.set_selected(Gtk.INVALID_LIST_POSITION)
+
     self.wallpaper_folder_entry = Gtk.Entry()
     self.wallpaper_folder_entry.set_hexpand(True)
-    self.wallpaper_folder_entry.set_text("/usr/share/archlinux-tweak-tool/walls")
+    self.wallpaper_folder_entry.set_text(saved or (presets[0] if presets else "/usr/share/archlinux-tweak-tool/walls"))
+    # Connected after set_selected so restoring the saved choice doesn't load thumbnails at startup
+    dd_presets.connect("notify::selected", functools.partial(wallpaper.on_wallpaper_preset_selected, self))
 
     btn_load = Gtk.Button(label="Load")
     btn_load.connect("clicked", functools.partial(wallpaper.on_load_wallpaper_folder, self))
@@ -144,6 +156,7 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     btn_stop.connect("clicked", functools.partial(wallpaper.on_stop_wallpaper_loading, self))
 
     hbox_folder.append(btn_browse)
+    hbox_folder.append(dd_presets)
     hbox_folder.append(self.wallpaper_folder_entry)
     hbox_folder.append(btn_load)
     hbox_folder.append(btn_stop)

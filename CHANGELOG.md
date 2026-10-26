@@ -10,6 +10,14 @@
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/wallpaper.py`
 
+### Wallpaper page: picker folder dropdown, and ATT remembers the folder
+
+**What Changed.** A dropdown next to Browse lists the known wallpaper folders: ATT's own walls, `/usr/share/backgrounds`, `~/.config/variety`, `~/Templates/wallpapers` and `~/Pictures`. Only folders that exist are listed. Picking one loads it straight away. The last folder loaded (from the dropdown, Browse or Load) is remembered, and the picker starts there the next time ATT opens.
+
+**Technical Details.** `wallpaper_preset_folders()` builds the list and `on_wallpaper_preset_selected` handles `notify::selected`. The folder is saved as `wallpaper_folder` in `att_settings.json` inside `_populate_wallpaper_thumbs`, the one place all three ways of loading pass through, and only when it changed. At build time `saved_wallpaper_folder()` restores it, but only if the folder still exists. The dropdown selection is restored before the signal is connected, so starting ATT doesn't load thumbnails by itself. A saved folder that isn't in the list (from Browse or typed in) leaves the dropdown on no selection, so every listed folder is still one click away.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/wallpaper.py`, `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
+
 ## 2026.10.25
 
 ### Starting ATT while it is open brings its window to the front
