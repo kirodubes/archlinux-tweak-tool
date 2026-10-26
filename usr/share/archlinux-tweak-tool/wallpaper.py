@@ -14,8 +14,7 @@ _ATT_WALLPAPERS = fn.path.join(_DIR, "wallpapers")
 _VARIETY_CONF_SRC = fn.path.join(_DIR, "data", "variety")
 _VARIETY_CONF_DEST = fn.path.join(fn.home, ".config", "variety")
 _VARIETY_CONF_BAK = fn.path.join(fn.home, ".config", "variety-bak")
-_TEMPLATES_WALLPAPERS = fn.path.join(fn.home, "Templates", "wallpapers")
-_VARIETY_DESKTOP_SRC ="/usr/share/applications/variety.desktop"
+_VARIETY_DESKTOP_SRC = "/usr/share/applications/variety.desktop"
 _VARIETY_AUTOSTART = fn.path.join(fn.home, ".config", "autostart", "variety.desktop")
 
 _FEH_FLAGS = {
@@ -451,11 +450,10 @@ def wallpaper_preset_folders():
         fn.path.join(_DIR, "walls"),
         "/usr/share/backgrounds",
         fn.path.join(fn.home, ".config", "variety"),
-        _TEMPLATES_WALLPAPERS,
+        fn.path.join(fn.home, "Templates", "wallpapers"),
         fn.path.join(fn.home, "Pictures"),
     ]
-    # ~/Templates/wallpapers is listed even when missing: ATT tells users to keep wallpapers there
-    return [folder for folder in candidates if folder == _TEMPLATES_WALLPAPERS or fn.path.isdir(folder)]
+    return [folder for folder in candidates if fn.path.isdir(folder)]
 
 
 def saved_wallpaper_folder():
@@ -471,12 +469,6 @@ def on_wallpaper_preset_selected(self, dropdown, _pspec):
         return
     folder_path = item.get_string()
     fn.log_info(f"Wallpaper picker: preset folder {folder_path}")
-    if not fn.path.isdir(folder_path):
-        fn.makedirs(folder_path, exist_ok=True)
-        # ATT runs as root; hand the new folders back to the user
-        fn.permissions(fn.path.join(fn.home, "Templates"))
-        fn.log_success(f"Created {folder_path}")
-        fn.show_in_app_notification(self, "Created ~/Templates/wallpapers - put your wallpapers there")
     self.wallpaper_folder_entry.set_text(folder_path)
     _populate_wallpaper_thumbs(self, folder_path)
 
