@@ -137,10 +137,11 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     saved = wallpaper.saved_wallpaper_folder()
     dd_presets = Gtk.DropDown.new_from_strings(presets)
     dd_presets.set_tooltip_text("Known wallpaper folders - pick one to load it")
+    # notify::selected only fires on a change, so a preselected entry that wasn't loaded could never be picked;
+    # with nothing saved (or a Browse/typed folder) start empty so every preset is one click away
     if saved in presets:
         dd_presets.set_selected(presets.index(saved))
-    elif saved:
-        # A Browse/typed folder isn't a preset; showing no preset keeps every preset one click away
+    else:
         dd_presets.set_selected(Gtk.INVALID_LIST_POSITION)
 
     self.wallpaper_folder_entry = Gtk.Entry()
