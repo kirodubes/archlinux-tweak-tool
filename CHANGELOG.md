@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.26
+
+### Wallpaper page: the picker also shows images in subfolders
+
+**What Changed.** Load (and Browse) in the ATT Wallpaper Picker used to show only images sitting directly in the chosen folder, so `~/.config/variety` showed nothing: variety keeps its images in subfolders (Downloaded, Favorites, Fetched …). The picker now goes into every subfolder and shows all images it finds there too.
+
+**Technical Details.** `_populate_wallpaper_thumbs` uses `os.walk` instead of `os.listdir`, sorting folders and files so the order is stable. `followlinks` stays off, so a symlink loop can't make the walk endless. The console logs how many images were found. Thumbnails still load one per idle call, so Stop works as before.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/wallpaper.py`
+
 ## 2026.10.25
 
 ### Starting ATT while it is open brings its window to the front

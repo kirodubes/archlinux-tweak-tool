@@ -471,12 +471,12 @@ def _populate_wallpaper_thumbs(self, folder_path):
         child = next_child
 
     exts = (".jpg", ".jpeg", ".png", ".webp", ".bmp")
-    try:
-        entries = sorted(fn.os.listdir(folder_path))
-    except Exception:
-        return
-
-    image_paths = [fn.path.join(folder_path, n) for n in entries if n.lower().endswith(exts)]
+    image_paths = []
+    # followlinks stays False so a symlink loop can't make the walk endless
+    for root, dirs, files in fn.os.walk(folder_path):
+        dirs.sort()
+        image_paths.extend(fn.path.join(root, n) for n in sorted(files) if n.lower().endswith(exts))
+    fn.log_info(f"Wallpaper picker: {len(image_paths)} images found in {folder_path} and its subfolders")
     idx = [0]
 
     def load_next():
