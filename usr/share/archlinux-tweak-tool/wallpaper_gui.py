@@ -151,6 +151,8 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     dd_presets.connect("notify::selected", functools.partial(wallpaper.on_wallpaper_preset_selected, self))
 
     btn_load = Gtk.Button(label="Load")
+    # Thumbnails don't load at startup, so point users to Load
+    btn_load.add_css_class("gold-button")
     btn_load.connect("clicked", functools.partial(wallpaper.on_load_wallpaper_folder, self))
 
     btn_stop = Gtk.Button(label="Stop")

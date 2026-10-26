@@ -18,6 +18,14 @@
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/wallpaper.py`, `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
 
+### Wallpaper page: gold border on the Load button
+
+**What Changed.** The picker doesn't load thumbnails when ATT starts, so the Load button now has a gold border to show users where to click.
+
+**Technical Details.** New reusable class `.gold-button` in `icons.css`: a 2px border in ATT gold `#FFA500`, the colour of the app title. Any button that should point users to the next action can use it.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/icons.css`, `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
+
 ## 2026.10.25
 
 ### Starting ATT while it is open brings its window to the front
