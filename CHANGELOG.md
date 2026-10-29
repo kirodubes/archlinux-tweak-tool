@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.29
+
+### Variety on XFCE: the wallpaper changes again
+
+**What Changed.** On XFCE, variety never changed the wallpaper. The shipped `set_wallpaper_kiro` took about 14 seconds, and variety kills a set-wallpaper script after 10, so every change was dropped (`Timeout while running set_wallpaper script, killed` in `variety.log`). The script now takes about 1 second.
+
+**Technical Details.** The XFCE section ran three `xfconf-query` calls for every `/backdrop` image key. The Kiro XFCE skel `xfce4-desktop.xml` pre-seeds about 66 connector names, which makes 412 keys and about 1,236 calls. The loop now keeps only the keys for the monitors `xrandr --listactivemonitors` reports. It falls back to every key when xrandr gives nothing or no key matches, so a desktop that names its keys differently still gets its wallpaper.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/variety/scripts/set_wallpaper_kiro`
+
 ## 2026.10.26
 
 ### Wallpaper page: the picker also shows images in subfolders
