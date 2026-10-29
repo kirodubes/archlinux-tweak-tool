@@ -2,6 +2,19 @@
 
 ## 2026.10.29
 
+### Wallpaper page: the picker shows on every desktop, and Apply works on every X11 edition
+
+**What Changed.** The ATT Wallpaper Picker was hidden on the full desktops (XFCE, Plasma, GNOME, MATE, Cinnamon, Budgie …), so XFCE users saw no Load button or folder dropdown. It now shows on every desktop. Apply now also works on every X11 edition the Kiro ISO builder offers. The tiling WMs (awesome, bspwm, chadwm, ohmychadwm, dusk, herbstluftwm, i3, leftwm, qtile) keep using feh. XFCE, Plasma, MATE, Cinnamon, GNOME and Budgie each get their own setter. Wayland is unchanged.
+
+**Technical Details.**
+- `should_show_picker()` and `_HIDE_PICKER_DESKTOPS` are removed, so `box_picker` is always visible.
+- ATT runs as root, so the old gsettings and dbus-send calls wrote to root's settings, not the user's. That went unnoticed because the picker was hidden on exactly those desktops. A new `_x11_user_cmd()` runs every desktop setter as the session user with their `DISPLAY`, `XAUTHORITY`, `XDG_RUNTIME_DIR` and `DBUS_SESSION_BUS_ADDRESS`, the X11 counterpart of `_wayland_user_cmd()`.
+- XFCE is new (`_set_xfce`). It sets `last-image` and `image-style` through `xfconf-query`, but only for the monitors `xrandr --listactivemonitors` reports. The Kiro skel `xfce4-desktop.xml` pre-seeds about 66 connector names (412 keys), the same slowdown that broke variety. It falls back to every key, or creates `workspace0` keys for each active monitor when XFCE has none yet.
+- Budgie goes to the GNOME setter (`org.gnome.desktop.background`). `dbus-send` now uses `--print-reply`, so a failed PlasmaShell call returns a non-zero exit code and is reported as a failure.
+- The setters share `_run_ok` and a new `_report_x11`. X11 Apply now runs in a daemon thread like Wayland Apply, with notifications sent through `GLib.idle_add`, so a slow setter can't freeze the window.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/wallpaper.py`, `usr/share/archlinux-tweak-tool/wallpaper_gui.py`
+
 ### Variety on XFCE: the wallpaper changes again
 
 **What Changed.** On XFCE, variety never changed the wallpaper. The shipped `set_wallpaper_kiro` took about 14 seconds, and variety kills a set-wallpaper script after 10, so every change was dropped (`Timeout while running set_wallpaper script, killed` in `variety.log`). The script now takes about 1 second.

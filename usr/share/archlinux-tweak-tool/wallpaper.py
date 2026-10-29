@@ -64,26 +64,10 @@ _SIMPLE_WMS = {
     "xmonad",
 }
 
-_HIDE_PICKER_DESKTOPS = frozenset(
-    [
-        "gnome",
-        "unity",
-        "kde",
-        "xfce",
-        "mate",
-        "cinnamon",
-        "x-cinnamon",
-        "budgie",
-        "deepin",
-        "lxqt",
-        "lxde",
-        "pantheon",
-    ]
-)
-
-
 # swaybg's -m modes match the Scale dropdown 1:1; awww/swww only know crop / fit / no
 _SWAYBG_MODES = {"Fill": "fill", "Fit": "fit", "Center": "center", "Tile": "tile", "Stretch": "stretch"}
+# xfce4-desktop image-style values
+_XFCE_STYLES = {"Fill": 5, "Fit": 4, "Center": 1, "Tile": 2, "Stretch": 3}
 _SWWW_RESIZE = {"Fill": "crop", "Fit": "fit", "Center": "no"}
 
 
@@ -114,15 +98,6 @@ def _get_user_env(keys):
     except Exception:
         pass
     return result
-
-
-def should_show_picker():
-    """Return True if the wallpaper picker should be shown (hidden on full DEs that manage wallpaper themselves)."""
-    env = _get_user_env(["XDG_CURRENT_DESKTOP", "DESKTOP_SESSION", "XDG_SESSION_DESKTOP", "KDE_FULL_SESSION"])
-    if env["KDE_FULL_SESSION"] == "true":
-        return False
-    desktop = (env["XDG_CURRENT_DESKTOP"] + " " + env["DESKTOP_SESSION"] + " " + env["XDG_SESSION_DESKTOP"]).lower()
-    return not any(name in desktop for name in _HIDE_PICKER_DESKTOPS)
 
 
 def on_restore_variety_backup(self, _widget=None):
@@ -578,7 +553,7 @@ def _apply_wallpaper(self, path, scale):
     if env["WAYLAND_DISPLAY"] or env["XDG_SESSION_TYPE"] == "wayland":
         fn.threading.Thread(target=_apply_wayland, args=(self, path, scale), daemon=True).start()
     else:
-        _apply_x11(self, path, scale)
+        fn.threading.Thread(target=_apply_x11, args=(self, path, scale), daemon=True).start()
 
 
 def _wayland_user_cmd():
@@ -713,6 +688,35 @@ def _apply_wayland(self, path, scale):
         fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install swaybg or awww")
 
 
+def _x11_user_cmd():
+    """Command prefix that runs as the session user with that user's X display and D-Bus session bus."""
+    uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
+    display = _get_user_env(["DISPLAY"])["DISPLAY"] or ":0"
+    xauthority = _get_user_env(["XAUTHORITY"])["XAUTHORITY"]
+    cmd = [
+        "sudo",
+        "-u",
+        fn.sudo_username,
+        "env",
+        f"DISPLAY={display}",
+        f"XDG_RUNTIME_DIR=/run/user/{uid}",
+        f"DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/{uid}/bus",
+    ]
+    if xauthority:
+        cmd.append(f"XAUTHORITY={xauthority}")
+    return cmd
+
+
+def _report_x11(self, ok, path, tool):
+    name = fn.path.basename(path)
+    if ok:
+        fn.log_success(f"Wallpaper set with {tool}: {name}")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {name}")
+    else:
+        fn.log_error(f"Setting the wallpaper with {tool} failed")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
+
+
 def _apply_x11(self, path, scale):
     env = _get_user_env(["XDG_CURRENT_DESKTOP", "DESKTOP_SESSION", "XDG_SESSION_DESKTOP", "KDE_FULL_SESSION"])
     desktop = (env["XDG_CURRENT_DESKTOP"] + env["DESKTOP_SESSION"] + env["XDG_SESSION_DESKTOP"]).lower()
@@ -720,14 +724,17 @@ def _apply_x11(self, path, scale):
 
     fn.debug_print(f"X11 DE detection: {env}")
 
+    # A full desktop draws its own backdrop over the root window, so feh only works for the tiling WMs
     if kde:
         _set_kde(self, path)
-    elif "gnome" in desktop or "unity" in desktop:
-        _set_gnome(self, path, scale)
+    elif "xfce" in desktop:
+        _set_xfce(self, path, scale)
+    elif "cinnamon" in desktop:
+        _set_cinnamon(self, path, scale)
     elif "mate" in desktop:
         _set_mate(self, path, scale)
-    elif "cinnamon" in desktop or "x-cinnamon" in desktop:
-        _set_cinnamon(self, path, scale)
+    elif "gnome" in desktop or "unity" in desktop or "budgie" in desktop:
+        _set_gnome(self, path, scale)
     else:
         _set_feh(self, path, scale)
 
@@ -743,10 +750,10 @@ def _set_feh(self, path, scale):
                 stderr=fn.subprocess.PIPE,
             )
             fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-            fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {fn.path.basename(path)}")
         except FileNotFoundError:
             fn.log_error("feh not found")
-            fn.show_in_app_notification(self, "feh not found — install feh or nitrogen")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, "feh not found — install feh or nitrogen")
     elif shutil.which("nitrogen"):
         fn.log_subsection(f"Applying wallpaper — nitrogen --set-zoom-fill: {path}")
         try:
@@ -756,70 +763,73 @@ def _set_feh(self, path, scale):
                 stderr=fn.subprocess.PIPE,
             )
             fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-            fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {fn.path.basename(path)}")
         except FileNotFoundError:
             fn.log_error("nitrogen not found")
-            fn.show_in_app_notification(self, "nitrogen not found — install feh or nitrogen")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, "nitrogen not found — install feh or nitrogen")
     else:
         fn.log_error("No wallpaper setter found — install feh or nitrogen")
-        fn.show_in_app_notification(self, "No wallpaper setter found — install feh or nitrogen")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install feh or nitrogen")
+
+
+def _xfce_backdrop_keys(user):
+    """Return the xfce4-desktop last-image keys of the connected monitors."""
+    listing = fn.subprocess.run(
+        user + ["xfconf-query", "-c", "xfce4-desktop", "-p", "/backdrop", "-l"], capture_output=True, text=True
+    ).stdout.split()
+    keys = [key for key in listing if key.endswith("/last-image") and key.count("/") == 5]
+    monitors = fn.subprocess.run(
+        user + ["xrandr", "--listactivemonitors"], capture_output=True, text=True
+    ).stdout.splitlines()[1:]
+    active = {line.split()[-1] for line in monitors if line.strip()}
+    # The Kiro skel xfce4-desktop.xml pre-seeds ~66 connector names (412 keys); setting all of them takes seconds
+    matched = [key for key in keys if key.split("/")[3].removeprefix("monitor") in active]
+    if matched:
+        return matched
+    if keys:
+        return keys
+    return [f"/backdrop/screen0/monitor{monitor}/workspace0/last-image" for monitor in sorted(active)]
+
+
+def _set_xfce(self, path, scale):
+    fn.log_subsection(f"Applying wallpaper — xfconf (XFCE): {path}")
+    user = _x11_user_cmd()
+    style = str(_XFCE_STYLES.get(scale, 5))
+    keys = _xfce_backdrop_keys(user)
+    ok = bool(keys)
+    for key in keys:
+        query = user + ["xfconf-query", "-c", "xfce4-desktop", "-p"]
+        # An empty path first makes xfdesktop redraw even when the same image is applied again
+        _run_ok(query + [key, "-n", "-t", "string", "-s", ""])
+        ok = _run_ok(query + [key, "-n", "-t", "string", "-s", path]) and ok
+        _run_ok(query + [key.rsplit("/", 1)[0] + "/image-style", "-n", "-t", "int", "-s", style])
+    _report_x11(self, ok, path, "xfconf")
 
 
 def _set_gnome(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (GNOME): {path}")
-    mode = _GNOME_MODES.get(scale, "zoom")
+    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.gnome.desktop.background"]
     uri = f"file://{path}"
-    try:
-        fn.subprocess.run(
-            ["gsettings", "set", "org.gnome.desktop.background", "picture-uri", uri], stderr=fn.subprocess.DEVNULL
-        )
-        fn.subprocess.run(
-            ["gsettings", "set", "org.gnome.desktop.background", "picture-uri-dark", uri], stderr=fn.subprocess.DEVNULL
-        )
-        fn.subprocess.run(
-            ["gsettings", "set", "org.gnome.desktop.background", "picture-options", mode], stderr=fn.subprocess.DEVNULL
-        )
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-    except FileNotFoundError:
-        fn.log_error("gsettings not found")
-        fn.show_in_app_notification(self, "gsettings not found")
+    ok = _run_ok(gsettings + ["picture-uri", uri])
+    ok = _run_ok(gsettings + ["picture-uri-dark", uri]) and ok
+    ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
+    _report_x11(self, ok, path, "gsettings")
 
 
 def _set_mate(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (MATE): {path}")
-    mode = _GNOME_MODES.get(scale, "zoom")
-    try:
-        fn.subprocess.run(
-            ["gsettings", "set", "org.mate.background", "picture-filename", path], stderr=fn.subprocess.DEVNULL
-        )
-        fn.subprocess.run(
-            ["gsettings", "set", "org.mate.background", "picture-options", mode], stderr=fn.subprocess.DEVNULL
-        )
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-    except FileNotFoundError:
-        fn.log_error("gsettings not found")
-        fn.show_in_app_notification(self, "gsettings not found")
+    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.mate.background"]
+    ok = _run_ok(gsettings + ["picture-filename", path])
+    ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
+    _report_x11(self, ok, path, "gsettings")
 
 
 def _set_cinnamon(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (Cinnamon): {path}")
-    mode = _GNOME_MODES.get(scale, "zoom")
-    uri = f"file://{path}"
-    try:
-        fn.subprocess.run(
-            ["gsettings", "set", "org.cinnamon.desktop.background", "picture-uri", uri], stderr=fn.subprocess.DEVNULL
-        )
-        fn.subprocess.run(
-            ["gsettings", "set", "org.cinnamon.desktop.background", "picture-options", mode],
-            stderr=fn.subprocess.DEVNULL,
-        )
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-    except FileNotFoundError:
-        fn.log_error("gsettings not found")
-        fn.show_in_app_notification(self, "gsettings not found")
+    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.cinnamon.desktop.background"]
+    ok = _run_ok(gsettings + ["picture-uri", f"file://{path}"])
+    ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
+    _report_x11(self, ok, path, "gsettings")
 
 
 def _set_kde(self, path):
@@ -833,20 +843,16 @@ def _set_kde(self, path):
         "  }"
         "}"
     )
-    try:
-        fn.subprocess.run(
-            [
-                "dbus-send",
-                "--type=method_call",
-                "--dest=org.kde.plasmashell",
-                "/PlasmaShell",
-                "org.kde.PlasmaShell.evaluateScript",
-                f"string:{script}",
-            ],
-            stderr=fn.subprocess.DEVNULL,
-        )
-        fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-        fn.show_in_app_notification(self, f"Wallpaper set: {fn.path.basename(path)}")
-    except FileNotFoundError:
-        fn.log_error("dbus-send not found")
-        fn.show_in_app_notification(self, "dbus-send not found")
+    ok = _run_ok(
+        _x11_user_cmd()
+        + [
+            "dbus-send",
+            "--print-reply",
+            "--type=method_call",
+            "--dest=org.kde.plasmashell",
+            "/PlasmaShell",
+            "org.kde.PlasmaShell.evaluateScript",
+            f"string:{script}",
+        ]
+    )
+    _report_x11(self, ok, path, "PlasmaShell dbus")

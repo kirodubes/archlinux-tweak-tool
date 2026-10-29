@@ -118,9 +118,8 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     hbox_config_btns.append(self.btn_save_variety_config)
     hbox_config_btns.append(self.btn_restore_variety_backup)
 
-    # ---- ATT Wallpaper Picker section (hidden on full DEs that manage wallpaper themselves) ----
+    # ---- ATT Wallpaper Picker section ----
     box_picker = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-    box_picker.set_visible(wallpaper.should_show_picker())
 
     hbox_section_picker = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section_picker = Gtk.Label(xalign=0)

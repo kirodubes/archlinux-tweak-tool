@@ -1006,10 +1006,10 @@ A widget with `set_size_request(-1, 25)` can still receive more allocation if it
 ## 2026-05-06 (session 66)
 
 **Tip: Fake a desktop environment with `XDG_CURRENT_DESKTOP=X` to test conditional UI without switching DEs**
-`sudo XDG_CURRENT_DESKTOP=GNOME python3 archlinux-tweak-tool.py` makes ATT think it's running on GNOME — any widget guarded by `should_show_picker()` hides instantly. No VM, no re-login. Works for any env-var-driven guard in ATT: test the "full DE" path and the "WM" path in seconds by changing one env var at launch.
+`sudo XDG_CURRENT_DESKTOP=GNOME python3 archlinux-tweak-tool.py` makes ATT think it's running on GNOME — `_apply_x11()` in `wallpaper.py` then picks the GNOME setter, which the debug log shows (`X11 DE detection: …`). No VM, no re-login. (Until 2026-10-29 this tip used `should_show_picker()`; the picker now shows on every desktop.) Works for any env-var-driven guard in ATT: test the "full DE" path and the "WM" path in seconds by changing one env var at launch.
 
 **Tip: Use a frozenset + `any()` for multi-desktop hide logic — never a long elif chain**
-`return not any(name in desktop for name in _HIDE_PICKER_DESKTOPS)` with a `frozenset(["gnome", "kde", ...])` constant is O(1) lookup and one line of logic. Adding a new desktop to the hide list is a one-word edit to the constant — not a new elif branch. More importantly, the constant is self-documenting: the whole policy is visible in one place, not scattered across a chain of string checks.
+`return not any(name in desktop for name in _HIDE_PICKER_DESKTOPS)` with a `frozenset(["gnome", "kde", ...])` constant is O(1) lookup and one line of logic. Adding a new desktop to the hide list is a one-word edit to the constant — not a new elif branch. More importantly, the constant is self-documenting: the whole policy is visible in one place, not scattered across a chain of string checks. (Superseded 2026-10-29: `_HIDE_PICKER_DESKTOPS` was removed when the picker started showing on every desktop; the pattern itself still holds.)
 
 **Tip: Say "just for me" to get leaner, more direct code**
 When you tell Claude a script or tool is only for your own use, it skips generalization, defensive edge-case handling, and abstraction it would otherwise add for a public-facing tool. The result is shorter, more direct code that does exactly what you need without boilerplate you'll never hit.
