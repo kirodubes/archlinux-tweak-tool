@@ -683,6 +683,12 @@ def _wayland_setters(user, path, scale):
 
 
 def _apply_wayland(self, path, scale):
+    # Plasma, GNOME … draw their own backdrop and take the wallpaper over D-Bus; anything the chain below
+    # would start (swaybg, awww …) stays hidden underneath it
+    setter = _desktop_setter()
+    if setter:
+        setter(self, path, scale)
+        return
     name = fn.path.basename(path)
     user = _wayland_user_cmd()
     tried = []
@@ -703,8 +709,8 @@ def _apply_wayland(self, path, scale):
         fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install swaybg or awww")
 
 
-def _x11_user_cmd():
-    """Command prefix that runs as the session user with that user's X display and D-Bus session bus."""
+def _session_user_cmd():
+    """Command prefix that runs as the session user with that user's display and D-Bus session bus."""
     uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
     display = _get_user_env(["DISPLAY"])["DISPLAY"] or ":0"
     xauthority = _get_user_env(["XAUTHORITY"])["XAUTHORITY"]
@@ -722,7 +728,7 @@ def _x11_user_cmd():
     return cmd
 
 
-def _report_x11(self, ok, path, tool):
+def _report_desktop(self, ok, path, tool):
     name = fn.path.basename(path)
     if ok:
         fn.log_success(f"Wallpaper set with {tool}: {name}")
@@ -732,26 +738,30 @@ def _report_x11(self, ok, path, tool):
         fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
 
 
-def _apply_x11(self, path, scale):
+def _desktop_setter():
+    """Return the wallpaper setter of a full desktop, or None for a tiling WM or bare compositor."""
     env = _get_user_env(["XDG_CURRENT_DESKTOP", "DESKTOP_SESSION", "XDG_SESSION_DESKTOP", "KDE_FULL_SESSION"])
     desktop = (env["XDG_CURRENT_DESKTOP"] + env["DESKTOP_SESSION"] + env["XDG_SESSION_DESKTOP"]).lower()
-    kde = env["KDE_FULL_SESSION"] == "true"
 
-    fn.debug_print(f"X11 DE detection: {env}")
+    fn.debug_print(f"DE detection: {env}")
 
+    if env["KDE_FULL_SESSION"] == "true" or "kde" in desktop or "plasma" in desktop:
+        return _set_kde
+    if "xfce" in desktop:
+        return _set_xfce
+    if "cinnamon" in desktop:
+        return _set_cinnamon
+    if "mate" in desktop:
+        return _set_mate
+    if "gnome" in desktop or "unity" in desktop or "budgie" in desktop:
+        return _set_gnome
+    return None
+
+
+def _apply_x11(self, path, scale):
     # A full desktop draws its own backdrop over the root window, so feh only works for the tiling WMs
-    if kde:
-        _set_kde(self, path)
-    elif "xfce" in desktop:
-        _set_xfce(self, path, scale)
-    elif "cinnamon" in desktop:
-        _set_cinnamon(self, path, scale)
-    elif "mate" in desktop:
-        _set_mate(self, path, scale)
-    elif "gnome" in desktop or "unity" in desktop or "budgie" in desktop:
-        _set_gnome(self, path, scale)
-    else:
-        _set_feh(self, path, scale)
+    setter = _desktop_setter() or _set_feh
+    setter(self, path, scale)
 
 
 def _set_feh(self, path, scale):
@@ -808,7 +818,7 @@ def _xfce_backdrop_keys(user):
 
 def _set_xfce(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — xfconf (XFCE): {path}")
-    user = _x11_user_cmd()
+    user = _session_user_cmd()
     style = str(_XFCE_STYLES.get(scale, 5))
     keys = _xfce_backdrop_keys(user)
     ok = bool(keys)
@@ -818,36 +828,36 @@ def _set_xfce(self, path, scale):
         _run_ok(query + [key, "-n", "-t", "string", "-s", ""])
         ok = _run_ok(query + [key, "-n", "-t", "string", "-s", path]) and ok
         _run_ok(query + [key.rsplit("/", 1)[0] + "/image-style", "-n", "-t", "int", "-s", style])
-    _report_x11(self, ok, path, "xfconf")
+    _report_desktop(self, ok, path, "xfconf")
 
 
 def _set_gnome(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (GNOME): {path}")
-    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.gnome.desktop.background"]
+    gsettings = _session_user_cmd() + ["gsettings", "set", "org.gnome.desktop.background"]
     uri = f"file://{path}"
     ok = _run_ok(gsettings + ["picture-uri", uri])
     ok = _run_ok(gsettings + ["picture-uri-dark", uri]) and ok
     ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
-    _report_x11(self, ok, path, "gsettings")
+    _report_desktop(self, ok, path, "gsettings")
 
 
 def _set_mate(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (MATE): {path}")
-    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.mate.background"]
+    gsettings = _session_user_cmd() + ["gsettings", "set", "org.mate.background"]
     ok = _run_ok(gsettings + ["picture-filename", path])
     ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
-    _report_x11(self, ok, path, "gsettings")
+    _report_desktop(self, ok, path, "gsettings")
 
 
 def _set_cinnamon(self, path, scale):
     fn.log_subsection(f"Applying wallpaper — gsettings (Cinnamon): {path}")
-    gsettings = _x11_user_cmd() + ["gsettings", "set", "org.cinnamon.desktop.background"]
+    gsettings = _session_user_cmd() + ["gsettings", "set", "org.cinnamon.desktop.background"]
     ok = _run_ok(gsettings + ["picture-uri", f"file://{path}"])
     ok = _run_ok(gsettings + ["picture-options", _GNOME_MODES.get(scale, "zoom")]) and ok
-    _report_x11(self, ok, path, "gsettings")
+    _report_desktop(self, ok, path, "gsettings")
 
 
-def _set_kde(self, path):
+def _set_kde(self, path, _scale):
     fn.log_subsection(f"Applying wallpaper — PlasmaShell dbus (KDE): {path}")
     script = (
         "let allDesktops = desktops();"
@@ -859,7 +869,7 @@ def _set_kde(self, path):
         "}"
     )
     ok = _run_ok(
-        _x11_user_cmd()
+        _session_user_cmd()
         + [
             "dbus-send",
             "--print-reply",
@@ -870,4 +880,4 @@ def _set_kde(self, path):
             f"string:{script}",
         ]
     )
-    _report_x11(self, ok, path, "PlasmaShell dbus")
+    _report_desktop(self, ok, path, "PlasmaShell dbus")
