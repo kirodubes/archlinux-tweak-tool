@@ -71,6 +71,19 @@ _XFCE_STYLES = {"Fill": 5, "Fit": 4, "Center": 1, "Tile": 2, "Stretch": 3}
 _SWWW_RESIZE = {"Fill": "crop", "Fit": "fit", "Center": "no"}
 
 
+def _ancestor_pids():
+    pids = []
+    pid = fn.os.getppid()
+    while pid > 1:
+        pids.append(str(pid))
+        try:
+            with open(f"/proc/{pid}/status") as f:
+                pid = int(next(line.split()[1] for line in f if line.startswith("PPid:")))
+        except (OSError, StopIteration, ValueError):
+            break
+    return pids
+
+
 def _get_user_env(keys):
     result = {k: fn.os.environ.get(k, "") for k in keys}
     if any(result.values()):
@@ -79,7 +92,9 @@ def _get_user_env(keys):
     if not username:
         return result
     try:
-        for pid in fn.os.listdir("/proc"):
+        # ATT's own launcher chain first: it lives in the current session, while the lowest-PID user processes
+        # (gvfsd, dbus-broker …) can outlive a logout and still carry the previous desktop, e.g. XFCE inside Cinnamon
+        for pid in _ancestor_pids() + fn.os.listdir("/proc"):
             env_file = f"/proc/{pid}/environ"
             if not fn.path.isfile(env_file):
                 continue
