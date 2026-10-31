@@ -1,3 +1,5 @@
 [codespell]
 # browseable = the Samba smb.conf option name; noice = a widget name in desktopr_gui.py; zink = Mesa's Zink GL driver
+# The desktop entry carries the translated menu texts (non-English words).
 ignore-words-list = browseable,noice,zink
+skip = *.desktop

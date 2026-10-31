@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.10.31
+
+### Menu entry in all 13 Kiro languages
+
+**What Changed.** The ATT menu entry now covers all 13 Kiro languages (nl de es fr pt_BR ru hu it tr pl ja zh_CN ro). Hungarian and Romanian gained the GenericName and Comment, every language gained `Name[xx]`, and translated `Keywords[xx]` let the menu search find ATT by the local words for system, settings and configuration.
+
+**Technical Details.** The name stays "Arch Linux Tweak Tool" in every language, as in the other Kiro tweak tools. The English keywords stay in front of each `Keywords[xx]` list. ATT has no gettext catalogs yet; only the desktop file is translated. `desktop-file-validate` reports only the existing category hint.
+
+**Files Modified.** `usr/share/applications/archlinux-tweak-tool.desktop`, `.codespellrc` (skip `*.desktop`), `CHANGELOG.md`
+
 ## 2026.10.29
 
 ### Wallpaper page: the picker shows on every desktop, and Apply works on every X11 edition
