@@ -5,6 +5,7 @@
 import functools
 
 import icons
+from att_i18n import _
 
 
 def _make_folder_preview(Gtk, GdkPixbuf, Gdk, base_dir, subdir, token):
@@ -25,7 +26,7 @@ def _icon_label(set_key, token):
     prefix = icons.ICON_SETS[set_key]["prefix"]
     short = token[len(prefix):] if token.startswith(prefix) else token
     if token == icons.ICON_SETS[set_key]["base_token"]:
-        return f"{short} (base)"
+        return _("{name} (base)").format(name=short)
     return short
 
 
@@ -40,8 +41,10 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
 
     info = Gtk.Label(xalign=0)
     info.set_markup(
-        "Select the packages you want to install or remove, then click the appropriate button.\n"
-        'Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab for details.'
+        _(
+            "Select the packages you want to install or remove, then click the appropriate button.\n"
+            'Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab for details.'
+        )
     )
     info.set_margin_start(10)
     info.set_margin_end(10)
@@ -50,7 +53,7 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
     present_families = [f for f in family_labels if families.get(f)]
     if not present_families:
         placeholder = Gtk.Label(xalign=0)
-        placeholder.set_markup("<i>Coming soon — to be added later.</i>")
+        placeholder.set_markup(_("<i>Coming soon — to be added later.</i>"))
         placeholder.set_margin_start(10)
         placeholder.set_margin_top(10)
         vbox.append(placeholder)
@@ -60,7 +63,7 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
     vbox_families.set_hexpand(True)
     for family_label in present_families:
         lbl_family = Gtk.Label(xalign=0)
-        lbl_family.set_markup(f"<b>{family_label}</b>")
+        lbl_family.set_markup("<b>{label}</b>".format(label=icons.family_title(family_label)))
         lbl_family.set_margin_start(10)
         lbl_family.set_margin_top(6)
         vbox_families.append(lbl_family)
@@ -91,7 +94,7 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
 
     hbox_select_label = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     lbl_prompt = Gtk.Label()
-    lbl_prompt.set_text("Choose the icon theme(s)")
+    lbl_prompt.set_text(_("Choose the icon theme(s)"))
     lbl_prompt.set_margin_start(10)
     lbl_prompt.set_margin_end(10)
     hbox_select_label.append(lbl_prompt)
@@ -100,9 +103,9 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
     hbox_select_buttons = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     hbox_select_buttons.set_margin_start(10)
     hbox_select_buttons.set_margin_end(10)
-    btn_all = Gtk.Button(label="All")
+    btn_all = Gtk.Button(label=_("All"))
     btn_all.connect("clicked", functools.partial(icons.on_icons_all, self, set_key, tab_tokens))
-    btn_none = Gtk.Button(label="None")
+    btn_none = Gtk.Button(label=_("None"))
     btn_none.connect("clicked", functools.partial(icons.on_icons_none, self, set_key, tab_tokens))
     for btn in (btn_all, btn_none):
         btn.set_margin_start(10)
@@ -115,7 +118,7 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
     hbox_family_buttons.set_margin_start(10)
     hbox_family_buttons.set_margin_end(10)
     for family_label in present_families:
-        btn_family = Gtk.Button(label=family_label)
+        btn_family = Gtk.Button(label=icons.family_title(family_label))
         btn_family.connect(
             "clicked", functools.partial(icons.on_icons_family, self, set_key, family_label, tab_tokens)
         )
@@ -126,9 +129,9 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
 
     hbox_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_actions.set_halign(Gtk.Align.CENTER)
-    btn_find = Gtk.Button(label="Show the installed icon themes")
+    btn_find = Gtk.Button(label=_("Show the installed icon themes"))
     btn_find.connect("clicked", functools.partial(icons.on_icons_find, self, set_key, tab_tokens))
-    btn_install = Gtk.Button(label="Install the selected icon themes")
+    btn_install = Gtk.Button(label=_("Install the selected icon themes"))
     btn_install.connect("clicked", functools.partial(icons.on_icons_install, self, set_key, tab_tokens))
     for btn in (btn_find, btn_install):
         btn.set_margin_start(10)
@@ -138,7 +141,7 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
 
     hbox_remove = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_remove.set_halign(Gtk.Align.CENTER)
-    btn_remove = Gtk.Button(label="Uninstall the selected icon themes")
+    btn_remove = Gtk.Button(label=_("Uninstall the selected icon themes"))
     btn_remove.connect("clicked", functools.partial(icons.on_icons_remove, self, set_key, tab_tokens))
     btn_remove.set_margin_start(10)
     btn_remove.set_margin_end(10)

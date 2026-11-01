@@ -6,6 +6,7 @@ import re
 import shutil
 
 import functions as fn
+from att_i18n import _
 from gi.repository import GdkPixbuf, Gdk, Gtk, Gio, Pango
 
 
@@ -120,7 +121,7 @@ def on_restore_variety_backup(self, _widget=None):
     fn.log_subsection("Restore variety backup")
     if not fn.path.isdir(_VARIETY_CONF_BAK):
         fn.log_warn("No variety backup found at ~/.config/variety-bak")
-        fn.show_in_app_notification(self, "No backup found")
+        fn.show_in_app_notification(self, _("No backup found"))
         return
     try:
         if fn.path.isdir(_VARIETY_CONF_DEST):
@@ -128,10 +129,10 @@ def on_restore_variety_backup(self, _widget=None):
         shutil.copytree(_VARIETY_CONF_BAK, _VARIETY_CONF_DEST)
         fn.permissions(_VARIETY_CONF_DEST)
         fn.log_success("Variety backup restored to ~/.config/variety")
-        fn.show_in_app_notification(self, "Variety backup restored")
+        fn.show_in_app_notification(self, _("{name} backup restored").format(name="Variety"))
     except Exception as error:
         fn.log_error(f"Failed to restore variety backup: {error}")
-        fn.show_in_app_notification(self, f"Restore failed: {error}")
+        fn.show_in_app_notification(self, _("Restore failed: {error}").format(error=error))
 
 
 def on_install_or_launch_variety(self, _widget=None):
@@ -143,11 +144,11 @@ def on_install_or_launch_variety(self, _widget=None):
         fn.debug_print(f"Launching: {cmd}")
         fn.subprocess.Popen(cmd, shell=True, stdout=fn.subprocess.PIPE, stderr=fn.subprocess.PIPE)
         fn.log_success("Variety launched")
-        fn.show_in_app_notification(self, "Variety launched")
+        fn.show_in_app_notification(self, _("{name} launched").format(name="Variety"))
         return
 
     fn.log_subsection("Install variety")
-    fn.show_in_app_notification(self, "Opening terminal to install variety...")
+    fn.show_in_app_notification(self, _("Opening terminal to install {name}...").format(name="variety"))
     process = fn.launch_pacman_install_in_terminal("variety")
 
     def refresh():
@@ -156,7 +157,7 @@ def on_install_or_launch_variety(self, _widget=None):
         fn.GLib.idle_add(self.lbl_variety_installed.set_visible, installed)
         if installed:
             fn.log_success("variety installed")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "variety installed — launching...")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed — launching...").format(name="variety"))
             uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
             cmd = _variety_cmd(fn, uid, "")
             fn.debug_print(f"Launching: {cmd}")
@@ -164,7 +165,11 @@ def on_install_or_launch_variety(self, _widget=None):
             fn.log_success("Variety launched")
         else:
             fn.log_warn("variety installation did not complete")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "variety installation failed or was cancelled")
+            fn.GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("{name} installation failed or was cancelled").format(name="variety"),
+            )
 
     def wait_and_refresh():
         fn.debug_print("Waiting for variety install terminal to close...")
@@ -181,10 +186,10 @@ def on_remove_variety(self, _widget=None):
     """Remove variety and update widget sensitivity."""
     if not fn.check_package_installed("variety"):
         fn.log_info("variety is not installed")
-        fn.show_in_app_notification(self, "variety is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="variety"))
         return
     fn.log_subsection("Remove variety")
-    fn.show_in_app_notification(self, "Opening terminal to remove variety...")
+    fn.show_in_app_notification(self, _("Opening terminal to remove {name}...").format(name="variety"))
     process = fn.launch_pacman_remove_in_terminal("variety")
 
     def refresh():
@@ -193,7 +198,7 @@ def on_remove_variety(self, _widget=None):
         self.lbl_variety_installed.set_visible(installed)
         if not installed:
             fn.log_success("variety removed")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "variety removed")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name="variety"))
         else:
             fn.log_info("variety still present after remove")
 
@@ -212,7 +217,7 @@ def on_variety_next(self, _widget=None):
     """Advance variety to the next wallpaper."""
     if not fn.check_package_installed("variety"):
         fn.log_info("variety is not installed")
-        fn.show_in_app_notification(self, "variety is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="variety"))
         return
     fn.log_subsection("Variety: next wallpaper")
     uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
@@ -226,7 +231,7 @@ def on_variety_prev(self, _widget=None):
     """Rewind variety to the previous wallpaper."""
     if not fn.check_package_installed("variety"):
         fn.log_info("variety is not installed")
-        fn.show_in_app_notification(self, "variety is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="variety"))
         return
     fn.log_subsection("Variety: previous wallpaper")
     uid = fn.subprocess.run(["id", "-u", fn.sudo_username], capture_output=True, text=True).stdout.strip()
@@ -273,19 +278,19 @@ def on_add_variety_autostart(self, _widget=None):
     """Copy the variety desktop entry to ~/.config/autostart."""
     fn.log_subsection("Add variety to autostart")
     if not _ensure_variety_desktop():
-        fn.show_in_app_notification(self, "Could not create variety.desktop")
+        fn.show_in_app_notification(self, _("Could not create {name}").format(name="variety.desktop"))
         return
     try:
         fn.os.makedirs(fn.path.dirname(_VARIETY_AUTOSTART), exist_ok=True)
         shutil.copy2(_VARIETY_DESKTOP_SRC, _VARIETY_AUTOSTART)
         fn.permissions(_VARIETY_AUTOSTART)
         fn.log_success(f"variety added to autostart: {_VARIETY_AUTOSTART}")
-        fn.show_in_app_notification(self, "Variety added to autostart")
+        fn.show_in_app_notification(self, _("{name} added to autostart").format(name="Variety"))
         fn.GLib.idle_add(self.btn_add_variety_autostart.set_sensitive, False)
         fn.GLib.idle_add(self.btn_remove_variety_autostart.set_sensitive, True)
     except Exception as error:
         fn.log_error(f"Failed to add variety to autostart: {error}")
-        fn.show_in_app_notification(self, f"Error: {error}")
+        fn.show_in_app_notification(self, _("Error: {error}").format(error=error))
 
 
 def on_remove_variety_autostart(self, _widget=None):
@@ -293,17 +298,17 @@ def on_remove_variety_autostart(self, _widget=None):
     fn.log_subsection("Remove variety from autostart")
     if not fn.path.isfile(_VARIETY_AUTOSTART):
         fn.log_info("variety autostart entry not found — nothing to remove")
-        fn.show_in_app_notification(self, "Variety is not in autostart")
+        fn.show_in_app_notification(self, _("{name} is not in autostart").format(name="Variety"))
         return
     try:
         fn.os.remove(_VARIETY_AUTOSTART)
         fn.log_success("variety removed from autostart")
-        fn.show_in_app_notification(self, "Variety removed from autostart")
+        fn.show_in_app_notification(self, _("{name} removed from autostart").format(name="Variety"))
         fn.GLib.idle_add(self.btn_add_variety_autostart.set_sensitive, True)
         fn.GLib.idle_add(self.btn_remove_variety_autostart.set_sensitive, False)
     except Exception as error:
         fn.log_error(f"Failed to remove variety from autostart: {error}")
-        fn.show_in_app_notification(self, f"Error: {error}")
+        fn.show_in_app_notification(self, _("Error: {error}").format(error=error))
 
 
 def _set_variety_widgets_sensitive(self, installed):
@@ -337,7 +342,7 @@ def on_save_variety_config(self, _widget=None):
     fn.log_subsection("Save ATT variety config")
     if not fn.path.isdir(_VARIETY_CONF_SRC):
         fn.log_warn(f"ATT variety config folder not found: {_VARIETY_CONF_SRC}")
-        fn.show_in_app_notification(self, "ATT variety config not found in data folder")
+        fn.show_in_app_notification(self, _("ATT variety config not found in data folder"))
         return
     try:
         if fn.path.isfile(fn.path.join(_VARIETY_CONF_DEST, "variety.conf")):
@@ -367,10 +372,10 @@ def on_save_variety_config(self, _widget=None):
         _fix_variety_conf_paths()
         fn.log_success("ATT variety config saved to ~/.config/variety/")
         fn.log_tip("Store your wallpapers in ~/Templates/wallpapers — variety picks them up automatically")
-        fn.show_in_app_notification(self, "Variety config saved")
+        fn.show_in_app_notification(self, _("{name} config saved").format(name="Variety"))
     except Exception as error:
         fn.log_error(f"Failed to save variety config: {error}")
-        fn.show_in_app_notification(self, f"Error: {error}")
+        fn.show_in_app_notification(self, _("Error: {error}").format(error=error))
 
 
 def _variety_cmd(fn, uid, args):
@@ -414,7 +419,7 @@ def on_browse_wallpaper_folder(self, _widget=None):
     """Open a folder chooser dialog to set the wallpaper source directory."""
     fn.log_subsection("Browse wallpaper folder")
     dialog = Gtk.FileDialog()
-    dialog.set_title("Choose a wallpaper folder")
+    dialog.set_title(_("Choose a wallpaper folder"))
     current = self.wallpaper_folder_entry.get_text().strip()
     start = current if fn.path.isdir(current) else fn.home
     dialog.set_initial_folder(Gio.File.new_for_path(start))
@@ -470,7 +475,7 @@ def on_load_wallpaper_folder(self, _widget=None):
         _populate_wallpaper_thumbs(self, folder_path)
     else:
         fn.log_warn(f"Wallpaper folder not found: {folder_path}")
-        fn.show_in_app_notification(self, "Folder not found")
+        fn.show_in_app_notification(self, _("Folder not found"))
 
 
 def on_stop_wallpaper_loading(self, _widget=None):
@@ -557,7 +562,7 @@ def on_apply_wallpaper(self, _widget=None):
     path = getattr(self, "selected_wallpaper_path", None)
     if not path or not fn.path.isfile(path):
         fn.log_info("No wallpaper selected")
-        fn.show_in_app_notification(self, "Select a wallpaper first")
+        fn.show_in_app_notification(self, _("Select a wallpaper first"))
         return
     scale = fn.get_combo_text(self.wallpaper_scale_combo)
     _apply_wallpaper(self, path, scale)
@@ -604,7 +609,7 @@ def _start_daemon_and_img(user, daemon, client, path, scale):
     fn.subprocess.Popen(
         user + ["setsid", daemon], stdout=fn.subprocess.DEVNULL, stderr=fn.subprocess.DEVNULL, start_new_session=True
     )
-    for _ in range(20):
+    for _unused in range(20):
         if fn.subprocess.run(user + [client, "query"], capture_output=True).returncode == 0:
             break
         fn.time.sleep(0.25)
@@ -699,14 +704,18 @@ def _apply_wayland(self, path, scale):
         fn.log_subsection(f"Applying wallpaper — {label}: {path}")
         if apply():
             fn.log_success(f"Wallpaper set with {label}: {name}")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {name}")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("Wallpaper set: {name}").format(name=name))
             return
     if tried:
         fn.log_error(f"Every Wayland wallpaper setter failed ({', '.join(tried)})")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("Setting the wallpaper failed — see the ATT log"))
     else:
         fn.log_error("No Wayland wallpaper setter found (ryogami / dms / noctalia / hyprpaper / awww / swww / swaybg / wbg)")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install swaybg or awww")
+        fn.GLib.idle_add(
+            fn.show_in_app_notification,
+            self,
+            _("No wallpaper setter found — install {tools}").format(tools="swaybg or awww"),
+        )
 
 
 def _session_user_cmd():
@@ -732,10 +741,10 @@ def _report_desktop(self, ok, path, tool):
     name = fn.path.basename(path)
     if ok:
         fn.log_success(f"Wallpaper set with {tool}: {name}")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {name}")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("Wallpaper set: {name}").format(name=name))
     else:
         fn.log_error(f"Setting the wallpaper with {tool} failed")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "Setting the wallpaper failed — see the ATT log")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("Setting the wallpaper failed — see the ATT log"))
 
 
 def _desktop_setter():
@@ -775,10 +784,18 @@ def _set_feh(self, path, scale):
                 stderr=fn.subprocess.PIPE,
             )
             fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {fn.path.basename(path)}")
+            fn.GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("Wallpaper set: {name}").format(name=fn.path.basename(path)),
+            )
         except FileNotFoundError:
             fn.log_error("feh not found")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "feh not found — install feh or nitrogen")
+            fn.GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("{tool} not found — install {tools}").format(tool="feh", tools="feh or nitrogen"),
+            )
     elif shutil.which("nitrogen"):
         fn.log_subsection(f"Applying wallpaper — nitrogen --set-zoom-fill: {path}")
         try:
@@ -788,13 +805,25 @@ def _set_feh(self, path, scale):
                 stderr=fn.subprocess.PIPE,
             )
             fn.log_success(f"Wallpaper set: {fn.path.basename(path)}")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, f"Wallpaper set: {fn.path.basename(path)}")
+            fn.GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("Wallpaper set: {name}").format(name=fn.path.basename(path)),
+            )
         except FileNotFoundError:
             fn.log_error("nitrogen not found")
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "nitrogen not found — install feh or nitrogen")
+            fn.GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("{tool} not found — install {tools}").format(tool="nitrogen", tools="feh or nitrogen"),
+            )
     else:
         fn.log_error("No wallpaper setter found — install feh or nitrogen")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "No wallpaper setter found — install feh or nitrogen")
+        fn.GLib.idle_add(
+            fn.show_in_app_notification,
+            self,
+            _("No wallpaper setter found — install {tools}").format(tools="feh or nitrogen"),
+        )
 
 
 def _xfce_backdrop_keys(user):

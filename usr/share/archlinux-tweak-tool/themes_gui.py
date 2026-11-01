@@ -6,6 +6,7 @@
 import functools
 import desktopr_gui
 import themes
+from att_i18n import _
 
 
 def _att_preview_picture(Gtk, GdkPixbuf, Gdk, base_dir, filename, scale=1.0, out_pics=None):
@@ -30,7 +31,7 @@ def _att_preview_picture(Gtk, GdkPixbuf, Gdk, base_dir, filename, scale=1.0, out
     pic.set_vexpand(False)
     pic.set_halign(Gtk.Align.CENTER)
     pic.set_valign(Gtk.Align.CENTER)
-    frame = Gtk.Frame(label="Preview")
+    frame = Gtk.Frame(label=_("Preview"))
     frame.set_child(pic)
     frame.set_hexpand(True)
     frame.set_vexpand(True)
@@ -75,27 +76,29 @@ def build_env_theme_row(Gtk, self, names_attr, dropdown_attr, on_apply):
     hbox_env_dropdown.set_margin_end(10)
     hbox_env_dropdown.set_margin_bottom(10)
     hbox_env_dropdown.set_tooltip_text(
-        "Optional override: GTK_THEME forces this one theme on every GTK app for every user, "
-        "and partly restyles libadwaita apps.\n"
-        "Leave it on None to let each user's own theme settings decide."
+        _(
+            "Optional override: GTK_THEME forces this one theme on every GTK app for every user, "
+            "and partly restyles libadwaita apps.\n"
+            "Leave it on None to let each user's own theme settings decide."
+        )
     )
 
     lbl_env_dropdown = Gtk.Label()
     lbl_env_dropdown.set_markup(
-        '<span foreground="#FFA500">Set the system-wide GTK theme in /etc/environment</span>'
+        _('<span foreground="#FFA500">Set the system-wide GTK theme in /etc/environment</span>')
     )
     lbl_env_dropdown.set_margin_start(10)
     lbl_env_dropdown.set_margin_end(10)
     hbox_env_dropdown.append(lbl_env_dropdown)
 
-    dropdown = Gtk.DropDown.new_from_strings([themes.ENV_NONE_LABEL])
+    dropdown = Gtk.DropDown.new_from_strings([_(themes.ENV_NONE_LABEL)])
     setattr(self, dropdown_attr, dropdown)
     themes.refresh_env_theme_row(self, names_attr, dropdown_attr)
     dropdown.set_margin_start(10)
     dropdown.set_margin_end(10)
     hbox_env_dropdown.append(dropdown)
 
-    button_apply_env_theme = Gtk.Button(label="Apply")
+    button_apply_env_theme = Gtk.Button(label=_("Apply"))
     button_apply_env_theme.connect("clicked", functools.partial(on_apply, self))
     button_apply_env_theme.set_margin_start(10)
     button_apply_env_theme.set_margin_end(10)
@@ -112,7 +115,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themes, _themes_module, fn, base_dir):
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Arc themes")
+    lbl_title.set_text(_("Arc themes"))
     lbl_title.set_name("title")
     hbox_title.append(lbl_title)
 
@@ -125,8 +128,10 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themes, _themes_module, fn, base_dir):
     hbox_info = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_info_label = Gtk.Label(xalign=0)
     hbox_info_label.set_markup(
-        'Select the packages you want to install or remove, then click the appropriate button.\n\
-Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab for details.'
+        _(
+            "Select the packages you want to install or remove, then click the appropriate button.\n"
+            'Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab for details.'
+        )
     )
 
     hbox_info_label.set_margin_start(10)
@@ -139,7 +144,7 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_plasma_qt = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_plasma_qt.set_halign(Gtk.Align.CENTER)
     button_toggle_plasma_qt = Gtk.Button()
-    themes.style_toggle_button(button_toggle_plasma_qt, themes.PLASMA_QT_TOGGLE_LABEL)
+    themes.style_toggle_button(button_toggle_plasma_qt, _(themes.PLASMA_QT_TOGGLE_LABEL))
     button_toggle_plasma_qt.connect("clicked", functools.partial(themes.on_click_toggle_plasma_qt, self))
     button_toggle_plasma_qt.set_margin_start(10)
     button_toggle_plasma_qt.set_margin_end(10)
@@ -149,8 +154,10 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_gtk_theme_hint.set_halign(Gtk.Align.CENTER)
     lbl_gtk_theme_hint = Gtk.Label()
     lbl_gtk_theme_hint.set_markup(
-        '<span size="large">The GTK theme is set per user — pick it in your desktop\'s appearance settings.\n'
-        "The setting below is an optional system-wide override; leave it on None normally.</span>"
+        _(
+            '<span size="large">The GTK theme is set per user — pick it in your desktop\'s appearance settings.\n'
+            "The setting below is an optional system-wide override; leave it on None normally.</span>"
+        )
     )
     lbl_gtk_theme_hint.set_justify(Gtk.Justification.CENTER)
     hbox_gtk_theme_hint.append(lbl_gtk_theme_hint)
@@ -159,14 +166,14 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_env_reminder.set_halign(Gtk.Align.CENTER)
     lbl_env_reminder = Gtk.Label()
     lbl_env_reminder.set_markup(
-        '<span size="large">Remember to check /etc/environment — themes are sometimes set there.</span>'
+        _('<span size="large">Remember to check /etc/environment — themes are sometimes set there.</span>')
     )
     lbl_env_reminder.set_justify(Gtk.Justification.CENTER)
     hbox_env_reminder.append(lbl_env_reminder)
 
     hbox_env_edit = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_env_edit.set_halign(Gtk.Align.CENTER)
-    button_edit_env = Gtk.Button(label="Edit /etc/environment in terminal")
+    button_edit_env = Gtk.Button(label=_("Edit /etc/environment in terminal"))
     button_edit_env.connect("clicked", functools.partial(themes.on_click_edit_environment, self))
     button_edit_env.set_margin_start(10)
     button_edit_env.set_margin_end(10)
@@ -179,7 +186,7 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_plasma_warning = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     if is_plasma:
         lbl_plasma_warning = Gtk.Label(xalign=0)
-        lbl_plasma_warning.set_markup("<b>⚠ On Plasma these themes will not work</b>")
+        lbl_plasma_warning.set_markup(_("<b>⚠ On Plasma these themes will not work</b>"))
         lbl_plasma_warning.set_margin_start(10)
         lbl_plasma_warning.set_margin_end(10)
         hbox_plasma_warning.append(lbl_plasma_warning)
@@ -191,7 +198,7 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
 
     for family_label, family_themes in themes.THEME_FAMILIES:
         lbl_family = Gtk.Label(xalign=0)
-        lbl_family.set_markup(f"<b>{family_label}</b>")
+        lbl_family.set_markup("<b>{label}</b>".format(label=_(family_label)))
         lbl_family.set_margin_start(10)
         lbl_family.set_margin_top(6)
         vbox_families.append(lbl_family)
@@ -217,18 +224,18 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_presets = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     hbox_presets.set_hexpand(True)
     lbl_preset_hint = Gtk.Label()
-    lbl_preset_hint.set_text("Choose what to select with a button")
+    lbl_preset_hint.set_text(_("Choose what to select with a button"))
     lbl_preset_hint.set_margin_start(10)
     lbl_preset_hint.set_margin_end(10)
     lbl_preset_hint.set_hexpand(True)
     lbl_preset_hint.set_xalign(0)
     hbox_presets.append(lbl_preset_hint)
 
-    btn_all_selection_themes = Gtk.Button(label="All")
+    btn_all_selection_themes = Gtk.Button(label=_("All"))
     btn_all_selection_themes.connect("clicked", functools.partial(themes.on_click_att_theming_all_selection, self))
-    btn_dark_selection_themes = Gtk.Button(label="Dark")
+    btn_dark_selection_themes = Gtk.Button(label=_("Dark"))
     btn_dark_selection_themes.connect("clicked", functools.partial(themes.on_click_att_theming_dark_selection, self))
-    btn_none_selection_themes = Gtk.Button(label="None")
+    btn_none_selection_themes = Gtk.Button(label=_("None"))
     btn_none_selection_themes.connect("clicked", functools.partial(themes.on_click_att_theming_none_selection, self))
     for btn_preset in (btn_all_selection_themes, btn_dark_selection_themes, btn_none_selection_themes):
         btn_preset.set_margin_start(10)
@@ -238,18 +245,18 @@ Ensure that the <b>Nemesis repository is enabled</b> — see the "Pacman" tab fo
     hbox_family_presets = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     hbox_family_presets.set_halign(Gtk.Align.CENTER)
     for family_label, _family_themes in themes.THEME_FAMILIES:
-        btn_family = Gtk.Button(label=family_label)
+        btn_family = Gtk.Button(label=_(family_label))
         btn_family.connect("clicked", functools.partial(themes.on_click_att_family_selection, self, family_label))
         btn_family.set_margin_start(6)
         btn_family.set_margin_end(6)
         hbox_family_presets.append(btn_family)
 
     hbox_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    button_install_themes = Gtk.Button(label="Install the selected themes")
+    button_install_themes = Gtk.Button(label=_("Install the selected themes"))
     button_install_themes.connect("clicked", functools.partial(themes.on_install_att_themes_clicked, self))
-    button_remove_themes = Gtk.Button(label="Uninstall the selected themes")
+    button_remove_themes = Gtk.Button(label=_("Uninstall the selected themes"))
     button_remove_themes.connect("clicked", functools.partial(themes.on_remove_att_themes_clicked, self))
-    button_find_themes = Gtk.Button(label="Show the installed themes")
+    button_find_themes = Gtk.Button(label=_("Show the installed themes"))
     button_find_themes.connect("clicked", functools.partial(themes.on_find_att_themes_clicked, self))
 
     button_find_themes.set_margin_start(10)

@@ -294,7 +294,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
             hbox_ff_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             hbox_ff_separator = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl1 = Gtk.Label(xalign=0)
-            lbl1.set_text(_("fastfetch Editor"))
+            lbl1.set_text(_("Fastfetch Editor"))
             lbl1.set_name("title")
             hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
             hseparator.set_hexpand(True)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 07:53+0100\n"
+"POT-Creation-Date: 2026-11-01 07:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,573 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:581
+#, python-brace-format
+msgid "{name} installed — one more step for correct theming"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:584
+#, python-brace-format
+msgid ""
+"Your /etc/environment sets variables that override {name}'s own theme. Left "
+"active, {name} shows dark elements and a yellow warning notification/popup.\n"
+"\n"
+"Edit /etc/environment, put a '#' in front of these lines, then log out and "
+"back in:\n"
+"{lines}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:604
+msgid "Lock File Found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:606
+#, python-brace-format
+msgid "{name} lock file found, do you want to remove it and continue?"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:648
+#, python-brace-format
+msgid "Opening terminal for {desktop} installation..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:820
+#: usr/share/archlinux-tweak-tool/desktopr.py:1163
+msgid "This desktop is installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:833
+#, python-brace-format
+msgid "{desktop} has been installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:864
+#, python-brace-format
+msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:868
+#, python-brace-format
+msgid "{desktop} installation failed — check console for details"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:872
+#: usr/share/archlinux-tweak-tool/desktopr.py:1117
+#: usr/share/archlinux-tweak-tool/desktopr.py:1166
+msgid "This desktop is NOT installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:894
+#, python-brace-format
+msgid "Starting removal of {desktop}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1003
+#, python-brace-format
+msgid "No packages to safely remove for {desktop}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1094
+#: usr/share/archlinux-tweak-tool/desktopr.py:1109
+#, python-brace-format
+msgid "{desktop} has been removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1095
+msgid ""
+"We do not remove code from your home directory,\n"
+"only packages without dependencies"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1143
+#, python-brace-format
+msgid "Installed: {desktops}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1143
+msgid "No desktops installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1175
+#, python-brace-format
+msgid "Enable {repos} before installing a desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1187
+#, python-brace-format
+msgid "Installing {name} is a one-way operation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1190
+#, python-brace-format
+msgid "{name} cannot be removed through {app} once installed."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1192
+msgid "A fresh system reinstall is required to completely remove it."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1201
+#, python-brace-format
+msgid ""
+"IMPORTANT — {name} theming:\n"
+"Your /etc/environment sets variables that override {name}'s own theme. Left "
+"active, {name} shows dark elements and a yellow warning notification/popup. "
+"After installing, edit /etc/environment, put a '#' in front of these lines, "
+"then log out and back in:\n"
+"{lines}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1216
+#, python-brace-format
+msgid ""
+"{name}: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid "
+"theming issues"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1220
+msgid "Do you want to continue?"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1250
+#, python-brace-format
+msgid "{name} cannot be removed — reinstall system to switch DEs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1256
+#, python-brace-format
+msgid "{desktop} is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1274
+msgid "That desktop is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1339
+#: usr/share/archlinux-tweak-tool/desktopr.py:1360
+#, python-brace-format
+msgid "Starting {desktop} installation..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1345
+msgid "All desktops install sequence complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1366
+msgid "All TWMs install sequence complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1381
+#, python-brace-format
+msgid "Starting {desktop} removal..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:1387
+msgid "All desktops removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:30
+#: usr/share/archlinux-tweak-tool/gui.py:463
+msgid "Desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:44
+#, python-brace-format
+msgid "Make sure the {repo1} and {repo2} are both enabled - see Pacman tab"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:50
+msgid "Select a desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:84
+msgid "Install desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:99
+msgid "Remove desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:110
+msgid "Clear package cache before installation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:121
+msgid ""
+"When installing a desktop we back up only the configs it will overwrite\n"
+"Backup is in ~/.config-att folder\n"
+"Uninstalling a desktop leaves its ~/.config subfolder intact\n"
+"Remove it yourself if no longer needed\n"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:151
+#: usr/share/archlinux-tweak-tool/themes_gui.py:34
+msgid "Preview"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:176
+msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:209
+msgid "Install all desktops"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:214
+msgid "Install all twms"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:217
+msgid "Remove all desktops"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:253
+#, python-brace-format
+msgid "Enable {repo1} and {repo2} in the Pacman tab to install this desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:263
+#, python-brace-format
+msgid ""
+"{name} cannot be safely removed — reinstall the system to switch desktop "
+"environments"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:276
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:285
+#, python-brace-format
+msgid ""
+"WARNING: Installing {name} is a one-way operation — removal requires a "
+"system reinstall"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:218
+msgid "fastfetch settings saved successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:401
+#: usr/share/archlinux-tweak-tool/fastfetch.py:647
+#: usr/share/archlinux-tweak-tool/wallpaper.py:192
+#, python-brace-format
+msgid "Opening terminal to remove {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:430
+#: usr/share/archlinux-tweak-tool/fastfetch.py:491
+#, python-brace-format
+msgid "Installing {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:457
+msgid "ATT defaults applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:475
+msgid "Default settings applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:486
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:550
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#, python-brace-format
+msgid "{name} disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:486
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:550
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#, python-brace-format
+msgid "{name} enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:492
+#: usr/share/archlinux-tweak-tool/fastfetch.py:555
+#: usr/share/archlinux-tweak-tool/fastfetch.py:623
+#: usr/share/archlinux-tweak-tool/wallpaper.py:151
+#, python-brace-format
+msgid "Opening terminal to install {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:499
+#: usr/share/archlinux-tweak-tool/fastfetch.py:514
+#: usr/share/archlinux-tweak-tool/fastfetch.py:562
+#: usr/share/archlinux-tweak-tool/fastfetch.py:565
+#: usr/share/archlinux-tweak-tool/fastfetch.py:629
+#: usr/share/archlinux-tweak-tool/fastfetch.py:632
+#, python-brace-format
+msgid "{name} installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:522
+#: usr/share/archlinux-tweak-tool/fastfetch.py:523
+msgid "fastfetch installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:536
+#: usr/share/archlinux-tweak-tool/fastfetch.py:577
+msgid "No shell config found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:567
+#: usr/share/archlinux-tweak-tool/fastfetch.py:568
+msgid "lolcat installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:606
+#, python-brace-format
+msgid "{name} is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:608
+#, python-brace-format
+msgid "{name} is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:618
+#: usr/share/archlinux-tweak-tool/fastfetch.py:619
+#, python-brace-format
+msgid "{name} is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:643
+#: usr/share/archlinux-tweak-tool/fastfetch.py:675
+#: usr/share/archlinux-tweak-tool/fastfetch.py:676
+#: usr/share/archlinux-tweak-tool/wallpaper.py:189
+#: usr/share/archlinux-tweak-tool/wallpaper.py:220
+#: usr/share/archlinux-tweak-tool/wallpaper.py:234
+#, python-brace-format
+msgid "{name} is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:653
+#: usr/share/archlinux-tweak-tool/fastfetch.py:656
+#: usr/share/archlinux-tweak-tool/wallpaper.py:201
+#, python-brace-format
+msgid "{name} removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:673
+#: usr/share/archlinux-tweak-tool/wallpaper.py:147
+#, python-brace-format
+msgid "{name} launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:41
+#: usr/share/archlinux-tweak-tool/gui.py:297
+msgid "Fastfetch Editor"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:51
+msgid ""
+"<b>Some distros have their own configuration and/or application, "
+"investigate</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:58
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:62
+#, python-brace-format
+msgid "{name} install/enable"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:67
+#, python-brace-format
+msgid "Apply {name} configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:68
+#, python-brace-format
+msgid "Reset your {name} backup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:69
+#, python-brace-format
+msgid "Reset {name} ({defaults} defaults)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:80
+msgid "Show os"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:81
+msgid "Show hostname"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:82
+msgid "Show kernel"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:83
+msgid "Show uptime"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:84
+msgid "Show packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:85
+msgid "Show shell"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:86
+msgid "Show display"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:87
+msgid "Show de"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:88
+msgid "Show wm"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:89
+msgid "Show wm theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:90
+msgid "Show theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:91
+msgid "Show icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:92
+msgid "Show terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:93
+msgid "Show terminal font"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:94
+msgid "Show cpu"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:95
+msgid "Show gpu"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:96
+msgid "Show memory"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:97
+msgid "Show swap"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:98
+msgid "Show cursor"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:99
+msgid "Show font"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:100
+msgid "Show disks"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:101
+msgid "Show local ip"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:102
+msgid "Show public ip"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:103
+msgid "Show locale"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:104
+msgid "Show battery"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:105
+msgid "Show power adapter"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:106
+msgid "Show title"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:107
+msgid "Show color blocks"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:113
+msgid "Or choose what to select with a button"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:114
+#: usr/share/archlinux-tweak-tool/icons_gui.py:106
+#: usr/share/archlinux-tweak-tool/themes_gui.py:234
+msgid "All"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:116
+msgid "Normal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:118
+msgid "Small"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:120
+#: usr/share/archlinux-tweak-tool/icons_gui.py:108
+#: usr/share/archlinux-tweak-tool/themes_gui.py:238
+msgid "None"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:218
+msgid "<b>Shell Startup</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:225
+msgid "<b>Modules</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:246
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:279
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:51
+#, python-brace-format
+msgid "Remove {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:277
+#, python-brace-format
+msgid "Install {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:287
+#, python-brace-format
+msgid "<i>Enable the Nemesis repo (Pacman page) to install {name}</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:294
+#, python-brace-format
+msgid "Launch {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:307
+msgid ""
+"<b>Design your fastfetch output in clicks, with a live preview.</b>\n"
+"\n"
+"• <b>Modules</b> — show / hide, reorder and edit per-module options\n"
+"• <b>Logo &amp; Appearance</b> — 500+ built-in logos or your own image; key, "
+"title and separator colours\n"
+"• <b>Install / Enable</b> — install fastfetch, add it to bash / zsh / fish "
+"startup, optional lolcat\n"
+"• <b>Presets &amp; Raw</b> — bundled presets or the Kiro default, restore a "
+"backup, edit the JSONC\n"
+"• <b>Live preview</b> — real fastfetch output as you tweak (with vte4)\n"
+"\n"
+"<i>A backup (config.jsonc.ftt-bak) is written before every save.</i>"
+msgstr ""
 
 #: usr/share/archlinux-tweak-tool/functions.py:646
 #: usr/share/archlinux-tweak-tool/performance.py:34
@@ -186,10 +753,6 @@ msgstr ""
 msgid "on {distro}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/gui.py:297
-msgid "fastfetch Editor"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:309
 msgid ""
 "fastfetch configuration file not found.\n"
@@ -209,6 +772,7 @@ msgid "AI Tools"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:447
+#: usr/share/archlinux-tweak-tool/themes_gui.py:118
 msgid "Arc themes"
 msgstr ""
 
@@ -226,10 +790,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:457
 msgid "Celestial themes"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:463
-msgid "Desktop"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:464
@@ -339,6 +899,7 @@ msgid "User"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:518
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
 msgid "Wallpaper"
 msgstr ""
 
@@ -378,6 +939,185 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:636
 msgid "Search (Enter)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:76
+msgid "Other"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:117
+#, python-brace-format
+msgid ""
+"Neither {repo1} nor {repo2} is enabled — add them in the Pacman tab before "
+"installing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:127
+#: usr/share/archlinux-tweak-tool/icons.py:136
+#, python-brace-format
+msgid ""
+"{repo} is not enabled — enable it in the Pacman tab for full icon theme "
+"support"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:145
+#: usr/share/archlinux-tweak-tool/icons.py:211
+#, python-brace-format
+msgid "We have selected all {name} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:151
+#, python-brace-format
+msgid "We have selected the mint selection - {name} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:157
+#, python-brace-format
+msgid "We have selected the mixing selection - {name} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:163
+#, python-brace-format
+msgid "We have selected the variation selection - {name} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:169
+#: usr/share/archlinux-tweak-tool/icons.py:217
+#, python-brace-format
+msgid "We have selected no {name} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:175
+#, python-brace-format
+msgid "We have selected the {name} family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:181
+#, python-brace-format
+msgid "We have selected the {name} flexible family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:187
+#, python-brace-format
+msgid "We have selected the {name} mono family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:193
+#, python-brace-format
+msgid "We have selected the {name} flat family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:199
+#, python-brace-format
+msgid "We have selected the {name} ghost family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:205
+#, python-brace-format
+msgid "We have selected the {name} orb family themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:224
+#, python-brace-format
+msgid "We have selected the {family} icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:240
+#: usr/share/archlinux-tweak-tool/icons.py:256
+msgid "We show the installed icon themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:593
+#: usr/share/archlinux-tweak-tool/icons.py:720
+#, python-brace-format
+msgid "No {name} icons selected for installation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:601
+#: usr/share/archlinux-tweak-tool/icons.py:728
+#, python-brace-format
+msgid "Installing {count} {name} icon package..."
+msgid_plural "Installing {count} {name} icon packages..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:604
+#: usr/share/archlinux-tweak-tool/icons.py:731
+#, python-brace-format
+msgid "{name} icons installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:611
+#: usr/share/archlinux-tweak-tool/icons.py:740
+#, python-brace-format
+msgid "No {name} icons selected for removal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:619
+#: usr/share/archlinux-tweak-tool/icons.py:754
+#, python-brace-format
+msgid "Removing {count} {name} icon package..."
+msgid_plural "Removing {count} {name} icon packages..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:622
+#: usr/share/archlinux-tweak-tool/icons.py:757
+#, python-brace-format
+msgid "{name} icons removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:684
+#: usr/share/archlinux-tweak-tool/icons.py:777
+#, python-brace-format
+msgid "{count} {name} icon package installed"
+msgid_plural "{count} {name} icon packages installed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:689
+#: usr/share/archlinux-tweak-tool/icons.py:782
+#, python-brace-format
+msgid "No {name} icon packages installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons.py:747
+#, python-brace-format
+msgid "Kept {name} (variants depend on it)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:29
+#, python-brace-format
+msgid "{name} (base)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:45
+#: usr/share/archlinux-tweak-tool/themes_gui.py:132
+msgid ""
+"Select the packages you want to install or remove, then click the "
+"appropriate button.\n"
+"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" "
+"tab for details."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:56
+msgid "<i>Coming soon — to be added later.</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:97
+msgid "Choose the icon theme(s)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:132
+msgid "Show the installed icon themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:134
+msgid "Install the selected icon themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/icons_gui.py:144
+msgid "Uninstall the selected icon themes"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/kernel.py:17
@@ -1365,6 +2105,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
+#: usr/share/archlinux-tweak-tool/themes_gui.py:101
 msgid "Apply"
 msgstr ""
 
@@ -2679,6 +3420,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:582
 #: usr/share/archlinux-tweak-tool/software_gui.py:531
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:116
 msgid "Restore backup"
 msgstr ""
 
@@ -4302,6 +5044,541 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:428
 msgid "<b>Systemd</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:52
+msgid "OOPS!"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:54
+#, python-brace-format
+msgid ""
+"you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. So "
+"we can not enable this feature."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:388
+#: usr/share/archlinux-tweak-tool/themer.py:412
+#: usr/share/archlinux-tweak-tool/themer.py:439
+#: usr/share/archlinux-tweak-tool/themer.py:462
+#: usr/share/archlinux-tweak-tool/themer.py:485
+#: usr/share/archlinux-tweak-tool/themer.py:505
+#: usr/share/archlinux-tweak-tool/themer.py:528
+#: usr/share/archlinux-tweak-tool/themer.py:546
+#: usr/share/archlinux-tweak-tool/themer.py:562
+#: usr/share/archlinux-tweak-tool/themer.py:580
+msgid "Error"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:388
+#, python-brace-format
+msgid "Failed to toggle polybar: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:409
+msgid "Theme set successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:412
+#: usr/share/archlinux-tweak-tool/themer.py:462
+#: usr/share/archlinux-tweak-tool/themer.py:505
+#: usr/share/archlinux-tweak-tool/themer.py:546
+#, python-brace-format
+msgid "Failed to apply theme: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:426
+#: usr/share/archlinux-tweak-tool/themer.py:476
+#: usr/share/archlinux-tweak-tool/themer.py:519
+msgid "Config reset successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:439
+#: usr/share/archlinux-tweak-tool/themer.py:485
+#: usr/share/archlinux-tweak-tool/themer.py:528
+#: usr/share/archlinux-tweak-tool/themer.py:562
+#, python-brace-format
+msgid "Failed to reset theme: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:459
+#: usr/share/archlinux-tweak-tool/themer.py:502
+msgid "Theme applied successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:541
+#, python-brace-format
+msgid "Theme {name} applied successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:543
+#: usr/share/archlinux-tweak-tool/themer.py:559
+#: usr/share/archlinux-tweak-tool/themer.py:594
+msgid "<b>Theme is installed and applied</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:558
+#, python-brace-format
+msgid "Theme {name} reset successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:576
+#, python-brace-format
+msgid "Theme {name} removed successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:580
+#, python-brace-format
+msgid "Failed to remove theme: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:589
+msgid "<b>Theme is installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer.py:591
+msgid "<b>Theme is NOT installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:104
+msgid "Theme Switcher"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:142
+#: usr/share/archlinux-tweak-tool/themer_gui.py:230
+#: usr/share/archlinux-tweak-tool/themer_gui.py:345
+#: usr/share/archlinux-tweak-tool/themer_gui.py:424
+msgid ""
+"Reload your window manager with <b>Super + Shift + R</b> after you make your "
+"changes..\n"
+"First install the desktop via the Desktop menu then theme it."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:148
+#: usr/share/archlinux-tweak-tool/themer_gui.py:237
+#: usr/share/archlinux-tweak-tool/themer_gui.py:351
+#: usr/share/archlinux-tweak-tool/themer_gui.py:430
+msgid ""
+"Select theme\n"
+"<small>(install desktop first to be able to select a theme)</small>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:160
+#: usr/share/archlinux-tweak-tool/themer_gui.py:316
+#: usr/share/archlinux-tweak-tool/themer_gui.py:362
+msgid "Apply theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:162
+#: usr/share/archlinux-tweak-tool/themer_gui.py:318
+#: usr/share/archlinux-tweak-tool/themer_gui.py:364
+msgid "Reset"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:165
+#, python-brace-format
+msgid "Toggle {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:263
+msgid "<b>Preview</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:440
+msgid "Install and apply selected theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:442
+#, python-brace-format
+msgid "Remove selected theme and apply {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themer_gui.py:444
+msgid "Reset selected theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:15
+msgid "Blues"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:33
+msgid "Indigos"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:39
+msgid "Purples"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:50
+msgid "Greens"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:57
+msgid "Reds"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:64
+msgid "Oranges"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:73
+msgid "Pinks"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:80
+msgid "Greys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:104
+msgid "No themes selected for installation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:112
+#, python-brace-format
+msgid "Installing {count} theme..."
+msgid_plural "Installing {count} themes..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:116
+msgid "Arc themes installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:125
+msgid "No themes selected for removal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:133
+#, python-brace-format
+msgid "Removing {count} theme..."
+msgid_plural "Removing {count} themes..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:137
+msgid "Arc themes removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:275
+#: usr/share/archlinux-tweak-tool/themes.py:458
+#, python-brace-format
+msgid "Could not read {path}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:282
+#, python-brace-format
+msgid "No matching line in {path}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:305
+#: usr/share/archlinux-tweak-tool/themes.py:506
+#, python-brace-format
+msgid "Could not write {path}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:322
+msgid "Enable or Disable the Plasma Qt theme overrides (/etc/environment)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:350
+#, python-brace-format
+msgid "{path} does not exist."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:352
+#, python-brace-format
+msgid "{path} is empty."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:371
+#, python-brace-format
+msgid "alacritty not found — open {path} manually"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:382
+#, python-brace-format
+msgid "Editing {path} in a terminal — log out and back in after saving"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:398
+#: usr/share/archlinux-tweak-tool/themes.py:568
+#, python-brace-format
+msgid "Updated {path}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:400
+msgid "Qt overrides OFF — Plasma controls its theme; log out and back in"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:402
+msgid "Qt overrides restored (qt5ct/Kvantum) — log out and back in"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:408
+msgid "None — no system-wide theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:564
+#, python-brace-format
+msgid "GTK theme already set to {theme}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:566
+msgid "No system-wide GTK theme was set"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:573
+#, python-brace-format
+msgid "GTK theme set to {theme} — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes.py:578
+msgid "System-wide GTK theme cleared — log out and back in"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:80
+msgid ""
+"Optional override: GTK_THEME forces this one theme on every GTK app for "
+"every user, and partly restyles libadwaita apps.\n"
+"Leave it on None to let each user's own theme settings decide."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:88
+msgid ""
+"<span foreground=\"#FFA500\">Set the system-wide GTK theme in /etc/"
+"environment</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:158
+msgid ""
+"<span size=\"large\">The GTK theme is set per user — pick it in your "
+"desktop's appearance settings.\n"
+"The setting below is an optional system-wide override; leave it on None "
+"normally.</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:169
+msgid ""
+"<span size=\"large\">Remember to check /etc/environment — themes are "
+"sometimes set there.</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:176
+msgid "Edit /etc/environment in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:189
+msgid "<b>⚠ On Plasma these themes will not work</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:227
+msgid "Choose what to select with a button"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:236
+msgid "Dark"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:255
+msgid "Install the selected themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:257
+msgid "Uninstall the selected themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/themes_gui.py:259
+msgid "Show the installed themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:124
+msgid "No backup found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:132
+#, python-brace-format
+msgid "{name} backup restored"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:135
+#, python-brace-format
+msgid "Restore failed: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:160
+#, python-brace-format
+msgid "{name} installed — launching..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:171
+#, python-brace-format
+msgid "{name} installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:281
+#, python-brace-format
+msgid "Could not create {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:288
+#, python-brace-format
+msgid "{name} added to autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:293
+#: usr/share/archlinux-tweak-tool/wallpaper.py:311
+#: usr/share/archlinux-tweak-tool/wallpaper.py:378
+#, python-brace-format
+msgid "Error: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:301
+#, python-brace-format
+msgid "{name} is not in autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:306
+#, python-brace-format
+msgid "{name} removed from autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:345
+msgid "ATT variety config not found in data folder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:375
+#, python-brace-format
+msgid "{name} config saved"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:422
+msgid "Choose a wallpaper folder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:478
+msgid "Folder not found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:565
+msgid "Select a wallpaper first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:707
+#: usr/share/archlinux-tweak-tool/wallpaper.py:744
+#: usr/share/archlinux-tweak-tool/wallpaper.py:790
+#: usr/share/archlinux-tweak-tool/wallpaper.py:811
+#, python-brace-format
+msgid "Wallpaper set: {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:711
+#: usr/share/archlinux-tweak-tool/wallpaper.py:747
+msgid "Setting the wallpaper failed — see the ATT log"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:717
+#: usr/share/archlinux-tweak-tool/wallpaper.py:825
+#, python-brace-format
+msgid "No wallpaper setter found — install {tools}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper.py:797
+#: usr/share/archlinux-tweak-tool/wallpaper.py:818
+#, python-brace-format
+msgid "{tool} not found — install {tools}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:48
+#, python-brace-format
+msgid "Install/launch {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:55
+msgid "<b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:64
+msgid "Next wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:67
+msgid "Previous wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:75
+msgid "<b>Autostart</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:80
+msgid "Add to autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:83
+msgid "Remove from autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:92
+#, python-brace-format
+msgid "<b>{name} Configuration</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:99
+#, python-brace-format
+msgid ""
+"<i>Store your wallpapers in {path} — {name} picks them up automatically</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
+#, python-brace-format
+msgid "Save {name} variety config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:110
+#, python-brace-format
+msgid "Open {name} settings"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:113
+msgid "Open Selector"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:130
+#, python-brace-format
+msgid "<b>{name} Wallpaper Picker</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:136
+msgid "Browse"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:142
+msgid "Known wallpaper folders - pick one to load it"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:156
+msgid "Load"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:161
+msgid "Stop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:194
+msgid "No wallpaper selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:202
+msgid "Scale:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:207
+msgid "Apply wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:221
+#, python-brace-format
+msgid ""
+"<i>Tip: source {path} in your WM autostart to restore wallpaper on login</i>"
 msgstr ""
 
 #: po/archlinux-tweak-tool.desktop.in:2

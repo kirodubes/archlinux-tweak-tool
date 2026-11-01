@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import N_, _, ngettext
 
 
 # Theme palette — single source of truth for the Themes page.
@@ -11,7 +12,7 @@ import functions as fn
 # Each family: (family_label, [(token, accent_hex, is_dark), ...]).
 # token -> package "kiro-arc-<token>", checkbox label "kiro-arc-<token>", swatch "#<hex>".
 THEME_FAMILIES = [
-    ("Blues", [
+    (N_("Blues"), [
         ("aqua", "66a8cb", False),
         ("archlinux-blue", "1793d1", False),
         ("arcolinux-blue", "6790eb", False),
@@ -29,13 +30,13 @@ THEME_FAMILIES = [
         ("sky-blue", "7ec1ff", False),
         ("soft-blue", "5481e5", False),
     ]),
-    ("Indigos", [
+    (N_("Indigos"), [
         ("azul", "3551b7", False),
         ("cornflower-blue", "3250a7", False),
         ("dawn", "566282", True),
         ("tory", "596bb0", False),
     ]),
-    ("Purples", [
+    (N_("Purples"), [
         ("blueberry", "52428f", False),
         ("bright-lilac", "cd58ff", False),
         ("dracul", "7e82a0", True),
@@ -46,21 +47,21 @@ THEME_FAMILIES = [
         ("vampire", "555a69", True),
         ("darkish", "28293d", True),
     ]),
-    ("Greens", [
+    (N_("Greens"), [
         ("emerald", "1fa732", False),
         ("evopop", "1685a6", False),
         ("fern", "65b058", False),
         ("mantis", "6aa847", False),
         ("niagara", "42edcc", False),
     ]),
-    ("Reds", [
+    (N_("Reds"), [
         ("blood", "cf0808", False),
         ("crimson", "dc143c", False),
         ("hibiscus", "d52f61", False),
         ("mandy", "c93648", False),
         ("punch", "c03645", False),
     ]),
-    ("Oranges", [
+    (N_("Oranges"), [
         ("casablanca", "fdb95b", False),
         ("fire", "f68516", False),
         ("numix", "ffa726", False),
@@ -69,14 +70,14 @@ THEME_FAMILIES = [
         ("tacao", "efa369", False),
         ("tangerine", "ff9500", False),
     ]),
-    ("Pinks", [
+    (N_("Pinks"), [
         ("carnation", "fe6d88", False),
         ("froly", "fd7980", False),
         ("light-salmon", "ffa38d", False),
         ("pink", "ce6ca2", False),
         ("warm-pink", "fd3e84", False),
     ]),
-    ("Greys", [
+    (N_("Greys"), [
         ("light-blue-grey", "b8a8bc", False),
         ("pale-grey", "e1e3e7", True),
         ("paper", "90a4ae", False),
@@ -100,14 +101,19 @@ def install_themes(self):
 
     if not themes_to_install:
         fn.log_warn("No themes selected for installation")
-        fn.show_in_app_notification(self, "No themes selected for installation")
+        fn.show_in_app_notification(self, _("No themes selected for installation"))
         return
 
     packages_str = " ".join(themes_to_install)
     fn.log_info(f"Installing {len(themes_to_install)} Arc theme(s): {', '.join(themes_to_install)}")
     process = fn.launch_pacman_install_in_terminal(packages_str)
-    fn.show_in_app_notification(self, f"Installing {len(themes_to_install)} themes...")
-    fn.wait_and_notify(process, self, "Arc themes installation complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext("Installing {count} theme...", "Installing {count} themes...", len(themes_to_install)).format(
+            count=len(themes_to_install)
+        ),
+    )
+    fn.wait_and_notify(process, self, _("Arc themes installation complete"))
 
 
 def remove_themes(self):
@@ -116,14 +122,19 @@ def remove_themes(self):
 
     if not themes_to_remove:
         fn.log_warn("No themes selected for removal")
-        fn.show_in_app_notification(self, "No themes selected for removal")
+        fn.show_in_app_notification(self, _("No themes selected for removal"))
         return
 
     packages_str = " ".join(themes_to_remove)
     fn.log_info(f"Removing {len(themes_to_remove)} Arc theme(s): {', '.join(themes_to_remove)}")
     process = fn.launch_pacman_remove_in_terminal(packages_str)
-    fn.show_in_app_notification(self, f"Removing {len(themes_to_remove)} themes...")
-    fn.wait_and_notify(process, self, "Arc themes removal complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext("Removing {count} theme...", "Removing {count} themes...", len(themes_to_remove)).format(
+            count=len(themes_to_remove)
+        ),
+    )
+    fn.wait_and_notify(process, self, _("Arc themes removal complete"))
 
 
 def find_themes(self):
@@ -261,14 +272,14 @@ def _toggle_env(self, is_active, is_commented, subsection):
             lines = env_file.readlines()
     except OSError as error:
         fn.log_error(f"Could not read {ENV_FILE}: {error}")
-        fn.show_in_app_notification(self, f"Could not read {ENV_FILE}")
+        fn.show_in_app_notification(self, _("Could not read {path}").format(path=ENV_FILE))
         return {"state": "absent", "changes": []}
 
     active = [i for i, line in enumerate(lines) if is_active(line.strip())]
     commented = [i for i, line in enumerate(lines) if is_commented(line.strip())]
     if not active and not commented:
         fn.log_warn(f"No matching line found in {ENV_FILE} — nothing to toggle")
-        fn.show_in_app_notification(self, f"No matching line in {ENV_FILE}")
+        fn.show_in_app_notification(self, _("No matching line in {path}").format(path=ENV_FILE))
         return {"state": "absent", "changes": []}
 
     changes = []
@@ -291,7 +302,7 @@ def _toggle_env(self, is_active, is_commented, subsection):
             env_file.writelines(lines)
     except OSError as error:
         fn.log_error(f"Could not write {ENV_FILE}: {error}")
-        fn.show_in_app_notification(self, f"Could not write {ENV_FILE}")
+        fn.show_in_app_notification(self, _("Could not write {path}").format(path=ENV_FILE))
         return {"state": "absent", "changes": []}
 
     for from_line, to_line in changes:
@@ -308,7 +319,7 @@ def toggle_plasma_qt_overrides(self):
 
 
 # Static brand-orange labels — same on every state, on every distro.
-PLASMA_QT_TOGGLE_LABEL = "Enable or Disable the Plasma Qt theme overrides (/etc/environment)"
+PLASMA_QT_TOGGLE_LABEL = N_("Enable or Disable the Plasma Qt theme overrides (/etc/environment)")
 
 
 def style_toggle_button(button, text):
@@ -336,9 +347,9 @@ def _show_env_content_dialog(self, header):
     """Pop up the full current content of /etc/environment so the user sees the real file state."""
     content = _read_env_content()
     if content is None:
-        body = f"{ENV_FILE} does not exist."
+        body = _("{path} does not exist.").format(path=ENV_FILE)
     elif not content.strip():
-        body = f"{ENV_FILE} is empty."
+        body = _("{path} is empty.").format(path=ENV_FILE)
     else:
         body = content.rstrip("\n")
     dialog = fn.Gtk.MessageDialog(
@@ -357,7 +368,7 @@ def open_env_in_terminal(self):
     fn.log_subsection("Open /etc/environment in a terminal editor")
     if not fn.shutil.which("alacritty"):
         fn.log_warn("alacritty not found — cannot open a terminal editor")
-        fn.show_in_app_notification(self, "alacritty not found — open /etc/environment manually")
+        fn.show_in_app_notification(self, _("alacritty not found — open {path} manually").format(path=ENV_FILE))
         return
     script = (
         'echo "Editing /etc/environment — save and close when done, then log out and back in."; '
@@ -368,7 +379,7 @@ def open_env_in_terminal(self):
         daemon=True,
     ).start()
     fn.log_info("Opened /etc/environment in a terminal editor")
-    fn.show_in_app_notification(self, "Editing /etc/environment in a terminal — log out and back in after saving")
+    fn.show_in_app_notification(self, _("Editing {path} in a terminal — log out and back in after saving").format(path=ENV_FILE))
 
 
 def on_click_edit_environment(self, _widget):
@@ -384,17 +395,17 @@ def on_click_toggle_plasma_qt(self, _widget):
     result = toggle_plasma_qt_overrides(self)
     if result["state"] not in ("commented", "active"):
         return
-    _show_env_content_dialog(self, "Updated /etc/environment")
+    _show_env_content_dialog(self, _("Updated {path}").format(path=ENV_FILE))
     if result["state"] == "commented":
-        fn.show_in_app_notification(self, "Qt overrides OFF — Plasma controls its theme; log out and back in")
+        fn.show_in_app_notification(self, _("Qt overrides OFF — Plasma controls its theme; log out and back in"))
     else:
-        fn.show_in_app_notification(self, "Qt overrides restored (qt5ct/Kvantum) — log out and back in")
+        fn.show_in_app_notification(self, _("Qt overrides restored (qt5ct/Kvantum) — log out and back in"))
 
 
 # ── Set any system GTK theme via a dropdown (/etc/environment) ─────────
 
 THEMES_ROOT = "/usr/share/themes"
-ENV_NONE_LABEL = "None — no system-wide theme"
+ENV_NONE_LABEL = N_("None — no system-wide theme")
 
 
 def list_system_gtk_themes():
@@ -444,7 +455,7 @@ def set_env_gtk_theme(self, theme):
                 lines = env_file.readlines()
         except OSError as error:
             fn.log_error(f"Could not read {ENV_FILE}: {error}")
-            fn.show_in_app_notification(self, f"Could not read {ENV_FILE}")
+            fn.show_in_app_notification(self, _("Could not read {path}").format(path=ENV_FILE))
             return {"state": "absent", "changes": []}
 
     gtk_indices = [i for i, line in enumerate(lines) if _is_gtk_theme_key(line.strip())]
@@ -492,7 +503,7 @@ def set_env_gtk_theme(self, theme):
             env_file.writelines(lines)
     except OSError as error:
         fn.log_error(f"Could not write {ENV_FILE}: {error}")
-        fn.show_in_app_notification(self, f"Could not write {ENV_FILE}")
+        fn.show_in_app_notification(self, _("Could not write {path}").format(path=ENV_FILE))
         return {"state": "absent", "changes": []}
 
     if not file_exists:
@@ -530,7 +541,7 @@ def refresh_env_theme_row(self, names_attr, dropdown_attr):
         theme_names = [keep] + theme_names
     setattr(self, names_attr, theme_names)
 
-    dropdown.set_model(Gtk.StringList.new([ENV_NONE_LABEL] + theme_names))
+    dropdown.set_model(Gtk.StringList.new([_(ENV_NONE_LABEL)] + theme_names))
     target = keep if is_rebuild else current_env_theme
     dropdown.set_selected(theme_names.index(target) + 1 if target in theme_names else 0)
 
@@ -550,19 +561,21 @@ def apply_env_theme_from(self, dropdown, theme_names):
         return
     if not result["changes"]:
         if theme:
-            fn.show_in_app_notification(self, f"GTK theme already set to {theme}")
+            fn.show_in_app_notification(self, _("GTK theme already set to {theme}").format(theme=theme))
         else:
-            fn.show_in_app_notification(self, "No system-wide GTK theme was set")
+            fn.show_in_app_notification(self, _("No system-wide GTK theme was set"))
         return
-    _show_env_content_dialog(self, "Updated /etc/environment")
+    _show_env_content_dialog(self, _("Updated {path}").format(path=ENV_FILE))
     if theme:
         fn.log_success(f'Set GTK_THEME="{theme}" in {ENV_FILE}')
         fn.log_info("LOG OUT and LOG BACK IN for the system-wide theme to apply.")
-        fn.show_in_app_notification(self, f"GTK theme set to {theme} — log out and back in to apply")
+        fn.show_in_app_notification(
+            self, _("GTK theme set to {theme} — log out and back in to apply").format(theme=theme)
+        )
     else:
         fn.log_success(f"Cleared the system-wide GTK_THEME in {ENV_FILE}")
         fn.log_info("Your per-user theme takes over again. LOG OUT and LOG BACK IN to apply.")
-        fn.show_in_app_notification(self, "System-wide GTK theme cleared — log out and back in")
+        fn.show_in_app_notification(self, _("System-wide GTK theme cleared — log out and back in"))
 
 
 def on_click_apply_env_theme(self, _widget):

@@ -4,6 +4,8 @@
 
 import functools
 
+from att_i18n import _
+
 # Desktop preview: decode at this max edge (sharp when scaled); minimum widget size (GTK size_request).
 IMAGE_PREVIEW_LOAD = 855
 IMAGE_PREVIEW_MIN = 456
@@ -25,7 +27,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     dropbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=1)
 
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Desktop")
+    lbl_title.set_text(_("Desktop"))
     lbl_title.set_name("title")
     hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hseparator.set_hexpand(True)
@@ -38,11 +40,14 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     # =======================================
     label_warning = Gtk.Label(xalign=0.5)
     label_warning.set_markup(
-        "<big>Make sure the chaotic-aur and nemesis repo are both enabled \
-- see Pacman tab</big>"
+        "<big>{}</big>".format(
+            _("Make sure the {repo1} and {repo2} are both enabled - see Pacman tab").format(
+                repo1="chaotic-aur", repo2="nemesis repo"
+            )
+        )
     )
     label = Gtk.Label(xalign=0.5)
-    label.set_text("\nSelect a desktop")
+    label.set_text("\n" + _("Select a desktop"))
     label.set_halign(Gtk.Align.CENTER)
 
     self.d_combo = Gtk.DropDown.new_from_strings(list(desktopr.desktops))
@@ -76,7 +81,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     #               BUTTONS
     # =======================================
 
-    self.button_install = Gtk.Button(label="Install desktop")
+    self.button_install = Gtk.Button(label=_("Install desktop"))
 
     self.button_install.connect("clicked", functools.partial(desktopr.on_install_clicked, self))
 
@@ -91,7 +96,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     # =======================================
 
     uninstall_hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.button_uninstall = Gtk.Button(label="Remove desktop")
+    self.button_uninstall = Gtk.Button(label=_("Remove desktop"))
     self.button_uninstall.connect("clicked", functools.partial(desktopr.on_uninstall_clicked, self))
     self.button_uninstall.set_hexpand(False)
     self.button_uninstall.set_vexpand(False)
@@ -102,7 +107,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     #               CHECKBOX
     # =======================================
 
-    self.ch1 = Gtk.CheckButton(label="Clear package cache before installation")
+    self.ch1 = Gtk.CheckButton(label=_("Clear package cache before installation"))
     checkbox.append(self.ch1)
 
     # =======================================
@@ -112,10 +117,12 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     noice.set_halign(Gtk.Align.CENTER)
     noice.set_justify(Gtk.Justification.CENTER)
     noice.set_markup(
-        "When installing a desktop we back up only the configs it will overwrite\n\
-Backup is in ~/.config-att folder\n\
-Uninstalling a desktop leaves its ~/.config subfolder intact\n\
-Remove it yourself if no longer needed\n"
+        _(
+            "When installing a desktop we back up only the configs it will overwrite\n"
+            "Backup is in ~/.config-att folder\n"
+            "Uninstalling a desktop leaves its ~/.config subfolder intact\n"
+            "Remove it yourself if no longer needed\n"
+        )
     )
     noice.set_wrap(True)
     vboxprog.append(noice)
@@ -141,7 +148,7 @@ Remove it yourself if no longer needed\n"
     self.image_DE.set_halign(Gtk.Align.CENTER)
     self.image_DE.set_valign(Gtk.Align.CENTER)
 
-    frame = Gtk.Frame(label="Preview")
+    frame = Gtk.Frame(label=_("Preview"))
     frame.set_child(self.image_DE)
 
     # =======================================
@@ -165,8 +172,9 @@ Remove it yourself if no longer needed\n"
     self.hbox_backup_notice.set_margin_top(4)
     self.lbl_backup_notice = Gtk.Label()
     self.lbl_backup_notice.set_markup(
-        '<span foreground="#FFD700"><b>Backing up the configs this desktop will overwrite to '
-        "~/.config-att ...</b></span>"
+        '<span foreground="#FFD700"><b>{}</b></span>'.format(
+            _("Backing up the configs this desktop will overwrite to ~/.config-att ...")
+        )
     )
     self.lbl_backup_notice.set_halign(Gtk.Align.CENTER)
     self.hbox_backup_notice.append(self.lbl_backup_notice)
@@ -198,15 +206,15 @@ Remove it yourself if no longer needed\n"
     hbox_dev_test.set_margin_top(10)
     btn_install_all = Gtk.Button()
     lbl_install_all = Gtk.Label()
-    lbl_install_all.set_markup('<span foreground="#FFD700">Install all desktops</span>')
+    lbl_install_all.set_markup('<span foreground="#FFD700">{}</span>'.format(_("Install all desktops")))
     btn_install_all.set_child(lbl_install_all)
     btn_install_all.connect("clicked", lambda _w: desktopr.install_all_desktops(self))
     btn_install_all_twms = Gtk.Button()
     lbl_install_all_twms = Gtk.Label()
-    lbl_install_all_twms.set_markup('<span foreground="#FFD700">Install all twms</span>')
+    lbl_install_all_twms.set_markup('<span foreground="#FFD700">{}</span>'.format(_("Install all twms")))
     btn_install_all_twms.set_child(lbl_install_all_twms)
     btn_install_all_twms.connect("clicked", lambda _w: desktopr.install_all_twms(self))
-    btn_remove_all = Gtk.Button(label="Remove all desktops")
+    btn_remove_all = Gtk.Button(label=_("Remove all desktops"))
     btn_remove_all.connect("clicked", lambda _w: desktopr.remove_all_desktops(self))
     hbox_dev_test.append(btn_install_all)
     hbox_dev_test.append(btn_install_all_twms)
@@ -242,7 +250,9 @@ def update_button_state(self, fn):
         self.button_install.set_tooltip_text("")
     else:
         self.button_install.set_tooltip_text(
-            "Enable nemesis_repo and chaotic-aur in the Pacman tab to install this desktop"
+            _("Enable {repo1} and {repo2} in the Pacman tab to install this desktop").format(
+                repo1="nemesis_repo", repo2="chaotic-aur"
+            )
         )
 
     if hasattr(self, "button_uninstall"):
@@ -250,7 +260,9 @@ def update_button_state(self, fn):
             de_name = desktopr.desktop_display_name(selected)
             self.button_uninstall.set_sensitive(False)
             self.button_uninstall.set_tooltip_text(
-                f"{de_name} cannot be safely removed — reinstall the system to switch desktop environments"
+                _("{name} cannot be safely removed — reinstall the system to switch desktop environments").format(
+                    name=de_name
+                )
             )
         else:
             self.button_uninstall.set_sensitive(True)
@@ -260,11 +272,19 @@ def update_button_state(self, fn):
         if selected in desktopr.ONE_WAY_DESKTOPS:
             de_name = desktopr.desktop_display_name(selected)
             self.lbl_oneway_warning.set_markup(
-                f'<span foreground="#FFA500"><b>WARNING: Installing {de_name} is a one-way operation'
-                " — removal requires a system reinstall</b></span>"
+                '<span foreground="#FFA500"><b>{}</b></span>'.format(
+                    _("WARNING: Installing {name} is a one-way operation — removal requires a system reinstall").format(
+                        name=de_name
+                    )
+                )
             )
             self.hbox_oneway_warning.set_visible(True)
             fn.log_warn(f"{de_name} selected — installing is a one-way operation; removal requires a full system reinstall")
-            fn.show_in_app_notification(self, f"WARNING: Installing {de_name} is a one-way operation — removal requires a system reinstall")
+            fn.show_in_app_notification(
+                self,
+                _("WARNING: Installing {name} is a one-way operation — removal requires a system reinstall").format(
+                    name=de_name
+                ),
+            )
         else:
             self.hbox_oneway_warning.set_visible(False)

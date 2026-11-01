@@ -4,11 +4,12 @@
 # pylint:disable=C0301,R1705
 
 import functions as fn
+from att_i18n import _
 
 
-def get_list(fle):
+def get_list(file_path):
     """Read all lines from a file and return them as a list."""
-    with open(fle, "r", encoding="utf-8") as f:
+    with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
         f.close()
     return lines
@@ -48,9 +49,11 @@ def move_file(self, state):
         else:
             fn.messagebox(
                 self,
-                "OOPS!",
-                "you dont seem to have <b>config-polybar</b>\
-                file in your <i>~/.config/i3</i> directory. So we can not enable this feature.",
+                _("OOPS!"),
+                _(
+                    "you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. "
+                    "So we can not enable this feature."
+                ).format(name="config-polybar", path="~/.config/i3"),
             )
             self.poly.set_active(False)
     else:
@@ -382,7 +385,7 @@ def on_polybar_toggle(self, _widget, _pspec=None):
             fn.log_success("Polybar disabled")
     except Exception as error:
         fn.log_error(f"Failed to toggle polybar: {error}")
-        fn.messagebox(self, "Error", f"Failed to toggle polybar: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to toggle polybar: {error}").format(error=error))
 
 
 def awesome_apply_clicked(self, _widget):
@@ -403,10 +406,10 @@ def awesome_apply_clicked(self, _widget):
         fn.debug_print(f"Applying awesome theme: {nid}")
         set_awesome_theme(get_list(fn.awesome_config), nid)
         fn.log_success("Awesome theme applied successfully")
-        fn.show_in_app_notification(self, "Theme set successfully")
+        fn.show_in_app_notification(self, _("Theme set successfully"))
     except Exception as error:
         fn.log_error(f"Failed to apply awesome theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply theme: {error}").format(error=error))
 
 
 def awesome_reset_clicked(self, _widget):
@@ -420,7 +423,7 @@ def awesome_reset_clicked(self, _widget):
             fn.shutil.copy(fn.awesome_config + "-bak", fn.awesome_config)
             fn.permissions(fn.awesome_config)
             fn.log_success("Awesome configuration reset")
-            fn.show_in_app_notification(self, "Config reset successfully")
+            fn.show_in_app_notification(self, _("Config reset successfully"))
 
             awesome_list = get_list(fn.awesome_config)
             awesome_lines = get_awesome_themes(awesome_list)
@@ -433,7 +436,7 @@ def awesome_reset_clicked(self, _widget):
             fn.log_warn("Backup configuration not found")
     except Exception as error:
         fn.log_error(f"Failed to reset awesome theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to reset theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to reset theme: {error}").format(error=error))
 
 
 def i3wm_apply_clicked(self, _widget):
@@ -453,10 +456,10 @@ def i3wm_apply_clicked(self, _widget):
             fn.debug_print("Updating polybar configuration")
             set_i3_themes_bar(get_list(fn.i3wm_config), fn.get_combo_text(self.i3_combo))
         fn.log_success("I3WM theme applied successfully")
-        fn.show_in_app_notification(self, "Theme applied successfully")
+        fn.show_in_app_notification(self, _("Theme applied successfully"))
     except Exception as error:
         fn.log_error(f"Failed to apply i3wm theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply theme: {error}").format(error=error))
 
 
 def i3wm_reset_clicked(self, _widget):
@@ -470,7 +473,7 @@ def i3wm_reset_clicked(self, _widget):
             fn.shutil.copy(fn.i3wm_config + "-bak", fn.i3wm_config)
             fn.permissions(fn.i3wm_config)
             fn.log_success("I3WM configuration reset")
-            fn.show_in_app_notification(self, "Config reset successfully")
+            fn.show_in_app_notification(self, _("Config reset successfully"))
 
             i3_list = get_list(fn.i3wm_config)
 
@@ -479,7 +482,7 @@ def i3wm_reset_clicked(self, _widget):
             fn.log_warn("Backup configuration not found")
     except Exception as error:
         fn.log_error(f"Failed to reset i3wm theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to reset theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to reset theme: {error}").format(error=error))
 
 
 def qtile_apply_clicked(self, _widget):
@@ -496,10 +499,10 @@ def qtile_apply_clicked(self, _widget):
         fn.debug_print(f"Applying qtile theme: {fn.get_combo_text(self.qtile_combo)}")
         set_qtile_themes(get_list(fn.qtile_config), fn.get_combo_text(self.qtile_combo))
         fn.log_success("Qtile theme applied successfully")
-        fn.show_in_app_notification(self, "Theme applied successfully")
+        fn.show_in_app_notification(self, _("Theme applied successfully"))
     except Exception as error:
         fn.log_error(f"Failed to apply qtile theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply theme: {error}").format(error=error))
 
 
 def qtile_reset_clicked(self, _widget):
@@ -513,7 +516,7 @@ def qtile_reset_clicked(self, _widget):
             fn.shutil.copy(fn.qtile_config + "-bak", fn.qtile_config)
             fn.permissions(fn.qtile_config)
             fn.log_success("Qtile configuration reset")
-            fn.show_in_app_notification(self, "Config reset successfully")
+            fn.show_in_app_notification(self, _("Config reset successfully"))
 
             qtile_list = get_list(fn.qtile_config)
 
@@ -522,7 +525,7 @@ def qtile_reset_clicked(self, _widget):
             fn.log_warn("Backup configuration not found")
     except Exception as error:
         fn.log_error(f"Failed to reset qtile theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to reset theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to reset theme: {error}").format(error=error))
 
 
 def leftwm_apply_clicked(self, _widget):
@@ -535,12 +538,12 @@ def leftwm_apply_clicked(self, _widget):
         fn.log_success(f"Leftwm theme {theme_name} applied successfully")
         fn.show_in_app_notification(
             self,
-            "Theme " + theme_name + " applied successfully",
+            _("Theme {name} applied successfully").format(name=theme_name),
         )
-        self.status_leftwm.set_markup("<b>Theme is installed and applied</b>")
+        self.status_leftwm.set_markup(_("<b>Theme is installed and applied</b>"))
     except Exception as error:
         fn.log_error(f"Failed to apply leftwm theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply theme: {error}").format(error=error))
 
 
 def leftwm_reset_clicked(self, _widget):
@@ -552,11 +555,11 @@ def leftwm_reset_clicked(self, _widget):
         reset_leftwm_themes(theme_name)
         fn.debug_print(f"Resetting theme: {theme_name}")
         fn.log_success(f"Leftwm theme {theme_name} reset successfully")
-        fn.show_in_app_notification(self, "Theme " + theme_name + " reset successfully")
-        self.status_leftwm.set_markup("<b>Theme is installed and applied</b>")
+        fn.show_in_app_notification(self, _("Theme {name} reset successfully").format(name=theme_name))
+        self.status_leftwm.set_markup(_("<b>Theme is installed and applied</b>"))
     except Exception as error:
         fn.log_error(f"Failed to reset leftwm theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to reset theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to reset theme: {error}").format(error=error))
 
 
 def leftwm_remove_clicked(self, _widget):
@@ -570,11 +573,11 @@ def leftwm_remove_clicked(self, _widget):
         fn.log_success(f"Leftwm theme {theme_name} removed successfully")
         fn.show_in_app_notification(
             self,
-            "Theme " + theme_name + " removed successfully",
+            _("Theme {name} removed successfully").format(name=theme_name),
         )
     except Exception as error:
         fn.log_error(f"Failed to remove leftwm theme: {error}")
-        fn.messagebox(self, "Error", f"Failed to remove theme: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to remove theme: {error}").format(error=error))
 
 
 def on_leftwm_combo_changed(self, _widget, _pspec=None):
@@ -583,9 +586,9 @@ def on_leftwm_combo_changed(self, _widget, _pspec=None):
     fn.log_info(f"LeftWM theme selected: {theme}")
     link_theme = fn.path.basename(fn.os.readlink(fn.leftwm_config_theme_current))
     if fn.path_check(fn.leftwm_config_theme + theme):
-        self.status_leftwm.set_markup("<b>Theme is installed</b>")
+        self.status_leftwm.set_markup(_("<b>Theme is installed</b>"))
     else:
-        self.status_leftwm.set_markup("<b>Theme is NOT installed</b>")
+        self.status_leftwm.set_markup(_("<b>Theme is NOT installed</b>"))
 
     if fn.path_check(fn.leftwm_config_theme + theme) and link_theme == theme:
-        self.status_leftwm.set_markup("<b>Theme is installed and applied</b>")
+        self.status_leftwm.set_markup(_("<b>Theme is installed and applied</b>"))

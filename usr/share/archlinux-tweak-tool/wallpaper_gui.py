@@ -4,6 +4,8 @@
 
 import functools
 
+from att_i18n import _
+
 
 def _refresh(self, fn):
     variety_installed = fn.check_package_installed("variety")
@@ -29,7 +31,7 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     vbox.set_margin_end(10)
 
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Wallpaper")
+    lbl_title.set_text(_("Wallpaper"))
     lbl_title.set_name("title")
     hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hseparator.set_hexpand(True)
@@ -43,14 +45,14 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     hbox_section_variety.append(lbl_section_variety)
 
     hbox_variety_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.btn_install_variety = Gtk.Button(label="Install/launch variety")
+    self.btn_install_variety = Gtk.Button(label=_("Install/launch {name}").format(name="variety"))
     self.btn_install_variety.connect("clicked", functools.partial(wallpaper.on_install_or_launch_variety, self))
 
-    self.btn_remove_variety = Gtk.Button(label="Remove variety")
+    self.btn_remove_variety = Gtk.Button(label=_("Remove {name}").format(name="variety"))
     self.btn_remove_variety.connect("clicked", functools.partial(wallpaper.on_remove_variety, self))
 
     self.lbl_variety_installed = Gtk.Label(xalign=0)
-    self.lbl_variety_installed.set_markup("<b>Installed</b>")
+    self.lbl_variety_installed.set_markup(_("<b>Installed</b>"))
     self.lbl_variety_installed.set_margin_start(6)
     self.lbl_variety_installed.set_visible(False)
 
@@ -59,10 +61,10 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     hbox_variety_btns.append(self.lbl_variety_installed)
 
     hbox_variety_nav = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.btn_variety_next = Gtk.Button(label="Next wallpaper")
+    self.btn_variety_next = Gtk.Button(label=_("Next wallpaper"))
     self.btn_variety_next.connect("clicked", functools.partial(wallpaper.on_variety_next, self))
 
-    self.btn_variety_prev = Gtk.Button(label="Previous wallpaper")
+    self.btn_variety_prev = Gtk.Button(label=_("Previous wallpaper"))
     self.btn_variety_prev.connect("clicked", functools.partial(wallpaper.on_variety_prev, self))
 
     hbox_variety_nav.append(self.btn_variety_prev)
@@ -70,15 +72,15 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
 
     hbox_section_autostart = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section_autostart = Gtk.Label(xalign=0)
-    lbl_section_autostart.set_markup("<b>Autostart</b>")
+    lbl_section_autostart.set_markup(_("<b>Autostart</b>"))
     lbl_section_autostart.set_margin_top(8)
     hbox_section_autostart.append(lbl_section_autostart)
 
     hbox_autostart_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.btn_add_variety_autostart = Gtk.Button(label="Add to autostart")
+    self.btn_add_variety_autostart = Gtk.Button(label=_("Add to autostart"))
     self.btn_add_variety_autostart.connect("clicked", functools.partial(wallpaper.on_add_variety_autostart, self))
 
-    self.btn_remove_variety_autostart = Gtk.Button(label="Remove from autostart")
+    self.btn_remove_variety_autostart = Gtk.Button(label=_("Remove from autostart"))
     self.btn_remove_variety_autostart.connect("clicked", functools.partial(wallpaper.on_remove_variety_autostart, self))
 
     hbox_autostart_btns.append(self.btn_add_variety_autostart)
@@ -87,29 +89,31 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     # ---- ATT Configuration section ----
     hbox_section_config = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section_config = Gtk.Label(xalign=0)
-    lbl_section_config.set_markup("<b>ATT Configuration</b>")
+    lbl_section_config.set_markup(_("<b>{name} Configuration</b>").format(name="ATT"))
     lbl_section_config.set_margin_top(16)
     hbox_section_config.append(lbl_section_config)
 
     hbox_config_info = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_config_info = Gtk.Label(xalign=0)
     lbl_config_info.set_markup(
-        "<i>Store your wallpapers in ~/Templates/wallpapers — variety picks them up automatically</i>"
+        _("<i>Store your wallpapers in {path} — {name} picks them up automatically</i>").format(
+            path="~/Templates/wallpapers", name="variety"
+        )
     )
     lbl_config_info.set_margin_start(2)
     hbox_config_info.append(lbl_config_info)
 
     hbox_config_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.btn_save_variety_config = Gtk.Button(label="Save ATT variety config")
+    self.btn_save_variety_config = Gtk.Button(label=_("Save {name} variety config").format(name="ATT"))
     self.btn_save_variety_config.connect("clicked", functools.partial(wallpaper.on_save_variety_config, self))
 
-    self.btn_open_variety_settings = Gtk.Button(label="Open variety settings")
+    self.btn_open_variety_settings = Gtk.Button(label=_("Open {name} settings").format(name="variety"))
     self.btn_open_variety_settings.connect("clicked", functools.partial(wallpaper.on_open_variety_settings, self))
 
-    self.btn_open_variety_selector = Gtk.Button(label="Open Selector")
+    self.btn_open_variety_selector = Gtk.Button(label=_("Open Selector"))
     self.btn_open_variety_selector.connect("clicked", functools.partial(wallpaper.on_open_variety_selector, self))
 
-    self.btn_restore_variety_backup = Gtk.Button(label="Restore backup")
+    self.btn_restore_variety_backup = Gtk.Button(label=_("Restore backup"))
     self.btn_restore_variety_backup.connect("clicked", functools.partial(wallpaper.on_restore_variety_backup, self))
     self.btn_restore_variety_backup.set_sensitive(False)
 
@@ -123,19 +127,19 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
 
     hbox_section_picker = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section_picker = Gtk.Label(xalign=0)
-    lbl_section_picker.set_markup("<b>ATT Wallpaper Picker</b>")
+    lbl_section_picker.set_markup(_("<b>{name} Wallpaper Picker</b>").format(name="ATT"))
     lbl_section_picker.set_margin_top(16)
     hbox_section_picker.append(lbl_section_picker)
 
     # Folder row
     hbox_folder = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    btn_browse = Gtk.Button(label="Browse")
+    btn_browse = Gtk.Button(label=_("Browse"))
     btn_browse.connect("clicked", functools.partial(wallpaper.on_browse_wallpaper_folder, self))
 
     presets = wallpaper.wallpaper_preset_folders()
     saved = wallpaper.saved_wallpaper_folder()
     dd_presets = Gtk.DropDown.new_from_strings(presets)
-    dd_presets.set_tooltip_text("Known wallpaper folders - pick one to load it")
+    dd_presets.set_tooltip_text(_("Known wallpaper folders - pick one to load it"))
     # notify::selected only fires on a change, so a preselected entry that wasn't loaded could never be picked;
     # with nothing saved (or a Browse/typed folder) start empty so every preset is one click away
     if saved in presets:
@@ -149,12 +153,12 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     # Connected after set_selected so restoring the saved choice doesn't load thumbnails at startup
     dd_presets.connect("notify::selected", functools.partial(wallpaper.on_wallpaper_preset_selected, self))
 
-    btn_load = Gtk.Button(label="Load")
+    btn_load = Gtk.Button(label=_("Load"))
     # Thumbnails don't load at startup, so point users to Load
     btn_load.add_css_class("gold-button")
     btn_load.connect("clicked", functools.partial(wallpaper.on_load_wallpaper_folder, self))
 
-    btn_stop = Gtk.Button(label="Stop")
+    btn_stop = Gtk.Button(label=_("Stop"))
     btn_stop.connect("clicked", functools.partial(wallpaper.on_stop_wallpaper_loading, self))
 
     hbox_folder.append(btn_browse)
@@ -187,7 +191,7 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
 
     hbox_path = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.wallpaper_path_lbl = Gtk.Label(xalign=0)
-    self.wallpaper_path_lbl.set_text("No wallpaper selected")
+    self.wallpaper_path_lbl.set_text(_("No wallpaper selected"))
     self.wallpaper_path_lbl.set_hexpand(True)
     self.wallpaper_path_lbl.set_ellipsize(Pango.EllipsizeMode.START)
     hbox_path.append(self.wallpaper_path_lbl)
@@ -195,12 +199,12 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     # Options + Apply row
     hbox_apply = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_scale = Gtk.Label(xalign=0)
-    lbl_scale.set_text("Scale:")
+    lbl_scale.set_text(_("Scale:"))
     self.wallpaper_scale_combo = Gtk.DropDown.new_from_strings(["Fill", "Fit", "Center", "Tile", "Stretch"])
     self.wallpaper_scale_combo.set_selected(0)
     _on_wayland = bool(wallpaper._get_user_env(["WAYLAND_DISPLAY"])["WAYLAND_DISPLAY"])
 
-    btn_apply = Gtk.Button(label="Apply wallpaper")
+    btn_apply = Gtk.Button(label=_("Apply wallpaper"))
     btn_apply.connect("clicked", functools.partial(wallpaper.on_apply_wallpaper, self))
 
     hbox_apply_spacer = Gtk.Box()
@@ -213,7 +217,9 @@ def gui(self, Gtk, Pango, vboxstack_wallpaper, wallpaper, fn, base_dir):
     # Persistence tip for WM/feh users
     hbox_note = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_note = Gtk.Label(xalign=0)
-    lbl_note.set_markup("<i>Tip: source ~/.fehbg in your WM autostart to restore wallpaper on login</i>")
+    lbl_note.set_markup(
+        _("<i>Tip: source {path} in your WM autostart to restore wallpaper on login</i>").format(path="~/.fehbg")
+    )
     lbl_note.set_margin_top(4)
     hbox_note.append(lbl_note)
     if _on_wayland:

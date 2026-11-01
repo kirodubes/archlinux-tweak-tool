@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 import re
 import json
 
@@ -214,7 +215,7 @@ def apply_config(self):
         f.writelines(lines)
 
     fn.log_success("Fastfetch settings saved")
-    fn.show_in_app_notification(self, "fastfetch settings saved successfully")
+    fn.show_in_app_notification(self, _("fastfetch settings saved successfully"))
 
 
 def get_checkboxes(self):
@@ -397,7 +398,7 @@ def set_fastfetch_ui_sensitive(self, state):
 
 def on_remove_fast(self, _widget):
     fn.log_subsection("Removing fastfetch")
-    fn.show_in_app_notification(self, "Opening terminal to remove fastfetch...")
+    fn.show_in_app_notification(self, _("Opening terminal to remove {name}...").format(name="fastfetch"))
     result = fn.subprocess.run(["pacman", "-Q", "fastfetch-git"], capture_output=True)
     package = "fastfetch-git" if result.returncode == 0 else "fastfetch"
     process = fn.launch_pacman_remove_in_terminal(package)
@@ -426,7 +427,7 @@ def _pick_fastfetch_package():
 def on_install_fast(self, _widget):
     fn.log_subsection("Install Fastfetch")
     package = _pick_fastfetch_package()
-    fn.show_in_app_notification(self, f"Installing {package}...")
+    fn.show_in_app_notification(self, _("Installing {name}...").format(name=package))
     fn.install_package(self, package)
 
 
@@ -453,7 +454,7 @@ def on_reset_fast_att(self, _widget):
         fn.permissions(fn.fastfetch_config)
         fn.debug_print("  Result : copied and permissions set")
         fn.log_success("Fastfetch ATT defaults applied")
-        fn.show_in_app_notification(self, "ATT defaults applied")
+        fn.show_in_app_notification(self, _("ATT defaults applied"))
         get_checkboxes(self)
     else:
         fn.debug_print("  Result : source file not found - nothing copied")
@@ -471,7 +472,7 @@ def on_reset_fast(self, _widget):
         fn.debug_print("  Result : restored from backup")
         get_checkboxes(self)
         fn.log_success("fastfetch default settings applied")
-        fn.show_in_app_notification(self, "Default settings applied")
+        fn.show_in_app_notification(self, _("Default settings applied"))
     else:
         fn.debug_print("  Result : backup file not found - nothing restored")
 
@@ -482,20 +483,20 @@ def on_fast_util_toggled(self, switch, _gparam):
     util_state = switch.get_active()
     lolcat_state = self.fast_lolcat.get_active()
     label = "enabled" if util_state else "disabled"
-    fn.log_subsection(f"Fastfetch {label}")
+    fn.log_subsection((_("{name} enabled") if util_state else _("{name} disabled")).format(name="Fastfetch"))
     fn.debug_print(f"  Config : {fn.get_config_file()}")
 
     if util_state and not fn.path.exists("/usr/bin/fastfetch"):
         package = _pick_fastfetch_package()
-        fn.log_subsection(f"Installing {package}...")
-        fn.show_in_app_notification(self, f"Opening terminal to install {package}...")
+        fn.log_subsection(_("Installing {name}...").format(name=package))
+        fn.show_in_app_notification(self, _("Opening terminal to install {name}...").format(name=package))
         process = fn.launch_pacman_install_in_terminal(package)
 
         def wait_and_enable():
             if process:
                 process.communicate()
             if fn.path.exists("/usr/bin/fastfetch"):
-                fn.log_success("fastfetch installed")
+                fn.log_success(_("{name} installed").format(name="fastfetch"))
                 if fn.path.isfile(fn.fastfetch_config):
                     if not fn.path.isfile(fn.fastfetch_config + "-bak"):
                         try:
@@ -510,7 +511,7 @@ def on_fast_util_toggled(self, switch, _gparam):
                     fn.debug_print(f"  ATT config placed: {fn.fastfetch_config}")
                 fn.GLib.idle_add(set_fastfetch_ui_sensitive, self, True)
                 fn.GLib.idle_add(write_configs, True, lolcat_state)
-                fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch installed")
+                fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name="fastfetch"))
             else:
                 fn.log_warn("fastfetch not found after install — snapping switch back")
 
@@ -518,8 +519,8 @@ def on_fast_util_toggled(self, switch, _gparam):
                     self.ff_initializing = True
                     self.fast_util.set_active(False)
                     self.ff_initializing = False
-                    fn.log_warn("fastfetch installation failed or was cancelled")
-                    fn.show_in_app_notification(self, "fastfetch installation failed or was cancelled")
+                    fn.log_warn(_("fastfetch installation failed or was cancelled"))
+                    fn.show_in_app_notification(self, _("fastfetch installation failed or was cancelled"))
 
                 fn.GLib.idle_add(snap_back)
 
@@ -532,12 +533,12 @@ def on_fast_util_toggled(self, switch, _gparam):
 
     if not fn.get_config_file():
         fn.log_warn("No shell config files found — fastfetch cannot be added to your shell startup")
-        fn.show_in_app_notification(self, "No shell config found")
+        fn.show_in_app_notification(self, _("No shell config found"))
         return
     write_configs(util_state, lolcat_state)
     self.fast_lolcat.set_sensitive(util_state)
     fn.log_success(f"Fastfetch {label} in shell config")
-    fn.GLib.idle_add(fn.show_in_app_notification, self, f"Fastfetch {label}")
+    fn.GLib.idle_add(fn.show_in_app_notification, self, (_("{name} enabled") if util_state else _("{name} disabled")).format(name="Fastfetch"))
 
 
 def on_fast_lolcat_toggled(self, switch, _gparam):
@@ -546,25 +547,25 @@ def on_fast_lolcat_toggled(self, switch, _gparam):
     lolcat_state = switch.get_active()
     util_state = self.fast_util.get_active()
     label = "enabled" if lolcat_state else "disabled"
-    fn.log_subsection(f"Lolcat {label}")
+    fn.log_subsection((_("{name} enabled") if lolcat_state else _("{name} disabled")).format(name="Lolcat"))
     fn.debug_print(f"  Config : {fn.get_config_file()}")
 
     if lolcat_state and not fn.path.exists("/usr/bin/lolcat"):
         fn.log_subsection("Installing lolcat...")
-        fn.show_in_app_notification(self, "Opening terminal to install lolcat...")
+        fn.show_in_app_notification(self, _("Opening terminal to install {name}...").format(name="lolcat"))
         process = fn.launch_pacman_install_in_terminal("lolcat")
 
         def wait_and_enable():
             if process:
                 process.communicate()
             if fn.path.exists("/usr/bin/lolcat"):
-                fn.log_success("lolcat installed")
+                fn.log_success(_("{name} installed").format(name="lolcat"))
                 if util_state:
                     fn.GLib.idle_add(write_configs, util_state, True)
-                fn.GLib.idle_add(fn.show_in_app_notification, self, "lolcat installed")
+                fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name="lolcat"))
             else:
-                fn.log_warn("lolcat installation failed or was cancelled")
-                fn.GLib.idle_add(fn.show_in_app_notification, self, "lolcat installation failed or was cancelled")
+                fn.log_warn(_("lolcat installation failed or was cancelled"))
+                fn.GLib.idle_add(fn.show_in_app_notification, self, _("lolcat installation failed or was cancelled"))
                 fn.GLib.idle_add(self.fast_lolcat.set_active, False)
 
         fn.threading.Thread(target=wait_and_enable, daemon=True).start()
@@ -573,11 +574,11 @@ def on_fast_lolcat_toggled(self, switch, _gparam):
     if util_state:
         if not fn.get_config_file():
             fn.log_warn("No shell config files found — fastfetch cannot be added to your shell startup")
-            fn.show_in_app_notification(self, "No shell config found")
+            fn.show_in_app_notification(self, _("No shell config found"))
             return
         write_configs(util_state, lolcat_state)
         fn.log_success(f"Lolcat {label} in shell config")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, f"Lolcat {label}")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, (_("{name} enabled") if lolcat_state else _("{name} disabled")).format(name="Lolcat"))
 
 
 def on_click_fastfetch_all_selection(self, _widget):
@@ -602,9 +603,9 @@ def on_click_fastfetch_none_selection(self, _widget):
 
 def _refresh_fftt_lbl(self):
     if fn.check_package_installed("fastfetch-tweak-tool"):
-        self.fftt_status_lbl.set_markup("fastfetch-tweak-tool is <b>installed</b>")
+        self.fftt_status_lbl.set_markup(_("{name} is <b>installed</b>").format(name="fastfetch-tweak-tool"))
     else:
-        self.fftt_status_lbl.set_markup("fastfetch-tweak-tool is <b>not installed</b>")
+        self.fftt_status_lbl.set_markup(_("{name} is <b>not installed</b>").format(name="fastfetch-tweak-tool"))
 
 
 def _refresh_fftt_launch_btn(self):
@@ -614,21 +615,21 @@ def _refresh_fftt_launch_btn(self):
 def on_install_fastfetch_tweak_tool_clicked(self, _widget):
     """Install fastfetch-tweak-tool from nemesis repo via terminal."""
     if fn.check_package_installed("fastfetch-tweak-tool"):
-        fn.log_info("fastfetch-tweak-tool is already installed")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch-tweak-tool is already installed")
+        fn.log_info(_("{name} is already installed").format(name="fastfetch-tweak-tool"))
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} is already installed").format(name="fastfetch-tweak-tool"))
         return
     fn.log_subsection("Installing fastfetch-tweak-tool...")
     process = fn.launch_pacman_install_in_terminal("fastfetch-tweak-tool")
-    fn.GLib.idle_add(fn.show_in_app_notification, self, "Opening terminal to install fastfetch-tweak-tool")
+    fn.GLib.idle_add(fn.show_in_app_notification, self, _("Opening terminal to install {name}...").format(name="fastfetch-tweak-tool"))
 
     def wait_install():
         try:
             process.wait()
             fn.invalidate_pkg_cache()
-            fn.log_success("fastfetch-tweak-tool installed")
+            fn.log_success(_("{name} installed").format(name="fastfetch-tweak-tool"))
             fn.GLib.idle_add(_refresh_fftt_lbl, self)
             fn.GLib.idle_add(_refresh_fftt_launch_btn, self)
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch-tweak-tool installed")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name="fastfetch-tweak-tool"))
         except Exception as e:
             fn.log_error(f"Error installing fastfetch-tweak-tool: {e}")
 
@@ -639,20 +640,20 @@ def on_remove_fastfetch_tweak_tool_clicked(self, _widget):
     """Remove fastfetch-tweak-tool via terminal."""
     if not fn.check_package_installed("fastfetch-tweak-tool"):
         fn.log_info("fastfetch-tweak-tool is not installed — nothing to remove")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch-tweak-tool is not installed")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} is not installed").format(name="fastfetch-tweak-tool"))
         return
     fn.log_subsection("Removing fastfetch-tweak-tool...")
     process = fn.launch_pacman_remove_in_terminal("fastfetch-tweak-tool")
-    fn.GLib.idle_add(fn.show_in_app_notification, self, "Opening terminal to remove fastfetch-tweak-tool")
+    fn.GLib.idle_add(fn.show_in_app_notification, self, _("Opening terminal to remove {name}...").format(name="fastfetch-tweak-tool"))
 
     def wait_remove():
         try:
             process.wait()
             fn.invalidate_pkg_cache()
-            fn.log_success("fastfetch-tweak-tool removed")
+            fn.log_success(_("{name} removed").format(name="fastfetch-tweak-tool"))
             fn.GLib.idle_add(_refresh_fftt_lbl, self)
             fn.GLib.idle_add(_refresh_fftt_launch_btn, self)
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch-tweak-tool removed")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name="fastfetch-tweak-tool"))
         except Exception as e:
             fn.log_error(f"Error removing fastfetch-tweak-tool: {e}")
 
@@ -669,7 +670,7 @@ def on_click_launch_fftt(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.STDOUT,
         )
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "Fastfetch Tweak Tool launched")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} launched").format(name="Fastfetch Tweak Tool"))
     else:
-        fn.log_info("fastfetch-tweak-tool not installed")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "fastfetch-tweak-tool not installed")
+        fn.log_info(_("{name} is not installed").format(name="fastfetch-tweak-tool"))
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} is not installed").format(name="fastfetch-tweak-tool"))

@@ -6,6 +6,7 @@
 import functools
 import desktopr_gui
 import themer
+from att_i18n import _
 
 
 def init_themer_lazy_load(self, fn):
@@ -100,7 +101,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
     hbox_themer_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_themer_sep = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_themer_title = Gtk.Label(xalign=0)
-    lbl_themer_title.set_text("Theme Switcher")
+    lbl_themer_title.set_text(_("Theme Switcher"))
     lbl_themer_title.set_name("title")
     hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hseparator.set_hexpand(True)
@@ -137,12 +138,14 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     lbl_i3_instructions = Gtk.Label()
     lbl_i3_instructions.set_markup(
-        "Reload your window manager with <b>Super + Shift + R</b>\
- after you make your changes..\nFirst install the desktop via the Desktop menu then theme it."
+        _(
+            "Reload your window manager with <b>Super + Shift + R</b> after you make your changes..\n"
+            "First install the desktop via the Desktop menu then theme it."
+        )
     )
 
     label = Gtk.Label()
-    label.set_markup("Select theme\n<small>(install desktop first to be able to select a theme)</small>")
+    label.set_markup(_("Select theme\n<small>(install desktop first to be able to select a theme)</small>"))
     i3_model = Gtk.StringList()
     self.i3_combo = Gtk.DropDown(model=i3_model)
     self.i3_combo.set_size_request(280, 0)
@@ -154,12 +157,12 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     vbox_i3_combo.append(self.i3_combo)
 
-    self.applyi3 = Gtk.Button(label="Apply theme")
+    self.applyi3 = Gtk.Button(label=_("Apply theme"))
     self.applyi3.connect("clicked", functools.partial(themer.i3wm_apply_clicked, self))
-    self.reseti3 = Gtk.Button(label="Reset")
+    self.reseti3 = Gtk.Button(label=_("Reset"))
     self.reseti3.connect("clicked", functools.partial(themer.i3wm_reset_clicked, self))
 
-    lbl_polybar_toggle = Gtk.Label(label="Toggle polybar")
+    lbl_polybar_toggle = Gtk.Label(label=_("Toggle {name}").format(name="polybar"))
     self.poly = Gtk.Switch()
     self.poly.connect("notify::active", functools.partial(themer.on_polybar_toggle, self))
 
@@ -223,13 +226,15 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     lbl_awesome_instructions = Gtk.Label()
     lbl_awesome_instructions.set_markup(
-        "Reload your window manager with <b>Super + Shift + R</b>\
- after you make your changes..\nFirst install the desktop via the Desktop menu then theme it."
+        _(
+            "Reload your window manager with <b>Super + Shift + R</b> after you make your changes..\n"
+            "First install the desktop via the Desktop menu then theme it."
+        )
     )
 
     lbl_awesome_select_theme = Gtk.Label()
     lbl_awesome_select_theme.set_markup(
-        "Select theme\n<small>(install desktop first to be able to select a theme)</small>"
+        _("Select theme\n<small>(install desktop first to be able to select a theme)</small>")
     )
     awesome_model = Gtk.StringList()
     self.awesome_combo = Gtk.DropDown(model=awesome_model)
@@ -255,7 +260,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     frame = Gtk.Frame(label="")
     frmlbl = frame.get_label_widget()
-    frmlbl.set_markup("<b>Preview</b>")
+    frmlbl.set_markup(_("<b>Preview</b>"))
 
     try:
         selected = self.awesome_combo.get_selected_item()
@@ -308,9 +313,9 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
     frame.set_margin_end(10)
     hbox_awesome_preview.append(frame)
 
-    self.applyawesome = Gtk.Button(label="Apply theme")
+    self.applyawesome = Gtk.Button(label=_("Apply theme"))
     self.applyawesome.connect("clicked", functools.partial(themer.awesome_apply_clicked, self))
-    self.resetawesome = Gtk.Button(label="Reset")
+    self.resetawesome = Gtk.Button(label=_("Reset"))
     self.resetawesome.connect("clicked", functools.partial(themer.awesome_reset_clicked, self))
 
     self.applyawesome.set_sensitive(False)
@@ -336,12 +341,14 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     lbl_qtile_instructions = Gtk.Label()
     lbl_qtile_instructions.set_markup(
-        "Reload your window manager with <b>Super + Shift + R</b>\
- after you make your changes..\nFirst install the desktop via the Desktop menu then theme it."
+        _(
+            "Reload your window manager with <b>Super + Shift + R</b> after you make your changes..\n"
+            "First install the desktop via the Desktop menu then theme it."
+        )
     )
 
     labelqt = Gtk.Label()
-    labelqt.set_markup("Select theme\n<small>(install desktop first to be able to select a theme)</small>")
+    labelqt.set_markup(_("Select theme\n<small>(install desktop first to be able to select a theme)</small>"))
     qtile_model = Gtk.StringList()
     self.qtile_combo = Gtk.DropDown(model=qtile_model)
     self.qtile_combo.set_size_request(280, 0)
@@ -352,9 +359,9 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     vbox_qtile_combo.append(self.qtile_combo)
 
-    self.applyqtile = Gtk.Button(label="Apply theme")
+    self.applyqtile = Gtk.Button(label=_("Apply theme"))
     self.applyqtile.connect("clicked", functools.partial(themer.qtile_apply_clicked, self))
-    self.resetqtile = Gtk.Button(label="Reset")
+    self.resetqtile = Gtk.Button(label=_("Reset"))
     self.resetqtile.connect("clicked", functools.partial(themer.qtile_reset_clicked, self))
 
     self.applyqtile.set_sensitive(False)
@@ -413,12 +420,14 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     lbl_leftwm_instructions = Gtk.Label()
     lbl_leftwm_instructions.set_markup(
-        "Reload your window manager with <b>Super + Shift + R</b>\
- after you make your changes..\nFirst install the desktop via the Desktop menu then theme it."
+        _(
+            "Reload your window manager with <b>Super + Shift + R</b> after you make your changes..\n"
+            "First install the desktop via the Desktop menu then theme it."
+        )
     )
 
     labellft = Gtk.Label()
-    labellft.set_markup("Select theme\n<small>(install desktop first to be able to select a theme)</small>")
+    labellft.set_markup(_("Select theme\n<small>(install desktop first to be able to select a theme)</small>"))
     self.leftwm_combo = Gtk.DropDown.new_from_strings([])
     self.leftwm_combo.set_size_request(280, 0)
     self.leftwm_combo.connect("notify::selected", functools.partial(themer.on_leftwm_combo_changed, self))
@@ -428,11 +437,11 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_themer, themer, fn, base_dir):
 
     vbox_leftwm_combo.append(self.leftwm_combo)
 
-    self.applyleftwm = Gtk.Button(label="Install and apply selected theme")
+    self.applyleftwm = Gtk.Button(label=_("Install and apply selected theme"))
     self.applyleftwm.connect("clicked", functools.partial(themer.leftwm_apply_clicked, self))
-    self.removeleftwm = Gtk.Button(label="Remove selected theme and apply Candy")
+    self.removeleftwm = Gtk.Button(label=_("Remove selected theme and apply {name}").format(name="Candy"))
     self.removeleftwm.connect("clicked", functools.partial(themer.leftwm_remove_clicked, self))
-    self.resetleftwm = Gtk.Button(label="Reset selected theme")
+    self.resetleftwm = Gtk.Button(label=_("Reset selected theme"))
     self.resetleftwm.connect("clicked", functools.partial(themer.leftwm_reset_clicked, self))
 
     self.applyleftwm.set_sensitive(False)

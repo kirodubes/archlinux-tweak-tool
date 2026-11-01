@@ -6,6 +6,7 @@ import json
 import os
 
 import functions as fn
+from att_i18n import _, ngettext
 
 _SARDI_COUNT = 24
 
@@ -70,6 +71,11 @@ HORST_TABS = [
 ]
 
 
+def family_title(family_label):
+    """Return the text shown for a family; only the generic 'Other' bucket is translated (the rest are theme names)."""
+    return _("Other") if family_label == "Other" else family_label
+
+
 def _icon_families(set_key):
     return ICON_SETS[set_key]["families"]
 
@@ -106,101 +112,116 @@ def _check_install_repos(self):
     if not nemesis_ok and not chaotic_ok:
         msg = "Neither nemesis_repo nor chaotic-aur is enabled — add them in the Pacman tab before installing"
         fn.log_info(msg)
-        fn.show_in_app_notification(self, msg)
+        fn.show_in_app_notification(
+            self,
+            _("Neither {repo1} nor {repo2} is enabled — add them in the Pacman tab before installing").format(
+                repo1="nemesis_repo", repo2="chaotic-aur"
+            ),
+        )
         return False
     if not nemesis_ok:
         msg = "nemesis_repo is not enabled — enable it in the Pacman tab for full icon theme support"
         fn.log_info(msg)
-        fn.show_in_app_notification(self, msg)
+        fn.show_in_app_notification(
+            self,
+            _("{repo} is not enabled — enable it in the Pacman tab for full icon theme support").format(
+                repo="nemesis_repo"
+            ),
+        )
     if not chaotic_ok:
         msg = "chaotic-aur is not enabled — enable it in the Pacman tab for full icon theme support"
         fn.log_info(msg)
-        fn.show_in_app_notification(self, msg)
+        fn.show_in_app_notification(
+            self,
+            _("{repo} is not enabled — enable it in the Pacman tab for full icon theme support").format(
+                repo="chaotic-aur"
+            ),
+        )
     return True
 
 
 def on_click_att_sardi_icon_theming_all_selection(self, _widget):
     fn.log_subsection("All Sardi icons selected")
-    fn.show_in_app_notification(self, "We have selected all sardi icons")
+    fn.show_in_app_notification(self, _("We have selected all {name} icons").format(name="Sardi"))
     set_att_checkboxes_theming_sardi_icons_all(self)
 
 
 def on_click_att_sardi_icon_theming_mint_selection(self, _widget):
     fn.log_subsection("Mint selection applied - Sardi icons")
-    fn.show_in_app_notification(self, "We have selected the mint selection - sardi icons")
+    fn.show_in_app_notification(self, _("We have selected the mint selection - {name} icons").format(name="Sardi"))
     set_att_checkboxes_theming_sardi_mint_icons(self)
 
 
 def on_click_att_sardi_icon_theming_mixing_selection(self, _widget):
     fn.log_subsection("Mixing selection applied - Sardi icons")
-    fn.show_in_app_notification(self, "We have selected the mixing selection - sardi icons")
+    fn.show_in_app_notification(self, _("We have selected the mixing selection - {name} icons").format(name="Sardi"))
     set_att_checkboxes_theming_sardi_mixing_icons(self)
 
 
 def on_click_att_sardi_icon_theming_variations_selection(self, _widget):
     fn.log_subsection("Variations selection applied - Sardi icons")
-    fn.show_in_app_notification(self, "We have selected the variation selection - sardi icons")
+    fn.show_in_app_notification(self, _("We have selected the variation selection - {name} icons").format(name="Sardi"))
     set_att_checkboxes_theming_sardi_icons_variations(self)
 
 
 def on_click_att_sardi_icon_theming_none_selection(self, _widget):
     fn.log_subsection("No Sardi icons selected")
-    fn.show_in_app_notification(self, "We have selected no sardiicons")
+    fn.show_in_app_notification(self, _("We have selected no {name} icons").format(name="Sardi"))
     set_att_checkboxes_theming_sardi_icons_none(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_selection(self, _widget):
     fn.log_subsection("Sardi family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_icons(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_flexible_selection(self, _widget):
     fn.log_subsection("Sardi flexible family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi flexible family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} flexible family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_flexible(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_mono_selection(self, _widget):
     fn.log_subsection("Sardi mono family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi mono family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} mono family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_mono(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_flat_selection(self, _widget):
     fn.log_subsection("Sardi flat family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi flat family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} flat family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_flat(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_ghost_selection(self, _widget):
     fn.log_subsection("Sardi ghost family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi ghost family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} ghost family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_ghost(self)
 
 
 def on_click_att_fam_sardi_icon_theming_sardi_orb_selection(self, _widget):
     fn.log_subsection("Sardi orb family selected")
-    fn.show_in_app_notification(self, "We have selected the Sardi orb family themes")
+    fn.show_in_app_notification(self, _("We have selected the {name} orb family themes").format(name="Sardi"))
     set_att_fam_checkboxes_theming_sardi_orb(self)
 
 
 def on_icons_all(self, set_key, tokens, _widget):
     fn.log_subsection(f"All {ICON_SETS[set_key]['noun']} icons selected")
-    fn.show_in_app_notification(self, f"We have selected all {ICON_SETS[set_key]['noun']} icons")
+    fn.show_in_app_notification(self, _("We have selected all {name} icons").format(name=ICON_SETS[set_key]["noun"]))
     set_icon_checkboxes(self, set_key, True, tokens)
 
 
 def on_icons_none(self, set_key, tokens, _widget):
     fn.log_subsection(f"No {ICON_SETS[set_key]['noun']} icons selected")
-    fn.show_in_app_notification(self, f"We have selected no {ICON_SETS[set_key]['noun']} icons")
+    fn.show_in_app_notification(self, _("We have selected no {name} icons").format(name=ICON_SETS[set_key]["noun"]))
     set_icon_checkboxes(self, set_key, False, tokens)
 
 
 def on_icons_family(self, set_key, family_label, scope_tokens, _widget):
     """Tick one family (a filter button) and clear the rest within the tab."""
     fn.log_subsection(f"Select {family_label} {ICON_SETS[set_key]['noun']} icons")
-    fn.show_in_app_notification(self, f"We have selected the {family_label} icons")
+    fn.show_in_app_notification(self, _("We have selected the {family} icons").format(family=family_title(family_label)))
     select_icon_family(self, set_key, family_label, scope_tokens)
 
 
@@ -216,7 +237,7 @@ def on_icons_remove(self, set_key, tokens, _widget):
 
 def on_icons_find(self, set_key, tokens, _widget):
     fn.log_subsection(f"Showing installed {ICON_SETS[set_key]['noun']} icon themes...")
-    fn.show_in_app_notification(self, "We show the installed icon themes")
+    fn.show_in_app_notification(self, _("We show the installed icon themes"))
     find_icons(self, set_key, tokens)
 
 
@@ -232,7 +253,7 @@ def on_remove_att_sardi_icon_themes_clicked(self, _widget):
 
 def on_find_att_sardi_icon_themes_clicked(self, _widget):
     fn.log_subsection("Showing installed Sardi icon themes...")
-    fn.show_in_app_notification(self, "We show the installed icon themes")
+    fn.show_in_app_notification(self, _("We show the installed icon themes"))
     find_sardi_icons(self)
 
 
@@ -569,26 +590,36 @@ def install_sardi_icons(self):
     packages = _collect_sardi_packages(self)
     if not packages:
         fn.log_info("No Sardi icons selected for installation")
-        fn.show_in_app_notification(self, "No Sardi icons selected for installation")
+        fn.show_in_app_notification(self, _("No {name} icons selected for installation").format(name="Sardi"))
         return
     fn.log_subsection(f"Installing {len(packages)} Sardi icon packages...")
     fn.log_info(f"  {', '.join(packages)}")
     process = fn.launch_pacman_install_in_terminal(" ".join(packages))
-    fn.show_in_app_notification(self, f"Installing {len(packages)} Sardi icon packages...")
-    fn.wait_and_notify(process, self, "Sardi icons installation complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext(
+            "Installing {count} {name} icon package...", "Installing {count} {name} icon packages...", len(packages)
+        ).format(count=len(packages), name="Sardi"),
+    )
+    fn.wait_and_notify(process, self, _("{name} icons installation complete").format(name="Sardi"))
 
 
 def remove_sardi_icons(self):
     packages = _collect_sardi_packages(self)
     if not packages:
         fn.log_info("No Sardi icons selected for removal")
-        fn.show_in_app_notification(self, "No Sardi icons selected for removal")
+        fn.show_in_app_notification(self, _("No {name} icons selected for removal").format(name="Sardi"))
         return
     fn.log_subsection(f"Removing {len(packages)} Sardi icon packages...")
     fn.log_info(f"  {', '.join(packages)}")
     process = fn.launch_pacman_remove_in_terminal(" ".join(packages))
-    fn.show_in_app_notification(self, f"Removing {len(packages)} Sardi icon packages...")
-    fn.wait_and_notify(process, self, "Sardi icons removal complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext(
+            "Removing {count} {name} icon package...", "Removing {count} {name} icon packages...", len(packages)
+        ).format(count=len(packages), name="Sardi"),
+    )
+    fn.wait_and_notify(process, self, _("{name} icons removal complete").format(name="Sardi"))
 
 
 def find_sardi_icons(self):
@@ -647,10 +678,15 @@ def find_sardi_icons(self):
     if installed:
         fn.log_subsection(f"Found {len(installed)} Sardi icon packages installed")
         fn.log_info(f"  {', '.join(installed)}")
-        fn.show_in_app_notification(self, f"{len(installed)} Sardi icon packages installed")
+        fn.show_in_app_notification(
+            self,
+            ngettext(
+                "{count} {name} icon package installed", "{count} {name} icon packages installed", len(installed)
+            ).format(count=len(installed), name="Sardi"),
+        )
     else:
         fn.log_info("No Sardi icon packages installed")
-        fn.show_in_app_notification(self, "No Sardi icon packages installed")
+        fn.show_in_app_notification(self, _("No {name} icon packages installed").format(name="Sardi"))
 
 
 def set_icon_checkboxes(self, set_key, active, tokens=None):
@@ -681,13 +717,18 @@ def install_icons(self, set_key, tokens=None):
     packages = _collect_icon_packages(self, set_key, tokens)
     if not packages:
         fn.log_info(f"No {noun} icons selected for installation")
-        fn.show_in_app_notification(self, f"No {noun} icons selected for installation")
+        fn.show_in_app_notification(self, _("No {name} icons selected for installation").format(name=noun))
         return
     fn.log_subsection(f"Installing {len(packages)} {noun} icon packages...")
     fn.log_info(f"  {', '.join(packages)}")
     process = fn.launch_pacman_install_in_terminal(" ".join(packages))
-    fn.show_in_app_notification(self, f"Installing {len(packages)} {noun} icon packages...")
-    fn.wait_and_notify(process, self, f"{noun} icons installation complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext(
+            "Installing {count} {name} icon package...", "Installing {count} {name} icon packages...", len(packages)
+        ).format(count=len(packages), name=noun),
+    )
+    fn.wait_and_notify(process, self, _("{name} icons installation complete").format(name=noun))
 
 
 def remove_icons(self, set_key, tokens=None):
@@ -696,19 +737,24 @@ def remove_icons(self, set_key, tokens=None):
     packages = _collect_icon_packages(self, set_key, tokens)
     if not packages:
         fn.log_info(f"No {noun} icons selected for removal")
-        fn.show_in_app_notification(self, f"No {noun} icons selected for removal")
+        fn.show_in_app_notification(self, _("No {name} icons selected for removal").format(name=noun))
         return
     # Every variant inherits the base; removing it while variants remain would break them,
     # so keep the base unless it is the only thing selected.
     if base in packages and len(packages) > 1:
         packages.remove(base)
         fn.log_warn(f"Keeping {base} — other {noun} variants depend on it")
-        fn.show_in_app_notification(self, f"Kept {base} (variants depend on it)")
+        fn.show_in_app_notification(self, _("Kept {name} (variants depend on it)").format(name=base))
     fn.log_subsection(f"Removing {len(packages)} {noun} icon packages...")
     fn.log_info(f"  {', '.join(packages)}")
     process = fn.launch_pacman_remove_in_terminal(" ".join(packages))
-    fn.show_in_app_notification(self, f"Removing {len(packages)} {noun} icon packages...")
-    fn.wait_and_notify(process, self, f"{noun} icons removal complete")
+    fn.show_in_app_notification(
+        self,
+        ngettext(
+            "Removing {count} {name} icon package...", "Removing {count} {name} icon packages...", len(packages)
+        ).format(count=len(packages), name=noun),
+    )
+    fn.wait_and_notify(process, self, _("{name} icons removal complete").format(name=noun))
 
 
 def find_icons(self, set_key, tokens=None):
@@ -725,7 +771,12 @@ def find_icons(self, set_key, tokens=None):
     if installed:
         fn.log_subsection(f"Found {len(installed)} {noun} icon packages installed")
         fn.log_info(f"  {', '.join(installed)}")
-        fn.show_in_app_notification(self, f"{len(installed)} {noun} icon packages installed")
+        fn.show_in_app_notification(
+            self,
+            ngettext(
+                "{count} {name} icon package installed", "{count} {name} icon packages installed", len(installed)
+            ).format(count=len(installed), name=noun),
+        )
     else:
         fn.log_info(f"No {noun} icon packages installed")
-        fn.show_in_app_notification(self, f"No {noun} icon packages installed")
+        fn.show_in_app_notification(self, _("No {name} icon packages installed").format(name=noun))

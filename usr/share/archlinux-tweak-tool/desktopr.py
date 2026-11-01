@@ -6,7 +6,7 @@ import datetime
 import tempfile
 from gi.repository import GLib, Gtk  # noqa
 import functions as fn
-
+from att_i18n import _
 default_app = ["nano", "ttf-hack"]
 
 # Desktops whose install is one-way — removal requires a full system reinstall.
@@ -578,14 +578,14 @@ def show_plasma_env_dialog(self):
         transient_for=self,
         message_type=Gtk.MessageType.WARNING,
         buttons=Gtk.ButtonsType.OK,
-        text="Plasma installed — one more step for correct theming",
+        text=_("{name} installed — one more step for correct theming").format(name="Plasma"),
     )
-    dialog.props.secondary_text = (
-        "Your /etc/environment sets variables that override Plasma's own theme. "
-        "Left active, Plasma shows dark elements and a yellow warning notification/popup.\n\n"
+    dialog.props.secondary_text = _(
+        "Your /etc/environment sets variables that override {name}'s own theme. "
+        "Left active, {name} shows dark elements and a yellow warning notification/popup.\n\n"
         "Edit /etc/environment, put a '#' in front of these lines, then log out and back in:\n"
-        f"{lines_block}"
-    )
+        "{lines}"
+    ).format(name="Plasma", lines=lines_block)
     dialog.connect("response", lambda d, _r: d.destroy())
     dialog.show()
     fn.log_warn(
@@ -601,9 +601,11 @@ def check_lock(self, desktop):
             transient_for=self,
             message_type=Gtk.MessageType.INFO,
             buttons=Gtk.ButtonsType.YES_NO,
-            text="Lock File Found",
+            text=_("Lock File Found"),
         )
-        mess_dialog.props.secondary_text = "pacman lock file found, do you want to remove it and continue?"
+        mess_dialog.props.secondary_text = _("{name} lock file found, do you want to remove it and continue?").format(
+            name="pacman"
+        )
 
         mess_dialog.props.secondary_use_markup = True  # noqa
 
@@ -643,7 +645,7 @@ def _set_backup_notice(self, visible):
 
 def install_desktop(self, desktop, on_complete=None):
     fn.log_section(f"Installing {desktop} desktop")
-    fn.show_in_app_notification(self, f"Opening terminal for {desktop} installation...")
+    fn.show_in_app_notification(self, _("Opening terminal for {desktop} installation...").format(desktop=desktop))
 
     src = []
     twm = False
@@ -815,7 +817,7 @@ def install_desktop(self, desktop, on_complete=None):
 
             GLib.idle_add(
                 self.desktop_status.set_markup,
-                '<span size="x-large"><b>This desktop is installed</b></span>',
+                '<span size="x-large"><b>{}</b></span>'.format(_("This desktop is installed")),
             )
             fn.log_success(f"{desktop} desktop has been installed successfully")
             GLib.idle_add(refresh_installed_desktops, self)
@@ -828,7 +830,7 @@ def install_desktop(self, desktop, on_complete=None):
             GLib.idle_add(
                 fn.show_in_app_notification,
                 self,
-                f"{desktop} has been installed",
+                _("{desktop} has been installed").format(desktop=desktop),
             )
             if on_complete is None and desktop == "plasma":
                 GLib.idle_add(show_plasma_env_dialog, self)
@@ -859,13 +861,15 @@ def install_desktop(self, desktop, on_complete=None):
                 fn.log_warn(f"Not installed ({len(failed_packages)}): {', '.join(failed_packages)}")
 
             notification_msg = (
-                f"{desktop} failed — not found: {', '.join(not_found)} — enable chaotic-aur in Pacman tab"
+                _("{desktop} failed — not found: {packages} — enable {repo} in Pacman tab").format(
+                    desktop=desktop, packages=", ".join(not_found), repo="chaotic-aur"
+                )
                 if not_found
-                else f"{desktop} installation failed — check console for details"
+                else _("{desktop} installation failed — check console for details").format(desktop=desktop)
             )
             GLib.idle_add(
                 self.desktop_status.set_markup,
-                '<span size="x-large"><b>This desktop is NOT installed</b></span>',
+                '<span size="x-large"><b>{}</b></span>'.format(_("This desktop is NOT installed")),
             )
             GLib.idle_add(fn.show_in_app_notification, self, notification_msg)
         fn.create_log(self)
@@ -887,7 +891,7 @@ def install_desktop(self, desktop, on_complete=None):
 
 def uninstall_desktop(self, desktop, on_complete=None, removing_desktops=None):
     fn.log_section(f"Removing {desktop} desktop")
-    fn.show_in_app_notification(self, f"Starting removal of {desktop}...")
+    fn.show_in_app_notification(self, _("Starting removal of {desktop}...").format(desktop=desktop))
 
     # Special handling for plasma: yakuake depends on kwayland (part of plasma group)
     if desktop == "plasma":
@@ -996,7 +1000,7 @@ def uninstall_desktop(self, desktop, on_complete=None, removing_desktops=None):
 
     if not packages_to_remove:
         fn.log_info(f"No packages to safely remove for {desktop} (all are either essential or shared)")
-        fn.show_in_app_notification(self, f"No packages to safely remove for {desktop}")
+        fn.show_in_app_notification(self, _("No packages to safely remove for {desktop}").format(desktop=desktop))
         if on_complete:
             on_complete()
         return
@@ -1087,8 +1091,8 @@ def uninstall_desktop(self, desktop, on_complete=None, removing_desktops=None):
             fn.debug_print(f"Could not read removal log: {e}")
 
         removal_text = (
-            f'<span size="x-large"><b>{desktop} has been removed</b></span>\n\n'
-            "We do not remove code from your home directory,\nonly packages without dependencies"
+            '<span size="x-large"><b>{}</b></span>\n\n'.format(_("{desktop} has been removed").format(desktop=desktop))
+            + _("We do not remove code from your home directory,\nonly packages without dependencies")
         )
         GLib.idle_add(self.desktop_status.set_markup, removal_text)
         fn.log_success(f"{desktop} desktop removal complete")
@@ -1102,7 +1106,7 @@ def uninstall_desktop(self, desktop, on_complete=None, removing_desktops=None):
             GLib.idle_add(sddm.pop_box, self, self.sessions_sddm)
         if hasattr(self, "on_desktop_changed"):
             GLib.idle_add(self.on_desktop_changed)
-        fn.show_in_app_notification(self, f"{desktop} has been removed")
+        fn.show_in_app_notification(self, _("{desktop} has been removed").format(desktop=desktop))
         fn.debug_print(f"Removal of {desktop} complete — user home directory untouched")
         if on_complete:
             on_complete()
@@ -1110,7 +1114,7 @@ def uninstall_desktop(self, desktop, on_complete=None, removing_desktops=None):
         def _clear_removal_text():
             GLib.idle_add(
                 self.desktop_status.set_markup,
-                '<span size="x-large"><b>This desktop is NOT installed</b></span>',
+                '<span size="x-large"><b>{}</b></span>'.format(_("This desktop is NOT installed")),
             )
             try:
                 fn.unlink(log_path)
@@ -1136,7 +1140,7 @@ def refresh_installed_desktops(self):
         else []
     )
     installed = sorted(set(xsessions + wayland))
-    text = "Installed: " + ", ".join(installed) if installed else "No desktops installed"
+    text = _("Installed: {desktops}").format(desktops=", ".join(installed)) if installed else _("No desktops installed")
     self.label_installed_desktops.set_text(text)
 
 
@@ -1156,16 +1160,20 @@ def on_d_combo_changed(self, _widget, _pspec=None):
     except Exception:
         self.image_DE.set_paintable(None)
     if check_desktop(fn.get_combo_text(self.d_combo)):
-        self.desktop_status.set_markup('<span size="x-large"><b>This desktop is installed</b></span>')
+        self.desktop_status.set_markup('<span size="x-large"><b>{}</b></span>'.format(_("This desktop is installed")))
     else:
-        self.desktop_status.set_markup('<span size="x-large"><b>This desktop is NOT installed</b></span>')
+        self.desktop_status.set_markup(
+            '<span size="x-large"><b>{}</b></span>'.format(_("This desktop is NOT installed"))
+        )
     desktopr_gui.update_button_state(self, fn)
 
 
 def on_install_clicked(self, _widget):
     fn.create_log(self)
     fn.log_warn("chaotic-AUR and nemesis_repo must be enabled — many desktop packages are sourced from these repos")
-    fn.show_in_app_notification(self, "Enable chaotic-AUR and nemesis_repo before installing a desktop")
+    fn.show_in_app_notification(
+        self, _("Enable {repos} before installing a desktop").format(repos="chaotic-AUR and nemesis_repo")
+    )
     desktop = fn.get_combo_text(self.d_combo)
     fn.debug_print("installing " + desktop)
 
@@ -1176,32 +1184,40 @@ def on_install_clicked(self, _widget):
             transient_for=self,
             message_type=Gtk.MessageType.WARNING,
             buttons=Gtk.ButtonsType.YES_NO,
-            text=f"Installing {de_name} is a one-way operation",
+            text=_("Installing {name} is a one-way operation").format(name=de_name),
         )
         secondary_text = (
-            f"{de_name} cannot be removed through ATT once installed.\n"
-            "A fresh system reinstall is required to completely remove it.\n\n"
+            _("{name} cannot be removed through {app} once installed.").format(name=de_name, app="ATT")
+            + "\n"
+            + _("A fresh system reinstall is required to completely remove it.")
+            + "\n\n"
         )
         if desktop == "plasma":
             conflicting_lines = conflicting_plasma_env_lines()
             if conflicting_lines:
                 lines_block = "\n".join(f"    {line}" for line in conflicting_lines)
                 secondary_text += (
-                    "IMPORTANT — Plasma theming:\n"
-                    "Your /etc/environment sets variables that override Plasma's own theme. "
-                    "Left active, Plasma shows dark elements and a yellow warning notification/popup. "
-                    "After installing, edit /etc/environment, put a '#' in front of these lines, "
-                    "then log out and back in:\n"
-                    f"{lines_block}\n\n"
+                    _(
+                        "IMPORTANT — {name} theming:\n"
+                        "Your /etc/environment sets variables that override {name}'s own theme. "
+                        "Left active, {name} shows dark elements and a yellow warning notification/popup. "
+                        "After installing, edit /etc/environment, put a '#' in front of these lines, "
+                        "then log out and back in:\n"
+                        "{lines}"
+                    ).format(name="Plasma", lines=lines_block)
+                    + "\n\n"
                 )
                 fn.log_warn(
                     "Plasma: /etc/environment has theme-override variables that should be commented out — "
                     + ", ".join(conflicting_lines)
                 )
                 fn.show_in_app_notification(
-                    self, "Plasma: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid theming issues"
+                    self,
+                    _("{name}: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid theming issues").format(
+                        name="Plasma"
+                    ),
                 )
-        secondary_text += "Do you want to continue?"
+        secondary_text += _("Do you want to continue?")
         dialog.props.secondary_text = secondary_text
         result_holder = [None]
         loop = GLib.MainLoop()
@@ -1230,12 +1246,14 @@ def on_uninstall_clicked(self, _widget):
     if desktop in ONE_WAY_DESKTOPS:
         de_name = desktop_display_name(desktop)
         fn.log_warn(f"{de_name} removal is not supported — a fresh system reinstall is required to remove {de_name}")
-        fn.show_in_app_notification(self, f"{de_name} cannot be removed — reinstall system to switch DEs")
+        fn.show_in_app_notification(
+            self, _("{name} cannot be removed — reinstall system to switch DEs").format(name=de_name)
+        )
         return
 
     if not check_desktop(desktop):
         fn.log_info(f"{desktop} is not installed — nothing to remove")
-        fn.show_in_app_notification(self, f"{desktop} is not installed")
+        fn.show_in_app_notification(self, _("{desktop} is not installed").format(desktop=desktop))
         return
     uninstall_desktop(self, desktop)
 
@@ -1253,7 +1271,7 @@ def on_default_clicked(self, _widget):
             settings.new_settings("DESKTOP", {"default": fn.get_combo_text(self.d_combo)})
     else:
         fn.log_info("Desktop is not installed — cannot set as default")
-        fn.show_in_app_notification(self, "That desktop is not installed")
+        fn.show_in_app_notification(self, _("That desktop is not installed"))
 
 
 # Install tiling WMs first (share packages via --needed), then full DEs smallest to largest.
@@ -1317,12 +1335,14 @@ def install_all_desktops(self):
                 fn.log_info(f"{desktop} already installed, skipping")
                 continue
             fn.log_subsection(f"Installing {desktop}")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Starting {desktop} installation...")
+            GLib.idle_add(
+                fn.show_in_app_notification, self, _("Starting {desktop} installation...").format(desktop=desktop)
+            )
             done = fn.threading.Event()
             GLib.idle_add(install_desktop, self, desktop, done.set)
             done.wait()
         fn.log_success("Install-all sequence complete")
-        GLib.idle_add(fn.show_in_app_notification, self, "All desktops install sequence complete")
+        GLib.idle_add(fn.show_in_app_notification, self, _("All desktops install sequence complete"))
 
     fn.threading.Thread(target=_run, daemon=True).start()
 
@@ -1336,12 +1356,14 @@ def install_all_twms(self):
                 fn.log_info(f"{desktop} already installed, skipping")
                 continue
             fn.log_subsection(f"Installing {desktop}")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Starting {desktop} installation...")
+            GLib.idle_add(
+                fn.show_in_app_notification, self, _("Starting {desktop} installation...").format(desktop=desktop)
+            )
             done = fn.threading.Event()
             GLib.idle_add(install_desktop, self, desktop, done.set)
             done.wait()
         fn.log_success("Install-all-TWMs sequence complete")
-        GLib.idle_add(fn.show_in_app_notification, self, "All TWMs install sequence complete")
+        GLib.idle_add(fn.show_in_app_notification, self, _("All TWMs install sequence complete"))
 
     fn.threading.Thread(target=_run, daemon=True).start()
 
@@ -1355,11 +1377,13 @@ def remove_all_desktops(self):
                 fn.log_info(f"{desktop} not installed, skipping")
                 continue
             fn.log_subsection(f"Removing {desktop}")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Starting {desktop} removal...")
+            GLib.idle_add(
+                fn.show_in_app_notification, self, _("Starting {desktop} removal...").format(desktop=desktop)
+            )
             done = fn.threading.Event()
             GLib.idle_add(uninstall_desktop, self, desktop, done.set, REMOVE_ORDER)
             done.wait()
         fn.log_success("Remove-all sequence complete")
-        GLib.idle_add(fn.show_in_app_notification, self, "All desktops removed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("All desktops removed"))
 
     fn.threading.Thread(target=_run, daemon=True).start()
