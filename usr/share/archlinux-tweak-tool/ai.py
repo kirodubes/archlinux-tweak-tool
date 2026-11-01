@@ -1,6 +1,7 @@
 import time
 
 import functions as fn
+from att_i18n import _
 from gi.repository import GLib
 
 URL_OLLAMA = "https://ollama.com/"
@@ -77,12 +78,12 @@ def on_click_ai_ollama(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("ollama removed successfully")
-                GLib.idle_add(self.lbl_ai_ollama.set_markup, "Ollama - Local LLM runner")
-                GLib.idle_add(self.btn_ai_ollama.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "ollama removal complete")
+                GLib.idle_add(self.lbl_ai_ollama.set_markup, _("Ollama - Local LLM runner"))
+                GLib.idle_add(self.btn_ai_ollama.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("ollama removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "ollama removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("ollama removal started"))
         else:
             has_nvidia = fn.path.exists("/dev/nvidia0")
             pkgs = "ollama ollama-cuda" if has_nvidia else "ollama"
@@ -99,9 +100,9 @@ def on_click_ai_ollama(self, _widget):
                     error_output = _read_temp_file(process)
                     if fn.path.exists("/usr/bin/ollama"):
                         fn.log_success("ollama installed successfully")
-                        GLib.idle_add(self.lbl_ai_ollama.set_markup, "Ollama - Local LLM runner <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_ollama.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "ollama installation complete")
+                        GLib.idle_add(self.lbl_ai_ollama.set_markup, _("Ollama - Local LLM runner <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_ollama.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("ollama installation complete"))
                     else:
                         fn.log_warn("ollama binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, error_output, "ollama")
@@ -109,7 +110,7 @@ def on_click_ai_ollama(self, _widget):
                     fn.log_error(f"Error during ollama installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "ollama installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("ollama installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -126,12 +127,12 @@ def on_click_ai_jan(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("jan removed successfully")
-                GLib.idle_add(self.lbl_ai_jan.set_markup, "Jan - Offline desktop AI")
-                GLib.idle_add(self.btn_ai_jan.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "jan removal complete")
+                GLib.idle_add(self.lbl_ai_jan.set_markup, _("Jan - Offline desktop AI"))
+                GLib.idle_add(self.btn_ai_jan.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("jan removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "jan removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("jan removal started"))
         else:
             # jan-bin ships only in the [cachyos] repo, which Kiro disables by default.
             # Guard up front so we never launch a doomed "target not found" install.
@@ -140,7 +141,7 @@ def on_click_ai_jan(self, _widget):
                 GLib.idle_add(
                     fn.show_in_app_notification,
                     self,
-                    "Jan needs the cachyos repo. Enable [cachyos] in pacman.conf first.",
+                    _("Jan needs the cachyos repo. Enable [cachyos] in pacman.conf first."),
                 )
                 return
             fn.log_subsection("Installing jan-bin...")
@@ -155,9 +156,9 @@ def on_click_ai_jan(self, _widget):
                     error_output = _read_temp_file(process)
                     if fn.path.exists("/usr/bin/jan"):
                         fn.log_success("jan installed successfully")
-                        GLib.idle_add(self.lbl_ai_jan.set_markup, "Jan - Offline desktop AI <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_jan.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "jan installation complete")
+                        GLib.idle_add(self.lbl_ai_jan.set_markup, _("Jan - Offline desktop AI <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_jan.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("jan installation complete"))
                     else:
                         fn.log_warn("jan binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, error_output, "jan-bin")
@@ -165,7 +166,7 @@ def on_click_ai_jan(self, _widget):
                     fn.log_error(f"Error during jan installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "jan installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("jan installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -182,12 +183,12 @@ def on_click_ai_aichat(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("aichat removed successfully")
-                GLib.idle_add(self.lbl_ai_aichat.set_markup, "aichat - All-in-one LLM CLI")
-                GLib.idle_add(self.btn_ai_aichat.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "aichat removal complete")
+                GLib.idle_add(self.lbl_ai_aichat.set_markup, _("aichat - All-in-one LLM CLI"))
+                GLib.idle_add(self.btn_ai_aichat.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("aichat removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "aichat removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("aichat removal started"))
         else:
             fn.log_subsection("Installing aichat...")
             process = fn.launch_pacman_install_in_terminal("aichat")
@@ -201,9 +202,9 @@ def on_click_ai_aichat(self, _widget):
                     error_output = _read_temp_file(process)
                     if fn.path.exists("/usr/bin/aichat"):
                         fn.log_success("aichat installed successfully")
-                        GLib.idle_add(self.lbl_ai_aichat.set_markup, "aichat - All-in-one LLM CLI <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_aichat.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "aichat installation complete")
+                        GLib.idle_add(self.lbl_ai_aichat.set_markup, _("aichat - All-in-one LLM CLI <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_aichat.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("aichat installation complete"))
                     else:
                         fn.log_warn("aichat binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, error_output, "aichat")
@@ -211,7 +212,7 @@ def on_click_ai_aichat(self, _widget):
                     fn.log_error(f"Error during aichat installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "aichat installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("aichat installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -228,17 +229,17 @@ def on_click_ai_webui(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("open-webui removed successfully")
-                GLib.idle_add(self.lbl_ai_webui.set_markup, "Open WebUI - Browser UI for Ollama")
-                GLib.idle_add(self.btn_ai_webui.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "open-webui removal complete")
+                GLib.idle_add(self.lbl_ai_webui.set_markup, _("Open WebUI - Browser UI for Ollama"))
+                GLib.idle_add(self.btn_ai_webui.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("open-webui removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "open-webui removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("open-webui removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing open-webui...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "open-webui")
@@ -254,10 +255,10 @@ def on_click_ai_webui(self, _widget):
                         fn.log_success("open-webui installed successfully")
                         GLib.idle_add(
                             self.lbl_ai_webui.set_markup,
-                            "Open WebUI - Browser UI for Ollama <b>installed</b>",
+                            _("Open WebUI - Browser UI for Ollama <b>installed</b>"),
                         )
-                        GLib.idle_add(self.btn_ai_webui.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "open-webui installation complete")
+                        GLib.idle_add(self.btn_ai_webui.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("open-webui installation complete"))
                     else:
                         fn.log_warn("open-webui binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, error_output, "open-webui")
@@ -265,7 +266,7 @@ def on_click_ai_webui(self, _widget):
                     fn.log_error(f"Error during open-webui installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "open-webui installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("open-webui installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -311,17 +312,17 @@ def on_click_ai_claude(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("claude-code removed successfully")
-                GLib.idle_add(self.lbl_ai_claude.set_markup, "Claude Code - Anthropic CLI")
-                GLib.idle_add(self.btn_ai_claude.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "claude-code removal complete")
+                GLib.idle_add(self.lbl_ai_claude.set_markup, _("Claude Code - Anthropic CLI"))
+                GLib.idle_add(self.btn_ai_claude.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("claude-code removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "claude-code removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("claude-code removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing claude-code...")
             process = _aur_install_with_deps_in_terminal(aur_helper, "claude-code")
@@ -335,9 +336,9 @@ def on_click_ai_claude(self, _widget):
                     error_output = _read_temp_file(process)
                     if fn.path.exists("/usr/bin/claude"):
                         fn.log_success("claude-code installed successfully")
-                        GLib.idle_add(self.lbl_ai_claude.set_markup, "Claude Code - Anthropic CLI <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_claude.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "claude-code installation complete")
+                        GLib.idle_add(self.lbl_ai_claude.set_markup, _("Claude Code - Anthropic CLI <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_claude.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("claude-code installation complete"))
                     else:
                         fn.log_warn("claude-code binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, error_output, "claude-code")
@@ -345,7 +346,7 @@ def on_click_ai_claude(self, _widget):
                     fn.log_error(f"Error during claude-code installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "claude-code installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("claude-code installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -374,17 +375,17 @@ def on_click_ai_aider(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("aider removed successfully")
-                GLib.idle_add(self.lbl_ai_aider.set_markup, "Aider - AI pair programming")
-                GLib.idle_add(self.btn_ai_aider.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "aider removal complete")
+                GLib.idle_add(self.lbl_ai_aider.set_markup, _("Aider - AI pair programming"))
+                GLib.idle_add(self.btn_ai_aider.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("aider removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "aider removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("aider removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing aider...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "aider-install")
@@ -396,7 +397,7 @@ def on_click_ai_aider(self, _widget):
                     process.wait()
                     fn.invalidate_pkg_cache()
                     fn.log_subsection("Running aider-install setup...")
-                    GLib.idle_add(fn.show_in_app_notification, self, "Running aider setup...")
+                    GLib.idle_add(fn.show_in_app_notification, self, _("Running aider setup..."))
                     setup_script = f"sudo -u {fn.sudo_username} aider-install; read -p 'Press Enter to close...'"
                     fn.debug_print(f"Terminal cmd: {setup_script}")
                     setup_process = fn.subprocess.Popen(
@@ -407,16 +408,16 @@ def on_click_ai_aider(self, _widget):
                     setup_process.wait()
                     if fn.path.exists("/usr/bin/aider") or fn.path.exists(AIDER_PATH):
                         fn.log_success("aider installed successfully")
-                        GLib.idle_add(self.lbl_ai_aider.set_markup, "Aider - AI pair programming <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_aider.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "aider installation complete")
+                        GLib.idle_add(self.lbl_ai_aider.set_markup, _("Aider - AI pair programming <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_aider.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("aider installation complete"))
                     else:
                         fn.log_warn(f"Aider binary NOT found. Checked: /usr/bin/aider and {AIDER_PATH}")
                 except Exception as e:
                     fn.log_error(f"Error during aider installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "aider installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("aider installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -435,16 +436,16 @@ def on_click_ai_codex(self, _widget):
                         process.wait()
                         fn.invalidate_pkg_cache()
                         time.sleep(_FS_SETTLE_DELAY)
-                        GLib.idle_add(self.lbl_ai_codex.set_markup, "OpenAI Codex CLI")
-                        GLib.idle_add(self.btn_ai_codex.set_label, "Install")
-                        GLib.idle_add(fn.show_in_app_notification, self, "Codex removal complete")
+                        GLib.idle_add(self.lbl_ai_codex.set_markup, _("OpenAI Codex CLI"))
+                        GLib.idle_add(self.btn_ai_codex.set_label, _("Install"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Codex removal complete"))
                     except Exception as e:
                         fn.log_error(f"Error during codex removal: {e}")
 
                 fn.threading.Thread(target=wait_removal, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "Codex removal started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Codex removal started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "Codex removal failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Codex removal failed"))
         else:
             fn.log_subsection("Installing codex...")
             process = fn.launch_npm_install_in_terminal("@openai/codex")
@@ -457,18 +458,18 @@ def on_click_ai_codex(self, _widget):
                         time.sleep(_FS_SETTLE_DELAY)
                         if any(fn.path.exists(p) for p in CODEX_PATHS):
                             fn.log_success("codex installed successfully")
-                            GLib.idle_add(self.lbl_ai_codex.set_markup, "OpenAI Codex CLI <b>installed</b>")
-                            GLib.idle_add(self.btn_ai_codex.set_label, "Remove")
-                            GLib.idle_add(fn.show_in_app_notification, self, "Codex installation complete")
+                            GLib.idle_add(self.lbl_ai_codex.set_markup, _("OpenAI Codex CLI <b>installed</b>"))
+                            GLib.idle_add(self.btn_ai_codex.set_label, _("Remove"))
+                            GLib.idle_add(fn.show_in_app_notification, self, _("Codex installation complete"))
                         else:
                             fn.log_warn(f"Codex binary NOT found. Checked: {CODEX_PATHS}")
                     except Exception as e:
                         fn.log_error(f"Error during codex installation: {e}")
 
                 fn.threading.Thread(target=wait_install, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "Codex installation started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Codex installation started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "Codex installation failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Codex installation failed"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -485,17 +486,17 @@ def on_click_ai_antigravity_cli(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("antigravity-cli removed successfully")
-                GLib.idle_add(self.lbl_ai_antigravity_cli.set_markup, "Antigravity-cli")
-                GLib.idle_add(self.btn_ai_antigravity_cli.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "antigravity-cli removal complete")
+                GLib.idle_add(self.lbl_ai_antigravity_cli.set_markup, _("Antigravity-cli"))
+                GLib.idle_add(self.btn_ai_antigravity_cli.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("antigravity-cli removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "antigravity-cli removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("antigravity-cli removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing antigravity-cli...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "antigravity-cli")
@@ -508,16 +509,16 @@ def on_click_ai_antigravity_cli(self, _widget):
                     fn.invalidate_pkg_cache()
                     if any(fn.path.exists(p) for p in ANTIGRAVITY_CLI_PATHS):
                         fn.log_success("antigravity-cli installed successfully")
-                        GLib.idle_add(self.lbl_ai_antigravity_cli.set_markup, "Antigravity-cli <b>installed</b>")
-                        GLib.idle_add(self.btn_ai_antigravity_cli.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "antigravity-cli installation complete")
+                        GLib.idle_add(self.lbl_ai_antigravity_cli.set_markup, _("Antigravity-cli <b>installed</b>"))
+                        GLib.idle_add(self.btn_ai_antigravity_cli.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("antigravity-cli installation complete"))
                     else:
                         fn.log_warn(f"antigravity-cli binary NOT found. Checked: {ANTIGRAVITY_CLI_PATHS}")
                 except Exception as e:
                     fn.log_error(f"Error during antigravity-cli installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "antigravity-cli installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("antigravity-cli installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -534,17 +535,17 @@ def on_click_ai_antigravity(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("antigravity removed successfully")
-                GLib.idle_add(self.lbl_ai_antigravity.set_markup, "Antigravity (previous gemini)")
-                GLib.idle_add(self.btn_ai_antigravity.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "antigravity removal complete")
+                GLib.idle_add(self.lbl_ai_antigravity.set_markup, _("Antigravity (previous gemini)"))
+                GLib.idle_add(self.btn_ai_antigravity.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("antigravity removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "antigravity removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("antigravity removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing antigravity...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "antigravity")
@@ -558,17 +559,17 @@ def on_click_ai_antigravity(self, _widget):
                     if any(fn.path.exists(p) for p in ANTIGRAVITY_PATHS):
                         fn.log_success("antigravity installed successfully")
                         GLib.idle_add(
-                            self.lbl_ai_antigravity.set_markup, "Antigravity (previous gemini) <b>installed</b>"
+                            self.lbl_ai_antigravity.set_markup, _("Antigravity (previous gemini) <b>installed</b>")
                         )
-                        GLib.idle_add(self.btn_ai_antigravity.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "antigravity installation complete")
+                        GLib.idle_add(self.btn_ai_antigravity.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("antigravity installation complete"))
                     else:
                         fn.log_warn(f"antigravity binary NOT found. Checked: {ANTIGRAVITY_PATHS}")
                 except Exception as e:
                     fn.log_error(f"Error during antigravity installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "antigravity installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("antigravity installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -587,16 +588,16 @@ def on_click_ai_opencode(self, _widget):
                         process.wait()
                         fn.invalidate_pkg_cache()
                         time.sleep(_FS_SETTLE_DELAY)
-                        GLib.idle_add(self.lbl_ai_opencode.set_markup, "OpenCode - TUI AI coding assistant")
-                        GLib.idle_add(self.btn_ai_opencode.set_label, "Install")
-                        GLib.idle_add(fn.show_in_app_notification, self, "OpenCode removal complete")
+                        GLib.idle_add(self.lbl_ai_opencode.set_markup, _("OpenCode - TUI AI coding assistant"))
+                        GLib.idle_add(self.btn_ai_opencode.set_label, _("Install"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode removal complete"))
                     except Exception as e:
                         fn.log_error(f"Error during opencode removal: {e}")
 
                 fn.threading.Thread(target=wait_removal, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "OpenCode removal started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode removal started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "OpenCode removal failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode removal failed"))
         else:
             fn.log_subsection("Installing opencode...")
             process = fn.launch_npm_install_in_terminal("opencode-ai")
@@ -611,19 +612,19 @@ def on_click_ai_opencode(self, _widget):
                             fn.log_success("opencode installed successfully")
                             GLib.idle_add(
                                 self.lbl_ai_opencode.set_markup,
-                                "OpenCode - TUI AI coding assistant <b>installed</b>",
+                                _("OpenCode - TUI AI coding assistant <b>installed</b>"),
                             )
-                            GLib.idle_add(self.btn_ai_opencode.set_label, "Remove")
-                            GLib.idle_add(fn.show_in_app_notification, self, "OpenCode installation complete")
+                            GLib.idle_add(self.btn_ai_opencode.set_label, _("Remove"))
+                            GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode installation complete"))
                         else:
                             fn.log_warn(f"OpenCode binary NOT found. Checked: {OPENCODE_PATHS}")
                     except Exception as e:
                         fn.log_error(f"Error during opencode installation: {e}")
 
                 fn.threading.Thread(target=wait_install, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "OpenCode installation started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode installation started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "OpenCode installation failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("OpenCode installation failed"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -642,16 +643,16 @@ def on_click_ai_copilot(self, _widget):
                         process.wait()
                         fn.invalidate_pkg_cache()
                         time.sleep(_FS_SETTLE_DELAY)
-                        GLib.idle_add(self.lbl_ai_copilot.set_markup, "GitHub Copilot CLI")
-                        GLib.idle_add(self.btn_ai_copilot.set_label, "Install")
-                        GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI removal complete")
+                        GLib.idle_add(self.lbl_ai_copilot.set_markup, _("GitHub Copilot CLI"))
+                        GLib.idle_add(self.btn_ai_copilot.set_label, _("Install"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI removal complete"))
                     except Exception as e:
                         fn.log_error(f"Error during copilot removal: {e}")
 
                 fn.threading.Thread(target=wait_removal, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI removal started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI removal started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI removal failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI removal failed"))
         else:
             fn.log_subsection("Installing github copilot cli...")
             process = fn.launch_npm_install_in_terminal("@github/copilot")
@@ -664,18 +665,18 @@ def on_click_ai_copilot(self, _widget):
                         time.sleep(_FS_SETTLE_DELAY)
                         if any(fn.path.exists(p) for p in COPILOT_PATHS):
                             fn.log_success("github copilot cli installed successfully")
-                            GLib.idle_add(self.lbl_ai_copilot.set_markup, "GitHub Copilot CLI <b>installed</b>")
-                            GLib.idle_add(self.btn_ai_copilot.set_label, "Remove")
-                            GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI installation complete")
+                            GLib.idle_add(self.lbl_ai_copilot.set_markup, _("GitHub Copilot CLI <b>installed</b>"))
+                            GLib.idle_add(self.btn_ai_copilot.set_label, _("Remove"))
+                            GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI installation complete"))
                         else:
                             fn.log_warn(f"Copilot binary NOT found. Checked: {COPILOT_PATHS}")
                     except Exception as e:
                         fn.log_error(f"Error during copilot installation: {e}")
 
                 fn.threading.Thread(target=wait_install, daemon=True).start()
-                GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI installation started")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI installation started"))
             else:
-                GLib.idle_add(fn.show_in_app_notification, self, "Copilot CLI installation failed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Copilot CLI installation failed"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 
@@ -692,17 +693,17 @@ def on_click_ai_openclaw(self, _widget):
                 process.wait()
                 fn.invalidate_pkg_cache()
                 fn.log_success("openclaw removed successfully")
-                GLib.idle_add(self.lbl_ai_openclaw.set_markup, "OpenClaw - Multi-channel AI gateway")
-                GLib.idle_add(self.btn_ai_openclaw.set_label, "Install")
-                GLib.idle_add(fn.show_in_app_notification, self, "openclaw removal complete")
+                GLib.idle_add(self.lbl_ai_openclaw.set_markup, _("OpenClaw - Multi-channel AI gateway"))
+                GLib.idle_add(self.btn_ai_openclaw.set_label, _("Install"))
+                GLib.idle_add(fn.show_in_app_notification, self, _("openclaw removal complete"))
 
             fn.threading.Thread(target=wait_removal, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "openclaw removal started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("openclaw removal started"))
         else:
             aur_helper = fn.get_aur_helper()
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay or paru first")
-                GLib.idle_add(fn.show_in_app_notification, self, "No AUR helper found. Install yay or paru first.")
+                GLib.idle_add(fn.show_in_app_notification, self, _("No AUR helper found. Install yay or paru first."))
                 return
             fn.log_subsection("Installing openclaw...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "openclaw")
@@ -716,17 +717,17 @@ def on_click_ai_openclaw(self, _widget):
                     if any(fn.path.exists(p) for p in OPENCLAW_PATHS):
                         fn.log_success("openclaw installed successfully")
                         GLib.idle_add(
-                            self.lbl_ai_openclaw.set_markup, "OpenClaw - Multi-channel AI gateway <b>installed</b>"
+                            self.lbl_ai_openclaw.set_markup, _("OpenClaw - Multi-channel AI gateway <b>installed</b>")
                         )
-                        GLib.idle_add(self.btn_ai_openclaw.set_label, "Remove")
-                        GLib.idle_add(fn.show_in_app_notification, self, "openclaw installation complete")
+                        GLib.idle_add(self.btn_ai_openclaw.set_label, _("Remove"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("openclaw installation complete"))
                     else:
                         fn.log_warn(f"openclaw binary NOT found. Checked: {OPENCLAW_PATHS}")
                 except Exception as e:
                     fn.log_error(f"Error during openclaw installation: {e}")
 
             fn.threading.Thread(target=wait_install, daemon=True).start()
-            GLib.idle_add(fn.show_in_app_notification, self, "openclaw installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("openclaw installation started"))
     except Exception as error:
         fn.log_error(f"Error: {error}")
 

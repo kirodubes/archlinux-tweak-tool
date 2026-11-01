@@ -5,6 +5,7 @@
 from ast import literal_eval
 import functools
 import functions as fn
+from att_i18n import _
 from gi.repository import Gtk, Gio, GdkPixbuf, Gdk
 
 
@@ -98,7 +99,8 @@ def on_auto_toggle(self, widget, data, lbl):
             f.writelines(lines)
         fn.debug_print("  Result : written successfully")
         fn.log_success(f"{lbl} autostart {'enabled' if active else 'disabled'}")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, f"{lbl} {'enabled' if active else 'disabled'}")
+        message = _("{name} enabled") if active else _("{name} disabled")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, message.format(name=lbl))
     except Exception as error:
         fn.debug_print(f"  Result : FAILED - {error}")
         fn.log_error(f"Failed to toggle autostart for {lbl}: {error}")
@@ -112,7 +114,7 @@ def on_auto_remove_clicked(self, _gesture_or_widget, listbox, lbl):
         fn.unlink(desktop_file)
         fn.debug_print("  Result : removed successfully")
         fn.log_success(f"{lbl} removed from autostart")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, f"{lbl} removed from autostart")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed from autostart").format(name=lbl))
         self.vvbox.remove(listbox)
     except Exception as error:
         fn.debug_print(f"  Result : FAILED - {error}")
@@ -156,7 +158,7 @@ def add_row(self, x, base_dir=None):
     texture = Gdk.Texture.new_for_pixbuf(pbfb)
     fbimage = Gtk.Image.new_from_paintable(texture)
     fbimage.set_cursor(Gdk.Cursor.new_from_name("pointer"))
-    fbimage.set_tooltip_text("Remove")
+    fbimage.set_tooltip_text(_("Remove"))
 
     _listbox = listbox
     _text = lbl.get_text()
@@ -197,23 +199,23 @@ def on_add_autostart(self, _widget):
     if len(name) > 1 and len(command) > 1:
         add_autostart(self, name, command, self.entry_comment.get_text())
         fn.log_success(f"{name} added to autostart")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, f"{name} added to autostart")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} added to autostart").format(name=name))
     else:
         fn.log_info("Name and Command must be at least 2 characters")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "Name and Command must be at least 2 characters")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("Name and Command must be at least 2 characters"))
 
 
 def on_exec_browse(self, _widget):
     fn.log_subsection("Browse for executable")
     dialog = Gtk.FileChooserDialog(
-        title="Please choose a file",
+        title=_("Please choose a file"),
         transient_for=self,
         action=Gtk.FileChooserAction.OPEN,
     )
     dialog.set_select_multiple(False)
     dialog.set_current_folder(Gio.File.new_for_path(fn.home))
-    dialog.add_button("_Cancel", Gtk.ResponseType.CANCEL)
-    dialog.add_button("_Open", Gtk.ResponseType.OK)
+    dialog.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
+    dialog.add_button(_("_Open"), Gtk.ResponseType.OK)
     dialog.connect("response", lambda d, r: open_response_auto(self, d, r))
     dialog.present()
 
@@ -240,7 +242,7 @@ def gui(self, Gtk, vboxstack_autostart, _fn):
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Autostart")
+    lbl_title.set_text(_("Autostart"))
     lbl_title.set_name("title")
     hbox_title.append(lbl_title)
 
@@ -252,7 +254,7 @@ def gui(self, Gtk, vboxstack_autostart, _fn):
 
     toplabelbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     lbls = Gtk.Label(xalign=0)
-    lbls.set_text("This is the current content of ~/.config/autostart/")
+    lbls.set_text(_("This is the current content of ~/.config/autostart/"))
     toplabelbox.append(lbls)
 
     files = [x.replace(".desktop", "") for x in fn.listdir(fn.autostart)]
@@ -273,15 +275,15 @@ def gui(self, Gtk, vboxstack_autostart, _fn):
 
     hbox_add_label = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
     lbl_add_manual = Gtk.Label(xalign=0)
-    lbl_add_manual.set_markup("<b>Add a manual autostart file</b>")
+    lbl_add_manual.set_markup(_("<b>Add a manual autostart file</b>"))
     lbl_add_manual.set_margin_start(5)
     lbl_add_manual.set_margin_top(10)
     lbl_add_manual.set_margin_bottom(5)
     hbox_add_label.append(lbl_add_manual)
 
-    lbl_name = Gtk.Label(label="Name")
-    lbl_command = Gtk.Label(label="Command")
-    lbl_comment = Gtk.Label(label="Comment")
+    lbl_name = Gtk.Label(label=_("Name"))
+    lbl_command = Gtk.Label(label=_("Command"))
+    lbl_comment = Gtk.Label(label=_("Comment"))
 
     self.entry_name = Gtk.Entry()
     self.entry_command = Gtk.Entry()
@@ -293,7 +295,7 @@ def gui(self, Gtk, vboxstack_autostart, _fn):
     self.entry_command.connect("changed", functools.partial(on_add_entry_changed, self))
 
     bbutton = Gtk.Button(label="...")
-    self.abutton = Gtk.Button(label="Add")
+    self.abutton = Gtk.Button(label=_("Add"))
     self.abutton.set_size_request(140, 0)
     self.abutton.set_sensitive(False)
 

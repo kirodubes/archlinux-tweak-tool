@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import N_, _, ngettext
 import themes
 from functions import GLib
 
@@ -16,7 +17,7 @@ from functions import GLib
 # No dark flag here (unlike the arc themes): every package ships the base, -Dark and
 # -Light variants in three DPI tiers, so a "select the dark ones" preset is meaningless.
 CELESTIAL_FAMILIES = [
-    ("Blues", [
+    (N_("Blues"), [
         ("aqua", "66a8cb"),
         ("archlinux-blue", "1793d1"),
         ("arcolinux-blue", "6790eb"),
@@ -38,13 +39,13 @@ CELESTIAL_FAMILIES = [
         ("sky-blue", "7ec1ff"),
         ("soft-blue", "5481e5"),
     ]),
-    ("Indigos", [
+    (N_("Indigos"), [
         ("cornflower-blue", "3250a7"),
         ("dawn", "566282"),
         ("slateblue", "394bd9"),
         ("tory", "596bb0"),
     ]),
-    ("Purples", [
+    (N_("Purples"), [
         ("blueberry", "52428f"),
         ("bright-lilac", "cd58ff"),
         ("darkish", "28293d"),
@@ -55,7 +56,7 @@ CELESTIAL_FAMILIES = [
         ("twilight", "44397d"),
         ("vampire", "555a69"),
     ]),
-    ("Greens", [
+    (N_("Greens"), [
         ("emerald", "1fa732"),
         ("evopop", "1685a6"),
         ("fern", "65b058"),
@@ -64,7 +65,7 @@ CELESTIAL_FAMILIES = [
         ("pueril", "97bb72"),
         ("sea", "2eb398"),
     ]),
-    ("Reds", [
+    (N_("Reds"), [
         ("aliz", "f0544c"),
         ("blood", "cf0808"),
         ("crimson", "dc143c"),
@@ -73,7 +74,7 @@ CELESTIAL_FAMILIES = [
         ("mandy", "c93648"),
         ("punch", "c03645"),
     ]),
-    ("Oranges", [
+    (N_("Oranges"), [
         ("casablanca", "fdb95b"),
         ("fire", "f68516"),
         ("jasmine", "fcde83"),
@@ -83,14 +84,14 @@ CELESTIAL_FAMILIES = [
         ("tacao", "efa369"),
         ("tangerine", "ff9500"),
     ]),
-    ("Pinks", [
+    (N_("Pinks"), [
         ("carnation", "fe6d88"),
         ("froly", "fd7980"),
         ("light-salmon", "ffa38d"),
         ("pink", "ce6ca2"),
         ("warm-pink", "fd3e84"),
     ]),
-    ("Greys", [
+    (N_("Greys"), [
         ("light-blue-grey", "b8a8bc"),
         ("pale-grey", "e1e3e7"),
         ("paper", "90a4ae"),
@@ -123,7 +124,7 @@ def _warn_repo_missing(self):
     if repo_available():
         return False
     fn.log_warn("nemesis_repo is not enabled — celestial packages cannot be installed")
-    fn.show_in_app_notification(self, "nemesis_repo is not enabled — enable it on the Pacman page")
+    fn.show_in_app_notification(self, _("nemesis_repo is not enabled — enable it on the Pacman page"))
     return True
 
 
@@ -133,7 +134,7 @@ def install_themes(self):
 
     if not themes_to_install:
         fn.log_warn("No celestial themes selected for installation")
-        fn.show_in_app_notification(self, "No themes selected for installation")
+        fn.show_in_app_notification(self, _("No themes selected for installation"))
         return
 
     if _warn_repo_missing(self):
@@ -142,12 +143,14 @@ def install_themes(self):
     packages_str = " ".join(themes_to_install)
     fn.log_info(f"Installing {len(themes_to_install)} Celestial theme(s): {', '.join(themes_to_install)}")
     process = fn.launch_pacman_install_in_terminal(packages_str)
-    fn.show_in_app_notification(self, f"Installing {len(themes_to_install)} themes...")
+    fn.show_in_app_notification(self, ngettext("Installing {count} theme...", "Installing {count} themes...", len(themes_to_install)).format(
+            count=len(themes_to_install)
+        ))
     # The new theme folders only exist once pacman is done, so the dropdown is rebuilt from here.
     fn.wait_and_notify(
         process,
         self,
-        "Celestial themes installation complete",
+        _("Celestial themes installation complete"),
         on_done=lambda: themes.refresh_env_theme_dropdowns(self),
     )
 
@@ -158,17 +161,19 @@ def remove_themes(self):
 
     if not themes_to_remove:
         fn.log_warn("No celestial themes selected for removal")
-        fn.show_in_app_notification(self, "No themes selected for removal")
+        fn.show_in_app_notification(self, _("No themes selected for removal"))
         return
 
     packages_str = " ".join(themes_to_remove)
     fn.log_info(f"Removing {len(themes_to_remove)} Celestial theme(s): {', '.join(themes_to_remove)}")
     process = fn.launch_pacman_remove_in_terminal(packages_str)
-    fn.show_in_app_notification(self, f"Removing {len(themes_to_remove)} themes...")
+    fn.show_in_app_notification(self, ngettext("Removing {count} theme...", "Removing {count} themes...", len(themes_to_remove)).format(
+            count=len(themes_to_remove)
+        ))
     fn.wait_and_notify(
         process,
         self,
-        "Celestial themes removal complete",
+        _("Celestial themes removal complete"),
         on_done=lambda: themes.refresh_env_theme_dropdowns(self),
     )
 
@@ -263,7 +268,7 @@ def on_open_upstream(self, _widget):
     """Open the upstream celestial-gtk-theme project in the real user's browser."""
     fn.log_subsection("Open the upstream celestial-gtk-theme project")
     fn.open_url_as_user(UPSTREAM_URL)
-    fn.show_in_app_notification(self, "Opening the celestial-gtk-theme project page")
+    fn.show_in_app_notification(self, _("Opening the celestial-gtk-theme project page"))
     return True  # suppress GTK's default xdg-open, which fails from root
 
 
@@ -273,7 +278,9 @@ def forge_installed():
 
 
 def _forge_label_markup(installed):
-    return FORGE_PKG + (" <b>installed</b>" if installed else " <b>not installed</b>")
+    if installed:
+        return _("{name} <b>installed</b>").format(name=FORGE_PKG)
+    return _("{name} <b>not installed</b>").format(name=FORGE_PKG)
 
 
 def refresh_forge_state(self):
@@ -285,18 +292,18 @@ def refresh_forge_state(self):
 
     button = getattr(self, "celestial_forge_install_btn", None)
     if button:
-        button.set_label(f"Launch {FORGE_LAUNCH}" if installed else "Install the generator")
+        button.set_label(_("Launch {name}").format(name=FORGE_LAUNCH) if installed else _("Install the generator"))
         # Launching an installed generator never needs the repo — only installing does.
         usable = installed or repo_available()
         button.set_sensitive(usable)
         button.set_tooltip_text(
-            "" if usable else "Enable nemesis_repo on the Pacman page to install the generator"
+            "" if usable else _("Enable nemesis_repo on the Pacman page to install the generator")
         )
 
     remove_button = getattr(self, "celestial_forge_remove_btn", None)
     if remove_button:
         remove_button.set_sensitive(installed)
-        remove_button.set_tooltip_text("" if installed else "The generator is not installed")
+        remove_button.set_tooltip_text("" if installed else _("The generator is not installed"))
 
 
 def _launch_forge():
@@ -314,7 +321,7 @@ def on_forge_button_clicked(self, _widget):
     if forge_installed():
         fn.log_subsection(f"Launching {FORGE_LAUNCH}")
         _launch_forge()
-        fn.show_in_app_notification(self, f"{FORGE_LAUNCH} launched")
+        fn.show_in_app_notification(self, _("{name} launched").format(name=FORGE_LAUNCH))
         return
 
     fn.log_subsection(f"Install {FORGE_PKG}")
@@ -322,7 +329,7 @@ def on_forge_button_clicked(self, _widget):
         return
 
     process = fn.launch_pacman_install_in_terminal(FORGE_PKG)
-    GLib.idle_add(fn.show_in_app_notification, self, f"{FORGE_PKG} installation started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} installation started").format(name=FORGE_PKG))
 
     def wait_install():
         if process is None:
@@ -331,7 +338,7 @@ def on_forge_button_clicked(self, _widget):
         fn.invalidate_pkg_cache()
         if forge_installed():
             fn.log_success(f"{FORGE_PKG} installed — run theme-forge-picker to pick a colour")
-            GLib.idle_add(fn.show_in_app_notification, self, f"{FORGE_PKG} installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name=FORGE_PKG))
         else:
             fn.log_warn(f"{FORGE_PKG} install did not complete")
             fn.check_missing_repo_error(self, "", FORGE_PKG)
@@ -345,13 +352,13 @@ def on_remove_forge_clicked(self, _widget):
     fn.log_subsection(f"Remove {FORGE_PKG}")
     if not forge_installed():
         fn.log_info(f"{FORGE_PKG} is not installed")
-        fn.show_in_app_notification(self, f"{FORGE_PKG} is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name=FORGE_PKG))
         return
 
     # Plain -R, not -Rns: the forge's dependencies (git, python, inkscape, imagemagick,
     # sassc) are general-purpose tools a user very likely wants to keep.
     process = fn.launch_pacman_remove_in_terminal(FORGE_PKG)
-    GLib.idle_add(fn.show_in_app_notification, self, f"{FORGE_PKG} removal started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} removal started").format(name=FORGE_PKG))
 
     def wait_remove():
         if process is None:
@@ -360,7 +367,7 @@ def on_remove_forge_clicked(self, _widget):
         fn.invalidate_pkg_cache()
         if not forge_installed():
             fn.log_success(f"{FORGE_PKG} removed — themes it already generated are untouched")
-            GLib.idle_add(fn.show_in_app_notification, self, f"{FORGE_PKG} removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name=FORGE_PKG))
         GLib.idle_add(refresh_forge_state, self)
 
     fn.threading.Thread(target=wait_remove, daemon=True).start()

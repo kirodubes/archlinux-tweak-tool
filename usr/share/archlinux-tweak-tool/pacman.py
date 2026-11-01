@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 import maintenance
 
 
@@ -31,7 +32,7 @@ def on_nemesis_toggle(self, widget, active):
                     append_repo(self, fn.nemesis_repo)
                     fn.log_info("Nemesis repo added to /etc/pacman.conf")
                     fn.GLib.idle_add(
-                        fn.show_in_app_notification, self, "Repo has been added to /etc/pacman.conf"
+                        fn.show_in_app_notification, self, _("Repo has been added to /etc/pacman.conf")
                     )
                 fn.GLib.idle_add(_sync_if_db_missing, self, "nemesis_repo")
                 fn.GLib.idle_add(desktopr_gui.update_button_state, self, fn)
@@ -43,7 +44,7 @@ def on_nemesis_toggle(self, widget, active):
     if not repo_exist("[nemesis_repo]"):
         append_repo(self, fn.nemesis_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "nemesis")
     if widget.get_active():
@@ -69,7 +70,7 @@ def on_chaotic_toggle(self, widget, active):
                     append_repo(self, fn.chaotic_aur_repo)
                     fn.log_info("Chaotic-AUR repo added to /etc/pacman.conf")
                     fn.GLib.idle_add(
-                        fn.show_in_app_notification, self, "Chaotic-AUR repo has been added to /etc/pacman.conf"
+                        fn.show_in_app_notification, self, _("Chaotic-AUR repo has been added to /etc/pacman.conf")
                     )
                 fn.GLib.idle_add(_sync_if_db_missing, self, "chaotic-aur")
                 fn.GLib.idle_add(desktopr_gui.update_button_state, self, fn)
@@ -81,7 +82,7 @@ def on_chaotic_toggle(self, widget, active):
     if not repo_exist("[chaotic-aur]"):
         append_repo(self, fn.chaotic_aur_repo)
         fn.debug_print("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Chaotic-AUR repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Chaotic-AUR repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "chaotics")
 
@@ -107,7 +108,7 @@ def on_cachyos_toggle(self, widget, active):
                     append_repo(self, fn.cachyos_repo)
                     fn.log_info("CachyOS repo added to /etc/pacman.conf")
                     fn.GLib.idle_add(
-                        fn.show_in_app_notification, self, "CachyOS repo has been added to /etc/pacman.conf"
+                        fn.show_in_app_notification, self, _("CachyOS repo has been added to /etc/pacman.conf")
                     )
                 fn.GLib.idle_add(_sync_if_db_missing, self, "cachyos")
 
@@ -117,7 +118,7 @@ def on_cachyos_toggle(self, widget, active):
     if not repo_exist("[cachyos]"):
         append_repo(self, fn.cachyos_repo)
         fn.debug_print("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "CachyOS repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("CachyOS repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "cachyos")
 
@@ -133,7 +134,7 @@ def on_pacman_toggle1(self, widget, active):
     if not repo_exist("[core-testing]"):
         append_repo(self, fn.arch_testing_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "testing")
     if widget.get_active():
@@ -148,7 +149,7 @@ def on_pacman_toggle2(self, widget, active):
     if not repo_exist("[core]"):
         append_repo(self, fn.arch_core_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "core")
     if widget.get_active():
@@ -163,7 +164,7 @@ def on_pacman_toggle3(self, widget, active):
     if not repo_exist("[extra]"):
         append_repo(self, fn.arch_extra_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "extra")
     if widget.get_active():
@@ -178,7 +179,7 @@ def on_pacman_toggle4(self, widget, active):
     if not repo_exist("[extra-testing]"):
         append_repo(self, fn.arch_extra_testing_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "community-testing")
     if widget.get_active():
@@ -193,7 +194,7 @@ def on_pacman_toggle6(self, widget, active):
     if not repo_exist("[multilib-testing]"):
         append_repo(self, fn.arch_multilib_testing_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "multilib-testing")
     if widget.get_active():
@@ -208,7 +209,7 @@ def on_pacman_toggle7(self, widget, active):
     if not repo_exist("[multilib]"):
         append_repo(self, fn.arch_multilib_repo)
         fn.log_info("Repo added to /etc/pacman.conf")
-        fn.show_in_app_notification(self, "Repo has been added to /etc/pacman.conf")
+        fn.show_in_app_notification(self, _("Repo has been added to /etc/pacman.conf"))
     else:
         toggle_test_repos(self, widget.get_active(), "multilib")
     if widget.get_active():
@@ -225,7 +226,7 @@ def custom_repo_clicked(self, _widget):
 
     if len(repo_content.strip()) < 5:
         fn.log_warn("No custom repo defined")
-        fn.show_in_app_notification(self, "No custom repo defined")
+        fn.show_in_app_notification(self, _("No custom repo defined"))
         return
 
     fn.debug_print(f"Custom repo content: {repo_content}")
@@ -262,7 +263,7 @@ def reset_pacman_local(self, _widget):
         fn.invalidate_pacman_conf_cache()
         fn.keep_kirotux_repo()
         fn.log_success("pacman.conf reset from -bak")
-        fn.show_in_app_notification(self, "Default Settings Applied - check in a terminal")
+        fn.show_in_app_notification(self, _("Default Settings Applied - check in a terminal"))
     fn.GLib.timeout_add(500, lambda: update_repos_switches(self))
 
 
@@ -274,13 +275,13 @@ def reset_pacman_online(self, _widget):
     fn.invalidate_pacman_conf_cache()
     fn.keep_kirotux_repo()
     fn.log_success("ATT version of pacman.conf saved")
-    fn.show_in_app_notification(self, "Default Settings Applied - check in a terminal")
+    fn.show_in_app_notification(self, _("Default Settings Applied - check in a terminal"))
     fn.GLib.timeout_add(500, lambda: update_repos_switches(self))
 
 
 def edit_pacman_conf_clicked(self, _widget):
     fn.log_subsection("Edit pacman.conf")
-    fn.show_in_app_notification(self, "Opening pacman.conf in terminal")
+    fn.show_in_app_notification(self, _("Opening pacman.conf in terminal"))
     fn.subprocess.Popen(
         ["alacritty", "-e", "sudo", "nano", fn.pacman],
         stdout=fn.subprocess.PIPE,
@@ -346,7 +347,7 @@ def set_parallel_downloads(self, _widget):
                 f.writelines(lines)
             fn.invalidate_pacman_conf_cache()
             fn.log_success(f"ParallelDownloads = {par_downloads} saved to {fn.pacman}")
-            fn.show_in_app_notification(self, "Settings Saved Successfully")
+            fn.show_in_app_notification(self, _("Settings Saved Successfully"))
             if hasattr(self, "parallel_downloads_label"):
                 self.parallel_downloads_label.set_markup(f"ParallelDownloads: {par_downloads}")
 

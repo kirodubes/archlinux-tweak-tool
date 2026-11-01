@@ -15,6 +15,8 @@
 import os
 import shutil
 
+from att_i18n import _
+
 
 # ── module-level helpers ────────────────────────────────────────────
 
@@ -316,7 +318,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
     fn.log_info("Building Dev Diagnostics page")
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Dev Diagnostics")
+    lbl_title.set_text(_("Dev Diagnostics"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     lbl_title.set_margin_end(10)
@@ -338,7 +340,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
     hbox_help.set_margin_top(4)
     btn_glossary = Gtk.LinkButton.new_with_label(
         "kiro-glossary://open",
-        "What do these rows mean? — read the Dev Page Glossary",
+        _("What do these rows mean? — read the Dev Page Glossary"),
     )
 
     def _on_glossary_activate(_widget):
@@ -399,13 +401,13 @@ def gui(self, Gtk, vboxstack_dev, fn):
         row[0] += 1
 
     def _yes(b):
-        return "<span foreground='green'>yes</span>" if b else ""
+        return _("<span foreground='green'>yes</span>") if b else ""
 
     def _active(b):
-        return "<span foreground='green'>active</span>" if b else ""
+        return _("<span foreground='green'>active</span>") if b else ""
 
     def _enabled(b):
-        return "<span foreground='green'>enabled</span>" if b else ""
+        return _("<span foreground='green'>enabled</span>") if b else ""
 
     def _state(state):
         colors = {"pass": "green", "warn": "orange", "fail": "red"}
@@ -446,26 +448,26 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # ════════════════════════════════════════════════════════════════
         # 1. Session diagnostics — meta info about the running session
         # ════════════════════════════════════════════════════════════════
-        _group("Session diagnostics")
+        _group(_("Session diagnostics"))
 
         # ── Distro Detection ────────────────────────────────────────
-        _header("Distro Detection")
+        _header(_("Distro Detection"))
 
         distr_label = fn.get_distro_label()
         # Kiro/KiroTux are Arch-based rebrands (os-release ID=arch, IMAGE_ID=kiro), so base
         # "arch" + label "Kiro"/"KiroTux" is the expected pairing — not a detection mismatch.
         if fn.distr == "arch" and distr_label in ("Kiro", "KiroTux"):
-            distr_status = "<span foreground='green'>Arch-based (expected)</span>"
+            distr_status = _("<span foreground='green'>Arch-based (expected)</span>")
         elif fn.distr.lower() == distr_label.lower():
             distr_status = ""
         else:
-            distr_status = "<span foreground='orange'>&#9888; mismatch</span>"
+            distr_status = _("<span foreground='orange'>&#9888; mismatch</span>")
 
         _row("fn.distr", fn.distr)
         _row("get_distro_label()", distr_label, distr_status)
 
         # ── Environment ──────────────────────────────────────────────
-        _header("Environment")
+        _header(_("Environment"))
 
         desktop = fn.desktop if fn.desktop else "(not set)"
         _row("XDG_CURRENT_DESKTOP", desktop)
@@ -473,7 +475,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("fn.home", fn.home)
 
         # ── Session ──────────────────────────────────────────────────
-        _header("Session")
+        _header(_("Session"))
 
         # WMs started via startx/.xinitrc often never export XDG_SESSION_TYPE,
         # so fall back to inferring it from the session's display variables.
@@ -492,7 +494,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("active shell", _shell)
 
         # ── System ───────────────────────────────────────────────────
-        _header("System")
+        _header(_("System"))
 
         _bootloader = _detect_bootloader(fn)
 
@@ -522,11 +524,11 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # 2. Per-tab status — sections in gui.py registration order
         #    (skipping Dev/System/Logging which are viewers/self)
         # ════════════════════════════════════════════════════════════════
-        _group("Per-tab status")
+        _group(_("Per-tab status"))
 
         # ── AI Tools ─────────────────────────────────────────────────
         # ATT detects these via binary paths, not pkg names (varied AUR sources).
-        _header("AI Tools")
+        _header(_("AI Tools"))
         for _bin in ("ollama", "open-webui", "aider", "claude"):
             _present = fn.path.exists(f"/usr/bin/{_bin}")
             _row(f"/usr/bin/{_bin}", _present, _yes(_present))
@@ -534,7 +536,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("ollama.service active", _ollama_running, _active(_ollama_running))
 
         # ── Autostart ────────────────────────────────────────────────
-        _header("Autostart")
+        _header(_("Autostart"))
         _auto_count = _autostart_entry_count(fn.home)
         _row("~/.config/autostart/*.desktop", _auto_count)
 
@@ -544,7 +546,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # groups, not packages, so `pacman -Qi <group>` always fails. Tiling
         # WMs are listed alongside the DEs; the list is sorted alphabetically
         # (case-insensitive) at render time so new entries stay ordered.
-        _header("Desktop")
+        _header(_("Desktop"))
         _desktop_bins = [
             ("Plasma", "/usr/bin/plasmashell"),
             ("GNOME", "/usr/bin/gnome-session"),
@@ -567,14 +569,14 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row(f"{_name} ({_bin})", _present, _yes(_present))
 
         # ── Fastfetch ────────────────────────────────────────────────
-        _header("Fastfetch")
+        _header(_("Fastfetch"))
         _pkg("fastfetch")
         _pkg("lolcat")
         _ff_cfg = f"{fn.home}/.config/fastfetch/config.jsonc"
         _row("user config exists", fn.path.exists(_ff_cfg), _yes(fn.path.exists(_ff_cfg)))
 
         # ── Icons ────────────────────────────────────────────────────
-        _header("Icons")
+        _header(_("Icons"))
         _n_sardi = _count_pkgs_matching(fn, "sardi-")
         _n_surfn = _count_pkgs_matching(fn, "surfn-")
         _n_neo = _count_pkgs_matching(fn, "neo-candy-")
@@ -587,7 +589,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # than a hardcoded pkg-name list — on Arch, Liquorix ships as
         # linux-lqx, CachyOS as linux-cachyos, etc., and the boot image is
         # the authoritative ground truth regardless of pkg name variations.
-        _header("Kernels")
+        _header(_("Kernels"))
         try:
             _vmlinuz = sorted(f for f in os.listdir("/boot") if f.startswith("vmlinuz-"))
         except OSError:
@@ -609,21 +611,21 @@ def gui(self, Gtk, vboxstack_dev, fn):
                  _yes(fn.check_package_installed(f"{_pkgname}-headers")))
 
         # ── Locale ───────────────────────────────────────────────────
-        _header("Locale")
+        _header(_("Locale"))
         _row("LANG", os.getenv("LANG") or "(not set)")
         _row("keyboard (X11 layout)", _localectl_field(fn, "X11 Layout"))
         _row("vc keymap", _localectl_field(fn, "VC Keymap"))
         _row("timezone", _timedatectl_field(fn, "Timezone"))
 
         # ── Maintenance ──────────────────────────────────────────────
-        _header("Maintenance")
+        _header(_("Maintenance"))
         _pkg("reflector")
         _pkg("rate-mirrors")
         _pd = _pacman_conf_value("ParallelDownloads")
         _row("pacman ParallelDownloads", _pd if _pd else "(default 1)")
 
         # ── Network ──────────────────────────────────────────────────
-        _header("Network")
+        _header(_("Network"))
         _avahi = _pkg("avahi")
         _svc("avahi-daemon.service", "avahi-daemon", installed=_avahi)
         _samba = _pkg("samba")
@@ -637,20 +639,20 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("firewalld allows samba", _fw_samba, _yes(_fw_samba))
 
         # ── Packages (AUR helpers) ───────────────────────────────────
-        _header("Packages")
+        _header(_("Packages"))
         for _helper in ("yay", "paru", "trizen", "pikaur"):
             _present = shutil.which(_helper) is not None
             _row(f"{_helper} on PATH", _present, _yes(_present))
 
         # ── Pacman ───────────────────────────────────────────────────
-        _header("Pacman")
+        _header(_("Pacman"))
         _row("chaotic-AUR active", fn.check_chaotic_aur_active(), _yes(fn.check_chaotic_aur_active()))
         _row("nemesis_repo active", fn.check_nemesis_repo_active(), _yes(fn.check_nemesis_repo_active()))
         _row("[multilib] enabled", _pacman_repo_enabled("multilib"), _yes(_pacman_repo_enabled("multilib")))
         _row("[testing] enabled", _pacman_repo_enabled("testing"), _yes(_pacman_repo_enabled("testing")))
 
         # ── Plymouth ─────────────────────────────────────────────────
-        _header("Plymouth")
+        _header(_("Plymouth"))
 
         # Plymouth on Arch is hook-driven, not service-driven — there's no
         # `plymouth.service` to enable. Boot-time firing is wired via the
@@ -704,14 +706,14 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row("/etc/kernel/cmdline splash", _cmdline_ok, _cmdline_status)
 
         # ── Privacy ──────────────────────────────────────────────────
-        _header("Privacy")
+        _header(_("Privacy"))
         _hblock = shutil.which("hblock") is not None
         _row("hblock on PATH", _hblock, _yes(_hblock))
         _row("/etc/hosts has hblock marker", _hosts_has_hblock(), _yes(_hosts_has_hblock()))
         _pkg("firefox-ublock-origin")
 
         # ── Performance ──────────────────────────────────────────────
-        _header("Performance")
+        _header(_("Performance"))
         _tuned = _pkg("tuned")
         _svc("tuned.service", "tuned", installed=_tuned)
         if _tuned:
@@ -735,7 +737,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
                 or (_ppd_profile == "power-saver" and _tuned_profile == "powersave")
             )
             if not _agree:
-                _mismatch_markup = "<span foreground='orange'>&#9888; mismatch with tuned</span>"
+                _mismatch_markup = _("<span foreground='orange'>&#9888; mismatch with tuned</span>")
         _row("PPD active profile (D-Bus)", _ppd_profile, _mismatch_markup)
         _irq = _pkg("irqbalance")
         _svc("irqbalance.service", "irqbalance", installed=_irq)
@@ -749,7 +751,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("fstrim.timer enabled", _fstrim_en, _enabled(_fstrim_en))
 
         # ── SDDM ─────────────────────────────────────────────────────
-        _header("SDDM")
+        _header(_("SDDM"))
         _row("active display manager", _dm)
         _row("sddm installed", _sddm_installed_shared, _yes(_sddm_installed_shared))
         _sddm_en = fn.check_service_enabled("sddm") if _sddm_installed_shared else False
@@ -762,7 +764,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
              "<span foreground='orange'>yes</span>" if _plasma_login_shared else "")
 
         # ── Services ─────────────────────────────────────────────────
-        _header("Services")
+        _header(_("Services"))
         _cups = _pkg("cups")
         _svc("cups.service", "cups", installed=_cups)
         _bluez = _pkg("bluez")
@@ -771,7 +773,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _svc("bluetooth-autoconnect.service", "bluetooth-autoconnect", installed=_bta)
 
         # ── Shells ───────────────────────────────────────────────────
-        _header("Shells")
+        _header(_("Shells"))
         for _s in ("bash", "bash-completion", "zsh", "zsh-completions", "zsh-syntax-highlighting",
                    "oh-my-zsh-git", "fish", "alacritty", "alacritty-tweak-tool"):
             _pkg(_s)
@@ -779,7 +781,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # ── Software ─────────────────────────────────────────────────
         # ATT detects these via binary paths, not pkg names (Pamac, Discover,
         # GNOME Software etc. ship under varying pkg names per distro).
-        _header("Software")
+        _header(_("Software"))
         _sw_bins = [
             ("Pamac", "/usr/bin/pamac-manager"),
             ("Octopi", "/usr/bin/octopi"),
@@ -798,26 +800,26 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row(f"{_name} ({_bin})", _present, _yes(_present))
 
         # ── Themer ───────────────────────────────────────────────────
-        _header("Themer")
+        _header(_("Themer"))
         for _t in ("kiro-awesome", "kiro-i3", "kiro-leftwm", "kiro-qtile"):
             _pkg(_t)
 
         # ── Themes ───────────────────────────────────────────────────
         # ArcoLinux is obsolete — themes ship as kiro-arc-* now (per HQ
         # project memory). Don't reintroduce an arcolinux-arc-* check.
-        _header("Themes")
+        _header(_("Themes"))
         _n_kiro = _count_pkgs_matching(fn, "kiro-arc-") + _count_pkgs_matching(fn, "kiro-neo-candy-") \
                   + _count_pkgs_matching(fn, "kiro-papirus-") + _count_pkgs_matching(fn, "kiro-vimix-")
         _row("kiro-* GTK themes", _n_kiro, _yes(_n_kiro > 0))
 
         # ── User ─────────────────────────────────────────────────────
-        _header("User")
+        _header(_("User"))
         _in_wheel = _user_in_group(fn, "wheel")
         _row(f"{fn.sudo_username} in wheel", _in_wheel, _yes(_in_wheel))
         _row("/etc/sudoers.d/ entries", _sudoers_d_count())
 
         # ── Wallpaper ────────────────────────────────────────────────
-        _header("Wallpaper")
+        _header(_("Wallpaper"))
         _variety = _pkg("variety")
         if _variety:
             _vrun = False
@@ -830,8 +832,8 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # ════════════════════════════════════════════════════════════════
         # 3. Cross-cutting safeguards
         # ════════════════════════════════════════════════════════════════
-        _group("Cross-cutting safeguards")
-        _header("Safeguards")
+        _group(_("Cross-cutting safeguards"))
+        _header(_("Safeguards"))
 
         # On arch + systemd-boot the kernel-install pacman hook must be present
         # or kernel updates won't reach the ESP. Verify it rather than just
@@ -888,7 +890,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # ════════════════════════════════════════════════════════════════
         # 4. System integrity — high-signal subset of the kiro-audit checks
         # ════════════════════════════════════════════════════════════════
-        _group("System integrity (kiro-audit mirror)")
+        _group(_("System integrity (kiro-audit mirror)"))
 
         # ── Microcode ────────────────────────────────────────────────
         # The correct ucode (intel OR amd) depends on the CPU — having the
@@ -899,7 +901,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # In a VM there is no real CPU to patch, so a missing image is expected,
         # not a fault — mirror kiro-audit and report it benignly (PASS), don't
         # scare the user with a red FAIL.
-        _header("Microcode")
+        _header(_("Microcode"))
         _vm = _is_vm(fn)
         _ucode_found = False
         for _vendor in ("intel", "amd"):
@@ -917,7 +919,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row("microcode package", "(none installed)", _state("warn"))
 
         # ── Audio stack (PipeWire) ───────────────────────────────────
-        _header("Audio stack (PipeWire)")
+        _header(_("Audio stack (PipeWire)"))
         for _ap in ("pipewire", "pipewire-pulse", "wireplumber"):
             _ai = fn.check_package_installed(_ap)
             _row(_ap, _ai, _state("pass" if _ai else "fail"))
@@ -925,7 +927,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
         _row("pulseaudio not installed", not _pulse, _state("pass" if not _pulse else "fail"))
 
         # ── ZRAM ─────────────────────────────────────────────────────
-        _header("ZRAM")
+        _header(_("ZRAM"))
         _zgen = fn.check_package_installed("zram-generator")
         _row("zram-generator", _zgen, _state("pass" if _zgen else "fail"))
         _zpresent, _zactive, _zalgo = _zram_state(fn)
@@ -939,12 +941,12 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # file-based logs (pacman.log, Xorg/app logs) rotate; journald rotates
         # its own store separately. is-enabled is authoritative — a fresh
         # install can read active-but-disabled, which won't persist across boot.
-        _header("Log rotation")
+        _header(_("Log rotation"))
         _logrotate_en = fn.check_service_enabled("logrotate.timer")
         _row("logrotate.timer enabled", _logrotate_en, _enabled(_logrotate_en))
 
         # ── Calamares cleanup ────────────────────────────────────────
-        _header("Calamares cleanup")
+        _header(_("Calamares cleanup"))
         for _cp in ("calamares", "mkinitcpio-archiso", "kiro-calamares-config-next"):
             _gone = not fn.check_package_installed(_cp)
             _row(f"{_cp} removed", _gone, _state("pass" if _gone else "fail"))
@@ -957,7 +959,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row("installer leftovers", "none", _state("pass"))
 
         # ── Package integrity (pacman -Qk) ───────────────────────────
-        _header("Package integrity (pacman -Qk)")
+        _header(_("Package integrity (pacman -Qk)"))
         _bad = _pkg_integrity(fn)
         if _bad:
             _row("packages with missing files", len(_bad), _state("fail"))
@@ -967,7 +969,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
             _row("all packages intact", "0 missing files", _state("pass"))
 
         # ── Failed systemd units ─────────────────────────────────────
-        _header("Failed systemd units")
+        _header(_("Failed systemd units"))
         _funits = _failed_units(fn)
         if _funits:
             _row("failed units", len(_funits), _state("fail"))
@@ -980,28 +982,28 @@ def gui(self, Gtk, vboxstack_dev, fn):
         # 5. Userspace tuning — 5 items shipped by kiro-system-files that
         #    influence behaviour without depending on a specific kernel.
         # ════════════════════════════════════════════════════════════════
-        _group("Userspace tuning")
+        _group(_("Userspace tuning"))
 
         # ── OOM daemon (systemd-oomd) ────────────────────────────────
-        _header("OOM daemon (systemd-oomd)")
+        _header(_("OOM daemon (systemd-oomd)"))
         _oomd_enabled, _oomd_active = _oomd_state(fn)
         _row("systemd-oomd enabled", _oomd_enabled, _enabled(_oomd_enabled))
         _row("systemd-oomd active", _oomd_active, _active(_oomd_active))
 
         # ── Intel ME blacklist (mei / mei_me) ────────────────────────
-        _header("Intel ME blacklist")
+        _header(_("Intel ME blacklist"))
         _mei_conf = fn.path.exists("/etc/modprobe.d/blacklist-intel-me.conf")
         _row("blacklist-intel-me.conf", _mei_conf, _state("pass" if _mei_conf else "fail"))
         _mei_on = _mei_loaded(fn)
         _row("mei/mei_me not loaded", not _mei_on, _state("pass" if not _mei_on else "warn"))
 
         # ── Bluetooth USB reset ──────────────────────────────────────
-        _header("Bluetooth USB reset")
+        _header(_("Bluetooth USB reset"))
         _bt_conf = fn.path.exists("/etc/modprobe.d/bluetooth-usb.conf")
         _row("bluetooth-usb.conf (btusb reset=1)", _bt_conf, _state("pass" if _bt_conf else "fail"))
 
         # ── Kernel zswap off (zram-generator owns swap) ──────────────
-        _header("Kernel zswap")
+        _header(_("Kernel zswap"))
         _zswap_conf = fn.path.exists("/etc/tmpfiles.d/disable-zswap.conf")
         _row("disable-zswap.conf tmpfile", _zswap_conf, _state("pass" if _zswap_conf else "fail"))
         _zswap_now = _zswap_runtime(fn)
@@ -1010,7 +1012,7 @@ def gui(self, Gtk, vboxstack_dev, fn):
              _state("pass" if _zswap_off else "fail" if _zswap_now in ("Y", "1") else "warn"))
 
         # ── NetworkManager loopback unmanaged ────────────────────────
-        _header("NetworkManager loopback")
+        _header(_("NetworkManager loopback"))
         _nm_conf = fn.path.exists("/etc/NetworkManager/conf.d/unmanaged-lo.conf")
         _row("unmanaged-lo.conf", _nm_conf, _state("pass" if _nm_conf else "fail"))
     _populate()

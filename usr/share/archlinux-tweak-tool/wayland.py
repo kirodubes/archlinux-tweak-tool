@@ -7,6 +7,7 @@ import tempfile
 from gi.repository import GLib  # noqa
 import functions as fn
 import desktopr
+from att_i18n import _
 
 # Wayland window managers offered on the dedicated "Desktop - Wayland" page.
 #
@@ -148,7 +149,7 @@ def install_wayland_selection(self, keys):
 
     names = ", ".join(wm["label"] for wm in selected)
     fn.log_section(f"Installing Wayland WM(s): {names}")
-    fn.show_in_app_notification(self, f"Opening terminal for: {names}")
+    fn.show_in_app_notification(self, _("Opening terminal for: {names}").format(names=names))
 
     packages = [wm["pkgname"] for wm in selected]
     skel_dirs = [d for wm in selected if wm["ready"] for d in wm["skel"]]
@@ -207,13 +208,13 @@ def remove_wayland_selection(self, keys):
         proc = wm.get("proc")
         if proc and fn.subprocess.run(["pgrep", "-x", proc], capture_output=True).returncode == 0:
             fn.log_warn(f"Refusing to remove {wm['label']} — it is the current running session")
-            fn.show_in_app_notification(self, f"Cannot remove {wm['label']} — log out of it first")
+            fn.show_in_app_notification(self, _("Cannot remove {name} — log out of it first").format(name=wm["label"]))
             return
 
     names = ", ".join(wm["label"] for wm in selected)
     packages = [pkg for wm in selected for pkg in wm["remove"]]
     fn.log_section(f"Removing Wayland WM(s): {names}")
-    fn.show_in_app_notification(self, f"Opening terminal to remove: {names}")
+    fn.show_in_app_notification(self, _("Opening terminal to remove: {names}").format(names=names))
 
     log_file = tempfile.NamedTemporaryFile(mode="w+", suffix=".log", delete=False)
     log_path = log_file.name

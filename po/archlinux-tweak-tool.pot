@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:16+0100\n"
+"POT-Creation-Date: 2026-11-01 08:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:32
 #: usr/share/archlinux-tweak-tool/backup.py:26
 #: usr/share/archlinux-tweak-tool/backup_gui.py:20
+#: usr/share/archlinux-tweak-tool/celestial.py:282
 #: usr/share/archlinux-tweak-tool/office.py:80
 #: usr/share/archlinux-tweak-tool/office_gui.py:16
 #, python-brace-format
@@ -62,7 +63,9 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:94
 #: usr/share/archlinux-tweak-tool/backup.py:46
+#: usr/share/archlinux-tweak-tool/celestial.py:324
 #: usr/share/archlinux-tweak-tool/fastfetch.py:673
+#: usr/share/archlinux-tweak-tool/iso.py:86
 #: usr/share/archlinux-tweak-tool/office.py:100
 #: usr/share/archlinux-tweak-tool/wallpaper.py:147
 #, python-brace-format
@@ -71,6 +74,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:99
 #: usr/share/archlinux-tweak-tool/backup.py:51
+#: usr/share/archlinux-tweak-tool/celestial.py:332
 #: usr/share/archlinux-tweak-tool/office.py:113
 #, python-brace-format
 msgid "{name} installation started"
@@ -78,9 +82,11 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:111
 #: usr/share/archlinux-tweak-tool/backup.py:63
+#: usr/share/archlinux-tweak-tool/celestial.py:341
 #: usr/share/archlinux-tweak-tool/fastfetch.py:514
 #: usr/share/archlinux-tweak-tool/fastfetch.py:565
 #: usr/share/archlinux-tweak-tool/fastfetch.py:632
+#: usr/share/archlinux-tweak-tool/iso.py:42
 #: usr/share/archlinux-tweak-tool/office.py:125
 #, python-brace-format
 msgid "{name} installed"
@@ -89,6 +95,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility.py:125
 #: usr/share/archlinux-tweak-tool/accessibility.py:251
 #: usr/share/archlinux-tweak-tool/backup.py:77
+#: usr/share/archlinux-tweak-tool/celestial.py:361
 #: usr/share/archlinux-tweak-tool/office.py:141
 #, python-brace-format
 msgid "{name} removal started"
@@ -96,7 +103,9 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:137
 #: usr/share/archlinux-tweak-tool/backup.py:89
+#: usr/share/archlinux-tweak-tool/celestial.py:370
 #: usr/share/archlinux-tweak-tool/fastfetch.py:656
+#: usr/share/archlinux-tweak-tool/iso.py:66
 #: usr/share/archlinux-tweak-tool/office.py:153
 #: usr/share/archlinux-tweak-tool/wallpaper.py:201
 #, python-brace-format
@@ -168,6 +177,31 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/ai.py:104
+#: usr/share/archlinux-tweak-tool/ai.py:160
+#: usr/share/archlinux-tweak-tool/ai.py:206
+#: usr/share/archlinux-tweak-tool/ai.py:260
+#: usr/share/archlinux-tweak-tool/ai.py:340
+#: usr/share/archlinux-tweak-tool/ai.py:412
+#: usr/share/archlinux-tweak-tool/ai.py:462
+#: usr/share/archlinux-tweak-tool/ai.py:513
+#: usr/share/archlinux-tweak-tool/ai.py:564
+#: usr/share/archlinux-tweak-tool/ai.py:617
+#: usr/share/archlinux-tweak-tool/ai.py:669
+#: usr/share/archlinux-tweak-tool/ai.py:722
+#: usr/share/archlinux-tweak-tool/ai_gui.py:49
+#: usr/share/archlinux-tweak-tool/ai_gui.py:75
+#: usr/share/archlinux-tweak-tool/ai_gui.py:101
+#: usr/share/archlinux-tweak-tool/ai_gui.py:135
+#: usr/share/archlinux-tweak-tool/ai_gui.py:160
+#: usr/share/archlinux-tweak-tool/ai_gui.py:185
+#: usr/share/archlinux-tweak-tool/ai_gui.py:210
+#: usr/share/archlinux-tweak-tool/ai_gui.py:237
+#: usr/share/archlinux-tweak-tool/ai_gui.py:264
+#: usr/share/archlinux-tweak-tool/ai_gui.py:289
+#: usr/share/archlinux-tweak-tool/ai_gui.py:316
+#: usr/share/archlinux-tweak-tool/ai_gui.py:342
+#: usr/share/archlinux-tweak-tool/autostart.py:161
 #: usr/share/archlinux-tweak-tool/backup_gui.py:38
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:115
 #: usr/share/archlinux-tweak-tool/office_gui.py:34
@@ -215,6 +249,30 @@ msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/ai.py:82
+#: usr/share/archlinux-tweak-tool/ai.py:131
+#: usr/share/archlinux-tweak-tool/ai.py:187
+#: usr/share/archlinux-tweak-tool/ai.py:233
+#: usr/share/archlinux-tweak-tool/ai.py:316
+#: usr/share/archlinux-tweak-tool/ai.py:379
+#: usr/share/archlinux-tweak-tool/ai.py:440
+#: usr/share/archlinux-tweak-tool/ai.py:490
+#: usr/share/archlinux-tweak-tool/ai.py:539
+#: usr/share/archlinux-tweak-tool/ai.py:592
+#: usr/share/archlinux-tweak-tool/ai.py:647
+#: usr/share/archlinux-tweak-tool/ai.py:697
+#: usr/share/archlinux-tweak-tool/ai_gui.py:49
+#: usr/share/archlinux-tweak-tool/ai_gui.py:75
+#: usr/share/archlinux-tweak-tool/ai_gui.py:101
+#: usr/share/archlinux-tweak-tool/ai_gui.py:135
+#: usr/share/archlinux-tweak-tool/ai_gui.py:160
+#: usr/share/archlinux-tweak-tool/ai_gui.py:185
+#: usr/share/archlinux-tweak-tool/ai_gui.py:210
+#: usr/share/archlinux-tweak-tool/ai_gui.py:237
+#: usr/share/archlinux-tweak-tool/ai_gui.py:264
+#: usr/share/archlinux-tweak-tool/ai_gui.py:289
+#: usr/share/archlinux-tweak-tool/ai_gui.py:316
+#: usr/share/archlinux-tweak-tool/ai_gui.py:342
 #: usr/share/archlinux-tweak-tool/performance_gui.py:394
 #: usr/share/archlinux-tweak-tool/performance_gui.py:447
 #: usr/share/archlinux-tweak-tool/performance_gui.py:500
@@ -295,6 +353,655 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:81
+#: usr/share/archlinux-tweak-tool/ai_gui.py:38
+msgid "Ollama - Local LLM runner"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:83
+msgid "ollama removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:86
+msgid "ollama removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:103
+#: usr/share/archlinux-tweak-tool/ai_gui.py:38
+msgid "Ollama - Local LLM runner <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:105
+msgid "ollama installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:113
+msgid "ollama installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:130
+#: usr/share/archlinux-tweak-tool/ai_gui.py:90
+msgid "Jan - Offline desktop AI"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:132
+msgid "jan removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:135
+msgid "jan removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:144
+msgid "Jan needs the cachyos repo. Enable [cachyos] in pacman.conf first."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:159
+#: usr/share/archlinux-tweak-tool/ai_gui.py:90
+msgid "Jan - Offline desktop AI <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:161
+msgid "jan installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:169
+msgid "jan installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:186
+#: usr/share/archlinux-tweak-tool/ai_gui.py:331
+msgid "aichat - All-in-one LLM CLI"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:188
+msgid "aichat removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:191
+msgid "aichat removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:205
+#: usr/share/archlinux-tweak-tool/ai_gui.py:331
+msgid "aichat - All-in-one LLM CLI <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:207
+msgid "aichat installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:215
+msgid "aichat installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:232
+#: usr/share/archlinux-tweak-tool/ai_gui.py:64
+msgid "Open WebUI - Browser UI for Ollama"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:234
+msgid "open-webui removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:237
+msgid "open-webui removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:242
+#: usr/share/archlinux-tweak-tool/ai.py:325
+#: usr/share/archlinux-tweak-tool/ai.py:388
+#: usr/share/archlinux-tweak-tool/ai.py:499
+#: usr/share/archlinux-tweak-tool/ai.py:548
+#: usr/share/archlinux-tweak-tool/ai.py:706
+msgid "No AUR helper found. Install yay or paru first."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:258
+#: usr/share/archlinux-tweak-tool/ai_gui.py:64
+msgid "Open WebUI - Browser UI for Ollama <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:261
+msgid "open-webui installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:269
+msgid "open-webui installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:315
+#: usr/share/archlinux-tweak-tool/ai_gui.py:124
+msgid "Claude Code - Anthropic CLI"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:317
+msgid "claude-code removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:320
+msgid "claude-code removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:339
+#: usr/share/archlinux-tweak-tool/ai_gui.py:124
+msgid "Claude Code - Anthropic CLI <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:341
+msgid "claude-code installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:349
+msgid "claude-code installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:378
+#: usr/share/archlinux-tweak-tool/ai_gui.py:150
+msgid "Aider - AI pair programming"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:380
+msgid "aider removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:383
+msgid "aider removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:400
+msgid "Running aider setup..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:411
+#: usr/share/archlinux-tweak-tool/ai_gui.py:150
+msgid "Aider - AI pair programming <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:413
+msgid "aider installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:420
+msgid "aider installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:439
+#: usr/share/archlinux-tweak-tool/ai_gui.py:175
+msgid "OpenAI Codex CLI"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:441
+msgid "Codex removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:446
+msgid "Codex removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:448
+msgid "Codex removal failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:461
+#: usr/share/archlinux-tweak-tool/ai_gui.py:175
+msgid "OpenAI Codex CLI <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:463
+msgid "Codex installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:470
+msgid "Codex installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:472
+msgid "Codex installation failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:489
+#: usr/share/archlinux-tweak-tool/ai_gui.py:200
+msgid "Antigravity-cli"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:491
+msgid "antigravity-cli removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:494
+msgid "antigravity-cli removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:512
+#: usr/share/archlinux-tweak-tool/ai_gui.py:200
+msgid "Antigravity-cli <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:514
+msgid "antigravity-cli installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:521
+msgid "antigravity-cli installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:538
+#: usr/share/archlinux-tweak-tool/ai_gui.py:226
+msgid "Antigravity (previous gemini)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:540
+msgid "antigravity removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:543
+msgid "antigravity removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:562
+#: usr/share/archlinux-tweak-tool/ai_gui.py:226
+msgid "Antigravity (previous gemini) <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:565
+msgid "antigravity installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:572
+msgid "antigravity installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:591
+#: usr/share/archlinux-tweak-tool/ai_gui.py:253
+msgid "OpenCode - TUI AI coding assistant"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:593
+msgid "OpenCode removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:598
+msgid "OpenCode removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:600
+msgid "OpenCode removal failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:615
+#: usr/share/archlinux-tweak-tool/ai_gui.py:253
+msgid "OpenCode - TUI AI coding assistant <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:618
+msgid "OpenCode installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:625
+msgid "OpenCode installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:627
+msgid "OpenCode installation failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:646
+#: usr/share/archlinux-tweak-tool/ai_gui.py:279
+msgid "GitHub Copilot CLI"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:648
+msgid "Copilot CLI removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:653
+msgid "Copilot CLI removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:655
+msgid "Copilot CLI removal failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:668
+#: usr/share/archlinux-tweak-tool/ai_gui.py:279
+msgid "GitHub Copilot CLI <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:670
+msgid "Copilot CLI installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:677
+msgid "Copilot CLI installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:679
+msgid "Copilot CLI installation failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:696
+#: usr/share/archlinux-tweak-tool/ai_gui.py:305
+msgid "OpenClaw - Multi-channel AI gateway"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:698
+msgid "openclaw removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:701
+msgid "openclaw removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:720
+#: usr/share/archlinux-tweak-tool/ai_gui.py:305
+msgid "OpenClaw - Multi-channel AI gateway <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:723
+msgid "openclaw installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai.py:730
+msgid "openclaw installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:13
+#: usr/share/archlinux-tweak-tool/dev_gui.py:531
+#: usr/share/archlinux-tweak-tool/gui.py:445
+msgid "AI Tools"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:27
+msgid "<b>Local LLM Runners</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:43
+#: usr/share/archlinux-tweak-tool/ai_gui.py:69
+#: usr/share/archlinux-tweak-tool/ai_gui.py:95
+#: usr/share/archlinux-tweak-tool/ai_gui.py:129
+#: usr/share/archlinux-tweak-tool/ai_gui.py:154
+#: usr/share/archlinux-tweak-tool/ai_gui.py:179
+#: usr/share/archlinux-tweak-tool/ai_gui.py:204
+#: usr/share/archlinux-tweak-tool/ai_gui.py:231
+#: usr/share/archlinux-tweak-tool/ai_gui.py:258
+#: usr/share/archlinux-tweak-tool/ai_gui.py:283
+#: usr/share/archlinux-tweak-tool/ai_gui.py:310
+#: usr/share/archlinux-tweak-tool/ai_gui.py:336
+#: usr/share/archlinux-tweak-tool/ai_gui.py:368
+#: usr/share/archlinux-tweak-tool/ai_gui.py:392
+#: usr/share/archlinux-tweak-tool/ai_gui.py:416
+#: usr/share/archlinux-tweak-tool/ai_gui.py:440
+#: usr/share/archlinux-tweak-tool/ai_gui.py:472
+#: usr/share/archlinux-tweak-tool/ai_gui.py:496
+#: usr/share/archlinux-tweak-tool/ai_gui.py:520
+#: usr/share/archlinux-tweak-tool/ai_gui.py:544
+msgid "<i>link</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:113
+msgid "<b>CLI Coding Assistants</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:354
+msgid "<b>Web Apps</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:364
+msgid "ChatGPT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:374
+#: usr/share/archlinux-tweak-tool/ai_gui.py:398
+#: usr/share/archlinux-tweak-tool/ai_gui.py:422
+#: usr/share/archlinux-tweak-tool/ai_gui.py:446
+#: usr/share/archlinux-tweak-tool/ai_gui.py:478
+#: usr/share/archlinux-tweak-tool/ai_gui.py:502
+#: usr/share/archlinux-tweak-tool/ai_gui.py:526
+#: usr/share/archlinux-tweak-tool/ai_gui.py:550
+#: usr/share/archlinux-tweak-tool/funding.py:68
+#: usr/share/archlinux-tweak-tool/logging_gui.py:37
+#: usr/share/archlinux-tweak-tool/logging_gui.py:50
+#: usr/share/archlinux-tweak-tool/logging_gui.py:63
+#: usr/share/archlinux-tweak-tool/logging_gui.py:76
+#: usr/share/archlinux-tweak-tool/logging_gui.py:97
+#: usr/share/archlinux-tweak-tool/logging_gui.py:110
+#: usr/share/archlinux-tweak-tool/logging_gui.py:123
+#: usr/share/archlinux-tweak-tool/logging_gui.py:136
+#: usr/share/archlinux-tweak-tool/logging_gui.py:157
+#: usr/share/archlinux-tweak-tool/logging_gui.py:170
+msgid "Open"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:388
+msgid "Claude.ai"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:412
+msgid "Google Gemini"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:436
+msgid "Perplexity"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:458
+msgid "<b>Image Generation</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:468
+msgid "DALL-E 3"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:492
+msgid "Midjourney"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:516
+msgid "Leonardo.ai"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/ai_gui.py:540
+msgid "Adobe Firefly"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+msgid "More Tweak Tools"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+msgid ""
+"ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
+"one application. You find them on these pages:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+msgid "choose from 300+ Alacritty themes or create new ones"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/dev_gui.py:776
+#: usr/share/archlinux-tweak-tool/gui.py:504
+#: usr/share/archlinux-tweak-tool/shell_gui.py:227
+msgid "Shells"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/dev_gui.py:784
+#: usr/share/archlinux-tweak-tool/gui.py:506
+msgid "Software"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/dev_gui.py:572
+#: usr/share/archlinux-tweak-tool/gui.py:466
+msgid "Fastfetch"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+msgid "configure what Fastfetch shows and how"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+msgid "configure the fish shell"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+msgid ""
+"<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
+"i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+msgid "Don't show this again"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/funding.py:75
+msgid "Close"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+msgid "Nano Editor Colors"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+msgid ""
+"ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
+"etc/nanorc is always created first."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+msgid "Keep default"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+msgid "Apply ATT colors"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/software.py:1212
+msgid "ATT nanorc applied to /etc/nanorc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/software.py:1217
+msgid "Failed to apply ATT nanorc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/desktopr.py:604
+msgid "Lock File Found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+msgid ""
+"The lock file has been found. This indicates there is already an instance of "
+"<b>ArchLinux Tweak Tool</b> running.\n"
+"Click yes to remove the lock file\n"
+"and try running ATT again"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+msgid "Kernel Not Supported"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+msgid ""
+"Your current kernel does not support basic os function calls. <b>ArchLinux "
+"Tweak Tool</b> requires these to work."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+msgid "You first need to close the existing application"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:102
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#: usr/share/archlinux-tweak-tool/privacy.py:382
+#: usr/share/archlinux-tweak-tool/privacy.py:384
+#, python-brace-format
+msgid "{name} disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:102
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#: usr/share/archlinux-tweak-tool/privacy.py:339
+#: usr/share/archlinux-tweak-tool/privacy.py:341
+#, python-brace-format
+msgid "{name} enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:117
+#: usr/share/archlinux-tweak-tool/wallpaper.py:306
+#, python-brace-format
+msgid "{name} removed from autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:202
+#: usr/share/archlinux-tweak-tool/wallpaper.py:288
+#, python-brace-format
+msgid "{name} added to autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:205
+msgid "Name and Command must be at least 2 characters"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:211
+msgid "Please choose a file"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:217
+#: usr/share/archlinux-tweak-tool/packages.py:635
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:338
+msgid "_Cancel"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:218
+#: usr/share/archlinux-tweak-tool/packages.py:636
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:339
+msgid "_Open"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:245
+#: usr/share/archlinux-tweak-tool/dev_gui.py:539
+#: usr/share/archlinux-tweak-tool/gui.py:449
+msgid "Autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:257
+msgid "This is the current content of ~/.config/autostart/"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:278
+msgid "<b>Add a manual autostart file</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:284
+msgid "Name"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:285
+msgid "Command"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:286
+msgid "Comment"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/autostart.py:298
+msgid "Add"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:55
@@ -584,6 +1291,226 @@ msgid ""
 "systemd-boot has no equivalent.</i>"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/celestial.py:20
+#: usr/share/archlinux-tweak-tool/themes.py:15
+msgid "Blues"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:42
+#: usr/share/archlinux-tweak-tool/themes.py:33
+msgid "Indigos"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:48
+#: usr/share/archlinux-tweak-tool/themes.py:39
+msgid "Purples"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:59
+#: usr/share/archlinux-tweak-tool/themes.py:50
+msgid "Greens"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:68
+#: usr/share/archlinux-tweak-tool/themes.py:57
+msgid "Reds"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:77
+#: usr/share/archlinux-tweak-tool/themes.py:64
+msgid "Oranges"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:87
+#: usr/share/archlinux-tweak-tool/themes.py:73
+msgid "Pinks"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:94
+#: usr/share/archlinux-tweak-tool/themes.py:80
+msgid "Greys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:127
+msgid "nemesis_repo is not enabled — enable it on the Pacman page"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:137
+#: usr/share/archlinux-tweak-tool/themes.py:104
+msgid "No themes selected for installation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:146
+#: usr/share/archlinux-tweak-tool/themes.py:112
+#, python-brace-format
+msgid "Installing {count} theme..."
+msgid_plural "Installing {count} themes..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:153
+msgid "Celestial themes installation complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:164
+#: usr/share/archlinux-tweak-tool/themes.py:125
+msgid "No themes selected for removal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:170
+#: usr/share/archlinux-tweak-tool/themes.py:133
+#, python-brace-format
+msgid "Removing {count} theme..."
+msgid_plural "Removing {count} themes..."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:176
+msgid "Celestial themes removal complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:271
+msgid "Opening the celestial-gtk-theme project page"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:283
+#, python-brace-format
+msgid "{name} <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:295
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:221
+msgid "Install the generator"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:295
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:294
+#, python-brace-format
+msgid "Launch {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:300
+msgid "Enable nemesis_repo on the Pacman page to install the generator"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:306
+msgid "The generator is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial.py:355
+#: usr/share/archlinux-tweak-tool/fastfetch.py:643
+#: usr/share/archlinux-tweak-tool/fastfetch.py:676
+#: usr/share/archlinux-tweak-tool/iso.py:53
+#: usr/share/archlinux-tweak-tool/privacy.py:218
+#: usr/share/archlinux-tweak-tool/privacy.py:264
+#: usr/share/archlinux-tweak-tool/privacy.py:356
+#: usr/share/archlinux-tweak-tool/wallpaper.py:189
+#: usr/share/archlinux-tweak-tool/wallpaper.py:220
+#: usr/share/archlinux-tweak-tool/wallpaper.py:234
+#, python-brace-format
+msgid "{name} is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:18
+msgid "Enable nemesis_repo on the Pacman page to install celestial themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:31
+#: usr/share/archlinux-tweak-tool/gui.py:457
+msgid "Celestial themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:45
+msgid ""
+"Select the packages you want to install or remove, then click the "
+"appropriate button.\n"
+"Every celestial theme ships a base, a <b>Dark</b> and a <b>Light</b> variant "
+"in three DPI tiers.\n"
+"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" "
+"tab for details."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:82
+#: usr/share/archlinux-tweak-tool/themes_gui.py:176
+msgid "Edit /etc/environment in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:112
+msgid "celestial-"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:124
+#: usr/share/archlinux-tweak-tool/themes_gui.py:227
+msgid "Choose what to select with a button"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:131
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:114
+#: usr/share/archlinux-tweak-tool/icons_gui.py:106
+#: usr/share/archlinux-tweak-tool/themes_gui.py:234
+msgid "All"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:133
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:120
+#: usr/share/archlinux-tweak-tool/icons_gui.py:108
+#: usr/share/archlinux-tweak-tool/themes_gui.py:238
+msgid "None"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:154
+#: usr/share/archlinux-tweak-tool/themes_gui.py:259
+msgid "Show the installed themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:159
+#: usr/share/archlinux-tweak-tool/themes_gui.py:255
+msgid "Install the selected themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:174
+msgid "<b>Theme generator — celestial-theme-forge</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:183
+msgid ""
+"This is <b>not a theme</b> — it is the tool that <b>builds</b> the themes "
+"above.\n"
+"It rebuilds the Celestial GTK theme in any accent colour you name, so you "
+"are not limited to the\n"
+"list on this page. You only need it if you want a colour that is not shipped "
+"yet.\n"
+"\n"
+"It installs two commands: <b>celestial-theme-forge</b> (the generator) and "
+"<b>theme-forge-picker</b>\n"
+"(a small GTK4 picker with a screen eyedropper — xcolor on X11, hyprpicker on "
+"Wayland). Your own\n"
+"colours are remembered in <b>custom-colors.def</b> and generated alongside "
+"the curated ones.\n"
+"\n"
+"It pulls in build tools (git, python, sassc, inkscape, imagemagick) and it "
+"needs a checkout of the\n"
+"celestial theme sources to build against. The result is a theme folder you "
+"install yourself —\n"
+"generating a colour here does not add it to the checkboxes above.\n"
+"\n"
+"Removing the forge uses a plain removal, so the build tools and any themes "
+"it already generated stay."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:206
+msgid "Celestial is made by zquestz — open the upstream project on GitHub"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:227
+msgid "Remove the generator"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/celestial_gui.py:236
+#: usr/share/archlinux-tweak-tool/themes_gui.py:257
+msgid "Uninstall the selected themes"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/desktopr.py:581
 #, python-brace-format
 msgid "{name} installed — one more step for correct theming"
@@ -598,10 +1525,6 @@ msgid ""
 "Edit /etc/environment, put a '#' in front of these lines, then log out and "
 "back in:\n"
 "{lines}"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/desktopr.py:604
-msgid "Lock File Found"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:606
@@ -750,6 +1673,7 @@ msgid "All desktops removed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:30
+#: usr/share/archlinux-tweak-tool/dev_gui.py:549
 #: usr/share/archlinux-tweak-tool/gui.py:463
 msgid "Desktop"
 msgstr ""
@@ -824,6 +1748,215 @@ msgid ""
 "system reinstall"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/dev_gui.py:321
+msgid "Dev Diagnostics"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:343
+msgid "What do these rows mean? — read the Dev Page Glossary"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:404
+msgid "<span foreground='green'>yes</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:407
+msgid "<span foreground='green'>active</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:410
+msgid "<span foreground='green'>enabled</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:451
+msgid "Session diagnostics"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:454
+msgid "Distro Detection"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:460
+msgid "<span foreground='green'>Arch-based (expected)</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:464
+msgid "<span foreground='orange'>&#9888; mismatch</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:470
+msgid "Environment"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:478
+msgid "Session"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:497
+#: usr/share/archlinux-tweak-tool/gui.py:512
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:505
+msgid "System"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:527
+msgid "Per-tab status"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:579
+msgid "Icons"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:592
+#: usr/share/archlinux-tweak-tool/gui.py:475
+msgid "Kernels"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:614
+#: usr/share/archlinux-tweak-tool/gui.py:477
+msgid "Locale"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:621
+#: usr/share/archlinux-tweak-tool/gui.py:481
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:52
+msgid "Maintenance"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:628
+#: usr/share/archlinux-tweak-tool/gui.py:483
+#: usr/share/archlinux-tweak-tool/network_gui.py:65
+#: usr/share/archlinux-tweak-tool/network_gui.py:445
+msgid "Network"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:642
+#: usr/share/archlinux-tweak-tool/gui.py:487
+#: usr/share/archlinux-tweak-tool/iso_gui.py:84
+#: usr/share/archlinux-tweak-tool/packages_gui.py:20
+msgid "Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:648
+#: usr/share/archlinux-tweak-tool/gui.py:489
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:508
+msgid "Pacman"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:655
+#: usr/share/archlinux-tweak-tool/gui.py:491
+msgid "Plymouth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:709
+#: usr/share/archlinux-tweak-tool/gui.py:493
+msgid "Privacy"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:716
+#: usr/share/archlinux-tweak-tool/gui.py:495
+#: usr/share/archlinux-tweak-tool/performance_gui.py:58
+msgid "Performance"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:740
+msgid "<span foreground='orange'>&#9888; mismatch with tuned</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:754
+msgid "SDDM"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:767
+#: usr/share/archlinux-tweak-tool/gui.py:502
+#: usr/share/archlinux-tweak-tool/services_gui.py:77
+msgid "Services"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:803
+#: usr/share/archlinux-tweak-tool/gui.py:514
+msgid "Themer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:810
+#: usr/share/archlinux-tweak-tool/shell_gui.py:796
+msgid "Themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:816
+#: usr/share/archlinux-tweak-tool/gui.py:516
+msgid "User"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:822
+#: usr/share/archlinux-tweak-tool/gui.py:518
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
+msgid "Wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:835
+msgid "Cross-cutting safeguards"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:836
+msgid "Safeguards"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:893
+msgid "System integrity (kiro-audit mirror)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:904
+msgid "Microcode"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:922
+msgid "Audio stack (PipeWire)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:930
+msgid "ZRAM"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:944
+msgid "Log rotation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:949
+msgid "Calamares cleanup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:962
+msgid "Package integrity (pacman -Qk)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:972
+msgid "Failed systemd units"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:985
+msgid "Userspace tuning"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:988
+msgid "OOM daemon (systemd-oomd)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:994
+msgid "Intel ME blacklist"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1001
+msgid "Bluetooth USB reset"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1006
+msgid "Kernel zswap"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1015
+msgid "NetworkManager loopback"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/fastfetch.py:218
 msgid "fastfetch settings saved successfully"
 msgstr ""
@@ -865,53 +1998,29 @@ msgstr ""
 msgid "No shell config found"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:541
-#: usr/share/archlinux-tweak-tool/fastfetch.py:581
-#: usr/share/archlinux-tweak-tool/privacy.py:382
-#: usr/share/archlinux-tweak-tool/privacy.py:384
-#, python-brace-format
-msgid "{name} disabled"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch.py:541
-#: usr/share/archlinux-tweak-tool/fastfetch.py:581
-#: usr/share/archlinux-tweak-tool/privacy.py:339
-#: usr/share/archlinux-tweak-tool/privacy.py:341
-#, python-brace-format
-msgid "{name} enabled"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/fastfetch.py:568
 msgid "lolcat installation failed or was cancelled"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:606
+#: usr/share/archlinux-tweak-tool/iso.py:16
+#: usr/share/archlinux-tweak-tool/iso.py:91
 #, python-brace-format
 msgid "{name} is <b>installed</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:608
+#: usr/share/archlinux-tweak-tool/iso.py:18
 #, python-brace-format
 msgid "{name} is <b>not installed</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:619
+#: usr/share/archlinux-tweak-tool/iso.py:29
 #: usr/share/archlinux-tweak-tool/privacy.py:195
 #: usr/share/archlinux-tweak-tool/privacy.py:241
 #, python-brace-format
 msgid "{name} is already installed"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch.py:643
-#: usr/share/archlinux-tweak-tool/fastfetch.py:676
-#: usr/share/archlinux-tweak-tool/privacy.py:218
-#: usr/share/archlinux-tweak-tool/privacy.py:264
-#: usr/share/archlinux-tweak-tool/privacy.py:356
-#: usr/share/archlinux-tweak-tool/wallpaper.py:189
-#: usr/share/archlinux-tweak-tool/wallpaper.py:220
-#: usr/share/archlinux-tweak-tool/wallpaper.py:234
-#, python-brace-format
-msgid "{name} is not installed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:41
@@ -1062,24 +2171,12 @@ msgstr ""
 msgid "Or choose what to select with a button"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:114
-#: usr/share/archlinux-tweak-tool/icons_gui.py:106
-#: usr/share/archlinux-tweak-tool/themes_gui.py:234
-msgid "All"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:116
 msgid "Normal"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:118
 msgid "Small"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:120
-#: usr/share/archlinux-tweak-tool/icons_gui.py:108
-#: usr/share/archlinux-tweak-tool/themes_gui.py:238
-msgid "None"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:218
@@ -1102,11 +2199,6 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:287
 #, python-brace-format
 msgid "<i>Enable the Nemesis repo (Pacman page) to install {name}</i>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:294
-#, python-brace-format
-msgid "Launch {name}"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:307
@@ -1232,8 +2324,25 @@ msgstr ""
 msgid "Install xclip to enable copy"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/functions.py:3178
+#, python-brace-format
+msgid "Open with {name}"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/functions.py:3183
 msgid "No browsers detected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:3190
+msgid "Copy URL"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions_backup.py:451
+msgid "Failed to restore nanorc backup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions_backup.py:454
+msgid "No nanorc backup found"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
@@ -1275,14 +2384,6 @@ msgid ""
 "support its development. Thank you."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/funding.py:68
-msgid "Open"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/funding.py:75
-msgid "Close"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:135
 #, python-brace-format
 msgid "on {distro}"
@@ -1298,29 +2399,14 @@ msgstr ""
 msgid "Dev"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/gui.py:445
-msgid "AI Tools"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:447
 #: usr/share/archlinux-tweak-tool/themes_gui.py:118
 msgid "Arc themes"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/gui.py:449
-msgid "Autostart"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:457
-msgid "Celestial themes"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:464
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:156
 msgid "Desktop - Wayland"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:466
-msgid "Fastfetch"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:468
@@ -1336,30 +2422,12 @@ msgid "Icons Surfn"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:473
+#: usr/share/archlinux-tweak-tool/iso_gui.py:31
 msgid "ISO"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:475
-msgid "Kernels"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:477
-msgid "Locale"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:479
 msgid "Logging"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:481
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:52
-msgid "Maintenance"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:483
-#: usr/share/archlinux-tweak-tool/network_gui.py:65
-#: usr/share/archlinux-tweak-tool/network_gui.py:445
-msgid "Network"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:485
@@ -1367,68 +2435,13 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/gui.py:487
-#: usr/share/archlinux-tweak-tool/packages_gui.py:20
-msgid "Packages"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:489
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:508
-msgid "Pacman"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:491
-msgid "Plymouth"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:493
-msgid "Privacy"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:495
-#: usr/share/archlinux-tweak-tool/performance_gui.py:58
-msgid "Performance"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:502
-#: usr/share/archlinux-tweak-tool/services_gui.py:77
-msgid "Services"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:504
-#: usr/share/archlinux-tweak-tool/shell_gui.py:227
-msgid "Shells"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:506
-msgid "Software"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
 msgid "Streamline"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:512
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:505
-msgid "System"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:514
-msgid "Themer"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:516
-msgid "User"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:518
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
-msgid "Wallpaper"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:541
@@ -1646,6 +2659,107 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:144
 msgid "Uninstall the selected icon themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso.py:33
+#, python-brace-format
+msgid "Opening terminal to install {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso.py:57
+#, python-brace-format
+msgid "Opening terminal to remove {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso.py:77
+#, python-brace-format
+msgid "{name} not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso.py:94
+#, python-brace-format
+msgid "{name} is <b>not installed</b> — it will be installed first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso.py:101
+msgid "Opening terminal to build the Arch ISO"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:51
+msgid ""
+"Build your own personalised Arch-based ISO with the Kiro ISO Builder — a "
+"GTK4 front-end with one-click host pre-flight fixes."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:62
+msgid "Install kiro-iso-builder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:64
+msgid "Remove kiro-iso-builder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:72
+msgid ""
+"<i>Enable the Nemesis repo (Pacman page) to install kiro-iso-builder</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:78
+msgid "Tab preview"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:81
+msgid "Pre-flight"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:82
+msgid "Desktops"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:83
+msgid "Kernel"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:85
+msgid "Add apps"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:86
+#: usr/share/archlinux-tweak-tool/performance_gui.py:644
+msgid "Build"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:87
+msgid "Done"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:109
+#, python-brace-format
+msgid "{label} — screenshot coming soon"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:114
+#: usr/share/archlinux-tweak-tool/software_gui.py:556
+msgid "Launch"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:118
+msgid "Launch Kiro ISO Builder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:124
+msgid "Build a vanilla Arch ISO"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:137
+msgid ""
+"Builds the official Arch Linux installer ISO with archiso's releng profile. "
+"archiso is installed first if missing — if it cannot be installed, the build "
+"does not run. The ISO lands in ~/ArchISO."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/iso_gui.py:149
+msgid "Build vanilla Arch ISO"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/kernel.py:17
@@ -2362,6 +3476,141 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/locale_settings.py:508
 #, python-brace-format
 msgid "Timezone set to {timezone}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:13
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:29
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:77
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:93
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:109
+#: usr/share/archlinux-tweak-tool/system.py:34
+#: usr/share/archlinux-tweak-tool/system.py:101
+#: usr/share/archlinux-tweak-tool/system.py:145
+#: usr/share/archlinux-tweak-tool/system.py:160
+#: usr/share/archlinux-tweak-tool/system.py:174
+#, python-brace-format
+msgid "{pkg} is required — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:17
+msgid "Opening current boot journal..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:33
+msgid "Opening previous boot journal..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:46
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:61
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:132
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:178
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:193
+#: usr/share/archlinux-tweak-tool/system.py:61
+#: usr/share/archlinux-tweak-tool/system.py:74
+#: usr/share/archlinux-tweak-tool/system.py:87
+#: usr/share/archlinux-tweak-tool/system.py:114
+#: usr/share/archlinux-tweak-tool/system.py:210
+#: usr/share/archlinux-tweak-tool/system.py:223
+#: usr/share/archlinux-tweak-tool/system.py:239
+#: usr/share/archlinux-tweak-tool/system.py:252
+#: usr/share/archlinux-tweak-tool/system.py:282
+msgid "fzf is required — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:50
+msgid "Opening journal errors viewer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:65
+msgid "Opening recent journal (last 20 min)..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:81
+msgid "Opening Xorg log..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:97
+msgid "Opening pacman log..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:113
+msgid "Opening X session errors log..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:136
+msgid "X11 session detected — showing X session log"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:139
+msgid "bat is required — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:159
+msgid "Opening Wayland compositor journal..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:182
+msgid "Opening boot performance analyzer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/log_callbacks.py:197
+msgid "Opening kernel ring buffer (dmesg)..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:14
+msgid "Investigate your logs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:28
+msgid "<b>Journal</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:36
+msgid "View current boot journal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:49
+msgid "View previous boot journal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:62
+msgid "View journal errors (current boot)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:75
+msgid "View recent journal (last 20 minutes)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:88
+msgid "<b>System Logs</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:96
+msgid "View Xorg log"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:109
+msgid "View Wayland compositor log"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:122
+msgid "View pacman log"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:135
+msgid "View X session errors (~/.xsession-errors or Xorg.0.log)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:148
+msgid "<b>Boot &amp; Kernel</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:156
+msgid "Analyze boot performance (systemd-analyze blame)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:169
+msgid "View kernel ring buffer (dmesg)"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:330
@@ -3247,16 +4496,6 @@ msgstr ""
 msgid "Select Packages File to Install"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:635
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:338
-msgid "_Cancel"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/packages.py:636
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:339
-msgid "_Open"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/packages.py:662
 #, python-brace-format
 msgid "Installing packages from {filename}..."
@@ -3398,6 +4637,41 @@ msgid ""
 "\n"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/pacman.py:35
+#: usr/share/archlinux-tweak-tool/pacman.py:47
+#: usr/share/archlinux-tweak-tool/pacman.py:137
+#: usr/share/archlinux-tweak-tool/pacman.py:152
+#: usr/share/archlinux-tweak-tool/pacman.py:167
+#: usr/share/archlinux-tweak-tool/pacman.py:182
+#: usr/share/archlinux-tweak-tool/pacman.py:197
+#: usr/share/archlinux-tweak-tool/pacman.py:212
+msgid "Repo has been added to /etc/pacman.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:73
+#: usr/share/archlinux-tweak-tool/pacman.py:85
+msgid "Chaotic-AUR repo has been added to /etc/pacman.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:111
+#: usr/share/archlinux-tweak-tool/pacman.py:121
+msgid "CachyOS repo has been added to /etc/pacman.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:229
+msgid "No custom repo defined"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:266
+#: usr/share/archlinux-tweak-tool/pacman.py:278
+msgid "Default Settings Applied - check in a terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:284
+msgid "Opening pacman.conf in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/pacman.py:350
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:24
 #: usr/share/archlinux-tweak-tool/zsh_theme.py:62
 msgid "Settings Saved Successfully"
@@ -4417,10 +5691,6 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/software_gui.py:531
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:116
 msgid "Restore backup"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/performance_gui.py:644
-msgid "Build"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:645
@@ -6425,10 +7695,6 @@ msgstr ""
 msgid "<b>Alacritty Tweak Tool - Tab preview</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/shell_gui.py:796
-msgid "Themes"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/shell_gui.py:797
 msgid "Appearance"
 msgstr ""
@@ -7051,17 +8317,9 @@ msgstr ""
 msgid "kiro-powermenu removal complete"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software.py:1212
-msgid "ATT nanorc applied to /etc/nanorc"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software.py:1213
 #: usr/share/archlinux-tweak-tool/software_gui.py:522
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software.py:1217
-msgid "Failed to apply ATT nanorc"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1224
@@ -7156,10 +8414,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:552
 msgid "Alacritty Tweak Tool — choose from 300+ themes or create new ones"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:556
-msgid "Launch"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline.py:43
@@ -7283,6 +8537,7 @@ msgid "Import cancelled"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:369
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:240
 msgid "Remove selected"
 msgstr ""
 
@@ -7300,27 +8555,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:377
 msgid "Import profile"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/system.py:34
-#: usr/share/archlinux-tweak-tool/system.py:101
-#: usr/share/archlinux-tweak-tool/system.py:145
-#: usr/share/archlinux-tweak-tool/system.py:160
-#: usr/share/archlinux-tweak-tool/system.py:174
-#, python-brace-format
-msgid "{pkg} is required — install it first"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/system.py:61
-#: usr/share/archlinux-tweak-tool/system.py:74
-#: usr/share/archlinux-tweak-tool/system.py:87
-#: usr/share/archlinux-tweak-tool/system.py:114
-#: usr/share/archlinux-tweak-tool/system.py:210
-#: usr/share/archlinux-tweak-tool/system.py:223
-#: usr/share/archlinux-tweak-tool/system.py:239
-#: usr/share/archlinux-tweak-tool/system.py:252
-#: usr/share/archlinux-tweak-tool/system.py:282
-msgid "fzf is required — install it first"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/system.py:121
@@ -7701,63 +8935,9 @@ msgstr ""
 msgid "Reset selected theme"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/themes.py:15
-msgid "Blues"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:33
-msgid "Indigos"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:39
-msgid "Purples"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:50
-msgid "Greens"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:57
-msgid "Reds"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:64
-msgid "Oranges"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:73
-msgid "Pinks"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:80
-msgid "Greys"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:104
-msgid "No themes selected for installation"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:112
-#, python-brace-format
-msgid "Installing {count} theme..."
-msgid_plural "Installing {count} themes..."
-msgstr[0] ""
-msgstr[1] ""
-
 #: usr/share/archlinux-tweak-tool/themes.py:116
 msgid "Arc themes installation complete"
 msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:125
-msgid "No themes selected for removal"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes.py:133
-#, python-brace-format
-msgid "Removing {count} theme..."
-msgid_plural "Removing {count} themes..."
-msgstr[0] ""
-msgstr[1] ""
 
 #: usr/share/archlinux-tweak-tool/themes.py:137
 msgid "Arc themes removal complete"
@@ -7867,32 +9047,12 @@ msgid ""
 "sometimes set there.</span>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/themes_gui.py:176
-msgid "Edit /etc/environment in terminal"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/themes_gui.py:189
 msgid "<b>⚠ On Plasma these themes will not work</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/themes_gui.py:227
-msgid "Choose what to select with a button"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/themes_gui.py:236
 msgid "Dark"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes_gui.py:255
-msgid "Install the selected themes"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes_gui.py:257
-msgid "Uninstall the selected themes"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themes_gui.py:259
-msgid "Show the installed themes"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/user.py:58
@@ -8024,11 +9184,6 @@ msgstr ""
 msgid "Could not create {name}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/wallpaper.py:288
-#, python-brace-format
-msgid "{name} added to autostart"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/wallpaper.py:293
 #: usr/share/archlinux-tweak-tool/wallpaper.py:311
 #: usr/share/archlinux-tweak-tool/wallpaper.py:378
@@ -8039,11 +9194,6 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/wallpaper.py:301
 #, python-brace-format
 msgid "{name} is not in autostart"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/wallpaper.py:306
-#, python-brace-format
-msgid "{name} removed from autostart"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
@@ -8159,6 +9309,106 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "<i>Tip: source {path} in your WM autostart to restore wallpaper on login</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland.py:152
+#, python-brace-format
+msgid "Opening terminal for: {names}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland.py:211
+#, python-brace-format
+msgid "Cannot remove {name} — log out of it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland.py:217
+#, python-brace-format
+msgid "Opening terminal to remove: {names}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:12
+msgid "<span foreground=\"#FFA500\"><b>Installed</b></span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:13
+msgid "<span foreground=\"#888888\">Not installed</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:35
+msgid ""
+"<span foreground=\"#FFA500\"><b>These picks can’t be installed together — "
+"choose one shell family:</b></span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:40
+msgid ""
+"<span foreground=\"#888888\">DankMaterialShell editions use Quickshell; "
+"Noctalia and Noctura use a conflicting Quickshell fork (noctalia-qs).</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:48
+msgid "Select at least one window manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:52
+msgid ""
+"Enable an extra repo (nemesis_repo, chaotic-aur or cachyos) in the Pacman "
+"tab to install these Kiro Wayland editions"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:56
+msgid ""
+"Selected editions conflict — they use incompatible Quickshell builds; "
+"deselect one family"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:63
+msgid "Select an installed window manager to remove"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:172
+msgid ""
+"<span size=\"x-large\" weight=\"bold\">Install them all — they live side by "
+"side</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:182
+msgid ""
+"Try a Wayland window manager alongside your current desktop — pick one at "
+"the login screen afterwards. Your current session stays the default. Every "
+"edition here ships a curated Kiro config. You can install as many as you "
+"like in one go: each coexists with the others and with your existing X11 "
+"desktop, so nothing you already run is replaced."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:191
+msgid "<b>Available Wayland window managers</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:197
+msgid "Select all"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:203
+msgid "Deselect all"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:220
+msgid ""
+"<span foreground=\"#FFA500\"><b>These Kiro Wayland editions need an extra "
+"repo (nemesis_repo, chaotic-aur or cachyos) — enable one in the Pacman tab "
+"first.</b></span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:236
+msgid "Install selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/wayland_gui.py:250
+msgid ""
+"Configs the install overwrites are backed up to ~/.config-att first.\n"
+"Uninstalling a WM later leaves its ~/.config subfolder intact — remove it "
+"yourself if no longer needed."
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/zsh_theme.py:66

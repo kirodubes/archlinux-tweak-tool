@@ -3175,7 +3175,7 @@ def _show_browser_popover(self, widget, url, x, y):
 
     if browsers:
         for name, binary in browsers:
-            browser_btn = Gtk.Button(label=f"Open with {name}")
+            browser_btn = Gtk.Button(label=_("Open with {name}").format(name=name))
             browser_btn.set_css_classes(["flat"])
             browser_btn.connect("clicked", lambda b, u=url, br=binary: _open_with_and_close(u, br, popover))
             vbox.append(browser_btn)
@@ -3187,7 +3187,7 @@ def _show_browser_popover(self, widget, url, x, y):
     sep2.set_margin_bottom(2)
     vbox.append(sep2)
 
-    btn_copy = Gtk.Button(label="Copy URL")
+    btn_copy = Gtk.Button(label=_("Copy URL"))
     btn_copy.set_css_classes(["flat"])
     btn_copy.connect("clicked", lambda b: _copy_url_to_clipboard(self, url, popover))
     vbox.append(btn_copy)

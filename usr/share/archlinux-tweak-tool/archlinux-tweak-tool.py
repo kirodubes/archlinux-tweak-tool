@@ -33,6 +33,7 @@ if "utf-8" not in _cur_locale.lower() and "utf8" not in _cur_locale.lower():
 import signal  # noqa: E402
 import time  # noqa: E402
 import functions as fn  # noqa: E402
+from att_i18n import _  # noqa: E402
 import gi  # noqa: E402
 
 # Heavy modules are imported lazily in `_finish_startup_init()` so the window can
@@ -481,7 +482,7 @@ class Main(Gtk.ApplicationWindow):
         fn.debug_print("")
         fn.log_info("To unlock all features, add Chaotic-AUR and Nemesis repo to your pacman.conf.")
         fn.log_info("For terminal operations and full transparency, alacritty must be installed.")
-        msg = "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
+        msg = _("Config backups complete - Welcome to the ArchLinux Tweak Tool!")
         GLib.idle_add(fn.show_in_app_notification, self, msg)
         GLib.idle_add(lambda: setattr(self, "initializing", False) or False)
         GLib.idle_add(self._check_nanorc_prompt)
@@ -513,7 +514,7 @@ class Main(Gtk.ApplicationWindow):
 
     def _show_tweak_tools_dialog(self):
         fn.log_info("Showing tweak tools overview at startup")
-        dialog = Gtk.Window(title="More Tweak Tools", transient_for=self, modal=True)
+        dialog = Gtk.Window(title=_("More Tweak Tools"), transient_for=self, modal=True)
         dialog.set_default_size(620, -1)
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
@@ -525,15 +526,21 @@ class Main(Gtk.ApplicationWindow):
         lbl_intro = Gtk.Label(xalign=0)
         lbl_intro.set_wrap(True)
         lbl_intro.set_markup(
-            "ATT can also <b>install and launch other tweak tools</b>, each dedicated to one application."
-            " You find them on these pages:"
+            _(
+                "ATT can also <b>install and launch other tweak tools</b>, each dedicated to one application."
+                " You find them on these pages:"
+            )
         )
         box.append(lbl_intro)
 
         tools = [
-            ("Alacritty Tweak Tool", "choose from 300+ Alacritty themes or create new ones", "Shells, Software"),
-            ("Fastfetch Tweak Tool", "configure what Fastfetch shows and how", "Fastfetch"),
-            ("Fish Tweak Tool", "configure the fish shell", "Shells"),
+            (
+                "Alacritty Tweak Tool",
+                _("choose from 300+ Alacritty themes or create new ones"),
+                ", ".join([_("Shells"), _("Software")]),
+            ),
+            ("Fastfetch Tweak Tool", _("configure what Fastfetch shows and how"), _("Fastfetch")),
+            ("Fish Tweak Tool", _("configure the fish shell"), _("Shells")),
         ]
         grid = Gtk.Grid(column_spacing=16, row_spacing=8)
         grid.set_margin_start(10)
@@ -552,13 +559,13 @@ class Main(Gtk.ApplicationWindow):
 
         lbl_repo = Gtk.Label(xalign=0)
         lbl_repo.set_wrap(True)
-        lbl_repo.set_markup("<i>They install from the Nemesis repo — enable it on the Pacman page first.</i>")
+        lbl_repo.set_markup(_("<i>They install from the Nemesis repo — enable it on the Pacman page first.</i>"))
         box.append(lbl_repo)
 
         hbox_bottom = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        chk_hide = Gtk.CheckButton(label="Don't show this again")
+        chk_hide = Gtk.CheckButton(label=_("Don't show this again"))
         chk_hide.set_hexpand(True)
-        btn_close = Gtk.Button(label="Close")
+        btn_close = Gtk.Button(label=_("Close"))
         hbox_bottom.append(chk_hide)
         hbox_bottom.append(btn_close)
         box.append(hbox_bottom)
@@ -580,7 +587,7 @@ class Main(Gtk.ApplicationWindow):
 
     def _show_nanorc_dialog(self):
         fn.log_info("Offering ATT nanorc at startup")
-        dialog = Gtk.Dialog(title="Nano Editor Colors", transient_for=self, modal=True)
+        dialog = Gtk.Dialog(title=_("Nano Editor Colors"), transient_for=self, modal=True)
         dialog.set_default_size(700, 400)
 
         content = dialog.get_content_area()
@@ -592,8 +599,10 @@ class Main(Gtk.ApplicationWindow):
 
         lbl = Gtk.Label()
         lbl.set_markup(
-            "ATT includes a <b>colorful nanorc</b>. Click one to choose"
-            " — a backup of /etc/nanorc is always created first."
+            _(
+                "ATT includes a <b>colorful nanorc</b>. Click one to choose"
+                " — a backup of /etc/nanorc is always created first."
+            )
         )
         lbl.set_wrap(True)
         lbl.set_xalign(0)
@@ -616,8 +625,8 @@ class Main(Gtk.ApplicationWindow):
             vbox.append(caption)
             return vbox, btn
 
-        vbox_default, btn_default = make_image_button(fn.nanorc_img_default, "Keep default")
-        vbox_att, btn_att = make_image_button(fn.nanorc_img_att, "Apply ATT colors")
+        vbox_default, btn_default = make_image_button(fn.nanorc_img_default, _("Keep default"))
+        vbox_att, btn_att = make_image_button(fn.nanorc_img_att, _("Apply ATT colors"))
 
         hbox_images.append(vbox_default)
         hbox_images.append(vbox_att)
@@ -631,10 +640,10 @@ class Main(Gtk.ApplicationWindow):
             try:
                 fn.shutil.copy(fn.nanorc_att, fn.nanorc)
                 fn.log_success("ATT nanorc applied to /etc/nanorc")
-                fn.show_in_app_notification(self, "ATT nanorc applied to /etc/nanorc")
+                fn.show_in_app_notification(self, _("ATT nanorc applied to /etc/nanorc"))
             except OSError as e:
                 fn.log_error(f"Failed to apply ATT nanorc: {e}")
-                fn.show_in_app_notification(self, "Failed to apply ATT nanorc")
+                fn.show_in_app_notification(self, _("Failed to apply ATT nanorc"))
             dialog.destroy()
 
         def on_decline(_widget):
@@ -725,9 +734,9 @@ class ATTApplication(Gtk.Application):
                 transient_for=None,
                 message_type=Gtk.MessageType.INFO,
                 buttons=Gtk.ButtonsType.YES_NO,
-                text="Lock File Found",
+                text=_("Lock File Found"),
             )
-            md.props.secondary_text = (
+            md.props.secondary_text = _(
                 "The lock file has been found. This indicates there is already an instance of"
                 " <b>ArchLinux Tweak Tool</b> running.\n"
                 "Click yes to remove the lock file\n"
@@ -739,9 +748,9 @@ class ATTApplication(Gtk.Application):
                 transient_for=None,
                 message_type=Gtk.MessageType.INFO,
                 buttons=Gtk.ButtonsType.CLOSE,
-                text="Kernel Not Supported",
+                text=_("Kernel Not Supported"),
             )
-            md.props.secondary_text = (
+            md.props.secondary_text = _(
                 "Your current kernel does not support basic os function calls. <b>ArchLinux Tweak Tool</b> "
                 "requires these to work."
             )
@@ -771,9 +780,9 @@ class ATTApplication(Gtk.Application):
                         transient_for=None,
                         message_type=Gtk.MessageType.INFO,
                         buttons=Gtk.ButtonsType.CLOSE,
-                        text="You first need to close the existing application",
+                        text=_("You first need to close the existing application"),
                     )
-                    md2.props.secondary_text = "You first need to close the existing application"
+                    md2.props.secondary_text = _("You first need to close the existing application")
 
                     md2.props.secondary_use_markup = True
                     loop2 = GLib.MainLoop()

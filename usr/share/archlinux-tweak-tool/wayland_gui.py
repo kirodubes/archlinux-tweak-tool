@@ -3,13 +3,14 @@
 # ============================================================
 
 import functools
+from att_i18n import _
 import functions as fn
 
 
 def _status_markup(wm, wayland):
     if wayland.is_installed(wm):
-        return '<span foreground="#FFA500"><b>Installed</b></span>'
-    return '<span foreground="#888888">Not installed</span>'
+        return _('<span foreground="#FFA500"><b>Installed</b></span>')
+    return _('<span foreground="#888888">Not installed</span>')
 
 
 def _selected_keys(self):
@@ -30,30 +31,36 @@ def _update_button(self, wayland, desktopr, fn):
     if conflicts:
         pairs = "\n".join(f"  • {a}  ✕  {b}" for a, b in conflicts)
         self.wayland_conflict_warning.set_markup(
-            '<span foreground="#FFA500"><b>These picks can’t be installed together — choose one shell family:</b></span>\n'
-            f'<span foreground="#FFA500">{pairs}</span>\n'
-            '<span foreground="#888888">DankMaterialShell editions use Quickshell; Noctalia and Noctura use a conflicting Quickshell fork (noctalia-qs).</span>'
+            _(
+                '<span foreground="#FFA500"><b>These picks can’t be installed together — choose one shell family:</b></span>'
+            )
+            + "\n"
+            + f'<span foreground="#FFA500">{pairs}</span>\n'
+            + _(
+                '<span foreground="#888888">DankMaterialShell editions use Quickshell; Noctalia and Noctura use a '
+                "conflicting Quickshell fork (noctalia-qs).</span>"
+            )
         )
     self.wayland_conflict_warning.set_visible(bool(conflicts))
 
     if not selected:
         self.wayland_install_btn.set_sensitive(False)
-        self.wayland_install_btn.set_tooltip_text("Select at least one window manager")
+        self.wayland_install_btn.set_tooltip_text(_("Select at least one window manager"))
     elif needs_repo:
         self.wayland_install_btn.set_sensitive(False)
         self.wayland_install_btn.set_tooltip_text(
-            "Enable an extra repo (nemesis_repo, chaotic-aur or cachyos) in the Pacman tab to install these Kiro Wayland editions"
+            _("Enable an extra repo (nemesis_repo, chaotic-aur or cachyos) in the Pacman tab to install these Kiro Wayland editions")
         )
     elif conflicts:
         self.wayland_install_btn.set_sensitive(False)
-        self.wayland_install_btn.set_tooltip_text("Selected editions conflict — they use incompatible Quickshell builds; deselect one family")
+        self.wayland_install_btn.set_tooltip_text(_("Selected editions conflict — they use incompatible Quickshell builds; deselect one family"))
     else:
         self.wayland_install_btn.set_sensitive(True)
         self.wayland_install_btn.set_tooltip_text("")
 
     removable = [k for k in selected if wayland.get_wm(k).get("remove") and wayland.is_installed(wayland.get_wm(k))]
     self.wayland_remove_btn.set_sensitive(bool(removable))
-    self.wayland_remove_btn.set_tooltip_text("" if removable else "Select an installed window manager to remove")
+    self.wayland_remove_btn.set_tooltip_text("" if removable else _("Select an installed window manager to remove"))
 
 
 def _refresh(self, wayland, desktopr, fn):
@@ -146,7 +153,7 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Desktop - Wayland")
+    lbl_title.set_text(_("Desktop - Wayland"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     hbox_title.append(lbl_title)
@@ -162,7 +169,7 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     headline.set_margin_top(10)
     headline.set_wrap(True)
     headline.set_markup(
-        '<span size="x-large" weight="bold">Install them all — they live side by side</span>'
+        _('<span size="x-large" weight="bold">Install them all — they live side by side</span>')
     )
 
     intro = Gtk.Label(xalign=0)
@@ -171,27 +178,29 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     intro.set_margin_top(8)
     intro.set_wrap(True)
     intro.set_markup(
-        "Try a Wayland window manager alongside your current desktop — pick one at the login screen afterwards. "
-        "Your current session stays the default. Every edition here ships a curated Kiro config. "
-        "You can install as many as you like in one go: each coexists with the others and with your "
-        "existing X11 desktop, so nothing you already run is replaced."
+        _(
+            "Try a Wayland window manager alongside your current desktop — pick one at the login screen afterwards. "
+            "Your current session stays the default. Every edition here ships a curated Kiro config. "
+            "You can install as many as you like in one go: each coexists with the others and with your "
+            "existing X11 desktop, so nothing you already run is replaced."
+        )
     )
 
     hbox_section = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section = Gtk.Label(xalign=0)
-    lbl_section.set_markup("<b>Available Wayland window managers</b>")
+    lbl_section.set_markup(_("<b>Available Wayland window managers</b>"))
     lbl_section.set_margin_start(20)
     lbl_section.set_margin_top(12)
     lbl_section.set_hexpand(True)
     hbox_section.append(lbl_section)
 
-    btn_select_all = Gtk.Button(label="Select all")
+    btn_select_all = Gtk.Button(label=_("Select all"))
     btn_select_all.set_css_classes(["flat"])
     btn_select_all.set_valign(Gtk.Align.CENTER)
     btn_select_all.connect("clicked", functools.partial(_on_select_all, self, active=True, wayland=wayland, desktopr=desktopr, fn=fn))
     hbox_section.append(btn_select_all)
 
-    btn_deselect_all = Gtk.Button(label="Deselect all")
+    btn_deselect_all = Gtk.Button(label=_("Deselect all"))
     btn_deselect_all.set_css_classes(["flat"])
     btn_deselect_all.set_valign(Gtk.Align.CENTER)
     btn_deselect_all.set_margin_end(20)
@@ -207,7 +216,10 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     self.wayland_repo_warning.set_margin_top(10)
     self.wayland_repo_warning.set_wrap(True)
     self.wayland_repo_warning.set_markup(
-        '<span foreground="#FFA500"><b>These Kiro Wayland editions need an extra repo (nemesis_repo, chaotic-aur or cachyos) — enable one in the Pacman tab first.</b></span>'
+        _(
+            '<span foreground="#FFA500"><b>These Kiro Wayland editions need an extra repo (nemesis_repo, chaotic-aur '
+            "or cachyos) — enable one in the Pacman tab first.</b></span>"
+        )
     )
     self.wayland_repo_warning.set_visible(False)
 
@@ -221,11 +233,11 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     buttonbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     buttonbox.set_halign(Gtk.Align.CENTER)
     buttonbox.set_margin_top(14)
-    self.wayland_install_btn = Gtk.Button(label="Install selected")
+    self.wayland_install_btn = Gtk.Button(label=_("Install selected"))
     self.wayland_install_btn.connect("clicked", functools.partial(_on_install, self, wayland=wayland, desktopr=desktopr, fn=fn))
     buttonbox.append(self.wayland_install_btn)
 
-    self.wayland_remove_btn = Gtk.Button(label="Remove selected")
+    self.wayland_remove_btn = Gtk.Button(label=_("Remove selected"))
     self.wayland_remove_btn.connect("clicked", functools.partial(_on_remove, self, wayland=wayland, desktopr=desktopr, fn=fn))
     buttonbox.append(self.wayland_remove_btn)
 
@@ -234,8 +246,10 @@ def gui(self, Gtk, vboxstack_wayland, wayland, desktopr, fn, base_dir):
     lbl_backup_note.set_margin_top(14)
     lbl_backup_note.set_wrap(True)
     lbl_backup_note.set_markup(
-        "Configs the install overwrites are backed up to ~/.config-att first.\n"
-        "Uninstalling a WM later leaves its ~/.config subfolder intact — remove it yourself if no longer needed."
+        _(
+            "Configs the install overwrites are backed up to ~/.config-att first.\n"
+            "Uninstalling a WM later leaves its ~/.config subfolder intact — remove it yourself if no longer needed."
+        )
     )
 
     vboxstack_wayland.append(hbox_title)

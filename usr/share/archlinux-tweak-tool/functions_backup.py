@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 import os
 
 
@@ -447,7 +448,7 @@ def restore_nanorc(self):
             fn.show_in_app_notification(self, "nanorc restored from backup")
         except Exception as error:
             fn.log_error(f"Failed to restore nanorc: {error}")
-            fn.show_in_app_notification(self, "Failed to restore nanorc backup")
+            fn.show_in_app_notification(self, _("Failed to restore nanorc backup"))
     else:
         fn.log_warn("No nanorc backup found")
-        fn.show_in_app_notification(self, "No nanorc backup found")
+        fn.show_in_app_notification(self, _("No nanorc backup found"))
