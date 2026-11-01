@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 07:43+0100\n"
+"POT-Creation-Date: 2026-11-01 07:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,18 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/functions.py:646
 #: usr/share/archlinux-tweak-tool/performance.py:34
 #: usr/share/archlinux-tweak-tool/performance.py:46
+#: usr/share/archlinux-tweak-tool/performance.py:727
+#: usr/share/archlinux-tweak-tool/performance.py:766
+#: usr/share/archlinux-tweak-tool/performance.py:1655
 msgid "<b>enabled</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/functions.py:646
 #: usr/share/archlinux-tweak-tool/performance.py:52
-#: usr/share/archlinux-tweak-tool/performance.py:1632
-#: usr/share/archlinux-tweak-tool/performance.py:1646
+#: usr/share/archlinux-tweak-tool/performance.py:727
+#: usr/share/archlinux-tweak-tool/performance.py:768
+#: usr/share/archlinux-tweak-tool/performance.py:1644
+#: usr/share/archlinux-tweak-tool/performance.py:1658
 msgid "disabled"
 msgstr ""
 
@@ -45,6 +50,92 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "Firewall: {fw}    Network discovery: {mdns}    Samba file sharing: {samba}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1179
+#, python-brace-format
+msgid "Package not found. Please enable {repo} in pacman.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1181
+msgid ""
+"Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1209
+#, python-brace-format
+msgid "{package} installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1213
+#, python-brace-format
+msgid "Error installing {package}: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1445
+#, python-brace-format
+msgid "File not found: {package}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1460
+#: usr/share/archlinux-tweak-tool/maintenance.py:604
+msgid "Installation started..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:1508
+#, python-brace-format
+msgid "Error removing {package}: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2265
+msgid "Installing network discovery..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2299
+msgid "Disabling network discovery..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2330
+msgid "Installing samba..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2365
+msgid "Uninstalling samba..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2408
+#, python-brace-format
+msgid "Allowing {label}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2410
+#, python-brace-format
+msgid "Blocking {label}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2554
+msgid "Smb.conf has been saved"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2559
+msgid "Choose or create your own smb.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:2629
+#, python-brace-format
+msgid "Shell changed to {shell} for user - logout"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:3144
+msgid "URL copied to clipboard"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:3147
+msgid "Install xclip to enable copy"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:3183
+msgid "No browsers detected"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
@@ -895,8 +986,13 @@ msgstr ""
 msgid "Download completed, installing package..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/maintenance.py:604
-msgid "Installation started..."
+#: usr/share/archlinux-tweak-tool/maintenance.py:594
+msgid "No files found after download"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/maintenance.py:598
+#, python-brace-format
+msgid "Package file not found: {file}"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:611
@@ -1101,6 +1197,7 @@ msgid "HOOKS line not found in /etc/mkinitcpio.conf"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:28
+#: usr/share/archlinux-tweak-tool/performance.py:770
 msgid "unknown"
 msgstr ""
 
@@ -1339,40 +1436,101 @@ msgstr ""
 msgid "Boot / Initramfs"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:630
+#: usr/share/archlinux-tweak-tool/packages.py:316
+msgid "Status: <b>Cleaning pacman cache</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:346
+msgid ""
+"Status: <b>Performing full system upgrade - do not power off your system</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:378
+msgid "Status: <b>Full system upgrade - completed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:387
+msgid "Status: <b>Full system upgrade - failed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:451
+#, python-brace-format
+msgid "Status: <b>{package}</b> -> <b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:457
+#: usr/share/archlinux-tweak-tool/packages.py:473
+#, python-brace-format
+msgid "Progress: <b>{count}/{total}</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:467
+#, python-brace-format
+msgid "Status: <b>{package}</b> -> <b>Install failed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:558
+msgid "Export of packages failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:559
+#, python-brace-format
+msgid ""
+"Failed to lock database, pacman lockfile exists at {path}\n"
+"Is another pacman process running ?"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:594
+msgid "Export failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:595
+msgid "Failed to export list of packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:601
+msgid "Export completed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:602
+#, python-brace-format
+msgid "Exported to file {path}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:631
 msgid "Select Packages File to Install"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:634
+#: usr/share/archlinux-tweak-tool/packages.py:635
 msgid "_Cancel"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:635
+#: usr/share/archlinux-tweak-tool/packages.py:636
 msgid "_Open"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:661
+#: usr/share/archlinux-tweak-tool/packages.py:662
 #, python-brace-format
 msgid "Installing packages from {filename}..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:673
+#: usr/share/archlinux-tweak-tool/packages.py:674
 msgid "Package selection cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:686
+#: usr/share/archlinux-tweak-tool/packages.py:687
 msgid "Debug successfully removed from /etc/makepkg.conf"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:689
+#: usr/share/archlinux-tweak-tool/packages.py:690
 msgid "Debug is already disabled (!debug)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:692
+#: usr/share/archlinux-tweak-tool/packages.py:693
 msgid "Failed to remove debug from /etc/makepkg.conf"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/packages.py:695
+#: usr/share/archlinux-tweak-tool/packages.py:696
 msgid "Error removing debug from makepkg.conf"
 msgstr ""
 
@@ -1668,6 +1826,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:386
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:395
+#: usr/share/archlinux-tweak-tool/software.py:441
 msgid "yay-git installed"
 msgstr ""
 
@@ -1685,6 +1844,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:417
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:426
+#: usr/share/archlinux-tweak-tool/software.py:476
 msgid "paru-git installed"
 msgstr ""
 
@@ -1857,308 +2017,357 @@ msgstr ""
 msgid "Could not set tuned profile"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:798
+#: usr/share/archlinux-tweak-tool/performance.py:731
+#, python-brace-format
+msgid ""
+"Enable zram compressed RAM swap - installs zram-generator\n"
+"ZRAM service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:772
+#, python-brace-format
+msgid ""
+"Enable weekly TRIM for SSD/NVMe drives with fstrim.timer\n"
+"fstrim.timer : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:786
+#, python-brace-format
+msgid ""
+"Balance hardware interrupts across CPUs\n"
+"irqbalance service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:808
 #: usr/share/archlinux-tweak-tool/performance_gui.py:20
 msgid "irqbalance package is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:801
+#: usr/share/archlinux-tweak-tool/performance.py:811
 #: usr/share/archlinux-tweak-tool/performance_gui.py:22
 #: usr/share/archlinux-tweak-tool/performance_gui.py:340
 #: usr/share/archlinux-tweak-tool/performance_gui.py:341
 msgid "Install irqbalance"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:862
+#: usr/share/archlinux-tweak-tool/performance.py:872
 msgid "Enabling zram..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:868
+#: usr/share/archlinux-tweak-tool/performance.py:878
 #, python-brace-format
 msgid "zram enabled ({size})"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:919
+#: usr/share/archlinux-tweak-tool/performance.py:929
 msgid "Disabling zram..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:925
+#: usr/share/archlinux-tweak-tool/performance.py:935
 msgid "zram disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:965
+#: usr/share/archlinux-tweak-tool/performance.py:975
 #: usr/share/archlinux-tweak-tool/performance_gui.py:711
 #, python-brace-format
 msgid "Create or manage a swapfile at /swapfile - {size} <b>present</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:970
+#: usr/share/archlinux-tweak-tool/performance.py:980
 #: usr/share/archlinux-tweak-tool/performance_gui.py:248
 #: usr/share/archlinux-tweak-tool/performance_gui.py:714
 msgid "Create or manage a swapfile at /swapfile"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1056
+#: usr/share/archlinux-tweak-tool/performance.py:1066
 msgid "Creating swapfile..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1062
+#: usr/share/archlinux-tweak-tool/performance.py:1072
 #, python-brace-format
 msgid "Swapfile ({size}) created at /swapfile"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1110
+#: usr/share/archlinux-tweak-tool/performance.py:1120
 msgid "Removing swapfile..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1116
+#: usr/share/archlinux-tweak-tool/performance.py:1126
 msgid "Swapfile removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1140
+#: usr/share/archlinux-tweak-tool/performance.py:1150
 msgid "Enabling fstrim.timer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1146
+#: usr/share/archlinux-tweak-tool/performance.py:1156
 msgid "fstrim.timer enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1170
+#: usr/share/archlinux-tweak-tool/performance.py:1180
 msgid "Disabling fstrim.timer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1176
+#: usr/share/archlinux-tweak-tool/performance.py:1186
 msgid "fstrim.timer disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1188
+#: usr/share/archlinux-tweak-tool/performance.py:1198
 msgid "irqbalance is already installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1228
+#: usr/share/archlinux-tweak-tool/performance.py:1238
 msgid "irqbalance has been installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1231
+#: usr/share/archlinux-tweak-tool/performance.py:1241
 msgid "irqbalance installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1245
+#: usr/share/archlinux-tweak-tool/performance.py:1255
 msgid "irqbalance is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1281
+#: usr/share/archlinux-tweak-tool/performance.py:1291
 msgid "irqbalance has been removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1284
+#: usr/share/archlinux-tweak-tool/performance.py:1294
 msgid "irqbalance removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1310
+#: usr/share/archlinux-tweak-tool/performance.py:1320
 msgid "Enabling irqbalance..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1318
+#: usr/share/archlinux-tweak-tool/performance.py:1328
 msgid "irqbalance has been enabled and started"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1342
+#: usr/share/archlinux-tweak-tool/performance.py:1352
 msgid "Disabling irqbalance..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1350
+#: usr/share/archlinux-tweak-tool/performance.py:1360
 msgid "irqbalance has been disabled and stopped"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1390
+#: usr/share/archlinux-tweak-tool/performance.py:1377
+#, python-brace-format
+msgid ""
+"Auto nice daemon for CPU and I/O scheduling\n"
+"ananicy-cpp service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:1402
 #: usr/share/archlinux-tweak-tool/performance_gui.py:27
 msgid "ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1395
+#: usr/share/archlinux-tweak-tool/performance.py:1407
 #: usr/share/archlinux-tweak-tool/performance_gui.py:30
 msgid ""
 "ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1400
+#: usr/share/archlinux-tweak-tool/performance.py:1412
 #: usr/share/archlinux-tweak-tool/performance_gui.py:33
 #: usr/share/archlinux-tweak-tool/performance_gui.py:393
 msgid "Install ananicy-cpp and cachyos-ananicy-rules-git"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1416
+#: usr/share/archlinux-tweak-tool/performance.py:1428
 msgid "ananicy-cpp is already installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1423
+#: usr/share/archlinux-tweak-tool/performance.py:1435
 msgid ""
 "Enable Chaotic AUR or Nemesis repo first — cachyos-ananicy-rules-git is not "
 "in standard repos"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1464
+#: usr/share/archlinux-tweak-tool/performance.py:1476
 msgid "ananicy-cpp has been installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1470
+#: usr/share/archlinux-tweak-tool/performance.py:1482
 msgid "ananicy-cpp installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1482
+#: usr/share/archlinux-tweak-tool/performance.py:1494
 msgid "ananicy-cpp is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1518
+#: usr/share/archlinux-tweak-tool/performance.py:1530
 msgid "ananicy-cpp has been removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1521
+#: usr/share/archlinux-tweak-tool/performance.py:1533
 msgid "ananicy-cpp removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1547
+#: usr/share/archlinux-tweak-tool/performance.py:1559
 msgid "Enabling ananicy-cpp..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1555
+#: usr/share/archlinux-tweak-tool/performance.py:1567
 msgid "ananicy-cpp has been enabled and started"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1579
+#: usr/share/archlinux-tweak-tool/performance.py:1591
 msgid "Disabling ananicy-cpp..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1587
+#: usr/share/archlinux-tweak-tool/performance.py:1599
 msgid "ananicy-cpp has been disabled and stopped"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1672
+#: usr/share/archlinux-tweak-tool/performance.py:1664
+#, python-brace-format
+msgid ""
+"Optimize system performance for gaming\n"
+"gamemoded service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:1686
 #: usr/share/archlinux-tweak-tool/performance_gui.py:38
 msgid "gamemode package is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1677
+#: usr/share/archlinux-tweak-tool/performance.py:1691
 #: usr/share/archlinux-tweak-tool/performance_gui.py:40
 #: usr/share/archlinux-tweak-tool/performance_gui.py:446
 msgid "Install gamemode"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1693
+#: usr/share/archlinux-tweak-tool/performance.py:1707
 msgid "gamemode is already installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1742
+#: usr/share/archlinux-tweak-tool/performance.py:1756
 msgid "gamemode has been installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1745
+#: usr/share/archlinux-tweak-tool/performance.py:1759
 msgid "gamemode installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1759
+#: usr/share/archlinux-tweak-tool/performance.py:1773
 msgid "gamemode is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1804
+#: usr/share/archlinux-tweak-tool/performance.py:1818
 msgid "gamemode has been removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1807
+#: usr/share/archlinux-tweak-tool/performance.py:1821
 msgid "gamemode removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1840
+#: usr/share/archlinux-tweak-tool/performance.py:1854
 msgid "Enabling gamemoded..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1848
+#: usr/share/archlinux-tweak-tool/performance.py:1862
 msgid "gamemode has been enabled and started"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1883
+#: usr/share/archlinux-tweak-tool/performance.py:1879
+#, python-brace-format
+msgid ""
+"Adaptive readahead daemon — preloads frequently used binaries into RAM\n"
+"preload service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:1899
 #: usr/share/archlinux-tweak-tool/performance_gui.py:45
 msgid "preload package is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1886
+#: usr/share/archlinux-tweak-tool/performance.py:1902
 #: usr/share/archlinux-tweak-tool/performance_gui.py:47
 #: usr/share/archlinux-tweak-tool/performance_gui.py:499
 msgid "Install preload"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1901
+#: usr/share/archlinux-tweak-tool/performance.py:1917
 msgid "preload is already installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1908
+#: usr/share/archlinux-tweak-tool/performance.py:1924
 msgid ""
 "Enable Chaotic AUR or Nemesis repo first — preload is not in standard repos"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1947
+#: usr/share/archlinux-tweak-tool/performance.py:1963
 msgid "preload has been installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1950
+#: usr/share/archlinux-tweak-tool/performance.py:1966
 msgid "preload installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1964
+#: usr/share/archlinux-tweak-tool/performance.py:1980
 msgid "preload is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:1998
+#: usr/share/archlinux-tweak-tool/performance.py:2014
 msgid "preload has been removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2001
+#: usr/share/archlinux-tweak-tool/performance.py:2017
 msgid "preload removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2026
+#: usr/share/archlinux-tweak-tool/performance.py:2042
 msgid "Enabling preload..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2033
+#: usr/share/archlinux-tweak-tool/performance.py:2049
 msgid "preload has been enabled and started"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2056
+#: usr/share/archlinux-tweak-tool/performance.py:2072
 msgid "Disabling preload..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2063
+#: usr/share/archlinux-tweak-tool/performance.py:2079
 msgid "preload has been disabled and stopped"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2094
+#: usr/share/archlinux-tweak-tool/performance.py:2110
 msgid "Disabling gamemoded..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2102
+#: usr/share/archlinux-tweak-tool/performance.py:2118
 msgid "gamemode has been disabled and stopped"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/performance.py:2156
+#, python-brace-format
+msgid ""
+"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Detected CPU cores: "
+"<b>{cores}</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/performance.py:2168
 msgid "Restore /etc/makepkg.conf from /etc/makepkg.conf-bak"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2158
+#: usr/share/archlinux-tweak-tool/performance.py:2170
 msgid "No backup file found at /etc/makepkg.conf-bak"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2176
+#: usr/share/archlinux-tweak-tool/performance.py:2188
 msgid "Single core detected — parallel builds need ≥2 cores; no change made."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2218
+#: usr/share/archlinux-tweak-tool/performance.py:2230
 #, python-brace-format
 msgid "MAKEFLAGS=-j{jobs} — {intent}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2222
+#: usr/share/archlinux-tweak-tool/performance.py:2234
 #, python-brace-format
 msgid ""
 "\n"
@@ -2167,12 +2376,12 @@ msgid ""
 "Bluetooth mouse stay responsive while a long build runs.\n"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2231
+#: usr/share/archlinux-tweak-tool/performance.py:2243
 #, python-brace-format
 msgid "MAKEFLAGS updated — -j{jobs}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2233
+#: usr/share/archlinux-tweak-tool/performance.py:2245
 #, python-brace-format
 msgid ""
 "<b>What changed</b>\n"
@@ -2193,23 +2402,23 @@ msgid ""
 "<b>Restore backup</b> on this page to undo at any time."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2262
+#: usr/share/archlinux-tweak-tool/performance.py:2274
 msgid "Tune failed — see ATT log"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2274
+#: usr/share/archlinux-tweak-tool/performance.py:2286
 msgid "No backup at /etc/makepkg.conf-bak — nothing to restore."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2291
+#: usr/share/archlinux-tweak-tool/performance.py:2303
 msgid "MAKEFLAGS restored — back to Arch's single-threaded default"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2295
+#: usr/share/archlinux-tweak-tool/performance.py:2307
 msgid "MAKEFLAGS restored from backup"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2297
+#: usr/share/archlinux-tweak-tool/performance.py:2309
 #, python-brace-format
 msgid ""
 "<b>What changed</b>\n"
@@ -2226,11 +2435,11 @@ msgid ""
 "Click <b>Optimize for N cores</b> on this page at any time."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2314
+#: usr/share/archlinux-tweak-tool/performance.py:2326
 msgid "Restore failed — see ATT log"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance.py:2322
+#: usr/share/archlinux-tweak-tool/performance.py:2334
 #, python-brace-format
 msgid "Opening {makepkg_conf} in terminal"
 msgstr ""
@@ -2498,187 +2707,196 @@ msgstr ""
 msgid "Smb.conf ATT configuration applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:124
+#: usr/share/archlinux-tweak-tool/services.py:61
+#, python-brace-format
+msgid ""
+"Create Shared folder?\n"
+"\n"
+"ATT will create {path} as your samba share folder.\n"
+"If you choose No, create the folder yourself before connecting."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:123
 #, python-brace-format
 msgid "Setting samba password for {username}..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:165
+#: usr/share/archlinux-tweak-tool/services.py:164
 msgid "✗ Samba is installed but the smb service is not running."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:179
+#: usr/share/archlinux-tweak-tool/services.py:178
 msgid "✓ Samba restarted. Check other services in the status bar."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:200
+#: usr/share/archlinux-tweak-tool/services.py:199
 msgid "PulseAudio install completed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:219
+#: usr/share/archlinux-tweak-tool/services.py:218
 msgid "PipeWire install completed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:236
+#: usr/share/archlinux-tweak-tool/services.py:235
 #: usr/share/archlinux-tweak-tool/services_gui.py:41
 msgid "Bluez packages are already <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:257
+#: usr/share/archlinux-tweak-tool/services.py:256
 #: usr/share/archlinux-tweak-tool/services_gui.py:43
 #: usr/share/archlinux-tweak-tool/services_gui.py:436
 msgid "Install bluetooth packages"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:278
+#: usr/share/archlinux-tweak-tool/services.py:277
 #: usr/share/archlinux-tweak-tool/services_gui.py:46
 msgid "   Blueberry is already <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:294
+#: usr/share/archlinux-tweak-tool/services.py:293
 #: usr/share/archlinux-tweak-tool/services_gui.py:48
 #: usr/share/archlinux-tweak-tool/services_gui.py:461
 msgid "   Install blueberry"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:310
+#: usr/share/archlinux-tweak-tool/services.py:309
 #: usr/share/archlinux-tweak-tool/services_gui.py:51
 msgid "   Blueman is already <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:326
+#: usr/share/archlinux-tweak-tool/services.py:325
 #: usr/share/archlinux-tweak-tool/services_gui.py:53
 #: usr/share/archlinux-tweak-tool/services_gui.py:479
 msgid "   Install blueman"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:342
+#: usr/share/archlinux-tweak-tool/services.py:341
 #: usr/share/archlinux-tweak-tool/services_gui.py:56
 msgid "   Bluedevil is already <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:358
+#: usr/share/archlinux-tweak-tool/services.py:357
 #: usr/share/archlinux-tweak-tool/services_gui.py:58
 #: usr/share/archlinux-tweak-tool/services_gui.py:497
 msgid "   Install bluedevil (Plasma dependencies)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:424
+#: usr/share/archlinux-tweak-tool/services.py:423
 msgid "Auto-connect disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:424
+#: usr/share/archlinux-tweak-tool/services.py:423
 msgid "Auto-connect enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:432
+#: usr/share/archlinux-tweak-tool/services.py:431
 msgid "Opening terminal to install bluetooth-autoconnect..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:443
+#: usr/share/archlinux-tweak-tool/services.py:442
 #: usr/share/archlinux-tweak-tool/services_gui.py:61
 #: usr/share/archlinux-tweak-tool/services_gui.py:400
 msgid "   bluetooth-autoconnect is <b>installed</b> and enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:457
+#: usr/share/archlinux-tweak-tool/services.py:456
 msgid "bluetooth-autoconnect is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:469
+#: usr/share/archlinux-tweak-tool/services.py:468
 #: usr/share/archlinux-tweak-tool/services_gui.py:63
 #: usr/share/archlinux-tweak-tool/services_gui.py:402
 msgid "   Install bluetooth-autoconnect"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:482
+#: usr/share/archlinux-tweak-tool/services.py:481
 msgid "Bluetooth has been enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:493
+#: usr/share/archlinux-tweak-tool/services.py:492
 msgid "Bluetooth has been disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:504
+#: usr/share/archlinux-tweak-tool/services.py:503
 msgid "Bluetooth has been restarted"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:512
+#: usr/share/archlinux-tweak-tool/services.py:511
 msgid "Opening terminal to install cups..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:522
+#: usr/share/archlinux-tweak-tool/services.py:521
 msgid "CUPS installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:523
+#: usr/share/archlinux-tweak-tool/services.py:522
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
 msgid "Cups printing is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:526
+#: usr/share/archlinux-tweak-tool/services.py:525
 msgid "CUPS installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:536
+#: usr/share/archlinux-tweak-tool/services.py:535
 msgid "Opening terminal to remove cups..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:546
+#: usr/share/archlinux-tweak-tool/services.py:545
 msgid "CUPS removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:547
+#: usr/share/archlinux-tweak-tool/services.py:546
 #: usr/share/archlinux-tweak-tool/services_gui.py:16
 #: usr/share/archlinux-tweak-tool/services_gui.py:118
 msgid "Install cups printing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:550
+#: usr/share/archlinux-tweak-tool/services.py:549
 msgid "CUPS removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:560
+#: usr/share/archlinux-tweak-tool/services.py:559
 msgid "Opening terminal to install cups-pdf..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:569
+#: usr/share/archlinux-tweak-tool/services.py:568
 msgid "cups-pdf installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:570
+#: usr/share/archlinux-tweak-tool/services.py:569
 #: usr/share/archlinux-tweak-tool/services_gui.py:19
 msgid "Cups-pdf is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:573
+#: usr/share/archlinux-tweak-tool/services.py:572
 msgid "cups-pdf installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:581
+#: usr/share/archlinux-tweak-tool/services.py:580
 msgid "Opening terminal to remove cups-pdf..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:590
+#: usr/share/archlinux-tweak-tool/services.py:589
 msgid "cups-pdf removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:591
+#: usr/share/archlinux-tweak-tool/services.py:590
 #: usr/share/archlinux-tweak-tool/services_gui.py:21
 #: usr/share/archlinux-tweak-tool/services_gui.py:137
 msgid "Install cups-pdf printing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:594
+#: usr/share/archlinux-tweak-tool/services.py:593
 msgid "cups-pdf removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:603
-#: usr/share/archlinux-tweak-tool/services.py:609
-#: usr/share/archlinux-tweak-tool/services.py:781
-#: usr/share/archlinux-tweak-tool/services.py:783
-#: usr/share/archlinux-tweak-tool/services.py:785
-#: usr/share/archlinux-tweak-tool/services.py:787
+#: usr/share/archlinux-tweak-tool/services.py:602
+#: usr/share/archlinux-tweak-tool/services.py:608
+#: usr/share/archlinux-tweak-tool/services.py:780
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
 #: usr/share/archlinux-tweak-tool/services_gui.py:269
 #: usr/share/archlinux-tweak-tool/services_gui.py:275
 #: usr/share/archlinux-tweak-tool/services_gui.py:335
@@ -2687,12 +2905,12 @@ msgstr ""
 msgid "<b>active</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:605
-#: usr/share/archlinux-tweak-tool/services.py:611
-#: usr/share/archlinux-tweak-tool/services.py:781
-#: usr/share/archlinux-tweak-tool/services.py:783
-#: usr/share/archlinux-tweak-tool/services.py:785
-#: usr/share/archlinux-tweak-tool/services.py:787
+#: usr/share/archlinux-tweak-tool/services.py:604
+#: usr/share/archlinux-tweak-tool/services.py:610
+#: usr/share/archlinux-tweak-tool/services.py:780
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
 #: usr/share/archlinux-tweak-tool/services_gui.py:271
 #: usr/share/archlinux-tweak-tool/services_gui.py:277
 #: usr/share/archlinux-tweak-tool/services_gui.py:337
@@ -2701,187 +2919,195 @@ msgstr ""
 msgid "inactive"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:615
+#: usr/share/archlinux-tweak-tool/services.py:614
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:669
+#: usr/share/archlinux-tweak-tool/services.py:668
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
 msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:692
+#: usr/share/archlinux-tweak-tool/services.py:691
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
 #: usr/share/archlinux-tweak-tool/services_gui.py:155
 msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:709
+#: usr/share/archlinux-tweak-tool/services.py:708
 #: usr/share/archlinux-tweak-tool/services_gui.py:31
 msgid "   HP drivers have been <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:725
+#: usr/share/archlinux-tweak-tool/services.py:724
 #: usr/share/archlinux-tweak-tool/services_gui.py:33
 #: usr/share/archlinux-tweak-tool/services_gui.py:173
 msgid "   Install HP drivers"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:734
+#: usr/share/archlinux-tweak-tool/services.py:733
 msgid "Opening terminal to install system-config-printer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:743
+#: usr/share/archlinux-tweak-tool/services.py:742
 msgid "system-config-printer installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:745
+#: usr/share/archlinux-tweak-tool/services.py:744
 msgid "Install System-config-printer - <b>Installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:750
+#: usr/share/archlinux-tweak-tool/services.py:749
 msgid "system-config-printer installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:759
+#: usr/share/archlinux-tweak-tool/services.py:758
 msgid "Opening terminal to remove system-config-printer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:768
+#: usr/share/archlinux-tweak-tool/services.py:767
 msgid "system-config-printer removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:769
+#: usr/share/archlinux-tweak-tool/services.py:768
 msgid "Install System-config-printer"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:772
+#: usr/share/archlinux-tweak-tool/services.py:771
 msgid "system-config-printer removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:789
+#: usr/share/archlinux-tweak-tool/services.py:788
 #, python-brace-format
 msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:794
-#: usr/share/archlinux-tweak-tool/services.py:914
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:913
 msgid "Disable Samba"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:794
-#: usr/share/archlinux-tweak-tool/services.py:907
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:906
 msgid "Enable Samba"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:797
+#: usr/share/archlinux-tweak-tool/services.py:796
 msgid "Disable firewall"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:797
+#: usr/share/archlinux-tweak-tool/services.py:796
 msgid "Enable firewall"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:800
+#: usr/share/archlinux-tweak-tool/services.py:799
 msgid ""
 "Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
 "you protected."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:802
+#: usr/share/archlinux-tweak-tool/services.py:801
 msgid "Firewall (firewalld) is <b>inactive</b>."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:807
+#: usr/share/archlinux-tweak-tool/services.py:806
 msgid "Allow network discovery (mDNS)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:807
+#: usr/share/archlinux-tweak-tool/services.py:806
 msgid "Block network discovery (mDNS)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:812
+#: usr/share/archlinux-tweak-tool/services.py:811
 msgid "Allow Samba file sharing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:812
+#: usr/share/archlinux-tweak-tool/services.py:811
 msgid "Block Samba file sharing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:858
+#: usr/share/archlinux-tweak-tool/services.py:857
 msgid "Nsswitch config reset"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:863
+#: usr/share/archlinux-tweak-tool/services.py:862
 msgid "No nsswitch backup available"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:877
+#: usr/share/archlinux-tweak-tool/services.py:876
 msgid "nsswitch.conf opened in terminal"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:899
-#: usr/share/archlinux-tweak-tool/services.py:1003
+#: usr/share/archlinux-tweak-tool/services.py:898
+#: usr/share/archlinux-tweak-tool/services.py:1002
 msgid "Samba is not yet installed."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:905
+#: usr/share/archlinux-tweak-tool/services.py:904
 msgid "Samba disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:912
+#: usr/share/archlinux-tweak-tool/services.py:911
 msgid "Samba enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:921
+#: usr/share/archlinux-tweak-tool/services.py:920
 msgid "firewalld is not installed."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:929
+#: usr/share/archlinux-tweak-tool/services.py:928
 msgid "Firewall disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:933
+#: usr/share/archlinux-tweak-tool/services.py:932
 msgid "Firewall enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:957
+#: usr/share/archlinux-tweak-tool/services.py:941
+msgid "network discovery (mDNS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:946
+msgid "Samba file sharing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:956
 msgid "Launching firewall-config..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:972
+#: usr/share/archlinux-tweak-tool/services.py:971
 msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:974
+#: usr/share/archlinux-tweak-tool/services.py:973
 msgid "Launch firewall-config"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:975
+#: usr/share/archlinux-tweak-tool/services.py:974
 msgid "firewall-config install finished"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:982
+#: usr/share/archlinux-tweak-tool/services.py:981
 msgid "Enable the firewall first."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1025
+#: usr/share/archlinux-tweak-tool/services.py:1024
 msgid "Samba configuration applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1040
+#: usr/share/archlinux-tweak-tool/services.py:1039
 msgid "Original smb.conf is applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1046
+#: usr/share/archlinux-tweak-tool/services.py:1045
 msgid "No backup configuration present"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1060
+#: usr/share/archlinux-tweak-tool/services.py:1059
 msgid "Opening samba.conf in terminal with nano"
 msgstr ""
 
@@ -3231,6 +3457,15 @@ msgstr ""
 msgid "pachub installation started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:404
+#: usr/share/archlinux-tweak-tool/software_gui.py:175
+msgid "PacHub - Pacman/AUR GUI (GTK4) <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:406
+msgid "pachub installation complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:418
 msgid "yay-git already installed"
 msgstr ""
@@ -3250,6 +3485,12 @@ msgstr ""
 msgid "yay-git installation started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:439
+#: usr/share/archlinux-tweak-tool/software_gui.py:220
+#: usr/share/archlinux-tweak-tool/software_gui.py:260
+msgid "Yay-git - AUR helper (Go-based) <b>installed</b>"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:453
 msgid "paru-git already installed"
 msgstr ""
@@ -3264,12 +3505,27 @@ msgstr ""
 msgid "paru-git installation started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:474
+#: usr/share/archlinux-tweak-tool/software_gui.py:241
+#: usr/share/archlinux-tweak-tool/software_gui.py:263
+msgid "Paru-git - AUR helper (Rust-based) <b>installed</b>"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:488
 msgid "trizen already installed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:492
 msgid "trizen installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:497
+#: usr/share/archlinux-tweak-tool/software_gui.py:273
+msgid "Trizen - AUR helper (Perl-based) <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:499
+msgid "trizen installed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:511
@@ -3280,20 +3536,67 @@ msgstr ""
 msgid "pikaur-git installation started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:520
+#: usr/share/archlinux-tweak-tool/software_gui.py:296
+msgid "Pikaur-git - AUR helper (Python-based) <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:522
+msgid "pikaur-git installed"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:534
 msgid "yay-git removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:539
+#: usr/share/archlinux-tweak-tool/software_gui.py:220
+#: usr/share/archlinux-tweak-tool/software_gui.py:260
+msgid "Yay-git - AUR helper (Go-based)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:541
+msgid "yay-git removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:552
 msgid "paru-git removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:557
+#: usr/share/archlinux-tweak-tool/software_gui.py:241
+#: usr/share/archlinux-tweak-tool/software_gui.py:263
+msgid "Paru-git - AUR helper (Rust-based)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:559
+msgid "paru-git removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:570
 msgid "trizen removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:575
+#: usr/share/archlinux-tweak-tool/software_gui.py:273
+msgid "Trizen - AUR helper (Perl-based)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:577
+msgid "trizen removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:588
 msgid "pikaur-git removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:593
+#: usr/share/archlinux-tweak-tool/software_gui.py:296
+msgid "Pikaur-git - AUR helper (Python-based)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:595
+msgid "pikaur-git removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:612
@@ -3309,8 +3612,26 @@ msgstr ""
 msgid "pacui is on chaotic-AUR — installing..."
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:626
+#: usr/share/archlinux-tweak-tool/software_gui.py:429
+msgid "Pacui - TUI pacman wrapper <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:628
+msgid "pacui installed"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:640
 msgid "pacui removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:645
+#: usr/share/archlinux-tweak-tool/software_gui.py:429
+msgid "Pacui - TUI pacman wrapper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:647
+msgid "pacui removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:670
@@ -3328,6 +3649,15 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:732
 msgid "flatpak removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:737
+#: usr/share/archlinux-tweak-tool/software_gui.py:328
+msgid "Flatpak - Manage Flatpak apps"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:739
+msgid "flatpak removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:753
@@ -3356,6 +3686,15 @@ msgstr ""
 msgid "snapd removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:821
+#: usr/share/archlinux-tweak-tool/software_gui.py:351
+msgid "Snapd - Manage Snap apps"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:823
+msgid "snapd removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:842
 msgid "appmanager installation started"
 msgstr ""
@@ -3381,6 +3720,15 @@ msgstr ""
 msgid "appmanager removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:921
+#: usr/share/archlinux-tweak-tool/software_gui.py:372
+msgid "App-manager - Manage AppImages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:923
+msgid "appmanager removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:939
 msgid "pacseek launched"
 msgstr ""
@@ -3389,36 +3737,113 @@ msgstr ""
 msgid "pacseek is on chaotic-AUR — installing..."
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:953
+#: usr/share/archlinux-tweak-tool/software_gui.py:406
+msgid "Pacseek - TUI package searcher <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:955
+msgid "pacseek installed"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:967
 msgid "pacseek removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:972
+#: usr/share/archlinux-tweak-tool/software_gui.py:406
+msgid "Pacseek - TUI package searcher"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:974
+msgid "pacseek removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:985
 msgid "pamac-aur removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:990
+msgid "Pamac - GUI package manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:992
+msgid "pamac-aur removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:1003
 msgid "octopi removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1008
+msgid "Octopi - GUI package manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1010
+msgid "octopi removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1021
 msgid "bazaar removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:1023
+#: usr/share/archlinux-tweak-tool/software_gui.py:82
+msgid "Bazaar"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1023
+msgid "bazaar removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:1034
 msgid "shelly removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1039
+#: usr/share/archlinux-tweak-tool/software_gui.py:104
+msgid "Shelly - Modern package manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1041
+msgid "shelly removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1052
 msgid "gnome-software removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:1057
+msgid "GNOME Software - GUI package manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1059
+msgid "gnome-software removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:1070
 msgid "plasma-discover removal started"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:1075
+msgid "KDE Discover - GUI package manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1077
+msgid "plasma-discover removal complete"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:1088
 msgid "pachub removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1093
+#: usr/share/archlinux-tweak-tool/software_gui.py:175
+msgid "PacHub - Pacman/AUR GUI (GTK4)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1095
+msgid "pachub removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1107
@@ -3429,8 +3854,26 @@ msgstr ""
 msgid "archlinux-logout is on nemesis/chaotic-AUR — installing..."
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/software.py:1116
+#: usr/share/archlinux-tweak-tool/software_gui.py:459
+msgid "ArchLinux Logout - Session logout tool <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1118
+msgid "archlinux-logout installed"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/software.py:1130
 msgid "archlinux-logout removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1135
+#: usr/share/archlinux-tweak-tool/software_gui.py:461
+msgid "ArchLinux Logout - Session logout tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1137
+msgid "archlinux-logout removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1148
@@ -3451,6 +3894,14 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1192
 msgid "kiro-powermenu removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1197
+msgid "powermenu - Power menu for twms"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/software.py:1199
+msgid "kiro-powermenu removal complete"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:1212
@@ -3521,14 +3972,6 @@ msgstr ""
 msgid "Octopi - Qt package manager <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software_gui.py:82
-msgid "Bazaar"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:104
-msgid "Shelly - Modern package manager"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software_gui.py:127
 msgid "GNOME Software - GTK software center <b>installed</b>"
 msgstr ""
@@ -3539,14 +3982,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:152
 msgid "KDE Discover - KDE software center (pulls KDE deps)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:175
-msgid "PacHub - Pacman/AUR GUI (GTK4)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:175
-msgid "PacHub - Pacman/AUR GUI (GTK4) <b>installed</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:197
@@ -3562,88 +3997,16 @@ msgid ""
 "only what you trust, and reach for the official repositories first.</i>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software_gui.py:220
-#: usr/share/archlinux-tweak-tool/software_gui.py:260
-msgid "Yay-git - AUR helper (Go-based)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:220
-#: usr/share/archlinux-tweak-tool/software_gui.py:260
-msgid "Yay-git - AUR helper (Go-based) <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:241
-#: usr/share/archlinux-tweak-tool/software_gui.py:263
-msgid "Paru-git - AUR helper (Rust-based)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:241
-#: usr/share/archlinux-tweak-tool/software_gui.py:263
-msgid "Paru-git - AUR helper (Rust-based) <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:273
-msgid "Trizen - AUR helper (Perl-based)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:273
-msgid "Trizen - AUR helper (Perl-based) <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:296
-msgid "Pikaur-git - AUR helper (Python-based)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:296
-msgid "Pikaur-git - AUR helper (Python-based) <b>installed</b>"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software_gui.py:318
 msgid "<b>Flatpak / Snap / AppImage</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:328
-msgid "Flatpak - Manage Flatpak apps"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:351
-msgid "Snapd - Manage Snap apps"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:372
-msgid "App-manager - Manage AppImages"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:396
 msgid "<b>TUI Package Tools</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software_gui.py:406
-msgid "Pacseek - TUI package searcher"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:406
-msgid "Pacseek - TUI package searcher <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:429
-msgid "Pacui - TUI pacman wrapper"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:429
-msgid "Pacui - TUI pacman wrapper <b>installed</b>"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software_gui.py:449
 msgid "<b>Logout Managers</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:459
-msgid "ArchLinux Logout - Session logout tool <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/software_gui.py:461
-msgid "ArchLinux Logout - Session logout tool"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:486

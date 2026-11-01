@@ -724,11 +724,13 @@ def get_zram_size_label():
 
 def get_zram_status_markup():
     """Build the zram status label text."""
-    zram_status = "<b>enabled</b>" if fn.check_service("systemd-zram-setup@zram0") else "disabled"
+    zram_status = _("<b>enabled</b>") if fn.check_service("systemd-zram-setup@zram0") else _("disabled")
     zram_size = get_zram_size_label()
     if zram_size:
         zram_status = zram_status + " (" + zram_size + ")"
-    return "Enable zram compressed RAM swap - installs zram-generator\nZRAM service : " + zram_status
+    return _("Enable zram compressed RAM swap - installs zram-generator\nZRAM service : {status}").format(
+        status=zram_status
+    )
 
 
 def refresh_zram_status_label(self):
@@ -761,9 +763,15 @@ def get_fstrim_status_markup():
     enabled_status = get_unit_state(fstrim_timer, "is-enabled")
 
     if enabled_status == "enabled":
-        enabled_status = "<b>enabled</b>"
+        enabled_status = _("<b>enabled</b>")
+    elif enabled_status == "disabled":
+        enabled_status = _("disabled")
+    elif enabled_status == "unknown":
+        enabled_status = _("unknown")
 
-    return "Enable weekly TRIM for SSD/NVMe drives with fstrim.timer\nfstrim.timer : " + enabled_status
+    return _("Enable weekly TRIM for SSD/NVMe drives with fstrim.timer\nfstrim.timer : {status}").format(
+        status=enabled_status
+    )
 
 
 def refresh_fstrim_status_label(self):
@@ -775,7 +783,9 @@ def refresh_fstrim_status_label(self):
 def get_irqbalance_status_markup():
     """Build the irqbalance service status label text."""
     irqbalance_status = get_service_status("irqbalance")
-    return "Balance hardware interrupts across CPUs\nirqbalance service : " + irqbalance_status
+    return _("Balance hardware interrupts across CPUs\nirqbalance service : {status}").format(
+        status=irqbalance_status
+    )
 
 
 def refresh_irqbalance_status_label(self):
@@ -1364,7 +1374,9 @@ ANANICY_RULES_PACKAGE = "cachyos-ananicy-rules-git"
 def get_ananicy_status_markup():
     """Build the ananicy-cpp service status label text."""
     ananicy_status = get_service_status("ananicy-cpp")
-    return "Auto nice daemon for CPU and I/O scheduling\nananicy-cpp service : " + ananicy_status
+    return _("Auto nice daemon for CPU and I/O scheduling\nananicy-cpp service : {status}").format(
+        status=ananicy_status
+    )
 
 
 def refresh_ananicy_status_label(self):
@@ -1640,7 +1652,7 @@ def get_gamemoded_user_status():
         )
         status = output.stdout.decode().strip()
         if status == "enabled":
-            return "<b>enabled</b>"
+            return _("<b>enabled</b>")
     except Exception as error:
         fn.debug_print(error)
     return _("disabled")
@@ -1649,7 +1661,9 @@ def get_gamemoded_user_status():
 def get_gamemode_status_markup():
     """Build the gamemode service status label text."""
     gamemode_status = get_gamemoded_user_status()
-    return "Optimize system performance for gaming\ngamemoded service : " + gamemode_status
+    return _("Optimize system performance for gaming\ngamemoded service : {status}").format(
+        status=gamemode_status
+    )
 
 
 def refresh_gamemode_status_label(self):
@@ -1861,7 +1875,9 @@ PRELOAD_PACKAGE = "preload"
 def get_preload_status_markup():
     """Build the preload service status label text."""
     preload_status = get_service_status("preload")
-    return "Adaptive readahead daemon — preloads frequently used binaries into RAM\npreload service : " + preload_status
+    return _(
+        "Adaptive readahead daemon — preloads frequently used binaries into RAM\npreload service : {status}"
+    ).format(status=preload_status)
 
 
 def refresh_preload_status_label(self):
@@ -2136,13 +2152,9 @@ def get_makepkg_status():
 def get_makepkg_status_markup():
     """Build the makepkg.conf status label markup."""
     makeflags, ncores = get_makepkg_status()
-    return (
-        "MAKEFLAGS in /etc/makepkg.conf: <b>"
-        + makeflags
-        + "</b>   |   Detected CPU cores: <b>"
-        + str(ncores)
-        + "</b>"
-    )
+    return _(
+        "MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Detected CPU cores: <b>{cores}</b>"
+    ).format(makeflags=makeflags, cores=ncores)
 
 
 def refresh_makepkg_status_label(self):

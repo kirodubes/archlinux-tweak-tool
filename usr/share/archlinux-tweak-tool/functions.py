@@ -1176,9 +1176,9 @@ def check_missing_repo_error(self, error_msg, package):
     repo = find_package_repo(package)
 
     if repo:
-        notification = f"Package not found. Please enable {repo} in pacman.conf"
+        notification = _("Package not found. Please enable {repo} in pacman.conf").format(repo=repo)
     else:
-        notification = "Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf"
+        notification = _("Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf")
 
     debug_print(f"[INFO] Showing notification: {notification}")
     GLib.idle_add(show_in_app_notification, self, notification)
@@ -1205,10 +1205,12 @@ def install_package(self, package):
         log_subsection(f"Installing {package}...")
         process = launch_pacman_install_in_terminal(package)
         GLib.idle_add(show_in_app_notification, self, f"{package} installation started")
-        wait_install_and_update(process, binary_path, None, None, self, f"{package} installed", package)
+        wait_install_and_update(
+            process, binary_path, None, None, self, _("{package} installed").format(package=package), package
+        )
     except Exception as error:
         log_error(f"Error installing {package}: {error}")
-        GLib.idle_add(show_in_app_notification, self, f"Error installing {package}: {error}")
+        GLib.idle_add(show_in_app_notification, self, _("Error installing {package}: {error}").format(package=package, error=error))
 
 
 def get_terminal_env():
@@ -1440,7 +1442,7 @@ def open_doc_in_editor(path):
 def install_local_package(self, package):
     if not os.path.exists(package):
         log_error(f"Package file not found: {package}")
-        GLib.idle_add(show_in_app_notification, self, f"File not found: {package}")
+        GLib.idle_add(show_in_app_notification, self, _("File not found: {package}").format(package=package))
         return
     log_subsection(f"Installing local package: {package}...")
     script = f"sudo pacman -U {package} --noconfirm; read -p 'Press Enter to close...'"
@@ -1455,7 +1457,7 @@ def install_local_package(self, package):
         GLib.idle_add(show_in_app_notification, self, f"{os.path.basename(package)} installed")
 
     threading.Thread(target=wait_and_notify, daemon=True).start()
-    GLib.idle_add(show_in_app_notification, self, "Installation started...")
+    GLib.idle_add(show_in_app_notification, self, _("Installation started..."))
 
 
 def clear_skel_directory(path="/etc/skel"):
@@ -1503,7 +1505,7 @@ def remove_package(self, package):
         wait_and_notify(process, self, f"{package} removed")
     except Exception as error:
         log_error(f"Error removing {package}: {error}")
-        GLib.idle_add(show_in_app_notification, self, f"Error removing {package}: {error}")
+        GLib.idle_add(show_in_app_notification, self, _("Error removing {package}: {error}").format(package=package, error=error))
 
 
 def update_repos(self):
@@ -2260,7 +2262,7 @@ def install_discovery(self):
         show_in_app_notification(self, "alacritty not found")
         return None
     log_subsection("Install Network Discovery")
-    show_in_app_notification(self, "Installing network discovery...")
+    show_in_app_notification(self, _("Installing network discovery..."))
     script = """
 pacman -S --noconfirm --needed avahi nss-mdns gvfs-smb
 RESULT=$?
@@ -2294,7 +2296,7 @@ def remove_discovery(self):
         show_in_app_notification(self, "alacritty not found")
         return None
     log_subsection("Disable Network Discovery")
-    show_in_app_notification(self, "Disabling network discovery...")
+    show_in_app_notification(self, _("Disabling network discovery..."))
     script = """
 echo 'Stopping avahi-daemon...'
 systemctl stop avahi-daemon.socket
@@ -2325,7 +2327,7 @@ def install_samba(self):
         show_in_app_notification(self, "alacritty not found")
         return None
     log_subsection("Install Samba")
-    show_in_app_notification(self, "Installing samba...")
+    show_in_app_notification(self, _("Installing samba..."))
     script = """
 mkdir -p /var/cache/samba
 pacman -S --noconfirm --needed samba gvfs-smb
@@ -2360,7 +2362,7 @@ def uninstall_samba(self):
         show_in_app_notification(self, "alacritty not found")
         return None
     log_subsection("Uninstall Samba")
-    show_in_app_notification(self, "Uninstalling samba...")
+    show_in_app_notification(self, _("Uninstalling samba..."))
     script = """
 echo 'Stopping samba services...'
 systemctl stop smb.service
@@ -2402,7 +2404,10 @@ def firewall_toggle_service(self, service, label, allowing):
     verb = "Allowing" if allowing else "Blocking"
     state = "open" if allowing else "closed"
     log_subsection(f"{verb} {label} in firewalld")
-    show_in_app_notification(self, f"{verb} {label}...")
+    if allowing:
+        show_in_app_notification(self, _("Allowing {label}...").format(label=_(label)))
+    else:
+        show_in_app_notification(self, _("Blocking {label}...").format(label=_(label)))
     script = f"""
 echo '{verb} {label} through the firewall (firewalld)...'
 echo ''
@@ -2546,12 +2551,12 @@ def save_samba_config(self):
                 f.close()
 
             debug_print("Smb.conf has been saved")
-            show_in_app_notification(self, "Smb.conf has been saved")
+            show_in_app_notification(self, _("Smb.conf has been saved"))
         except Exception:
             pass
     else:
         debug_print("Choose or create your own smb.conf in /etc/samba/smb.conf then change settings")
-        show_in_app_notification(self, "Choose or create your own smb.conf")
+        show_in_app_notification(self, _("Choose or create your own smb.conf"))
 
 
 def create_sddm_k_dir():
@@ -2621,7 +2626,7 @@ def change_shell(self, shell):
     GLib.idle_add(
         show_in_app_notification,
         self,
-        "Shell changed to " + shell + " for user - logout",
+        _("Shell changed to {shell} for user - logout").format(shell=shell),
     )
 
 
@@ -3136,10 +3141,10 @@ def _copy_url_to_clipboard(self, url, popover):
 
         if copied:
             log_info(f"Copied to clipboard: {url}")
-            show_in_app_notification(self, "URL copied to clipboard")
+            show_in_app_notification(self, _("URL copied to clipboard"))
         else:
             log_warn("No clipboard tool found (install xclip, xsel, or wl-clipboard)")
-            show_in_app_notification(self, "Install xclip to enable copy")
+            show_in_app_notification(self, _("Install xclip to enable copy"))
         popover.popdown()
     except Exception as error:
         log_error(f"Clipboard error: {error}")
@@ -3175,7 +3180,7 @@ def _show_browser_popover(self, widget, url, x, y):
             browser_btn.connect("clicked", lambda b, u=url, br=binary: _open_with_and_close(u, br, popover))
             vbox.append(browser_btn)
     else:
-        vbox.append(Gtk.Label(label="No browsers detected"))
+        vbox.append(Gtk.Label(label=_("No browsers detected")))
 
     sep2 = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     sep2.set_margin_top(2)

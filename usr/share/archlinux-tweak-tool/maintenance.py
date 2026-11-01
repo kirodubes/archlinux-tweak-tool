@@ -591,11 +591,11 @@ def on_click_install_arch_keyring_online(self, _widget):
             GLib.idle_add(fn.show_in_app_notification, self, _("Download completed, installing package..."))
             files = [f for f in fn.listdir(pathway) if f.endswith(".pkg.tar.zst")]
             if not files:
-                raise Exception("No files found after download")
+                raise Exception(_("No files found after download"))
             package_file = fn.os.path.join(pathway, files[0])
             fn.debug_print(f"Found package: {package_file}")
             if not fn.os.path.exists(package_file):
-                raise Exception(f"Package file not found: {package_file}")
+                raise Exception(_("Package file not found: {file}").format(file=package_file))
             script = f"sudo pacman -U {package_file} --noconfirm; read -p 'Press Enter to close...'"
             process = fn.subprocess.Popen(
                 ["alacritty", "-e", "bash", "-c", script],

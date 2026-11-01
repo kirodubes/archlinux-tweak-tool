@@ -6,7 +6,7 @@ import pwd
 
 import functions as fn
 from functions import GLib
-from att_i18n import _
+from att_i18n import _, N_
 from gi.repository import Gtk
 
 NSSWITCH_OPTIONS = {
@@ -57,11 +57,10 @@ def choose_smb_conf(self):
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
         buttons=Gtk.ButtonsType.YES_NO,
-        text=(
-            f"Create Shared folder?\n\n"
-            f"ATT will create {shared_path} as your samba share folder.\n"
+        text=_(
+            "Create Shared folder?\n\nATT will create {path} as your samba share folder.\n"
             "If you choose No, create the folder yourself before connecting."
-        ),
+        ).format(path=shared_path),
     )
 
     def on_response(_dialog, response):
@@ -939,12 +938,12 @@ def on_click_toggle_firewalld(self, _widget):
 
 def on_click_firewall_toggle_mdns(self, _widget):
     """Toggle the mDNS service in firewalld (needed for .local network discovery)."""
-    _firewall_toggle_service(self, "mdns", "network discovery (mDNS)")
+    _firewall_toggle_service(self, "mdns", N_("network discovery (mDNS)"))
 
 
 def on_click_firewall_toggle_samba(self, _widget):
     """Toggle the Samba service in firewalld (needed for file sharing)."""
-    _firewall_toggle_service(self, "samba", "Samba file sharing")
+    _firewall_toggle_service(self, "samba", N_("Samba file sharing"))
 
 
 def on_click_firewall_config(self, _widget):

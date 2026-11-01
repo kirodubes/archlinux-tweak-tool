@@ -313,7 +313,7 @@ class Packages:
                 fn.GLib.idle_add(
                     fn.update_package_status_label,
                     self.label_package_status,
-                    "Status: <b>Cleaning pacman cache</b>",
+                    _("Status: <b>Cleaning pacman cache</b>"),
                 )
 
                 # clean the pacman cache, so we don't run into any invalid/corrupt package errors during install
@@ -343,7 +343,7 @@ class Packages:
             fn.GLib.idle_add(
                 fn.update_package_status_label,
                 self.label_package_status,
-                "Status: <b>Performing full system upgrade - do not power off your system</b>",
+                _("Status: <b>Performing full system upgrade - do not power off your system</b>"),
             )
 
             output = []
@@ -375,7 +375,7 @@ class Packages:
                 fn.GLib.idle_add(
                     fn.update_package_status_label,
                     self.label_package_status,
-                    "Status: <b> Full system upgrade - completed</b>",
+                    _("Status: <b>Full system upgrade - completed</b>"),
                 )
             else:
                 if len(output) > 0:
@@ -384,7 +384,7 @@ class Packages:
                         fn.GLib.idle_add(
                             fn.update_package_status_label,
                             self.label_package_status,
-                            "Status: <b> Full system upgrade - failed</b>",
+                            _("Status: <b>Full system upgrade - failed</b>"),
                         )
 
                         fn.debug_print("%s" % " ".join(output))
@@ -448,13 +448,13 @@ class Packages:
                             fn.GLib.idle_add(
                                 fn.update_package_status_label,
                                 self.label_package_status,
-                                "Status: <b>%s</b> -> <b>Installed</b>" % package,
+                                _("Status: <b>{package}</b> -> <b>Installed</b>").format(package=package),
                             )
 
                             fn.GLib.idle_add(
                                 fn.update_package_status_label,
                                 self.label_package_count,
-                                "Progress: <b>%s/%s</b>" % (count, len(self.packages)),
+                                _("Progress: <b>{count}/{total}</b>").format(count=count, total=len(self.packages)),
                             )
 
                             packages_status_list.append("%s -> Installed" % package)
@@ -464,13 +464,13 @@ class Packages:
                             fn.GLib.idle_add(
                                 fn.update_package_status_label,
                                 self.label_package_status,
-                                "Status: <b>%s</b> -> <b>Install failed</b>" % package,
+                                _("Status: <b>{package}</b> -> <b>Install failed</b>").format(package=package),
                             )
 
                             fn.GLib.idle_add(
                                 fn.update_package_status_label,
                                 self.label_package_count,
-                                "Progress: <b>%s/%s</b>" % (count, len(self.packages)),
+                                _("Progress: <b>{count}/{total}</b>").format(count=count, total=len(self.packages)),
                             )
 
                             if len(process_output) > 0:
@@ -555,9 +555,10 @@ def on_click_export_packages(
 
             fn.messagebox(
                 self,
-                "Export of packages failed",
-                "Failed to lock database, pacman lockfile exists at %s\nIs another pacman process running ?"
-                % fn.pacman_lockfile,
+                _("Export of packages failed"),
+                _("Failed to lock database, pacman lockfile exists at {path}\nIs another pacman process running ?").format(
+                    path=fn.pacman_lockfile
+                ),
             )
 
         else:
@@ -590,15 +591,15 @@ def on_click_export_packages(
                 fn.log_error("Failed to export package list")
                 fn.messagebox(
                     self,
-                    "Export failed",
-                    "Failed to export list of packages",
+                    _("Export failed"),
+                    _("Failed to export list of packages"),
                 )
             else:
                 fn.log_success("Package list exported successfully")
                 fn.messagebox(
                     self,
-                    "Export completed",
-                    "Exported to file %s" % packages_obj.default_export_path,
+                    _("Export completed"),
+                    _("Exported to file {path}").format(path=packages_obj.default_export_path),
                 )
 
     except Exception as e:
