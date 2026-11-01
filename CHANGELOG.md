@@ -2,6 +2,14 @@
 
 ## 2026.11.01
 
+### ATT starts again on X11
+
+**What Changed.** After the language plumbing went in, ATT crashed on every X11 desktop right after the password prompt with `RuntimeError: Gtk couldn't be initialized`. Wayland was not affected. The launcher now passes the display to ATT again.
+
+**Technical Details.** To pass `ATT_USER_LANG`, the launcher changed from `pkexec archlinux-tweak-tool.py` to `pkexec env ATT_USER_LANG=… archlinux-tweak-tool.py`. pkexec now runs `env`, not ATT, so ATT's polkit action (`exec.path` = the .py, with `allow_gui=true`) no longer matches. The generic `org.freedesktop.policykit.exec` action applies instead, and it drops `DISPLAY` and `XAUTHORITY`. The Wayland branch already passed `DISPLAY` explicitly. The X11 and TTY branches now pass `DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY"` through `env` as well. Side effect, unchanged by this fix: the password dialog shows the generic "run a program as another user" text, not ATT's own message.
+
+**Files Modified.** `usr/bin/archlinux-tweak-tool`, `CHANGELOG.md`
+
 ### ATT speaks 14 languages
 
 **What Changed.** Every page and tab of ATT is translated. English plus Dutch, German, Spanish, French, Brazilian Portuguese, Italian, Russian, Hungarian, Turkish, Polish, Japanese, Simplified Chinese and Romanian, about 1,940 strings each. ATT follows your system language. A language dropdown in the header, before ♥ Support, picks another one and shows the Restart ATT button to apply it. Log lines, the session logs, the `att-check` report and the Dev page stay English, and so do package, kernel, desktop and theme names. The menu entry is generated from the same catalogs, with the English search keywords kept first in every language.

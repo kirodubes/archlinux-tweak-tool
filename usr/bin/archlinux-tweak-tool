@@ -58,14 +58,17 @@ function start_in_wayland() {
     '/usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' "$@"
 }
 
+# pkexec runs env here, not ATT, so the policy's allow_gui no longer keeps DISPLAY/XAUTHORITY: pass them on.
 function start_in_x11() {
   echo "[INFO]: Starting in X11 session"
-  pkexec env ATT_USER_LANG="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-$LANG}}}" '/usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' "$@"
+  pkexec env ATT_USER_LANG="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-$LANG}}}" DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" \
+    '/usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' "$@"
 }
 
 function start_in_tty() {
   echo "[INFO]: Starting in TTY session"
-  pkexec env ATT_USER_LANG="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-$LANG}}}" '/usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' "$@"
+  pkexec env ATT_USER_LANG="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-$LANG}}}" DISPLAY="$DISPLAY" XAUTHORITY="$XAUTHORITY" \
+    '/usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' "$@"
 }
 
 case "$SESSION" in
