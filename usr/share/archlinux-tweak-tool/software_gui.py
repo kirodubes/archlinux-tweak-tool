@@ -3,6 +3,7 @@
 # ============================================================
 
 import functools
+from att_i18n import _
 import software
 
 
@@ -10,7 +11,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     """Create the Software Installers GUI (package managers, AUR helpers, flatpak, snap, TUI tools)."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Software Installers")
+    hbox_title_label.set_text(_("Software Installers"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -25,7 +26,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Section 1: GUI Package Managers
     hbox_section_pkg_managers = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_pkg_managers_label = Gtk.Label(xalign=0)
-    hbox_section_pkg_managers_label.set_markup("<b>GUI Package Managers</b>")
+    hbox_section_pkg_managers_label.set_markup(_("<b>GUI Package Managers</b>"))
     hbox_section_pkg_managers_label.set_margin_start(10)
     hbox_section_pkg_managers_label.set_margin_top(15)
     hbox_section_pkg_managers_label.set_margin_bottom(10)
@@ -35,11 +36,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_pamac = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pamac = Gtk.Label(xalign=0)
     self.lbl_software_pamac.set_markup(
-        "Pamac Aur" + (" <b>installed</b>" if fn.path.exists("/usr/bin/pamac-manager") else "")
+        _("Pamac Aur <b>installed</b>") if fn.path.exists("/usr/bin/pamac-manager") else _("Pamac Aur")
     )
-    btn_pamac_launch = Gtk.Button(label="Launch/Install")
+    btn_pamac_launch = Gtk.Button(label=_("Launch/Install"))
     btn_pamac_launch.connect("clicked", functools.partial(software.on_click_software_pamac, self))
-    self.btn_software_pamac_remove = Gtk.Button(label="Remove")
+    self.btn_software_pamac_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_pamac_remove.connect("clicked", functools.partial(software.on_click_software_pamac_remove, self))
     self.lbl_software_pamac.set_margin_start(20)
     self.lbl_software_pamac.set_margin_end(10)
@@ -56,11 +57,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_octopi = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_octopi = Gtk.Label(xalign=0)
     self.lbl_software_octopi.set_markup(
-        "Octopi - Qt package manager" + (" <b>installed</b>" if fn.path.exists("/usr/bin/octopi") else "")
+        _("Octopi - Qt package manager <b>installed</b>") if fn.path.exists("/usr/bin/octopi") else _("Octopi - Qt package manager")
     )
-    btn_octopi_launch = Gtk.Button(label="Launch/Install")
+    btn_octopi_launch = Gtk.Button(label=_("Launch/Install"))
     btn_octopi_launch.connect("clicked", functools.partial(software.on_click_software_octopi, self))
-    self.btn_software_octopi_remove = Gtk.Button(label="Remove")
+    self.btn_software_octopi_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_octopi_remove.connect(
         "clicked", functools.partial(software.on_click_software_octopi_remove, self)
     )
@@ -78,10 +79,10 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Bazaar
     hbox_bazaar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_bazaar = Gtk.Label(xalign=0)
-    self.lbl_software_bazaar.set_markup("Bazaar" + (" <b>installed</b>" if fn.path.exists("/usr/bin/bazaar") else ""))
-    btn_bazaar_launch = Gtk.Button(label="Launch/Install")
+    self.lbl_software_bazaar.set_markup(_("Bazaar <b>installed</b>") if fn.path.exists("/usr/bin/bazaar") else _("Bazaar"))
+    btn_bazaar_launch = Gtk.Button(label=_("Launch/Install"))
     btn_bazaar_launch.connect("clicked", functools.partial(software.on_click_software_bazaar, self))
-    self.btn_software_bazaar_remove = Gtk.Button(label="Remove")
+    self.btn_software_bazaar_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_bazaar_remove.connect(
         "clicked", functools.partial(software.on_click_software_bazaar_remove, self)
     )
@@ -100,11 +101,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_shelly = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_shelly = Gtk.Label(xalign=0)
     self.lbl_software_shelly.set_markup(
-        "Shelly - Modern package manager" + (" <b>installed</b>" if fn.path.exists("/usr/bin/shelly-ui") else "")
+        _("Shelly - Modern package manager <b>installed</b>") if fn.path.exists("/usr/bin/shelly-ui") else _("Shelly - Modern package manager")
     )
-    btn_shelly_launch = Gtk.Button(label="Launch/Install")
+    btn_shelly_launch = Gtk.Button(label=_("Launch/Install"))
     btn_shelly_launch.connect("clicked", functools.partial(software.on_click_software_shelly, self))
-    self.btn_software_shelly_remove = Gtk.Button(label="Remove")
+    self.btn_software_shelly_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_shelly_remove.connect(
         "clicked", functools.partial(software.on_click_software_shelly_remove, self)
     )
@@ -123,12 +124,13 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_gnome = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_gnome = Gtk.Label(xalign=0)
     self.lbl_software_gnome.set_markup(
-        "GNOME Software - GTK software center"
-        + (" <b>installed</b>" if fn.path.exists("/usr/bin/gnome-software") else "")
+        _("GNOME Software - GTK software center <b>installed</b>")
+        if fn.path.exists("/usr/bin/gnome-software")
+        else _("GNOME Software - GTK software center")
     )
-    btn_gnome_launch = Gtk.Button(label="Launch/Install")
+    btn_gnome_launch = Gtk.Button(label=_("Launch/Install"))
     btn_gnome_launch.connect("clicked", functools.partial(software.on_click_software_gnome, self))
-    self.btn_software_gnome_remove = Gtk.Button(label="Remove")
+    self.btn_software_gnome_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_gnome_remove.connect("clicked", functools.partial(software.on_click_software_gnome_remove, self))
     self.lbl_software_gnome.set_margin_start(20)
     self.lbl_software_gnome.set_margin_end(10)
@@ -145,12 +147,13 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_discover = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_discover = Gtk.Label(xalign=0)
     self.lbl_software_discover.set_markup(
-        "KDE Discover - KDE software center (pulls KDE deps)"
-        + (" <b>installed</b>" if fn.path.exists("/usr/bin/plasma-discover") else "")
+        _("KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>")
+        if fn.path.exists("/usr/bin/plasma-discover")
+        else _("KDE Discover - KDE software center (pulls KDE deps)")
     )
-    btn_discover_launch = Gtk.Button(label="Launch/Install")
+    btn_discover_launch = Gtk.Button(label=_("Launch/Install"))
     btn_discover_launch.connect("clicked", functools.partial(software.on_click_software_discover, self))
-    self.btn_software_discover_remove = Gtk.Button(label="Remove")
+    self.btn_software_discover_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_discover_remove.connect(
         "clicked", functools.partial(software.on_click_software_discover_remove, self)
     )
@@ -169,11 +172,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_pachub = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pachub = Gtk.Label(xalign=0)
     self.lbl_software_pachub.set_markup(
-        "PacHub - Pacman/AUR GUI (GTK4)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/pachub") else "")
+        _("PacHub - Pacman/AUR GUI (GTK4) <b>installed</b>") if fn.path.exists("/usr/bin/pachub") else _("PacHub - Pacman/AUR GUI (GTK4)")
     )
-    btn_pachub_launch = Gtk.Button(label="Launch/Install")
+    btn_pachub_launch = Gtk.Button(label=_("Launch/Install"))
     btn_pachub_launch.connect("clicked", functools.partial(software.on_click_software_pachub, self))
-    self.btn_software_pachub_remove = Gtk.Button(label="Remove")
+    self.btn_software_pachub_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_pachub_remove.connect(
         "clicked", functools.partial(software.on_click_software_pachub_remove, self)
     )
@@ -191,7 +194,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Section 2: AUR Helpers
     hbox_section_aur_helpers = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_aur_helpers_label = Gtk.Label(xalign=0)
-    hbox_section_aur_helpers_label.set_markup("<b>AUR Helpers</b>")
+    hbox_section_aur_helpers_label.set_markup(_("<b>AUR Helpers</b>"))
     hbox_section_aur_helpers_label.set_margin_start(10)
     hbox_section_aur_helpers_label.set_margin_top(15)
     hbox_section_aur_helpers_label.set_margin_bottom(10)
@@ -201,9 +204,9 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_aur_note = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_aur_note = Gtk.Label(xalign=0)
     lbl_aur_note.set_markup(
-        "<i>The AUR is a <b>community</b> repository — packages are submitted by users and are\n"
+        _("<i>The AUR is a <b>community</b> repository — packages are submitted by users and are\n"
         "<b>not reviewed</b> by Arch or Kiro. They build and run code on your system, so install\n"
-        "only what you trust, and reach for the official repositories first.</i>"
+        "only what you trust, and reach for the official repositories first.</i>")
     )
     lbl_aur_note.set_margin_start(20)
     lbl_aur_note.set_margin_end(10)
@@ -214,11 +217,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_yay = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_yay = Gtk.Label(xalign=0)
     self.lbl_software_yay.set_markup(
-        "Yay-git - AUR helper (Go-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/yay") else "")
+        _("Yay-git - AUR helper (Go-based) <b>installed</b>") if fn.path.exists("/usr/bin/yay") else _("Yay-git - AUR helper (Go-based)")
     )
-    self.btn_software_yay_install = Gtk.Button(label="Install")
+    self.btn_software_yay_install = Gtk.Button(label=_("Install"))
     self.btn_software_yay_install.connect("clicked", functools.partial(software.on_click_software_yay, self))
-    self.btn_software_yay_remove = Gtk.Button(label="Remove")
+    self.btn_software_yay_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_yay_remove.connect("clicked", functools.partial(software.on_click_software_yay_remove, self))
     self.lbl_software_yay.set_margin_start(20)
     self.lbl_software_yay.set_margin_end(10)
@@ -235,11 +238,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_paru = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_paru = Gtk.Label(xalign=0)
     self.lbl_software_paru.set_markup(
-        "Paru-git - AUR helper (Rust-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/paru") else "")
+        _("Paru-git - AUR helper (Rust-based) <b>installed</b>") if fn.path.exists("/usr/bin/paru") else _("Paru-git - AUR helper (Rust-based)")
     )
-    self.btn_software_paru_install = Gtk.Button(label="Install")
+    self.btn_software_paru_install = Gtk.Button(label=_("Install"))
     self.btn_software_paru_install.connect("clicked", functools.partial(software.on_click_software_paru, self))
-    self.btn_software_paru_remove = Gtk.Button(label="Remove")
+    self.btn_software_paru_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_paru_remove.connect("clicked", functools.partial(software.on_click_software_paru_remove, self))
     self.lbl_software_paru.set_margin_start(20)
     self.lbl_software_paru.set_margin_end(10)
@@ -254,10 +257,10 @@ def gui(self, Gtk, vboxstack_software, fn):
 
     def refresh_aur_labels():
         self.lbl_software_yay.set_markup(
-            "Yay-git - AUR helper (Go-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/yay") else "")
+            _("Yay-git - AUR helper (Go-based) <b>installed</b>") if fn.path.exists("/usr/bin/yay") else _("Yay-git - AUR helper (Go-based)")
         )
         self.lbl_software_paru.set_markup(
-            "Paru-git - AUR helper (Rust-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/paru") else "")
+            _("Paru-git - AUR helper (Rust-based) <b>installed</b>") if fn.path.exists("/usr/bin/paru") else _("Paru-git - AUR helper (Rust-based)")
         )
         fn.log_info("Software page: AUR helper labels refreshed")
 
@@ -267,11 +270,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_trizen = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_trizen = Gtk.Label(xalign=0)
     self.lbl_software_trizen.set_markup(
-        "Trizen - AUR helper (Perl-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/trizen") else "")
+        _("Trizen - AUR helper (Perl-based) <b>installed</b>") if fn.path.exists("/usr/bin/trizen") else _("Trizen - AUR helper (Perl-based)")
     )
-    self.btn_software_trizen_install = Gtk.Button(label="Install")
+    self.btn_software_trizen_install = Gtk.Button(label=_("Install"))
     self.btn_software_trizen_install.connect("clicked", functools.partial(software.on_click_software_trizen, self))
-    self.btn_software_trizen_remove = Gtk.Button(label="Remove")
+    self.btn_software_trizen_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_trizen_remove.connect(
         "clicked", functools.partial(software.on_click_software_trizen_remove, self)
     )
@@ -290,11 +293,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_pikaur = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pikaur = Gtk.Label(xalign=0)
     self.lbl_software_pikaur.set_markup(
-        "Pikaur-git - AUR helper (Python-based)" + (" <b>installed</b>" if fn.path.exists("/usr/bin/pikaur") else "")
+        _("Pikaur-git - AUR helper (Python-based) <b>installed</b>") if fn.path.exists("/usr/bin/pikaur") else _("Pikaur-git - AUR helper (Python-based)")
     )
-    self.btn_software_pikaur_install = Gtk.Button(label="Install")
+    self.btn_software_pikaur_install = Gtk.Button(label=_("Install"))
     self.btn_software_pikaur_install.connect("clicked", functools.partial(software.on_click_software_pikaur, self))
-    self.btn_software_pikaur_remove = Gtk.Button(label="Remove")
+    self.btn_software_pikaur_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_pikaur_remove.connect(
         "clicked", functools.partial(software.on_click_software_pikaur_remove, self)
     )
@@ -312,7 +315,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Section 3: Flatpak / Snap / AppImage
     hbox_section_flatpak_snap = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_flatpak_snap_label = Gtk.Label(xalign=0)
-    hbox_section_flatpak_snap_label.set_markup("<b>Flatpak / Snap / AppImage</b>")
+    hbox_section_flatpak_snap_label.set_markup(_("<b>Flatpak / Snap / AppImage</b>"))
     hbox_section_flatpak_snap_label.set_margin_start(10)
     hbox_section_flatpak_snap_label.set_margin_top(15)
     hbox_section_flatpak_snap_label.set_margin_bottom(10)
@@ -322,11 +325,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_flatpak = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_flatpak = Gtk.Label(xalign=0)
     self.lbl_software_flatpak.set_markup(
-        "Flatpak - Manage Flatpak apps" + (" <b>installed</b>" if fn.path.exists("/usr/bin/flatpak") else "")
+        _("Flatpak - Manage Flatpak apps <b>installed</b>") if fn.path.exists("/usr/bin/flatpak") else _("Flatpak - Manage Flatpak apps")
     )
-    self.btn_software_flatpak_install = Gtk.Button(label="Launch/Install")
+    self.btn_software_flatpak_install = Gtk.Button(label=_("Launch/Install"))
     self.btn_software_flatpak_install.connect("clicked", functools.partial(software.on_click_software_flatpak, self))
-    self.btn_software_flatpak_remove = Gtk.Button(label="Remove")
+    self.btn_software_flatpak_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_flatpak_remove.connect(
         "clicked", functools.partial(software.on_click_software_flatpak_remove, self)
     )
@@ -345,11 +348,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_snapd = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_snapd = Gtk.Label(xalign=0)
     self.lbl_software_snapd.set_markup(
-        "Snapd - Manage Snap apps" + (" <b>installed</b>" if fn.path.exists("/usr/bin/snap") else "")
+        _("Snapd - Manage Snap apps <b>installed</b>") if fn.path.exists("/usr/bin/snap") else _("Snapd - Manage Snap apps")
     )
-    self.btn_software_snapd_install = Gtk.Button(label="Launch/Install")
+    self.btn_software_snapd_install = Gtk.Button(label=_("Launch/Install"))
     self.btn_software_snapd_install.connect("clicked", functools.partial(software.on_click_software_snapd, self))
-    self.btn_software_snapd_remove = Gtk.Button(label="Remove")
+    self.btn_software_snapd_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_snapd_remove.connect("clicked", functools.partial(software.on_click_software_snapd_remove, self))
     self.lbl_software_snapd.set_margin_start(20)
     self.lbl_software_snapd.set_margin_end(10)
@@ -366,13 +369,13 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_appimage = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_appimagelauncher = Gtk.Label(xalign=0)
     self.lbl_software_appimagelauncher.set_markup(
-        "App-manager - Manage AppImages" + (" <b>installed</b>" if fn.path.exists("/usr/bin/app-manager") else "")
+        _("App-manager - Manage AppImages <b>installed</b>") if fn.path.exists("/usr/bin/app-manager") else _("App-manager - Manage AppImages")
     )
-    self.btn_software_appimagelauncher_install = Gtk.Button(label="Launch/Install")
+    self.btn_software_appimagelauncher_install = Gtk.Button(label=_("Launch/Install"))
     self.btn_software_appimagelauncher_install.connect(
         "clicked", functools.partial(software.on_click_software_appimagelauncher, self)
     )
-    self.btn_software_appimagelauncher_remove = Gtk.Button(label="Remove")
+    self.btn_software_appimagelauncher_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_appimagelauncher_remove.connect(
         "clicked", functools.partial(software.on_click_software_appimagelauncher_remove, self)
     )
@@ -390,7 +393,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Section 4: TUI Package Tools
     hbox_section_tui_tools = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_tui_tools_label = Gtk.Label(xalign=0)
-    hbox_section_tui_tools_label.set_markup("<b>TUI Package Tools</b>")
+    hbox_section_tui_tools_label.set_markup(_("<b>TUI Package Tools</b>"))
     hbox_section_tui_tools_label.set_margin_start(10)
     hbox_section_tui_tools_label.set_margin_top(15)
     hbox_section_tui_tools_label.set_margin_bottom(10)
@@ -400,11 +403,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_pacseek = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pacseek = Gtk.Label(xalign=0)
     self.lbl_software_pacseek.set_markup(
-        "Pacseek - TUI package searcher" + (" <b>installed</b>" if fn.path.exists("/usr/bin/pacseek") else "")
+        _("Pacseek - TUI package searcher <b>installed</b>") if fn.path.exists("/usr/bin/pacseek") else _("Pacseek - TUI package searcher")
     )
-    self.btn_software_pacseek_install = Gtk.Button(label="Launch/Install")
+    self.btn_software_pacseek_install = Gtk.Button(label=_("Launch/Install"))
     self.btn_software_pacseek_install.connect("clicked", functools.partial(software.on_click_software_pacseek, self))
-    self.btn_software_pacseek_remove = Gtk.Button(label="Remove")
+    self.btn_software_pacseek_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_pacseek_remove.connect(
         "clicked", functools.partial(software.on_click_software_pacseek_remove, self)
     )
@@ -423,11 +426,11 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_pacui = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_pacui = Gtk.Label(xalign=0)
     self.lbl_software_pacui.set_markup(
-        "Pacui - TUI pacman wrapper" + (" <b>installed</b>" if fn.path.exists("/usr/bin/pacui") else "")
+        _("Pacui - TUI pacman wrapper <b>installed</b>") if fn.path.exists("/usr/bin/pacui") else _("Pacui - TUI pacman wrapper")
     )
-    self.btn_software_pacui_install = Gtk.Button(label="Launch/Install")
+    self.btn_software_pacui_install = Gtk.Button(label=_("Launch/Install"))
     self.btn_software_pacui_install.connect("clicked", functools.partial(software.on_click_software_pacui_open, self))
-    self.btn_software_pacui_remove = Gtk.Button(label="Remove")
+    self.btn_software_pacui_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_pacui_remove.connect("clicked", functools.partial(software.on_click_software_pacui_remove, self))
     self.lbl_software_pacui.set_margin_start(20)
     self.lbl_software_pacui.set_margin_end(10)
@@ -443,7 +446,7 @@ def gui(self, Gtk, vboxstack_software, fn):
     # Section 5: Logout Managers
     hbox_section_logout = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_logout_label = Gtk.Label(xalign=0)
-    hbox_section_logout_label.set_markup("<b>Logout Managers</b>")
+    hbox_section_logout_label.set_markup(_("<b>Logout Managers</b>"))
     hbox_section_logout_label.set_margin_start(10)
     hbox_section_logout_label.set_margin_top(15)
     hbox_section_logout_label.set_margin_bottom(10)
@@ -453,14 +456,15 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_archlinux_logout = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_archlinux_logout = Gtk.Label(xalign=0)
     self.lbl_software_archlinux_logout.set_markup(
-        "ArchLinux Logout - Session logout tool"
-        + (" <b>installed</b>" if fn.path.exists("/usr/bin/archlinux-logout") else "")
+        _("ArchLinux Logout - Session logout tool <b>installed</b>")
+        if fn.path.exists("/usr/bin/archlinux-logout")
+        else _("ArchLinux Logout - Session logout tool")
     )
-    self.btn_software_archlinux_logout_install = Gtk.Button(label="Install")
+    self.btn_software_archlinux_logout_install = Gtk.Button(label=_("Install"))
     self.btn_software_archlinux_logout_install.connect(
         "clicked", functools.partial(software.on_click_software_archlinux_logout, self)
     )
-    self.btn_software_archlinux_logout_remove = Gtk.Button(label="Remove")
+    self.btn_software_archlinux_logout_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_archlinux_logout_remove.connect(
         "clicked", functools.partial(software.on_click_software_archlinux_logout_remove, self)
     )
@@ -479,14 +483,15 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_powermenu = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_powermenu = Gtk.Label(xalign=0)
     self.lbl_software_powermenu.set_markup(
-        "powermenu - Power menu for i3/sway"
-        + (" <b>installed</b>" if fn.path.exists("/usr/local/bin/edu-powermenu") else "")
+        _("powermenu - Power menu for i3/sway <b>installed</b>")
+        if fn.path.exists("/usr/local/bin/edu-powermenu")
+        else _("powermenu - Power menu for i3/sway")
     )
-    self.btn_software_powermenu_install = Gtk.Button(label="Install")
+    self.btn_software_powermenu_install = Gtk.Button(label=_("Install"))
     self.btn_software_powermenu_install.connect(
         "clicked", functools.partial(software.on_click_software_powermenu, self)
     )
-    self.btn_software_powermenu_remove = Gtk.Button(label="Remove")
+    self.btn_software_powermenu_remove = Gtk.Button(label=_("Remove"))
     self.btn_software_powermenu_remove.connect(
         "clicked", functools.partial(software.on_click_software_powermenu_remove, self)
     )
@@ -505,7 +510,7 @@ def gui(self, Gtk, vboxstack_software, fn):
 
     hbox_section_nano = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_nano_label = Gtk.Label(xalign=0)
-    hbox_section_nano_label.set_markup("<b>Nano Editor</b>")
+    hbox_section_nano_label.set_markup(_("<b>Nano Editor</b>"))
     hbox_section_nano_label.set_margin_start(10)
     hbox_section_nano_label.set_margin_top(15)
     hbox_section_nano_label.set_margin_bottom(10)
@@ -514,15 +519,16 @@ def gui(self, Gtk, vboxstack_software, fn):
     hbox_nano = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_software_nano = Gtk.Label(xalign=0)
     self.lbl_software_nano.set_markup(
-        "Apply ATT nanorc to /etc/nanorc (backup created first)"
-        + (" <b>applied</b>" if fn.is_att_nanorc_applied() else "")
+        _("Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>")
+        if fn.is_att_nanorc_applied()
+        else _("Apply ATT nanorc to /etc/nanorc (backup created first)")
     )
     self.lbl_software_nano.set_margin_start(20)
     self.lbl_software_nano.set_margin_end(10)
     self.lbl_software_nano.set_hexpand(True)
-    self.btn_software_nano_apply = Gtk.Button(label="Apply ATT nanorc")
+    self.btn_software_nano_apply = Gtk.Button(label=_("Apply ATT nanorc"))
     self.btn_software_nano_apply.connect("clicked", functools.partial(software.on_click_apply_att_nanorc, self))
-    self.btn_software_nano_restore = Gtk.Button(label="Restore backup")
+    self.btn_software_nano_restore = Gtk.Button(label=_("Restore backup"))
     self.btn_software_nano_restore.connect("clicked", functools.partial(software.on_click_restore_nanorc, self))
     self.btn_software_nano_restore.set_sensitive(fn.path.isfile(fn.nanorc_bak))
     self.btn_software_nano_apply.set_margin_start(10)
@@ -535,7 +541,7 @@ def gui(self, Gtk, vboxstack_software, fn):
 
     hbox_section_att_tools = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_att_tools_label = Gtk.Label(xalign=0)
-    hbox_section_att_tools_label.set_markup("<b>ATT Tools</b>")
+    hbox_section_att_tools_label.set_markup(_("<b>ATT Tools</b>"))
     hbox_section_att_tools_label.set_margin_start(10)
     hbox_section_att_tools_label.set_margin_top(15)
     hbox_section_att_tools_label.set_margin_bottom(10)
@@ -543,11 +549,11 @@ def gui(self, Gtk, vboxstack_software, fn):
 
     hbox_att_tools = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_att_tools = Gtk.Label(xalign=0)
-    lbl_att_tools.set_text("Alacritty Tweak Tool — choose from 300+ themes or create new ones")
+    lbl_att_tools.set_text(_("Alacritty Tweak Tool — choose from 300+ themes or create new ones"))
     lbl_att_tools.set_margin_start(20)
     lbl_att_tools.set_margin_end(10)
     lbl_att_tools.set_hexpand(True)
-    btn_launch_att = Gtk.Button(label="Launch")
+    btn_launch_att = Gtk.Button(label=_("Launch"))
     btn_launch_att.set_margin_start(10)
     btn_launch_att.set_margin_end(10)
     btn_launch_att.connect("clicked", functools.partial(software.on_click_launch_alacritty_tweak_tool, self))

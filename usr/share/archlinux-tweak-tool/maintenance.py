@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _, N_, ngettext
 from functions import GLib
 import xml.etree.ElementTree as ET
 
@@ -326,7 +327,7 @@ def set_global_cursor(self, cursor):
     """Apply cursor theme to all detected DE targets (xcursor, GTK, XFCE, Plasma, SDDM)."""
     if not cursor:
         fn.log_warn("No cursor theme selected")
-        fn.show_in_app_notification(self, "Select a cursor theme first")
+        fn.show_in_app_notification(self, _("Select a cursor theme first"))
         return
 
     fn.debug_print(f"[INFO] Starting global cursor application: {cursor}")
@@ -411,18 +412,22 @@ def set_global_cursor(self, cursor):
         GLib.idle_add(
             fn.show_in_app_notification,
             self,
-            "Cursor saved for " + str(len(changed)) + " setting(s)",
+            ngettext(
+                "Cursor saved for {count} setting",
+                "Cursor saved for {count} settings",
+                len(changed),
+            ).format(count=len(changed)),
         )
     else:
         fn.messagebox(
             self,
-            "Failed!!",
-            'There seems to have been a problem in "set_global_cursor"',
+            _("Failed!!"),
+            _('There seems to have been a problem in "set_global_cursor"'),
         )
 
 
 def pop_gtk_cursor_names(combo):
-    """Populate the cursor theme combo and pre-select the current active theme."""
+    """Populate the cursor theme combo and preselect the current active theme."""
     _m = combo.get_model()
     _m.splice(0, _m.get_n_items(), [])
     lines = fn.get_lines(fn.icons_default)
@@ -440,7 +445,7 @@ def pop_gtk_cursor_names(combo):
 
 def _run_terminal(self, cmd, done_msg, start_msg=None, on_success=None):
     if start_msg:
-        GLib.idle_add(fn.show_in_app_notification, self, start_msg)
+        GLib.idle_add(fn.show_in_app_notification, self, _(start_msg))
     fn.debug_print(f"Terminal cmd: {cmd}")
 
     def _wait():
@@ -448,12 +453,12 @@ def _run_terminal(self, cmd, done_msg, start_msg=None, on_success=None):
             returncode = fn.subprocess.Popen(cmd, shell=True, env=fn.get_terminal_env()).wait()
             if returncode == 0:
                 fn.log_success(done_msg)
-                GLib.idle_add(fn.show_in_app_notification, self, done_msg)
+                GLib.idle_add(fn.show_in_app_notification, self, _(done_msg))
                 if on_success:
                     GLib.idle_add(on_success)
             else:
                 fn.log_warn(f"Terminal exited with code {returncode}")
-                GLib.idle_add(fn.show_in_app_notification, self, "Operation failed — see terminal for details")
+                GLib.idle_add(fn.show_in_app_notification, self, _("Operation failed — see terminal for details"))
         except Exception as error:
             fn.log_error(f"Error: {error}")
 
@@ -465,10 +470,10 @@ def on_click_apply_global_cursor(self, _widget):
     cursor = fn.get_combo_text(self.cursor_themes)
     if not cursor:
         fn.log_warn("No cursor theme selected")
-        fn.show_in_app_notification(self, "Please select a cursor theme first")
+        fn.show_in_app_notification(self, _("Please select a cursor theme first"))
         return
 
-    message = (
+    message = _(
         "This will apply the cursor theme globally to:\n\n"
         "• System xcursor configuration\n"
         "• User xcursor configuration\n"
@@ -480,7 +485,7 @@ def on_click_apply_global_cursor(self, _widget):
         "This affects all applications and the SDDMlogin screen."
     )
 
-    if not fn.confirm_dialog(self, "Apply Global Cursor Theme", message):
+    if not fn.confirm_dialog(self, _("Apply Global Cursor Theme"), message):
         return
 
     fn.log_subsection("Applying global cursor theme...")
@@ -493,7 +498,7 @@ def on_click_apply_global_cursor(self, _widget):
         GLib.idle_add(
             fn.show_in_app_notification,
             self,
-            f"Failed to apply cursor: {error}",
+            _("Failed to apply cursor: {error}").format(error=error),
         )
 
 
@@ -503,7 +508,7 @@ def on_click_update_system(self, _widget):
         'alacritty -e bash -c \'sudo pacman -Syu; echo "";'
         ' echo "=== Update complete ==="; read -p "Press Enter to close..."\''
     )
-    _run_terminal(self, cmd, "System update completed", "Starting system update...")
+    _run_terminal(self, cmd, N_("System update completed"), N_("Starting system update..."))
 
 
 def on_click_clean_cache(self, _widget):
@@ -528,7 +533,7 @@ def on_click_clean_cache(self, _widget):
         'sudo pacman -Sc; echo ""; '
         'echo "=== Clean complete ==="; read -p "Press Enter to close..."\''
     )
-    _run_terminal(self, cmd, "Pacman cache cleaned", "Removing temp files and cleaning cache...")
+    _run_terminal(self, cmd, N_("Pacman cache cleaned"), N_("Removing temp files and cleaning cache..."))
 
 
 def on_click_remove_pacman_lock(self, _widget):
@@ -538,7 +543,7 @@ def on_click_remove_pacman_lock(self, _widget):
         'alacritty -e bash -c \'sudo rm -f /var/lib/pacman/db.lck; echo "";'
         ' echo "=== Lock removed ==="; read -p "Press Enter to close..."\''
     )
-    _run_terminal(self, cmd, "Pacman lock removed", "Removing pacman lock...")
+    _run_terminal(self, cmd, N_("Pacman lock removed"), N_("Removing pacman lock..."))
 
 
 # Pacman Keyring Management
@@ -551,7 +556,7 @@ def on_click_install_arch_keyring(self, _widget):
         files = [f for f in fn.listdir(pathway) if f.endswith(".pkg.tar.zst")]
         if not files:
             fn.log_error("No package files found in keyring pathway")
-            GLib.idle_add(fn.show_in_app_notification, self, "No keyring package found")
+            GLib.idle_add(fn.show_in_app_notification, self, _("No keyring package found"))
             return
         package_file = fn.os.path.join(pathway, files[0])
         fn.debug_print(f"Found package: {package_file}")
@@ -562,9 +567,9 @@ def on_click_install_arch_keyring(self, _widget):
             stderr=fn.subprocess.PIPE,
         ).wait()
         fn.log_success("archlinux-keyring installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "archlinux-keyring installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("archlinux-keyring installed"))
 
-    GLib.idle_add(fn.show_in_app_notification, self, "Starting archlinux-keyring installation...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Starting archlinux-keyring installation..."))
     fn.threading.Thread(target=_install, daemon=True).start()
 
 
@@ -573,7 +578,7 @@ def on_click_install_arch_keyring_online(self, _widget):
     pathway = "/tmp/att-installation/"
     fn.debug_print(f"Creating temporary directory: {pathway}")
     fn.mkdir(pathway)
-    GLib.idle_add(fn.show_in_app_notification, self, "Downloading archlinux-keyring package...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Downloading archlinux-keyring package..."))
 
     def _download_and_install():
         try:
@@ -583,7 +588,7 @@ def on_click_install_arch_keyring_online(self, _widget):
             )
             fn.subprocess.Popen(command, shell=True).wait()
             fn.log_info("archlinux-keyring download completed")
-            GLib.idle_add(fn.show_in_app_notification, self, "Download completed, installing package...")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Download completed, installing package..."))
             files = [f for f in fn.listdir(pathway) if f.endswith(".pkg.tar.zst")]
             if not files:
                 raise Exception("No files found after download")
@@ -596,14 +601,14 @@ def on_click_install_arch_keyring_online(self, _widget):
                 ["alacritty", "-e", "bash", "-c", script],
                 env=fn.get_terminal_env(),
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "Installation started...")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Installation started..."))
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("archlinux-keyring installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "archlinux-keyring installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("archlinux-keyring installed"))
         except Exception as error:
             fn.log_error(f"Error: {error}")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Installation failed: {error}")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Installation failed: {error}").format(error=error))
         finally:
             try:
                 fn.shutil.rmtree(pathway)
@@ -617,14 +622,14 @@ def on_click_install_arch_keyring_online(self, _widget):
 def on_click_fix_pacman_keys(self, _widget):
     fn.log_subsection("Fixing pacman keys...")
     cmd = "alacritty -e bash -c '/usr/share/archlinux-tweak-tool/data/bin/fix-pacman-databases-and-keys'"
-    _run_terminal(self, cmd, "Pacman keys fixed")
+    _run_terminal(self, cmd, N_("Pacman keys fixed"))
 
 
 # Mirror & System Management
 def on_click_probe(self, _widget):
     fn.log_subsection("Running hardware probe...")
     cmd = "alacritty -e bash -c '/usr/share/archlinux-tweak-tool/data/bin/probe'"
-    _run_terminal(self, cmd, "Hardware probe complete — see terminal for link", "Running hardware probe...")
+    _run_terminal(self, cmd, N_("Hardware probe complete — see terminal for link"), N_("Running hardware probe..."))
 
 
 def on_click_fix_mainstream(self, _widget):
@@ -643,7 +648,7 @@ def on_click_fix_mainstream(self, _widget):
                         fn.log_info_concise(f"  {line}")
         except Exception as error:
             fn.log_warn(f"Could not read mirrorlist: {error}")
-        GLib.idle_add(fn.show_in_app_notification, self, "Mainstream servers have been saved")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Mainstream servers have been saved"))
 
     fn.threading.Thread(target=_wait, daemon=True).start()
 
@@ -658,28 +663,28 @@ def on_click_reset_mirrorlist(self, _widget):
     except Exception as error:
         fn.log_warn(f"Restore from backup failed: {error}")
     fn.log_success("Original mirrorlist restored")
-    GLib.idle_add(fn.show_in_app_notification, self, "Your original mirrorlist is back")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Your original mirrorlist is back"))
     cmd = f'alacritty -e bash -c \'cat {fn.mirrorlist}; echo ""; read -p "Press Enter to close..."\''
-    _run_terminal(self, cmd, "Mirrorlist displayed")
+    _run_terminal(self, cmd, N_("Mirrorlist displayed"))
 
 
 def on_click_get_arch_mirrors(self, _widget):
     fn.log_subsection("Setting fastest Arch Linux mirrors with reflector...")
     cmd = "alacritty -e /usr/share/archlinux-tweak-tool/data/bin/archlinux-get-mirrors-reflector"
-    _run_terminal(self, cmd, "Fastest Arch Linux servers saved - reflector")
+    _run_terminal(self, cmd, N_("Fastest Arch Linux servers saved - reflector"))
 
 
 def on_click_get_arch_mirrors2(self, _widget):
     fn.log_subsection("Setting fastest Arch Linux mirrors with rate-mirrors...")
     cmd = "alacritty -e /usr/share/archlinux-tweak-tool/data/bin/archlinux-get-mirrors-rate-mirrors"
-    _run_terminal(self, cmd, "Fastest Arch Linux servers saved - rate-mirrors")
+    _run_terminal(self, cmd, N_("Fastest Arch Linux servers saved - rate-mirrors"))
 
 
 def on_click_toggle_reflector_timer(self, _widget):
     """Toggle reflector.timer for scheduled mirrorlist refresh."""
     fn.log_subsection("Toggle reflector.timer")
     if not fn.path.exists("/usr/bin/reflector"):
-        fn.show_in_app_notification(self, "Install reflector first.")
+        fn.show_in_app_notification(self, _("Install reflector first."))
         return
     # enable_service() hard-codes a .service suffix, which would produce the invalid
     # unit reflector.timer.service, so call systemctl directly like the firewalld toggle.
@@ -689,11 +694,11 @@ def on_click_toggle_reflector_timer(self, _widget):
         if disabling:
             fn.subprocess.run(["systemctl", "disable", "--now", "reflector.timer"], check=False)
             fn.log_success("reflector.timer disabled")
-            msg, label = "Reflector timer disabled", "Enable reflector timer"
+            msg, label = _("Reflector timer disabled"), _("Enable reflector timer")
         else:
             fn.subprocess.run(["systemctl", "enable", "--now", "reflector.timer"], check=False)
             fn.log_success("reflector.timer enabled")
-            msg, label = "Reflector timer enabled", "Disable reflector timer"
+            msg, label = _("Reflector timer enabled"), _("Disable reflector timer")
         fn._svc_cache.pop("reflector.timer", None)
         GLib.idle_add(self.btn_toggle_reflector_timer.set_label, label)
         GLib.idle_add(fn.show_in_app_notification, self, msg)
@@ -705,7 +710,7 @@ def on_click_toggle_reflector_timer(self, _widget):
 def on_click_fix_pacman_conf(self, _widget, on_success=None):
     fn.log_subsection("Fixing pacman.conf...")
     cmd = "alacritty -e /usr/share/archlinux-tweak-tool/data/bin/att-fix-pacman-conf"
-    _run_terminal(self, cmd, "Saved the original /etc/pacman.conf", on_success=on_success)
+    _run_terminal(self, cmd, N_("Saved the original /etc/pacman.conf"), on_success=on_success)
 
 
 def on_click_fix_pacman_gpg_conf(self, _widget):
@@ -729,7 +734,7 @@ def on_click_fix_pacman_gpg_conf(self, _widget):
     GLib.idle_add(
         fn.show_in_app_notification,
         self,
-        "The new /etc/pacman.d/gnupg/gpg.conf has been saved",
+        _("The new /etc/pacman.d/gnupg/gpg.conf has been saved"),
     )
 
 
@@ -748,7 +753,7 @@ def on_click_fix_pacman_gpg_conf_local(self, _widget):
         GLib.idle_add(
             fn.show_in_app_notification,
             self,
-            "No ~/.gnupg/gpg.conf found — a fresh copy will be created",
+            _("No ~/.gnupg/gpg.conf found — a fresh copy will be created"),
         )
     elif not fn.path.isfile(fn.gpg_conf_local + "-bak"):
         try:
@@ -775,7 +780,7 @@ def on_click_fix_pacman_gpg_conf_local(self, _widget):
     GLib.idle_add(
         fn.show_in_app_notification,
         self,
-        "The new ~/.gnupg/gpg.conf has been saved",
+        _("The new ~/.gnupg/gpg.conf has been saved"),
     )
 
 
@@ -789,11 +794,11 @@ def on_click_install_arch_mirrors(self, _widget):
                 shell=True,
             ).wait()
             fn.log_success("reflector removed")
-            GLib.idle_add(fn.show_in_app_notification, self, "reflector removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("reflector removed"))
             GLib.idle_add(self.btn_run_reflector.set_sensitive, False)
-            GLib.idle_add(self.btn_install_mirrors.set_label, "Install reflector")
+            GLib.idle_add(self.btn_install_mirrors.set_label, _("Install reflector"))
 
-        GLib.idle_add(fn.show_in_app_notification, self, "Removing reflector...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Removing reflector..."))
         fn.threading.Thread(target=_remove, daemon=True).start()
     else:
         fn.log_subsection("Installing reflector...")
@@ -804,12 +809,12 @@ def on_click_install_arch_mirrors(self, _widget):
                 shell=True,
             ).wait()
             fn.log_success("reflector installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "reflector installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("reflector installed"))
             if fn.path.exists("/usr/bin/reflector"):
                 GLib.idle_add(self.btn_run_reflector.set_sensitive, True)
-                GLib.idle_add(self.btn_install_mirrors.set_label, "Remove reflector")
+                GLib.idle_add(self.btn_install_mirrors.set_label, _("Remove reflector"))
 
-        GLib.idle_add(fn.show_in_app_notification, self, "Installing reflector...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Installing reflector..."))
         fn.threading.Thread(target=_install, daemon=True).start()
 
 
@@ -823,11 +828,11 @@ def on_click_install_arch_mirrors2(self, _widget):
                 shell=True,
             ).wait()
             fn.log_success("rate-mirrors removed")
-            GLib.idle_add(fn.show_in_app_notification, self, "rate-mirrors removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("rate-mirrors removed"))
             GLib.idle_add(self.btn_run_rate_mirrors.set_sensitive, False)
-            GLib.idle_add(self.btn_install_rate_mirrors.set_label, "Install rate-mirrors")
+            GLib.idle_add(self.btn_install_rate_mirrors.set_label, _("Install rate-mirrors"))
 
-        GLib.idle_add(fn.show_in_app_notification, self, "Removing rate-mirrors...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Removing rate-mirrors..."))
         fn.threading.Thread(target=_remove, daemon=True).start()
     else:
         fn.log_subsection("Installing rate-mirrors...")
@@ -838,24 +843,24 @@ def on_click_install_arch_mirrors2(self, _widget):
                 shell=True,
             ).wait()
             fn.log_success("rate-mirrors installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "rate-mirrors installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("rate-mirrors installed"))
             if fn.path.exists("/usr/bin/rate-mirrors"):
                 GLib.idle_add(self.btn_run_rate_mirrors.set_sensitive, True)
-                GLib.idle_add(self.btn_install_rate_mirrors.set_label, "Remove rate-mirrors")
+                GLib.idle_add(self.btn_install_rate_mirrors.set_label, _("Remove rate-mirrors"))
 
-        GLib.idle_add(fn.show_in_app_notification, self, "Installing rate-mirrors...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Installing rate-mirrors..."))
         fn.threading.Thread(target=_install, daemon=True).start()
 
 
 def on_update_pacman_databases_clicked(self, _widget):
     fn.log_subsection("Updating pacman databases...")
     cmd = "alacritty -e bash -c 'sudo pacman -Sy; read -p \"Press Enter to close...\"'"
-    _run_terminal(self, cmd, "Pacman databases updated", "Updating pacman databases...")
+    _run_terminal(self, cmd, N_("Pacman databases updated"), N_("Updating pacman databases..."))
 
 
 def on_click_install_bibata_cursors(self, _widget):
     fn.log_subsection("Install Bibata Cursors")
-    GLib.idle_add(fn.show_in_app_notification, self, "Installing Bibata cursors...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Installing Bibata cursors..."))
 
     def _wait():
         fn.subprocess.Popen(
@@ -863,7 +868,7 @@ def on_click_install_bibata_cursors(self, _widget):
             shell=True,
         ).wait()
         fn.log_success("Bibata cursors installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "Bibata cursors installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Bibata cursors installed"))
         GLib.idle_add(fn.refresh_all_cursor_dropdowns, self)
 
     fn.threading.Thread(target=_wait, daemon=True).start()
@@ -873,9 +878,9 @@ def on_click_remove_bibata_cursors(self, _widget):
     fn.log_subsection("Remove Bibata Cursors")
     if not fn.check_package_installed("bibata-cursor-theme"):
         fn.log_info("bibata-cursor-theme is not installed")
-        fn.show_in_app_notification(self, "bibata-cursor-theme is not installed")
+        fn.show_in_app_notification(self, _("bibata-cursor-theme is not installed"))
         return
-    GLib.idle_add(fn.show_in_app_notification, self, "Removing Bibata cursors...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Removing Bibata cursors..."))
 
     def _wait():
         fn.subprocess.Popen(
@@ -883,7 +888,7 @@ def on_click_remove_bibata_cursors(self, _widget):
             shell=True,
         ).wait()
         fn.log_success("Bibata cursors removed")
-        GLib.idle_add(fn.show_in_app_notification, self, "Bibata cursors removed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Bibata cursors removed"))
         GLib.idle_add(fn.refresh_all_cursor_dropdowns, self)
 
     fn.threading.Thread(target=_wait, daemon=True).start()
@@ -953,22 +958,23 @@ def on_click_remove_resume_hook(self, _widget, on_success=None):
     idx, tokens = read_hooks_line()
     if idx is None:
         fn.log_warn("Could not find an active HOOKS=(...) line in /etc/mkinitcpio.conf")
-        fn.show_in_app_notification(self, "HOOKS line not found")
+        fn.show_in_app_notification(self, _("HOOKS line not found"))
         return
     if "resume" not in tokens:
         fn.log_info("'resume' hook is already absent — nothing to do")
-        fn.show_in_app_notification(self, "'resume' hook is already absent")
+        fn.show_in_app_notification(self, _("'resume' hook is already absent"))
         return
 
     real_swap = detect_real_swap()
     if real_swap:
         message = (
-            "A real swap partition is active:\n  "
-            + ", ".join(real_swap)
-            + "\n\nIf you use suspend-to-disk (hibernation), removing the 'resume' hook will break it.\n\n"
-            "Proceed anyway?"
+            _(
+                "A real swap partition is active:\n  {swap}\n\n"
+                "If you use suspend-to-disk (hibernation), removing the 'resume' hook will break it.\n\n"
+                "Proceed anyway?"
+            ).format(swap=", ".join(real_swap))
         )
-        if not fn.confirm_dialog(self, "Hibernation may be in use", message):
+        if not fn.confirm_dialog(self, _("Hibernation may be in use"), message):
             fn.log_info("Cancelled by user (real swap detected)")
             return
 
@@ -977,14 +983,14 @@ def on_click_remove_resume_hook(self, _widget, on_success=None):
         fn.log_info(f"Backup created: {MKINITCPIO_CONF}.bak")
     except Exception as error:
         fn.log_error(f"Backup failed: {error}")
-        fn.show_in_app_notification(self, f"Backup failed: {error}")
+        fn.show_in_app_notification(self, _("Backup failed: {error}").format(error=error))
         return
 
     try:
         new_tokens = _rewrite_hooks_without_resume(MKINITCPIO_CONF, idx, tokens)
     except Exception as error:
         fn.log_error(f"Rewrite failed: {error}")
-        fn.show_in_app_notification(self, f"Rewrite failed: {error}")
+        fn.show_in_app_notification(self, _("Rewrite failed: {error}").format(error=error))
         return
     fn.log_success(f"New HOOKS: ({' '.join(new_tokens)})")
 
@@ -995,8 +1001,8 @@ def on_click_remove_resume_hook(self, _widget, on_success=None):
     _run_terminal(
         self,
         cmd,
-        "Initramfs regenerated — reboot to apply",
-        "Regenerating initramfs...",
+        N_("Initramfs regenerated — reboot to apply"),
+        N_("Regenerating initramfs..."),
         on_success=on_success,
     )
 
@@ -1007,4 +1013,4 @@ def on_click_regenerate_initramfs(self, _widget):
         'alacritty -e bash -c \'sudo mkinitcpio -P; echo "";'
         ' echo "=== Done ==="; read -p "Press Enter to close..."\''
     )
-    _run_terminal(self, cmd, "Initramfs regenerated", "Regenerating initramfs...")
+    _run_terminal(self, cmd, N_("Initramfs regenerated"), N_("Regenerating initramfs..."))

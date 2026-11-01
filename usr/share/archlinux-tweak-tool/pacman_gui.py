@@ -3,6 +3,7 @@
 # ============================================================
 
 import functools
+from att_i18n import _, N_
 import pacman_functions
 import pacman
 import maintenance
@@ -65,7 +66,7 @@ def gui(self, Gtk, vboxstack1, fn):
     """Create the Pacman config editor GUI."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Pacman Config Editor")
+    lbl_title.set_text(_("Pacman Config Editor"))
     lbl_title.set_name("title")
     hbox_title.append(lbl_title)
 
@@ -76,88 +77,88 @@ def gui(self, Gtk, vboxstack1, fn):
     hbox_sep.append(hseparator)
 
     hbox_toolbar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    button_update_repos = Gtk.Button(label="Update pacman databases")
+    button_update_repos = Gtk.Button(label=_("Update pacman databases"))
     button_update_repos.connect("clicked", functools.partial(maintenance.on_update_pacman_databases_clicked, self))
     hbox_toolbar.append(button_update_repos)
 
     parallel_downloads_label = Gtk.Label(xalign=1)
-    parallel_downloads_label.set_markup(f"ParallelDownloads: {get_parallel_downloads(fn)}")
+    parallel_downloads_label.set_markup(_("ParallelDownloads: {value}").format(value=get_parallel_downloads(fn)))
     parallel_downloads_label.set_margin_start(10)
     parallel_downloads_label.set_margin_end(10)
     self.parallel_downloads_label = parallel_downloads_label
 
-    self.custom_repo = Gtk.Button(label="Apply custom repo")
+    self.custom_repo = Gtk.Button(label=_("Apply custom repo"))
     self.custom_repo.connect("clicked", functools.partial(pacman.custom_repo_clicked, self))
-    reset_pacman_local = Gtk.Button(label="Reset your pacman local")
+    reset_pacman_local = Gtk.Button(label=_("Reset your pacman local"))
     reset_pacman_local.connect("clicked", functools.partial(pacman.reset_pacman_local, self))
-    reset_pacman_online = Gtk.Button(label="Reset pacman ATT")
+    reset_pacman_online = Gtk.Button(label=_("Reset pacman ATT"))
     reset_pacman_online.connect("clicked", functools.partial(pacman.reset_pacman_online, self))
-    blank_pacman = Gtk.Button(label="Blank pacman (auto reboot) and select")
+    blank_pacman = Gtk.Button(label=_("Blank pacman (auto reboot) and select"))
     blank_pacman.connect("clicked", functools.partial(pacman.reset_pacman_blank, self))
-    edit_pacman_conf = Gtk.Button(label="Edit pacman.conf in terminal")
+    edit_pacman_conf = Gtk.Button(label=_("Edit pacman.conf in terminal"))
     edit_pacman_conf.connect("clicked", functools.partial(pacman.edit_pacman_conf_clicked, self))
 
     # ── Arch Linux repos ───────────────────────────────────────────────────
 
     frame = Gtk.Frame(label="")
     framelbl = frame.get_label_widget()
-    framelbl.set_markup("<b>Arch Linux repos</b>")
+    framelbl.set_markup(_("<b>Arch Linux repos</b>"))
 
     self.checkbutton2 = Gtk.Switch()
     self.checkbutton2.connect("notify::active", functools.partial(pacman.on_pacman_toggle1, self))
     lbl_core_testing = Gtk.Label(xalign=0)
-    lbl_core_testing.set_markup("# Enable Arch Linux core testing repo")
+    lbl_core_testing.set_markup(_("# Enable Arch Linux core testing repo"))
 
     self.checkbutton6 = Gtk.Switch()
     self.checkbutton6.connect("notify::active", functools.partial(pacman.on_pacman_toggle2, self))
     lbl_core = Gtk.Label(xalign=0)
-    lbl_core.set_markup("Enable Arch Linux core repo")
+    lbl_core.set_markup(_("Enable Arch Linux core repo"))
 
     self.checkbutton5 = Gtk.Switch()
     self.checkbutton5.connect("notify::active", functools.partial(pacman.on_pacman_toggle4, self))
     lbl_extra_testing = Gtk.Label(xalign=0)
-    lbl_extra_testing.set_markup("# Enable Arch Linux extra-testing repo")
+    lbl_extra_testing.set_markup(_("# Enable Arch Linux extra-testing repo"))
 
     self.checkbutton7 = Gtk.Switch()
     self.checkbutton7.connect("notify::active", functools.partial(pacman.on_pacman_toggle3, self))
     lbl_extra = Gtk.Label(xalign=0)
-    lbl_extra.set_markup("Enable Arch Linux extra repo")
+    lbl_extra.set_markup(_("Enable Arch Linux extra repo"))
 
     self.checkbutton3 = Gtk.Switch()
     self.checkbutton3.connect("notify::active", functools.partial(pacman.on_pacman_toggle6, self))
     lbl_multilib_testing = Gtk.Label(xalign=0)
-    lbl_multilib_testing.set_markup("# Enable Arch Linux multilib testing repo")
+    lbl_multilib_testing.set_markup(_("# Enable Arch Linux multilib testing repo"))
 
     self.checkbutton8 = Gtk.Switch()
     self.checkbutton8.connect("notify::active", functools.partial(pacman.on_pacman_toggle7, self))
     lbl_multilib = Gtk.Label(xalign=0)
-    lbl_multilib.set_markup("Enable Arch Linux multilib repo")
+    lbl_multilib.set_markup(_("Enable Arch Linux multilib repo"))
 
     # ── Other repos ────────────────────────────────────────────────────────
 
     frame2 = Gtk.Frame(label="")
     frame2lbl = frame2.get_label_widget()
-    frame2lbl.set_markup("<b>Other repos</b>")
+    frame2lbl.set_markup(_("<b>Other repos</b>"))
 
     self.nemesis_switch = Gtk.Switch()
     self.nemesis_switch.connect("notify::active", functools.partial(pacman.on_nemesis_toggle, self))
     lbl_nemesis = Gtk.Label(xalign=0)
-    lbl_nemesis.set_markup("Enable Nemesis repo")
+    lbl_nemesis.set_markup(_("Enable Nemesis repo"))
 
     self.chaotic_switch = Gtk.Switch()
     self.chaotic_switch.connect("notify::active", functools.partial(pacman.on_chaotic_toggle, self))
     label_chaotic = Gtk.Label(xalign=0)
-    label_chaotic.set_markup("Enable Chaotic-Aur repo")
+    label_chaotic.set_markup(_("Enable Chaotic-Aur repo"))
 
     self.cachyos_switch = Gtk.Switch()
     self.cachyos_switch.connect("notify::active", functools.partial(pacman.on_cachyos_toggle, self))
     lbl_cachyos = Gtk.Label(xalign=0)
-    lbl_cachyos.set_markup("Enable CachyOS repo")
+    lbl_cachyos.set_markup(_("Enable CachyOS repo"))
 
     # ── Custom repo ────────────────────────────────────────────────────────
 
     lbl_custom_repo_header = Gtk.Label(xalign=0)
-    lbl_custom_repo_header.set_markup("<b>Add custom repo to pacman.conf</b>")
+    lbl_custom_repo_header.set_markup(_("<b>Add custom repo to pacman.conf</b>"))
 
     self.textview_custom_repo = Gtk.TextView()
     self.textview_custom_repo.set_wrap_mode(Gtk.WrapMode.WORD)
@@ -324,7 +325,7 @@ def gui(self, Gtk, vboxstack1, fn):
 
     hbox_aur_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     aur_title = Gtk.Label(xalign=0)
-    aur_title.set_markup("<b>AUR Helper</b>")
+    aur_title.set_markup(_("<b>AUR Helper</b>"))
     aur_title.set_margin_start(10)
     aur_title.set_margin_end(10)
     hbox_aur_title.append(aur_title)
@@ -344,10 +345,12 @@ def gui(self, Gtk, vboxstack1, fn):
             paru_handler_id[0] = None
 
         chaotic_now = fn.check_chaotic_aur_active()
-        aur_status.set_text("Chaotic-Aur repo: " + ("enabled" if chaotic_now else "disabled"))
+        aur_status.set_text(
+            _("Chaotic-Aur repo: enabled") if chaotic_now else _("Chaotic-Aur repo: disabled")
+        )
 
         nemesis_now = pacman_functions.check_repo("[nemesis_repo]")
-        nemesis_status.set_text("Nemesis repo: " + ("enabled" if nemesis_now else "disabled"))
+        nemesis_status.set_text(_("Nemesis repo: enabled") if nemesis_now else _("Nemesis repo: disabled"))
 
         def wait_and_refresh(process, success_msg):
             if process is None:
@@ -359,28 +362,28 @@ def gui(self, Gtk, vboxstack1, fn):
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing AUR button labels")
             fn.log_success(success_msg)
-            fn.GLib.idle_add(lambda: fn.show_in_app_notification(self, success_msg))
+            fn.GLib.idle_add(lambda: fn.show_in_app_notification(self, _(success_msg)))
             fn.GLib.idle_add(refresh_aur_buttons)
             fn.GLib.idle_add(getattr(self, "refresh_software_aur_labels", lambda: None))
 
         if fn.path.exists("/usr/bin/yay"):
-            btn_aur_yay.set_label("Remove yay-git")
+            btn_aur_yay.set_label(_("Remove yay-git"))
             yay_handler_id[0] = btn_aur_yay.connect(
                 "clicked",
                 lambda w: fn.threading.Thread(
                     target=wait_and_refresh,
-                    args=(pacman_functions.remove_aur_helper(self, "yay"), "yay-git removed"),
+                    args=(pacman_functions.remove_aur_helper(self, "yay"), N_("yay-git removed")),
                     daemon=True,
                 ).start(),
             )
         else:
-            btn_aur_yay.set_label("Install yay-git")
+            btn_aur_yay.set_label(_("Install yay-git"))
             if chaotic_now:
                 yay_handler_id[0] = btn_aur_yay.connect(
                     "clicked",
                     lambda w: fn.threading.Thread(
                         target=wait_and_refresh,
-                        args=(pacman_functions.install_yay_pacman(self), "yay-git installed"),
+                        args=(pacman_functions.install_yay_pacman(self), N_("yay-git installed")),
                         daemon=True,
                     ).start(),
                 )
@@ -389,29 +392,29 @@ def gui(self, Gtk, vboxstack1, fn):
                     "clicked",
                     lambda w: fn.threading.Thread(
                         target=wait_and_refresh,
-                        args=(pacman_functions.install_yay_git(self), "yay-git installed"),
+                        args=(pacman_functions.install_yay_git(self), N_("yay-git installed")),
                         daemon=True,
                     ).start(),
                 )
 
         if fn.path.exists("/usr/bin/paru"):
-            btn_aur_paru.set_label("Remove paru-git")
+            btn_aur_paru.set_label(_("Remove paru-git"))
             paru_handler_id[0] = btn_aur_paru.connect(
                 "clicked",
                 lambda w: fn.threading.Thread(
                     target=wait_and_refresh,
-                    args=(pacman_functions.remove_aur_helper(self, "paru"), "paru-git removed"),
+                    args=(pacman_functions.remove_aur_helper(self, "paru"), N_("paru-git removed")),
                     daemon=True,
                 ).start(),
             )
         else:
-            btn_aur_paru.set_label("Install paru-git")
+            btn_aur_paru.set_label(_("Install paru-git"))
             if chaotic_now:
                 paru_handler_id[0] = btn_aur_paru.connect(
                     "clicked",
                     lambda w: fn.threading.Thread(
                         target=wait_and_refresh,
-                        args=(pacman_functions.install_paru_pacman(self), "paru-git installed"),
+                        args=(pacman_functions.install_paru_pacman(self), N_("paru-git installed")),
                         daemon=True,
                     ).start(),
                 )
@@ -420,7 +423,7 @@ def gui(self, Gtk, vboxstack1, fn):
                     "clicked",
                     lambda w: fn.threading.Thread(
                         target=wait_and_refresh,
-                        args=(pacman_functions.install_paru_git(self), "paru-git installed"),
+                        args=(pacman_functions.install_paru_git(self), N_("paru-git installed")),
                         daemon=True,
                     ).start(),
                 )

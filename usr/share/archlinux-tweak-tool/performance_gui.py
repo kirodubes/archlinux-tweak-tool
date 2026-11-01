@@ -3,6 +3,7 @@
 # ============================================================
 
 import functools
+from att_i18n import _
 
 
 def _refresh(self, fn):
@@ -16,34 +17,34 @@ def _refresh(self, fn):
 
     def _apply(irq_ok, ananicy_ok, rules_ok, gm_ok, pl_ok):
         if irq_ok:
-            self.irqbalance_package_label.set_markup("irqbalance package is <b>installed</b>")
+            self.irqbalance_package_label.set_markup(_("irqbalance package is <b>installed</b>"))
         else:
-            self.irqbalance_package_label.set_text("Install irqbalance")
+            self.irqbalance_package_label.set_text(_("Install irqbalance"))
         self.enable_irqbalance.set_sensitive(irq_ok)
         self.disable_irqbalance.set_sensitive(irq_ok)
 
         if ananicy_ok and rules_ok:
-            self.ananicy_package_label.set_markup("ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>")
+            self.ananicy_package_label.set_markup(_("ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>"))
         elif ananicy_ok:
             self.ananicy_package_label.set_markup(
-                "ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)"
+                _("ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)")
             )
         else:
-            self.ananicy_package_label.set_text("Install ananicy-cpp and cachyos-ananicy-rules-git")
+            self.ananicy_package_label.set_text(_("Install ananicy-cpp and cachyos-ananicy-rules-git"))
         self.enable_ananicy.set_sensitive(ananicy_ok)
         self.disable_ananicy.set_sensitive(ananicy_ok)
 
         if gm_ok:
-            self.gamemode_package_label.set_markup("gamemode package is <b>installed</b>")
+            self.gamemode_package_label.set_markup(_("gamemode package is <b>installed</b>"))
         else:
-            self.gamemode_package_label.set_text("Install gamemode")
+            self.gamemode_package_label.set_text(_("Install gamemode"))
         self.enable_gamemode.set_sensitive(gm_ok)
         self.disable_gamemode.set_sensitive(gm_ok)
 
         if pl_ok:
-            self.preload_package_label.set_markup("preload package is <b>installed</b>")
+            self.preload_package_label.set_markup(_("preload package is <b>installed</b>"))
         else:
-            self.preload_package_label.set_text("Install preload")
+            self.preload_package_label.set_text(_("Install preload"))
         self.enable_preload.set_sensitive(pl_ok)
         self.disable_preload.set_sensitive(pl_ok)
 
@@ -54,7 +55,7 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     """Create the performance configuration GUI."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Performance")
+    hbox_title_label.set_text(_("Performance"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -92,7 +93,7 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_tuned_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_tuned_title_label = Gtk.Label(xalign=0)
-    hbox_tuned_title_label.set_markup("<b>Tuned</b>")
+    hbox_tuned_title_label.set_markup(_("<b>Tuned</b>"))
     hbox_tuned_title_label.set_margin_start(10)
     hbox_tuned_title_label.set_margin_end(10)
     hbox_tuned_title.append(hbox_tuned_title_label)
@@ -100,10 +101,10 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     hbox_tuned_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_tuned_desc_label = Gtk.Label(xalign=0)
     hbox_tuned_desc_label.set_markup(
-        "<b>Tuned</b> - Dynamic system tuning for power management\n"
+        _("<b>Tuned</b> - Dynamic system tuning for power management\n"
         "<b>Tuned-PPD</b> - Power Profiles Daemon integration for desktop environments\n"
         "If <b>TLP</b> is installed, it will be disabled when Tuned is enabled (they conflict).\n"
-        "If <b>power-profiles-daemon</b> is installed, it will be removed before installing Tuned-PPD (they conflict)."
+        "If <b>power-profiles-daemon</b> is installed, it will be removed before installing Tuned-PPD (they conflict).")
     )
     hbox_tuned_desc_label.set_margin_start(10)
     hbox_tuned_desc_label.set_margin_end(10)
@@ -112,17 +113,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     # ── tuned: package row ─────────────────────────────────────────────────
     hbox_tuned_pkg = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_package_label = Gtk.Label(xalign=0)
-    self.tuned_package_label.set_text("tuned is not installed")
+    self.tuned_package_label.set_text(_("tuned is not installed"))
     self.tuned_package_label.set_margin_start(10)
     self.tuned_package_label.set_margin_end(10)
     self.tuned_package_label.set_hexpand(True)
     hbox_tuned_pkg.append(self.tuned_package_label)
-    self.btn_install_tuned = Gtk.Button(label="Install tuned")
+    self.btn_install_tuned = Gtk.Button(label=_("Install tuned"))
     self.btn_install_tuned.connect("clicked", functools.partial(performance.install_tuned, self))
     self.btn_install_tuned.set_margin_start(10)
     self.btn_install_tuned.set_margin_end(10)
     hbox_tuned_pkg.append(self.btn_install_tuned)
-    self.btn_remove_tuned = Gtk.Button(label="Remove tuned")
+    self.btn_remove_tuned = Gtk.Button(label=_("Remove tuned"))
     self.btn_remove_tuned.connect("clicked", functools.partial(performance.remove_tuned, self))
     self.btn_remove_tuned.set_margin_start(10)
     self.btn_remove_tuned.set_margin_end(10)
@@ -131,22 +132,22 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     # ── tuned: service row ─────────────────────────────────────────────────
     hbox_tuned_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_status_label = Gtk.Label(xalign=0)
-    self.tuned_status_label.set_markup("tuned service : …")
+    self.tuned_status_label.set_markup(_("tuned service : …"))
     self.tuned_status_label.set_margin_start(10)
     self.tuned_status_label.set_margin_end(10)
     self.tuned_status_label.set_hexpand(True)
     hbox_tuned_service.append(self.tuned_status_label)
-    self.enable_tuned = Gtk.Button(label="Enable tuned")
+    self.enable_tuned = Gtk.Button(label=_("Enable tuned"))
     self.enable_tuned.connect("clicked", functools.partial(performance.enable_tuned, self))
     self.enable_tuned.set_margin_start(10)
     self.enable_tuned.set_margin_end(10)
     hbox_tuned_service.append(self.enable_tuned)
-    self.disable_tuned = Gtk.Button(label="Disable tuned")
+    self.disable_tuned = Gtk.Button(label=_("Disable tuned"))
     self.disable_tuned.connect("clicked", functools.partial(performance.disable_tuned, self))
     self.disable_tuned.set_margin_start(10)
     self.disable_tuned.set_margin_end(10)
     hbox_tuned_service.append(self.disable_tuned)
-    self.restart_tuned = Gtk.Button(label="Restart tuned")
+    self.restart_tuned = Gtk.Button(label=_("Restart tuned"))
     self.restart_tuned.connect("clicked", functools.partial(performance.restart_tuned_service, self))
     self.restart_tuned.set_margin_start(10)
     self.restart_tuned.set_margin_end(10)
@@ -155,17 +156,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     # ── tuned-ppd: package row ─────────────────────────────────────────────
     hbox_tuned_ppd_pkg = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_ppd_package_label = Gtk.Label(xalign=0)
-    self.tuned_ppd_package_label.set_text("tuned-ppd is not installed")
+    self.tuned_ppd_package_label.set_text(_("tuned-ppd is not installed"))
     self.tuned_ppd_package_label.set_margin_start(10)
     self.tuned_ppd_package_label.set_margin_end(10)
     self.tuned_ppd_package_label.set_hexpand(True)
     hbox_tuned_ppd_pkg.append(self.tuned_ppd_package_label)
-    self.btn_install_tuned_ppd = Gtk.Button(label="Install tuned-ppd")
+    self.btn_install_tuned_ppd = Gtk.Button(label=_("Install tuned-ppd"))
     self.btn_install_tuned_ppd.connect("clicked", functools.partial(performance.install_tuned_ppd, self))
     self.btn_install_tuned_ppd.set_margin_start(10)
     self.btn_install_tuned_ppd.set_margin_end(10)
     hbox_tuned_ppd_pkg.append(self.btn_install_tuned_ppd)
-    self.btn_remove_tuned_ppd = Gtk.Button(label="Remove tuned-ppd")
+    self.btn_remove_tuned_ppd = Gtk.Button(label=_("Remove tuned-ppd"))
     self.btn_remove_tuned_ppd.connect("clicked", functools.partial(performance.remove_tuned_ppd, self))
     self.btn_remove_tuned_ppd.set_margin_start(10)
     self.btn_remove_tuned_ppd.set_margin_end(10)
@@ -174,22 +175,22 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     # ── tuned-ppd: service row ─────────────────────────────────────────────
     hbox_tuned_ppd_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_ppd_status_label = Gtk.Label(xalign=0)
-    self.tuned_ppd_status_label.set_markup("tuned-ppd service : …")
+    self.tuned_ppd_status_label.set_markup(_("tuned-ppd service : …"))
     self.tuned_ppd_status_label.set_margin_start(10)
     self.tuned_ppd_status_label.set_margin_end(10)
     self.tuned_ppd_status_label.set_hexpand(True)
     hbox_tuned_ppd_service.append(self.tuned_ppd_status_label)
-    self.enable_tuned_ppd = Gtk.Button(label="Enable tuned-ppd")
+    self.enable_tuned_ppd = Gtk.Button(label=_("Enable tuned-ppd"))
     self.enable_tuned_ppd.connect("clicked", functools.partial(performance.enable_tuned_ppd, self))
     self.enable_tuned_ppd.set_margin_start(10)
     self.enable_tuned_ppd.set_margin_end(10)
     hbox_tuned_ppd_service.append(self.enable_tuned_ppd)
-    self.disable_tuned_ppd = Gtk.Button(label="Disable tuned-ppd")
+    self.disable_tuned_ppd = Gtk.Button(label=_("Disable tuned-ppd"))
     self.disable_tuned_ppd.connect("clicked", functools.partial(performance.disable_tuned_ppd, self))
     self.disable_tuned_ppd.set_margin_start(10)
     self.disable_tuned_ppd.set_margin_end(10)
     hbox_tuned_ppd_service.append(self.disable_tuned_ppd)
-    self.restart_tuned_ppd = Gtk.Button(label="Restart tuned-ppd")
+    self.restart_tuned_ppd = Gtk.Button(label=_("Restart tuned-ppd"))
     self.restart_tuned_ppd.connect("clicked", functools.partial(performance.restart_tuned_ppd_service, self))
     self.restart_tuned_ppd.set_margin_start(10)
     self.restart_tuned_ppd.set_margin_end(10)
@@ -197,7 +198,7 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_tuned_profile_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_profile_status_label = Gtk.Label(xalign=0)
-    self.tuned_profile_status_label.set_markup("Active tuned profile : …")
+    self.tuned_profile_status_label.set_markup(_("Active tuned profile : …"))
     self.tuned_profile_status_label.set_margin_start(10)
     self.tuned_profile_status_label.set_margin_end(10)
     self.tuned_profile_status_label.set_hexpand(True)
@@ -205,10 +206,10 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_tuned_profile_select = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.tuned_profile_choices = Gtk.DropDown.new_from_strings([])
-    self.btn_apply_tuned_profile = Gtk.Button(label="Apply Profile")
+    self.btn_apply_tuned_profile = Gtk.Button(label=_("Apply Profile"))
     self.btn_apply_tuned_profile.connect("clicked", functools.partial(performance.apply_tuned_profile, self))
     hbox_tuned_profile_select_label = Gtk.Label(xalign=0)
-    hbox_tuned_profile_select_label.set_text("Select profile:")
+    hbox_tuned_profile_select_label.set_text(_("Select profile:"))
     hbox_tuned_profile_select_label.set_margin_start(10)
     hbox_tuned_profile_select_label.set_margin_end(10)
     hbox_tuned_profile_select.append(hbox_tuned_profile_select_label)
@@ -237,22 +238,22 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_swap_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_swap_title_label = Gtk.Label(xalign=0)
-    hbox_swap_title_label.set_markup("<b>Swap Management</b>")
+    hbox_swap_title_label.set_markup(_("<b>Swap Management</b>"))
     hbox_swap_title_label.set_margin_start(10)
     hbox_swap_title_label.set_margin_end(10)
     hbox_swap_title.append(hbox_swap_title_label)
 
     hbox_swapfile = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.swapfile_label = Gtk.Label(xalign=0)
-    self.swapfile_label.set_text("Create or manage a swapfile at /swapfile")
+    self.swapfile_label.set_text(_("Create or manage a swapfile at /swapfile"))
     self.swapfile_label.set_margin_start(10)
     self.swapfile_label.set_margin_end(10)
     self.swapfile_label.set_hexpand(True)
     self.swapfile_size = Gtk.DropDown.new_from_strings(["1G", "2G", "4G", "8G", "16G", "32G"])
     self.swapfile_size.set_selected(1)
-    btn_create_swapfile = Gtk.Button(label="Create")
+    btn_create_swapfile = Gtk.Button(label=_("Create"))
     btn_create_swapfile.connect("clicked", functools.partial(performance.create_swapfile, self))
-    btn_remove_swapfile = Gtk.Button(label="Remove")
+    btn_remove_swapfile = Gtk.Button(label=_("Remove"))
     btn_remove_swapfile.connect("clicked", functools.partial(performance.remove_swapfile, self))
     hbox_swapfile.append(self.swapfile_label)
     self.swapfile_size.set_margin_start(10)
@@ -267,15 +268,15 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_zram = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.zram_status_label = Gtk.Label(xalign=0)
-    self.zram_status_label.set_markup("zram : …")
+    self.zram_status_label.set_markup(_("zram : …"))
     self.zram_status_label.set_margin_start(10)
     self.zram_status_label.set_margin_end(10)
     self.zram_status_label.set_hexpand(True)
     self.zram_size = Gtk.DropDown.new_from_strings(["ram / 4", "ram / 2", "ram * 3 / 4", "ram", "1024", "2048", "4096"])
     self.zram_size.set_selected(1)
-    btn_enable_zram = Gtk.Button(label="Enable")
+    btn_enable_zram = Gtk.Button(label=_("Enable"))
     btn_enable_zram.connect("clicked", functools.partial(performance.enable_zram, self))
-    btn_disable_zram = Gtk.Button(label="Disable")
+    btn_disable_zram = Gtk.Button(label=_("Disable"))
     btn_disable_zram.connect("clicked", functools.partial(performance.disable_zram, self))
     hbox_zram.append(self.zram_status_label)
     self.zram_size.set_margin_start(10)
@@ -297,20 +298,20 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_fstrim_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_fstrim_title_label = Gtk.Label(xalign=0)
-    hbox_fstrim_title_label.set_markup("<b>SSD/NVMe TRIM</b>")
+    hbox_fstrim_title_label.set_markup(_("<b>SSD/NVMe TRIM</b>"))
     hbox_fstrim_title_label.set_margin_start(10)
     hbox_fstrim_title_label.set_margin_end(10)
     hbox_fstrim_title.append(hbox_fstrim_title_label)
 
     hbox_fstrim = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.fstrim_status_label = Gtk.Label(xalign=0)
-    self.fstrim_status_label.set_markup("fstrim.timer : …")
+    self.fstrim_status_label.set_markup(_("fstrim.timer : …"))
     self.fstrim_status_label.set_margin_start(10)
     self.fstrim_status_label.set_margin_end(10)
     self.fstrim_status_label.set_hexpand(True)
-    btn_enable_fstrim = Gtk.Button(label="Enable fstrim.timer")
+    btn_enable_fstrim = Gtk.Button(label=_("Enable fstrim.timer"))
     btn_enable_fstrim.connect("clicked", functools.partial(performance.enable_fstrim_timer, self))
-    btn_disable_fstrim = Gtk.Button(label="Disable")
+    btn_disable_fstrim = Gtk.Button(label=_("Disable"))
     btn_disable_fstrim.connect("clicked", functools.partial(performance.disable_fstrim_timer, self))
     hbox_fstrim.append(self.fstrim_status_label)
     btn_enable_fstrim.set_margin_start(10)
@@ -329,17 +330,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_irqbalance_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_irqbalance_title_label = Gtk.Label(xalign=0)
-    hbox_irqbalance_title_label.set_markup("<b>IRQ Balancing</b>")
+    hbox_irqbalance_title_label.set_markup(_("<b>IRQ Balancing</b>"))
     hbox_irqbalance_title_label.set_margin_start(10)
     hbox_irqbalance_title_label.set_margin_end(10)
     hbox_irqbalance_title.append(hbox_irqbalance_title_label)
 
     hbox_irqbalance_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.irqbalance_package_label = Gtk.Label(xalign=0)
-    self.irqbalance_package_label.set_text("Install irqbalance")
-    btn_install_irqbalance = Gtk.Button(label="Install irqbalance")
+    self.irqbalance_package_label.set_text(_("Install irqbalance"))
+    btn_install_irqbalance = Gtk.Button(label=_("Install irqbalance"))
     btn_install_irqbalance.connect("clicked", functools.partial(performance.install_irqbalance, self))
-    btn_remove_irqbalance = Gtk.Button(label="Remove irqbalance")
+    btn_remove_irqbalance = Gtk.Button(label=_("Remove irqbalance"))
     btn_remove_irqbalance.connect("clicked", functools.partial(performance.remove_irqbalance, self))
     self.irqbalance_package_label.set_margin_start(10)
     self.irqbalance_package_label.set_margin_end(10)
@@ -354,13 +355,13 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_irqbalance_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.irqbalance_status_label = Gtk.Label(xalign=0)
-    self.irqbalance_status_label.set_markup("irqbalance service : …")
+    self.irqbalance_status_label.set_markup(_("irqbalance service : …"))
     self.irqbalance_status_label.set_margin_start(10)
     self.irqbalance_status_label.set_margin_end(10)
     self.irqbalance_status_label.set_hexpand(True)
-    self.enable_irqbalance = Gtk.Button(label="Enable irqbalance")
+    self.enable_irqbalance = Gtk.Button(label=_("Enable irqbalance"))
     self.enable_irqbalance.connect("clicked", functools.partial(performance.enable_irqbalance_service, self))
-    self.disable_irqbalance = Gtk.Button(label="Disable irqbalance")
+    self.disable_irqbalance = Gtk.Button(label=_("Disable irqbalance"))
     self.disable_irqbalance.connect("clicked", functools.partial(performance.disable_irqbalance_service, self))
     hbox_irqbalance_service.append(self.irqbalance_status_label)
     self.enable_irqbalance.set_margin_start(10)
@@ -382,17 +383,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_ananicy_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_ananicy_title_label = Gtk.Label(xalign=0)
-    hbox_ananicy_title_label.set_markup("<b>Ananicy</b>")
+    hbox_ananicy_title_label.set_markup(_("<b>Ananicy</b>"))
     hbox_ananicy_title_label.set_margin_start(10)
     hbox_ananicy_title_label.set_margin_end(10)
     hbox_ananicy_title.append(hbox_ananicy_title_label)
 
     hbox_ananicy_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.ananicy_package_label = Gtk.Label(xalign=0)
-    self.ananicy_package_label.set_text("Install ananicy-cpp and cachyos-ananicy-rules-git")
-    btn_install_ananicy = Gtk.Button(label="Install")
+    self.ananicy_package_label.set_text(_("Install ananicy-cpp and cachyos-ananicy-rules-git"))
+    btn_install_ananicy = Gtk.Button(label=_("Install"))
     btn_install_ananicy.connect("clicked", functools.partial(performance.install_ananicy, self))
-    btn_remove_ananicy = Gtk.Button(label="Remove")
+    btn_remove_ananicy = Gtk.Button(label=_("Remove"))
     btn_remove_ananicy.connect("clicked", functools.partial(performance.remove_ananicy, self))
     self.ananicy_package_label.set_margin_start(10)
     self.ananicy_package_label.set_margin_end(10)
@@ -407,13 +408,13 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_ananicy_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.ananicy_status_label = Gtk.Label(xalign=0)
-    self.ananicy_status_label.set_markup("ananicy-cpp service : …")
+    self.ananicy_status_label.set_markup(_("ananicy-cpp service : …"))
     self.ananicy_status_label.set_margin_start(10)
     self.ananicy_status_label.set_margin_end(10)
     self.ananicy_status_label.set_hexpand(True)
-    self.enable_ananicy = Gtk.Button(label="Enable ananicy-cpp")
+    self.enable_ananicy = Gtk.Button(label=_("Enable ananicy-cpp"))
     self.enable_ananicy.connect("clicked", functools.partial(performance.enable_ananicy_service, self))
-    self.disable_ananicy = Gtk.Button(label="Disable ananicy-cpp")
+    self.disable_ananicy = Gtk.Button(label=_("Disable ananicy-cpp"))
     self.disable_ananicy.connect("clicked", functools.partial(performance.disable_ananicy_service, self))
     hbox_ananicy_service.append(self.ananicy_status_label)
     self.enable_ananicy.set_margin_start(10)
@@ -435,17 +436,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_gamemode_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_gamemode_title_label = Gtk.Label(xalign=0)
-    hbox_gamemode_title_label.set_markup("<b>GameMode</b>")
+    hbox_gamemode_title_label.set_markup(_("<b>GameMode</b>"))
     hbox_gamemode_title_label.set_margin_start(10)
     hbox_gamemode_title_label.set_margin_end(10)
     hbox_gamemode_title.append(hbox_gamemode_title_label)
 
     hbox_gamemode_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.gamemode_package_label = Gtk.Label(xalign=0)
-    self.gamemode_package_label.set_text("Install gamemode")
-    btn_install_gamemode = Gtk.Button(label="Install")
+    self.gamemode_package_label.set_text(_("Install gamemode"))
+    btn_install_gamemode = Gtk.Button(label=_("Install"))
     btn_install_gamemode.connect("clicked", functools.partial(performance.install_gamemode, self))
-    btn_remove_gamemode = Gtk.Button(label="Remove")
+    btn_remove_gamemode = Gtk.Button(label=_("Remove"))
     btn_remove_gamemode.connect("clicked", functools.partial(performance.remove_gamemode, self))
     self.gamemode_package_label.set_margin_start(10)
     self.gamemode_package_label.set_margin_end(10)
@@ -460,13 +461,13 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_gamemode_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.gamemode_status_label = Gtk.Label(xalign=0)
-    self.gamemode_status_label.set_markup("gamemode service : …")
+    self.gamemode_status_label.set_markup(_("gamemode service : …"))
     self.gamemode_status_label.set_margin_start(10)
     self.gamemode_status_label.set_margin_end(10)
     self.gamemode_status_label.set_hexpand(True)
-    self.enable_gamemode = Gtk.Button(label="Enable gamemode")
+    self.enable_gamemode = Gtk.Button(label=_("Enable gamemode"))
     self.enable_gamemode.connect("clicked", functools.partial(performance.enable_gamemode_service, self))
-    self.disable_gamemode = Gtk.Button(label="Disable gamemode")
+    self.disable_gamemode = Gtk.Button(label=_("Disable gamemode"))
     self.disable_gamemode.connect("clicked", functools.partial(performance.disable_gamemode_service, self))
     hbox_gamemode_service.append(self.gamemode_status_label)
     self.enable_gamemode.set_margin_start(10)
@@ -488,17 +489,17 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_preload_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_preload_title_label = Gtk.Label(xalign=0)
-    hbox_preload_title_label.set_markup("<b>Preload</b>")
+    hbox_preload_title_label.set_markup(_("<b>Preload</b>"))
     hbox_preload_title_label.set_margin_start(10)
     hbox_preload_title_label.set_margin_end(10)
     hbox_preload_title.append(hbox_preload_title_label)
 
     hbox_preload_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.preload_package_label = Gtk.Label(xalign=0)
-    self.preload_package_label.set_text("Install preload")
-    btn_install_preload = Gtk.Button(label="Install")
+    self.preload_package_label.set_text(_("Install preload"))
+    btn_install_preload = Gtk.Button(label=_("Install"))
     btn_install_preload.connect("clicked", functools.partial(performance.install_preload, self))
-    btn_remove_preload = Gtk.Button(label="Remove")
+    btn_remove_preload = Gtk.Button(label=_("Remove"))
     btn_remove_preload.connect("clicked", functools.partial(performance.remove_preload, self))
     self.preload_package_label.set_margin_start(10)
     self.preload_package_label.set_margin_end(10)
@@ -513,13 +514,13 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_preload_service = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.preload_status_label = Gtk.Label(xalign=0)
-    self.preload_status_label.set_markup("preload service : …")
+    self.preload_status_label.set_markup(_("preload service : …"))
     self.preload_status_label.set_margin_start(10)
     self.preload_status_label.set_margin_end(10)
     self.preload_status_label.set_hexpand(True)
-    self.enable_preload = Gtk.Button(label="Enable preload")
+    self.enable_preload = Gtk.Button(label=_("Enable preload"))
     self.enable_preload.connect("clicked", functools.partial(performance.enable_preload_service, self))
-    self.disable_preload = Gtk.Button(label="Disable preload")
+    self.disable_preload = Gtk.Button(label=_("Disable preload"))
     self.disable_preload.connect("clicked", functools.partial(performance.disable_preload_service, self))
     hbox_preload_service.append(self.preload_status_label)
     self.enable_preload.set_margin_start(10)
@@ -541,7 +542,7 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_makepkg_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_makepkg_title_label = Gtk.Label(xalign=0)
-    hbox_makepkg_title_label.set_markup("<b>Build Settings (makepkg.conf)</b>")
+    hbox_makepkg_title_label.set_markup(_("<b>Build Settings (makepkg.conf)</b>"))
     hbox_makepkg_title_label.set_margin_start(10)
     hbox_makepkg_title_label.set_margin_end(10)
     hbox_makepkg_title.append(hbox_makepkg_title_label)
@@ -549,9 +550,9 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     hbox_makepkg_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_makepkg_desc_label = Gtk.Label(xalign=0)
     hbox_makepkg_desc_label.set_markup(
-        "Set <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt> — all cores for max build speed, "
+        _("Set <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt> — all cores for max build speed, "
         "or keep 2 free to stay responsive while building.\n"
-        "ATT writes <tt>/etc/makepkg.conf-bak</tt> at startup — Restore brings it back."
+        "ATT writes <tt>/etc/makepkg.conf-bak</tt> at startup — Restore brings it back.")
     )
     hbox_makepkg_desc_label.set_margin_start(10)
     hbox_makepkg_desc_label.set_margin_end(10)
@@ -559,26 +560,26 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
 
     hbox_makepkg_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.makepkg_status_label = Gtk.Label(xalign=0)
-    self.makepkg_status_label.set_markup("MAKEFLAGS : …")
+    self.makepkg_status_label.set_markup(_("MAKEFLAGS : …"))
     self.makepkg_status_label.set_margin_start(10)
     self.makepkg_status_label.set_margin_end(10)
     self.makepkg_status_label.set_hexpand(True)
     hbox_makepkg_status.append(self.makepkg_status_label)
 
     ncores_detected = performance.get_makepkg_status()[1]
-    btn_optimize_makepkg = Gtk.Button(label=f"Optimize for all {ncores_detected} cores")
+    btn_optimize_makepkg = Gtk.Button(label=_("Optimize for all {ncores_detected} cores").format(ncores_detected=ncores_detected))
     btn_optimize_makepkg.connect("clicked", functools.partial(performance.optimize_makepkg, self))
     # Second button only makes sense with enough cores to genuinely keep 2 free.
     btn_reserve_makepkg = None
     if ncores_detected >= 4:
-        btn_reserve_makepkg = Gtk.Button(label=f"Keep 2 cores free (-j{ncores_detected - 2})")
+        btn_reserve_makepkg = Gtk.Button(label=_("Keep 2 cores free (-j{value})").format(value=ncores_detected - 2))
         btn_reserve_makepkg.set_tooltip_text(
-            "Build with 2 cores reserved so the desktop and mouse stay responsive"
+            _("Build with 2 cores reserved so the desktop and mouse stay responsive")
         )
         btn_reserve_makepkg.connect("clicked", functools.partial(performance.optimize_makepkg, self, reserved=2))
-    btn_edit_makepkg = Gtk.Button(label="Edit makepkg.conf in terminal")
+    btn_edit_makepkg = Gtk.Button(label=_("Edit makepkg.conf in terminal"))
     btn_edit_makepkg.connect("clicked", functools.partial(performance.edit_makepkg_conf, self))
-    self.btn_restore_makepkg = Gtk.Button(label="Restore backup")
+    self.btn_restore_makepkg = Gtk.Button(label=_("Restore backup"))
     self.btn_restore_makepkg.connect("clicked", functools.partial(performance.restore_makepkg, self))
 
     hbox_makepkg_buttons = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -640,10 +641,10 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
     vboxstack_storage.append(hbox_fstrim)
 
     # ── Pack sub-tabs into Stack + StackSwitcher ───────────────────────────
-    stack.add_titled(vboxstack_build, "stack_build", "Build")
-    stack.add_titled(vboxstack_power, "stack_power", "Power")
-    stack.add_titled(vboxstack_responsiveness, "stack_responsiveness", "Responsiveness")
-    stack.add_titled(vboxstack_storage, "stack_storage", "Storage & Memory")
+    stack.add_titled(vboxstack_build, "stack_build", _("Build"))
+    stack.add_titled(vboxstack_power, "stack_power", _("Power"))
+    stack.add_titled(vboxstack_responsiveness, "stack_responsiveness", _("Responsiveness"))
+    stack.add_titled(vboxstack_storage, "stack_storage", _("Storage & Memory"))
     stack.set_visible_child_name("stack_build")
     stack.set_hexpand(True)
     stack.set_vexpand(True)
@@ -681,9 +682,11 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
         _refresh(self, fn)
         performance.refresh_tuned_package_label(self)
         performance.refresh_tuned_buttons(self)
-        self.tuned_status_label.set_markup("tuned service : " + performance.get_service_status("tuned"))
+        self.tuned_status_label.set_markup(
+            _("tuned service : {status}").format(status=performance.get_service_status("tuned"))
+        )
         self.tuned_ppd_status_label.set_markup(
-            "tuned-ppd service : " + performance.get_service_status("tuned-ppd")
+            _("tuned-ppd service : {status}").format(status=performance.get_service_status("tuned-ppd"))
         )
         self.tuned_profile_status_label.set_markup(performance.get_tuned_profile_status_markup())
         performance.refresh_tuned_profile_choices(self)
@@ -705,10 +708,10 @@ def gui(self, Gtk, vboxstack_performance, performance, fn):
         _swapfile_size = performance.get_swapfile_size_label()
         if _swapfile_size:
             self.swapfile_label.set_markup(
-                "Create or manage a swapfile at /swapfile - " + _swapfile_size + " <b>present</b>"
+                _("Create or manage a swapfile at /swapfile - {size} <b>present</b>").format(size=_swapfile_size)
             )
         else:
-            self.swapfile_label.set_text("Create or manage a swapfile at /swapfile")
+            self.swapfile_label.set_text(_("Create or manage a swapfile at /swapfile"))
         self.zram_status_label.set_markup(performance.get_zram_status_markup())
         self.fstrim_status_label.set_markup(performance.get_fstrim_status_markup())
 

@@ -3,6 +3,7 @@
 # ============================================================
 
 import os
+from att_i18n import _
 import pwd
 import re
 
@@ -30,7 +31,7 @@ fstrim_service = "fstrim.service"
 def get_service_status(service):
     """Return a status label that includes enabled oneshot services."""
     if fn.check_service(service):
-        return "<b>enabled</b>"
+        return _("<b>enabled</b>")
 
     try:
         output = fn.subprocess.run(
@@ -42,20 +43,22 @@ def get_service_status(service):
         )
         status = output.stdout.decode().strip()
         if status == "enabled":
-            return "<b>enabled</b>"
+            return _("<b>enabled</b>")
         if status:
             return status
     except Exception as error:
         fn.debug_print(error)
 
-    return "disabled"
+    return _("disabled")
 
 
 def get_tuned_status_markup():
     """Build the tuned block status label text."""
     tuned_status = get_service_status("tuned")
     tuned_ppd_status = get_service_status("tuned-ppd")
-    return "Tuned service : " + tuned_status + "   Tuned-PPD service : " + tuned_ppd_status
+    return _("Tuned service : {tuned}   Tuned-PPD service : {tuned_ppd}").format(
+        tuned=tuned_status, tuned_ppd=tuned_ppd_status
+    )
 
 
 def refresh_tuned_status_label(self):
@@ -63,12 +66,12 @@ def refresh_tuned_status_label(self):
     if hasattr(self, "tuned_status_label"):
         GLib.idle_add(
             self.tuned_status_label.set_markup,
-            "tuned service : " + get_service_status("tuned"),
+            _("tuned service : {status}").format(status=get_service_status("tuned")),
         )
     if hasattr(self, "tuned_ppd_status_label"):
         GLib.idle_add(
             self.tuned_ppd_status_label.set_markup,
-            "tuned-ppd service : " + get_service_status("tuned-ppd"),
+            _("tuned-ppd service : {status}").format(status=get_service_status("tuned-ppd")),
         )
 
 
@@ -87,7 +90,7 @@ def install_tuned(self, _widget):
     """Install the tuned package and enable tuned.service."""
     if fn.check_package_installed(TUNED_PACKAGE):
         fn.log_info(f"{TUNED_PACKAGE} is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PACKAGE} is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_package} is already installed").format(tuned_package=TUNED_PACKAGE))
         return
     fn.log_subsection("Install tuned")
 
@@ -130,13 +133,13 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed(TUNED_PACKAGE):
                 fn.log_success(f"{TUNED_PACKAGE} installed and enabled")
-                GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PACKAGE} installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_package} installed").format(tuned_package=TUNED_PACKAGE))
             else:
                 fn.log_warn(f"{TUNED_PACKAGE} installation did not complete")
                 GLib.idle_add(
                     fn.show_in_app_notification,
                     self,
-                    f"{TUNED_PACKAGE} installation failed or was cancelled",
+                    _("{package} installation failed or was cancelled").format(package=TUNED_PACKAGE),
                 )
             GLib.idle_add(refresh_tuned_package_label, self)
             GLib.idle_add(refresh_tuned_buttons, self)
@@ -152,12 +155,15 @@ def remove_tuned(self, _widget):
     """Remove the tuned package. Refuses if tuned-ppd is installed (depends on tuned)."""
     if not fn.check_package_installed(TUNED_PACKAGE):
         fn.log_info(f"{TUNED_PACKAGE} is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PACKAGE} is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_package} is not installed").format(tuned_package=TUNED_PACKAGE))
         return
     if fn.check_package_installed(TUNED_PPD_PACKAGE):
-        msg = f"{TUNED_PPD_PACKAGE} depends on {TUNED_PACKAGE} — remove {TUNED_PPD_PACKAGE} first"
-        fn.log_warn(msg)
-        GLib.idle_add(fn.show_in_app_notification, self, msg)
+        fn.log_warn(f"{TUNED_PPD_PACKAGE} depends on {TUNED_PACKAGE} — remove {TUNED_PPD_PACKAGE} first")
+        GLib.idle_add(
+            fn.show_in_app_notification,
+            self,
+            _("{ppd} depends on {tuned} — remove {ppd} first").format(ppd=TUNED_PPD_PACKAGE, tuned=TUNED_PACKAGE),
+        )
         return
     fn.log_subsection("Remove tuned")
 
@@ -188,13 +194,13 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed(TUNED_PACKAGE):
                 fn.log_success(f"{TUNED_PACKAGE} removed")
-                GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PACKAGE} has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_package} has been removed").format(tuned_package=TUNED_PACKAGE))
             else:
                 fn.log_warn(f"{TUNED_PACKAGE} removal did not complete")
                 GLib.idle_add(
                     fn.show_in_app_notification,
                     self,
-                    f"{TUNED_PACKAGE} removal failed or was cancelled",
+                    _("{package} removal failed or was cancelled").format(package=TUNED_PACKAGE),
                 )
             GLib.idle_add(refresh_tuned_package_label, self)
             GLib.idle_add(refresh_tuned_buttons, self)
@@ -213,7 +219,7 @@ def install_tuned_ppd(self, _widget):
     """Install tuned-ppd and enable tuned-ppd.service. Removes power-profiles-daemon first if present."""
     if fn.check_package_installed(TUNED_PPD_PACKAGE):
         fn.log_info(f"{TUNED_PPD_PACKAGE} is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PPD_PACKAGE} is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_ppd_package} is already installed").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
         return
     fn.log_subsection("Install tuned-ppd")
 
@@ -225,7 +231,7 @@ def install_tuned_ppd(self, _widget):
                 proc = fn.launch_pacman_remove_in_terminal("power-profiles-daemon")
                 if proc:
                     proc.wait()
-                GLib.idle_add(fn.show_in_app_notification, self, "power-profiles-daemon removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("power-profiles-daemon removed"))
 
             install_script = f"""
 set -o pipefail
@@ -255,13 +261,13 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed(TUNED_PPD_PACKAGE):
                 fn.log_success(f"{TUNED_PPD_PACKAGE} installed and enabled")
-                GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PPD_PACKAGE} installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_ppd_package} installed").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
             else:
                 fn.log_warn(f"{TUNED_PPD_PACKAGE} installation did not complete")
                 GLib.idle_add(
                     fn.show_in_app_notification,
                     self,
-                    f"{TUNED_PPD_PACKAGE} installation failed or was cancelled",
+                    _("{package} installation failed or was cancelled").format(package=TUNED_PPD_PACKAGE),
                 )
             GLib.idle_add(refresh_tuned_package_label, self)
             GLib.idle_add(refresh_tuned_buttons, self)
@@ -276,7 +282,7 @@ def remove_tuned_ppd(self, _widget):
     """Remove tuned-ppd."""
     if not fn.check_package_installed(TUNED_PPD_PACKAGE):
         fn.log_info(f"{TUNED_PPD_PACKAGE} is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PPD_PACKAGE} is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_ppd_package} is not installed").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
         return
     fn.log_subsection("Remove tuned-ppd")
 
@@ -307,13 +313,13 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed(TUNED_PPD_PACKAGE):
                 fn.log_success(f"{TUNED_PPD_PACKAGE} removed")
-                GLib.idle_add(fn.show_in_app_notification, self, f"{TUNED_PPD_PACKAGE} has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("{tuned_ppd_package} has been removed").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
             else:
                 fn.log_warn(f"{TUNED_PPD_PACKAGE} removal did not complete")
                 GLib.idle_add(
                     fn.show_in_app_notification,
                     self,
-                    f"{TUNED_PPD_PACKAGE} removal failed or was cancelled",
+                    _("{package} removal failed or was cancelled").format(package=TUNED_PPD_PACKAGE),
                 )
             GLib.idle_add(refresh_tuned_package_label, self)
             GLib.idle_add(refresh_tuned_buttons, self)
@@ -328,14 +334,14 @@ def refresh_tuned_package_label(self):
     """Refresh both tuned + tuned-ppd install/remove labels after package state changes."""
     if hasattr(self, "tuned_package_label"):
         if fn.check_package_installed(TUNED_PACKAGE):
-            GLib.idle_add(self.tuned_package_label.set_markup, f"{TUNED_PACKAGE} is <b>installed</b>")
+            GLib.idle_add(self.tuned_package_label.set_markup, _("{tuned_package} is <b>installed</b>").format(tuned_package=TUNED_PACKAGE))
         else:
-            GLib.idle_add(self.tuned_package_label.set_text, f"{TUNED_PACKAGE} is not installed")
+            GLib.idle_add(self.tuned_package_label.set_text, _("{tuned_package} is not installed").format(tuned_package=TUNED_PACKAGE))
     if hasattr(self, "tuned_ppd_package_label"):
         if fn.check_package_installed(TUNED_PPD_PACKAGE):
-            GLib.idle_add(self.tuned_ppd_package_label.set_markup, f"{TUNED_PPD_PACKAGE} is <b>installed</b>")
+            GLib.idle_add(self.tuned_ppd_package_label.set_markup, _("{tuned_ppd_package} is <b>installed</b>").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
         else:
-            GLib.idle_add(self.tuned_ppd_package_label.set_text, f"{TUNED_PPD_PACKAGE} is not installed")
+            GLib.idle_add(self.tuned_ppd_package_label.set_text, _("{tuned_ppd_package} is not installed").format(tuned_ppd_package=TUNED_PPD_PACKAGE))
 
 
 def refresh_tuned_buttons(self):
@@ -380,12 +386,12 @@ def enable_tuned(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling tuned...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling tuned..."))
 
         def _wait():
             process.wait()
             fn.log_success("tuned enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "tuned has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("tuned has been enabled and started"))
             GLib.idle_add(refresh_tuned_status_label, self)
 
         fn.threading.Thread(target=_wait, daemon=True).start()
@@ -407,12 +413,12 @@ def disable_tuned(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling tuned...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling tuned..."))
 
         def _wait():
             process.wait()
             fn.log_success("tuned disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "tuned has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("tuned has been disabled and stopped"))
             GLib.idle_add(refresh_tuned_status_label, self)
 
         fn.threading.Thread(target=_wait, daemon=True).start()
@@ -437,12 +443,12 @@ def enable_tuned_ppd(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling tuned-ppd...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling tuned-ppd..."))
 
         def _wait():
             process.wait()
             fn.log_success("tuned-ppd enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "tuned-ppd has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("tuned-ppd has been enabled and started"))
             GLib.idle_add(refresh_tuned_status_label, self)
 
         fn.threading.Thread(target=_wait, daemon=True).start()
@@ -464,12 +470,12 @@ def disable_tuned_ppd(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling tuned-ppd...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling tuned-ppd..."))
 
         def _wait():
             process.wait()
             fn.log_success("tuned-ppd disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "tuned-ppd has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("tuned-ppd has been disabled and stopped"))
             GLib.idle_add(refresh_tuned_status_label, self)
 
         fn.threading.Thread(target=_wait, daemon=True).start()
@@ -492,13 +498,13 @@ def restart_tuned_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Restarting Tuned...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Restarting Tuned..."))
 
         def _wait_restart_tuned():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("Tuned service restarted")
-            GLib.idle_add(fn.show_in_app_notification, self, "Tuned has been restarted")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Tuned has been restarted"))
             GLib.idle_add(refresh_performance_status_label, self)
 
         fn.threading.Thread(target=_wait_restart_tuned, daemon=True).start()
@@ -521,13 +527,13 @@ def restart_tuned_ppd_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Restarting Tuned-PPD...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Restarting Tuned-PPD..."))
 
         def _wait_restart_tuned_ppd():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("Tuned-PPD service restarted")
-            GLib.idle_add(fn.show_in_app_notification, self, "Tuned-PPD has been restarted")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Tuned-PPD has been restarted"))
             GLib.idle_add(refresh_performance_status_label, self)
 
         fn.threading.Thread(target=_wait_restart_tuned_ppd, daemon=True).start()
@@ -607,9 +613,11 @@ def get_tuned_profile_status_markup():
     tuned_enabled = get_service_status("tuned")
 
     if active_profile:
-        status_text = f"Active profile: <b>{active_profile}</b> ({tuned_enabled})"
+        status_text = _("Active profile: <b>{profile}</b> ({status})").format(
+            profile=active_profile, status=tuned_enabled
+        )
     else:
-        status_text = "No active profile"
+        status_text = _("No active profile")
 
     return status_text
 
@@ -650,7 +658,7 @@ def apply_tuned_profile(self, _widget):
 
     if not choice:
         fn.debug_print("No profile selected")
-        GLib.idle_add(fn.show_in_app_notification, self, "No profile selected")
+        GLib.idle_add(fn.show_in_app_notification, self, _("No profile selected"))
         return
 
     set_tuned_profile(self, choice)
@@ -666,7 +674,7 @@ def set_tuned_profile(self, profile_name):
 
         if fn.shutil.which("tuned-adm") is None:
             fn.log_error("tuned-adm is not installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "tuned-adm is not installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("tuned-adm is not installed"))
             return
 
         fn.debug_print("Starting tuned service")
@@ -683,16 +691,16 @@ def set_tuned_profile(self, profile_name):
         )
         if result.returncode != 0:
             fn.log_error(f"Could not set tuned profile to {profile_name}")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Could not set tuned profile to {profile_name}")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Could not set tuned profile to {profile_name}").format(profile_name=profile_name))
             return
 
         refresh_performance_status_label(self)
         refresh_tuned_profile_status(self)
         fn.log_success(f"Tuned profile set to {profile_name}")
-        GLib.idle_add(fn.show_in_app_notification, self, f"Tuned profile set to {profile_name}")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Tuned profile set to {profile_name}").format(profile_name=profile_name))
     except Exception as error:
         fn.log_error(f"Failed to set tuned profile: {error}")
-        GLib.idle_add(fn.show_in_app_notification, self, "Could not set tuned profile")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Could not set tuned profile"))
 
 
 def get_zram_size_label():
@@ -787,10 +795,10 @@ def refresh_irqbalance_package_label(self):
     if fn.check_package_installed("irqbalance"):
         GLib.idle_add(
             self.irqbalance_package_label.set_markup,
-            "irqbalance package is <b>installed</b>",
+            _("irqbalance package is <b>installed</b>"),
         )
     else:
-        GLib.idle_add(self.irqbalance_package_label.set_text, "Install irqbalance")
+        GLib.idle_add(self.irqbalance_package_label.set_text, _("Install irqbalance"))
 
 
 def refresh_irqbalance_service_buttons(self):
@@ -851,13 +859,13 @@ echo "=== Operation Finished ==="
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling zram...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling zram..."))
 
         def _wait_zram_enable():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success(f"zram enabled ({size})")
-            GLib.idle_add(fn.show_in_app_notification, self, f"zram enabled ({size})")
+            GLib.idle_add(fn.show_in_app_notification, self, _("zram enabled ({size})").format(size=size))
             GLib.idle_add(refresh_zram_status_label, self)
 
         fn.threading.Thread(target=_wait_zram_enable, daemon=True).start()
@@ -908,13 +916,13 @@ echo "=== Operation Finished ==="
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling zram...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling zram..."))
 
         def _wait_zram_disable():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("zram disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "zram disabled")
+            GLib.idle_add(fn.show_in_app_notification, self, _("zram disabled"))
             GLib.idle_add(refresh_zram_status_label, self)
 
         fn.threading.Thread(target=_wait_zram_disable, daemon=True).start()
@@ -954,12 +962,12 @@ def refresh_swapfile_label(self):
     if size:
         GLib.idle_add(
             self.swapfile_label.set_markup,
-            "Create or manage a swapfile at /swapfile - " + size + " <b>present</b>",
+            _("Create or manage a swapfile at /swapfile - {size} <b>present</b>").format(size=size),
         )
     else:
         GLib.idle_add(
             self.swapfile_label.set_text,
-            "Create or manage a swapfile at /swapfile",
+            _("Create or manage a swapfile at /swapfile"),
         )
 
 
@@ -1045,13 +1053,13 @@ echo "=== Operation Finished ==="
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Creating swapfile...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Creating swapfile..."))
 
         def _wait_create_swapfile():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success(f"Swapfile ({size}) created at /swapfile")
-            GLib.idle_add(fn.show_in_app_notification, self, f"Swapfile ({size}) created at /swapfile")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Swapfile ({size}) created at /swapfile").format(size=size))
             GLib.idle_add(refresh_swapfile_label, self)
 
         fn.threading.Thread(target=_wait_create_swapfile, daemon=True).start()
@@ -1099,13 +1107,13 @@ echo "=== Operation Finished ==="
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Removing swapfile...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Removing swapfile..."))
 
         def _wait_remove_swapfile():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("Swapfile removed")
-            GLib.idle_add(fn.show_in_app_notification, self, "Swapfile removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Swapfile removed"))
             GLib.idle_add(refresh_swapfile_label, self)
 
         fn.threading.Thread(target=_wait_remove_swapfile, daemon=True).start()
@@ -1129,13 +1137,13 @@ def enable_fstrim_timer(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling fstrim.timer...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling fstrim.timer..."))
 
         def _wait_fstrim_enable():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("fstrim.timer enabled for weekly TRIM")
-            GLib.idle_add(fn.show_in_app_notification, self, "fstrim.timer enabled")
+            GLib.idle_add(fn.show_in_app_notification, self, _("fstrim.timer enabled"))
             GLib.idle_add(refresh_fstrim_status_label, self)
 
         fn.threading.Thread(target=_wait_fstrim_enable, daemon=True).start()
@@ -1159,13 +1167,13 @@ def disable_fstrim_timer(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling fstrim.timer...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling fstrim.timer..."))
 
         def _wait_fstrim_disable():
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("fstrim.timer disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "fstrim.timer disabled")
+            GLib.idle_add(fn.show_in_app_notification, self, _("fstrim.timer disabled"))
             GLib.idle_add(refresh_fstrim_status_label, self)
 
         fn.threading.Thread(target=_wait_fstrim_disable, daemon=True).start()
@@ -1177,7 +1185,7 @@ def install_irqbalance(self, _widget):
     """Install irqbalance."""
     if fn.check_package_installed("irqbalance"):
         fn.log_info("irqbalance is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "irqbalance is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance is already installed"))
         return
     fn.log_subsection("Install irqbalance")
 
@@ -1217,10 +1225,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed("irqbalance"):
                 fn.log_success("irqbalance installed")
-                GLib.idle_add(fn.show_in_app_notification, self, "irqbalance has been installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance has been installed"))
             else:
                 fn.log_warn("irqbalance installation did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "irqbalance installation failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance installation failed or was cancelled"))
             GLib.idle_add(refresh_irqbalance_package_label, self)
             GLib.idle_add(refresh_irqbalance_service_buttons, self)
             GLib.idle_add(refresh_irqbalance_status_label, self)
@@ -1234,7 +1242,7 @@ def remove_irqbalance(self, _widget):
     """Remove irqbalance."""
     if not fn.check_package_installed("irqbalance"):
         fn.log_info("irqbalance is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "irqbalance is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance is not installed"))
         return
     fn.log_subsection("Remove irqbalance")
 
@@ -1270,10 +1278,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed("irqbalance"):
                 fn.log_success("irqbalance removed")
-                GLib.idle_add(fn.show_in_app_notification, self, "irqbalance has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance has been removed"))
             else:
                 fn.log_warn("irqbalance removal did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "irqbalance removal failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance removal failed or was cancelled"))
             GLib.idle_add(refresh_irqbalance_package_label, self)
             GLib.idle_add(refresh_irqbalance_service_buttons, self)
             GLib.idle_add(refresh_irqbalance_status_label, self)
@@ -1299,7 +1307,7 @@ def enable_irqbalance_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling irqbalance...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling irqbalance..."))
 
         def _wait_enable_irqbalance():
             fn.debug_print("Waiting for irqbalance enable terminal to close...")
@@ -1307,7 +1315,7 @@ def enable_irqbalance_service(self, _widget):
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing irqbalance status label")
             fn.log_success("irqbalance service enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "irqbalance has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance has been enabled and started"))
             GLib.idle_add(refresh_irqbalance_status_label, self)
 
         fn.threading.Thread(target=_wait_enable_irqbalance, daemon=True).start()
@@ -1331,7 +1339,7 @@ def disable_irqbalance_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling irqbalance...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling irqbalance..."))
 
         def _wait_disable_irqbalance():
             fn.debug_print("Waiting for irqbalance disable terminal to close...")
@@ -1339,7 +1347,7 @@ def disable_irqbalance_service(self, _widget):
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing irqbalance status label")
             fn.log_success("irqbalance service disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "irqbalance has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("irqbalance has been disabled and stopped"))
             GLib.idle_add(refresh_irqbalance_status_label, self)
 
         fn.threading.Thread(target=_wait_disable_irqbalance, daemon=True).start()
@@ -1379,17 +1387,17 @@ def refresh_ananicy_package_label(self):
     if ananicy_installed and rules_installed:
         GLib.idle_add(
             self.ananicy_package_label.set_markup,
-            "ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>",
+            _("ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>"),
         )
     elif ananicy_installed:
         GLib.idle_add(
             self.ananicy_package_label.set_markup,
-            "ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)",
+            _("ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)"),
         )
     else:
         GLib.idle_add(
             self.ananicy_package_label.set_text,
-            "Install ananicy-cpp and cachyos-ananicy-rules-git",
+            _("Install ananicy-cpp and cachyos-ananicy-rules-git"),
         )
 
 
@@ -1405,14 +1413,14 @@ def install_ananicy(self, _widget):
     """Install ananicy-cpp and cachyos-ananicy-rules-git."""
     if fn.check_package_installed(ANANICY_PACKAGE):
         fn.log_info("ananicy-cpp is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp is already installed"))
         return
     if not fn.check_chaotic_aur_active() and not fn.check_nemesis_repo_active():
         fn.log_warn("ananicy: cachyos-ananicy-rules-git requires Chaotic AUR or the Nemesis repo — enable one first")
         GLib.idle_add(
             fn.show_in_app_notification,
             self,
-            "Enable Chaotic AUR or Nemesis repo first — cachyos-ananicy-rules-git is not in standard repos",
+            _("Enable Chaotic AUR or Nemesis repo first — cachyos-ananicy-rules-git is not in standard repos"),
         )
         return
     fn.log_subsection("Install ananicy")
@@ -1453,13 +1461,13 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed(ANANICY_PACKAGE):
                 fn.log_success("ananicy-cpp and cachyos-ananicy-rules-git installed")
-                GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp has been installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp has been installed"))
                 GLib.idle_add(refresh_ananicy_package_label, self)
                 GLib.idle_add(refresh_ananicy_service_buttons, self)
                 GLib.idle_add(refresh_ananicy_status_label, self)
             else:
                 fn.log_warn("ananicy-cpp installation did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp installation failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp installation failed or was cancelled"))
                 GLib.idle_add(refresh_ananicy_package_label, self)
         except Exception as error:
             fn.log_error(f"Failed to install ananicy: {error}")
@@ -1471,7 +1479,7 @@ def remove_ananicy(self, _widget):
     """Remove ananicy-cpp and cachyos-ananicy-rules-git."""
     if not fn.check_package_installed(ANANICY_PACKAGE):
         fn.log_info("ananicy-cpp is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp is not installed"))
         return
     fn.log_subsection("Remove ananicy")
 
@@ -1507,10 +1515,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed(ANANICY_PACKAGE):
                 fn.log_success("ananicy-cpp and cachyos-ananicy-rules-git removed")
-                GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp has been removed"))
             else:
                 fn.log_warn("ananicy-cpp removal did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp removal failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp removal failed or was cancelled"))
             GLib.idle_add(refresh_ananicy_package_label, self)
             GLib.idle_add(refresh_ananicy_service_buttons, self)
             GLib.idle_add(refresh_ananicy_status_label, self)
@@ -1536,7 +1544,7 @@ def enable_ananicy_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling ananicy-cpp...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling ananicy-cpp..."))
 
         def _wait_enable_ananicy():
             fn.debug_print("Waiting for ananicy enable terminal to close...")
@@ -1544,7 +1552,7 @@ def enable_ananicy_service(self, _widget):
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing ananicy status label")
             fn.log_success("ananicy-cpp service enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp has been enabled and started"))
             GLib.idle_add(refresh_ananicy_status_label, self)
 
         fn.threading.Thread(target=_wait_enable_ananicy, daemon=True).start()
@@ -1568,7 +1576,7 @@ def disable_ananicy_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling ananicy-cpp...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling ananicy-cpp..."))
 
         def _wait_disable_ananicy():
             fn.debug_print("Waiting for ananicy disable terminal to close...")
@@ -1576,7 +1584,7 @@ def disable_ananicy_service(self, _widget):
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing ananicy status label")
             fn.log_success("ananicy-cpp service disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "ananicy-cpp has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("ananicy-cpp has been disabled and stopped"))
             GLib.idle_add(refresh_ananicy_status_label, self)
 
         fn.threading.Thread(target=_wait_disable_ananicy, daemon=True).start()
@@ -1621,7 +1629,7 @@ def get_gamemoded_user_status():
     """Check gamemoded user service status via --machine flag."""
     real_user = get_real_user()
     if not real_user:
-        return "disabled"
+        return _("disabled")
     try:
         output = fn.subprocess.run(
             ["systemctl", "--user", f"--machine={real_user}@.host", "is-enabled", "gamemoded.service"],
@@ -1635,7 +1643,7 @@ def get_gamemoded_user_status():
             return "<b>enabled</b>"
     except Exception as error:
         fn.debug_print(error)
-    return "disabled"
+    return _("disabled")
 
 
 def get_gamemode_status_markup():
@@ -1661,12 +1669,12 @@ def refresh_gamemode_package_label(self):
     if fn.check_package_installed(GAMEMODE_PACKAGE):
         GLib.idle_add(
             self.gamemode_package_label.set_markup,
-            "gamemode package is <b>installed</b>",
+            _("gamemode package is <b>installed</b>"),
         )
     else:
         GLib.idle_add(
             self.gamemode_package_label.set_text,
-            "Install gamemode",
+            _("Install gamemode"),
         )
 
 
@@ -1682,7 +1690,7 @@ def install_gamemode(self, _widget):
     """Install gamemode."""
     if fn.check_package_installed(GAMEMODE_PACKAGE):
         fn.log_info("gamemode is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "gamemode is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gamemode is already installed"))
         return
     fn.log_subsection("Install gamemode")
 
@@ -1731,10 +1739,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed(GAMEMODE_PACKAGE):
                 fn.log_success("gamemode installed")
-                GLib.idle_add(fn.show_in_app_notification, self, "gamemode has been installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("gamemode has been installed"))
             else:
                 fn.log_warn("gamemode installation did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "gamemode installation failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("gamemode installation failed or was cancelled"))
             GLib.idle_add(refresh_gamemode_package_label, self)
             GLib.idle_add(refresh_gamemode_service_buttons, self)
             GLib.idle_add(refresh_gamemode_status_label, self)
@@ -1748,7 +1756,7 @@ def remove_gamemode(self, _widget):
     """Remove gamemode."""
     if not fn.check_package_installed(GAMEMODE_PACKAGE):
         fn.log_info("gamemode is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "gamemode is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gamemode is not installed"))
         return
     fn.log_subsection("Remove gamemode")
 
@@ -1793,10 +1801,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed(GAMEMODE_PACKAGE):
                 fn.log_success("gamemode removed")
-                GLib.idle_add(fn.show_in_app_notification, self, "gamemode has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("gamemode has been removed"))
             else:
                 fn.log_warn("gamemode removal did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "gamemode removal failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("gamemode removal failed or was cancelled"))
             GLib.idle_add(refresh_gamemode_package_label, self)
             GLib.idle_add(refresh_gamemode_service_buttons, self)
             GLib.idle_add(refresh_gamemode_status_label, self)
@@ -1829,7 +1837,7 @@ read -p 'Press Enter to close...'
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling gamemoded...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling gamemoded..."))
 
         def _wait_enable_gamemode():
             fn.debug_print("Waiting for gamemode enable terminal to close...")
@@ -1837,7 +1845,7 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing gamemode status label")
             fn.log_success("gamemode service enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "gamemode has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("gamemode has been enabled and started"))
             GLib.idle_add(refresh_gamemode_status_label, self)
 
         fn.threading.Thread(target=_wait_enable_gamemode, daemon=True).start()
@@ -1872,10 +1880,10 @@ def refresh_preload_package_label(self):
     if fn.check_package_installed(PRELOAD_PACKAGE):
         GLib.idle_add(
             self.preload_package_label.set_markup,
-            "preload package is <b>installed</b>",
+            _("preload package is <b>installed</b>"),
         )
     else:
-        GLib.idle_add(self.preload_package_label.set_text, "Install preload")
+        GLib.idle_add(self.preload_package_label.set_text, _("Install preload"))
 
 
 def refresh_preload_service_buttons(self):
@@ -1890,14 +1898,14 @@ def install_preload(self, _widget):
     """Install preload from Chaotic AUR or Nemesis repo."""
     if fn.check_package_installed(PRELOAD_PACKAGE):
         fn.log_info("preload is already installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "preload is already installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("preload is already installed"))
         return
     if not fn.check_chaotic_aur_active() and not fn.check_nemesis_repo_active():
         fn.log_warn("preload requires Chaotic AUR or the Nemesis repo — enable one first")
         GLib.idle_add(
             fn.show_in_app_notification,
             self,
-            "Enable Chaotic AUR or Nemesis repo first — preload is not in standard repos",
+            _("Enable Chaotic AUR or Nemesis repo first — preload is not in standard repos"),
         )
         return
     fn.log_subsection("Install preload")
@@ -1936,10 +1944,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed(PRELOAD_PACKAGE):
                 fn.log_success("preload installed and enabled")
-                GLib.idle_add(fn.show_in_app_notification, self, "preload has been installed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("preload has been installed"))
             else:
                 fn.log_warn("preload installation did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "preload installation failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("preload installation failed or was cancelled"))
             GLib.idle_add(refresh_preload_package_label, self)
             GLib.idle_add(refresh_preload_service_buttons, self)
             GLib.idle_add(refresh_preload_status_label, self)
@@ -1953,7 +1961,7 @@ def remove_preload(self, _widget):
     """Remove preload."""
     if not fn.check_package_installed(PRELOAD_PACKAGE):
         fn.log_info("preload is not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "preload is not installed")
+        GLib.idle_add(fn.show_in_app_notification, self, _("preload is not installed"))
         return
     fn.log_subsection("Remove preload")
 
@@ -1987,10 +1995,10 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if not fn.check_package_installed(PRELOAD_PACKAGE):
                 fn.log_success("preload removed")
-                GLib.idle_add(fn.show_in_app_notification, self, "preload has been removed")
+                GLib.idle_add(fn.show_in_app_notification, self, _("preload has been removed"))
             else:
                 fn.log_warn("preload removal did not complete")
-                GLib.idle_add(fn.show_in_app_notification, self, "preload removal failed or was cancelled")
+                GLib.idle_add(fn.show_in_app_notification, self, _("preload removal failed or was cancelled"))
             GLib.idle_add(refresh_preload_package_label, self)
             GLib.idle_add(refresh_preload_service_buttons, self)
             GLib.idle_add(refresh_preload_status_label, self)
@@ -2015,14 +2023,14 @@ def enable_preload_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Enabling preload...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Enabling preload..."))
 
         def _wait_enable_preload():
             fn.debug_print("Waiting for preload enable terminal to close...")
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("preload service enabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "preload has been enabled and started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("preload has been enabled and started"))
             GLib.idle_add(refresh_preload_status_label, self)
 
         fn.threading.Thread(target=_wait_enable_preload, daemon=True).start()
@@ -2045,14 +2053,14 @@ def disable_preload_service(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling preload...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling preload..."))
 
         def _wait_disable_preload():
             fn.debug_print("Waiting for preload disable terminal to close...")
             process.wait()
             fn.invalidate_pkg_cache()
             fn.log_success("preload service disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "preload has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("preload has been disabled and stopped"))
             GLib.idle_add(refresh_preload_status_label, self)
 
         fn.threading.Thread(target=_wait_disable_preload, daemon=True).start()
@@ -2083,7 +2091,7 @@ read -p 'Press Enter to close...'
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.PIPE,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Disabling gamemoded...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Disabling gamemoded..."))
 
         def _wait_disable_gamemode():
             fn.debug_print("Waiting for gamemode disable terminal to close...")
@@ -2091,7 +2099,7 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             fn.debug_print("Terminal closed — refreshing gamemode status label")
             fn.log_success("gamemode service disabled")
-            GLib.idle_add(fn.show_in_app_notification, self, "gamemode has been disabled and stopped")
+            GLib.idle_add(fn.show_in_app_notification, self, _("gamemode has been disabled and stopped"))
             GLib.idle_add(refresh_gamemode_status_label, self)
 
         fn.threading.Thread(target=_wait_disable_gamemode, daemon=True).start()
@@ -2145,9 +2153,9 @@ def refresh_makepkg_status_label(self):
         backup_exists = os.path.isfile(MAKEPKG_CONF_BAK)
         GLib.idle_add(self.btn_restore_makepkg.set_sensitive, backup_exists)
         tooltip = (
-            "Restore /etc/makepkg.conf from /etc/makepkg.conf-bak"
+            _("Restore /etc/makepkg.conf from /etc/makepkg.conf-bak")
             if backup_exists
-            else "No backup file found at /etc/makepkg.conf-bak"
+            else _("No backup file found at /etc/makepkg.conf-bak")
         )
         GLib.idle_add(self.btn_restore_makepkg.set_tooltip_text, tooltip)
 
@@ -2165,7 +2173,7 @@ def optimize_makepkg(self, _widget, reserved=0):
     if ncores <= 1:
         fn.log_warn("Single core detected — parallel builds need at least 2 cores; no change made.")
         fn.show_in_app_notification(
-            self, "Single core detected — parallel builds need ≥2 cores; no change made."
+            self, _("Single core detected — parallel builds need ≥2 cores; no change made.")
         )
         return
 
@@ -2207,42 +2215,51 @@ def optimize_makepkg(self, _widget, reserved=0):
             fn.log_info("responsive while a big build saturates the rest.")
         fn.log_tip(f"To revert: click 'Restore backup' (uses {MAKEPKG_CONF_BAK}).")
         refresh_makepkg_status_label(self)
-        fn.show_in_app_notification(self, f"MAKEFLAGS=-j{jobs} — {intent}")
+        fn.show_in_app_notification(self, _("MAKEFLAGS=-j{jobs} — {intent}").format(jobs=jobs, intent=intent))
 
         reserve_block = (
-            f"\n<b>Keeping {reserved} cores free</b>\n"
-            f"<tt>-j{jobs}</tt> leaves {reserved} cores for the desktop, so the UI and a\n"
-            "Bluetooth mouse stay responsive while a long build runs.\n"
+            _(
+                "\n<b>Keeping {reserved} cores free</b>\n"
+                "<tt>-j{jobs}</tt> leaves {reserved} cores for the desktop, so the UI and a\n"
+                "Bluetooth mouse stay responsive while a long build runs.\n"
+            ).format(reserved=reserved, jobs=jobs)
             if reserved > 0
             else ""
         )
         fn.messagebox(
             self,
-            f"MAKEFLAGS updated — -j{jobs}",
-            (
+            _("MAKEFLAGS updated — -j{jobs}").format(jobs=jobs),
+            _(
                 "<b>What changed</b>\n"
-                f"<tt>{MAKEPKG_CONF}</tt> now sets <b>MAKEFLAGS=\"-j{jobs}\"</b>.\n"
+                '<tt>{conf}</tt> now sets <b>MAKEFLAGS="-j{jobs}"</b>.\n'
                 "Previous line:\n"
-                f"<tt>{GLib.markup_escape_text(before)}</tt>\n"
+                "<tt>{before}</tt>\n"
                 "\n"
                 "<b>Why this matters</b>\n"
                 "<tt>MAKEFLAGS</tt> controls how many parallel jobs <tt>makepkg</tt> uses\n"
                 "when building AUR packages or compiling from source. Arch ships\n"
-                "<tt>#MAKEFLAGS=\"-j2\"</tt> commented out, so the stock default is\n"
-                f"effectively single-threaded. On your {ncores}-core CPU this leaves\n"
+                '<tt>#MAKEFLAGS="-j2"</tt> commented out, so the stock default is\n'
+                "effectively single-threaded. On your {ncores}-core CPU this leaves\n"
                 "a lot of speed on the table — many AUR builds drop from minutes\n"
                 "to seconds once the cores are engaged.\n"
-                + reserve_block
-                + "\n"
+                "{reserve_block}"
+                "\n"
                 "<b>How to revert</b>\n"
-                f"A backup is kept at <tt>{MAKEPKG_CONF_BAK}</tt>. Click\n"
+                "A backup is kept at <tt>{backup}</tt>. Click\n"
                 "<b>Restore backup</b> on this page to undo at any time."
+            ).format(
+                conf=MAKEPKG_CONF,
+                jobs=jobs,
+                before=GLib.markup_escape_text(before),
+                ncores=ncores,
+                reserve_block=reserve_block,
+                backup=MAKEPKG_CONF_BAK,
             ),
         )
         return
     except Exception as error:
         fn.log_error(f"Failed to tune {MAKEPKG_CONF}: {error}")
-        fn.show_in_app_notification(self, "Tune failed — see ATT log")
+        fn.show_in_app_notification(self, _("Tune failed — see ATT log"))
 
     refresh_makepkg_status_label(self)
 
@@ -2254,7 +2271,7 @@ def restore_makepkg(self, _widget):
     if not os.path.isfile(MAKEPKG_CONF_BAK):
         fn.log_warn(f"No backup at {MAKEPKG_CONF_BAK} — nothing to restore (ATT writes it on startup).")
         fn.show_in_app_notification(
-            self, "No backup at /etc/makepkg.conf-bak — nothing to restore."
+            self, _("No backup at /etc/makepkg.conf-bak — nothing to restore.")
         )
         return
 
@@ -2271,15 +2288,15 @@ def restore_makepkg(self, _widget):
         refresh_makepkg_status_label(self)
         fn.show_in_app_notification(
             self,
-            "MAKEFLAGS restored — back to Arch's single-threaded default",
+            _("MAKEFLAGS restored — back to Arch's single-threaded default"),
         )
         fn.messagebox(
             self,
-            "MAKEFLAGS restored from backup",
-            (
+            _("MAKEFLAGS restored from backup"),
+            _(
                 "<b>What changed</b>\n"
-                f"<tt>{MAKEPKG_CONF}</tt> has been replaced with the contents of\n"
-                f"<tt>{MAKEPKG_CONF_BAK}</tt>.\n"
+                "<tt>{conf}</tt> has been replaced with the contents of\n"
+                "<tt>{backup}</tt>.\n"
                 "\n"
                 "<b>What this means</b>\n"
                 "<tt>makepkg</tt> now uses whatever <tt>MAKEFLAGS</tt> value was in\n"
@@ -2289,12 +2306,12 @@ def restore_makepkg(self, _widget):
                 "\n"
                 "<b>How to re-enable parallel builds</b>\n"
                 "Click <b>Optimize for N cores</b> on this page at any time."
-            ),
+            ).format(conf=MAKEPKG_CONF, backup=MAKEPKG_CONF_BAK),
         )
         return
     except Exception as error:
         fn.log_error(f"Failed to restore {MAKEPKG_CONF}: {error}")
-        fn.show_in_app_notification(self, "Restore failed — see ATT log")
+        fn.show_in_app_notification(self, _("Restore failed — see ATT log"))
 
     refresh_makepkg_status_label(self)
 
@@ -2302,7 +2319,7 @@ def restore_makepkg(self, _widget):
 def edit_makepkg_conf(self, _widget):
     """Open /etc/makepkg.conf in a separate alacritty so the user can inspect changes."""
     fn.log_subsection(f"Edit {MAKEPKG_CONF}")
-    fn.show_in_app_notification(self, f"Opening {MAKEPKG_CONF} in terminal")
+    fn.show_in_app_notification(self, _("Opening {makepkg_conf} in terminal").format(makepkg_conf=MAKEPKG_CONF))
     fn.subprocess.Popen(
         ["alacritty", "-e", "sudo", "nano", MAKEPKG_CONF],
         stdout=fn.subprocess.PIPE,

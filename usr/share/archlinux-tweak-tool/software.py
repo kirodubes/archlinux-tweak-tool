@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 import functions_backup as fb
 import pacman_functions
 from gi.repository import GLib
@@ -19,11 +20,11 @@ def on_click_software_pamac(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "Pamac launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Pamac launched"))
         else:
             fn.log_subsection("Installing pamac-aur...")
             process = fn.launch_pacman_install_in_terminal("pamac-aur")
-            GLib.idle_add(fn.show_in_app_notification, self, "pamac-aur installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("pamac-aur installation started"))
 
             def wait_install():
                 try:
@@ -37,9 +38,9 @@ def on_click_software_pamac(self, _widget):
                     if fn.path.exists("/usr/bin/pamac-manager"):
                         fn.log_success("pamac-aur installed successfully")
                         GLib.idle_add(
-                            self.lbl_software_pamac.set_markup, "Pamac - GUI package manager <b>installed</b>"
+                            self.lbl_software_pamac.set_markup, _("Pamac - GUI package manager <b>installed</b>")
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "pamac-aur installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("pamac-aur installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching pamac-manager...")
                         fn.subprocess.Popen(
@@ -48,7 +49,7 @@ def on_click_software_pamac(self, _widget):
                             stdout=fn.subprocess.PIPE,
                             stderr=fn.subprocess.STDOUT,
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "Pamac launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Pamac launched"))
                     else:
                         fn.log_warn("pamac-aur binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, "", "pamac-aur")
@@ -71,11 +72,11 @@ def on_click_software_octopi(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "Octopi launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Octopi launched"))
         else:
             fn.log_subsection("Installing octopi...")
             process = fn.launch_pacman_install_in_terminal("octopi")
-            GLib.idle_add(fn.show_in_app_notification, self, "octopi installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("octopi installation started"))
 
             def wait_install():
                 try:
@@ -90,9 +91,9 @@ def on_click_software_octopi(self, _widget):
                     if fn.path.exists("/usr/bin/octopi"):
                         fn.log_success("octopi installed successfully")
                         GLib.idle_add(
-                            self.lbl_software_octopi.set_markup, "Octopi - GUI package manager <b>installed</b>"
+                            self.lbl_software_octopi.set_markup, _("Octopi - GUI package manager <b>installed</b>")
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "octopi installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("octopi installed"))
                         fn.log_subsection("Launching octopi...")
                         fn.subprocess.Popen(
                             "sudo -E -u " + fn.sudo_username + " octopi &",
@@ -100,7 +101,7 @@ def on_click_software_octopi(self, _widget):
                             stdout=fn.subprocess.PIPE,
                             stderr=fn.subprocess.STDOUT,
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "Octopi launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Octopi launched"))
                     else:
                         fn.log_warn("octopi binary NOT found, installation may have failed")
                         GLib.idle_add(fn.check_missing_repo_error, self, "", "octopi")
@@ -124,11 +125,11 @@ def on_click_software_bazaar(self, _widget):
                 stderr=fn.subprocess.STDOUT,
                 env=fn.get_terminal_env(),
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "Bazaar launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Bazaar launched"))
         else:
             fn.log_subsection("Installing bazaar...")
             process = fn.launch_pacman_install_in_terminal("bazaar")
-            GLib.idle_add(fn.show_in_app_notification, self, "bazaar installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("bazaar installation started"))
 
             def wait_install():
                 try:
@@ -141,13 +142,13 @@ def on_click_software_bazaar(self, _widget):
                     time.sleep(1)
                     if fn.path.exists("/usr/bin/bazaar"):
                         fn.log_success("bazaar installed successfully")
-                        GLib.idle_add(self.lbl_software_bazaar.set_markup, "Bazaar <b>installed</b>")
+                        GLib.idle_add(self.lbl_software_bazaar.set_markup, _("Bazaar <b>installed</b>"))
                         if fn.path.exists("/usr/bin/flatpak"):
                             fn.log_info("flatpak pulled in as dependency")
                             GLib.idle_add(
-                                self.lbl_software_flatpak.set_markup, "Flatpak - Manage Flatpak apps <b>installed</b>"
+                                self.lbl_software_flatpak.set_markup, _("Flatpak - Manage Flatpak apps <b>installed</b>")
                             )
-                        GLib.idle_add(fn.show_in_app_notification, self, "bazaar installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("bazaar installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching bazaar...")
                         fn.subprocess.Popen(
@@ -157,7 +158,7 @@ def on_click_software_bazaar(self, _widget):
                             stderr=fn.subprocess.STDOUT,
                             env=fn.get_terminal_env(),
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "Bazaar launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Bazaar launched"))
                     else:
                         fn.log_warn("bazaar binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, "", "bazaar")
@@ -181,11 +182,11 @@ def on_click_software_shelly(self, _widget):
                 stderr=fn.subprocess.STDOUT,
                 env=fn.get_terminal_env(),
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "Shelly launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Shelly launched"))
         else:
             fn.log_subsection("Installing shelly...")
             process = fn.launch_pacman_install_in_terminal("shelly")
-            GLib.idle_add(fn.show_in_app_notification, self, "shelly installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("shelly installation started"))
 
             def wait_install():
                 try:
@@ -199,9 +200,9 @@ def on_click_software_shelly(self, _widget):
                     if fn.path.exists("/usr/bin/shelly-ui"):
                         fn.log_success("shelly installed successfully")
                         GLib.idle_add(
-                            self.lbl_software_shelly.set_markup, "Shelly - Modern package manager <b>installed</b>"
+                            self.lbl_software_shelly.set_markup, _("Shelly - Modern package manager <b>installed</b>")
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "shelly installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("shelly installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching shelly...")
                         fn.subprocess.Popen(
@@ -211,7 +212,7 @@ def on_click_software_shelly(self, _widget):
                             stderr=fn.subprocess.STDOUT,
                             env=fn.get_terminal_env(),
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "Shelly launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Shelly launched"))
                     else:
                         fn.log_warn("shelly binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, "", "shelly")
@@ -246,11 +247,11 @@ def on_click_software_gnome(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "GNOME Software launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("GNOME Software launched"))
         else:
             fn.log_subsection("Installing gnome-software...")
             process = fn.launch_pacman_install_in_terminal("gnome-software")
-            GLib.idle_add(fn.show_in_app_notification, self, "gnome-software installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("gnome-software installation started"))
 
             def wait_install():
                 try:
@@ -265,9 +266,9 @@ def on_click_software_gnome(self, _widget):
                     if fn.path.exists("/usr/bin/gnome-software"):
                         fn.log_success("gnome-software installed successfully")
                         GLib.idle_add(
-                            self.lbl_software_gnome.set_markup, "GNOME Software - GUI package manager <b>installed</b>"
+                            self.lbl_software_gnome.set_markup, _("GNOME Software - GUI package manager <b>installed</b>")
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "gnome-software installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("gnome-software installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching gnome-software...")
                         uid = pwd.getpwnam(fn.sudo_username).pw_uid
@@ -286,7 +287,7 @@ def on_click_software_gnome(self, _widget):
                             stdout=fn.subprocess.PIPE,
                             stderr=fn.subprocess.STDOUT,
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "gnome-software launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("gnome-software launched"))
                     else:
                         fn.log_warn("gnome-software binary NOT found, installation may have failed")
                         fn.check_missing_repo_error(self, "", "gnome-software")
@@ -304,7 +305,7 @@ def on_click_software_discover(self, _widget):
         if not fn.path.exists("/usr/bin/plasma-discover"):
             fn.log_subsection("Installing discover...")
             process = fn.launch_pacman_install_in_terminal("discover packagekit-qt6")
-            GLib.idle_add(fn.show_in_app_notification, self, "discover installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("discover installation started"))
 
             def wait_install():
                 try:
@@ -320,9 +321,9 @@ def on_click_software_discover(self, _widget):
                         fn.log_success("discover installed successfully")
                         GLib.idle_add(
                             self.lbl_software_discover.set_markup,
-                            "KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>",
+                            _("KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>"),
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "plasma-discover installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("plasma-discover installed"))
                         fn.log_subsection("Launching plasma-discover...")
                         uid = pwd.getpwnam(fn.sudo_username).pw_uid
                         fn.subprocess.Popen(
@@ -366,7 +367,7 @@ def on_click_software_discover(self, _widget):
                 stdout=fn.subprocess.DEVNULL,
                 stderr=fn.subprocess.DEVNULL,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "KDE Discover launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("KDE Discover launched"))
     except Exception as error:
         fn.log_error(f"Error with discover: {error}")
 
@@ -382,7 +383,7 @@ def on_click_software_pachub(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "PacHub launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("PacHub launched"))
             return
         aur_helper = fn.get_aur_helper()
         if aur_helper is None:
@@ -390,12 +391,12 @@ def on_click_software_pachub(self, _widget):
             GLib.idle_add(
                 fn.show_in_app_notification,
                 self,
-                "No AUR helper found — install yay, paru, trizen or pikaur first",
+                _("No AUR helper found — install yay, paru, trizen or pikaur first"),
             )
             return
         fn.log_subsection("Installing pachub from AUR...")
         process = fn.launch_aur_install_in_terminal(aur_helper, "pachub")
-        GLib.idle_add(fn.show_in_app_notification, self, "pachub installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pachub installation started"))
         fn.wait_install_and_update(
             process,
             "/usr/bin/pachub",
@@ -414,15 +415,15 @@ def on_click_software_yay(self, _widget):
     try:
         if fn.path.exists("/usr/bin/yay"):
             fn.log_subsection("yay-git already installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "yay-git already installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("yay-git already installed"))
             return
         fn.log_subsection("Installing yay-git...")
         if not fn.check_chaotic_aur_active():
             fn.log_info("chaotic-AUR not active — asking user to build from AUR")
             if fn.show_confirm_dialog(
                 self,
-                "chaotic-AUR is not enabled",
-                "Build <b>yay-git</b> from AUR instead?\n(git clone + makepkg — takes a few minutes)",
+                _("chaotic-AUR is not enabled"),
+                _("Build <b>yay-git</b> from AUR instead?\n(git clone + makepkg — takes a few minutes)"),
             ):
                 process = pacman_functions.install_yay_git(self)
             else:
@@ -430,7 +431,7 @@ def on_click_software_yay(self, _widget):
                 return
         else:
             process = fn.launch_pacman_install_in_terminal("yay-git")
-            GLib.idle_add(fn.show_in_app_notification, self, "yay-git installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("yay-git installation started"))
         fn.wait_install_and_update(
             process,
             "/usr/bin/yay",
@@ -449,15 +450,15 @@ def on_click_software_paru(self, _widget):
     try:
         if fn.path.exists("/usr/bin/paru"):
             fn.log_subsection("paru-git already installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "paru-git already installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("paru-git already installed"))
             return
         fn.log_subsection("Installing paru-git...")
         if not fn.check_chaotic_aur_active():
             fn.log_info("chaotic-AUR not active — asking user to build from AUR")
             if fn.show_confirm_dialog(
                 self,
-                "chaotic-AUR is not enabled",
-                "Build <b>paru-git</b> from AUR instead?\n(git clone + makepkg — takes a few minutes)",
+                _("chaotic-AUR is not enabled"),
+                _("Build <b>paru-git</b> from AUR instead?\n(git clone + makepkg — takes a few minutes)"),
             ):
                 process = pacman_functions.install_paru_git(self)
             else:
@@ -465,7 +466,7 @@ def on_click_software_paru(self, _widget):
                 return
         else:
             process = fn.launch_pacman_install_in_terminal("paru-git")
-            GLib.idle_add(fn.show_in_app_notification, self, "paru-git installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("paru-git installation started"))
         fn.wait_install_and_update(
             process,
             "/usr/bin/paru",
@@ -484,11 +485,11 @@ def on_click_software_trizen(self, _widget):
     try:
         if fn.path.exists("/usr/bin/trizen"):
             fn.log_subsection("trizen already installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "trizen already installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("trizen already installed"))
             return
         fn.log_subsection("Installing trizen...")
         process = fn.launch_pacman_install_in_terminal("trizen")
-        GLib.idle_add(fn.show_in_app_notification, self, "trizen installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("trizen installation started"))
         fn.wait_install_and_update(
             process,
             "/usr/bin/trizen",
@@ -507,11 +508,11 @@ def on_click_software_pikaur(self, _widget):
     try:
         if fn.path.exists("/usr/bin/pikaur"):
             fn.log_subsection("pikaur-git already installed")
-            GLib.idle_add(fn.show_in_app_notification, self, "pikaur-git already installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("pikaur-git already installed"))
             return
         fn.log_subsection("Installing pikaur-git...")
         process = fn.launch_pacman_install_in_terminal("pikaur-git")
-        GLib.idle_add(fn.show_in_app_notification, self, "pikaur-git installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pikaur-git installation started"))
         fn.wait_install_and_update(
             process,
             "/usr/bin/pikaur",
@@ -530,7 +531,7 @@ def on_click_software_yay_remove(self, _widget):
     try:
         fn.log_subsection("Removing yay-git...")
         process = fn.launch_pacman_remove_recursive_in_terminal("yay-git", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "yay-git removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("yay-git removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/yay",
@@ -548,7 +549,7 @@ def on_click_software_paru_remove(self, _widget):
     try:
         fn.log_subsection("Removing paru-git...")
         process = fn.launch_pacman_remove_recursive_in_terminal("paru-git", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "paru-git removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("paru-git removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/paru",
@@ -566,7 +567,7 @@ def on_click_software_trizen_remove(self, _widget):
     try:
         fn.log_subsection("Removing trizen...")
         process = fn.launch_pacman_remove_recursive_in_terminal("trizen", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "trizen removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("trizen removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/trizen",
@@ -584,7 +585,7 @@ def on_click_software_pikaur_remove(self, _widget):
     try:
         fn.log_subsection("Removing pikaur-git...")
         process = fn.launch_pacman_remove_recursive_in_terminal("pikaur-git", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "pikaur-git removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pikaur-git removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/pikaur",
@@ -608,15 +609,15 @@ def on_click_software_pacui_open(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "pacui launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("pacui launched"))
             return
         fn.log_subsection("Installing pacui...")
         if not fn.check_chaotic_aur_active():
             fn.log_info("chaotic-AUR not active — pacui is available on chaotic-AUR")
-            GLib.idle_add(fn.show_in_app_notification, self, "Enable chaotic-AUR in the Pacman tab first")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Enable chaotic-AUR in the Pacman tab first"))
             return
         fn.log_info("pacui is available on the chaotic-AUR repository")
-        GLib.idle_add(fn.show_in_app_notification, self, "pacui is on chaotic-AUR — installing...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pacui is on chaotic-AUR — installing..."))
         process = fn.launch_pacman_install_in_terminal("pacui")
         fn.wait_install_and_update(
             process,
@@ -636,7 +637,7 @@ def on_click_software_pacui_remove(self, _widget):
     try:
         fn.log_subsection("Removing pacui...")
         process = fn.launch_pacman_remove_recursive_in_terminal("pacui", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "pacui removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pacui removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/pacui",
@@ -666,7 +667,7 @@ def on_click_software_flatpak(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "flatpak installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("flatpak installation started"))
 
             def wait_install():
                 try:
@@ -680,9 +681,9 @@ def on_click_software_flatpak(self, _widget):
                     if fn.path.exists("/usr/bin/flatpak"):
                         fn.log_success("flatpak installed successfully")
                         GLib.idle_add(
-                            self.lbl_software_flatpak.set_markup, "Flatpak - Manage Flatpak apps <b>installed</b>"
+                            self.lbl_software_flatpak.set_markup, _("Flatpak - Manage Flatpak apps <b>installed</b>")
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "flatpak installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("flatpak installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching flatpak...")
                         flatpak_script = (
@@ -697,7 +698,7 @@ def on_click_software_flatpak(self, _widget):
                             stdout=fn.subprocess.PIPE,
                             stderr=fn.subprocess.STDOUT,
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "flatpak launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("flatpak launched"))
                     else:
                         fn.log_warn("flatpak binary NOT found, installation may have failed")
                 except Exception as e:
@@ -718,7 +719,7 @@ def on_click_software_flatpak(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "flatpak launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("flatpak launched"))
     except Exception as error:
         fn.log_error(f"Error with flatpak: {error}")
 
@@ -728,7 +729,7 @@ def on_click_software_flatpak_remove(self, _widget):
     try:
         fn.log_subsection("Removing flatpak...")
         process = fn.launch_pacman_remove_recursive_in_terminal("flatpak", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "flatpak removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("flatpak removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/flatpak",
@@ -749,7 +750,7 @@ def on_click_software_snapd(self, _widget):
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay, paru, trizen or pikaur first")
                 GLib.idle_add(
-                    fn.show_in_app_notification, self, "No AUR helper found - install yay, paru, trizen or pikaur first"
+                    fn.show_in_app_notification, self, _("No AUR helper found - install yay, paru, trizen or pikaur first")
                 )
                 return
             fn.log_subsection("Installing snapd...")
@@ -767,7 +768,7 @@ def on_click_software_snapd(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.PIPE,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "snapd installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("snapd installation started"))
 
             def wait_install():
                 try:
@@ -780,8 +781,8 @@ def on_click_software_snapd(self, _widget):
                     time.sleep(1)
                     if fn.path.exists("/usr/bin/snap"):
                         fn.log_success("snapd installed successfully")
-                        GLib.idle_add(self.lbl_software_snapd.set_markup, "Snapd - Manage Snap apps <b>installed</b>")
-                        GLib.idle_add(fn.show_in_app_notification, self, "snapd installed")
+                        GLib.idle_add(self.lbl_software_snapd.set_markup, _("Snapd - Manage Snap apps <b>installed</b>"))
+                        GLib.idle_add(fn.show_in_app_notification, self, _("snapd installed"))
                     else:
                         fn.log_warn("snapd binary NOT found, installation may have failed")
                 except Exception as e:
@@ -802,7 +803,7 @@ def on_click_software_snapd(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "snapd launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("snapd launched"))
     except Exception as error:
         fn.log_error(f"Error with snapd: {error}")
 
@@ -812,7 +813,7 @@ def on_click_software_snapd_remove(self, _widget):
     try:
         fn.log_subsection("Removing snapd...")
         process = fn.launch_pacman_remove_recursive_in_terminal("snapd", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "snapd removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("snapd removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/snap",
@@ -833,12 +834,12 @@ def on_click_software_appimagelauncher(self, _widget):
             if aur_helper is None:
                 fn.log_warn("No AUR helper found — install yay, paru, trizen or pikaur first")
                 GLib.idle_add(
-                    fn.show_in_app_notification, self, "No AUR helper found - install yay, paru, trizen or pikaur first"
+                    fn.show_in_app_notification, self, _("No AUR helper found - install yay, paru, trizen or pikaur first")
                 )
                 return
             fn.log_subsection("Installing appmanager...")
             process = fn.launch_aur_install_in_terminal(aur_helper, "appmanager")
-            GLib.idle_add(fn.show_in_app_notification, self, "appmanager installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("appmanager installation started"))
 
             def wait_install():
                 try:
@@ -854,9 +855,9 @@ def on_click_software_appimagelauncher(self, _widget):
                         fn.log_success("appmanager installed successfully")
                         GLib.idle_add(
                             self.lbl_software_appimagelauncher.set_markup,
-                            "App-manager - Manage AppImages <b>installed</b>",
+                            _("App-manager - Manage AppImages <b>installed</b>"),
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "appmanager installed")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("appmanager installed"))
                         time.sleep(1)
                         fn.log_subsection("Launching app-manager...")
                         uid = pwd.getpwnam(fn.sudo_username).pw_uid
@@ -875,7 +876,7 @@ def on_click_software_appimagelauncher(self, _widget):
                             stdout=fn.subprocess.PIPE,
                             stderr=fn.subprocess.STDOUT,
                         )
-                        GLib.idle_add(fn.show_in_app_notification, self, "app-manager launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("app-manager launched"))
                     else:
                         fn.log_warn("appmanager binary NOT found, installation may have failed")
                 except Exception as e:
@@ -902,7 +903,7 @@ def on_click_software_appimagelauncher(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.STDOUT,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "App-manager launched")
+        GLib.idle_add(fn.show_in_app_notification, self, _("App-manager launched"))
     except Exception as error:
         fn.log_error(f"Error with app-manager: {error}")
 
@@ -912,7 +913,7 @@ def on_click_software_appimagelauncher_remove(self, _widget):
     try:
         fn.log_subsection("Removing appmanager...")
         process = fn.launch_pacman_remove_recursive_in_terminal("appmanager", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "appmanager removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("appmanager removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/app-manager",
@@ -935,15 +936,15 @@ def on_click_software_pacseek(self, _widget):
                 stdout=fn.subprocess.PIPE,
                 stderr=fn.subprocess.STDOUT,
             )
-            GLib.idle_add(fn.show_in_app_notification, self, "pacseek launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("pacseek launched"))
             return
         fn.log_subsection("Installing pacseek...")
         if not fn.check_chaotic_aur_active():
             fn.log_info("chaotic-AUR not active — pacseek is available on chaotic-AUR")
-            GLib.idle_add(fn.show_in_app_notification, self, "Enable chaotic-AUR in the Pacman tab first")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Enable chaotic-AUR in the Pacman tab first"))
             return
         fn.log_info("pacseek is available on the chaotic-AUR repository")
-        GLib.idle_add(fn.show_in_app_notification, self, "pacseek is on chaotic-AUR — installing...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pacseek is on chaotic-AUR — installing..."))
         process = fn.launch_pacman_install_in_terminal("pacseek")
         fn.wait_install_and_update(
             process,
@@ -963,7 +964,7 @@ def on_click_software_pacseek_remove(self, _widget):
     try:
         fn.log_subsection("Removing pacseek...")
         process = fn.launch_pacman_remove_recursive_in_terminal("pacseek", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "pacseek removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pacseek removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/pacseek",
@@ -981,7 +982,7 @@ def on_click_software_pamac_remove(self, _widget):
     try:
         fn.log_subsection("Removing pamac-aur...")
         process = fn.launch_pacman_remove_recursive_in_terminal("pamac-aur", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "pamac-aur removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pamac-aur removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/pamac-manager",
@@ -999,7 +1000,7 @@ def on_click_software_octopi_remove(self, _widget):
     try:
         fn.log_subsection("Removing octopi...")
         process = fn.launch_pacman_remove_recursive_in_terminal("octopi", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "octopi removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("octopi removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/octopi",
@@ -1017,7 +1018,7 @@ def on_click_software_bazaar_remove(self, _widget):
     try:
         fn.log_subsection("Removing bazaar...")
         process = fn.launch_pacman_remove_recursive_in_terminal("bazaar", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "bazaar removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("bazaar removal started"))
         fn.wait_remove_and_update(
             process, "/usr/bin/bazaar", self.lbl_software_bazaar, "Bazaar", self, "bazaar removal complete"
         )
@@ -1030,7 +1031,7 @@ def on_click_software_shelly_remove(self, _widget):
     try:
         fn.log_subsection("Removing shelly...")
         process = fn.launch_pacman_remove_recursive_in_terminal("shelly", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "shelly removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("shelly removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/shelly-ui",
@@ -1048,7 +1049,7 @@ def on_click_software_gnome_remove(self, _widget):
     try:
         fn.log_subsection("Removing gnome-software...")
         process = fn.launch_pacman_remove_recursive_in_terminal("gnome-software", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "gnome-software removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gnome-software removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/gnome-software",
@@ -1066,7 +1067,7 @@ def on_click_software_discover_remove(self, _widget):
     try:
         fn.log_subsection("Removing discover...")
         process = fn.launch_pacman_remove_recursive_in_terminal("discover", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "plasma-discover removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("plasma-discover removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/plasma-discover",
@@ -1084,7 +1085,7 @@ def on_click_software_pachub_remove(self, _widget):
     try:
         fn.log_subsection("Removing pachub...")
         process = fn.launch_pacman_remove_recursive_in_terminal("pachub", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "pachub removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("pachub removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/pachub",
@@ -1103,10 +1104,10 @@ def on_click_software_archlinux_logout(self, _widget):
         fn.log_subsection("Installing archlinux-logout...")
         if not fn.check_chaotic_aur_active():
             fn.log_info("chaotic-AUR not active — archlinux-logout needs Chaotic-AUR and nemesis repo")
-            GLib.idle_add(fn.show_in_app_notification, self, "Enable nemesis/chaotic-AUR in the Pacman tab first")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Enable nemesis/chaotic-AUR in the Pacman tab first"))
             return
         fn.log_info("archlinux-logout is available on the nemesis/chaotic-AUR repository")
-        GLib.idle_add(fn.show_in_app_notification, self, "archlinux-logout is on nemesis/chaotic-AUR — installing...")
+        GLib.idle_add(fn.show_in_app_notification, self, _("archlinux-logout is on nemesis/chaotic-AUR — installing..."))
         process = fn.launch_pacman_install_in_terminal("archlinux-logout")
         fn.wait_install_and_update(
             process,
@@ -1126,7 +1127,7 @@ def on_click_software_archlinux_logout_remove(self, _widget):
     try:
         fn.log_subsection("Removing archlinux-logout...")
         process = fn.launch_pacman_remove_recursive_in_terminal("archlinux-logout", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "archlinux-logout removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("archlinux-logout removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/bin/archlinux-logout",
@@ -1144,11 +1145,11 @@ def on_click_software_powermenu(self, _widget):
     try:
         if fn.path.exists("/usr/local/bin/edu-powermenu"):
             fn.log_info("edu-powermenu is already installed")
-            fn.show_in_app_notification(self, "edu-powermenu is already installed")
+            fn.show_in_app_notification(self, _("edu-powermenu is already installed"))
             return
         fn.log_subsection("Installing kiro-powermenu...")
         process = fn.launch_pacman_install_in_terminal("kiro-powermenu")
-        GLib.idle_add(fn.show_in_app_notification, self, "kiro-powermenu installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("kiro-powermenu installation started"))
 
         def wait_install():
             try:
@@ -1169,9 +1170,9 @@ def on_click_software_powermenu(self, _widget):
                         fn.permissions(user_dst)
                         fn.log_success("powermenu config installed with user permissions")
                     GLib.idle_add(
-                        self.lbl_software_powermenu.set_markup, "powermenu - Power menu for twms <b>installed</b>"
+                        self.lbl_software_powermenu.set_markup, _("powermenu - Power menu for twms <b>installed</b>")
                     )
-                    GLib.idle_add(fn.show_in_app_notification, self, "kiro-powermenu installed")
+                    GLib.idle_add(fn.show_in_app_notification, self, _("kiro-powermenu installed"))
                 else:
                     fn.log_warn("edu-powermenu binary NOT found, installation may have failed")
                     fn.check_missing_repo_error(self, "", "kiro-powermenu")
@@ -1188,7 +1189,7 @@ def on_click_software_powermenu_remove(self, _widget):
     try:
         fn.log_subsection("Removing kiro-powermenu...")
         process = fn.launch_pacman_remove_recursive_in_terminal("kiro-powermenu", keep_config=True)
-        GLib.idle_add(fn.show_in_app_notification, self, "kiro-powermenu removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("kiro-powermenu removal started"))
         fn.wait_remove_and_update(
             process,
             "/usr/local/bin/edu-powermenu",
@@ -1208,19 +1209,19 @@ def on_click_apply_att_nanorc(self, _widget):
     try:
         fn.shutil.copy(fn.nanorc_att, fn.nanorc)
         fn.log_success("ATT nanorc applied to /etc/nanorc")
-        fn.show_in_app_notification(self, "ATT nanorc applied to /etc/nanorc")
-        self.lbl_software_nano.set_markup("Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>")
+        fn.show_in_app_notification(self, _("ATT nanorc applied to /etc/nanorc"))
+        self.lbl_software_nano.set_markup(_("Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"))
         self.btn_software_nano_restore.set_sensitive(True)
     except Exception as error:
         fn.log_error(f"Failed to apply ATT nanorc: {error}")
-        fn.show_in_app_notification(self, "Failed to apply ATT nanorc")
+        fn.show_in_app_notification(self, _("Failed to apply ATT nanorc"))
 
 
 def on_click_restore_nanorc(self, _widget):
     """Restore /etc/nanorc from the ATT backup."""
     fn.log_subsection("Restore nanorc backup")
     fb.restore_nanorc(self)
-    self.lbl_software_nano.set_markup("Apply ATT nanorc to /etc/nanorc (backup created first)")
+    self.lbl_software_nano.set_markup(_("Apply ATT nanorc to /etc/nanorc (backup created first)"))
 
 
 def on_click_launch_alacritty_tweak_tool(self, _widget):
@@ -1233,7 +1234,7 @@ def on_click_launch_alacritty_tweak_tool(self, _widget):
             stdout=fn.subprocess.PIPE,
             stderr=fn.subprocess.STDOUT,
         )
-        GLib.idle_add(fn.show_in_app_notification, self, "Alacritty Tweak Tool launched")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Alacritty Tweak Tool launched"))
     else:
         fn.log_info("alacritty-tweak-tool not installed")
-        GLib.idle_add(fn.show_in_app_notification, self, "alacritty-tweak-tool not found")
+        GLib.idle_add(fn.show_in_app_notification, self, _("alacritty-tweak-tool not found"))

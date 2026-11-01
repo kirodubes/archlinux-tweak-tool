@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 
 
 def append_repo(self, text):
@@ -20,10 +21,10 @@ def append_repo(self, text):
             myfile.write(text)
         fn.invalidate_pacman_conf_cache()
         fn.log_success("Repository appended successfully")
-        fn.show_in_app_notification(self, "Settings Saved Successfully")
+        fn.show_in_app_notification(self, _("Settings Saved Successfully"))
     except Exception as error:
         fn.log_error(f"Failed to append repository: {error}")
-        fn.show_in_app_notification(self, "Failed to save settings")
+        fn.show_in_app_notification(self, _("Failed to save settings"))
 
 
 def insert_repo(self, text):
@@ -173,8 +174,8 @@ def toggle_test_repos(self, state, widget):
             fn.log_error(f"Failed to enable {widget}: {error}")
             fn.messagebox(
                 self,
-                "ERROR!!",
-                f"An error has occurred enabling repository {widget}",
+                _("ERROR!!"),
+                _("An error has occurred enabling repository {widget}").format(widget=widget),
             )
     else:
         with open(fn.pacman, "r", encoding="utf-8") as f:
@@ -212,8 +213,8 @@ def toggle_test_repos(self, state, widget):
             fn.log_error(f"Failed to disable {widget}: {error}")
             fn.messagebox(
                 self,
-                "ERROR!!",
-                f"An error has occurred disabling repository {widget}",
+                _("ERROR!!"),
+                _("An error has occurred disabling repository {widget}").format(widget=widget),
             )
 
 
@@ -233,7 +234,7 @@ def install_yay_pacman(self):
     """Install yay-git from chaotic-aur repository."""
     fn.log_subsection("Install yay from Chaotic-AUR")
     fn.debug_print("Installing yay-git from chaotic-aur repository")
-    fn.show_in_app_notification(self, "Opening terminal to install yay-git")
+    fn.show_in_app_notification(self, _("Opening terminal to install yay-git"))
     return fn.subprocess.Popen(
         ["alacritty", "-e", "bash", "-c", "sudo pacman -S yay-git; read -p 'Press enter to close'"],
         stdout=fn.subprocess.PIPE,
@@ -244,7 +245,7 @@ def install_yay_pacman(self):
 def install_yay_git(self):
     """Install yay-git from source in a terminal window. Returns the Popen process."""
     fn.log_subsection("Install yay from Source")
-    fn.show_in_app_notification(self, "Opening terminal to build yay-git")
+    fn.show_in_app_notification(self, _("Opening terminal to build yay-git"))
     build_script = "/usr/share/archlinux-tweak-tool/data/bin/build-yay-git"
     fn.log_success("Build terminal opened")
     return fn.subprocess.Popen(
@@ -257,7 +258,7 @@ def install_paru_pacman(self):
     """Install paru-git from chaotic-aur repository."""
     fn.log_subsection("Install paru from Chaotic-AUR")
     fn.debug_print("Installing paru-git from chaotic-aur repository")
-    fn.show_in_app_notification(self, "Opening terminal to install paru-git")
+    fn.show_in_app_notification(self, _("Opening terminal to install paru-git"))
     return fn.subprocess.Popen(
         ["alacritty", "-e", "bash", "-c", "sudo pacman -S paru-git; read -p 'Press enter to close'"],
         stdout=fn.subprocess.PIPE,
@@ -268,7 +269,7 @@ def install_paru_pacman(self):
 def install_paru_git(self):
     """Install paru-git from source in a terminal window. Returns the Popen process."""
     fn.log_subsection("Install paru from Source")
-    fn.show_in_app_notification(self, "Opening terminal to build paru-git")
+    fn.show_in_app_notification(self, _("Opening terminal to build paru-git"))
     build_script = "/usr/share/archlinux-tweak-tool/data/bin/build-paru-git"
     fn.log_success("Build terminal opened")
     return fn.subprocess.Popen(
@@ -294,7 +295,7 @@ def ensure_nemesis_packages(self):
         return None
 
     fn.log_subsection("Nemesis: keyring/mirrorlist missing — running setup")
-    fn.show_in_app_notification(self, "Installing Nemesis keyring and mirrorlist...")
+    fn.show_in_app_notification(self, _("Installing Nemesis keyring and mirrorlist..."))
     setup_script = "/usr/share/archlinux-tweak-tool/data/bin/setup-nemesis"
     return fn.subprocess.Popen(
         ["alacritty", "-e", "sudo", "bash", setup_script],
@@ -318,7 +319,7 @@ def ensure_chaotic_packages(self):
         return None
 
     fn.log_subsection("Chaotic-AUR: keyring/mirrorlist missing — running setup")
-    fn.show_in_app_notification(self, "Installing Chaotic-AUR keyring and mirrorlist...")
+    fn.show_in_app_notification(self, _("Installing Chaotic-AUR keyring and mirrorlist..."))
     setup_script = "/usr/share/archlinux-tweak-tool/data/bin/setup-chaotic-aur"
     return fn.subprocess.Popen(
         ["alacritty", "-e", "sudo", "bash", setup_script],
@@ -342,7 +343,7 @@ def ensure_cachyos_packages(self):
         return None
 
     fn.log_subsection("CachyOS: keyring/mirrorlist missing — running setup")
-    fn.show_in_app_notification(self, "Installing CachyOS keyring and mirrorlist...")
+    fn.show_in_app_notification(self, _("Installing CachyOS keyring and mirrorlist..."))
     setup_script = "/usr/share/archlinux-tweak-tool/data/bin/setup-cachyos"
     return fn.subprocess.Popen(
         ["alacritty", "-e", "sudo", "bash", setup_script],
@@ -366,10 +367,10 @@ def remove_aur_helper(self, binary):
     pkg = _find_aur_package(binary)
     if pkg is None:
         fn.log_error(f"Could not find installed package for {binary}")
-        fn.show_in_app_notification(self, f"Could not find installed package for {binary}")
+        fn.show_in_app_notification(self, _("Could not find installed package for {binary}").format(binary=binary))
         return None
     fn.debug_print(f"Package to remove: {pkg}")
-    fn.show_in_app_notification(self, f"Opening terminal to remove {pkg}")
+    fn.show_in_app_notification(self, _("Opening terminal to remove {pkg}").format(pkg=pkg))
     return fn.subprocess.Popen(
         ["alacritty", "-e", "bash", "-c", f"sudo pacman -R {pkg}; read -p 'Press enter to close'"],
         stdout=fn.subprocess.PIPE,

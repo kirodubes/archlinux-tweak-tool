@@ -3,6 +3,7 @@
 # ============================================================
 
 import kernel
+from att_i18n import _
 import kernel_distros
 
 _SCX_GUIDE_PATH = "/usr/share/doc/archlinux-tweak-tool/SCX_SCHEDULER_GUIDE.md"
@@ -13,7 +14,7 @@ def gui(self, Gtk, vboxstack, fn):
     # ── Title ──────────────────────────────────────────────
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Kernel Manager")
+    lbl_title.set_text(_("Kernel Manager"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     lbl_title.set_margin_end(10)
@@ -27,7 +28,7 @@ def gui(self, Gtk, vboxstack, fn):
 
     hbox_notice = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_notice = Gtk.Label(xalign=0)
-    lbl_notice.set_text("You will see the chaotic-aur kernels only when adding the repo in the Pacman tab.")
+    lbl_notice.set_text(_("You will see the chaotic-aur kernels only when adding the repo in the Pacman tab."))
     lbl_notice.set_margin_start(10)
     lbl_notice.set_margin_end(10)
     hbox_notice.append(lbl_notice)
@@ -36,7 +37,7 @@ def gui(self, Gtk, vboxstack, fn):
     hbox_running = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_running = Gtk.Label(xalign=0)
     lbl_running.set_margin_start(10)
-    lbl_running.set_markup("Running kernel: <b>...</b>")
+    lbl_running.set_markup(_("Running kernel: <b>...</b>"))
     hbox_running.append(lbl_running)
 
     vboxstack.append(hbox_title)
@@ -47,7 +48,7 @@ def gui(self, Gtk, vboxstack, fn):
     # ── CPU Scheduler pointer (sched-ext / scx) ───────────────
     # Live scheduler swapping is handled by CachyOS's scx-manager (ships on the
     # Kiro ISO), not by ATT — this is just a signpost to it plus the guide.
-    _build_section_title(Gtk, vboxstack, "CPU Scheduler", subtitle="sched-ext / scx")
+    _build_section_title(Gtk, vboxstack, _("CPU Scheduler"), subtitle="sched-ext / scx")
     fn.log_info("Kernels page: CPU Scheduler (scx-manager) pointer shown")
 
     hbox_scx = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -56,8 +57,8 @@ def gui(self, Gtk, vboxstack, fn):
 
     lbl_scx = Gtk.Label(xalign=0)
     lbl_scx.set_markup(
-        "Switch the live CPU scheduler (lavd, bpfland, rusty…) without a reboot using "
-        "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then Apply."
+        _("Switch the live CPU scheduler (lavd, bpfland, rusty…) without a reboot using "
+        "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then Apply.")
     )
     lbl_scx.set_wrap(True)
     lbl_scx.set_hexpand(True)
@@ -65,7 +66,7 @@ def gui(self, Gtk, vboxstack, fn):
 
     btn_scx_guide = Gtk.Button()
     lbl_scx_guide = Gtk.Label()
-    lbl_scx_guide.set_markup("<i>read the guide</i>")
+    lbl_scx_guide.set_markup(_("<i>read the guide</i>"))
     btn_scx_guide.set_child(lbl_scx_guide)
     btn_scx_guide.set_css_classes(["flat"])
     btn_scx_guide.set_margin_start(10)
@@ -78,8 +79,8 @@ def gui(self, Gtk, vboxstack, fn):
     hbox_scx_note.set_margin_end(10)
     lbl_scx_note = Gtk.Label(xalign=0)
     lbl_scx_note.set_markup(
-        "<small>Both of Kiro's kernels — <b>CachyOS</b> (default) and <b>Zen</b> "
-        "— support scx-manager's settings.</small>"
+        _("<small>Both of Kiro's kernels — <b>CachyOS</b> (default) and <b>Zen</b> "
+        "— support scx-manager's settings.</small>")
     )
     lbl_scx_note.set_wrap(True)
     hbox_scx_note.append(lbl_scx_note)
@@ -99,7 +100,7 @@ def gui(self, Gtk, vboxstack, fn):
                 version = installed.get(running_pkg, "")
                 if version:
                     running_info = f"{running_pkg} {version}"
-        fn.GLib.idle_add(lambda: lbl_running.set_markup(f"Running kernel: <b>{running_info}</b>") or False)
+        fn.GLib.idle_add(lambda: lbl_running.set_markup(_("Running kernel: <b>{running_info}</b>").format(running_info=running_info)) or False)
 
     fn.threading.Thread(target=_fetch_running_kernel, daemon=True).start()
 
@@ -120,17 +121,17 @@ def gui(self, Gtk, vboxstack, fn):
 
     # ── Dracut section ────────────────────────────────────────
     if kernel.is_dracut():
-        _build_section_title(Gtk, vboxstack, "Dracut — Initramfs Generator")
+        _build_section_title(Gtk, vboxstack, _("Dracut — Initramfs Generator"))
 
         hbox_dracut = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         hbox_dracut.set_margin_start(25)
         hbox_dracut.set_margin_end(10)
 
         lbl_dracut = Gtk.Label(xalign=0)
-        lbl_dracut.set_text("Regenerate all initramfs images for all installed kernels.")
+        lbl_dracut.set_text(_("Regenerate all initramfs images for all installed kernels."))
         lbl_dracut.set_hexpand(True)
 
-        btn_dracut = Gtk.Button(label="Regenerate All Initramfs")
+        btn_dracut = Gtk.Button(label=_("Regenerate All Initramfs"))
         btn_dracut.set_size_request(200, -1)
 
         def on_dracut_clicked(_widget):
@@ -145,7 +146,7 @@ def gui(self, Gtk, vboxstack, fn):
                     lambda: (
                         (
                             btn_dracut.set_sensitive(True),
-                            fn.show_in_app_notification(self, "Dracut: initramfs regeneration complete"),
+                            fn.show_in_app_notification(self, _("Dracut: initramfs regeneration complete")),
                         )
                         and False
                     )
@@ -159,7 +160,7 @@ def gui(self, Gtk, vboxstack, fn):
         vboxstack.append(hbox_dracut)
 
     # ── Section 1: Arch kernels ────────────────────────────────
-    _build_section_title(Gtk, vboxstack, "Arch Kernels", subtitle="core / extra")
+    _build_section_title(Gtk, vboxstack, _("Arch Kernels"), subtitle="core / extra")
     vbox_standard_kernels = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vboxstack.append(vbox_standard_kernels)
     fn.GLib.idle_add(
@@ -174,8 +175,8 @@ def gui(self, Gtk, vboxstack, fn):
 
     # ── Section 2: CachyOS native kernels ─────────────────────
     if fn.check_cachyos_repo_active():
-        btn_cachyos = Gtk.Button(label="Load Available Kernels")
-        _build_section_title(Gtk, vboxstack, "CachyOS Kernels", subtitle="cachyos repo", btn=btn_cachyos)
+        btn_cachyos = Gtk.Button(label=_("Load Available Kernels"))
+        _build_section_title(Gtk, vboxstack, _("CachyOS Kernels"), subtitle="cachyos repo", btn=btn_cachyos)
 
         vbox_cachyos_rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         vboxstack.append(vbox_cachyos_rows)
@@ -187,7 +188,7 @@ def gui(self, Gtk, vboxstack, fn):
             _clear_box(vbox_cachyos_rows)
             if not found:
                 lbl_none = Gtk.Label(xalign=0)
-                lbl_none.set_text("No additional CachyOS kernels found.")
+                lbl_none.set_text(_("No additional CachyOS kernels found."))
                 lbl_none.set_margin_start(10)
                 vbox_cachyos_rows.append(lbl_none)
                 fn.log_info("CachyOS kernel scan: no additional kernels found.")
@@ -205,13 +206,13 @@ def gui(self, Gtk, vboxstack, fn):
         cached = kernel.load_cachyos_kernel_cache(_already_shown_pkgs())
         if cached is not None:
             _populate_cachyos_rows(cached)
-            btn_cachyos.set_label("Check for New Kernels")
+            btn_cachyos.set_label(_("Check for New Kernels"))
             fn.log_info(f"CachyOS kernel cache: auto-loaded {len(cached)} kernel(s).")
 
         def on_cachyos_action(_widget):
             fn.log_subsection("Scan for CachyOS kernels")
             btn_cachyos.set_sensitive(False)
-            btn_cachyos.set_label("Scanning...")
+            btn_cachyos.set_label(_("Scanning..."))
 
             def do_scan():
                 found = kernel.get_cachyos_available_kernels(_already_shown_pkgs())
@@ -219,7 +220,7 @@ def gui(self, Gtk, vboxstack, fn):
 
             def _finish_scan(found):
                 _populate_cachyos_rows(found)
-                btn_cachyos.set_label("Check for New Kernels")
+                btn_cachyos.set_label(_("Check for New Kernels"))
                 btn_cachyos.set_sensitive(True)
 
             fn.threading.Thread(target=do_scan, daemon=True).start()
@@ -227,7 +228,7 @@ def gui(self, Gtk, vboxstack, fn):
         btn_cachyos.connect("clicked", on_cachyos_action)
 
     # ── Section 3: Chaotic-AUR kernels ────────────────────────
-    _build_section_title(Gtk, vboxstack, "Chaotic-AUR Kernels")
+    _build_section_title(Gtk, vboxstack, _("Chaotic-AUR Kernels"))
     vbox_chaotic_kernels = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vboxstack.append(vbox_chaotic_kernels)
 
@@ -259,19 +260,19 @@ def _offer_install_packages(self, Gtk, fn, missing):
     if blocked:
         repos_needed = sorted({req["repo"] for req in blocked})
         repo_str = " and ".join(repos_needed)
-        pkg_lines = "\n".join(f"  • {req['pkg']}\n    Why: {req['reason']}" for req in blocked)
+        pkg_lines = "\n".join(_("  • {pkg}\n    Why: {reason}").format(pkg=req["pkg"], reason=req["reason"]) for req in blocked)
         fn.log_warn(f"Cannot install missing packages — {repo_str} not enabled in pacman.conf")
         dialog = Gtk.MessageDialog(
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.WARNING,
             buttons=Gtk.ButtonsType.OK,
-            text="Repository not enabled — action blocked",
-            secondary_text=(
-                f"ATT needs the following package(s) to manage kernels safely:\n\n"
-                f"{pkg_lines}\n\n"
-                f"Fix: enable {repo_str} in ATT > Pacman tab, then retry."
-            ),
+            text=_("Repository not enabled — action blocked"),
+            secondary_text=_(
+                "ATT needs the following package(s) to manage kernels safely:\n\n"
+                "{pkg_lines}\n\n"
+                "Fix: enable {repo_str} in ATT > Pacman page, then retry."
+            ).format(pkg_lines=pkg_lines, repo_str=repo_str),
         )
         dialog.connect("response", lambda d, _r: d.destroy())
         dialog.present()
@@ -285,13 +286,13 @@ def _offer_install_packages(self, Gtk, fn, missing):
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
         buttons=Gtk.ButtonsType.YES_NO,
-        text="Missing required packages",
-        secondary_text=(
-            f"The following packages are needed for full kernel management:\n\n"
-            f"{pkg_list}\n\n"
-            f"Reason:\n{reasons}\n\n"
-            f"Would you like to install them now?"
-        ),
+        text=_("Missing required packages"),
+        secondary_text=_(
+            "The following packages are needed for full kernel management:\n\n"
+            "{pkg_list}\n\n"
+            "Reason:\n{reasons}\n\n"
+            "Would you like to install them now?"
+        ).format(pkg_list=pkg_list, reasons=reasons),
     )
 
     def on_response(_dialog, response):
@@ -342,7 +343,7 @@ echo "###                DONE - YOU CAN CLOSE THIS WINDOW                       
 echo "###############################################################################"
 read -p 'Press Enter to close...'"""
     fn.log_subsection("Installing missing kernel management packages...")
-    fn.show_in_app_notification(self, f"Installing {', '.join(pkg_names)}...")
+    fn.show_in_app_notification(self, _("Installing {packages}...").format(packages=', '.join(pkg_names)))
     fn.threading.Thread(
         target=lambda: fn.subprocess.Popen(["alacritty", "-e", "bash", "-c", script]).wait(),
         daemon=True,
@@ -355,19 +356,19 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
     if blocked:
         repos_needed = sorted({req["repo"] for req in blocked})
         repo_str = " and ".join(repos_needed)
-        pkg_lines = "\n".join(f"  • {req['pkg']}\n    Why: {req['reason']}" for req in blocked)
+        pkg_lines = "\n".join(_("  • {pkg}\n    Why: {reason}").format(pkg=req["pkg"], reason=req["reason"]) for req in blocked)
         fn.log_warn(f"Cannot install missing packages — {repo_str} not enabled in pacman.conf")
         dialog = Gtk.MessageDialog(
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.WARNING,
             buttons=Gtk.ButtonsType.OK,
-            text="Repository not enabled — action blocked",
-            secondary_text=(
-                f"ATT needs the following package(s) to manage kernels safely:\n\n"
-                f"{pkg_lines}\n\n"
-                f"Fix: enable {repo_str} in ATT > Pacman tab, then retry."
-            ),
+            text=_("Repository not enabled — action blocked"),
+            secondary_text=_(
+                "ATT needs the following package(s) to manage kernels safely:\n\n"
+                "{pkg_lines}\n\n"
+                "Fix: enable {repo_str} in ATT > Pacman page, then retry."
+            ).format(pkg_lines=pkg_lines, repo_str=repo_str),
         )
         dialog.connect("response", lambda d, _r: d.destroy())
         dialog.present()
@@ -383,13 +384,13 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
         buttons=Gtk.ButtonsType.YES_NO,
-        text="Missing required packages",
-        secondary_text=(
-            f"The following packages are needed for full kernel management:\n\n"
-            f"{prereq_list}\n\n"
-            f"Reason:\n{reasons}\n\n"
-            f"ATT will install the required packages and then install {pkg} in one terminal."
-        ),
+        text=_("Missing required packages"),
+        secondary_text=_(
+            "The following packages are needed for full kernel management:\n\n"
+            "{prereq_list}\n\n"
+            "Reason:\n{reasons}\n\n"
+            "ATT will install the required packages and then install {pkg} in one terminal."
+        ).format(prereq_list=prereq_list, reasons=reasons, pkg=pkg),
     )
 
     def on_response(_dialog, response):
@@ -454,7 +455,7 @@ echo "##########################################################################
 read -p 'Press Enter to close...'"""
 
         fn.log_subsection(f"Installing prerequisites + kernel {pkg} in one terminal...")
-        fn.show_in_app_notification(self, f"Installing {', '.join(pkg_names)} and {pkg}...")
+        fn.show_in_app_notification(self, _("Installing {packages} and {pkg}...").format(packages=', '.join(pkg_names), pkg=pkg))
 
         def _run():
             fn.subprocess.Popen(["alacritty", "-e", "bash", "-c", script]).wait()
@@ -527,7 +528,7 @@ def _populate_kernel_rows(self, Gtk, vbox_kernels, fn, refresh_boot, only_chaoti
             current_group = grp
             if show_group_headers:
                 source = "chaotic-aur" if is_chaotic else "core / extra"
-                _build_group_header(Gtk, vbox_kernels, grp, source)
+                _build_group_header(Gtk, vbox_kernels, _(grp) if grp else grp, source)
         _build_kernel_row(self, Gtk, vbox_kernels, fn, k, running_pkg, installed_pkgs, cpu_info, refresh_boot)
 
 
@@ -556,14 +557,14 @@ def _build_kernel_row(self, Gtk, vboxstack, fn, k, running_pkg, installed_pkgs, 
 
     hbox_label = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl = Gtk.Label(xalign=0)
-    lbl.set_markup(f"<b>{k['label']}</b>  <small>{k['description']}</small>")
+    lbl.set_markup(f"<b>{k['label']}</b>  <small>{_(k['description'])}</small>")
     lbl.set_margin_start(25)
     hbox_label.append(lbl)
     url = k.get("url", "")
     if url:
         btn_link = Gtk.Button()
         lbl_more_info = Gtk.Label()
-        lbl_more_info.set_markup("<i>more info</i>")
+        lbl_more_info.set_markup(_("<i>more info</i>"))
         btn_link.set_child(lbl_more_info)
         btn_link.set_css_classes(["flat"])
         btn_link.set_margin_start(10)
@@ -594,19 +595,19 @@ def _build_kernel_row(self, Gtk, vboxstack, fn, k, running_pkg, installed_pkgs, 
             version = pkgs.get(p, "")
             ver_str = f"  <small>{version}</small>" if version else ""
             if is_running:
-                sl.set_markup(f"<b>installed</b>{ver_str}  <small>(running)</small>")
+                sl.set_markup(_("<b>installed</b>{ver_str}  <small>(running)</small>").format(ver_str=ver_str))
             else:
-                sl.set_markup(f"<b>installed</b>{ver_str}")
-            b.set_label(f"Remove {p}")
+                sl.set_markup(_("<b>installed</b>{ver_str}").format(ver_str=ver_str))
+            b.set_label(_("Remove {p}").format(p=p))
             b.set_sensitive(not is_running)
         elif not c:
-            sl.set_markup("<small>not compatible with your CPU</small>")
-            b.set_label(f"Install {p}")
+            sl.set_markup(_("<small>not compatible with your CPU</small>"))
+            b.set_label(_("Install {p}").format(p=p))
             b.set_sensitive(False)
             return False
         else:
-            sl.set_markup("not installed")
-            b.set_label(f"Install {p}")
+            sl.set_markup(_("not installed"))
+            b.set_label(_("Install {p}").format(p=p))
             b.set_sensitive(True)
 
         if hid[0]:
@@ -625,7 +626,7 @@ def _build_kernel_row(self, Gtk, vboxstack, fn, k, running_pkg, installed_pkgs, 
                 dracut_proc.wait()
             fn.GLib.idle_add(
                 lambda: (
-                    fn.show_in_app_notification(self, f"{action} completed for {pkg_name}"),
+                    fn.show_in_app_notification(self, _("{action} completed for {pkg_name}").format(action=action, pkg_name=pkg_name)),
                     refresh(),
                     refresh_boot() if refresh_boot else None,
                 )
@@ -659,7 +660,7 @@ def _build_kernel_row(self, Gtk, vboxstack, fn, k, running_pkg, installed_pkgs, 
                             dracut_proc.wait()
                         fn.GLib.idle_add(
                             lambda: (
-                                fn.show_in_app_notification(self, f"Installation completed for {_pkg}"),
+                                fn.show_in_app_notification(self, _("Installation completed for {pkg}").format(pkg=_pkg)),
                                 refresh(),
                                 refresh_boot() if refresh_boot else None,
                             )
@@ -700,7 +701,7 @@ def _build_boot_entry_selector(self, Gtk, vboxstack, fn):
 
     hbox_hdr = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl = Gtk.Label(xalign=0)
-    lbl.set_markup("<b>Default Boot Entry (systemd-boot)</b>")
+    lbl.set_markup(_("<b>Default Boot Entry (systemd-boot)</b>"))
     lbl.set_margin_start(10)
     lbl.set_margin_end(10)
     hbox_hdr.append(lbl)
@@ -731,9 +732,9 @@ def _build_boot_entry_selector(self, Gtk, vboxstack, fn):
     lbl_current.set_margin_start(25)
     if current_default:
         current_label = id_to_title.get(current_default, current_default)
-        lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+        lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
     else:
-        lbl_current.set_markup("<small>Current: unknown</small>")
+        lbl_current.set_markup(_("<small>Current: unknown</small>"))
 
     def on_set_default(_widget):
         missing = kernel_distros.get_missing_requirements()
@@ -751,12 +752,12 @@ def _build_boot_entry_selector(self, Gtk, vboxstack, fn):
             if success:
                 fn.log_success(f"Default boot entry set to: {label} — Reboot to verify")
                 _refresh_boot_entry_display(label, lbl_current)
-                fn.show_in_app_notification(self, f"Default boot entry set to: {label} — Reboot to verify")
+                fn.show_in_app_notification(self, _("Default boot entry set to: {label} — Reboot to verify").format(label=label))
             else:
                 fn.log_error(f"Failed to set default boot entry: {label}")
-                fn.show_in_app_notification(self, f"Failed to set default boot entry: {label}")
+                fn.show_in_app_notification(self, _("Failed to set default boot entry: {label}").format(label=label))
 
-    btn_set = Gtk.Button(label="Set as Default")
+    btn_set = Gtk.Button(label=_("Set as Default"))
     btn_set.set_size_request(160, -1)
     btn_set.connect("clicked", on_set_default)
 
@@ -778,7 +779,7 @@ def _build_boot_entry_selector(self, Gtk, vboxstack, fn):
         if new_default:
             combo.set_active_id(new_default)
             current_label = id_to_title.get(new_default, new_default)
-            lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+            lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
 
     return refresh_combo
 
@@ -797,7 +798,7 @@ def _build_limine_entry_selector(self, Gtk, vboxstack, fn):
 
     hbox_hdr = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl = Gtk.Label(xalign=0)
-    lbl.set_markup("<b>Default Boot Entry (limine)</b>")
+    lbl.set_markup(_("<b>Default Boot Entry (limine)</b>"))
     lbl.set_margin_start(10)
     lbl.set_margin_end(10)
     hbox_hdr.append(lbl)
@@ -826,9 +827,9 @@ def _build_limine_entry_selector(self, Gtk, vboxstack, fn):
     lbl_current.set_margin_start(25)
     if current_default:
         current_label = index_to_title.get(current_default, current_default)
-        lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+        lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
     else:
-        lbl_current.set_markup("<small>Current: unknown</small>")
+        lbl_current.set_markup(_("<small>Current: unknown</small>"))
 
     def on_set_default(_widget):
         selected_id = combo.get_active_id()
@@ -839,12 +840,12 @@ def _build_limine_entry_selector(self, Gtk, vboxstack, fn):
             if success:
                 fn.log_success(f"Limine default boot entry set to: {label} — Reboot to verify")
                 _refresh_boot_entry_display(label, lbl_current)
-                fn.show_in_app_notification(self, f"Default boot entry set to: {label} — Reboot to verify")
+                fn.show_in_app_notification(self, _("Default boot entry set to: {label} — Reboot to verify").format(label=label))
             else:
                 fn.log_error(f"Failed to set limine default boot entry: {label}")
-                fn.show_in_app_notification(self, f"Failed to set limine default boot entry: {label}")
+                fn.show_in_app_notification(self, _("Failed to set limine default boot entry: {label}").format(label=label))
 
-    btn_set = Gtk.Button(label="Set as Default")
+    btn_set = Gtk.Button(label=_("Set as Default"))
     btn_set.set_size_request(160, -1)
     btn_set.connect("clicked", on_set_default)
 
@@ -865,7 +866,7 @@ def _build_limine_entry_selector(self, Gtk, vboxstack, fn):
         if new_default:
             combo.set_active_id(new_default)
             current_label = index_to_title.get(new_default, new_default)
-            lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+            lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
 
     return refresh_combo
 
@@ -888,7 +889,7 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
 
     hbox_hdr = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_hdr = Gtk.Label(xalign=0)
-    lbl_hdr.set_markup("<b>Default Boot Entry (GRUB)</b>")
+    lbl_hdr.set_markup(_("<b>Default Boot Entry (GRUB)</b>"))
     lbl_hdr.set_margin_start(10)
     lbl_hdr.set_margin_end(10)
     hbox_hdr.append(lbl_hdr)
@@ -902,8 +903,8 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
         hbox_warn = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         lbl_warn = Gtk.Label(xalign=0)
         lbl_warn.set_markup(
-            '<small><b>Note:</b> GRUB_DEFAULT is not set to "saved" in /etc/default/grub.\n'
-            "ATT will fix this automatically when you click Set as Default.</small>"
+            _('<small><b>Note:</b> GRUB_DEFAULT is not set to "saved" in /etc/default/grub.\n'
+            "ATT will fix this automatically when you click Set as Default.</small>")
         )
         lbl_warn.set_margin_start(25)
         lbl_warn.set_margin_end(10)
@@ -932,9 +933,9 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
     lbl_current.set_margin_start(25)
     if current_default:
         current_label = index_to_title.get(current_default, current_default)
-        lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+        lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
     else:
-        lbl_current.set_markup("<small>Current: unknown</small>")
+        lbl_current.set_markup(_("<small>Current: unknown</small>"))
 
     def on_set_default(_widget):
         selected_id = combo.get_active_id()
@@ -946,14 +947,14 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
             if success:
                 fn.log_success(f"GRUB default boot entry set to: {label} — Reboot to verify")
                 _refresh_boot_entry_display(label, lbl_current)
-                fn.show_in_app_notification(self, f"Default boot entry set to: {label} — Reboot to verify")
+                fn.show_in_app_notification(self, _("Default boot entry set to: {label} — Reboot to verify").format(label=label))
             else:
                 fn.log_error(f"Failed to set GRUB default boot entry: {label}")
-                fn.show_in_app_notification(self, f"Failed to set GRUB default boot entry: {label}")
+                fn.show_in_app_notification(self, _("Failed to set GRUB default boot entry: {label}").format(label=label))
 
         if not kernel.is_grub_default_saved():
             if not kernel.set_grub_default_saved():
-                fn.show_in_app_notification(self, "Failed to fix GRUB_DEFAULT in /etc/default/grub")
+                fn.show_in_app_notification(self, _("Failed to fix GRUB_DEFAULT in /etc/default/grub"))
                 return
             if hbox_warn:
                 fn.GLib.idle_add(hbox_warn.set_visible, False)
@@ -970,7 +971,7 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
             fn.log_info(f"Setting GRUB default boot entry to: {label} (index {selected_id})")
             finish(kernel.set_default_grub_entry(selected_id))
 
-    btn_set = Gtk.Button(label="Set as Default")
+    btn_set = Gtk.Button(label=_("Set as Default"))
     btn_set.set_size_request(160, -1)
     btn_set.connect("clicked", on_set_default)
 
@@ -991,7 +992,7 @@ def _build_grub_entry_selector(self, Gtk, vboxstack, fn):
         if new_default and new_default in index_to_title:
             combo.set_active_id(new_default)
             current_label = index_to_title.get(new_default, new_default)
-            lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+            lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
 
     return refresh_combo
 
@@ -1012,7 +1013,7 @@ def _build_refind_entry_selector(self, Gtk, vboxstack, fn):
 
     hbox_hdr = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_hdr = Gtk.Label(xalign=0)
-    lbl_hdr.set_markup("<b>Default Boot Entry (rEFInd)</b>")
+    lbl_hdr.set_markup(_("<b>Default Boot Entry (rEFInd)</b>"))
     lbl_hdr.set_margin_start(10)
     lbl_hdr.set_margin_end(10)
     hbox_hdr.append(lbl_hdr)
@@ -1041,9 +1042,9 @@ def _build_refind_entry_selector(self, Gtk, vboxstack, fn):
     lbl_current.set_margin_start(25)
     if current_default:
         current_label = value_to_label.get(current_default, current_default)
-        lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+        lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
     else:
-        lbl_current.set_markup("<small>Current: unknown</small>")
+        lbl_current.set_markup(_("<small>Current: unknown</small>"))
 
     def on_set_default(_widget):
         selected_id = combo.get_active_id()
@@ -1055,12 +1056,12 @@ def _build_refind_entry_selector(self, Gtk, vboxstack, fn):
         if success:
             fn.log_success(f"rEFInd default boot entry set to: {label} — Reboot to verify")
             _refresh_boot_entry_display(label, lbl_current)
-            fn.show_in_app_notification(self, f"Default boot entry set to: {label} — Reboot to verify")
+            fn.show_in_app_notification(self, _("Default boot entry set to: {label} — Reboot to verify").format(label=label))
         else:
             fn.log_error(f"Failed to set rEFInd default boot entry: {label}")
-            fn.show_in_app_notification(self, f"Failed to set rEFInd default boot entry: {label}")
+            fn.show_in_app_notification(self, _("Failed to set rEFInd default boot entry: {label}").format(label=label))
 
-    btn_set = Gtk.Button(label="Set as Default")
+    btn_set = Gtk.Button(label=_("Set as Default"))
     btn_set.set_size_request(160, -1)
     btn_set.connect("clicked", on_set_default)
 
@@ -1081,7 +1082,7 @@ def _build_refind_entry_selector(self, Gtk, vboxstack, fn):
         if new_default and new_default in value_to_label:
             combo.set_active_id(new_default)
             current_label = value_to_label.get(new_default, new_default)
-            lbl_current.set_markup(f"<small>Current: {current_label}</small>")
+            lbl_current.set_markup(_("<small>Current: {current_label}</small>").format(current_label=current_label))
 
     return refresh_combo
 
@@ -1094,7 +1095,7 @@ def _build_boot_entry_unavailable(Gtk, vboxstack):
 
     hbox_hdr = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_hdr = Gtk.Label(xalign=0)
-    lbl_hdr.set_markup("<b>Default Boot Entry</b>")
+    lbl_hdr.set_markup(_("<b>Default Boot Entry</b>"))
     lbl_hdr.set_margin_start(10)
     lbl_hdr.set_margin_end(10)
     hbox_hdr.append(lbl_hdr)
@@ -1102,7 +1103,7 @@ def _build_boot_entry_unavailable(Gtk, vboxstack):
     hbox_msg = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_msg = Gtk.Label(xalign=0)
     lbl_msg.set_text(
-        "Setting a default boot entry is only available on systemd-boot, limine, GRUB, and rEFInd systems."
+        _("Setting a default boot entry is only available on systemd-boot, limine, GRUB, and rEFInd systems.")
     )
     lbl_msg.set_margin_start(25)
     lbl_msg.set_margin_end(10)
@@ -1116,4 +1117,4 @@ def _build_boot_entry_unavailable(Gtk, vboxstack):
 
 
 def _refresh_boot_entry_display(entry_id, label_widget):
-    label_widget.set_markup(f"<small>Current: {entry_id}</small>")
+    label_widget.set_markup(_("<small>Current: {entry_id}</small>").format(entry_id=entry_id))
