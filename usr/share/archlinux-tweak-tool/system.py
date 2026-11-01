@@ -6,6 +6,7 @@
 import pwd
 
 import functions as fn
+from att_i18n import _
 from gi.repository import GLib
 
 
@@ -30,7 +31,7 @@ def on_click_system_cpu(self, _widget):
     for pkg in ("fzf", "bat"):
         if not fn.check_package_installed(pkg):
             fn.log_info(f"{pkg} is not installed — please install it first")
-            fn.show_in_app_notification(self, f"{pkg} is required — install it first")
+            fn.show_in_app_notification(self, _("{pkg} is required — install it first").format(pkg=pkg))
             return
     try:
         fn.log_subsection("Launching CPU info viewer...")
@@ -57,7 +58,7 @@ def on_click_system_lsblk(self, _widget):
     """Show block devices with lsblk using fzf filtering in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching block devices viewer...")
@@ -70,7 +71,7 @@ def on_click_system_lspci(self, _widget):
     """Show PCI devices with lspci using fzf filtering in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching PCI devices viewer...")
@@ -83,7 +84,7 @@ def on_click_system_lsusb(self, _widget):
     """Show USB devices with lsusb using fzf filtering in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching USB devices viewer...")
@@ -97,7 +98,7 @@ def on_click_system_lsmod(self, _widget):
     for pkg in ("fzf", "bat"):
         if not fn.check_package_installed(pkg):
             fn.log_info(f"{pkg} is not installed — please install it first")
-            fn.show_in_app_notification(self, f"{pkg} is required — install it first")
+            fn.show_in_app_notification(self, _("{pkg} is required — install it first").format(pkg=pkg))
             return
     try:
         fn.log_subsection("Launching loaded modules viewer...")
@@ -110,14 +111,14 @@ def on_click_system_inxi(self, _widget):
     """Show full system info with inxi, installing it first if missing."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching system information viewer...")
         if fn.check_package_installed("inxi"):
             _run_cmd("alacritty -e bash -c 'inxi -Fxx -c 2 --za | fzf --ansi'")
         else:
-            fn.show_in_app_notification(self, "Installing inxi first...")
+            fn.show_in_app_notification(self, _("Installing inxi first..."))
             process = fn.launch_pacman_install_in_terminal("inxi")
 
             def wait_and_run():
@@ -129,7 +130,7 @@ def on_click_system_inxi(self, _widget):
                     _run_cmd("alacritty -e bash -c 'inxi -Fxx -c 2 --za | fzf --ansi'")
                 else:
                     fn.log_warn("inxi installation did not complete")
-                    fn.GLib.idle_add(fn.show_in_app_notification, self, "inxi installation failed or was cancelled")
+                    fn.GLib.idle_add(fn.show_in_app_notification, self, _("inxi installation failed or was cancelled"))
 
             fn.threading.Thread(target=wait_and_run, daemon=True).start()
     except Exception as error:
@@ -141,7 +142,7 @@ def on_click_system_hwinfo(self, _widget):
     for pkg in ("fzf", "bat"):
         if not fn.check_package_installed(pkg):
             fn.log_info(f"{pkg} is not installed — please install it first")
-            fn.show_in_app_notification(self, f"{pkg} is required — install it first")
+            fn.show_in_app_notification(self, _("{pkg} is required — install it first").format(pkg=pkg))
             return
     try:
         fn.log_subsection("Launching hardware information viewer...")
@@ -156,7 +157,7 @@ def on_click_system_fdisk(self, _widget):
     for pkg in ("fzf", "bat"):
         if not fn.check_package_installed(pkg):
             fn.log_info(f"{pkg} is not installed — please install it first")
-            fn.show_in_app_notification(self, f"{pkg} is required — install it first")
+            fn.show_in_app_notification(self, _("{pkg} is required — install it first").format(pkg=pkg))
             return
     try:
         fn.log_subsection("Launching disk partitioning viewer...")
@@ -170,7 +171,7 @@ def on_click_system_fstab(self, _widget):
     for pkg in ("fzf", "bat"):
         if not fn.check_package_installed(pkg):
             fn.log_info(f"{pkg} is not installed — please install it first")
-            fn.show_in_app_notification(self, f"{pkg} is required — install it first")
+            fn.show_in_app_notification(self, _("{pkg} is required — install it first").format(pkg=pkg))
             return
     try:
         fn.log_subsection("Launching fstab viewer...")
@@ -206,7 +207,7 @@ def on_click_system_services(self, _widget):
     """Show all system services using systemctl and fzf in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching system services viewer...")
@@ -219,7 +220,7 @@ def on_click_system_services_enabled(self, _widget):
     """Show enabled system services using systemctl and fzf in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching enabled services viewer...")
@@ -235,7 +236,7 @@ def on_click_system_services_failed(self, _widget):
     """Show failed system services using systemctl and fzf in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching failed services viewer...")
@@ -248,7 +249,7 @@ def on_click_system_timers_enabled(self, _widget):
     """Show enabled system and user timers using systemctl and fzf in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching enabled timers viewer...")
@@ -278,7 +279,7 @@ def on_click_system_dmesg(self, _widget):
     """Show kernel ring buffer messages via dmesg with fzf in a terminal."""
     if not fn.check_package_installed("fzf"):
         fn.log_info("fzf is not installed — please install it first")
-        fn.show_in_app_notification(self, "fzf is required — install it first")
+        fn.show_in_app_notification(self, _("fzf is required — install it first"))
         return
     try:
         fn.log_subsection("Launching kernel messages viewer...")
@@ -289,13 +290,17 @@ def on_click_system_dmesg(self, _widget):
 
 def _refresh_gparted_label(self):
     self.lbl_gparted.set_markup(
-        "Inspect with GParted" + (" <b>installed</b>" if fn.path.exists("/usr/bin/gparted") else "")
+        _("Inspect with GParted <b>installed</b>")
+        if fn.path.exists("/usr/bin/gparted")
+        else _("Inspect with GParted")
     )
 
 
 def _refresh_partitionmanager_label(self):
     self.lbl_partitionmanager.set_markup(
-        "Inspect with Partition Manager" + (" <b>installed</b>" if fn.path.exists("/usr/bin/partitionmanager") else "")
+        _("Inspect with Partition Manager <b>installed</b>")
+        if fn.path.exists("/usr/bin/partitionmanager")
+        else _("Inspect with Partition Manager")
     )
 
 
@@ -316,11 +321,11 @@ def on_click_system_partitionmanager(self, _widget):
         if fn.path.exists("/usr/bin/partitionmanager"):
             fn.log_subsection("Launching Partition Manager...")
             _run_cmd(_partition_tool_launch_cmd("partitionmanager"))
-            GLib.idle_add(fn.show_in_app_notification, self, "Partition Manager launched")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Partition Manager launched"))
         else:
             fn.log_subsection("Installing partitionmanager...")
             process = fn.launch_pacman_install_in_terminal("partitionmanager")
-            GLib.idle_add(fn.show_in_app_notification, self, "partitionmanager installation started")
+            GLib.idle_add(fn.show_in_app_notification, self, _("partitionmanager installation started"))
 
             def wait_install():
                 try:
@@ -329,11 +334,11 @@ def on_click_system_partitionmanager(self, _widget):
                     fn.debug_print("Installation process completed")
                     if fn.path.exists("/usr/bin/partitionmanager"):
                         fn.log_success("partitionmanager installed successfully")
-                        GLib.idle_add(fn.show_in_app_notification, self, "partitionmanager <b>installed</b>")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("partitionmanager <b>installed</b>"))
                         GLib.idle_add(_refresh_partitionmanager_label, self)
                         fn.log_subsection("Launching Partition Manager...")
                         _run_cmd(_partition_tool_launch_cmd("partitionmanager"))
-                        GLib.idle_add(fn.show_in_app_notification, self, "Partition Manager launched")
+                        GLib.idle_add(fn.show_in_app_notification, self, _("Partition Manager launched"))
                     else:
                         fn.log_warn("partitionmanager binary NOT found, installation may have failed")
                 except Exception as e:
@@ -349,11 +354,11 @@ def on_click_system_partitionmanager_remove(self, _widget):
     try:
         if not fn.path.exists("/usr/bin/partitionmanager"):
             fn.log_info("partitionmanager is not installed")
-            fn.show_in_app_notification(self, "partitionmanager is not installed")
+            fn.show_in_app_notification(self, _("partitionmanager is not installed"))
             return
         fn.log_subsection("Removing partitionmanager...")
         process = fn.launch_pacman_remove_in_terminal("partitionmanager")
-        GLib.idle_add(fn.show_in_app_notification, self, "partitionmanager removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("partitionmanager removal started"))
 
         def wait_remove():
             try:
@@ -370,7 +375,7 @@ def on_click_system_partitionmanager_remove(self, _widget):
 def _launch_gparted(self):
     fn.log_subsection("Launching gparted...")
     _run_cmd(_partition_tool_launch_cmd("gparted"))
-    GLib.idle_add(fn.show_in_app_notification, self, "GParted launched")
+    GLib.idle_add(fn.show_in_app_notification, self, _("GParted launched"))
 
 
 def on_click_system_gparted(self, _widget):
@@ -381,7 +386,7 @@ def on_click_system_gparted(self, _widget):
             return
         fn.log_subsection("Installing gparted...")
         process = fn.launch_pacman_install_in_terminal("gparted")
-        GLib.idle_add(fn.show_in_app_notification, self, "gparted installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gparted installation started"))
 
         def wait_install():
             try:
@@ -390,7 +395,7 @@ def on_click_system_gparted(self, _widget):
                 fn.debug_print("Installation process completed")
                 if fn.path.exists("/usr/bin/gparted"):
                     fn.log_success("gparted installed successfully")
-                    GLib.idle_add(fn.show_in_app_notification, self, "gparted installed")
+                    GLib.idle_add(fn.show_in_app_notification, self, _("gparted installed"))
                     GLib.idle_add(_refresh_gparted_label, self)
                     _launch_gparted(self)
                 else:
@@ -408,11 +413,11 @@ def on_click_system_gparted_remove(self, _widget):
     try:
         if not fn.path.exists("/usr/bin/gparted"):
             fn.log_info("gparted is not installed")
-            fn.show_in_app_notification(self, "gparted is not installed")
+            fn.show_in_app_notification(self, _("gparted is not installed"))
             return
         fn.log_subsection("Removing gparted...")
         process = fn.launch_pacman_remove_in_terminal("gparted")
-        GLib.idle_add(fn.show_in_app_notification, self, "gparted removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gparted removal started"))
 
         def wait_remove():
             try:
@@ -431,8 +436,9 @@ def on_click_system_gparted_remove(self, _widget):
 
 def _refresh_firmware_label(self):
     self.lbl_firmware.set_markup(
-        "Update firmware (GNOME Firmware)"
-        + (" <b>installed</b>" if fn.path.exists("/usr/bin/gnome-firmware") else "")
+        _("Update firmware (GNOME Firmware) <b>installed</b>")
+        if fn.path.exists("/usr/bin/gnome-firmware")
+        else _("Update firmware (GNOME Firmware)")
     )
 
 
@@ -441,7 +447,7 @@ def _launch_firmware(self):
     # polkit inside the app handles the privilege escalation to the fwupd daemon,
     # so launch it as the real user (never as root) like the partition tools.
     _run_cmd(_partition_tool_launch_cmd("gnome-firmware"))
-    GLib.idle_add(fn.show_in_app_notification, self, "GNOME Firmware launched")
+    GLib.idle_add(fn.show_in_app_notification, self, _("GNOME Firmware launched"))
 
 
 def on_click_system_firmware(self, _widget):
@@ -452,14 +458,14 @@ def on_click_system_firmware(self, _widget):
             return
         fn.log_subsection("Installing gnome-firmware...")
         process = fn.launch_pacman_install_in_terminal("gnome-firmware")
-        GLib.idle_add(fn.show_in_app_notification, self, "gnome-firmware installation started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gnome-firmware installation started"))
 
         def wait_install():
             try:
                 process.wait()
                 if fn.path.exists("/usr/bin/gnome-firmware"):
                     fn.log_success("gnome-firmware installed successfully")
-                    GLib.idle_add(fn.show_in_app_notification, self, "gnome-firmware installed")
+                    GLib.idle_add(fn.show_in_app_notification, self, _("gnome-firmware installed"))
                     GLib.idle_add(_refresh_firmware_label, self)
                     _launch_firmware(self)
                 else:
@@ -477,11 +483,11 @@ def on_click_system_firmware_remove(self, _widget):
     try:
         if not fn.path.exists("/usr/bin/gnome-firmware"):
             fn.log_info("gnome-firmware is not installed")
-            fn.show_in_app_notification(self, "gnome-firmware is not installed")
+            fn.show_in_app_notification(self, _("gnome-firmware is not installed"))
             return
         fn.log_subsection("Removing gnome-firmware...")
         process = fn.launch_pacman_remove_in_terminal("gnome-firmware")
-        GLib.idle_add(fn.show_in_app_notification, self, "gnome-firmware removal started")
+        GLib.idle_add(fn.show_in_app_notification, self, _("gnome-firmware removal started"))
 
         def wait_remove():
             try:
@@ -520,8 +526,11 @@ def _firmware_timer_enabled():
 def _refresh_firmware_timer_label(self):
     # Show "enabled" only when the timer is on; otherwise show nothing (mirrors the
     # firmware label's "installed"/blank) — no stale "disabled" after the package is gone.
-    state = " <b>enabled</b>" if _firmware_timer_enabled() else ""
-    self.lbl_firmware_timer.set_markup(f"Metadata refresh timer (fwupd-refresh.timer){state}")
+    self.lbl_firmware_timer.set_markup(
+        _("Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>")
+        if _firmware_timer_enabled()
+        else _("Metadata refresh timer (fwupd-refresh.timer)")
+    )
 
 
 def on_click_system_firmware_timer_enable(self, _widget):
@@ -529,7 +538,7 @@ def on_click_system_firmware_timer_enable(self, _widget):
     # fn.enable_service() hardcode-appends ".service", so it cannot drive a timer
     # unit — call systemctl directly here.
     fn.log_subsection("Enabling fwupd-refresh.timer...")
-    GLib.idle_add(fn.show_in_app_notification, self, "Enabling firmware metadata timer...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Enabling firmware metadata timer..."))
 
     def worker():
         try:
@@ -540,7 +549,7 @@ def on_click_system_firmware_timer_enable(self, _widget):
             )
             fn.log_success("fwupd-refresh.timer enabled")
             GLib.idle_add(_refresh_firmware_timer_label, self)
-            GLib.idle_add(fn.show_in_app_notification, self, "Firmware metadata timer enabled")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Firmware metadata timer enabled"))
         except Exception as e:
             fn.log_error(f"Error enabling fwupd-refresh.timer: {e}")
 
@@ -550,7 +559,7 @@ def on_click_system_firmware_timer_enable(self, _widget):
 def on_click_system_firmware_timer_disable(self, _widget):
     """Stop and disable fwupd-refresh.timer."""
     fn.log_subsection("Disabling fwupd-refresh.timer...")
-    GLib.idle_add(fn.show_in_app_notification, self, "Disabling firmware metadata timer...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Disabling firmware metadata timer..."))
 
     def worker():
         try:
@@ -561,7 +570,7 @@ def on_click_system_firmware_timer_disable(self, _widget):
             )
             fn.log_success("fwupd-refresh.timer disabled")
             GLib.idle_add(_refresh_firmware_timer_label, self)
-            GLib.idle_add(fn.show_in_app_notification, self, "Firmware metadata timer disabled")
+            GLib.idle_add(fn.show_in_app_notification, self, _("Firmware metadata timer disabled"))
         except Exception as e:
             fn.log_error(f"Error disabling fwupd-refresh.timer: {e}")
 

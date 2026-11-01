@@ -6,6 +6,7 @@ import functools
 
 import packages
 from packages import Packages
+from att_i18n import _
 
 
 def gui(self, Gtk, vbox_stack, fn):
@@ -16,20 +17,20 @@ def gui(self, Gtk, vbox_stack, fn):
         hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         lbl_packages_title = Gtk.Label(xalign=0)
         lbl_packages_title.set_name("title")
-        lbl_packages_title.set_text("Packages")
+        lbl_packages_title.set_text(_("Packages"))
 
         frame_export = Gtk.Frame(label="")
         frame_export_label = frame_export.get_label_widget()
-        frame_export_label.set_markup("<b>Export Packages</b>")
+        frame_export_label.set_markup(_("<b>Export Packages</b>"))
 
         label_export_desc = Gtk.Label(xalign=0)
         label_export_desc.set_markup(
-            " <b>No AUR packages are exported</b>\n"
+            _(" <b>No AUR packages are exported</b>\n"
             " - Option: <b>Explicitly Installed Packages</b> (recommended)"
             " packages only found in sync db (less packages)\n"
             " - Option: <b>All Installed Packages</b> will export all packages currently installed on your system \n"
             " - Tip: To see packages installed from AUR in the terminal type: pacman -Qqem\n\n"
-            " A list of installed packages will be exported to <b>.config/archlinux-tweak-tool/packages</b>"
+            " A list of installed packages will be exported to <b>.config/archlinux-tweak-tool/packages</b>")
         )
 
         label_export_desc.set_selectable(True)
@@ -40,7 +41,7 @@ def gui(self, Gtk, vbox_stack, fn):
 
         hbox_title_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         label_install_title = Gtk.Label(xalign=0)
-        label_install_title.set_markup("<b> Install Packages</b>")
+        label_install_title.set_markup(_("<b> Install Packages</b>"))
 
         hbox_title_install.append(label_install_title)
 
@@ -50,12 +51,12 @@ def gui(self, Gtk, vbox_stack, fn):
         hsep.set_vexpand(False)
         hbox_sep.append(hsep)
 
-        button_export_packages = Gtk.Button(label="Export Packages")
+        button_export_packages = Gtk.Button(label=_("Export Packages"))
 
-        rb_export_all = Gtk.CheckButton(label="All Installed Packages")
+        rb_export_all = Gtk.CheckButton(label=_("All Installed Packages"))
         rb_export_all.set_name("rb_packages_export_all")
 
-        rb_export_explicit = Gtk.CheckButton(label="Explicitly Installed Packages")
+        rb_export_explicit = Gtk.CheckButton(label=_("Explicitly Installed Packages"))
         rb_export_explicit.set_group(rb_export_all)
         rb_export_explicit.set_name("rb_packages_export_explicit")
         rb_export_explicit.set_active(True)
@@ -92,17 +93,17 @@ def gui(self, Gtk, vbox_stack, fn):
 
         frame_install = Gtk.Frame(label="")
         frame_install_label = frame_install.get_label_widget()
-        frame_install_label.set_markup("<b>Install Packages</b>")
+        frame_install_label.set_markup(_("<b>Install Packages</b>"))
 
         hbox_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         label_install_desc = Gtk.Label(xalign=0, yalign=0)
         label_install_desc.set_markup(
-            " <b>WARNING:</b> Proceed with caution this will install packages onto your system!\n"
+            _(" <b>WARNING:</b> Proceed with caution this will install packages onto your system!\n"
             " Packages from the AUR are not supported \n"
             " This also performs a full system upgrade\n\n"
             " - A list of packages are sourced from <b>.config/archlinux-tweak-tool/packages</b>\n"
             " - To ignore a package, add a # in front of the package name\n"
-            " - A reboot is needed when core Linux packages are installed"
+            " - A reboot is needed when core Linux packages are installed")
         )
 
         label_install_desc.set_selectable(True)
@@ -112,14 +113,14 @@ def gui(self, Gtk, vbox_stack, fn):
 
         label_package_status = Gtk.Label(xalign=0, yalign=0)
         label_package_status.set_name("label_package_status")
-        label_package_status.set_markup("Status: ")
+        label_package_status.set_markup(_("Status: "))
 
         grid_package_status.attach(label_package_status, 0, 1, 1, 1)
         grid_package_status.set_halign(Gtk.Align.START)
 
         label_package_count = Gtk.Label(xalign=0, yalign=0)
         label_package_count.set_name("label_package_status")
-        label_package_count.set_markup("Progress: ")
+        label_package_count.set_markup(_("Progress: "))
         grid_package_count.attach(label_package_count, 0, 1, 1, 1)
         grid_package_count.set_halign(Gtk.Align.START)
 
@@ -180,7 +181,7 @@ def gui(self, Gtk, vbox_stack, fn):
 
         vbox_pacmanlog.append(grid_pacmanlog)
 
-        button_install_packages = Gtk.Button(label="Install Packages")
+        button_install_packages = Gtk.Button(label=_("Install Packages"))
 
         gui_parts = (
             vbox_stack,
@@ -219,15 +220,15 @@ def gui(self, Gtk, vbox_stack, fn):
 
         frame_build = Gtk.Frame(label="")
         frame_build_label = frame_build.get_label_widget()
-        frame_build_label.set_markup("<b>Building packages</b>")
+        frame_build_label.set_markup(_("<b>Building packages</b>"))
 
         hbox_build = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         label_build_desc = Gtk.Label(xalign=0, yalign=0)
         label_build_desc.set_markup(
-            " <b>Build packages from source using makepkg</b>\n"
+            _(" <b>Build packages from source using makepkg</b>\n"
             " - Build packages from PKGBUILD files\n"
             " - Requires base-devel package group to be installed\n"
-            " - Arch Linux creates a -debug package by default; this behavior can be changed"
+            " - Arch Linux creates a -debug package by default; this behavior can be changed")
         )
 
         label_build_desc.set_selectable(True)
@@ -239,24 +240,24 @@ def gui(self, Gtk, vbox_stack, fn):
 
         hbox_debug = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         label_debug = Gtk.Label(xalign=0)
-        label_debug.set_text("Remove the debug in /etc/makepkg.conf")
+        label_debug.set_text(_("Remove the debug in /etc/makepkg.conf"))
         label_debug.set_hexpand(True)
 
         label_debug_status = Gtk.Label(xalign=0)
         debug_ok = fn.check_debug_status()
         if debug_ok is True:
-            label_debug_status.set_markup("<b>Debug ok</b>")
+            label_debug_status.set_markup(_("<b>Debug ok</b>"))
         else:
-            label_debug_status.set_text("Debug not ok")
+            label_debug_status.set_text(_("Debug not ok"))
 
-        button_remove_debug = Gtk.Button(label="Remove")
+        button_remove_debug = Gtk.Button(label=_("Remove"))
 
         def refresh_debug_status(_widget):
             packages.on_click_remove_debug(self, _widget)
             if fn.check_debug_status() is True:
-                label_debug_status.set_markup("<b>Debug ok</b>")
+                label_debug_status.set_markup(_("<b>Debug ok</b>"))
             else:
-                label_debug_status.set_text("Debug not ok")
+                label_debug_status.set_text(_("Debug not ok"))
 
         hbox_debug.append(label_debug)
         hbox_debug.append(label_debug_status)

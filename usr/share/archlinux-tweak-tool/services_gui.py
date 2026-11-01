@@ -4,62 +4,63 @@
 
 import functools
 import services
+from att_i18n import _
 
 from gi.repository import Gtk
 
 
 def _refresh(self, fn):
     if fn.check_package_installed("cups"):
-        self.cups_install_label.set_markup("Cups printing is <b>installed</b>")
+        self.cups_install_label.set_markup(_("Cups printing is <b>installed</b>"))
     else:
-        self.cups_install_label.set_markup("Install cups printing")
+        self.cups_install_label.set_markup(_("Install cups printing"))
 
     if fn.check_package_installed("cups-pdf"):
-        self.cups_pdf_label.set_markup("Cups-pdf is <b>installed</b>")
+        self.cups_pdf_label.set_markup(_("Cups-pdf is <b>installed</b>"))
     else:
-        self.cups_pdf_label.set_markup("Install cups-pdf printing")
+        self.cups_pdf_label.set_markup(_("Install cups-pdf printing"))
 
     if fn.check_package_installed("foomatic-db"):
         self.printer_drivers_label.set_markup(
-            "   Install common printer drivers (foomatic, gutenprint, ...) - <b>Installed</b>"
+            _("   Install common printer drivers (foomatic, gutenprint, ...) - <b>Installed</b>")
         )
     else:
-        self.printer_drivers_label.set_markup("   Install common printer drivers (foomatic, gutenprint, ...)")
+        self.printer_drivers_label.set_markup(_("   Install common printer drivers (foomatic, gutenprint, ...)"))
 
     if fn.check_package_installed("hplip"):
-        self.hplip_label.set_markup("   HP drivers have been <b>installed</b>")
+        self.hplip_label.set_markup(_("   HP drivers have been <b>installed</b>"))
     else:
-        self.hplip_label.set_markup("   Install HP drivers")
+        self.hplip_label.set_markup(_("   Install HP drivers"))
 
     if fn.check_package_installed("system-config-printer"):
-        self.system_config_printer_label.set_markup("Install system-config-printer - <b>Installed</b>")
+        self.system_config_printer_label.set_markup(_("Install system-config-printer - <b>Installed</b>"))
     else:
-        self.system_config_printer_label.set_markup("Install system-config-printer")
+        self.system_config_printer_label.set_markup(_("Install system-config-printer"))
 
     if fn.check_package_installed("bluez"):
-        self.bluez_label.set_markup("Bluez packages are already <b>installed</b>")
+        self.bluez_label.set_markup(_("Bluez packages are already <b>installed</b>"))
     else:
-        self.bluez_label.set_markup("Install bluetooth packages")
+        self.bluez_label.set_markup(_("Install bluetooth packages"))
 
     if fn.check_package_installed("blueberry"):
-        self.blueberry_label.set_markup("   Blueberry is already <b>installed</b>")
+        self.blueberry_label.set_markup(_("   Blueberry is already <b>installed</b>"))
     else:
-        self.blueberry_label.set_markup("   Install blueberry")
+        self.blueberry_label.set_markup(_("   Install blueberry"))
 
     if fn.check_package_installed("blueman"):
-        self.blueman_label.set_markup("   Blueman is already <b>installed</b>")
+        self.blueman_label.set_markup(_("   Blueman is already <b>installed</b>"))
     else:
-        self.blueman_label.set_markup("   Install blueman")
+        self.blueman_label.set_markup(_("   Install blueman"))
 
     if fn.check_package_installed("bluedevil"):
-        self.bluedevil_label.set_markup("   Bluedevil is already <b>installed</b>")
+        self.bluedevil_label.set_markup(_("   Bluedevil is already <b>installed</b>"))
     else:
-        self.bluedevil_label.set_markup("   Install bluedevil (Plasma dependencies)")
+        self.bluedevil_label.set_markup(_("   Install bluedevil (Plasma dependencies)"))
 
     if fn.check_package_installed("bluetooth-autoconnect"):
-        self.bt_autoconnect_pkg_label.set_markup("   bluetooth-autoconnect is <b>installed</b> and enabled")
+        self.bt_autoconnect_pkg_label.set_markup(_("   bluetooth-autoconnect is <b>installed</b> and enabled"))
     else:
-        self.bt_autoconnect_pkg_label.set_markup("   Install bluetooth-autoconnect")
+        self.bt_autoconnect_pkg_label.set_markup(_("   Install bluetooth-autoconnect"))
 
     bluez_ok = fn.check_package_installed("bluez")
     self.enable_bt.set_sensitive(bluez_ok)
@@ -73,7 +74,7 @@ def gui(self, Gtk, vboxstack_services, fn):
     """Create the Services configuration GUI (printing, audio, bluetooth)."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Services")
+    hbox_title_label.set_text(_("Services"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -107,18 +108,18 @@ def gui(self, Gtk, vboxstack_services, fn):
     hbox_cups_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_cups_desc_label = Gtk.Label(xalign=0)
     hbox_cups_desc_label.set_markup(
-        "Printing can be a challenge. We recommend reading the Arch wiki cups page. Check before you buy.\n\
-There are also printer specific pages. Lastly the AUR might contain the driver you need."
+        _("Printing can be a challenge. We recommend reading the Arch wiki cups page. Check before you buy.\n\
+There are also printer specific pages. Lastly the AUR might contain the driver you need.")
     )
     hbox_cups_desc.append(hbox_cups_desc_label)
 
     hbox_cups = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.cups_install_label = Gtk.Label(xalign=0)
-    self.cups_install_label.set_markup("Install cups printing")
+    self.cups_install_label.set_markup(_("Install cups printing"))
 
-    btn_install_cups = Gtk.Button(label="Install cups")
+    btn_install_cups = Gtk.Button(label=_("Install cups"))
     btn_install_cups.connect("clicked", functools.partial(services.on_click_install_cups, self))
-    btn_remove_cups = Gtk.Button(label="Remove cups")
+    btn_remove_cups = Gtk.Button(label=_("Remove cups"))
     btn_remove_cups.connect("clicked", functools.partial(services.on_click_remove_cups, self))
     self.cups_install_label.set_margin_start(20)
     self.cups_install_label.set_margin_end(10)
@@ -133,10 +134,10 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_cups_pdf = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.cups_pdf_label = Gtk.Label(xalign=0)
-    self.cups_pdf_label.set_markup("Install cups-pdf printing")
-    btn_install_cups_pdf = Gtk.Button(label="Install cups-pdf")
+    self.cups_pdf_label.set_markup(_("Install cups-pdf printing"))
+    btn_install_cups_pdf = Gtk.Button(label=_("Install cups-pdf"))
     btn_install_cups_pdf.connect("clicked", functools.partial(services.on_click_install_cups_pdf, self))
-    btn_remove_cups_pdf = Gtk.Button(label="Remove cups-pdf")
+    btn_remove_cups_pdf = Gtk.Button(label=_("Remove cups-pdf"))
     btn_remove_cups_pdf.connect("clicked", functools.partial(services.on_click_remove_cups_pdf, self))
     self.cups_pdf_label.set_margin_start(20)
     self.cups_pdf_label.set_margin_end(10)
@@ -151,10 +152,10 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_printer_drivers = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.printer_drivers_label = Gtk.Label(xalign=0)
-    self.printer_drivers_label.set_markup("   Install common printer drivers (foomatic, gutenprint, ...)")
-    btn_install_printer_drivers = Gtk.Button(label="Install drivers")
+    self.printer_drivers_label.set_markup(_("   Install common printer drivers (foomatic, gutenprint, ...)"))
+    btn_install_printer_drivers = Gtk.Button(label=_("Install drivers"))
     btn_install_printer_drivers.connect("clicked", functools.partial(services.on_click_install_printer_drivers, self))
-    btn_remove_printer_drivers = Gtk.Button(label="Remove drivers")
+    btn_remove_printer_drivers = Gtk.Button(label=_("Remove drivers"))
     btn_remove_printer_drivers.connect("clicked", functools.partial(services.on_click_remove_printer_drivers, self))
     self.printer_drivers_label.set_margin_start(10)
     self.printer_drivers_label.set_margin_end(10)
@@ -169,10 +170,10 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_hplip = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.hplip_label = Gtk.Label(xalign=0)
-    self.hplip_label.set_markup("   Install HP drivers")
-    btn_install_hplip = Gtk.Button(label="Install hplip")
+    self.hplip_label.set_markup(_("   Install HP drivers"))
+    btn_install_hplip = Gtk.Button(label=_("Install hplip"))
     btn_install_hplip.connect("clicked", functools.partial(services.on_click_install_hplip, self))
-    btn_remove_hplip = Gtk.Button(label="Uninstall hplip")
+    btn_remove_hplip = Gtk.Button(label=_("Uninstall hplip"))
     btn_remove_hplip.connect("clicked", functools.partial(services.on_click_remove_hplip, self))
     self.hplip_label.set_margin_start(10)
     self.hplip_label.set_margin_end(10)
@@ -187,12 +188,12 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_system_config_printer = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.system_config_printer_label = Gtk.Label(xalign=0)
-    self.system_config_printer_label.set_markup("Install system-config-printer")
-    btn_install_system_config_printer = Gtk.Button(label="Install system-config-printer")
+    self.system_config_printer_label.set_markup(_("Install system-config-printer"))
+    btn_install_system_config_printer = Gtk.Button(label=_("Install system-config-printer"))
     btn_install_system_config_printer.connect(
         "clicked", functools.partial(services.on_click_install_system_config_printer, self)
     )
-    btn_remove_system_config_printer = Gtk.Button(label="Remove system-config-printer")
+    btn_remove_system_config_printer = Gtk.Button(label=_("Remove system-config-printer"))
     btn_remove_system_config_printer.connect(
         "clicked", functools.partial(services.on_click_remove_system_config_printer, self)
     )
@@ -209,7 +210,7 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_cups_service_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_cups_service_title_lbl = Gtk.Label(xalign=0)
-    hbox_cups_service_title_lbl.set_markup("<b>CUPS Service</b>")
+    hbox_cups_service_title_lbl.set_markup(_("<b>CUPS Service</b>"))
     hbox_cups_service_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_cups_service_title_sep.set_hexpand(True)
     hbox_cups_service_title_sep.set_valign(Gtk.Align.CENTER)
@@ -218,7 +219,7 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_drivers_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_drivers_title_lbl = Gtk.Label(xalign=0)
-    hbox_drivers_title_lbl.set_markup("<b>Printer Drivers</b>")
+    hbox_drivers_title_lbl.set_markup(_("<b>Printer Drivers</b>"))
     hbox_drivers_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_drivers_title_sep.set_hexpand(True)
     hbox_drivers_title_sep.set_valign(Gtk.Align.CENTER)
@@ -227,7 +228,7 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_tools_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_tools_title_lbl = Gtk.Label(xalign=0)
-    hbox_tools_title_lbl.set_markup("<b>Tools</b>")
+    hbox_tools_title_lbl.set_markup(_("<b>Tools</b>"))
     hbox_tools_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_tools_title_sep.set_hexpand(True)
     hbox_tools_title_sep.set_valign(Gtk.Align.CENTER)
@@ -236,7 +237,7 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     hbox_status_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_status_title_lbl = Gtk.Label(xalign=0)
-    hbox_status_title_lbl.set_markup("<b>Status</b>")
+    hbox_status_title_lbl.set_markup(_("<b>Status</b>"))
     hbox_status_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_status_title_sep.set_hexpand(True)
     hbox_status_title_sep.set_valign(Gtk.Align.CENTER)
@@ -244,11 +245,11 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
     hbox_status_title.append(hbox_status_title_sep)
 
     hbox_cups_service_buttons = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    enable_cups = Gtk.Button(label="Enable cups")
+    enable_cups = Gtk.Button(label=_("Enable cups"))
     enable_cups.connect("clicked", functools.partial(services.on_click_enable_cups, self))
-    disable_cups = Gtk.Button(label="Disable cups")
+    disable_cups = Gtk.Button(label=_("Disable cups"))
     disable_cups.connect("clicked", functools.partial(services.on_click_disable_cups, self))
-    restart_cups = Gtk.Button(label="Start/Restart cups")
+    restart_cups = Gtk.Button(label=_("Start/Restart cups"))
     restart_cups.connect("clicked", functools.partial(services.on_click_restart_cups, self))
     restart_cups.set_margin_start(10)
     restart_cups.set_margin_end(10)
@@ -265,17 +266,19 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
 
     status1 = fn.check_service("cups")
     if status1 is True:
-        status1 = "<b>active</b>"
+        status1 = _("<b>active</b>")
     else:
-        status1 = "inactive"
+        status1 = _("inactive")
 
     status2 = fn.check_socket("cups")
     if status2 is True:
-        status2 = "<b>active</b>"
+        status2 = _("<b>active</b>")
     else:
-        status2 = "inactive"
+        status2 = _("inactive")
 
-    self.cups_status_label.set_markup("Cups service : " + status1 + "   Cups socket : " + status2)
+    self.cups_status_label.set_markup(
+        _("Cups service : {service}   Cups socket : {socket}").format(service=status1, socket=status2)
+    )
     self.cups_status_label.set_margin_start(10)
     self.cups_status_label.set_margin_end(10)
     hbox_cups_status.append(self.cups_status_label)
@@ -285,13 +288,13 @@ There are also printer specific pages. Lastly the AUR might contain the driver y
     hbox_audio_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_audio_desc_label = Gtk.Label(xalign=0)
     hbox_audio_desc_label.set_markup(
-        "You have two major choices: \n\
+        _("You have two major choices: \n\
   - <b>Pulseaudio</b>\n\
   - <b>Pipewire</b>\n\
 Reboot after installing pulseaudio or pipewire\n\
 With an 'inxi -A' in a terminal you can see what sound server is running\n\
 There are packages that conflict with each other.\n\
-Report them if that is the case"
+Report them if that is the case")
     )
     hbox_audio_desc_label.set_margin_start(0)
     hbox_audio_desc_label.set_margin_end(10)
@@ -299,8 +302,8 @@ Report them if that is the case"
 
     hbox_pulseaudio = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_pulseaudio_label = Gtk.Label(xalign=0)
-    hbox_pulseaudio_label.set_markup("Install and switch to Pulseaudio")
-    btn_install_pulseaudio = Gtk.Button(label="Install and switch to Pulseaudio")
+    hbox_pulseaudio_label.set_markup(_("Install and switch to Pulseaudio"))
+    btn_install_pulseaudio = Gtk.Button(label=_("Install and switch to Pulseaudio"))
     btn_install_pulseaudio.connect("clicked", functools.partial(services.on_click_switch_to_pulseaudio, self))
     hbox_pulseaudio_label.set_margin_start(10)
     hbox_pulseaudio_label.set_margin_end(10)
@@ -312,8 +315,8 @@ Report them if that is the case"
 
     hbox_pipewire = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_pipewire_label = Gtk.Label(xalign=0)
-    hbox_pipewire_label.set_markup("Install and switch to Pipewire")
-    btn_install_pipewire = Gtk.Button(label="Install and switch to Pipewire")
+    hbox_pipewire_label.set_markup(_("Install and switch to Pipewire"))
+    btn_install_pipewire = Gtk.Button(label=_("Install and switch to Pipewire"))
     btn_install_pipewire.connect("clicked", functools.partial(services.on_click_switch_to_pipewire, self))
     hbox_pipewire_label.set_margin_start(10)
     hbox_pipewire_label.set_margin_end(10)
@@ -329,17 +332,19 @@ Report them if that is the case"
     text2 = ""
     status1 = fn.check_if_process_is_running("pulseaudio")
     if status1 is True:
-        text1 = "<b>active</b>"
+        text1 = _("<b>active</b>")
     else:
-        text1 = "inactive"
+        text1 = _("inactive")
 
     status2 = fn.check_if_process_is_running("pipewire")
     if status2 is True:
-        text2 = "<b>active</b>"
+        text2 = _("<b>active</b>")
     else:
-        text2 = "inactive"
+        text2 = _("inactive")
 
-    hbox_audio_status_label.set_markup("Pulseaudio service : " + text1 + "   Pipewire service : " + text2)
+    hbox_audio_status_label.set_markup(
+        _("Pulseaudio service : {pulseaudio}   Pipewire service : {pipewire}").format(pulseaudio=text1, pipewire=text2)
+    )
     hbox_audio_status_label.set_hexpand(True)
     hbox_audio_status_label.set_halign(Gtk.Align.CENTER)
     hbox_audio_status.append(hbox_audio_status_label)
@@ -348,7 +353,7 @@ Report them if that is the case"
 
     hbox_bt_packages_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bt_packages_title_lbl = Gtk.Label(xalign=0)
-    hbox_bt_packages_title_lbl.set_markup("<b>Packages</b>")
+    hbox_bt_packages_title_lbl.set_markup(_("<b>Packages</b>"))
     hbox_bt_packages_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_bt_packages_title_sep.set_hexpand(True)
     hbox_bt_packages_title_sep.set_valign(Gtk.Align.CENTER)
@@ -357,7 +362,7 @@ Report them if that is the case"
 
     hbox_bt_tools_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bt_tools_title_lbl = Gtk.Label(xalign=0)
-    hbox_bt_tools_title_lbl.set_markup("<b>Tools</b>")
+    hbox_bt_tools_title_lbl.set_markup(_("<b>Tools</b>"))
     hbox_bt_tools_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_bt_tools_title_sep.set_hexpand(True)
     hbox_bt_tools_title_sep.set_valign(Gtk.Align.CENTER)
@@ -366,7 +371,7 @@ Report them if that is the case"
 
     hbox_bt_autoconnect_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bt_autoconnect_title_lbl = Gtk.Label(xalign=0)
-    hbox_bt_autoconnect_title_lbl.set_markup("<b>Auto-Connect</b>")
+    hbox_bt_autoconnect_title_lbl.set_markup(_("<b>Auto-Connect</b>"))
     hbox_bt_autoconnect_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_bt_autoconnect_title_sep.set_hexpand(True)
     hbox_bt_autoconnect_title_sep.set_valign(Gtk.Align.CENTER)
@@ -375,7 +380,7 @@ Report them if that is the case"
 
     hbox_bt_autoconnect = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_bt_autoconnect = Gtk.Label(xalign=0)
-    lbl_bt_autoconnect.set_text("Reconnect paired headsets at login (AutoEnable). Works with PipeWire and PulseAudio.")
+    lbl_bt_autoconnect.set_text(_("Reconnect paired headsets at login (AutoEnable). Works with PipeWire and PulseAudio."))
     lbl_bt_autoconnect.set_hexpand(True)
     lbl_bt_autoconnect.set_margin_start(10)
     lbl_bt_autoconnect.set_margin_end(10)
@@ -392,15 +397,15 @@ Report them if that is the case"
     hbox_bt_autoconnect_pkg = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.bt_autoconnect_pkg_label = Gtk.Label(xalign=0)
     if fn.check_package_installed("bluetooth-autoconnect"):
-        self.bt_autoconnect_pkg_label.set_markup("   bluetooth-autoconnect is <b>installed</b> and enabled")
+        self.bt_autoconnect_pkg_label.set_markup(_("   bluetooth-autoconnect is <b>installed</b> and enabled"))
     else:
-        self.bt_autoconnect_pkg_label.set_markup("   Install bluetooth-autoconnect")
+        self.bt_autoconnect_pkg_label.set_markup(_("   Install bluetooth-autoconnect"))
     self.bt_autoconnect_pkg_label.set_hexpand(True)
     self.bt_autoconnect_pkg_label.set_margin_start(10)
     self.bt_autoconnect_pkg_label.set_margin_end(10)
-    btn_install_bt_autoconnect = Gtk.Button(label="Install")
+    btn_install_bt_autoconnect = Gtk.Button(label=_("Install"))
     btn_install_bt_autoconnect.connect("clicked", functools.partial(services.on_click_install_bt_autoconnect, self))
-    btn_remove_bt_autoconnect = Gtk.Button(label="Remove")
+    btn_remove_bt_autoconnect = Gtk.Button(label=_("Remove"))
     btn_remove_bt_autoconnect.connect("clicked", functools.partial(services.on_click_remove_bt_autoconnect, self))
     btn_install_bt_autoconnect.set_margin_start(10)
     btn_install_bt_autoconnect.set_margin_end(10)
@@ -412,7 +417,7 @@ Report them if that is the case"
 
     hbox_bt_service_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bt_service_title_lbl = Gtk.Label(xalign=0)
-    hbox_bt_service_title_lbl.set_markup("<b>Status</b>")
+    hbox_bt_service_title_lbl.set_markup(_("<b>Status</b>"))
     hbox_bt_service_title_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_bt_service_title_sep.set_hexpand(True)
     hbox_bt_service_title_sep.set_valign(Gtk.Align.CENTER)
@@ -421,17 +426,17 @@ Report them if that is the case"
 
     hbox_bluetooth_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bluetooth_desc_label = Gtk.Label(xalign=0)
-    hbox_bluetooth_desc_label.set_text("You can install all the bluetooth packages here and enable the service.")
+    hbox_bluetooth_desc_label.set_text(_("You can install all the bluetooth packages here and enable the service."))
     hbox_bluetooth_desc_label.set_margin_start(10)
     hbox_bluetooth_desc_label.set_margin_end(10)
     hbox_bluetooth_desc.append(hbox_bluetooth_desc_label)
 
     hbox_bluez = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.bluez_label = Gtk.Label(xalign=0)
-    self.bluez_label.set_markup("Install bluetooth packages")
-    btn_install_bt = Gtk.Button(label="Install bluetooth")
+    self.bluez_label.set_markup(_("Install bluetooth packages"))
+    btn_install_bt = Gtk.Button(label=_("Install bluetooth"))
     btn_install_bt.connect("clicked", functools.partial(services.on_click_install_bluetooth, self))
-    btn_remove_bt = Gtk.Button(label="Remove bluetooth")
+    btn_remove_bt = Gtk.Button(label=_("Remove bluetooth"))
     btn_remove_bt.connect("clicked", functools.partial(services.on_click_remove_bluetooth, self))
     self.bluez_label.set_margin_start(10)
     self.bluez_label.set_margin_end(10)
@@ -446,17 +451,17 @@ Report them if that is the case"
 
     hbox_bluetooth_tools_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_bluetooth_tools_desc_label = Gtk.Label(xalign=0)
-    hbox_bluetooth_tools_desc_label.set_text("Choose one of these tools to connect to your bluetooth devices:")
+    hbox_bluetooth_tools_desc_label.set_text(_("Choose one of these tools to connect to your bluetooth devices:"))
     hbox_bluetooth_tools_desc_label.set_margin_start(10)
     hbox_bluetooth_tools_desc_label.set_margin_end(10)
     hbox_bluetooth_tools_desc.append(hbox_bluetooth_tools_desc_label)
 
     hbox_blueberry = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.blueberry_label = Gtk.Label(xalign=0)
-    self.blueberry_label.set_markup("   Install blueberry")
-    btn_install_blueberry = Gtk.Button(label="Install blueberry")
+    self.blueberry_label.set_markup(_("   Install blueberry"))
+    btn_install_blueberry = Gtk.Button(label=_("Install blueberry"))
     btn_install_blueberry.connect("clicked", functools.partial(services.on_click_install_blueberry, self))
-    btn_remove_blueberry = Gtk.Button(label="Remove blueberry")
+    btn_remove_blueberry = Gtk.Button(label=_("Remove blueberry"))
     btn_remove_blueberry.connect("clicked", functools.partial(services.on_click_remove_blueberry, self))
     self.blueberry_label.set_margin_start(10)
     self.blueberry_label.set_margin_end(10)
@@ -471,10 +476,10 @@ Report them if that is the case"
 
     hbox_blueman = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.blueman_label = Gtk.Label(xalign=0)
-    self.blueman_label.set_markup("   Install blueman")
-    btn_install_blueman = Gtk.Button(label="Install blueman")
+    self.blueman_label.set_markup(_("   Install blueman"))
+    btn_install_blueman = Gtk.Button(label=_("Install blueman"))
     btn_install_blueman.connect("clicked", functools.partial(services.on_click_install_blueman, self))
-    btn_remove_blueman = Gtk.Button(label="Remove blueman")
+    btn_remove_blueman = Gtk.Button(label=_("Remove blueman"))
     btn_remove_blueman.connect("clicked", functools.partial(services.on_click_remove_blueman, self))
     self.blueman_label.set_margin_start(10)
     self.blueman_label.set_margin_end(10)
@@ -489,10 +494,10 @@ Report them if that is the case"
 
     hbox_bluedevil = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.bluedevil_label = Gtk.Label(xalign=0)
-    self.bluedevil_label.set_markup("   Install bluedevil (Plasma dependencies)")
-    btn_install_bluedevil = Gtk.Button(label="Install bluedevil")
+    self.bluedevil_label.set_markup(_("   Install bluedevil (Plasma dependencies)"))
+    btn_install_bluedevil = Gtk.Button(label=_("Install bluedevil"))
     btn_install_bluedevil.connect("clicked", functools.partial(services.on_click_install_bluedevil, self))
-    btn_remove_bluedevil = Gtk.Button(label="Remove bluedevil")
+    btn_remove_bluedevil = Gtk.Button(label=_("Remove bluedevil"))
     btn_remove_bluedevil.connect("clicked", functools.partial(services.on_click_remove_bluedevil, self))
     self.bluedevil_label.set_margin_start(10)
     self.bluedevil_label.set_margin_end(10)
@@ -506,11 +511,11 @@ Report them if that is the case"
     hbox_bluedevil.append(btn_remove_bluedevil)
 
     hbox_bluetooth_service_buttons = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.enable_bt = Gtk.Button(label="Enable bluetooth")
+    self.enable_bt = Gtk.Button(label=_("Enable bluetooth"))
     self.enable_bt.connect("clicked", functools.partial(services.on_click_enable_bluetooth, self))
-    self.disable_bt = Gtk.Button(label="Disable bluetooth")
+    self.disable_bt = Gtk.Button(label=_("Disable bluetooth"))
     self.disable_bt.connect("clicked", functools.partial(services.on_click_disable_bluetooth, self))
-    self.restart_bt = Gtk.Button(label="Start/Restart bluetooth")
+    self.restart_bt = Gtk.Button(label=_("Start/Restart bluetooth"))
     self.restart_bt.connect("clicked", functools.partial(services.on_click_restart_bluetooth, self))
     self.restart_bt.set_margin_start(10)
     self.restart_bt.set_margin_end(10)
@@ -527,11 +532,11 @@ Report them if that is the case"
 
     status1 = fn.check_service("bluetooth")
     if status1 is True:
-        status1 = "<b>active</b>"
+        status1 = _("<b>active</b>")
     else:
-        status1 = "inactive"
+        status1 = _("inactive")
 
-    hbox_bluetooth_status_label.set_markup("bluetooth service : " + status1)
+    hbox_bluetooth_status_label.set_markup(_("bluetooth service : {status}").format(status=status1))
     hbox_bluetooth_status_label.set_margin_start(10)
     hbox_bluetooth_status_label.set_margin_end(10)
     hbox_bluetooth_status.append(hbox_bluetooth_status_label)
@@ -620,7 +625,7 @@ Report them if that is the case"
     # ── User Services tab ────────────────────────────────────────────
     hbox_user_services_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_user_services_title_lbl = Gtk.Label(xalign=0)
-    hbox_user_services_title_lbl.set_markup("<b>User Services</b>")
+    hbox_user_services_title_lbl.set_markup(_("<b>User Services</b>"))
     hbox_user_services_title.append(hbox_user_services_title_lbl)
     hbox_user_services_title.set_margin_start(10)
     hbox_user_services_title.set_margin_end(10)
@@ -630,7 +635,7 @@ Report them if that is the case"
     hbox_user_services_desc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_user_services_desc_lbl = Gtk.Label(xalign=0)
     hbox_user_services_desc_lbl.set_markup(
-        "Active services in your <b>--user</b> session (read-only). Custom units you added are flagged."
+        _("Active services in your <b>--user</b> session (read-only). Custom units you added are flagged.")
     )
     hbox_user_services_desc.append(hbox_user_services_desc_lbl)
     hbox_user_services_desc.set_margin_start(10)
@@ -640,7 +645,7 @@ Report them if that is the case"
     hbox_user_services_controls = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.user_services_count_label = Gtk.Label(xalign=0)
     self.user_services_count_label.set_hexpand(True)
-    btn_user_services_refresh = Gtk.Button(label="Refresh")
+    btn_user_services_refresh = Gtk.Button(label=_("Refresh"))
     btn_user_services_refresh.connect("clicked", functools.partial(_on_refresh_user_services, self, fn))
     hbox_user_services_controls.append(self.user_services_count_label)
     hbox_user_services_controls.append(btn_user_services_refresh)
@@ -663,10 +668,10 @@ Report them if that is the case"
     vboxstack_user_services.append(user_services_scrolled)
 
     # ── Pack to stack ────────────────────────────────────────────────
-    stack.add_titled(vboxstack_audio, "stack4", "Audio")
-    stack.add_titled(vboxstack_bluetooth, "stack5", "Bluetooth")
-    stack.add_titled(vboxstack_cups, "stack3", "Printing")
-    stack.add_titled(vboxstack_user_services, "stack6", "User Services")
+    stack.add_titled(vboxstack_audio, "stack4", _("Audio"))
+    stack.add_titled(vboxstack_bluetooth, "stack5", _("Bluetooth"))
+    stack.add_titled(vboxstack_cups, "stack3", _("Printing"))
+    stack.add_titled(vboxstack_user_services, "stack6", _("User Services"))
 
     vbox.append(stack_switcher)
     stack.set_hexpand(True)
@@ -706,7 +711,9 @@ def _populate_user_services(self, fn, services_list):
 
     custom = sum(1 for svc in services_list if svc["custom"])
     self.user_services_count_label.set_markup(
-        f"<b>{len(services_list)}</b> active user services  ·  <b>{custom}</b> custom"
+        _("<b>{count}</b> active user services  ·  <b>{custom}</b> custom").format(
+            count=len(services_list), custom=custom
+        )
     )
     for svc in services_list:
         self.user_services_listbox.append(_build_user_service_row(fn, svc))
@@ -725,7 +732,9 @@ def _build_user_service_row(fn, svc):
     name = fn.GLib.markup_escape_text(svc["id"])
     name_label = Gtk.Label(xalign=0)
     if svc["custom"]:
-        name_label.set_markup(f"<b>{name}</b>  <span foreground='#4e9a06'>● custom</span>")
+        name_label.set_markup(
+            _("<b>{name}</b>  <span foreground='#4e9a06'>● custom</span>").format(name=name)
+        )
     else:
         name_label.set_markup(name)
     name_label.set_size_request(320, -1)

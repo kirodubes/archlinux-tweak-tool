@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _, ngettext
 import gi
 
 gi.require_version("Gtk", "4.0")
@@ -18,7 +19,7 @@ class PackagesPromptGui(Gtk.Dialog):
         try:
             super().__init__(modal=True)
 
-            title = "Arch Linux Tweak Tool: Confirm package installation"
+            title = _("Arch Linux Tweak Tool: Confirm package installation")
 
             headerbar = Gtk.HeaderBar()
             headerbar.set_show_title_buttons(True)
@@ -27,12 +28,12 @@ class PackagesPromptGui(Gtk.Dialog):
             self.set_title(title)
             self.set_titlebar(headerbar)
 
-            button_yes = self.add_button("Yes", Gtk.ResponseType.OK)
+            button_yes = self.add_button(_("Yes"), Gtk.ResponseType.OK)
             button_yes.set_size_request(100, 30)
             btn_yes_context = button_yes.get_style_context()
             btn_yes_context.add_class("destructive-action")
 
-            button_no = self.add_button("No", Gtk.ResponseType.CANCEL)
+            button_no = self.add_button(_("No"), Gtk.ResponseType.CANCEL)
             button_no.set_size_request(100, 30)
 
             self.connect("response", on_response, self)
@@ -40,7 +41,13 @@ class PackagesPromptGui(Gtk.Dialog):
             infobar = Gtk.InfoBar()
 
             lbl_title_message = Gtk.Label(xalign=0, yalign=0)
-            lbl_title_message.set_markup("There are <b>%s</b> packages to install, proceed ?" % len(packages))
+            lbl_title_message.set_markup(
+                ngettext(
+                    "There is <b>{count}</b> package to install, proceed ?",
+                    "There are <b>{count}</b> packages to install, proceed ?",
+                    len(packages),
+                ).format(count=len(packages))
+            )
             content = infobar.get_content_area()
             content.append(lbl_title_message)
 
@@ -72,7 +79,7 @@ class PackagesPromptGui(Gtk.Dialog):
             msg_buffer = textview.get_buffer()
             msg_buffer.insert(
                 msg_buffer.get_end_iter(),
-                "\n Click Yes to confirm install of the following packages:\n\n",
+                _("\n Click Yes to confirm install of the following packages:\n\n"),
             )
             for package in sorted(packages):
                 msg_buffer.insert(msg_buffer.get_end_iter(), " - %s\n" % package)

@@ -40,6 +40,7 @@ import re
 import time
 import pwd
 import json
+from att_i18n import _
 from queue import Queue  # noqa: F401
 
 # Debug flag - set by archlinux-tweak-tool when --debug flag is used
@@ -642,13 +643,15 @@ def check_firewall_service(service):  # noqa
 def firewall_status_markup():
     """Build the live firewall status line (firewalld + mDNS/Samba allow rules)."""
     fw_active = check_service("firewalld")
-    fw = "<b>enabled</b>" if fw_active else "disabled"
+    fw = _("<b>enabled</b>") if fw_active else _("disabled")
     if fw_active:
-        mdns = "<b>allowed</b>" if check_firewall_service("mdns") else "blocked"
-        samba = "<b>allowed</b>" if check_firewall_service("samba") else "blocked"
+        mdns = _("<b>allowed</b>") if check_firewall_service("mdns") else _("blocked")
+        samba = _("<b>allowed</b>") if check_firewall_service("samba") else _("blocked")
     else:
         mdns = samba = "—"
-    return f"Firewall: {fw}    Network discovery: {mdns}    Samba file sharing: {samba}"
+    return _("Firewall: {fw}    Network discovery: {mdns}    Samba file sharing: {samba}").format(
+        fw=fw, mdns=mdns, samba=samba
+    )
 
 
 _UNIT_SUFFIXES = (".service", ".timer", ".socket", ".target", ".path", ".mount", ".slice", ".scope")
@@ -2697,7 +2700,7 @@ def get_shell_config():
 def hblock_get_state(self):
     try:
         with open("/etc/hosts", "r", encoding="utf-8") as f:
-            lines = sum(1 for _ in f)
+            lines = sum(1 for _unused in f)
         if path.exists("/usr/bin/hblock") and lines > 100:
             return True
     except Exception:

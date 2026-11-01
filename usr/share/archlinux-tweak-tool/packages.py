@@ -1,6 +1,7 @@
 import os.path
 
 import functions as fn
+from att_i18n import _
 from gi.repository import Gtk
 
 
@@ -626,12 +627,12 @@ def on_click_install_packages(self, _widget, packages_obj, gui_parts):
     packages_dir = packages_obj.export_dir
 
     file_chooser = Gtk.FileChooserDialog(
-        title="Select Packages File to Install",
+        title=_("Select Packages File to Install"),
         transient_for=self,
         action=Gtk.FileChooserAction.OPEN,
     )
-    file_chooser.add_button("_Cancel", Gtk.ResponseType.CANCEL)
-    file_chooser.add_button("_Open", Gtk.ResponseType.OK)
+    file_chooser.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
+    file_chooser.add_button(_("_Open"), Gtk.ResponseType.OK)
 
     initial_folder = Gio.File.new_for_path(packages_dir)
     file_chooser.set_current_folder(initial_folder)
@@ -657,7 +658,7 @@ def on_click_install_packages(self, _widget, packages_obj, gui_parts):
                 fn.debug_print(f"Package file: {filename}")
                 fn.debug_print(f"Full path: {file_path}")
                 fn.log_success("Package installation terminal opened")
-                fn.show_in_app_notification(self, f"Installing packages from {filename}...")
+                fn.show_in_app_notification(self, _("Installing packages from {filename}...").format(filename=filename))
                 cmd = (
                     f"pacman -S --needed $(cat {file_path} | grep -v '^#' | tr '\\n' ' ');"
                     " read -p 'Press Enter to exit...'"
@@ -669,7 +670,7 @@ def on_click_install_packages(self, _widget, packages_obj, gui_parts):
                 )
         else:
             fn.log_warn("Package selection cancelled")
-            fn.show_in_app_notification(self, "Package selection cancelled")
+            fn.show_in_app_notification(self, _("Package selection cancelled"))
         dialog.close()
 
     file_chooser.connect("response", on_response)
@@ -682,13 +683,13 @@ def on_click_remove_debug(self, _widget):
         result = fn.remove_debug_from_makepkg_conf()
         if result is True:
             fn.log_success("Debug successfully removed from /etc/makepkg.conf")
-            fn.show_in_app_notification(self, "Debug successfully removed from /etc/makepkg.conf")
+            fn.show_in_app_notification(self, _("Debug successfully removed from /etc/makepkg.conf"))
         elif result == 2:
             fn.log_info("Debug is already disabled (!debug) in /etc/makepkg.conf")
-            fn.show_in_app_notification(self, "Debug is already disabled (!debug)")
+            fn.show_in_app_notification(self, _("Debug is already disabled (!debug)"))
         else:
             fn.log_warn("Failed to remove debug from /etc/makepkg.conf")
-            fn.show_in_app_notification(self, "Failed to remove debug from /etc/makepkg.conf")
+            fn.show_in_app_notification(self, _("Failed to remove debug from /etc/makepkg.conf"))
     except Exception as error:
         fn.log_error(f"Error removing debug: {error}")
-        fn.show_in_app_notification(self, "Error removing debug from makepkg.conf")
+        fn.show_in_app_notification(self, _("Error removing debug from makepkg.conf"))

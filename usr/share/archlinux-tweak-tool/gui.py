@@ -294,7 +294,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
             hbox_ff_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             hbox_ff_separator = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl1 = Gtk.Label(xalign=0)
-            lbl1.set_text("fastfetch Editor")
+            lbl1.set_text(_("fastfetch Editor"))
             lbl1.set_name("title")
             hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
             hseparator.set_hexpand(True)
@@ -306,7 +306,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
             fastfetch_message = Gtk.Label()
             fastfetch_message.set_hexpand(True)
             fastfetch_message.set_markup(
-                "fastfetch configuration file not found.\nInstall <b>fastfetch</b> and enable it to use this tab."
+                _("fastfetch configuration file not found.\nInstall <b>fastfetch</b> and enable it to use this tab.")
             )
             vboxstack_fastfetch.append(fastfetch_message)
             fastfetch_gui.append_fftt_section(self, Gtk, vboxstack_fastfetch, fn)
@@ -438,84 +438,84 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     #                   ADD TO WINDOW
     # ==========================================================
     if fn.DEV:
-        stack.add_titled(vboxstack_dev, "stack_dev", "Dev")
+        stack.add_titled(vboxstack_dev, "stack_dev", _("Dev"))
 
-    stack.add_titled(vboxstack_accessibility, "stack_accessibility", "Accessibility")  # accessibility tools
+    stack.add_titled(vboxstack_accessibility, "stack_accessibility", _("Accessibility"))  # accessibility tools
 
-    stack.add_titled(vboxstack_ai, "stack_ai", "AI Tools")  # AI tools
+    stack.add_titled(vboxstack_ai, "stack_ai", _("AI Tools"))  # AI tools
 
-    stack.add_titled(vboxstack_themes, "stack_themes", "Arc themes")  # arc themes
+    stack.add_titled(vboxstack_themes, "stack_themes", _("Arc themes"))  # arc themes
 
-    stack.add_titled(vboxstack_autostart, "stack13", "Autostart")  # Autostart
+    stack.add_titled(vboxstack_autostart, "stack13", _("Autostart"))  # Autostart
 
-    stack.add_titled(vboxstack_backup, "stack_backup", "Backup")  # personal-file backup (Pika / Vorta)
+    stack.add_titled(vboxstack_backup, "stack_backup", _("Backup"))  # personal-file backup (Pika / Vorta)
 
     # Always listed, even off btrfs: the page then renders disabled with Status
     # explaining why, so the sidebar is identical on every machine (docs/videos).
-    stack.add_titled(vboxstack_btrfs, "stack_btrfs", "Btrfs")  # btrfs snapshots
+    stack.add_titled(vboxstack_btrfs, "stack_btrfs", _("Btrfs"))  # btrfs snapshots
 
-    stack.add_titled(vboxstack_celestial, "stack_celestial", "Celestial themes")  # celestial GTK themes
+    stack.add_titled(vboxstack_celestial, "stack_celestial", _("Celestial themes"))  # celestial GTK themes
 
     # Desktop installer (DEs + X11 WMs) and the Wayland WM picker, grouped as an
     # adjacent pair — the core Kiro selling point. Sidebar shows pages in add-order,
     # so these sit together. The broad page stays "Desktop" (no X11 claim) because it
     # also installs Wayland-default DEs like Plasma/GNOME.
-    stack.add_titled(vboxstack_desktop, "stack12", "Desktop")  # DEs + X11 WMs
-    stack.add_titled(vboxstack_wayland, "stack_wayland", "Desktop - Wayland")  # Wayland WM picker
+    stack.add_titled(vboxstack_desktop, "stack12", _("Desktop"))  # DEs + X11 WMs
+    stack.add_titled(vboxstack_wayland, "stack_wayland", _("Desktop - Wayland"))  # Wayland WM picker
 
-    stack.add_titled(vboxstack_fastfetch, "stack4", "Fastfetch")  # fastfetch config
+    stack.add_titled(vboxstack_fastfetch, "stack4", _("Fastfetch"))  # fastfetch config
 
-    stack.add_titled(vboxstack_icons_horst, "stack_icons_horst", "Icons Horst")  # Horst colour-folder icons (both sets)
-    stack.add_titled(vboxstack_icons_neocandy, "stack_icons_neocandy", "Icons Neo Candy")  # Neo Candy icon themes
-    stack.add_titled(vboxstack_icons_surfn, "stack_icons_surfn", "Icons Surfn")  # Surfn icon themes
+    stack.add_titled(vboxstack_icons_horst, "stack_icons_horst", _("Icons Horst"))  # Horst colour-folder icons (both sets)
+    stack.add_titled(vboxstack_icons_neocandy, "stack_icons_neocandy", _("Icons Neo Candy"))  # Neo Candy icon themes
+    stack.add_titled(vboxstack_icons_surfn, "stack_icons_surfn", _("Icons Surfn"))  # Surfn icon themes
 
     if fn.distr not in _ISO_HIDDEN_DISTROS:
-        stack.add_titled(vboxstack_iso, "stack_iso", "ISO")  # Kiro ISO Builder showcase
+        stack.add_titled(vboxstack_iso, "stack_iso", _("ISO"))  # Kiro ISO Builder showcase
 
-    stack.add_titled(vboxstack_kernels, "stack28", "Kernels")  # kernel manager
+    stack.add_titled(vboxstack_kernels, "stack28", _("Kernels"))  # kernel manager
 
-    stack.add_titled(vboxstack_locale, "stack_locale", "Locale")  # locale, keyboard, timezone
+    stack.add_titled(vboxstack_locale, "stack_locale", _("Locale"))  # locale, keyboard, timezone
 
-    stack.add_titled(vboxstack_logging, "stack_logging", "Logging")  # log investigator
+    stack.add_titled(vboxstack_logging, "stack_logging", _("Logging"))  # log investigator
 
-    stack.add_titled(vboxstack_maintenance, "stack19", "Maintenance")  # Maintenance
+    stack.add_titled(vboxstack_maintenance, "stack19", _("Maintenance"))  # Maintenance
 
-    stack.add_titled(vboxstack_network, "stack_network", "Network")  # network + samba
+    stack.add_titled(vboxstack_network, "stack_network", _("Network"))  # network + samba
 
-    stack.add_titled(vboxstack_office, "stack_office", "Office")  # office suites + productivity apps
+    stack.add_titled(vboxstack_office, "stack_office", _("Office"))  # office suites + productivity apps
 
-    stack.add_titled(vboxstack_packages, "packages", "Packages")  # Packages
+    stack.add_titled(vboxstack_packages, "packages", _("Packages"))  # Packages
 
-    stack.add_titled(vboxstack1, "stack6", "Pacman")  # Pacman config
+    stack.add_titled(vboxstack1, "stack6", _("Pacman"))  # Pacman config
 
-    stack.add_titled(vboxstack_plymouth, "stack_plymouth", "Plymouth")  # Plymouth boot theme
+    stack.add_titled(vboxstack_plymouth, "stack_plymouth", _("Plymouth"))  # Plymouth boot theme
 
-    stack.add_titled(vboxstack_privacy, "stack2", "Privacy")  # Privacy
+    stack.add_titled(vboxstack_privacy, "stack2", _("Privacy"))  # Privacy
 
-    stack.add_titled(vboxstack_performance, "stack27", "Performance")  # performance
+    stack.add_titled(vboxstack_performance, "stack27", _("Performance"))  # performance
 
     if fn.distr not in _SDDM_HIDDEN_DISTROS and not (
         fn.check_service_enabled("plasma-login") or fn.check_service_enabled("plasmalogin")
     ):
-        stack.add_titled(vboxstack_sddm, "stack_sddm", "Sddm")  # sddm
+        stack.add_titled(vboxstack_sddm, "stack_sddm", _("Sddm"))  # sddm
 
-    stack.add_titled(vboxstack_services, "stack14", "Services")  # services
+    stack.add_titled(vboxstack_services, "stack14", _("Services"))  # services
 
-    stack.add_titled(vboxstack_shells, "stack23", "Shells")  # shell
+    stack.add_titled(vboxstack_shells, "stack23", _("Shells"))  # shell
 
-    stack.add_titled(vboxstack_software, "stack_software", "Software")  # software installers
+    stack.add_titled(vboxstack_software, "stack_software", _("Software"))  # software installers
 
     if fn.get_distro_label() in ("Kiro", "KiroTux"):
         # Kiro-only: the category list is sourced from the Kiro ISO package set.
-        stack.add_titled(vboxstack_streamline, "stack_streamline", "Streamline")  # remove optional apps by category
+        stack.add_titled(vboxstack_streamline, "stack_streamline", _("Streamline"))  # remove optional apps by category
 
-    stack.add_titled(vboxstack_system, "stack_system", "System")  # system inspector
+    stack.add_titled(vboxstack_system, "stack_system", _("System"))  # system inspector
 
-    stack.add_titled(vboxstack_themer, "stack11", "Themer")  # Themer
+    stack.add_titled(vboxstack_themer, "stack11", _("Themer"))  # Themer
 
-    stack.add_titled(vboxstack_user, "stack18", "User")  # user
+    stack.add_titled(vboxstack_user, "stack18", _("User"))  # user
 
-    stack.add_titled(vboxstack_wallpaper, "stack_wallpaper", "Wallpaper")  # wallpaper
+    stack.add_titled(vboxstack_wallpaper, "stack_wallpaper", _("Wallpaper"))  # wallpaper
 
     stack_switcher = Gtk.StackSidebar()
     stack_switcher.set_name("sidebar")
@@ -629,11 +629,11 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
             stack.set_visible_child_name(child)
             fn.log_info(f"Search jumped to page: {child}")
         elif text:
-            fn.show_in_app_notification(self, f"No page matches '{text}'")
+            fn.show_in_app_notification(self, _("No page matches '{text}'").format(text=text))
             fn.log_warn(f"Search: no page matched '{text}'")
 
     search_entry = Gtk.SearchEntry()
-    search_entry.set_placeholder_text("Search (Enter)")
+    search_entry.set_placeholder_text(_("Search (Enter)"))
     search_entry.set_margin_start(6)
     search_entry.set_margin_end(6)
     search_entry.connect("activate", on_search_activate)

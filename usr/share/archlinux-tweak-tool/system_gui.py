@@ -4,13 +4,14 @@
 
 import functools
 import system
+from att_i18n import _
 
 
 def gui(self, Gtk, vboxstack_system, fn):
     """Create the System tab GUI (hardware inspection, storage tools, systemd viewers)."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Inspect your hardware and software")
+    hbox_title_label.set_text(_("Inspect your hardware and software"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -25,8 +26,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # CPU Info
     hbox_cpu = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_cpu = Gtk.Label(xalign=0)
-    lbl_cpu.set_text("CPU Information")
-    btn_cpu = Gtk.Button(label="View")
+    lbl_cpu.set_text(_("CPU Information"))
+    btn_cpu = Gtk.Button(label=_("View"))
     btn_cpu.connect("clicked", functools.partial(system.on_click_system_cpu, self))
     lbl_cpu.set_margin_start(10)
     lbl_cpu.set_margin_end(10)
@@ -39,8 +40,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Memory & Disk Usage
     hbox_memory_disk = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_memory_disk = Gtk.Label(xalign=0)
-    lbl_memory_disk.set_text("Memory and Disk Usage")
-    btn_memory_disk = Gtk.Button(label="View")
+    lbl_memory_disk.set_text(_("Memory and Disk Usage"))
+    btn_memory_disk = Gtk.Button(label=_("View"))
     btn_memory_disk.connect("clicked", functools.partial(system.on_click_system_memory_disk, self))
     lbl_memory_disk.set_margin_start(10)
     lbl_memory_disk.set_margin_end(10)
@@ -53,8 +54,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Block Devices
     hbox_lsblk = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_lsblk = Gtk.Label(xalign=0)
-    lbl_lsblk.set_text("Block Devices (lsblk)")
-    btn_lsblk = Gtk.Button(label="View")
+    lbl_lsblk.set_text(_("Block Devices (lsblk)"))
+    btn_lsblk = Gtk.Button(label=_("View"))
     btn_lsblk.connect("clicked", functools.partial(system.on_click_system_lsblk, self))
     lbl_lsblk.set_margin_start(10)
     lbl_lsblk.set_margin_end(10)
@@ -67,8 +68,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # PCI Devices
     hbox_lspci = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_lspci = Gtk.Label(xalign=0)
-    lbl_lspci.set_text("PCI Devices (lspci)")
-    btn_lspci = Gtk.Button(label="View")
+    lbl_lspci.set_text(_("PCI Devices (lspci)"))
+    btn_lspci = Gtk.Button(label=_("View"))
     btn_lspci.connect("clicked", functools.partial(system.on_click_system_lspci, self))
     lbl_lspci.set_margin_start(10)
     lbl_lspci.set_margin_end(10)
@@ -81,8 +82,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # USB Devices
     hbox_lsusb = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_lsusb = Gtk.Label(xalign=0)
-    lbl_lsusb.set_text("USB Devices (lsusb)")
-    btn_lsusb = Gtk.Button(label="View")
+    lbl_lsusb.set_text(_("USB Devices (lsusb)"))
+    btn_lsusb = Gtk.Button(label=_("View"))
     btn_lsusb.connect("clicked", functools.partial(system.on_click_system_lsusb, self))
     lbl_lsusb.set_margin_start(10)
     lbl_lsusb.set_margin_end(10)
@@ -95,8 +96,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Loaded Kernel Modules
     hbox_lsmod = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_lsmod = Gtk.Label(xalign=0)
-    lbl_lsmod.set_text("Loaded Kernel Modules (lsmod)")
-    btn_lsmod = Gtk.Button(label="View")
+    lbl_lsmod.set_text(_("Loaded Kernel Modules (lsmod)"))
+    btn_lsmod = Gtk.Button(label=_("View"))
     btn_lsmod.connect("clicked", functools.partial(system.on_click_system_lsmod, self))
     lbl_lsmod.set_margin_start(10)
     lbl_lsmod.set_margin_end(10)
@@ -109,8 +110,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Comprehensive Hardware Info
     hbox_inxi = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_inxi = Gtk.Label(xalign=0)
-    lbl_inxi.set_text("Comprehensive Hardware Info (inxi)")
-    btn_inxi = Gtk.Button(label="View")
+    lbl_inxi.set_text(_("Comprehensive Hardware Info (inxi)"))
+    btn_inxi = Gtk.Button(label=_("View"))
     btn_inxi.connect("clicked", functools.partial(system.on_click_system_inxi, self))
     lbl_inxi.set_margin_start(10)
     lbl_inxi.set_margin_end(10)
@@ -123,8 +124,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Hardware Summary
     hbox_hwinfo = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_hwinfo = Gtk.Label(xalign=0)
-    lbl_hwinfo.set_text("Hardware Summary (hwinfo)")
-    btn_hwinfo = Gtk.Button(label="View")
+    lbl_hwinfo.set_text(_("Hardware Summary (hwinfo)"))
+    btn_hwinfo = Gtk.Button(label=_("View"))
     btn_hwinfo.connect("clicked", functools.partial(system.on_click_system_hwinfo, self))
     lbl_hwinfo.set_margin_start(10)
     lbl_hwinfo.set_margin_end(10)
@@ -137,8 +138,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Disk Partitions
     hbox_fdisk = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_fdisk = Gtk.Label(xalign=0)
-    lbl_fdisk.set_text("Disk Partitions (fdisk -l)")
-    btn_fdisk = Gtk.Button(label="View")
+    lbl_fdisk.set_text(_("Disk Partitions (fdisk -l)"))
+    btn_fdisk = Gtk.Button(label=_("View"))
     btn_fdisk.connect("clicked", functools.partial(system.on_click_system_fdisk, self))
     lbl_fdisk.set_margin_start(10)
     lbl_fdisk.set_margin_end(10)
@@ -151,8 +152,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Filesystem Config
     hbox_fstab = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_fstab = Gtk.Label(xalign=0)
-    lbl_fstab.set_text("Filesystem Configuration (fstab)")
-    btn_fstab = Gtk.Button(label="View")
+    lbl_fstab.set_text(_("Filesystem Configuration (fstab)"))
+    btn_fstab = Gtk.Button(label=_("View"))
     btn_fstab.connect("clicked", functools.partial(system.on_click_system_fstab, self))
     lbl_fstab.set_margin_start(10)
     lbl_fstab.set_margin_end(10)
@@ -165,8 +166,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # System Overview
     hbox_hostnamectl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_hostnamectl = Gtk.Label(xalign=0)
-    lbl_hostnamectl.set_text("System Overview (hostnamectl)")
-    btn_hostnamectl = Gtk.Button(label="View")
+    lbl_hostnamectl.set_text(_("System Overview (hostnamectl)"))
+    btn_hostnamectl = Gtk.Button(label=_("View"))
     btn_hostnamectl.connect("clicked", functools.partial(system.on_click_system_hostnamectl, self))
     lbl_hostnamectl.set_margin_start(10)
     lbl_hostnamectl.set_margin_end(10)
@@ -179,8 +180,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Locale & Timezone
     hbox_localectl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_localectl = Gtk.Label(xalign=0)
-    lbl_localectl.set_text("Locale and Timezone (localectl)")
-    btn_localectl = Gtk.Button(label="View")
+    lbl_localectl.set_text(_("Locale and Timezone (localectl)"))
+    btn_localectl = Gtk.Button(label=_("View"))
     btn_localectl.connect("clicked", functools.partial(system.on_click_system_localectl, self))
     lbl_localectl.set_margin_start(10)
     lbl_localectl.set_margin_end(10)
@@ -193,8 +194,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Systemd Services
     hbox_services = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_services = Gtk.Label(xalign=0)
-    lbl_services.set_text("Systemd Services")
-    btn_services = Gtk.Button(label="View")
+    lbl_services.set_text(_("Systemd Services"))
+    btn_services = Gtk.Button(label=_("View"))
     btn_services.connect("clicked", functools.partial(system.on_click_system_services, self))
     lbl_services.set_margin_start(10)
     lbl_services.set_margin_end(10)
@@ -207,8 +208,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # System Services Enabled
     hbox_services_enabled = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_services_enabled = Gtk.Label(xalign=0)
-    lbl_services_enabled.set_text("System Services Enabled")
-    btn_services_enabled = Gtk.Button(label="View")
+    lbl_services_enabled.set_text(_("System Services Enabled"))
+    btn_services_enabled = Gtk.Button(label=_("View"))
     btn_services_enabled.connect("clicked", functools.partial(system.on_click_system_services_enabled, self))
     lbl_services_enabled.set_margin_start(10)
     lbl_services_enabled.set_margin_end(10)
@@ -221,8 +222,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Systemd Services Failed
     hbox_services_failed = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_services_failed = Gtk.Label(xalign=0)
-    lbl_services_failed.set_text("Systemd Services Failed")
-    btn_services_failed = Gtk.Button(label="View")
+    lbl_services_failed.set_text(_("Systemd Services Failed"))
+    btn_services_failed = Gtk.Button(label=_("View"))
     btn_services_failed.connect("clicked", functools.partial(system.on_click_system_services_failed, self))
     lbl_services_failed.set_margin_start(10)
     lbl_services_failed.set_margin_end(10)
@@ -235,8 +236,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Systemd Timers Enabled
     hbox_timers_enabled = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_timers_enabled = Gtk.Label(xalign=0)
-    lbl_timers_enabled.set_text("Systemd Timers Enabled")
-    btn_timers_enabled = Gtk.Button(label="View")
+    lbl_timers_enabled.set_text(_("Systemd Timers Enabled"))
+    btn_timers_enabled = Gtk.Button(label=_("View"))
     btn_timers_enabled.connect("clicked", functools.partial(system.on_click_system_timers_enabled, self))
     lbl_timers_enabled.set_margin_start(10)
     lbl_timers_enabled.set_margin_end(10)
@@ -249,8 +250,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     # Kernel Ring Buffer
     hbox_dmesg = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_dmesg = Gtk.Label(xalign=0)
-    lbl_dmesg.set_text("Kernel Ring Buffer (dmesg)")
-    btn_dmesg = Gtk.Button(label="View")
+    lbl_dmesg.set_text(_("Kernel Ring Buffer (dmesg)"))
+    btn_dmesg = Gtk.Button(label=_("View"))
     btn_dmesg.connect("clicked", functools.partial(system.on_click_system_dmesg, self))
     lbl_dmesg.set_margin_start(10)
     lbl_dmesg.set_margin_end(10)
@@ -264,11 +265,13 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_gparted = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_gparted = Gtk.Label(xalign=0)
     self.lbl_gparted.set_markup(
-        "Inspect with GParted" + (" <b>installed</b>" if fn.path.exists("/usr/bin/gparted") else "")
+        _("Inspect with GParted <b>installed</b>")
+        if fn.path.exists("/usr/bin/gparted")
+        else _("Inspect with GParted")
     )
-    btn_gparted = Gtk.Button(label="Launch/Install")
+    btn_gparted = Gtk.Button(label=_("Launch/Install"))
     btn_gparted.connect("clicked", functools.partial(system.on_click_system_gparted, self))
-    btn_gparted_remove = Gtk.Button(label="Remove")
+    btn_gparted_remove = Gtk.Button(label=_("Remove"))
     btn_gparted_remove.connect("clicked", functools.partial(system.on_click_system_gparted_remove, self))
     self.lbl_gparted.set_margin_start(10)
     self.lbl_gparted.set_margin_end(10)
@@ -285,11 +288,13 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_partitionmanager = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_partitionmanager = Gtk.Label(xalign=0)
     self.lbl_partitionmanager.set_markup(
-        "Inspect with Partition Manager" + (" <b>installed</b>" if fn.path.exists("/usr/bin/partitionmanager") else "")
+        _("Inspect with Partition Manager <b>installed</b>")
+        if fn.path.exists("/usr/bin/partitionmanager")
+        else _("Inspect with Partition Manager")
     )
-    btn_partitionmanager = Gtk.Button(label="Launch/Install")
+    btn_partitionmanager = Gtk.Button(label=_("Launch/Install"))
     btn_partitionmanager.connect("clicked", functools.partial(system.on_click_system_partitionmanager, self))
-    btn_partitionmanager_remove = Gtk.Button(label="Remove")
+    btn_partitionmanager_remove = Gtk.Button(label=_("Remove"))
     btn_partitionmanager_remove.connect(
         "clicked", functools.partial(system.on_click_system_partitionmanager_remove, self)
     )
@@ -307,7 +312,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     # ── Firmware section ─────────────────────────────────────────────────
     hbox_section_firmware = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_firmware_lbl = Gtk.Label(xalign=0)
-    hbox_section_firmware_lbl.set_markup("<b>Firmware</b>")
+    hbox_section_firmware_lbl.set_markup(_("<b>Firmware</b>"))
     hbox_section_firmware_lbl.set_margin_start(10)
     hbox_section_firmware_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_section_firmware_sep.set_hexpand(True)
@@ -319,8 +324,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_firmware_warning = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_firmware_warning = Gtk.Label(xalign=0)
     lbl_firmware_warning.set_markup(
-        '<span foreground="#FFA500"><b>⚠ Firmware updates can permanently brick a device. '
-        "No warranty, no disclaimer — only continue if you know what you are doing.</b></span>"
+        _('<span foreground="#FFA500"><b>⚠ Firmware updates can permanently brick a device. '
+        "No warranty, no disclaimer — only continue if you know what you are doing.</b></span>")
     )
     lbl_firmware_warning.set_wrap(True)
     lbl_firmware_warning.set_margin_start(10)
@@ -331,8 +336,8 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_firmware_info = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_firmware_info = Gtk.Label(xalign=0)
     lbl_firmware_info.set_text(
-        "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. "
-        "Only devices your vendor publishes to LVFS will show updates."
+        _("GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. "
+        "Only devices your vendor publishes to LVFS will show updates.")
     )
     lbl_firmware_info.set_wrap(True)
     lbl_firmware_info.set_margin_start(10)
@@ -343,9 +348,9 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_firmware = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_firmware = Gtk.Label(xalign=0)
     system._refresh_firmware_label(self)
-    btn_firmware = Gtk.Button(label="Launch/Install")
+    btn_firmware = Gtk.Button(label=_("Launch/Install"))
     btn_firmware.connect("clicked", functools.partial(system.on_click_system_firmware, self))
-    btn_firmware_remove = Gtk.Button(label="Remove")
+    btn_firmware_remove = Gtk.Button(label=_("Remove"))
     btn_firmware_remove.connect("clicked", functools.partial(system.on_click_system_firmware_remove, self))
     self.lbl_firmware.set_margin_start(10)
     self.lbl_firmware.set_margin_end(10)
@@ -362,11 +367,11 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_firmware_timer = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_firmware_timer = Gtk.Label(xalign=0)
     system._refresh_firmware_timer_label(self)
-    btn_firmware_timer_enable = Gtk.Button(label="Enable")
+    btn_firmware_timer_enable = Gtk.Button(label=_("Enable"))
     btn_firmware_timer_enable.connect(
         "clicked", functools.partial(system.on_click_system_firmware_timer_enable, self)
     )
-    btn_firmware_timer_disable = Gtk.Button(label="Disable")
+    btn_firmware_timer_disable = Gtk.Button(label=_("Disable"))
     btn_firmware_timer_disable.connect(
         "clicked", functools.partial(system.on_click_system_firmware_timer_disable, self)
     )
@@ -387,7 +392,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     # distinct from the inspection sections that follow.
     hbox_section_hardware.set_margin_top(20)
     hbox_section_hardware_lbl = Gtk.Label(xalign=0)
-    hbox_section_hardware_lbl.set_markup("<b>Hardware</b>")
+    hbox_section_hardware_lbl.set_markup(_("<b>Hardware</b>"))
     hbox_section_hardware_lbl.set_margin_start(10)
     hbox_section_hardware_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_section_hardware_sep.set_hexpand(True)
@@ -398,7 +403,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_section_storage = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_storage.set_margin_top(10)
     hbox_section_storage_lbl = Gtk.Label(xalign=0)
-    hbox_section_storage_lbl.set_markup("<b>Storage</b>")
+    hbox_section_storage_lbl.set_markup(_("<b>Storage</b>"))
     hbox_section_storage_lbl.set_margin_start(10)
     hbox_section_storage_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_section_storage_sep.set_hexpand(True)
@@ -409,7 +414,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_section_system = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_system.set_margin_top(10)
     hbox_section_system_lbl = Gtk.Label(xalign=0)
-    hbox_section_system_lbl.set_markup("<b>System</b>")
+    hbox_section_system_lbl.set_markup(_("<b>System</b>"))
     hbox_section_system_lbl.set_margin_start(10)
     hbox_section_system_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_section_system_sep.set_hexpand(True)
@@ -420,7 +425,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     hbox_section_systemd = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_section_systemd.set_margin_top(10)
     hbox_section_systemd_lbl = Gtk.Label(xalign=0)
-    hbox_section_systemd_lbl.set_markup("<b>Systemd</b>")
+    hbox_section_systemd_lbl.set_markup(_("<b>Systemd</b>"))
     hbox_section_systemd_lbl.set_margin_start(10)
     hbox_section_systemd_sep = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     hbox_section_systemd_sep.set_hexpand(True)

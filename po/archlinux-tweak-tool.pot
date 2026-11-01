@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 07:34+0100\n"
+"POT-Creation-Date: 2026-11-01 07:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,32 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: usr/share/archlinux-tweak-tool/functions.py:646
+msgid "<b>enabled</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:646
+#: usr/share/archlinux-tweak-tool/services.py:421
+msgid "disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:648
+#: usr/share/archlinux-tweak-tool/functions.py:649
+msgid "<b>allowed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:648
+#: usr/share/archlinux-tweak-tool/functions.py:649
+msgid "blocked"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/functions.py:652
+#, python-brace-format
+msgid ""
+"Firewall: {fw}    Network discovery: {mdns}    Samba file sharing: {samba}"
+msgstr ""
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -65,6 +91,158 @@ msgstr ""
 msgid "on {distro}"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/gui.py:297
+msgid "fastfetch Editor"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:309
+msgid ""
+"fastfetch configuration file not found.\n"
+"Install <b>fastfetch</b> and enable it to use this tab."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:441
+msgid "Dev"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:443
+msgid "Accessibility"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:445
+msgid "AI Tools"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:447
+msgid "Arc themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:449
+msgid "Autostart"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:451
+msgid "Backup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:455
+msgid "Btrfs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:457
+msgid "Celestial themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:463
+msgid "Desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:464
+msgid "Desktop - Wayland"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:466
+msgid "Fastfetch"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:468
+msgid "Icons Horst"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:469
+msgid "Icons Neo Candy"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:470
+msgid "Icons Surfn"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:473
+msgid "ISO"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:475
+msgid "Kernels"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:477
+msgid "Locale"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:479
+msgid "Logging"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:481
+msgid "Maintenance"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:483
+msgid "Network"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:485
+msgid "Office"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:487
+#: usr/share/archlinux-tweak-tool/packages_gui.py:20
+msgid "Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:489
+msgid "Pacman"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:491
+msgid "Plymouth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:493
+msgid "Privacy"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:495
+msgid "Performance"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:500
+msgid "Sddm"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:502
+#: usr/share/archlinux-tweak-tool/services_gui.py:77
+msgid "Services"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:504
+msgid "Shells"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:506
+msgid "Software"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:510
+msgid "Streamline"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:512
+msgid "System"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:514
+msgid "Themer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:516
+msgid "User"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:518
+msgid "Wallpaper"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/gui.py:541
 msgid "Restart ATT"
 msgstr ""
@@ -92,6 +270,1079 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:569
 msgid "Saved. ATT shows the new language when it starts again."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:632
+#, python-brace-format
+msgid "No page matches '{text}'"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:636
+msgid "Search (Enter)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:630
+msgid "Select Packages File to Install"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:634
+msgid "_Cancel"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:635
+msgid "_Open"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:661
+#, python-brace-format
+msgid "Installing packages from {filename}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:673
+msgid "Package selection cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:686
+msgid "Debug successfully removed from /etc/makepkg.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:689
+msgid "Debug is already disabled (!debug)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:692
+msgid "Failed to remove debug from /etc/makepkg.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages.py:695
+msgid "Error removing debug from makepkg.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:24
+msgid "<b>Export Packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:28
+msgid ""
+" <b>No AUR packages are exported</b>\n"
+" - Option: <b>Explicitly Installed Packages</b> (recommended) packages only "
+"found in sync db (less packages)\n"
+" - Option: <b>All Installed Packages</b> will export all packages currently "
+"installed on your system \n"
+" - Tip: To see packages installed from AUR in the terminal type: pacman "
+"-Qqem\n"
+"\n"
+" A list of installed packages will be exported to <b>.config/archlinux-tweak-"
+"tool/packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:44
+msgid "<b> Install Packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:54
+msgid "Export Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:56
+msgid "All Installed Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:59
+msgid "Explicitly Installed Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:96
+msgid "<b>Install Packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:101
+msgid ""
+" <b>WARNING:</b> Proceed with caution this will install packages onto your "
+"system!\n"
+" Packages from the AUR are not supported \n"
+" This also performs a full system upgrade\n"
+"\n"
+" - A list of packages are sourced from <b>.config/archlinux-tweak-tool/"
+"packages</b>\n"
+" - To ignore a package, add a # in front of the package name\n"
+" - A reboot is needed when core Linux packages are installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:116
+msgid "Status: "
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:123
+msgid "Progress: "
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:184
+msgid "Install Packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:223
+msgid "<b>Building packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:228
+msgid ""
+" <b>Build packages from source using makepkg</b>\n"
+" - Build packages from PKGBUILD files\n"
+" - Requires base-devel package group to be installed\n"
+" - Arch Linux creates a -debug package by default; this behavior can be "
+"changed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:243
+msgid "Remove the debug in /etc/makepkg.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:249
+#: usr/share/archlinux-tweak-tool/packages_gui.py:258
+msgid "<b>Debug ok</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:251
+#: usr/share/archlinux-tweak-tool/packages_gui.py:260
+msgid "Debug not ok"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_gui.py:253
+#: usr/share/archlinux-tweak-tool/services_gui.py:408
+#: usr/share/archlinux-tweak-tool/system_gui.py:274
+#: usr/share/archlinux-tweak-tool/system_gui.py:297
+#: usr/share/archlinux-tweak-tool/system_gui.py:353
+msgid "Remove"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:22
+msgid "Arch Linux Tweak Tool: Confirm package installation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:31
+msgid "Yes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:36
+msgid "No"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:46
+#, python-brace-format
+msgid "There is <b>{count}</b> package to install, proceed ?"
+msgid_plural "There are <b>{count}</b> packages to install, proceed ?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:82
+msgid ""
+"\n"
+" Click Yes to confirm install of the following packages:\n"
+"\n"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:34
+#, python-brace-format
+msgid "Nsswitch: {label}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:48
+msgid "Smb.conf ATT configuration applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:124
+#, python-brace-format
+msgid "Setting samba password for {username}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:165
+msgid "✗ Samba is installed but the smb service is not running."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:179
+msgid "✓ Samba restarted. Check other services in the status bar."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:200
+msgid "PulseAudio install completed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:219
+msgid "PipeWire install completed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:236
+#: usr/share/archlinux-tweak-tool/services_gui.py:41
+msgid "Bluez packages are already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:257
+#: usr/share/archlinux-tweak-tool/services_gui.py:43
+#: usr/share/archlinux-tweak-tool/services_gui.py:436
+msgid "Install bluetooth packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:278
+#: usr/share/archlinux-tweak-tool/services_gui.py:46
+msgid "   Blueberry is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:294
+#: usr/share/archlinux-tweak-tool/services_gui.py:48
+#: usr/share/archlinux-tweak-tool/services_gui.py:461
+msgid "   Install blueberry"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:310
+#: usr/share/archlinux-tweak-tool/services_gui.py:51
+msgid "   Blueman is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:326
+#: usr/share/archlinux-tweak-tool/services_gui.py:53
+#: usr/share/archlinux-tweak-tool/services_gui.py:479
+msgid "   Install blueman"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:342
+#: usr/share/archlinux-tweak-tool/services_gui.py:56
+msgid "   Bluedevil is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:358
+#: usr/share/archlinux-tweak-tool/services_gui.py:58
+#: usr/share/archlinux-tweak-tool/services_gui.py:497
+msgid "   Install bluedevil (Plasma dependencies)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:421
+msgid "enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:425
+#, python-brace-format
+msgid "Auto-connect {state}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:433
+msgid "Opening terminal to install bluetooth-autoconnect..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:444
+#: usr/share/archlinux-tweak-tool/services_gui.py:61
+#: usr/share/archlinux-tweak-tool/services_gui.py:400
+msgid "   bluetooth-autoconnect is <b>installed</b> and enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:458
+msgid "bluetooth-autoconnect is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:470
+#: usr/share/archlinux-tweak-tool/services_gui.py:63
+#: usr/share/archlinux-tweak-tool/services_gui.py:402
+msgid "   Install bluetooth-autoconnect"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:483
+msgid "Bluetooth has been enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:494
+msgid "Bluetooth has been disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:505
+msgid "Bluetooth has been restarted"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:513
+msgid "Opening terminal to install cups..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:523
+msgid "CUPS installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:524
+#: usr/share/archlinux-tweak-tool/services_gui.py:14
+msgid "Cups printing is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:527
+msgid "CUPS installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:537
+msgid "Opening terminal to remove cups..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:547
+msgid "CUPS removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:548
+#: usr/share/archlinux-tweak-tool/services_gui.py:16
+#: usr/share/archlinux-tweak-tool/services_gui.py:118
+msgid "Install cups printing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:551
+msgid "CUPS removal failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:561
+msgid "Opening terminal to install cups-pdf..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:570
+msgid "cups-pdf installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:571
+#: usr/share/archlinux-tweak-tool/services_gui.py:19
+msgid "Cups-pdf is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:574
+msgid "cups-pdf installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:582
+msgid "Opening terminal to remove cups-pdf..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:591
+msgid "cups-pdf removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:592
+#: usr/share/archlinux-tweak-tool/services_gui.py:21
+#: usr/share/archlinux-tweak-tool/services_gui.py:137
+msgid "Install cups-pdf printing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:595
+msgid "cups-pdf removal failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:604
+#: usr/share/archlinux-tweak-tool/services.py:610
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services_gui.py:269
+#: usr/share/archlinux-tweak-tool/services_gui.py:275
+#: usr/share/archlinux-tweak-tool/services_gui.py:335
+#: usr/share/archlinux-tweak-tool/services_gui.py:341
+#: usr/share/archlinux-tweak-tool/services_gui.py:535
+msgid "<b>active</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:606
+#: usr/share/archlinux-tweak-tool/services.py:612
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services_gui.py:271
+#: usr/share/archlinux-tweak-tool/services_gui.py:277
+#: usr/share/archlinux-tweak-tool/services_gui.py:337
+#: usr/share/archlinux-tweak-tool/services_gui.py:343
+#: usr/share/archlinux-tweak-tool/services_gui.py:537
+msgid "inactive"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:616
+#: usr/share/archlinux-tweak-tool/services_gui.py:280
+#, python-brace-format
+msgid "Cups service : {service}   Cups socket : {socket}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:670
+#: usr/share/archlinux-tweak-tool/services_gui.py:25
+msgid ""
+"   Install common printer drivers (foomatic, gutenprint, ...) - "
+"<b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:693
+#: usr/share/archlinux-tweak-tool/services_gui.py:28
+#: usr/share/archlinux-tweak-tool/services_gui.py:155
+msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:710
+#: usr/share/archlinux-tweak-tool/services_gui.py:31
+msgid "   HP drivers have been <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:726
+#: usr/share/archlinux-tweak-tool/services_gui.py:33
+#: usr/share/archlinux-tweak-tool/services_gui.py:173
+msgid "   Install HP drivers"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:735
+msgid "Opening terminal to install system-config-printer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:744
+msgid "system-config-printer installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:746
+msgid "Install System-config-printer - <b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:751
+msgid "system-config-printer installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:760
+msgid "Opening terminal to remove system-config-printer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:769
+msgid "system-config-printer removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:770
+msgid "Install System-config-printer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:773
+msgid "system-config-printer removal failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:790
+#, python-brace-format
+msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:795
+#: usr/share/archlinux-tweak-tool/services.py:915
+msgid "Disable Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:795
+#: usr/share/archlinux-tweak-tool/services.py:908
+msgid "Enable Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:798
+msgid "Disable firewall"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:798
+msgid "Enable firewall"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:801
+msgid ""
+"Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
+"you protected."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:803
+msgid "Firewall (firewalld) is <b>inactive</b>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:808
+msgid "Allow network discovery (mDNS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:808
+msgid "Block network discovery (mDNS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:813
+msgid "Allow Samba file sharing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:813
+msgid "Block Samba file sharing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:859
+msgid "Nsswitch config reset"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:864
+msgid "No nsswitch backup available"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:878
+msgid "nsswitch.conf opened in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:900
+#: usr/share/archlinux-tweak-tool/services.py:1004
+msgid "Samba is not yet installed."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:906
+msgid "Samba disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:913
+msgid "Samba enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:922
+msgid "firewalld is not installed."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:930
+msgid "Firewall disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:934
+msgid "Firewall enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:958
+msgid "Launching firewall-config..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:973
+msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:975
+msgid "Launch firewall-config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:976
+msgid "firewall-config install finished"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:983
+msgid "Enable the firewall first."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:1026
+msgid "Samba configuration applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:1041
+msgid "Original smb.conf is applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:1047
+msgid "No backup configuration present"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services.py:1061
+msgid "Opening samba.conf in terminal with nano"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:36
+msgid "Install system-config-printer - <b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:38
+#: usr/share/archlinux-tweak-tool/services_gui.py:191
+#: usr/share/archlinux-tweak-tool/services_gui.py:192
+msgid "Install system-config-printer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:111
+msgid ""
+"Printing can be a challenge. We recommend reading the Arch wiki cups page. "
+"Check before you buy.\n"
+"There are also printer specific pages. Lastly the AUR might contain the "
+"driver you need."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:120
+msgid "Install cups"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:122
+msgid "Remove cups"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:138
+msgid "Install cups-pdf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:140
+msgid "Remove cups-pdf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:156
+msgid "Install drivers"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:158
+msgid "Remove drivers"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:174
+msgid "Install hplip"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:176
+msgid "Uninstall hplip"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:196
+msgid "Remove system-config-printer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:213
+msgid "<b>CUPS Service</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:222
+msgid "<b>Printer Drivers</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:231
+#: usr/share/archlinux-tweak-tool/services_gui.py:365
+msgid "<b>Tools</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:240
+#: usr/share/archlinux-tweak-tool/services_gui.py:420
+msgid "<b>Status</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:248
+msgid "Enable cups"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:250
+msgid "Disable cups"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:252
+msgid "Start/Restart cups"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:291
+msgid ""
+"You have two major choices: \n"
+"  - <b>Pulseaudio</b>\n"
+"  - <b>Pipewire</b>\n"
+"Reboot after installing pulseaudio or pipewire\n"
+"With an 'inxi -A' in a terminal you can see what sound server is running\n"
+"There are packages that conflict with each other.\n"
+"Report them if that is the case"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:305
+#: usr/share/archlinux-tweak-tool/services_gui.py:306
+msgid "Install and switch to Pulseaudio"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:318
+#: usr/share/archlinux-tweak-tool/services_gui.py:319
+msgid "Install and switch to Pipewire"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:346
+#, python-brace-format
+msgid "Pulseaudio service : {pulseaudio}   Pipewire service : {pipewire}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:356
+msgid "<b>Packages</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:374
+msgid "<b>Auto-Connect</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:383
+msgid ""
+"Reconnect paired headsets at login (AutoEnable). Works with PipeWire and "
+"PulseAudio."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:406
+msgid "Install"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:429
+msgid "You can install all the bluetooth packages here and enable the service."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:437
+msgid "Install bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:439
+msgid "Remove bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:454
+msgid "Choose one of these tools to connect to your bluetooth devices:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:462
+msgid "Install blueberry"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:464
+msgid "Remove blueberry"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:480
+msgid "Install blueman"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:482
+msgid "Remove blueman"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:498
+msgid "Install bluedevil"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:500
+msgid "Remove bluedevil"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:514
+msgid "Enable bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:516
+msgid "Disable bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:518
+msgid "Start/Restart bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:539
+#, python-brace-format
+msgid "bluetooth service : {status}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:628
+msgid "<b>User Services</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:638
+msgid ""
+"Active services in your <b>--user</b> session (read-only). Custom units you "
+"added are flagged."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:648
+msgid "Refresh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:671
+msgid "Audio"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:672
+msgid "Bluetooth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:673
+msgid "Printing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:674
+msgid "User Services"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:714
+#, python-brace-format
+msgid "<b>{count}</b> active user services  ·  <b>{custom}</b> custom"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/services_gui.py:736
+#, python-brace-format
+msgid "<b>{name}</b>  <span foreground='#4e9a06'>● custom</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:34
+#: usr/share/archlinux-tweak-tool/system.py:101
+#: usr/share/archlinux-tweak-tool/system.py:145
+#: usr/share/archlinux-tweak-tool/system.py:160
+#: usr/share/archlinux-tweak-tool/system.py:174
+#, python-brace-format
+msgid "{pkg} is required — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:61
+#: usr/share/archlinux-tweak-tool/system.py:74
+#: usr/share/archlinux-tweak-tool/system.py:87
+#: usr/share/archlinux-tweak-tool/system.py:114
+#: usr/share/archlinux-tweak-tool/system.py:210
+#: usr/share/archlinux-tweak-tool/system.py:223
+#: usr/share/archlinux-tweak-tool/system.py:239
+#: usr/share/archlinux-tweak-tool/system.py:252
+#: usr/share/archlinux-tweak-tool/system.py:282
+msgid "fzf is required — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:121
+msgid "Installing inxi first..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:133
+msgid "inxi installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:293
+#: usr/share/archlinux-tweak-tool/system_gui.py:268
+msgid "Inspect with GParted <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:295
+#: usr/share/archlinux-tweak-tool/system_gui.py:270
+msgid "Inspect with GParted"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:301
+#: usr/share/archlinux-tweak-tool/system_gui.py:291
+msgid "Inspect with Partition Manager <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:303
+#: usr/share/archlinux-tweak-tool/system_gui.py:293
+msgid "Inspect with Partition Manager"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:324
+#: usr/share/archlinux-tweak-tool/system.py:341
+msgid "Partition Manager launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:328
+msgid "partitionmanager installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:337
+msgid "partitionmanager <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:357
+msgid "partitionmanager is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:361
+msgid "partitionmanager removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:378
+msgid "GParted launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:389
+msgid "gparted installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:398
+msgid "gparted installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:416
+msgid "gparted is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:420
+msgid "gparted removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:439
+msgid "Update firmware (GNOME Firmware) <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:441
+msgid "Update firmware (GNOME Firmware)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:450
+msgid "GNOME Firmware launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:461
+msgid "gnome-firmware installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:468
+msgid "gnome-firmware installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:486
+msgid "gnome-firmware is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:490
+msgid "gnome-firmware removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:530
+msgid "Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:532
+msgid "Metadata refresh timer (fwupd-refresh.timer)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:541
+msgid "Enabling firmware metadata timer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:552
+msgid "Firmware metadata timer enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:562
+msgid "Disabling firmware metadata timer..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system.py:573
+msgid "Firmware metadata timer disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:14
+msgid "Inspect your hardware and software"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:29
+msgid "CPU Information"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:30
+#: usr/share/archlinux-tweak-tool/system_gui.py:44
+#: usr/share/archlinux-tweak-tool/system_gui.py:58
+#: usr/share/archlinux-tweak-tool/system_gui.py:72
+#: usr/share/archlinux-tweak-tool/system_gui.py:86
+#: usr/share/archlinux-tweak-tool/system_gui.py:100
+#: usr/share/archlinux-tweak-tool/system_gui.py:114
+#: usr/share/archlinux-tweak-tool/system_gui.py:128
+#: usr/share/archlinux-tweak-tool/system_gui.py:142
+#: usr/share/archlinux-tweak-tool/system_gui.py:156
+#: usr/share/archlinux-tweak-tool/system_gui.py:170
+#: usr/share/archlinux-tweak-tool/system_gui.py:184
+#: usr/share/archlinux-tweak-tool/system_gui.py:198
+#: usr/share/archlinux-tweak-tool/system_gui.py:212
+#: usr/share/archlinux-tweak-tool/system_gui.py:226
+#: usr/share/archlinux-tweak-tool/system_gui.py:240
+#: usr/share/archlinux-tweak-tool/system_gui.py:254
+msgid "View"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:43
+msgid "Memory and Disk Usage"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:57
+msgid "Block Devices (lsblk)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:71
+msgid "PCI Devices (lspci)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:85
+msgid "USB Devices (lsusb)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:99
+msgid "Loaded Kernel Modules (lsmod)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:113
+msgid "Comprehensive Hardware Info (inxi)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:127
+msgid "Hardware Summary (hwinfo)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:141
+msgid "Disk Partitions (fdisk -l)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:155
+msgid "Filesystem Configuration (fstab)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:169
+msgid "System Overview (hostnamectl)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:183
+msgid "Locale and Timezone (localectl)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:197
+msgid "Systemd Services"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:211
+msgid "System Services Enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:225
+msgid "Systemd Services Failed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:239
+msgid "Systemd Timers Enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:253
+msgid "Kernel Ring Buffer (dmesg)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:272
+#: usr/share/archlinux-tweak-tool/system_gui.py:295
+#: usr/share/archlinux-tweak-tool/system_gui.py:351
+msgid "Launch/Install"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:315
+msgid "<b>Firmware</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:327
+msgid ""
+"<span foreground=\"#FFA500\"><b>⚠ Firmware updates can permanently brick a "
+"device. No warranty, no disclaimer — only continue if you know what you are "
+"doing.</b></span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:339
+msgid ""
+"GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
+"devices your vendor publishes to LVFS will show updates."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:370
+msgid "Enable"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:374
+msgid "Disable"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:395
+msgid "<b>Hardware</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:406
+msgid "<b>Storage</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:417
+msgid "<b>System</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/system_gui.py:428
+msgid "<b>Systemd</b>"
 msgstr ""
 
 #: po/archlinux-tweak-tool.desktop.in:2
