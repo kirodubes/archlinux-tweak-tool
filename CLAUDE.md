@@ -150,6 +150,25 @@ usr/share/archlinux-tweak-tool/
    - zsh_theme, user, themer, settings, services, sddm, pacman_functions, fastfetch, maintenance, icons, themes, desktopr, autostart, packages, and all GUI modules
 5. Splash screen hidden after initialization complete
 
+## Translations
+
+- `att_i18n.py`: gettext domain `archlinux-tweak-tool`, catalogs `po/<lang>.po` for `nl de es fr pt_BR it ru hu tr
+  pl ja zh_CN ro`, compiled to `usr/share/locale/<lang>/LC_MESSAGES/` (from git the repo's own copy is used).
+- **Never put the user's language in the root process's environment.** ATT parses English output of pacman,
+  systemctl and friends; `att_i18n` never sets `LANG`/`LANGUAGE`/`LC_*`. The launcher passes `ATT_USER_LANG` instead.
+  Order: `ATT_LANGUAGE` (test pin) → saved choice (`~/.config/archlinux-tweak-tool/prefs.json`, chowned to the user)
+  → `ATT_USER_LANG` → `/etc/locale.conf` → English.
+- Language dropdown in header bar 2 before ♥ Support; a change reveals the existing Restart ATT button.
+- Wrap every user-visible string: `_()`, `ngettext()`, `N_()` for values that are also compared or used as keys
+  (translate where shown). Whole sentences, named placeholders, never `_(f"…")`. **Never translate** log calls
+  (`fn.log_*`, `debug_print`), `att-check` output, package/kernel/desktop/theme names, paths, commands, dropdown
+  values that are read back with `get_string()`, the nsswitch preset keys. Never use `_` as a throwaway variable
+  in a module that imports it (`_unused`).
+- Before committing new UI text: `python3 ~/Insync/Kiro/Kiro-HQ/TRANSLATIONS/tools/find-unwrapped.py <files>`
+  (every hit wrapped or deliberately English), then `bash po/make-mo.sh` and translate the new entries in all 13
+  catalogs (0 fuzzy, 0 untranslated). Edit `po/archlinux-tweak-tool.desktop.in`, never the generated `.desktop`.
+- Page search: `gen-search-index.py` reads `add_titled(…, _("Title"))`; the index stays English.
+
 ## Development Patterns
 
 ### Logging & Output

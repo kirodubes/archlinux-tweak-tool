@@ -246,6 +246,16 @@ Automated fix scripts are available if issues occur:
 
 ATT allows you to configure additional package repositories, but caution is recommended as incompatible repositories can cause system conflicts. Always review repository settings carefully before enabling them.
 
+## Languages
+
+ATT is available in English, Dutch, German, Spanish, French, Brazilian Portuguese, Italian, Russian, Hungarian,
+Turkish, Polish, Japanese, Simplified Chinese and Romanian. It follows your system language. To pick another one,
+use the language dropdown in the header, next to ♥ Support, then click **Restart ATT**. The choice is saved for
+later starts. Logs stay in English.
+
+Translations live in `po/` as gettext catalogs. Corrections are welcome in
+[Discussions](https://github.com/kirodubes/kiro-discussions).
+
 ## Requirements
 
 - **Operating System**: Arch Linux or Arch-based distribution
