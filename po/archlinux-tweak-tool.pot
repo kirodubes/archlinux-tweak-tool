@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 07:58+0100\n"
+"POT-Creation-Date: 2026-11-01 08:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,7 +270,6 @@ msgid "Opening terminal to remove {name}..."
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:430
-#: usr/share/archlinux-tweak-tool/fastfetch.py:491
 #, python-brace-format
 msgid "Installing {name}..."
 msgstr ""
@@ -283,22 +282,6 @@ msgstr ""
 msgid "Default settings applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:486
-#: usr/share/archlinux-tweak-tool/fastfetch.py:541
-#: usr/share/archlinux-tweak-tool/fastfetch.py:550
-#: usr/share/archlinux-tweak-tool/fastfetch.py:581
-#, python-brace-format
-msgid "{name} disabled"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch.py:486
-#: usr/share/archlinux-tweak-tool/fastfetch.py:541
-#: usr/share/archlinux-tweak-tool/fastfetch.py:550
-#: usr/share/archlinux-tweak-tool/fastfetch.py:581
-#, python-brace-format
-msgid "{name} enabled"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/fastfetch.py:492
 #: usr/share/archlinux-tweak-tool/fastfetch.py:555
 #: usr/share/archlinux-tweak-tool/fastfetch.py:623
@@ -307,17 +290,13 @@ msgstr ""
 msgid "Opening terminal to install {name}..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:499
 #: usr/share/archlinux-tweak-tool/fastfetch.py:514
-#: usr/share/archlinux-tweak-tool/fastfetch.py:562
 #: usr/share/archlinux-tweak-tool/fastfetch.py:565
-#: usr/share/archlinux-tweak-tool/fastfetch.py:629
 #: usr/share/archlinux-tweak-tool/fastfetch.py:632
 #, python-brace-format
 msgid "{name} installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:522
 #: usr/share/archlinux-tweak-tool/fastfetch.py:523
 msgid "fastfetch installation failed or was cancelled"
 msgstr ""
@@ -327,7 +306,18 @@ msgstr ""
 msgid "No shell config found"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:567
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#, python-brace-format
+msgid "{name} disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/fastfetch.py:541
+#: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#, python-brace-format
+msgid "{name} enabled"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/fastfetch.py:568
 msgid "lolcat installation failed or was cancelled"
 msgstr ""
@@ -342,14 +332,12 @@ msgstr ""
 msgid "{name} is <b>not installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:618
 #: usr/share/archlinux-tweak-tool/fastfetch.py:619
 #, python-brace-format
 msgid "{name} is already installed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:643
-#: usr/share/archlinux-tweak-tool/fastfetch.py:675
 #: usr/share/archlinux-tweak-tool/fastfetch.py:676
 #: usr/share/archlinux-tweak-tool/wallpaper.py:189
 #: usr/share/archlinux-tweak-tool/wallpaper.py:220
@@ -358,7 +346,6 @@ msgstr ""
 msgid "{name} is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:653
 #: usr/share/archlinux-tweak-tool/fastfetch.py:656
 #: usr/share/archlinux-tweak-tool/wallpaper.py:201
 #, python-brace-format
