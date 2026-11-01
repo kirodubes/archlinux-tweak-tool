@@ -109,7 +109,7 @@ def gui(self, Gtk, vboxstack_celestial, fn):
         for token, hex_color in family_themes:
             row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
             row.append(themes_gui.make_swatch(Gtk, hex_color))
-            checkbox = Gtk.CheckButton(label=_("celestial-") + token)
+            checkbox = Gtk.CheckButton(label="celestial-" + token)
             self.celestial_checkboxes[token] = checkbox
             row.append(checkbox)
             flowbox_family.append(row)
