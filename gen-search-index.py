@@ -108,6 +108,20 @@ def _is_optionish(value):
     return any(c.isalpha() for c in value)
 
 
+def _literal(node):
+    """Return the English text of a string node, looking through _("…"), N_("…"), ngettext() and .format()."""
+    # Since the 2026-11-01 translation every label is _("…"); reading only bare literals lost 61% of the tokens.
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
+    if isinstance(node, ast.Call):
+        func = node.func
+        if isinstance(func, ast.Name) and func.id in ("_", "N_", "ngettext") and node.args:
+            return _literal(node.args[0])
+        if isinstance(func, ast.Attribute) and func.attr == "format":
+            return _literal(func.value)
+    return None
+
+
 def scrape_module(module):
     """Return the set of meaningful tokens in a module's label text and data lists."""
     module_path = path.join(APP_DIR, f"{module}.py")
@@ -125,17 +139,20 @@ def scrape_module(module):
         # Button/label/markup text — keep multi-word phrases verbatim.
         if isinstance(node, ast.Call):
             if isinstance(node.func, ast.Attribute) and node.func.attr in LABEL_CALLS:
-                if node.args and isinstance(node.args[0], ast.Constant) and isinstance(node.args[0].value, str):
-                    tokens |= _tokens(node.args[0].value)
+                text = _literal(node.args[0]) if node.args else None
+                if text:
+                    tokens |= _tokens(text)
             for kw in node.keywords:
-                if kw.arg == "label" and isinstance(kw.value, ast.Constant) and isinstance(kw.value.value, str):
-                    tokens |= _tokens(kw.value.value)
+                text = _literal(kw.value) if kw.arg == "label" else None
+                if text:
+                    tokens |= _tokens(text)
         # Data-list options — string constants inside literals, hardened against noise.
         elif isinstance(node, (ast.List, ast.Tuple, ast.Set, ast.Dict)):
             elements = node.elts if not isinstance(node, ast.Dict) else node.keys + node.values
             for elt in elements:
-                if isinstance(elt, ast.Constant) and isinstance(elt.value, str) and _is_optionish(elt.value):
-                    tokens |= _tokens(elt.value)
+                text = _literal(elt) if elt is not None else None
+                if text and _is_optionish(text):
+                    tokens |= _tokens(text)
     return tokens
 
 
