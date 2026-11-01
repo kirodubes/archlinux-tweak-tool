@@ -8,18 +8,19 @@ import functools
 
 import functions as fn
 import gi
+from att_i18n import N_, _
 
 gi.require_version("Gtk", "4.0")
-from gi.repository import Gtk
+from gi.repository import GLib, Gtk
 
 # Canonical funding channels — mirror of kiro-website/.github/FUNDING.yml.
 # These URLs are stable; if a channel ever changes, edit it here.
 SOURCES = [
-    ("GitHub Sponsors", "https://github.com/sponsors/erikdubois", "Low fees — most reaches the project"),
-    ("Patreon", "https://www.patreon.com/c/kiroproject", "Recurring membership tiers"),
-    ("YouTube Membership", "https://www.youtube.com/@ErikDubois/join", "Early access and member-only perks"),
-    ("Ko-fi", "https://ko-fi.com/erikdubois", "One-off donation, low fees"),
-    ("PayPal", "https://www.paypal.me/erikdubois", "One-off donation"),
+    ("GitHub Sponsors", "https://github.com/sponsors/erikdubois", N_("Low fees — most reaches the project")),
+    ("Patreon", "https://www.patreon.com/c/kiroproject", N_("Recurring membership tiers")),
+    ("YouTube Membership", "https://www.youtube.com/@ErikDubois/join", N_("Early access and member-only perks")),
+    ("Ko-fi", "https://ko-fi.com/erikdubois", N_("One-off donation, low fees")),
+    ("PayPal", "https://www.paypal.me/erikdubois", N_("One-off donation")),
 ]
 
 
@@ -36,7 +37,7 @@ def show_support_dialog(self):
     """
     is_kiro = fn.get_distro_label() in ("Kiro", "KiroTux")
     project_name = "Kiro" if is_kiro else "ATT"
-    title_text = "Support Kiro" if is_kiro else "Support the ATT"
+    title_text = _("Support Kiro") if is_kiro else _("Support the ATT")
 
     fn.log_info(f"Opening Support dialog ({project_name})")
 
@@ -54,24 +55,24 @@ def show_support_dialog(self):
     lbl_intro = Gtk.Label(xalign=0)
     lbl_intro.set_wrap(True)
     lbl_intro.set_text(
-        f"{project_name} is free and open source. If it helps you, "
-        "here are the ways to support its development. Thank you."
+        _("{project} is free and open source. If it helps you, here are the ways to support its development. "
+          "Thank you.").format(project=project_name)
     )
     box.append(lbl_intro)
 
     for name, url, blurb in SOURCES:
         hbox_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         lbl_row = Gtk.Label(xalign=0)
-        lbl_row.set_markup(f"<b>{name}</b> — {blurb}")
+        lbl_row.set_markup(f"<b>{name}</b> — {GLib.markup_escape_text(_(blurb))}")
         lbl_row.set_hexpand(True)
-        btn_open = Gtk.Button(label="Open")
+        btn_open = Gtk.Button(label=_("Open"))
         btn_open.set_size_request(100, 30)
         btn_open.connect("clicked", functools.partial(on_click_open, self, url))
         hbox_row.append(lbl_row)
         hbox_row.append(btn_open)
         box.append(hbox_row)
 
-    btn_close = Gtk.Button(label="Close")
+    btn_close = Gtk.Button(label=_("Close"))
     btn_close.set_size_request(100, 30)
     btn_close.set_halign(Gtk.Align.END)
     btn_close.connect("clicked", lambda _w: dialog.close())

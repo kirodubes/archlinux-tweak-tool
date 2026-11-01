@@ -4,6 +4,8 @@
 
 # ============Functions============
 import functions as fn
+import att_i18n
+from att_i18n import _
 
 import backup
 import btrfs
@@ -130,7 +132,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     bar_actions.set_margin_end(12)
     bar_actions.set_margin_bottom(8)
     lbl_header_distro = Gtk.Label(xalign=0)
-    lbl_header_distro.set_markup("on " + fn.get_distro_label())
+    lbl_header_distro.set_markup(_("on {distro}").format(distro=GLib.markup_escape_text(fn.get_distro_label())))
     lbl_header_distro.set_hexpand(True)
     bar_actions.append(lbl_header_distro)
 
@@ -536,20 +538,40 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
         fn.debug_print("Report issues to make it even better")
         fn.debug_print("=" * 75)
 
-    btn_restart_att = Gtk.Button(label="Restart ATT")
+    btn_restart_att = Gtk.Button(label=_("Restart ATT"))
     btn_restart_att.set_size_request(100, 30)
     btn_restart_att.set_visible(False)
     btn_restart_att.connect("clicked", self.on_refresh_att_clicked)
-    btn_quit_att = Gtk.Button(label="Quit ATT")
+    btn_quit_att = Gtk.Button(label=_("Quit ATT"))
     btn_quit_att.set_size_request(100, 30)
     btn_quit_att.connect("clicked", on_quit)
-    btn_support_att = Gtk.Button(label="♥ Support")
+    btn_support_att = Gtk.Button(label=_("♥ Support"))
     btn_support_att.set_size_request(100, 30)
     btn_support_att.add_css_class("support-button")
-    btn_support_att.set_tooltip_text("Support the project")
+    btn_support_att.set_tooltip_text(_("Support the project"))
     btn_support_att.connect("clicked", lambda _w: funding.show_support_dialog(self))
 
     # Action buttons live in the second header bar (built in the CONTAINER block).
+    # ── Language dropdown ──────────────────────────────────
+    language_codes = [None, *att_i18n.available()]
+    language_labels = [_("System ({language})").format(language=att_i18n.name(att_i18n.SYSTEM))]
+    language_labels.extend(att_i18n.name(code) for code in language_codes[1:])
+    dropdown_language = Gtk.DropDown.new_from_strings(language_labels)
+    dropdown_language.set_tooltip_text(_("Language"))
+    dropdown_language.set_selected(language_codes.index(att_i18n.chosen()))
+
+    def on_language_changed(_dropdown, _pspec):
+        code = language_codes[dropdown_language.get_selected()]
+        att_i18n.save_choice(code)
+        changed = (code or att_i18n.SYSTEM) != (att_i18n.ACTIVE or att_i18n.SYSTEM)
+        btn_restart_att.set_visible(changed)
+        if changed:
+            fn.show_in_app_notification(self, _("Saved. ATT shows the new language when it starts again."))
+        fn.log_info(f"Language choice saved: {code or 'system'}")
+
+    dropdown_language.connect("notify::selected", on_language_changed)
+
+    bar_actions.append(dropdown_language)
     bar_actions.append(btn_restart_att)
     bar_actions.append(btn_support_att)
     bar_actions.append(btn_quit_att)
@@ -567,6 +589,8 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
             for field in ("keywords", "labels"):
                 for page in index_pages:
                     child = page.get("child", "")
+                    # English title stays searchable when the sidebar shows a translation
+                    search_synonyms.setdefault(page.get("title", "").lower(), child)
                     for keyword in page.get(field, []):
                         search_synonyms.setdefault(keyword.lower(), child)
         except (ValueError, OSError) as e:

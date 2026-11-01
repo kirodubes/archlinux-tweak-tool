@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-01 07:34+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: usr/share/archlinux-tweak-tool/funding.py:19
+msgid "Low fees — most reaches the project"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:20
+msgid "Recurring membership tiers"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:21
+msgid "Early access and member-only perks"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:22
+msgid "One-off donation, low fees"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:23
+msgid "One-off donation"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:40
+msgid "Support Kiro"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:40
+msgid "Support the ATT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:58
+#, python-brace-format
+msgid ""
+"{project} is free and open source. If it helps you, here are the ways to "
+"support its development. Thank you."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:68
+msgid "Open"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/funding.py:75
+msgid "Close"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:135
+#, python-brace-format
+msgid "on {distro}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:541
+msgid "Restart ATT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:545
+msgid "Quit ATT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:548
+msgid "♥ Support"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:551
+msgid "Support the project"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:557
+#, python-brace-format
+msgid "System ({language})"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:560
+msgid "Language"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/gui.py:569
+msgid "Saved. ATT shows the new language when it starts again."
+msgstr ""
+
+#: po/archlinux-tweak-tool.desktop.in:2
+msgid "Arch Linux Tweak Tool"
+msgstr ""
+
+#: po/archlinux-tweak-tool.desktop.in:3
+msgid "System Configuration Tool"
+msgstr ""
+
+#: po/archlinux-tweak-tool.desktop.in:5
+msgid "Graphical tool to configure and tweak your Arch Linux system"
+msgstr ""
+
+#: po/archlinux-tweak-tool.desktop.in:11
+msgid "tweak;tool;tweaktool"
+msgstr ""

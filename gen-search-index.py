@@ -34,7 +34,10 @@ GUI_PY = path.join(APP_DIR, "gui.py")
 SYNONYMS = path.join(SCRIPT_DIR, "search_synonyms.json")
 OUTPUT = path.join(APP_DIR, "search_index.json")
 
-ADD_TITLED = re.compile(r'add_titled\(\s*([A-Za-z0-9_]+)\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\)')
+# the title is either a plain literal or wrapped for translation: _("Title") / N_("Title")
+ADD_TITLED = re.compile(
+    r'add_titled\(\s*([A-Za-z0-9_]+)\s*,\s*"([^"]+)"\s*,\s*(?:N?_\(\s*)?"([^"]+)"\s*\)?\s*\)'
+)
 MODULE_CALL = re.compile(r'([a-z_]+)\.gui\([^)]*?(vboxstack[A-Za-z0-9_]*)')
 MARKUP_TAG = re.compile(r"<[^>]+>")
 WORD = re.compile(r"[a-z0-9]+")
