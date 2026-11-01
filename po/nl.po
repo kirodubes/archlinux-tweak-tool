@@ -155,7 +155,7 @@ msgstr "Toegankelijkheid"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
 msgid "Assistive tools"
-msgstr "Hulpmiddelen"
+msgstr "Hulpmiddelen voor toegankelijkheid"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
@@ -308,7 +308,9 @@ msgstr "{name} <b>geïnstalleerd</b>, nodig voor de schakelaars hieronder"
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
-msgstr "{name} wordt automatisch geïnstalleerd bij de eerste keer schakelen"
+msgstr ""
+"{name} wordt automatisch geïnstalleerd zodra je voor het eerst een "
+"schakelaar gebruikt"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
@@ -351,8 +353,8 @@ msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
 msgstr ""
-"een toets wordt pas geregistreerd als je hem even ingedrukt houdt, zodat per "
-"ongeluk aanraken wordt genegeerd."
+"een toets wordt pas geregistreerd als je hem even ingedrukt houdt, zodat "
+"lichte, onbedoelde aanslagen worden genegeerd."
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
 msgid ""
@@ -521,7 +523,7 @@ msgstr "Installatie van claude-code gestart"
 #: usr/share/archlinux-tweak-tool/ai.py:378
 #: usr/share/archlinux-tweak-tool/ai_gui.py:150
 msgid "Aider - AI pair programming"
-msgstr "Aider - AI-pairprogrammeren"
+msgstr "Aider - samen programmeren met AI"
 
 #: usr/share/archlinux-tweak-tool/ai.py:380
 msgid "aider removal complete"
@@ -538,7 +540,7 @@ msgstr "Aider-setup wordt uitgevoerd..."
 #: usr/share/archlinux-tweak-tool/ai.py:411
 #: usr/share/archlinux-tweak-tool/ai_gui.py:150
 msgid "Aider - AI pair programming <b>installed</b>"
-msgstr "Aider - AI-pairprogrammeren <b>geïnstalleerd</b>"
+msgstr "Aider - samen programmeren met AI <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:413
 msgid "aider installation complete"
@@ -841,7 +843,7 @@ msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
 msgstr ""
-"ATT kan ook <b>andere tweak tools installeren en starten</b>, elk gewijd aan "
+"ATT kan ook <b>andere tweak tools installeren en starten</b>, elk gericht op "
 "één toepassing. Je vindt ze op deze pagina's:"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
@@ -870,7 +872,7 @@ msgstr "Fastfetch"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
 msgid "configure what Fastfetch shows and how"
-msgstr "stel in wat Fastfetch toont en hoe"
+msgstr "stel in wat Fastfetch toont en hoe het dat weergeeft"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
 msgid "configure the fish shell"
@@ -902,8 +904,8 @@ msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
 msgstr ""
-"ATT bevat een <b>kleurrijke nanorc</b>. Klik op een keuze. Er wordt altijd "
-"eerst een back-up van /etc/nanorc gemaakt."
+"ATT bevat een <b>kleurrijke nanorc</b>. Klik op een optie om die te kiezen. "
+"Er wordt altijd eerst een back-up van /etc/nanorc gemaakt."
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
 msgid "Keep default"
@@ -1318,14 +1320,15 @@ msgid ""
 "snap-pac);\n"
 "<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
 msgstr ""
-"Je hoofdbestandssysteem is <b>btrfs</b>, dus snapshots kunnen op dit systeem "
-"worden gebruikt.\n"
+"Je hoofdbestandssysteem is <b>btrfs</b>, dus je kunt op dit systeem "
+"snapshots gebruiken.\n"
 "Deze snapshottools <b>staan niet op de ISO</b>. Installeer ze hier en "
 "schakel daarna snapshots in.\n"
 "\n"
-"Zo werkt het: bij elke <b>pacman</b>-actie wordt een snapshotpaar gemaakt "
-"(via snap-pac);\n"
-"<b>geen</b> snapshots per uur. Het opschonen ruimt oude paren automatisch op."
+"Zo werkt het: bij elke <b>pacman</b>-actie wordt via snap-pac een "
+"snapshotpaar gemaakt;\n"
+"<b>geen</b> uurlijkse tijdlijnsnapshots. Oude paren worden automatisch "
+"opgeruimd."
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:152
 msgid ""
@@ -1653,7 +1656,7 @@ msgstr "De geselecteerde thema's verwijderen"
 #: usr/share/archlinux-tweak-tool/desktopr.py:581
 #, python-brace-format
 msgid "{name} installed — one more step for correct theming"
-msgstr "{name} geïnstalleerd. Nog één stap voor correcte thematisering"
+msgstr "{name} geïnstalleerd. Nog één stap voor een correcte themaweergave"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:584
 #, python-brace-format
@@ -1697,8 +1700,8 @@ msgstr "{desktop} is geïnstalleerd"
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
-"{desktop} mislukt: niet gevonden: {packages}. Schakel {repo} in op het "
-"tabblad Pacman"
+"Installatie van {desktop} mislukt: pakketten niet gevonden: {packages}. "
+"Schakel {repo} in op het tabblad Pacman."
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:868
 #, python-brace-format
@@ -2046,7 +2049,7 @@ msgstr "SDDM"
 #: usr/share/archlinux-tweak-tool/gui.py:502
 #: usr/share/archlinux-tweak-tool/services_gui.py:77
 msgid "Services"
-msgstr "Services"
+msgstr "Diensten"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:803
 #: usr/share/archlinux-tweak-tool/gui.py:514
@@ -2071,7 +2074,7 @@ msgstr "Achtergrond"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:835
 msgid "Cross-cutting safeguards"
-msgstr "Algemene beveiligingen"
+msgstr "Overkoepelende beveiligingen"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:836
 msgid "Safeguards"
@@ -2111,7 +2114,7 @@ msgstr "Mislukte systemd-units"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:985
 msgid "Userspace tuning"
-msgstr "Afstemming van de userspace"
+msgstr "Optimalisatie van userspace"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:988
 msgid "OOM daemon (systemd-oomd)"
@@ -2231,7 +2234,7 @@ msgstr "Je {name}-back-up terugzetten"
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:69
 #, python-brace-format
 msgid "Reset {name} ({defaults} defaults)"
-msgstr "{name} terugzetten ({defaults}-standaardwaarden)"
+msgstr "{name} terugzetten ({defaults} standaardwaarden)"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:80
 msgid "Show os"
@@ -2404,8 +2407,9 @@ msgstr ""
 "afbeelding; kleuren voor sleutel, titel en scheidingsteken\n"
 "• <b>Installeren / inschakelen</b>: installeer fastfetch, voeg het toe aan "
 "het opstarten van bash / zsh / fish, optioneel lolcat\n"
-"• <b>Voorinstellingen &amp; ruw</b>: meegeleverde voorinstellingen of de "
-"Kiro-standaard, een back-up terugzetten, de JSONC bewerken\n"
+"• <b>Voorinstellingen &amp; ruwe configuratie</b>: meegeleverde "
+"voorinstellingen of de Kiro-standaard, een back-up terugzetten, de JSONC "
+"bewerken\n"
 "• <b>Live voorbeeld</b>: echte fastfetch-uitvoer terwijl je aanpast (met "
 "vte4)\n"
 "\n"
@@ -2440,13 +2444,13 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/functions.py:1179
 #, python-brace-format
 msgid "Package not found. Please enable {repo} in pacman.conf"
-msgstr "Pakket niet gevonden. Schakel {repo} in pacman.conf in"
+msgstr "Pakket niet gevonden. Activeer {repo} in pacman.conf"
 
 #: usr/share/archlinux-tweak-tool/functions.py:1181
 msgid ""
 "Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf"
 msgstr ""
-"Pakket niet gevonden. Schakel nemesis_repo of chaotic-aur in pacman.conf in"
+"Pakket niet gevonden. Activeer nemesis_repo of chaotic-aur in pacman.conf"
 
 #: usr/share/archlinux-tweak-tool/functions.py:1209
 #, python-brace-format
@@ -2535,7 +2539,7 @@ msgstr "URL kopiëren"
 
 #: usr/share/archlinux-tweak-tool/functions_backup.py:451
 msgid "Failed to restore nanorc backup"
-msgstr "Nanorc-back-up terugzetten mislukt"
+msgstr "nanorc-back-up terugzetten mislukt"
 
 #: usr/share/archlinux-tweak-tool/functions_backup.py:454
 msgid "No nanorc backup found"
@@ -2543,7 +2547,7 @@ msgstr "Geen nanorc-back-up gevonden"
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
 msgid "We had to change your sddm configuration files"
-msgstr "We moesten je sddm-configuratiebestanden aanpassen"
+msgstr "We moesten je SDDM-configuratiebestanden aanpassen"
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -2597,7 +2601,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:441
 msgid "Dev"
-msgstr "Ontwikkelaar"
+msgstr "Ontwikkeling"
 
 #: usr/share/archlinux-tweak-tool/gui.py:447
 #: usr/share/archlinux-tweak-tool/themes_gui.py:118
@@ -2633,11 +2637,11 @@ msgstr "Logboek"
 #: usr/share/archlinux-tweak-tool/gui.py:485
 #: usr/share/archlinux-tweak-tool/office_gui.py:49
 msgid "Office"
-msgstr "Office"
+msgstr "Kantoor"
 
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr "Sddm"
+msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
@@ -2851,7 +2855,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:56
 msgid "<i>Coming soon — to be added later.</i>"
-msgstr "<i>Komt binnenkort, wordt later toegevoegd.</i>"
+msgstr "<i>Komt binnenkort beschikbaar.</i>"
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:97
 msgid "Choose the icon theme(s)"
@@ -2898,8 +2902,8 @@ msgid ""
 "Build your own personalised Arch-based ISO with the Kiro ISO Builder — a "
 "GTK4 front-end with one-click host pre-flight fixes."
 msgstr ""
-"Bouw je eigen, persoonlijke ISO op basis van Arch met de Kiro ISO Builder: "
-"een GTK4-frontend met herstelacties voor de host met één klik."
+"Bouw met de Kiro ISO Builder je eigen ISO op basis van Arch: een GTK4-"
+"frontend waarmee je met één klik vooraf problemen op de host verhelpt."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:62
 msgid "Install kiro-iso-builder"
@@ -3319,8 +3323,8 @@ msgstr ""
 "\n"
 "{pkg_lines}\n"
 "\n"
-"Oplossing: schakel {repo_str} in op de ATT-pagina Pacman en probeer het "
-"opnieuw."
+"Oplossing: schakel {repo_str} in op het tabblad Pacman van ATT en probeer "
+"het opnieuw."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:289
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:387
@@ -3351,7 +3355,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:346
 #, python-brace-format
 msgid "Installing {packages}..."
-msgstr "{packages} wordt geïnstalleerd..."
+msgstr "{packages} worden geïnstalleerd..."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:389
 #, python-brace-format
@@ -3493,7 +3497,7 @@ msgstr "Standaard opstartitem van GRUB instellen mislukt: {label}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:957
 msgid "Failed to fix GRUB_DEFAULT in /etc/default/grub"
-msgstr "GRUB_DEFAULT herstellen in /etc/default/grub mislukt"
+msgstr "Herstellen van GRUB_DEFAULT in /etc/default/grub is mislukt"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:1016
 msgid "<b>Default Boot Entry (rEFInd)</b>"
@@ -3523,7 +3527,7 @@ msgstr "<small>Huidig: {entry_id}</small>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:16
 msgid "Locale, Keyboard & Timezone"
-msgstr "Taal, toetsenbord en tijdzone"
+msgstr "Landinstelling, toetsenbord en tijdzone"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:30
 msgid "<b>Current Settings</b>"
@@ -3531,7 +3535,7 @@ msgstr "<b>Huidige instellingen</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:38
 msgid "System Locale:"
-msgstr "Systeemtaal:"
+msgstr "Systeemlandinstelling:"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:48
 msgid "Language (LANGUAGE):"
@@ -3601,7 +3605,7 @@ msgstr "<b>Nieuwe taalinstelling genereren</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:173
 msgid "Load Available Locales"
-msgstr "Beschikbare talen laden"
+msgstr "Beschikbare landinstellingen laden"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:207
 msgid "<b>Console Keyboard (TTY)</b>"
@@ -3633,7 +3637,7 @@ msgstr "LANG gebruiken (standaard)"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:111
 msgid "No locale variables to set"
-msgstr "Geen taalvariabelen om in te stellen"
+msgstr "Geen landinstellingsvariabelen om in te stellen"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:122
 #: usr/share/archlinux-tweak-tool/locale_settings.py:283
@@ -3660,7 +3664,8 @@ msgstr "Bezig met toepassen…"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:224
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
-msgstr "Systeemtaal ingesteld op {locale}. Meld je af om dit toe te passen"
+msgstr ""
+"Systeemlandinstelling ingesteld op {locale}. Meld je af om dit toe te passen"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:248
 #, python-brace-format
@@ -3708,7 +3713,7 @@ msgstr "X11-indeling ingesteld op {layout}"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:437
 msgid "No locale selected"
-msgstr "Geen taal geselecteerd"
+msgstr "Geen landinstelling geselecteerd"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:441
 #, python-brace-format
@@ -3718,7 +3723,7 @@ msgstr "{locale} wordt gegenereerd in de terminal…"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:473
 #, python-brace-format
 msgid "Generating locale {locale}..."
-msgstr "Taal {locale} wordt gegenereerd..."
+msgstr "Landinstelling {locale} wordt gegenereerd..."
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:478
 msgid "Failed to update /etc/locale.gen"
@@ -3727,7 +3732,9 @@ msgstr "/etc/locale.gen bijwerken mislukt"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:488
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
-msgstr "Taal {locale} gegenereerd en ingesteld. Meld je af om dit toe te passen"
+msgstr ""
+"Landinstelling {locale} gegenereerd en ingesteld. Meld je af om dit toe te "
+"passen"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:507
 #: usr/share/archlinux-tweak-tool/locale_settings.py:508
@@ -3808,7 +3815,7 @@ msgstr "Journal van de Wayland-compositor wordt geopend..."
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:182
 msgid "Opening boot performance analyzer..."
-msgstr "Analyse van de opstartprestaties wordt geopend..."
+msgstr "Analyseprogramma voor opstartprestaties wordt geopend..."
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:197
 msgid "Opening kernel ring buffer (dmesg)..."
@@ -3816,7 +3823,7 @@ msgstr "Kernelringbuffer (dmesg) wordt geopend..."
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:14
 msgid "Investigate your logs"
-msgstr "Onderzoek je logs"
+msgstr "Bekijk je logs"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:28
 msgid "<b>Journal</b>"
@@ -4019,11 +4026,11 @@ msgstr "Mirrorlist getoond"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:674
 msgid "Fastest Arch Linux servers saved - reflector"
-msgstr "Snelste Arch Linux-servers opgeslagen - reflector"
+msgstr "Snelste Arch Linux-servers opgeslagen: reflector"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:680
 msgid "Fastest Arch Linux servers saved - rate-mirrors"
-msgstr "Snelste Arch Linux-servers opgeslagen - rate-mirrors"
+msgstr "Snelste Arch Linux-servers opgeslagen: rate-mirrors"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:687
 msgid "Install reflector first."
@@ -4165,14 +4172,14 @@ msgstr ""
 "Er is een echte swappartitie actief:\n"
 "  {swap}\n"
 "\n"
-"Als je suspend-to-disk (slaapstand) gebruikt, werkt die niet meer als je de "
-"hook 'resume' verwijdert.\n"
+"Als je sluimerstand (suspend-to-disk) gebruikt, werkt die niet meer als je "
+"de hook 'resume' verwijdert.\n"
 "\n"
 "Toch doorgaan?"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:977
 msgid "Hibernation may be in use"
-msgstr "Slaapstand wordt mogelijk gebruikt"
+msgstr "Sluimerstand wordt mogelijk gebruikt"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:986
 #, python-brace-format
@@ -4207,7 +4214,7 @@ msgstr "aanwezig"
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:35
 #, python-brace-format
 msgid "{swap}  (hibernation may be in use)"
-msgstr "{swap}  (slaapstand wordt mogelijk gebruikt)"
+msgstr "{swap}  (sluimerstand wordt mogelijk gebruikt)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:37
 msgid "none (ZRAM-only or no swap)"
@@ -4215,12 +4222,12 @@ msgstr "geen (alleen ZRAM of geen swap)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:42
 msgid "Resume hook already absent"
-msgstr "Resume-hook ontbreekt al"
+msgstr "resume-hook ontbreekt al"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:45
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:443
 msgid "Remove resume hook"
-msgstr "Resume-hook verwijderen"
+msgstr "resume-hook verwijderen"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:88
 msgid "Update system"
@@ -4244,11 +4251,11 @@ msgstr "Pacman-lock verwijderen"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:127
 msgid "Provide probe link (hardware diagnostics)"
-msgstr "Testlink aanleveren (hardwarediagnose)"
+msgstr "Hardwarediagnoselink opgeven"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:128
 msgid "Get probe link"
-msgstr "Testlink ophalen"
+msgstr "Hardwarediagnoselink ophalen"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:141
 msgid "Re-install archlinux-keyring"
@@ -4301,11 +4308,11 @@ msgstr "De beste Arch Linux-servers ophalen (duurt even)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:222
 msgid "Run reflector"
-msgstr "Reflector uitvoeren"
+msgstr "reflector uitvoeren"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:224
 msgid "Run rate-mirrors"
-msgstr "Rate-mirrors uitvoeren"
+msgstr "rate-mirrors uitvoeren"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:239
 msgid "Automatically refresh mirrors on a schedule (reflector.timer)"
@@ -4321,7 +4328,7 @@ msgstr "De oorspronkelijke ATT /etc/pacman.conf ophalen"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:289
 msgid "Reset pacman.conf"
-msgstr "Pacman.conf resetten"
+msgstr "pacman.conf resetten"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:304
 msgid "Choose the number of parallel downloads for pacman"
@@ -4339,7 +4346,7 @@ msgstr "Bibata-aanwijzers verwijderen"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:344
 msgid "Choose your cursor theme for installed desktops and SDDM"
-msgstr "Kies je aanwijzerthema voor geïnstalleerde desktops en SDDM"
+msgstr "Kies je aanwijzerthema voor geïnstalleerde desktopomgevingen en SDDM"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:376
 msgid ""
@@ -4361,7 +4368,7 @@ msgstr "HOOKS:"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:407
 msgid "resume hook:"
-msgstr "Resume-hook:"
+msgstr "resume-hook:"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:418
 msgid "Real swap:"
@@ -4375,8 +4382,8 @@ msgid ""
 msgstr ""
 "Verwijder de hook 'resume' uit /etc/mkinitcpio.conf. Dit onderdrukt de "
 "opstartwaarschuwing 'no resume device' op systemen zonder swappartitie voor "
-"slaapstand. Maakt een back-up in /etc/mkinitcpio.conf.bak en bouwt initramfs "
-"opnieuw."
+"sluimerstand. Maakt een back-up in /etc/mkinitcpio.conf.bak en bouwt "
+"initramfs opnieuw."
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:461
 msgid ""
@@ -4651,7 +4658,7 @@ msgstr "Samba herstarten (smb + nmb)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:324
 msgid "You can now reboot and enjoy the <b>'Shared'</b> folder"
-msgstr "Je kunt nu herstarten en genieten van de map <b>'Shared'</b>"
+msgstr "Je kunt nu opnieuw opstarten en de map <b>'Shared'</b> gebruiken."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:349
 msgid "<b>Firewall</b>"
@@ -4719,7 +4726,7 @@ msgstr "E-mail"
 
 #: usr/share/archlinux-tweak-tool/office.py:47
 msgid "Editors"
-msgstr "Editors"
+msgstr "Teksteditors"
 
 #: usr/share/archlinux-tweak-tool/office.py:56
 msgid "PDF & Notes"
@@ -4727,7 +4734,7 @@ msgstr "PDF en notities"
 
 #: usr/share/archlinux-tweak-tool/office.py:66
 msgid "Scanning"
-msgstr "Zoeken"
+msgstr "Scannen"
 
 #: usr/share/archlinux-tweak-tool/office.py:107
 #, python-brace-format
@@ -4845,9 +4852,9 @@ msgid ""
 " A list of installed packages will be exported to <b>.config/archlinux-tweak-"
 "tool/packages</b>"
 msgstr ""
-" <b>Er worden geen AUR-pakketten geëxporteerd</b>\n"
-" - Optie: <b>Expliciet geïnstalleerde pakketten</b> (aanbevolen) alleen "
-"pakketten uit de sync-db (minder pakketten)\n"
+"<b>Er worden geen AUR-pakketten geëxporteerd</b>\n"
+" - Optie: <b>Expliciet geïnstalleerde pakketten</b> (aanbevolen) exporteert "
+"alleen pakketten uit de sync-db (minder pakketten)\n"
 " - Optie: <b>Alle geïnstalleerde pakketten</b> exporteert alle pakketten die "
 "nu op je systeem staan \n"
 " - Tip: om in de terminal de pakketten uit de AUR te zien, typ je: pacman -"
@@ -4888,7 +4895,7 @@ msgid ""
 " - To ignore a package, add a # in front of the package name\n"
 " - A reboot is needed when core Linux packages are installed"
 msgstr ""
-" <b>WAARSCHUWING:</b> Ga voorzichtig te werk, hiermee worden pakketten op je "
+"<b>WAARSCHUWING:</b> Ga voorzichtig te werk, hiermee worden pakketten op je "
 "systeem geïnstalleerd!\n"
 " Pakketten uit de AUR worden niet ondersteund \n"
 " Dit voert ook een volledige systeemupgrade uit\n"
@@ -4896,7 +4903,8 @@ msgstr ""
 " - Een lijst met pakketten komt uit <b>.config/archlinux-tweak-tool/"
 "packages</b>\n"
 " - Om een pakket te negeren, zet je een # voor de pakketnaam\n"
-" - Een herstart is nodig wanneer Linux-kernpakketten worden geïnstalleerd"
+" - Een herstart is nodig wanneer essentiële Linux-systeempakketten worden "
+"geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:116
 msgid "Status: "
@@ -4998,7 +5006,7 @@ msgstr "Geen eigen repo opgegeven"
 #: usr/share/archlinux-tweak-tool/pacman.py:266
 #: usr/share/archlinux-tweak-tool/pacman.py:278
 msgid "Default Settings Applied - check in a terminal"
-msgstr "Standaardinstellingen toegepast. Controleer in een terminal"
+msgstr "Standaardinstellingen toegepast. Controleer dit in een terminal."
 
 #: usr/share/archlinux-tweak-tool/pacman.py:284
 msgid "Opening pacman.conf in terminal"
@@ -5086,7 +5094,7 @@ msgstr "Eigen repo toepassen"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:92
 msgid "Reset your pacman local"
-msgstr "Je lokale pacman terugzetten"
+msgstr "Je lokale pacman-instellingen terugzetten"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
@@ -5094,7 +5102,7 @@ msgstr "Pacman ATT terugzetten"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:96
 msgid "Blank pacman (auto reboot) and select"
-msgstr "Lege pacman (automatische herstart) en kiezen"
+msgstr "pacman.conf leegmaken (automatische herstart) en selecteren"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:98
 msgid "Edit pacman.conf in terminal"
@@ -5142,7 +5150,7 @@ msgstr "Chaotic-AUR-repo inschakelen"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:156
 msgid "Enable CachyOS repo"
-msgstr "CachyOS-pakketbron inschakelen"
+msgstr "CachyOS-repo inschakelen"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:161
 msgid "<b>Add custom repo to pacman.conf</b>"
@@ -5738,8 +5746,8 @@ msgstr "Geen back-upbestand gevonden op /etc/makepkg.conf-bak"
 #: usr/share/archlinux-tweak-tool/performance.py:2188
 msgid "Single core detected — parallel builds need ≥2 cores; no change made."
 msgstr ""
-"Eén kern gedetecteerd. Parallel bouwen vraagt minstens 2 kernen, er is niets "
-"gewijzigd."
+"Eén kern gedetecteerd. Parallel bouwen vereist minstens 2 kernen. Er is "
+"niets gewijzigd."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2230
 #, python-brace-format
@@ -5786,7 +5794,7 @@ msgid ""
 "<b>Restore backup</b> on this page to undo at any time."
 msgstr ""
 "<b>Wat er is gewijzigd</b>\n"
-"<tt>{conf}</tt> stelt nu <b>MAKEFLAGS=\"-j{jobs}\"</b> in.\n"
+"<tt>{conf}</tt> stelt nu <b>MAKEFLAGS=\\\"-j{jobs}\\\"</b> in.\n"
 "Vorige regel:\n"
 "<tt>{before}</tt>\n"
 "\n"
@@ -5795,14 +5803,15 @@ msgstr ""
 "gebruikt\n"
 "bij het bouwen van AUR-pakketten of het compileren uit broncode. Arch "
 "levert\n"
-"<tt>#MAKEFLAGS=\"-j2\"</tt> in commentaar mee, dus de standaard is\n"
-"in feite single-threaded. Op jouw cpu met {ncores} kernen laat dit\n"
-"veel snelheid liggen. Veel AUR-builds gaan van minuten\n"
+"<tt>#MAKEFLAGS=\\\"-j2\\\"</tt> in commentaar mee, dus de standaard is\n"
+"in feite bouwen met één thread tegelijk. Op jouw CPU met {ncores} kernen "
+"blijft\n"
+"veel snelheid onbenut. Veel AUR-builds gaan van minuten\n"
 "naar seconden zodra alle kernen meedoen.\n"
 "{reserve_block}\n"
 "<b>Zo maak je het ongedaan</b>\n"
 "Een back-up staat in <tt>{backup}</tt>. Klik op\n"
-"<b>Back-up terugzetten</b> op deze pagina om het op elk moment ongedaan te "
+"<b>Back-up herstellen</b> op deze pagina om het op elk moment ongedaan te "
 "maken."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2274
@@ -5873,13 +5882,13 @@ msgid ""
 "If <b>power-profiles-daemon</b> is installed, it will be removed before "
 "installing Tuned-PPD (they conflict)."
 msgstr ""
-"<b>Tuned</b> - dynamische systeemafstemming voor energiebeheer\n"
-"<b>Tuned-PPD</b> - integratie van Power Profiles Daemon voor "
+"<b>Tuned</b>: dynamische systeemafstemming voor energiebeheer\n"
+"<b>Tuned-PPD</b>: integratie van Power Profiles Daemon voor "
 "desktopomgevingen\n"
 "Als <b>TLP</b> is geïnstalleerd, wordt het uitgeschakeld wanneer Tuned wordt "
-"ingeschakeld (ze conflicteren).\n"
+"ingeschakeld (ze zijn niet compatibel).\n"
 "Als <b>power-profiles-daemon</b> is geïnstalleerd, wordt het verwijderd "
-"voordat Tuned-PPD wordt geïnstalleerd (ze conflicteren)."
+"voordat Tuned-PPD wordt geïnstalleerd (ze zijn niet compatibel)."
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:116
 msgid "tuned is not installed"
@@ -6230,7 +6239,7 @@ msgid ""
 "in your rEFInd stanza (<tt>/boot/EFI/refind/refind.conf</tt>)."
 msgstr ""
 "Voeg <tt>quiet splash</tt> toe aan de regel <tt>options</tt>\n"
-"in je rEFInd-stanza (<tt>/boot/EFI/refind/refind.conf</tt>)."
+"in je rEFInd-configuratieblok (<tt>/boot/EFI/refind/refind.conf</tt>)."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:221
 msgid ""
@@ -6462,8 +6471,7 @@ msgstr "{name} voor Firefox"
 #, python-brace-format
 msgid "{name} — ad/tracker blocking via /etc/hosts <b>installed</b>"
 msgstr ""
-"{name}: blokkeert advertenties en trackers via /etc/hosts <b>geïnstalleerd</"
-"b>"
+"{name}: advertentie- en trackerblokkering via /etc/hosts <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:35
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:83
@@ -6474,12 +6482,12 @@ msgstr "{name}: blokkeert advertenties en trackers via /etc/hosts"
 #: usr/share/archlinux-tweak-tool/privacy.py:42
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>active</b>"
-msgstr "{name} in- of uitschakelen: controleer /etc/hosts <b>actief</b>"
+msgstr "Schakel {name} in of uit: controleer /etc/hosts (<b>actief</b>)"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:44
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts inactive"
-msgstr "{name} in- of uitschakelen: controleer /etc/hosts inactief"
+msgstr "Schakel {name} in of uit: controleer /etc/hosts (inactief)"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:87
 msgid "<i>No hosts whitelisted yet</i>"
@@ -6497,7 +6505,7 @@ msgstr "{host} staat al op de whitelist"
 #: usr/share/archlinux-tweak-tool/privacy.py:164
 #: usr/share/archlinux-tweak-tool/privacy.py:182
 msgid "Could not write the allowlist file"
-msgstr "Kon het allowlist-bestand niet schrijven"
+msgstr "Kon het bestand met de lijst met toegestane hosts niet schrijven"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:168
 #, python-brace-format
@@ -6532,7 +6540,8 @@ msgstr "{name} wordt ingeschakeld..."
 #: usr/share/archlinux-tweak-tool/privacy.py:344
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>enabled</b>"
-msgstr "{name} in- of uitschakelen: controleer /etc/hosts <b>ingeschakeld</b>"
+msgstr ""
+"{name} in- of uitschakelen: controleer of /etc/hosts <b>ingeschakeld</b> is"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:370
 #, python-brace-format
@@ -6543,7 +6552,7 @@ msgstr "{name} wordt uitgeschakeld..."
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:104
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts disabled"
-msgstr "{name} in- of uitschakelen: controleer /etc/hosts uitgeschakeld"
+msgstr "{name} in- of uitschakelen: controleer of /etc/hosts uitgeschakeld is"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:24
 msgid "Privacy/Security"
@@ -6569,7 +6578,7 @@ msgstr "{name} uitschakelen"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:123
 msgid "<b>Whitelist (allowlist)</b>"
-msgstr "<b>Whitelist (allowlist)</b>"
+msgstr "<b>Toegestane lijst (allowlist)</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:133
 msgid "Paste a URL or host, e.g. marketingplatform.google.com"
@@ -6701,7 +6710,7 @@ msgstr "Schakel eerst Chaotic AUR in. sddm-git staat niet in de standaardrepo's"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:755
 msgid "sddm-git installed and enabled — please reboot"
-msgstr "sddm-git geïnstalleerd en ingeschakeld. Herstart alsjeblieft"
+msgstr "sddm-git is geïnstalleerd en ingeschakeld. Herstart je computer."
 
 #: usr/share/archlinux-tweak-tool/sddm.py:759
 msgid "sddm-git installation failed or was cancelled"
@@ -6815,11 +6824,11 @@ msgstr "SDDM-configuratie hersteld"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:17
 msgid "Sddm (active)"
-msgstr "Sddm (actief)"
+msgstr "SDDM (actief)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:19
 msgid "Sddm (inactive)"
-msgstr "Sddm (inactief)"
+msgstr "SDDM (inactief)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:31
 msgid "Configuration Setup"
@@ -6845,12 +6854,12 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:48
 msgid "Apply the Sddm configuration from ATT - auto restart ATT"
-msgstr "De Sddm-configuratie van ATT toepassen. ATT herstart automatisch"
+msgstr "De SDDM-configuratie van ATT toepassen. ATT herstart automatisch"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:51
 msgid "Apply your original Sddm configuration - auto restart ATT"
 msgstr ""
-"Je oorspronkelijke Sddm-configuratie toepassen. ATT herstart automatisch"
+"Je oorspronkelijke SDDM-configuratie toepassen. ATT herstart automatisch"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:72
 msgid "Login Settings"
@@ -6862,7 +6871,7 @@ msgstr "Automatisch aanmelden in- of uitgeschakeld"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:88
 msgid "Autologin into this desktop"
-msgstr "Automatisch aanmelden bij deze desktop"
+msgstr "Automatisch aanmelden bij dit bureaublad"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:103
 msgid "Theme"
@@ -6904,7 +6913,7 @@ msgstr "Achtergrond voor het thema {theme}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:210
 msgid "Set background wallpaper for the Simplicity Sddm theme"
-msgstr "Achtergrond instellen voor het Sddm-thema Simplicity"
+msgstr "Achtergrond instellen voor het SDDM-thema Simplicity"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:214
 msgid "Install Simplicity theme"
@@ -6955,7 +6964,7 @@ msgstr "Sorteren op recent bijgewerkt (AUR)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:437
 msgid "Remove installed"
-msgstr "Geïnstalleerde verwijderen"
+msgstr "Geïnstalleerde thema's verwijderen"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:441
 msgid "Remove theme"
@@ -6977,11 +6986,11 @@ msgstr "Wordt verwijderd: {name}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:569
 msgid "Sddm is not installed"
-msgstr "Sddm is niet geïnstalleerd"
+msgstr "SDDM is niet geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:580
 msgid "<b>Sddm does not seem to be installed</b>"
-msgstr "<b>Sddm lijkt niet te zijn geïnstalleerd</b>"
+msgstr "<b>SDDM lijkt niet te zijn geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:583
 msgid "Install sddm-git and enable it"
@@ -7004,10 +7013,10 @@ msgid ""
 "ATT will create {path} as your samba share folder.\n"
 "If you choose No, create the folder yourself before connecting."
 msgstr ""
-"Map Shared maken?\n"
+"Gedeelde map maken?\n"
 "\n"
-"ATT maakt {path} aan als je samba-map om te delen.\n"
-"Als je Nee kiest, maak de map dan zelf aan voordat je verbinding maakt."
+"ATT maakt {path} aan als je Samba-gedeelde map.\n"
+"Als je Nee kiest, maak je de map zelf aan voordat je verbinding maakt."
 
 #: usr/share/archlinux-tweak-tool/services.py:123
 #, python-brace-format
@@ -7020,7 +7029,7 @@ msgstr "✗ Samba is geïnstalleerd, maar de smb-service draait niet."
 
 #: usr/share/archlinux-tweak-tool/services.py:178
 msgid "✓ Samba restarted. Check other services in the status bar."
-msgstr "✓ Samba herstart. Controleer de andere services in de statusbalk."
+msgstr "✓ Samba is herstart. Controleer de andere services in de statusbalk."
 
 #: usr/share/archlinux-tweak-tool/services.py:199
 msgid "PulseAudio install completed"
@@ -7125,7 +7134,7 @@ msgstr "CUPS geïnstalleerd"
 #: usr/share/archlinux-tweak-tool/services.py:522
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
 msgid "Cups printing is <b>installed</b>"
-msgstr "Cups-printen is <b>geïnstalleerd</b>"
+msgstr "CUPS voor printen is <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:525
 msgid "CUPS installation failed or was cancelled"
@@ -7160,7 +7169,7 @@ msgstr "cups-pdf geïnstalleerd"
 #: usr/share/archlinux-tweak-tool/services.py:569
 #: usr/share/archlinux-tweak-tool/services_gui.py:19
 msgid "Cups-pdf is <b>installed</b>"
-msgstr "Cups-pdf is <b>geïnstalleerd</b>"
+msgstr "cups-pdf is <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:572
 msgid "cups-pdf installation failed or was cancelled"
@@ -7188,16 +7197,14 @@ msgstr "Verwijderen van cups-pdf mislukt of geannuleerd"
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
-msgstr "Cups-service: {service}   Cups-socket: {socket}"
+msgstr "CUPS-service: {service}   CUPS-socket: {socket}"
 
 #: usr/share/archlinux-tweak-tool/services.py:668
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
 msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
-msgstr ""
-"   Veelgebruikte printerdrivers installeren (foomatic, gutenprint, ...) - <b>"
-"Geïnstalleerd</b>"
+msgstr "Veelgebruikte printerdrivers installeren: <b>Geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:691
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
@@ -7226,7 +7233,7 @@ msgstr "system-config-printer geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/services.py:744
 msgid "Install System-config-printer - <b>Installed</b>"
-msgstr "System-config-printer installeren - <b>Geïnstalleerd</b>"
+msgstr "system-config-printer installeren: <b>Geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:749
 msgid "system-config-printer installation failed or was cancelled"
@@ -7323,7 +7330,7 @@ msgstr "samba.conf wordt geopend in de terminal met nano"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:36
 msgid "Install system-config-printer - <b>Installed</b>"
-msgstr "System-config-printer installeren - <b>Geïnstalleerd</b>"
+msgstr "system-config-printer installeren: <b>Geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:38
 #: usr/share/archlinux-tweak-tool/services_gui.py:191
@@ -7339,7 +7346,7 @@ msgid ""
 "driver you need."
 msgstr ""
 "Printen kan lastig zijn. We raden aan de cups-pagina van de Arch Wiki te "
-"lezen. Controleer dit voordat je iets koopt.\n"
+"lezen. Controleer dit voordat je een printer koopt.\n"
 "Er zijn ook pagina's voor specifieke printers. Ten slotte kan de AUR het "
 "stuurprogramma bevatten dat je nodig hebt."
 
@@ -7415,27 +7422,27 @@ msgid ""
 "Report them if that is the case"
 msgstr ""
 "Je hebt twee hoofdkeuzes: \n"
-"  - <b>Pulseaudio</b>\n"
-"  - <b>Pipewire</b>\n"
-"Herstart na het installeren van pulseaudio of pipewire\n"
+"  - <b>PulseAudio</b>\n"
+"  - <b>PipeWire</b>\n"
+"Herstart na het installeren van PulseAudio of PipeWire\n"
 "Met 'inxi -A' in een terminal zie je welke geluidsserver draait\n"
 "Er zijn pakketten die met elkaar conflicteren.\n"
-"Meld ze als dat het geval is"
+"Meld het als dat het geval is"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:305
 #: usr/share/archlinux-tweak-tool/services_gui.py:306
 msgid "Install and switch to Pulseaudio"
-msgstr "Pulseaudio installeren en overschakelen"
+msgstr "PulseAudio installeren en overschakelen"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:318
 #: usr/share/archlinux-tweak-tool/services_gui.py:319
 msgid "Install and switch to Pipewire"
-msgstr "Pipewire installeren en overschakelen"
+msgstr "PipeWire installeren en overschakelen"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:346
 #, python-brace-format
 msgid "Pulseaudio service : {pulseaudio}   Pipewire service : {pipewire}"
-msgstr "Pulseaudio-service: {pulseaudio}   Pipewire-service: {pipewire}"
+msgstr "PulseAudio-service: {pulseaudio}   PipeWire-service: {pipewire}"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:356
 msgid "<b>Packages</b>"
@@ -7469,7 +7476,7 @@ msgstr "Bluetooth verwijderen"
 #: usr/share/archlinux-tweak-tool/services_gui.py:454
 msgid "Choose one of these tools to connect to your bluetooth devices:"
 msgstr ""
-"Kies een van deze hulpmiddelen om verbinding te maken met je bluetooth-"
+"Kies een van deze hulpmiddelen om verbinding te maken met je Bluetooth-"
 "apparaten:"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:462
@@ -7548,12 +7555,12 @@ msgstr "Gebruikersservices"
 #: usr/share/archlinux-tweak-tool/services_gui.py:714
 #, python-brace-format
 msgid "<b>{count}</b> active user services  ·  <b>{custom}</b> custom"
-msgstr "<b>{count}</b> actieve gebruikersservices  ·  <b>{custom}</b> eigen"
+msgstr "<b>{count}</b> actieve gebruikersservices  ·  <b>{custom}</b> aangepast"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:736
 #, python-brace-format
 msgid "<b>{name}</b>  <span foreground='#4e9a06'>● custom</span>"
-msgstr "<b>{name}</b>  <span foreground='#4e9a06'>● eigen</span>"
+msgstr "<b>{name}</b>  <span foreground='#4e9a06'>● aangepast</span>"
 
 #: usr/share/archlinux-tweak-tool/shell.py:21
 #: usr/share/archlinux-tweak-tool/shell_gui.py:290
@@ -7608,7 +7615,7 @@ msgstr "ATT config.fish toegepast. Meld je af en weer aan om het toe te passen"
 
 #: usr/share/archlinux-tweak-tool/shell.py:164
 msgid "ATT config.fish source not found"
-msgstr "Bron van ATT config.fish niet gevonden"
+msgstr "Bronbestand van ATT config.fish niet gevonden"
 
 #: usr/share/archlinux-tweak-tool/shell.py:169
 #, python-brace-format
@@ -7649,7 +7656,7 @@ msgstr "Fish is niet geïnstalleerd"
 #: usr/share/archlinux-tweak-tool/shell.py:236
 #: usr/share/archlinux-tweak-tool/shell.py:260
 msgid "Removing fish - terminal opened"
-msgstr "Fish wordt verwijderd, terminal geopend"
+msgstr "Fish wordt verwijderd. Er is een terminal geopend."
 
 #: usr/share/archlinux-tweak-tool/shell.py:243
 #: usr/share/archlinux-tweak-tool/shell.py:267
@@ -7751,7 +7758,7 @@ msgstr "Zsh is niet geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/shell.py:539
 msgid "Removing zsh - terminal opened"
-msgstr "Zsh wordt verwijderd, terminal geopend"
+msgstr "Zsh wordt verwijderd. Er is een terminal geopend."
 
 #: usr/share/archlinux-tweak-tool/shell.py:547
 msgid "Zsh removed"
@@ -8236,7 +8243,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:787
 msgid "<b>Alacritty Tweak Tool - Tab preview</b>"
-msgstr "<b>Alacritty Tweak Tool - voorbeeld van het tabblad</b>"
+msgstr "<b>Alacritty Tweak Tool: tabbladvoorbeeld</b>"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:797
 msgid "Appearance"
@@ -8299,7 +8306,7 @@ msgstr "Installatie van pamac-aur gestart"
 
 #: usr/share/archlinux-tweak-tool/software.py:41
 msgid "Pamac - GUI package manager <b>installed</b>"
-msgstr "Pamac - grafische pakketbeheerder <b>geïnstalleerd</b>"
+msgstr "Pamac: grafische pakketbeheerder <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:43
 msgid "pamac-aur installed"
@@ -8316,7 +8323,7 @@ msgstr "Installatie van octopi gestart"
 
 #: usr/share/archlinux-tweak-tool/software.py:94
 msgid "Octopi - GUI package manager <b>installed</b>"
-msgstr "Octopi - grafische pakketbeheerder <b>geïnstalleerd</b>"
+msgstr "Octopi: grafische pakketbeheerder <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:96
 msgid "octopi installed"
@@ -8340,7 +8347,7 @@ msgstr "Bazaar <b>geïnstalleerd</b>"
 #: usr/share/archlinux-tweak-tool/software.py:684
 #: usr/share/archlinux-tweak-tool/software_gui.py:328
 msgid "Flatpak - Manage Flatpak apps <b>installed</b>"
-msgstr "Flatpak - Flatpak-apps beheren <b>geïnstalleerd</b>"
+msgstr "Flatpak: Flatpak-apps beheren <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:151
 msgid "bazaar installed"
@@ -8358,7 +8365,7 @@ msgstr "Installatie van shelly gestart"
 #: usr/share/archlinux-tweak-tool/software.py:203
 #: usr/share/archlinux-tweak-tool/software_gui.py:104
 msgid "Shelly - Modern package manager <b>installed</b>"
-msgstr "Shelly - moderne pakketbeheerder <b>geïnstalleerd</b>"
+msgstr "Shelly: moderne pakketbeheerder <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:205
 msgid "shelly installed"
@@ -8374,7 +8381,7 @@ msgstr "Installatie van gnome-software gestart"
 
 #: usr/share/archlinux-tweak-tool/software.py:269
 msgid "GNOME Software - GUI package manager <b>installed</b>"
-msgstr "GNOME Software - grafische pakketbeheerder <b>geïnstalleerd</b>"
+msgstr "GNOME Software: grafische pakketbeheerder <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:271
 msgid "gnome-software installed"
@@ -8392,7 +8399,7 @@ msgstr "Installatie van discover gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:150
 msgid "KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>"
 msgstr ""
-"KDE Discover - KDE-softwarecentrum (haalt KDE-afhankelijkheden binnen) <b>"
+"KDE Discover: KDE-softwarecentrum (haalt KDE-afhankelijkheden binnen) <b>"
 "geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:326
@@ -8418,7 +8425,7 @@ msgstr "Installatie van pachub gestart"
 #: usr/share/archlinux-tweak-tool/software.py:404
 #: usr/share/archlinux-tweak-tool/software_gui.py:175
 msgid "PacHub - Pacman/AUR GUI (GTK4) <b>installed</b>"
-msgstr "PacHub - Pacman/AUR-gui (GTK4) <b>geïnstalleerd</b>"
+msgstr "PacHub - Pacman/AUR-GUI (GTK4) <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:406
 msgid "pachub installation complete"
@@ -8449,7 +8456,7 @@ msgstr "Installatie van yay-git gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:220
 #: usr/share/archlinux-tweak-tool/software_gui.py:260
 msgid "Yay-git - AUR helper (Go-based) <b>installed</b>"
-msgstr "Yay-git - AUR-helper (op Go) <b>geïnstalleerd</b>"
+msgstr "Yay-git - AUR-helper (gebaseerd op Go) <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:453
 msgid "paru-git already installed"
@@ -8471,7 +8478,7 @@ msgstr "Installatie van paru-git gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:241
 #: usr/share/archlinux-tweak-tool/software_gui.py:263
 msgid "Paru-git - AUR helper (Rust-based) <b>installed</b>"
-msgstr "Paru-git - AUR-helper (op Rust) <b>geïnstalleerd</b>"
+msgstr "Paru-git - AUR-helper (gebaseerd op Rust) <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:488
 msgid "trizen already installed"
@@ -8484,7 +8491,7 @@ msgstr "Installatie van trizen gestart"
 #: usr/share/archlinux-tweak-tool/software.py:497
 #: usr/share/archlinux-tweak-tool/software_gui.py:273
 msgid "Trizen - AUR helper (Perl-based) <b>installed</b>"
-msgstr "Trizen - AUR-helper (op Perl) <b>geïnstalleerd</b>"
+msgstr "Trizen - AUR-helper (gebaseerd op Perl) <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:499
 msgid "trizen installed"
@@ -8501,7 +8508,7 @@ msgstr "Installatie van pikaur-git gestart"
 #: usr/share/archlinux-tweak-tool/software.py:520
 #: usr/share/archlinux-tweak-tool/software_gui.py:296
 msgid "Pikaur-git - AUR helper (Python-based) <b>installed</b>"
-msgstr "Pikaur-git - AUR-helper (op Python) <b>geïnstalleerd</b>"
+msgstr "Pikaur-git - AUR-helper (gebaseerd op Python) <b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:522
 msgid "pikaur-git installed"
@@ -8515,7 +8522,7 @@ msgstr "Verwijderen van yay-git gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:220
 #: usr/share/archlinux-tweak-tool/software_gui.py:260
 msgid "Yay-git - AUR helper (Go-based)"
-msgstr "Yay-git - AUR-helper (op Go)"
+msgstr "Yay-git - AUR-helper (gebaseerd op Go)"
 
 #: usr/share/archlinux-tweak-tool/software.py:541
 msgid "yay-git removal complete"
@@ -8529,7 +8536,7 @@ msgstr "Verwijderen van paru-git gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:241
 #: usr/share/archlinux-tweak-tool/software_gui.py:263
 msgid "Paru-git - AUR helper (Rust-based)"
-msgstr "Paru-git - AUR-helper (op Rust)"
+msgstr "Paru-git - AUR-helper (gebaseerd op Rust)"
 
 #: usr/share/archlinux-tweak-tool/software.py:559
 msgid "paru-git removal complete"
@@ -8542,7 +8549,7 @@ msgstr "Verwijderen van trizen gestart"
 #: usr/share/archlinux-tweak-tool/software.py:575
 #: usr/share/archlinux-tweak-tool/software_gui.py:273
 msgid "Trizen - AUR helper (Perl-based)"
-msgstr "Trizen - AUR-helper (op Perl)"
+msgstr "Trizen - AUR-helper (gebaseerd op Perl)"
 
 #: usr/share/archlinux-tweak-tool/software.py:577
 msgid "trizen removal complete"
@@ -8555,7 +8562,7 @@ msgstr "Verwijderen van pikaur-git gestart"
 #: usr/share/archlinux-tweak-tool/software.py:593
 #: usr/share/archlinux-tweak-tool/software_gui.py:296
 msgid "Pikaur-git - AUR helper (Python-based)"
-msgstr "Pikaur-git - AUR-helper (op Python)"
+msgstr "Pikaur-git - AUR-helper (gebaseerd op Python)"
 
 #: usr/share/archlinux-tweak-tool/software.py:595
 msgid "pikaur-git removal complete"
@@ -8802,7 +8809,7 @@ msgstr "Verwijderen van pachub gestart"
 #: usr/share/archlinux-tweak-tool/software.py:1093
 #: usr/share/archlinux-tweak-tool/software_gui.py:175
 msgid "PacHub - Pacman/AUR GUI (GTK4)"
-msgstr "PacHub - Pacman/AUR-gui (GTK4)"
+msgstr "PacHub - Pacman/AUR-GUI (GTK4)"
 
 #: usr/share/archlinux-tweak-tool/software.py:1095
 msgid "pachub removal complete"
@@ -8948,7 +8955,7 @@ msgstr "<b>TUI-pakkethulpmiddelen</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:449
 msgid "<b>Logout Managers</b>"
-msgstr "<b>Afmeldbeheerders</b>"
+msgstr "<b>Afmeldtools</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:486
 msgid "powermenu - Power menu for i3/sway <b>installed</b>"
@@ -9007,17 +9014,18 @@ msgid ""
 " gone now (the full list minus what's still installed). Import either on a "
 "future install to re-remove."
 msgstr ""
-" Verwijder optionele apps die met dit systeem zijn meegeleverd, gegroepeerd "
+"Verwijder optionele apps die met dit systeem zijn meegeleverd, gegroepeerd "
 "per categorie.\n"
 " Elk onderdeel toont apps die <b>nog geïnstalleerd zijn</b> (links, vink aan "
 "om te verwijderen) naast apps die <b>al verwijderd zijn</b> (rechts, vink "
 "aan om opnieuw te installeren).\n"
-" Vink een <b>categorie</b> aan om al zijn apps te selecteren en haal daarna "
-"het vinkje weg bij de apps die je wilt houden.\n"
+" Vink een <b>categorie</b> aan om alle apps in die categorie te selecteren "
+"en haal daarna het vinkje weg bij de apps die je wilt houden.\n"
 " <b>Profiel opslaan</b> bewaart je huidige selectie. <b>Lijst met "
 "verwijderde apps opslaan</b> legt vast wat nu\n"
-" echt weg is (de volledige lijst min wat nog is geïnstalleerd). Importeer "
-"een van beide bij een volgende installatie om opnieuw te verwijderen."
+" echt weg is (de volledige lijst zonder de apps die nog zijn geïnstalleerd). "
+"Importeer een van beide bij een volgende installatie om opnieuw te "
+"verwijderen."
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:43
 msgid "Also remove unused dependencies (-Rns)"
@@ -9095,7 +9103,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:300
 msgid "Nothing removed yet — every optional app is still installed"
-msgstr "Nog niets verwijderd, alle optionele apps zijn nog geïnstalleerd"
+msgstr "Nog niets verwijderd: alle optionele apps zijn nog geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:320
 #, python-brace-format
@@ -9265,7 +9273,7 @@ msgstr "Inspecteer je hardware en software"
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:29
 msgid "CPU Information"
-msgstr "Cpu-informatie"
+msgstr "CPU-informatie"
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:30
 #: usr/share/archlinux-tweak-tool/system_gui.py:44
@@ -9371,7 +9379,8 @@ msgid ""
 "devices your vendor publishes to LVFS will show updates."
 msgstr ""
 "GNOME Firmware werkt BIOS/UEFI, SSD's, docks en meer bij via fwupd/LVFS. "
-"Alleen apparaten die je fabrikant op LVFS publiceert, tonen updates."
+"Alleen voor apparaten waarvoor je fabrikant updates op LVFS publiceert, "
+"worden updates weergegeven."
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:395
 msgid "<b>Hardware</b>"
@@ -9399,7 +9408,7 @@ msgid ""
 "you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. So "
 "we can not enable this feature."
 msgstr ""
-"je lijkt het bestand <b>{name}</b> niet te hebben in je map <i>{path}</i>. "
+"Je lijkt het bestand <b>{name}</b> niet te hebben in je map <i>{path}</i>. "
 "Daarom kunnen we deze functie niet inschakelen."
 
 #: usr/share/archlinux-tweak-tool/themer.py:388
@@ -9486,9 +9495,8 @@ msgid ""
 "First install the desktop via the Desktop menu then theme it."
 msgstr ""
 "Laad je window manager opnieuw met <b>Super + Shift + R</b> nadat je je "
-"wijzigingen hebt gemaakt..\n"
-"Installeer eerst de desktop via het menu Desktop en geef hem daarna een "
-"thema."
+"wijzigingen hebt gemaakt.\n"
+"Installeer eerst de desktop via het menu Desktop en pas daarna een thema toe."
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:148
 #: usr/share/archlinux-tweak-tool/themer_gui.py:237
@@ -9768,8 +9776,8 @@ msgid ""
 "line '%wheel ALL=(ALL:ALL) ALL'\n"
 "if you want your users to have administrator rights"
 msgstr ""
-"Voer op <b>pure Arch Linux</b> 'EDITOR=nano visudo' uit en haal het "
-"commentaar weg van de regel '%wheel ALL=(ALL:ALL) ALL'\n"
+"Voer op <b>pure Arch Linux</b> 'EDITOR=nano visudo' uit en verwijder het "
+"commentaarteken voor de regel '%wheel ALL=(ALL:ALL) ALL'\n"
 "als je wilt dat je gebruikers beheerdersrechten hebben"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:124
@@ -9789,7 +9797,7 @@ msgstr "Herstellen mislukt: {error}"
 #: usr/share/archlinux-tweak-tool/wallpaper.py:160
 #, python-brace-format
 msgid "{name} installed — launching..."
-msgstr "{name} geïnstalleerd. Wordt gestart..."
+msgstr "{name} is geïnstalleerd. Wordt nu gestart..."
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:171
 #, python-brace-format
@@ -9815,7 +9823,7 @@ msgstr "{name} staat niet in autostart"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "ATT-variety-configuratie niet gevonden in de gegevensmap"
+msgstr "ATT-Variety-configuratie niet gevonden in de gegevensmap"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -9928,8 +9936,8 @@ msgstr "Schaal:"
 msgid ""
 "<i>Tip: source {path} in your WM autostart to restore wallpaper on login</i>"
 msgstr ""
-"<i>Tip: laad {path} met source in de autostart van je WM om de achtergrond "
-"bij het aanmelden te herstellen</i>"
+"<i>Tip: voeg `source {path}` toe aan de autostart van je WM om de "
+"achtergrond bij het aanmelden te herstellen</i>"
 
 #: usr/share/archlinux-tweak-tool/wayland.py:152
 #, python-brace-format
@@ -9973,7 +9981,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:48
 msgid "Select at least one window manager"
-msgstr "Selecteer minstens één window manager"
+msgstr "Selecteer minstens één vensterbeheerder"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:52
 msgid ""
@@ -9993,7 +10001,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:63
 msgid "Select an installed window manager to remove"
-msgstr "Selecteer een geïnstalleerde window manager om te verwijderen"
+msgstr "Selecteer een geïnstalleerde vensterbeheerder om te verwijderen"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:172
 msgid ""
@@ -10011,16 +10019,15 @@ msgid ""
 "like in one go: each coexists with the others and with your existing X11 "
 "desktop, so nothing you already run is replaced."
 msgstr ""
-"Probeer een Wayland-window-manager naast je huidige desktop. Kies er daarna "
-"een op het aanmeldscherm. Je huidige sessie blijft de standaard. Elke editie "
-"hier wordt geleverd met een samengestelde Kiro-configuratie. Je kunt er "
-"zoveel in één keer installeren als je wilt: elk bestaat naast de andere en "
-"naast je bestaande X11-desktop, dus er wordt niets vervangen van wat je al "
-"gebruikt."
+"Probeer een Wayland-vensterbeheerder naast je huidige desktop. Kies er "
+"daarna een op het aanmeldscherm. Je huidige sessie blijft de standaard. Elke "
+"editie bevat een zorgvuldig samengestelde Kiro-configuratie. Je kunt er "
+"zoveel tegelijk installeren als je wilt: ze bestaan naast elkaar en naast je "
+"bestaande X11-desktop, dus er wordt niets vervangen van wat je al gebruikt."
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:191
 msgid "<b>Available Wayland window managers</b>"
-msgstr "<b>Beschikbare Wayland-window-managers</b>"
+msgstr "<b>Beschikbare Wayland-vensterbeheerders</b>"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:197
 msgid "Select all"
@@ -10050,8 +10057,8 @@ msgid ""
 "Uninstalling a WM later leaves its ~/.config subfolder intact — remove it "
 "yourself if no longer needed."
 msgstr ""
-"Configuraties die de installatie overschrijft, worden eerst geback-upt naar "
-"~/.config-att.\n"
+"Configuraties die de installatie overschrijft, worden eerst als back-up "
+"opgeslagen in ~/.config-att.\n"
 "Bij het later verwijderen van een WM blijft de submap in ~/.config staan. "
 "Verwijder die zelf als je hem niet meer nodig hebt."
 
