@@ -9922,4 +9922,4 @@ msgstr ""
 
 #: po/archlinux-tweak-tool.desktop.in:11
 msgid "tweak;tool;tweaktool"
-msgstr "tweak;tool;tweaktool;anpassen;einstellungen"
+msgstr "tweak;tool;tweaktool;anpassen;einstellungen;"

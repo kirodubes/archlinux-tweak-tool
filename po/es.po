@@ -9545,4 +9545,4 @@ msgstr "Herramienta gráfica para configurar y ajustar tu sistema Arch Linux"
 
 #: po/archlinux-tweak-tool.desktop.in:11
 msgid "tweak;tool;tweaktool"
-msgstr "ajustes;herramienta;tweaktool;tweak;tool"
+msgstr "tweak;tool;tweaktool;ajustes;herramienta;"
