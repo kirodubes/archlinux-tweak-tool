@@ -4,6 +4,7 @@
 
 import functions as fn
 from functions import GLib
+from att_i18n import N_, _
 
 # ── Office app registry ──────────────────────────────────────────────
 # Each entry drives one row (label + Launch/Install + Remove) and its
@@ -16,7 +17,7 @@ from functions import GLib
 #   remove   : packages to remove (defaults to the install set; set
 #              explicitly to avoid removing shared library deps)
 OFFICE_APPS = {
-    "Suites": [
+    N_("Suites"): [
         {"key": "libreoffice", "label": "LibreOffice", "packages": "libreoffice-fresh", "launch": "libreoffice"},
         {
             "key": "onlyoffice",
@@ -34,7 +35,7 @@ OFFICE_APPS = {
             "repo": "chaotic-aur",
         },
     ],
-    "Mail": [
+    N_("Mail"): [
         {"key": "thunderbird", "label": "Thunderbird", "packages": "thunderbird", "launch": "thunderbird"},
         {"key": "betterbird", "label": "Betterbird", "packages": "betterbird-bin", "launch": "betterbird",
          "repo": "chaotic-aur"},
@@ -43,7 +44,7 @@ OFFICE_APPS = {
         {"key": "clawsmail", "label": "Claws Mail", "packages": "claws-mail", "launch": "claws-mail"},
         {"key": "kmail", "label": "KMail", "packages": "kmail", "launch": "kmail"},
     ],
-    "Editors": [
+    N_("Editors"): [
         {"key": "geany", "label": "Geany", "packages": "geany", "launch": "geany"},
         {"key": "kate", "label": "Kate", "packages": "kate", "launch": "kate"},
         {"key": "mousepad", "label": "Mousepad", "packages": "mousepad", "launch": "mousepad"},
@@ -52,7 +53,7 @@ OFFICE_APPS = {
          "launch": "gnome-text-editor"},
         {"key": "featherpad", "label": "FeatherPad", "packages": "featherpad", "launch": "featherpad"},
     ],
-    "PDF & Notes": [
+    N_("PDF & Notes"): [
         {"key": "okular", "label": "Okular", "packages": "okular", "launch": "okular"},
         {"key": "evince", "label": "Evince", "packages": "evince", "launch": "evince"},
         {"key": "qpdfview", "label": "qpdfview", "packages": "qpdfview", "launch": "qpdfview",
@@ -62,7 +63,7 @@ OFFICE_APPS = {
         {"key": "cherrytree", "label": "CherryTree", "packages": "cherrytree", "launch": "cherrytree"},
         {"key": "obsidian", "label": "Obsidian", "packages": "obsidian", "launch": "obsidian"},
     ],
-    "Scanning": [
+    N_("Scanning"): [
         {"key": "simplescan", "label": "Simple Scan", "packages": "simple-scan", "launch": "simple-scan"},
         {"key": "gscan2pdf", "label": "gscan2pdf", "packages": "gscan2pdf", "launch": "gscan2pdf"},
     ],
@@ -75,7 +76,9 @@ def all_apps():
 
 
 def _label_markup(app, installed):
-    return app["label"] + (" <b>installed</b>" if installed else "")
+    if installed:
+        return _("{name} <b>installed</b>").format(name=app["label"])
+    return app["label"]
 
 
 def _launch(app):
@@ -94,17 +97,20 @@ def install_or_launch(self, app, _widget=None):
     if fn.check_package_installed(primary):
         fn.log_subsection(f"Launching {app['label']}...")
         _launch(app)
-        fn.show_in_app_notification(self, f"{app['label']} launched")
+        fn.show_in_app_notification(self, _("{name} launched").format(name=app["label"]))
         return
 
     if app.get("repo") == "chaotic-aur" and not fn.check_chaotic_aur_active():
         fn.log_warn(f"{app['label']} needs the chaotic-aur repo — not enabled")
-        fn.show_in_app_notification(self, f"{app['label']} needs the chaotic-aur repo — enable it on the Pacman page")
+        fn.show_in_app_notification(
+            self,
+            _("{name} needs the {repo} repo — enable it on the Pacman page").format(name=app["label"], repo="chaotic-aur"),
+        )
         return
 
     fn.log_subsection(f"Installing {app['label']}...")
     process = fn.launch_pacman_install_in_terminal(app["packages"])
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installation started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} installation started").format(name=app["label"]))
 
     def wait_install():
         if process is None:
@@ -116,7 +122,7 @@ def install_or_launch(self, app, _widget=None):
             label = getattr(self, f"lbl_office_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, True))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name=app["label"]))
             _launch(app)
         else:
             fn.log_warn(f"{app['label']} install did not complete")
@@ -132,7 +138,7 @@ def remove(self, app, _widget=None):
     # -Rns: also clears dependencies nothing else needs (e.g. WPS's libtiff5);
     # pacman refuses to remove deps still required elsewhere, so it stays safe.
     process = fn.launch_pacman_remove_recursive_in_terminal(app.get("remove", app["packages"]))
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removal started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} removal started").format(name=app["label"]))
 
     def wait_remove():
         if process is None:
@@ -144,6 +150,6 @@ def remove(self, app, _widget=None):
             label = getattr(self, f"lbl_office_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, False))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name=app["label"]))
 
     fn.threading.Thread(target=wait_remove, daemon=True).start()

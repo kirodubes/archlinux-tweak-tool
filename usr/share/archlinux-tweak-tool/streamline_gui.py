@@ -4,6 +4,7 @@
 
 import streamline
 from gi.repository import GLib
+from att_i18n import _, ngettext
 
 
 def gui(self, Gtk, vbox_stack, fn):
@@ -14,7 +15,7 @@ def gui(self, Gtk, vbox_stack, fn):
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
     lbl_title.set_name("title")
-    lbl_title.set_text("Streamline")
+    lbl_title.set_text(_("Streamline"))
     lbl_title.set_margin_start(10)
     lbl_title.set_margin_end(10)
     hbox_title.append(lbl_title)
@@ -26,17 +27,20 @@ def gui(self, Gtk, vbox_stack, fn):
 
     lbl_desc = Gtk.Label(xalign=0)
     lbl_desc.set_markup(
-        " Remove optional apps that shipped on this system, grouped by category.\n"
-        " Each section shows apps <b>still installed</b> (left, tick to remove) next to those <b>already removed</b> (right, tick to reinstall).\n"
-        " Tick a <b>category</b> to select all its apps, then untick the ones you want to keep.\n"
-        " <b>Save profile</b> stores your current selection. <b>Save removed list</b> records what's actually\n"
-        " gone now (the full list minus what's still installed). Import either on a future install to re-remove."
+        _(
+            " Remove optional apps that shipped on this system, grouped by category.\n"
+            " Each section shows apps <b>still installed</b> (left, tick to remove) next to those"
+            " <b>already removed</b> (right, tick to reinstall).\n"
+            " Tick a <b>category</b> to select all its apps, then untick the ones you want to keep.\n"
+            " <b>Save profile</b> stores your current selection. <b>Save removed list</b> records what's actually\n"
+            " gone now (the full list minus what's still installed). Import either on a future install to re-remove."
+        )
     )
     lbl_desc.set_margin_start(10)
     lbl_desc.set_margin_top(5)
     lbl_desc.set_margin_bottom(10)
 
-    self.streamline_recursive = Gtk.CheckButton(label="Also remove unused dependencies (-Rns)")
+    self.streamline_recursive = Gtk.CheckButton(label=_("Also remove unused dependencies (-Rns)"))
     self.streamline_recursive.set_active(True)
     self.streamline_recursive.set_margin_start(10)
 
@@ -95,7 +99,7 @@ def gui(self, Gtk, vbox_stack, fn):
                 header_widget.set_visible(any_visible)
 
     search_entry = Gtk.SearchEntry()
-    search_entry.set_placeholder_text("Search packages…")
+    search_entry.set_placeholder_text(_("Search packages…"))
     search_entry.set_margin_start(10)
     search_entry.set_margin_end(10)
     search_entry.connect("search-changed", lambda entry: apply_filter(entry.get_text()))
@@ -132,9 +136,9 @@ def gui(self, Gtk, vbox_stack, fn):
 
         # Column captions.
         left_caption = Gtk.Label(xalign=0)
-        left_caption.set_markup("<b>Still installed</b>")
+        left_caption.set_markup(_("<b>Still installed</b>"))
         right_caption = Gtk.Label(xalign=0)
-        right_caption.set_markup("<b>Already removed</b>")
+        right_caption.set_markup(_("<b>Already removed</b>"))
         _attach(left_caption, 0, 0)
         _attach(right_caption, 1, 0)
         rule = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
@@ -215,7 +219,7 @@ def gui(self, Gtk, vbox_stack, fn):
 
         if not shown:
             lbl_empty = Gtk.Label(xalign=0)
-            lbl_empty.set_text("No optional apps from the Kiro package list are installed on this system.")
+            lbl_empty.set_text(_("No optional apps from the Kiro package list are installed on this system."))
             lbl_empty.set_margin_top(10)
             container.append(lbl_empty)
 
@@ -225,7 +229,7 @@ def gui(self, Gtk, vbox_stack, fn):
         packages = streamline.selected_packages(self)
         if not packages:
             fn.log_warn("Streamline: remove clicked with no packages selected")
-            fn.show_in_app_notification(self, "No packages selected")
+            fn.show_in_app_notification(self, _("No packages selected"))
             return
         recursive = self.streamline_recursive.get_active()
         returncode, preview = streamline.removal_preview(packages, recursive)
@@ -235,12 +239,14 @@ def gui(self, Gtk, vbox_stack, fn):
             modal=True,
             message_type=Gtk.MessageType.QUESTION,
             buttons=Gtk.ButtonsType.YES_NO,
-            text=f"Remove {len(packages)} selected package(s)?",
+            text=ngettext(
+                "Remove {count} selected package?", "Remove {count} selected packages?", len(packages)
+            ).format(count=len(packages)),
         )
         if returncode == 0:
-            dialog.props.secondary_text = "This will remove:\n\n" + preview
+            dialog.props.secondary_text = _("This will remove:\n\n{preview}").format(preview=preview)
         else:
-            dialog.props.secondary_text = "pacman reported a problem with this selection:\n\n" + preview
+            dialog.props.secondary_text = _("pacman reported a problem with this selection:\n\n{preview}").format(preview=preview)
             # Removal would fail (e.g. a dependency is required elsewhere) — block confirming it.
             dialog.set_response_sensitive(Gtk.ResponseType.YES, False)
         dialog.set_default_response(Gtk.ResponseType.NO)
@@ -257,16 +263,18 @@ def gui(self, Gtk, vbox_stack, fn):
         packages = streamline.selected_reinstall(self)
         if not packages:
             fn.log_warn("Streamline: reinstall clicked with no packages selected")
-            fn.show_in_app_notification(self, "No removed packages selected")
+            fn.show_in_app_notification(self, _("No removed packages selected"))
             return
         dialog = Gtk.MessageDialog(
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.QUESTION,
             buttons=Gtk.ButtonsType.YES_NO,
-            text=f"Reinstall {len(packages)} selected package(s)?",
+            text=ngettext(
+                "Reinstall {count} selected package?", "Reinstall {count} selected packages?", len(packages)
+            ).format(count=len(packages)),
         )
-        dialog.props.secondary_text = "This will install:\n\n" + "\n".join(packages)
+        dialog.props.secondary_text = _("This will install:\n\n{packages}").format(packages="\n".join(packages))
         dialog.set_default_response(Gtk.ResponseType.NO)
 
         def on_response(_dialog, response):
@@ -281,7 +289,7 @@ def gui(self, Gtk, vbox_stack, fn):
         packages = streamline.selected_packages(self)
         if not packages:
             fn.log_warn("Streamline: save clicked with no packages selected")
-            fn.show_in_app_notification(self, "No packages selected")
+            fn.show_in_app_notification(self, _("No packages selected"))
             return
         streamline.save_profile(self, packages)
 
@@ -289,7 +297,7 @@ def gui(self, Gtk, vbox_stack, fn):
         removed = streamline.removed_packages(self)
         if not removed:
             fn.log_warn("Streamline: save-removed clicked but nothing is removed")
-            fn.show_in_app_notification(self, "Nothing removed yet — every optional app is still installed")
+            fn.show_in_app_notification(self, _("Nothing removed yet — every optional app is still installed"))
             return
         streamline.save_profile(self, removed, kind="removed")
 
@@ -306,7 +314,14 @@ def gui(self, Gtk, vbox_stack, fn):
         for category_check, child_checks in self.streamline_groups:
             sync_header(category_check, child_checks)
         fn.log_info(f"Streamline: imported profile selected {matched} installed package(s)")
-        fn.show_in_app_notification(self, f"Profile imported — {matched} installed app(s) selected")
+        fn.show_in_app_notification(
+            self,
+            ngettext(
+                "Profile imported — {count} installed app selected",
+                "Profile imported — {count} installed apps selected",
+                matched,
+            ).format(count=matched),
+        )
 
     def on_import(_widget):
         import gi
@@ -316,16 +331,16 @@ def gui(self, Gtk, vbox_stack, fn):
 
         fn.log_subsection("Streamline — import profile")
         file_chooser = Gtk.FileChooserDialog(
-            title="Select a Streamline profile to import",
+            title=_("Select a Streamline profile to import"),
             transient_for=self,
             action=Gtk.FileChooserAction.OPEN,
         )
-        file_chooser.add_button("_Cancel", Gtk.ResponseType.CANCEL)
-        file_chooser.add_button("_Open", Gtk.ResponseType.OK)
+        file_chooser.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
+        file_chooser.add_button(_("_Open"), Gtk.ResponseType.OK)
         if fn.path.isdir(fn.att_streamline_dir):
             file_chooser.set_current_folder(Gio.File.new_for_path(fn.att_streamline_dir))
         file_filter = Gtk.FileFilter()
-        file_filter.set_name("Profile files (*.txt)")
+        file_filter.set_name(_("Profile files (*.txt)"))
         file_filter.add_pattern("*.txt")
         file_chooser.add_filter(file_filter)
 
@@ -340,7 +355,7 @@ def gui(self, Gtk, vbox_stack, fn):
                 if selected_file:
                     apply_imported(streamline.read_profile_file(selected_file.get_path()))
             else:
-                fn.show_in_app_notification(self, "Import cancelled")
+                fn.show_in_app_notification(self, _("Import cancelled"))
             dialog.close()
 
         file_chooser.connect("response", on_response)
@@ -351,15 +366,15 @@ def gui(self, Gtk, vbox_stack, fn):
     # ── Action bar ─────────────────────────────────────────
     # Column-aligned: left actions sit under "Still installed", right actions
     # under "Already removed", matching the two grid columns above.
-    btn_remove = Gtk.Button(label="Remove selected")
+    btn_remove = Gtk.Button(label=_("Remove selected"))
     btn_remove.connect("clicked", on_remove)
-    btn_save = Gtk.Button(label="Save profile")
+    btn_save = Gtk.Button(label=_("Save profile"))
     btn_save.connect("clicked", on_save)
-    btn_reinstall = Gtk.Button(label="Reinstall selected")
+    btn_reinstall = Gtk.Button(label=_("Reinstall selected"))
     btn_reinstall.connect("clicked", on_reinstall)
-    btn_save_removed = Gtk.Button(label="Save removed list")
+    btn_save_removed = Gtk.Button(label=_("Save removed list"))
     btn_save_removed.connect("clicked", on_save_removed)
-    btn_import = Gtk.Button(label="Import profile")
+    btn_import = Gtk.Button(label=_("Import profile"))
     btn_import.connect("clicked", on_import)
 
     hbox_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)

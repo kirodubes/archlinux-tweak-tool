@@ -5,13 +5,18 @@
 import functools
 
 import functions as fn
+from att_i18n import _
 
 ALLOWLIST_PATH = "/etc/hblock/allow.list"
 
 
 def _refresh_ublock_label(self):
     installed = fn.check_package_installed("firefox-ublock-origin")
-    self.lbl_ublock.set_markup("uBlock Origin for Firefox" + (" <b>installed</b>" if installed else ""))
+    self.lbl_ublock.set_markup(
+        _("{name} for Firefox <b>installed</b>").format(name="uBlock Origin")
+        if installed
+        else _("{name} for Firefox").format(name="uBlock Origin")
+    )
 
 
 def _is_hblock_active():
@@ -25,16 +30,18 @@ def _is_hblock_active():
 def _refresh_hblock_label(self):
     installed = fn.check_package_installed("hblock")
     self.lbl_hblock.set_markup(
-        "hblock — ad/tracker blocking via /etc/hosts" + (" <b>installed</b>" if installed else "")
+        _("{name} — ad/tracker blocking via /etc/hosts <b>installed</b>").format(name="hblock")
+        if installed
+        else _("{name} — ad/tracker blocking via /etc/hosts").format(name="hblock")
     )
     self.btn_enable_hblock.set_sensitive(installed)
     self.btn_disable_hblock.set_sensitive(installed)
     self.btn_add_whitelist.set_sensitive(installed)
     active = _is_hblock_active()
     self.lbl_hblock_status.set_markup(
-        "Enable or disable hblock — check /etc/hosts <b>active</b>"
+        _("Enable or disable {name} — check /etc/hosts <b>active</b>").format(name="hblock")
         if active
-        else "Enable or disable hblock — check /etc/hosts inactive"
+        else _("Enable or disable {name} — check /etc/hosts inactive").format(name="hblock")
     )
 
 
@@ -77,7 +84,7 @@ def _refresh_allowlist_box(self):
     hosts = _read_allowlist()
     if not hosts:
         placeholder = fn.Gtk.Label(xalign=0)
-        placeholder.set_markup("<i>No hosts whitelisted yet</i>")
+        placeholder.set_markup(_("<i>No hosts whitelisted yet</i>"))
         placeholder.set_margin_start(6)
         placeholder.set_margin_top(4)
         placeholder.set_margin_bottom(4)
@@ -92,7 +99,7 @@ def _refresh_allowlist_box(self):
         hbox_row.set_margin_bottom(2)
         lbl_host = fn.Gtk.Label(xalign=0, label=host)
         lbl_host.set_hexpand(True)
-        btn_remove = fn.Gtk.Button(label="Remove")
+        btn_remove = fn.Gtk.Button(label=_("Remove"))
         btn_remove.connect("clicked", functools.partial(on_click_remove_whitelist, self, host))
         hbox_row.append(lbl_host)
         hbox_row.append(btn_remove)
@@ -139,14 +146,14 @@ def on_click_add_whitelist(self, _widget):
     host = _normalize_host(self.entry_whitelist.get_text())
     if not host:
         fn.log_warn("Whitelist: no host entered")
-        fn.show_in_app_notification(self, "Enter a host to whitelist")
+        fn.show_in_app_notification(self, _("Enter a host to whitelist"))
         return
     fn.log_subsection(f"Whitelist add: {host}")
 
     hosts = _read_allowlist()
     if host in hosts:
         fn.log_info(f"{host} is already whitelisted")
-        fn.show_in_app_notification(self, f"{host} is already whitelisted")
+        fn.show_in_app_notification(self, _("{host} is already whitelisted").format(host=host))
         return
 
     hosts.append(host)
@@ -154,14 +161,14 @@ def on_click_add_whitelist(self, _widget):
         _write_allowlist(hosts)
     except OSError as err:
         fn.log_error(f"Could not write allowlist: {err}")
-        fn.show_in_app_notification(self, "Could not write the allowlist file")
+        fn.show_in_app_notification(self, _("Could not write the allowlist file"))
         return
 
     fn.log_success(f"Added {host} to the hblock allowlist")
-    fn.show_in_app_notification(self, f"Whitelisted {host}")
+    fn.show_in_app_notification(self, _("Whitelisted {host}").format(host=host))
     self.entry_whitelist.set_text("")
     _refresh_allowlist_box(self)
-    _reapply_hblock(self, f"Whitelisting {host}...")
+    _reapply_hblock(self, _("Whitelisting {host}...").format(host=host))
 
 
 def on_click_remove_whitelist(self, host, _widget):
@@ -172,20 +179,20 @@ def on_click_remove_whitelist(self, host, _widget):
         _write_allowlist(hosts)
     except OSError as err:
         fn.log_error(f"Could not write allowlist: {err}")
-        fn.show_in_app_notification(self, "Could not write the allowlist file")
+        fn.show_in_app_notification(self, _("Could not write the allowlist file"))
         return
 
     fn.log_success(f"Removed {host} from the hblock allowlist")
-    fn.show_in_app_notification(self, f"Removed {host} from whitelist")
+    fn.show_in_app_notification(self, _("Removed {host} from whitelist").format(host=host))
     _refresh_allowlist_box(self)
-    _reapply_hblock(self, f"Re-blocking {host}...")
+    _reapply_hblock(self, _("Re-blocking {host}...").format(host=host))
 
 
 def on_click_install_ublock(self, _widget):
     """Install the firefox-ublock-origin package via a terminal."""
     if fn.check_package_installed("firefox-ublock-origin"):
         fn.log_info("uBlock Origin is already installed")
-        fn.show_in_app_notification(self, "uBlock Origin is already installed")
+        fn.show_in_app_notification(self, _("{name} is already installed").format(name="uBlock Origin"))
         return
     fn.log_subsection("Install uBlock Origin")
     script = "sudo pacman -S firefox-ublock-origin --needed; read -p 'Press enter to close'"
@@ -208,7 +215,7 @@ def on_click_remove_ublock(self, _widget):
     """Remove the firefox-ublock-origin package via a terminal."""
     if not fn.check_package_installed("firefox-ublock-origin"):
         fn.log_info("uBlock Origin is not installed")
-        fn.show_in_app_notification(self, "uBlock Origin is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="uBlock Origin"))
         return
     fn.log_subsection("Remove uBlock Origin")
     script = "sudo pacman -Rs firefox-ublock-origin; read -p 'Press enter to close'"
@@ -231,7 +238,7 @@ def on_click_install_hblock(self, _widget):
     """Install the hblock package via a terminal."""
     if fn.check_package_installed("hblock"):
         fn.log_info("hblock is already installed")
-        fn.show_in_app_notification(self, "hblock is already installed")
+        fn.show_in_app_notification(self, _("{name} is already installed").format(name="hblock"))
         return
     fn.log_subsection("Install hblock")
     script = "sudo pacman -S hblock --needed; read -p 'Press enter to close'"
@@ -254,7 +261,7 @@ def on_click_remove_hblock(self, _widget):
     """Disable hblock, restore original /etc/hosts, then remove the package."""
     if not fn.check_package_installed("hblock"):
         fn.log_info("hblock is not installed")
-        fn.show_in_app_notification(self, "hblock is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="hblock"))
         return
     fn.log_subsection("Remove hblock")
 
@@ -296,7 +303,7 @@ def on_click_enable_hblock(self, _widget):
     """Run hblock to populate /etc/hosts with blocklists."""
     if not fn.check_package_installed("hblock"):
         fn.log_info("hblock is not installed")
-        fn.show_in_app_notification(self, "hblock is not installed — install it first")
+        fn.show_in_app_notification(self, _("{name} is not installed — install it first").format(name="hblock"))
         return
     fn.log_subsection("Enable hblock")
 
@@ -317,7 +324,7 @@ def on_click_enable_hblock(self, _widget):
 
         fn.GLib.idle_add(self.btn_enable_hblock.set_sensitive, False)
         fn.GLib.idle_add(self.btn_disable_hblock.set_sensitive, False)
-        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, "Enabling hblock...")
+        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, _("Enabling {name}...").format(name="hblock"))
         fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_visible, True)
         fn.GLib.idle_add(self.progress.set_visible, True)
         fn.threading.Thread(target=_pulse, daemon=True).start()
@@ -329,12 +336,12 @@ def on_click_enable_hblock(self, _widget):
         stop_pulse.set()
         fn.log_success("hblock enabled")
         fn.GLib.idle_add(self.progress.set_visible, False)
-        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, "hblock enabled")
+        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, _("{name} enabled").format(name="hblock"))
         fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_visible, False)
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "hblock enabled")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} enabled").format(name="hblock"))
         fn.GLib.idle_add(
             self.lbl_hblock_status.set_markup,
-            "Enable or disable hblock — check /etc/hosts <b>enabled</b>",
+            _("Enable or disable {name} — check /etc/hosts <b>enabled</b>").format(name="hblock"),
         )
         fn.GLib.idle_add(self.btn_enable_hblock.set_sensitive, True)
         fn.GLib.idle_add(self.btn_disable_hblock.set_sensitive, True)
@@ -346,7 +353,7 @@ def on_click_disable_hblock(self, _widget):
     """Run hblock with empty sources to restore a clean /etc/hosts."""
     if not fn.check_package_installed("hblock"):
         fn.log_info("hblock is not installed")
-        fn.show_in_app_notification(self, "hblock is not installed")
+        fn.show_in_app_notification(self, _("{name} is not installed").format(name="hblock"))
         return
     fn.log_subsection("Disable hblock")
 
@@ -360,7 +367,7 @@ def on_click_disable_hblock(self, _widget):
 
         fn.GLib.idle_add(self.btn_enable_hblock.set_sensitive, False)
         fn.GLib.idle_add(self.btn_disable_hblock.set_sensitive, False)
-        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, "Disabling hblock...")
+        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, _("Disabling {name}...").format(name="hblock"))
         fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_visible, True)
         fn.GLib.idle_add(self.progress.set_visible, True)
         fn.threading.Thread(target=_pulse, daemon=True).start()
@@ -372,12 +379,12 @@ def on_click_disable_hblock(self, _widget):
         stop_pulse.set()
         fn.log_success("hblock disabled")
         fn.GLib.idle_add(self.progress.set_visible, False)
-        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, "hblock disabled")
+        fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_text, _("{name} disabled").format(name="hblock"))
         fn.GLib.idle_add(self.lbl_hblock_progress_msg.set_visible, False)
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "hblock disabled")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} disabled").format(name="hblock"))
         fn.GLib.idle_add(
             self.lbl_hblock_status.set_markup,
-            "Enable or disable hblock — check /etc/hosts disabled",
+            _("Enable or disable {name} — check /etc/hosts disabled").format(name="hblock"),
         )
         fn.GLib.idle_add(self.btn_enable_hblock.set_sensitive, True)
         fn.GLib.idle_add(self.btn_disable_hblock.set_sensitive, True)

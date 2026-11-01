@@ -5,6 +5,7 @@
 
 import functions as fn
 from functions import GLib
+from att_i18n import _
 
 # ── Backup app registry ──────────────────────────────────────────────
 # Each entry drives one row (label + Launch/Install + Remove) and its
@@ -21,7 +22,9 @@ BACKUP_APPS = [
 
 
 def _label_markup(app, installed):
-    return app["label"] + (" <b>installed</b>" if installed else "")
+    if installed:
+        return _("{name} <b>installed</b>").format(name=app["label"])
+    return app["label"]
 
 
 def _launch(app):
@@ -40,12 +43,12 @@ def install_or_launch(self, app, _widget=None):
     if fn.check_package_installed(primary):
         fn.log_subsection(f"Launching {app['label']}...")
         _launch(app)
-        fn.show_in_app_notification(self, f"{app['label']} launched")
+        fn.show_in_app_notification(self, _("{name} launched").format(name=app["label"]))
         return
 
     fn.log_subsection(f"Installing {app['label']}...")
     process = fn.launch_pacman_install_in_terminal(app["packages"])
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installation started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} installation started").format(name=app["label"]))
 
     def wait_install():
         if process is None:
@@ -57,7 +60,7 @@ def install_or_launch(self, app, _widget=None):
             label = getattr(self, f"lbl_backup_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, True))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name=app["label"]))
             _launch(app)
         else:
             fn.log_warn(f"{app['label']} install did not complete")
@@ -71,7 +74,7 @@ def remove(self, app, _widget=None):
     primary = app["packages"].split()[0]
     fn.log_subsection(f"Removing {app['label']}...")
     process = fn.launch_pacman_remove_recursive_in_terminal(app["packages"])
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removal started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} removal started").format(name=app["label"]))
 
     def wait_remove():
         if process is None:
@@ -83,6 +86,6 @@ def remove(self, app, _widget=None):
             label = getattr(self, f"lbl_backup_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, False))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name=app["label"]))
 
     fn.threading.Thread(target=wait_remove, daemon=True).start()

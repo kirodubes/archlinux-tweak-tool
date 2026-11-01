@@ -5,6 +5,7 @@
 import functools
 
 import accessibility
+from att_i18n import _
 
 # Stack child-name of the Themer page (see gui.py add_titled calls).
 _THEMER_PAGE = "stack11"
@@ -27,7 +28,9 @@ def _refresh(self, fn):
         label = getattr(self, f"lbl_acc_{app['key']}", None)
         if label:
             installed = fn.check_package_installed(app["packages"].split()[0])
-            label.set_markup(app["label"] + (" <b>installed</b>" if installed else ""))
+            label.set_markup(
+                _("{name} <b>installed</b>").format(name=_(app["label"])) if installed else _(app["label"])
+            )
 
     refresh_hc = getattr(self, "refresh_high_contrast_lbl", None)
     if refresh_hc:
@@ -53,16 +56,16 @@ def _on_accessx_toggled(self, fn, feature, switch, _widget, _param):
 
     def worker():
         if enabled and not accessibility.ensure_xkbset(self):
-            fn.GLib.idle_add(fn.show_in_app_notification, self, "xkbset is required — install an AUR helper first")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("{name} is required — install an AUR helper first").format(name="xkbset"))
             fn.GLib.idle_add(_reset_switch, self, switch)
             return
         accessibility.apply_accessx(feature, enabled)
-        where = "current session + saved for next login" if enabled else "current session"
-        fn.GLib.idle_add(
-            fn.show_in_app_notification,
-            self,
-            f"{feature['label']} {'enabled' if enabled else 'disabled'} ({where})",
-        )
+        name = _(feature["label"])
+        if enabled:
+            message = _("{name} enabled (current session + saved for next login)").format(name=name)
+        else:
+            message = _("{name} disabled (current session)").format(name=name)
+        fn.GLib.idle_add(fn.show_in_app_notification, self, message)
 
     fn.threading.Thread(target=worker, daemon=True).start()
 
@@ -79,7 +82,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Accessibility")
+    hbox_title_label.set_text(_("Accessibility"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -95,23 +98,23 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     vboxstack_accessibility.append(hbox_sep)
 
     # ── Assistive tools ──────────────────────────────────────────────
-    vboxstack_accessibility.append(_section_header(Gtk, "Assistive tools"))
+    vboxstack_accessibility.append(_section_header(Gtk, _("Assistive tools")))
     for app in accessibility.ACCESSIBILITY_APPS:
         hbox_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         hbox_row.set_margin_top(4)
         label = Gtk.Label(xalign=0)
-        label.set_markup(app["label"])
+        label.set_markup(_(app["label"]))
         label.set_margin_start(20)
         label.set_margin_end(10)
         label.set_hexpand(True)
         setattr(self, f"lbl_acc_{app['key']}", label)
 
-        btn_launch = Gtk.Button(label="Launch/Install")
+        btn_launch = Gtk.Button(label=_("Launch/Install"))
         btn_launch.connect("clicked", functools.partial(accessibility.install_or_launch, self, app))
         btn_launch.set_margin_start(10)
         btn_launch.set_margin_end(5)
 
-        btn_remove = Gtk.Button(label="Remove")
+        btn_remove = Gtk.Button(label=_("Remove"))
         btn_remove.connect("clicked", functools.partial(accessibility.remove, self, app))
         btn_remove.set_margin_start(5)
         btn_remove.set_margin_end(10)
@@ -122,7 +125,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
         vboxstack_accessibility.append(hbox_row)
 
     # ── High contrast / large text ───────────────────────────────────
-    vboxstack_accessibility.append(_section_header(Gtk, "High contrast &amp; large text"))
+    vboxstack_accessibility.append(_section_header(Gtk, _("High contrast &amp; large text")))
     hbox_hc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_hc.set_margin_top(4)
     lbl_hc = Gtk.Label(xalign=0)
@@ -132,19 +135,19 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
 
     def refresh_high_contrast_lbl():
         if accessibility.high_contrast_installed():
-            lbl_hc.set_markup("High-contrast themes <b>installed</b> — apply them on the Themer page")
+            lbl_hc.set_markup(_("High-contrast themes <b>installed</b> — apply them on the Themer page"))
         else:
-            lbl_hc.set_markup("Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)")
+            lbl_hc.set_markup(_("Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"))
 
     self.refresh_high_contrast_lbl = refresh_high_contrast_lbl
     refresh_high_contrast_lbl()
 
-    btn_hc_install = Gtk.Button(label="Install")
+    btn_hc_install = Gtk.Button(label=_("Install"))
     btn_hc_install.connect("clicked", functools.partial(accessibility.install_high_contrast, self))
     btn_hc_install.set_margin_start(10)
     btn_hc_install.set_margin_end(5)
 
-    btn_hc_themer = Gtk.Button(label="Open Themer")
+    btn_hc_themer = Gtk.Button(label=_("Open Themer"))
     btn_hc_themer.set_margin_start(5)
     btn_hc_themer.set_margin_end(10)
 
@@ -162,7 +165,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     vboxstack_accessibility.append(hbox_hc)
 
     # ── Keyboard accessibility (X11) ─────────────────────────────────
-    vboxstack_accessibility.append(_section_header(Gtk, "Keyboard accessibility (X11)"))
+    vboxstack_accessibility.append(_section_header(Gtk, _("Keyboard accessibility (X11)")))
 
     # xkbset is the AUR backend that powers every toggle below; it is installed lazily
     # on first toggle. This managed row reports its state and offers a Remove button.
@@ -172,7 +175,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     lbl_xkbset.set_margin_start(20)
     lbl_xkbset.set_margin_end(10)
     lbl_xkbset.set_hexpand(True)
-    btn_xkbset_remove = Gtk.Button(label="Remove")
+    btn_xkbset_remove = Gtk.Button(label=_("Remove"))
     btn_xkbset_remove.connect("clicked", functools.partial(accessibility.remove_xkbset, self))
     btn_xkbset_remove.set_margin_start(10)
     btn_xkbset_remove.set_margin_end(10)
@@ -184,17 +187,21 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
         installed = fn.check_package_installed(accessibility.XKBSET_PKG)
         ready = installed or fn.get_aur_helper() is not None
         if installed:
-            lbl_xkbset.set_markup("xkbset <b>installed</b> — backend for the toggles below")
+            lbl_xkbset.set_markup(_("{name} <b>installed</b> — backend for the toggles below").format(name="xkbset"))
         elif ready:
-            lbl_xkbset.set_markup("xkbset will be installed automatically on first toggle")
+            lbl_xkbset.set_markup(_("{name} will be installed automatically on first toggle").format(name="xkbset"))
         else:
-            lbl_xkbset.set_markup("Requires <b>xkbset</b> — install an AUR helper (e.g. yay) to enable these toggles.")
+            lbl_xkbset.set_markup(
+                _("Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these toggles.").format(name="xkbset")
+            )
         btn_xkbset_remove.set_visible(installed)
         for feature in accessibility.ACCESSX:
             switch = getattr(self, f"accessx_switch_{feature['key']}", None)
             if switch:
                 switch.set_sensitive(ready)
-                switch.set_tooltip_text("" if ready else "Requires xkbset (needs an AUR helper such as yay)")
+                switch.set_tooltip_text(
+                    "" if ready else _("Requires {name} (needs an AUR helper such as yay)").format(name="xkbset")
+                )
 
     self.refresh_xkbset_state = refresh_xkbset_state
 
@@ -209,7 +216,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
         vbox_label.set_hexpand(True)
         vbox_label.set_valign(Gtk.Align.CENTER)
         lbl_feature = Gtk.Label(xalign=0)
-        lbl_feature.set_text(feature["label"])
+        lbl_feature.set_text(_(feature["label"]))
         lbl_cmd = Gtk.Label(xalign=0)
         lbl_cmd.set_markup(f"<small><tt>{fn.GLib.markup_escape_text(feature['on'])}</tt></small>")
         lbl_cmd.set_selectable(True)
@@ -239,8 +246,10 @@ def _persist_note(Gtk):
     hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     label = Gtk.Label(xalign=0)
     label.set_markup(
-        "<i>Toggles apply immediately and are saved for next login. On a tiling WM that ignores XDG "
-        "autostart, add the equivalent xkbset line to your run.sh (or equivalent autostart script).</i>"
+        _(
+            "<i>Toggles apply immediately and are saved for next login. On a tiling WM that ignores XDG "
+            "autostart, add the equivalent xkbset line to your run.sh (or equivalent autostart script).</i>"
+        )
     )
     label.set_wrap(True)
     # margin_start matches the toggle labels (20) so the wrapped second line stays aligned under the first word.
@@ -257,17 +266,23 @@ def _legend(Gtk):
     vbox.set_margin_end(10)
     vbox.set_margin_top(12)
     header = Gtk.Label(xalign=0)
-    header.set_markup("<b>What these do</b>")
+    header.set_markup(_("<b>What these do</b>"))
     vbox.append(header)
     entries = [
-        ("Sticky Keys", "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of holding several together."),
-        ("Slow Keys", "a key only registers when held down briefly, so accidental light taps are ignored."),
-        ("Bounce Keys", "ignores repeated presses of the same key in quick succession (accidental double-strikes)."),
-        ("Mouse Keys", "move the mouse pointer using the numeric keypad instead of a physical mouse."),
+        (
+            _("Sticky Keys"),
+            _("press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of holding several together."),
+        ),
+        (_("Slow Keys"), _("a key only registers when held down briefly, so accidental light taps are ignored.")),
+        (
+            _("Bounce Keys"),
+            _("ignores repeated presses of the same key in quick succession (accidental double-strikes)."),
+        ),
+        (_("Mouse Keys"), _("move the mouse pointer using the numeric keypad instead of a physical mouse.")),
     ]
     for name, desc in entries:
         lbl = Gtk.Label(xalign=0)
-        lbl.set_markup(f"<small><b>{name}</b> — {desc}</small>")
+        lbl.set_markup(_("<small><b>{name}</b> — {desc}</small>").format(name=name, desc=desc))
         lbl.set_wrap(True)
         vbox.append(lbl)
     return vbox

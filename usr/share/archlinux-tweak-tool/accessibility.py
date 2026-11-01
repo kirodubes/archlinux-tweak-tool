@@ -4,6 +4,7 @@
 
 import functions as fn
 from functions import GLib
+from att_i18n import N_, _
 
 # ── Assistive-tool registry ──────────────────────────────────────────
 # Each entry drives one install/launch/remove row, mirroring office.py.
@@ -14,9 +15,9 @@ from functions import GLib
 #   packages : space-separated install set (passed verbatim to pacman)
 #   launch   : binary launched as the real user when already installed
 ACCESSIBILITY_APPS = [
-    {"key": "orca", "label": "Orca (screen reader)", "packages": "orca", "launch": "orca"},
-    {"key": "onboard", "label": "Onboard (on-screen keyboard)", "packages": "onboard", "launch": "onboard"},
-    {"key": "kmag", "label": "KMag (screen magnifier)", "packages": "kmag", "launch": "kmag"},
+    {"key": "orca", "label": N_("Orca (screen reader)"), "packages": "orca", "launch": "orca"},
+    {"key": "onboard", "label": N_("Onboard (on-screen keyboard)"), "packages": "onboard", "launch": "onboard"},
+    {"key": "kmag", "label": N_("KMag (screen magnifier)"), "packages": "kmag", "launch": "kmag"},
 ]
 
 # High-contrast / large-text GTK themes ship in this single package; we
@@ -34,28 +35,28 @@ XKBSET_PKG = "xkbset"
 ACCESSX = [
     {
         "key": "sticky",
-        "label": "Sticky Keys",
+        "label": N_("Sticky Keys"),
         "query": "Sticky-Keys",
         "on": "xkbset sticky -twokey -latchlock; xkbset exp 1 =sticky",
         "off": "xkbset -sticky",
     },
     {
         "key": "slow",
-        "label": "Slow Keys",
+        "label": N_("Slow Keys"),
         "query": "Slow-Keys",
         "on": "xkbset slowkeys 300; xkbset exp 1 =slowkeys",
         "off": "xkbset -slowkeys",
     },
     {
         "key": "bounce",
-        "label": "Bounce Keys",
+        "label": N_("Bounce Keys"),
         "query": "Bounce-Keys",
         "on": "xkbset bouncekeys 300; xkbset exp 1 =bouncekeys",
         "off": "xkbset -bouncekeys",
     },
     {
         "key": "mouse",
-        "label": "Mouse Keys",
+        "label": N_("Mouse Keys"),
         "query": "Mouse-Keys",
         "on": "xkbset mousekeys; xkbset exp 1 =mousekeys",
         "off": "xkbset -mousekeys",
@@ -69,7 +70,9 @@ _AUTOSTART_DESKTOP = fn.home + "/.config/autostart/att-accessx.desktop"
 
 
 def _label_markup(app, installed):
-    return app["label"] + (" <b>installed</b>" if installed else "")
+    if installed:
+        return _("{name} <b>installed</b>").format(name=_(app["label"]))
+    return _(app["label"])
 
 
 def _launch(app):
@@ -88,12 +91,12 @@ def install_or_launch(self, app, _widget=None):
     if fn.check_package_installed(primary):
         fn.log_subsection(f"Launching {app['label']}...")
         _launch(app)
-        fn.show_in_app_notification(self, f"{app['label']} launched")
+        fn.show_in_app_notification(self, _("{name} launched").format(name=_(app["label"])))
         return
 
     fn.log_subsection(f"Installing {app['label']}...")
     process = fn.launch_pacman_install_in_terminal(app["packages"])
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installation started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} installation started").format(name=_(app["label"])))
 
     def wait_install():
         if process is None:
@@ -105,7 +108,7 @@ def install_or_launch(self, app, _widget=None):
             label = getattr(self, f"lbl_acc_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, True))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} installed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} installed").format(name=_(app["label"])))
             _launch(app)
         else:
             fn.log_warn(f"{app['label']} install did not complete")
@@ -119,7 +122,7 @@ def remove(self, app, _widget=None):
     primary = app["packages"].split()[0]
     fn.log_subsection(f"Removing {app['label']}...")
     process = fn.launch_pacman_remove_recursive_in_terminal(app["packages"])
-    GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removal started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} removal started").format(name=_(app["label"])))
 
     def wait_remove():
         if process is None:
@@ -131,7 +134,7 @@ def remove(self, app, _widget=None):
             label = getattr(self, f"lbl_acc_{app['key']}", None)
             if label:
                 GLib.idle_add(label.set_markup, _label_markup(app, False))
-            GLib.idle_add(fn.show_in_app_notification, self, f"{app['label']} removed")
+            GLib.idle_add(fn.show_in_app_notification, self, _("{name} removed").format(name=_(app["label"])))
 
     fn.threading.Thread(target=wait_remove, daemon=True).start()
 
@@ -147,7 +150,7 @@ def install_high_contrast(self, _widget=None):
     """Install the high-contrast/large-text theme package, then refresh its label."""
     fn.log_subsection("Installing high-contrast themes (gnome-themes-extra)...")
     process = fn.launch_pacman_install_in_terminal(HIGH_CONTRAST_PKG)
-    GLib.idle_add(fn.show_in_app_notification, self, "High-contrast themes installation started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("High-contrast themes installation started"))
 
     def wait_install():
         if process is None:
@@ -156,7 +159,7 @@ def install_high_contrast(self, _widget=None):
         fn.invalidate_pkg_cache()
         if high_contrast_installed():
             fn.log_success("High-contrast themes installed — apply them on the Themer page")
-            GLib.idle_add(fn.show_in_app_notification, self, "High-contrast themes installed — open Themer to apply")
+            GLib.idle_add(fn.show_in_app_notification, self, _("High-contrast themes installed — open Themer to apply"))
             refresh = getattr(self, "refresh_high_contrast_lbl", None)
             if refresh:
                 GLib.idle_add(refresh)
@@ -197,7 +200,7 @@ def read_accessx_state():
     for line in result.stdout.splitlines():
         if "=" not in line:
             continue
-        key_part, _, value = line.partition("=")
+        key_part, _sep, value = line.partition("=")
         feature_key = by_query.get(key_part.strip())
         if feature_key is not None:
             state[feature_key] = value.strip().lower().startswith("on")
@@ -245,7 +248,7 @@ def remove_xkbset(self, _widget=None):
     """Remove xkbset (the keyboard-accessibility backend) and its autostart entry."""
     fn.log_subsection("Removing xkbset (keyboard accessibility)...")
     process = fn.launch_pacman_remove_recursive_in_terminal(XKBSET_PKG)
-    GLib.idle_add(fn.show_in_app_notification, self, "xkbset removal started")
+    GLib.idle_add(fn.show_in_app_notification, self, _("{name} removal started").format(name="xkbset"))
 
     def wait_remove():
         if process is None:
@@ -258,7 +261,11 @@ def remove_xkbset(self, _widget=None):
                 fn.os.remove(_AUTOSTART_DESKTOP)
                 fn.log_info("AccessX autostart entry removed with xkbset")
             fn.log_success("xkbset removed")
-            GLib.idle_add(fn.show_in_app_notification, self, "xkbset removed — keyboard accessibility toggles disabled")
+            GLib.idle_add(
+                fn.show_in_app_notification,
+                self,
+                _("{name} removed — keyboard accessibility toggles disabled").format(name="xkbset"),
+            )
             refresh = getattr(self, "refresh_xkbset_state", None)
             if refresh:
                 GLib.idle_add(refresh)
@@ -277,7 +284,7 @@ def ensure_xkbset(self):
         fn.log_warn("xkbset is required for keyboard accessibility but no AUR helper is installed")
         return False
     fn.log_subsection(f"Installing {XKBSET_PKG} via {helper}...")
-    GLib.idle_add(fn.show_in_app_notification, self, "Installing xkbset (keyboard accessibility)...")
+    GLib.idle_add(fn.show_in_app_notification, self, _("Installing {name} (keyboard accessibility)...").format(name="xkbset"))
     process = fn.launch_aur_install_in_terminal(helper, XKBSET_PKG)
     if process is None:
         return False

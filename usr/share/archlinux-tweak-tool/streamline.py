@@ -4,6 +4,7 @@
 
 import functions as fn
 from gi.repository import GLib
+from att_i18n import _
 
 
 def selected_packages(self):
@@ -39,14 +40,14 @@ def do_remove(self, packages, recursive, refresh_cb):
         process = fn.launch_pacman_remove_recursive_in_terminal(pkg_string)
     else:
         process = fn.launch_pacman_remove_in_terminal(pkg_string)
-    fn.show_in_app_notification(self, "Removal terminal opened")
+    fn.show_in_app_notification(self, _("Removal terminal opened"))
 
     def wait_and_refresh():
         if process is not None:
             process.wait()
         fn.invalidate_pkg_cache()
         GLib.idle_add(refresh_cb)
-        GLib.idle_add(fn.show_in_app_notification, self, "Streamline removal finished")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Streamline removal finished"))
 
     fn.threading.Thread(target=wait_and_refresh, daemon=True).start()
 
@@ -74,14 +75,14 @@ def do_reinstall(self, packages, refresh_cb):
         process = fn.launch_aur_install_in_terminal(helper, pkg_string)
     else:
         process = fn.launch_pacman_install_in_terminal(pkg_string)
-    fn.show_in_app_notification(self, "Install terminal opened")
+    fn.show_in_app_notification(self, _("Install terminal opened"))
 
     def wait_and_refresh():
         if process is not None:
             process.wait()
         fn.invalidate_pkg_cache()
         GLib.idle_add(refresh_cb)
-        GLib.idle_add(fn.show_in_app_notification, self, "Streamline reinstall finished")
+        GLib.idle_add(fn.show_in_app_notification, self, _("Streamline reinstall finished"))
 
     fn.threading.Thread(target=wait_and_refresh, daemon=True).start()
 
@@ -127,7 +128,7 @@ def save_profile(self, packages, kind="profile"):
         f.write(header + "\n".join(packages) + "\n")
     fn.permissions(file_path)
     fn.log_success(f"Streamline {kind} list saved to {file_path}")
-    fn.show_in_app_notification(self, f"Saved: {filename}")
+    fn.show_in_app_notification(self, _("Saved: {filename}").format(filename=filename))
     return file_path
 
 

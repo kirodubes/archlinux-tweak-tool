@@ -6,16 +6,17 @@
 import functools
 
 import btrfs
+from att_i18n import N_, _
 
 _GREEN = "#4e9a06"
 _ORANGE = "#FFA500"
 
 # Short "what it's for" blurbs (4–5 words) shown beside each tool name.
 _TOOL_BLURBS = {
-    "snapper": "creates and manages snapshots",
-    "snap-pac": "snapshots on every pacman action",
-    "btrfs-assistant": "GUI to browse and restore",
-    "btrfsmaintenance": "scheduled scrub, balance and trim",
+    "snapper": N_("creates and manages snapshots"),
+    "snap-pac": N_("snapshots on every pacman action"),
+    "btrfs-assistant": N_("GUI to browse and restore"),
+    "btrfsmaintenance": N_("scheduled scrub, balance and trim"),
 }
 
 
@@ -27,17 +28,21 @@ def _state(ok, yes, no):
 def _refresh_unavailable(self, fn):
     """Blank the live rows and disable every action when the root is not btrfs."""
     for pkg in btrfs.PACKAGES:
-        self.btrfs_tool_labels[pkg].set_markup(f"<b>{pkg}</b> <small>— {_TOOL_BLURBS[pkg]}</small>")
+        self.btrfs_tool_labels[pkg].set_markup(
+            _("<b>{pkg}</b> <small>— {blurb}</small>").format(pkg=pkg, blurb=_(_TOOL_BLURBS[pkg]))
+        )
         self.btrfs_tool_buttons[pkg].set_sensitive(False)
 
-    fstype = fn.get_root_filesystem_type() or "unknown"
+    fstype = fn.get_root_filesystem_type() or _("unknown")
     self.btrfs_summary_label.set_markup(
-        f"<span foreground='{_ORANGE}'>Not available — this system's root filesystem is "
-        f"<b>{fstype}</b>, not btrfs</span>"
+        _("<span foreground='{color}'>Not available — this system's root filesystem is <b>{fstype}</b>, not btrfs</span>")
+        .format(color=_ORANGE, fstype=fstype)
     )
     self.btrfs_config_label.set_markup(
-        "<small>Btrfs snapshots need a btrfs root, and the filesystem is chosen when the system\n"
-        "is installed — it cannot be switched afterwards. Pick btrfs in the installer to use this page.</small>"
+        _(
+            "<small>Btrfs snapshots need a btrfs root, and the filesystem is chosen when the system\n"
+            "is installed — it cannot be switched afterwards. Pick btrfs in the installer to use this page.</small>"
+        )
     )
     self.btrfs_cleanup_label.set_text("")
     self.btrfs_maint_label.set_text("")
@@ -56,28 +61,37 @@ def refresh(self, fn):
         installed = fn.check_package_installed(pkg)
         any_installed = any_installed or installed
         self.btrfs_tool_labels[pkg].set_markup(
-            f"<b>{pkg}</b> <small>— {_TOOL_BLURBS[pkg]}</small> — "
-            + _state(installed, "installed", "not installed")
+            _("<b>{pkg}</b> <small>— {blurb}</small> — {state}").format(
+                pkg=pkg,
+                blurb=_(_TOOL_BLURBS[pkg]),
+                state=_state(installed, _("installed"), _("not installed")),
+            )
         )
         self.btrfs_tool_buttons[pkg].set_sensitive(not installed)
 
     config_ok = btrfs.snapper_root_configured()
     self.btrfs_config_label.set_markup(
-        "Snapper root config (/etc/snapper/configs/root): " + _state(config_ok, "configured", "not configured")
+        _("Snapper root config (/etc/snapper/configs/root): {state}").format(
+            state=_state(config_ok, _("configured"), _("not configured"))
+        )
     )
 
     cleanup_ok = fn.check_service_enabled("snapper-cleanup.timer")
     self.btrfs_cleanup_label.set_markup(
-        "Cleanup timer (prunes snap-pac pairs): " + _state(cleanup_ok, "enabled", "disabled")
+        _("Cleanup timer (prunes snap-pac pairs): {state}").format(
+            state=_state(cleanup_ok, _("enabled"), _("disabled"))
+        )
     )
 
     maint_ok = fn.check_service_enabled("btrfsmaintenance-refresh.path")
     self.btrfs_maint_label.set_markup(
-        "btrfsmaintenance (scrub · balance · trim): " + _state(maint_ok, "enabled", "not enabled")
+        _("btrfsmaintenance (scrub · balance · trim): {state}").format(
+            state=_state(maint_ok, _("enabled"), _("not enabled"))
+        )
     )
 
     active = btrfs.all_packages_installed() and config_ok and cleanup_ok
-    self.btrfs_summary_label.set_markup(_state(active, "Snapshots are active", "Snapshots are not set up yet"))
+    self.btrfs_summary_label.set_markup(_state(active, _("Snapshots are active"), _("Snapshots are not set up yet")))
     self.btn_btrfs_disable.set_sensitive(any_installed or config_ok)
 
 
@@ -87,7 +101,7 @@ def _build_tool_row(self, Gtk, btrfs, fn, package):
     label.set_margin_start(20)
     label.set_margin_end(10)
     label.set_hexpand(True)
-    button = Gtk.Button(label=f"Install {package}")
+    button = Gtk.Button(label=_("Install {name}").format(name=package))
     button.connect("clicked", functools.partial(btrfs.on_click_install_tool, self, package))
     button.set_margin_end(10)
     hbox.append(label)
@@ -109,7 +123,7 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
-    hbox_title_label.set_text("Btrfs")
+    hbox_title_label.set_text(_("Btrfs"))
     hbox_title_label.set_name("title")
     hbox_title_label.set_margin_start(10)
     hbox_title_label.set_margin_end(10)
@@ -125,17 +139,21 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
     intro_label = Gtk.Label(xalign=0)
     if self.btrfs_available:
         intro_label.set_markup(
-            "Your root filesystem is <b>btrfs</b>, so snapshots can be used on this system.\n"
-            "These snapshot tools are <b>not on the ISO</b> — install them here, then enable snapshots.\n\n"
-            "How it works: a snapshot pair is taken on every <b>pacman</b> action (via snap-pac);\n"
-            "<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
+            _(
+                "Your root filesystem is <b>btrfs</b>, so snapshots can be used on this system.\n"
+                "These snapshot tools are <b>not on the ISO</b> — install them here, then enable snapshots.\n\n"
+                "How it works: a snapshot pair is taken on every <b>pacman</b> action (via snap-pac);\n"
+                "<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
+            )
         )
     else:
         intro_label.set_markup(
-            "Btrfs snapshots let you roll the system back after an update breaks something.\n"
-            "This page needs a <b>btrfs</b> root filesystem — see <b>Status</b> below.\n\n"
-            "Where it is available: a snapshot pair is taken on every <b>pacman</b> action\n"
-            "(via snap-pac); <b>no</b> hourly timeline snapshots, and cleanup prunes old pairs."
+            _(
+                "Btrfs snapshots let you roll the system back after an update breaks something.\n"
+                "This page needs a <b>btrfs</b> root filesystem — see <b>Status</b> below.\n\n"
+                "Where it is available: a snapshot pair is taken on every <b>pacman</b> action\n"
+                "(via snap-pac); <b>no</b> hourly timeline snapshots, and cleanup prunes old pairs."
+            )
         )
     intro_label.set_margin_start(20)
     intro_label.set_margin_end(10)
@@ -144,7 +162,7 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
     # ── Snapshot tools (not on the ISO) ──────────────────────────────
     hbox_tools_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     tools_header_label = Gtk.Label(xalign=0)
-    tools_header_label.set_markup("<b>Snapshot tools (not on the ISO)</b>")
+    tools_header_label.set_markup(_("<b>Snapshot tools (not on the ISO)</b>"))
     tools_header_label.set_margin_start(10)
     hbox_tools_header.append(tools_header_label)
 
@@ -155,7 +173,7 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
     # ── Status panel ─────────────────────────────────────────────────
     hbox_status_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     status_header_label = Gtk.Label(xalign=0)
-    status_header_label.set_markup("<b>Status</b>")
+    status_header_label.set_markup(_("<b>Status</b>"))
     status_header_label.set_margin_start(10)
     hbox_status_header.append(status_header_label)
 
@@ -171,19 +189,19 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
     # ── Setup actions ────────────────────────────────────────────────
     hbox_setup_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     setup_header_label = Gtk.Label(xalign=0)
-    setup_header_label.set_markup("<b>Setup</b>")
+    setup_header_label.set_markup(_("<b>Setup</b>"))
     setup_header_label.set_margin_start(10)
     hbox_setup_header.append(setup_header_label)
 
     hbox_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    btn_enable = Gtk.Button(label="Enable snapshots")
-    btn_enable.set_tooltip_text("Install any missing tools and configure snapshots (config + timers + baseline)")
+    btn_enable = Gtk.Button(label=_("Enable snapshots"))
+    btn_enable.set_tooltip_text(_("Install any missing tools and configure snapshots (config + timers + baseline)"))
     btn_enable.connect("clicked", functools.partial(btrfs.on_click_enable_snapshots, self))
     btn_enable.set_margin_start(20)
     btn_enable.set_margin_end(10)
     self.btn_btrfs_enable = btn_enable
-    self.btn_btrfs_disable = Gtk.Button(label="Disable snapshots")
-    self.btn_btrfs_disable.set_tooltip_text("Remove the snapshot tools and config — snapshots already taken are kept")
+    self.btn_btrfs_disable = Gtk.Button(label=_("Disable snapshots"))
+    self.btn_btrfs_disable.set_tooltip_text(_("Remove the snapshot tools and config — snapshots already taken are kept"))
     self.btn_btrfs_disable.connect("clicked", functools.partial(btrfs.on_click_disable_snapshots, self))
     self.btn_btrfs_disable.set_margin_end(10)
     hbox_actions.append(btn_enable)
@@ -193,10 +211,12 @@ def gui(self, Gtk, vboxstack_btrfs, btrfs, fn):
     hbox_caveat = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     caveat_label = Gtk.Label(xalign=0)
     caveat_label.set_markup(
-        "<i>This setup does not add a boot-menu snapshot picker. Rollback is done from the\n"
-        "running system or the live ISO with snapper — Btrfs Assistant makes this easy.\n"
-        "If you installed with GRUB you can add a picker yourself with grub-btrfs;\n"
-        "systemd-boot has no equivalent.</i>"
+        _(
+            "<i>This setup does not add a boot-menu snapshot picker. Rollback is done from the\n"
+            "running system or the live ISO with snapper — Btrfs Assistant makes this easy.\n"
+            "If you installed with GRUB you can add a picker yourself with grub-btrfs;\n"
+            "systemd-boot has no equivalent.</i>"
+        )
     )
     caveat_label.set_margin_start(20)
     caveat_label.set_margin_end(10)

@@ -4,6 +4,7 @@
 
 import functools
 import privacy
+from att_i18n import _
 
 
 def init_privacy_lazy_load(self):
@@ -20,7 +21,7 @@ def gui(self, Gtk, vboxstack_privacy, fn):
     """Create the Privacy/Security configuration GUI."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Privacy/Security")
+    lbl_title.set_text(_("Privacy/Security"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     hbox_title.append(lbl_title)
@@ -34,7 +35,7 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     hbox_section1_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section1 = Gtk.Label(xalign=0)
-    lbl_section1.set_markup("<b>Content Blocking</b>")
+    lbl_section1.set_markup(_("<b>Content Blocking</b>"))
     lbl_section1.set_margin_start(10)
     hbox_section1_title.append(lbl_section1)
 
@@ -45,13 +46,13 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     self.lbl_ublock = Gtk.Label(xalign=0)
     self.lbl_ublock.set_hexpand(True)
-    self.lbl_ublock.set_text("uBlock Origin for Firefox")
+    self.lbl_ublock.set_text(_("{name} for Firefox").format(name="uBlock Origin"))
 
-    btn_install_ublock = Gtk.Button(label="Install uBlock")
+    btn_install_ublock = Gtk.Button(label=_("Install {name}").format(name="uBlock"))
     btn_install_ublock.set_size_request(160, -1)
     btn_install_ublock.connect("clicked", functools.partial(privacy.on_click_install_ublock, self))
 
-    btn_remove_ublock = Gtk.Button(label="Remove uBlock")
+    btn_remove_ublock = Gtk.Button(label=_("Remove {name}").format(name="uBlock"))
     btn_remove_ublock.set_size_request(160, -1)
     btn_remove_ublock.connect("clicked", functools.partial(privacy.on_click_remove_ublock, self))
 
@@ -68,7 +69,7 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     hbox_section2_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_section2 = Gtk.Label(xalign=0)
-    lbl_section2.set_markup("<b>Network &amp; Tracking Protection</b>")
+    lbl_section2.set_markup(_("<b>Network &amp; Tracking Protection</b>"))
     lbl_section2.set_margin_start(10)
     hbox_section2_title.append(lbl_section2)
 
@@ -79,13 +80,13 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     self.lbl_hblock = Gtk.Label(xalign=0)
     self.lbl_hblock.set_hexpand(True)
-    self.lbl_hblock.set_text("hblock — ad/tracker blocking via /etc/hosts")
+    self.lbl_hblock.set_text(_("{name} — ad/tracker blocking via /etc/hosts").format(name="hblock"))
 
-    btn_install_hblock = Gtk.Button(label="Install hblock")
+    btn_install_hblock = Gtk.Button(label=_("Install {name}").format(name="hblock"))
     btn_install_hblock.set_size_request(160, -1)
     btn_install_hblock.connect("clicked", functools.partial(privacy.on_click_install_hblock, self))
 
-    btn_remove_hblock = Gtk.Button(label="Remove hblock")
+    btn_remove_hblock = Gtk.Button(label=_("Remove {name}").format(name="hblock"))
     btn_remove_hblock.set_size_request(160, -1)
     btn_remove_hblock.connect("clicked", functools.partial(privacy.on_click_remove_hblock, self))
 
@@ -100,14 +101,14 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     self.lbl_hblock_status = Gtk.Label(xalign=0)
     self.lbl_hblock_status.set_hexpand(True)
-    self.lbl_hblock_status.set_markup("Enable or disable hblock — check /etc/hosts disabled")
+    self.lbl_hblock_status.set_markup(_("Enable or disable {name} — check /etc/hosts disabled").format(name="hblock"))
 
-    self.btn_enable_hblock = Gtk.Button(label="Enable hblock")
+    self.btn_enable_hblock = Gtk.Button(label=_("Enable {name}").format(name="hblock"))
     self.btn_enable_hblock.set_size_request(160, -1)
     self.btn_enable_hblock.set_sensitive(False)
     self.btn_enable_hblock.connect("clicked", functools.partial(privacy.on_click_enable_hblock, self))
 
-    self.btn_disable_hblock = Gtk.Button(label="Disable hblock")
+    self.btn_disable_hblock = Gtk.Button(label=_("Disable {name}").format(name="hblock"))
     self.btn_disable_hblock.set_size_request(160, -1)
     self.btn_disable_hblock.set_sensitive(False)
     self.btn_disable_hblock.connect("clicked", functools.partial(privacy.on_click_disable_hblock, self))
@@ -119,7 +120,7 @@ def gui(self, Gtk, vboxstack_privacy, fn):
     # hblock — whitelist (allowlist)
     hbox_whitelist_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_whitelist = Gtk.Label(xalign=0)
-    lbl_whitelist.set_markup("<b>Whitelist (allowlist)</b>")
+    lbl_whitelist.set_markup(_("<b>Whitelist (allowlist)</b>"))
     lbl_whitelist.set_margin_start(10)
     hbox_whitelist_title.append(lbl_whitelist)
 
@@ -129,10 +130,10 @@ def gui(self, Gtk, vboxstack_privacy, fn):
 
     self.entry_whitelist = Gtk.Entry()
     self.entry_whitelist.set_hexpand(True)
-    self.entry_whitelist.set_placeholder_text("Paste a URL or host, e.g. marketingplatform.google.com")
+    self.entry_whitelist.set_placeholder_text(_("Paste a URL or host, e.g. marketingplatform.google.com"))
     self.entry_whitelist.connect("activate", functools.partial(privacy.on_click_add_whitelist, self))
 
-    self.btn_add_whitelist = Gtk.Button(label="Add to whitelist")
+    self.btn_add_whitelist = Gtk.Button(label=_("Add to whitelist"))
     self.btn_add_whitelist.set_size_request(160, -1)
     self.btn_add_whitelist.set_sensitive(False)
     self.btn_add_whitelist.connect("clicked", functools.partial(privacy.on_click_add_whitelist, self))

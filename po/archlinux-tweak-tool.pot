@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:09+0100\n"
+"POT-Creation-Date: 2026-11-01 08:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,572 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:18
+msgid "Orca (screen reader)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:19
+msgid "Onboard (on-screen keyboard)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:20
+msgid "KMag (screen magnifier)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:38
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+msgid "Sticky Keys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:45
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+msgid "Slow Keys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:52
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+msgid "Bounce Keys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:59
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+msgid "Mouse Keys"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:74
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:32
+#: usr/share/archlinux-tweak-tool/backup.py:26
+#: usr/share/archlinux-tweak-tool/backup_gui.py:20
+#: usr/share/archlinux-tweak-tool/office.py:80
+#: usr/share/archlinux-tweak-tool/office_gui.py:16
+#, python-brace-format
+msgid "{name} <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:94
+#: usr/share/archlinux-tweak-tool/backup.py:46
+#: usr/share/archlinux-tweak-tool/fastfetch.py:673
+#: usr/share/archlinux-tweak-tool/office.py:100
+#: usr/share/archlinux-tweak-tool/wallpaper.py:147
+#, python-brace-format
+msgid "{name} launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:99
+#: usr/share/archlinux-tweak-tool/backup.py:51
+#: usr/share/archlinux-tweak-tool/office.py:113
+#, python-brace-format
+msgid "{name} installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:111
+#: usr/share/archlinux-tweak-tool/backup.py:63
+#: usr/share/archlinux-tweak-tool/fastfetch.py:514
+#: usr/share/archlinux-tweak-tool/fastfetch.py:565
+#: usr/share/archlinux-tweak-tool/fastfetch.py:632
+#: usr/share/archlinux-tweak-tool/office.py:125
+#, python-brace-format
+msgid "{name} installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:125
+#: usr/share/archlinux-tweak-tool/accessibility.py:251
+#: usr/share/archlinux-tweak-tool/backup.py:77
+#: usr/share/archlinux-tweak-tool/office.py:141
+#, python-brace-format
+msgid "{name} removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:137
+#: usr/share/archlinux-tweak-tool/backup.py:89
+#: usr/share/archlinux-tweak-tool/fastfetch.py:656
+#: usr/share/archlinux-tweak-tool/office.py:153
+#: usr/share/archlinux-tweak-tool/wallpaper.py:201
+#, python-brace-format
+msgid "{name} removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:153
+msgid "High-contrast themes installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:162
+msgid "High-contrast themes installed — open Themer to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:267
+#, python-brace-format
+msgid "{name} removed — keyboard accessibility toggles disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility.py:287
+#, python-brace-format
+msgid "Installing {name} (keyboard accessibility)..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:59
+#, python-brace-format
+msgid "{name} is required — install an AUR helper first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:65
+#, python-brace-format
+msgid "{name} enabled (current session + saved for next login)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:67
+#, python-brace-format
+msgid "{name} disabled (current session)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:85
+#: usr/share/archlinux-tweak-tool/gui.py:443
+msgid "Accessibility"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+msgid "Assistive tools"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/backup_gui.py:33
+#: usr/share/archlinux-tweak-tool/office_gui.py:29
+#: usr/share/archlinux-tweak-tool/software_gui.py:41
+#: usr/share/archlinux-tweak-tool/software_gui.py:62
+#: usr/share/archlinux-tweak-tool/software_gui.py:83
+#: usr/share/archlinux-tweak-tool/software_gui.py:106
+#: usr/share/archlinux-tweak-tool/software_gui.py:131
+#: usr/share/archlinux-tweak-tool/software_gui.py:154
+#: usr/share/archlinux-tweak-tool/software_gui.py:177
+#: usr/share/archlinux-tweak-tool/software_gui.py:330
+#: usr/share/archlinux-tweak-tool/software_gui.py:353
+#: usr/share/archlinux-tweak-tool/software_gui.py:374
+#: usr/share/archlinux-tweak-tool/software_gui.py:408
+#: usr/share/archlinux-tweak-tool/software_gui.py:431
+#: usr/share/archlinux-tweak-tool/system_gui.py:272
+#: usr/share/archlinux-tweak-tool/system_gui.py:295
+#: usr/share/archlinux-tweak-tool/system_gui.py:351
+msgid "Launch/Install"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/backup_gui.py:38
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:115
+#: usr/share/archlinux-tweak-tool/office_gui.py:34
+#: usr/share/archlinux-tweak-tool/packages_gui.py:253
+#: usr/share/archlinux-tweak-tool/performance_gui.py:256
+#: usr/share/archlinux-tweak-tool/performance_gui.py:396
+#: usr/share/archlinux-tweak-tool/performance_gui.py:449
+#: usr/share/archlinux-tweak-tool/performance_gui.py:502
+#: usr/share/archlinux-tweak-tool/privacy.py:102
+#: usr/share/archlinux-tweak-tool/services_gui.py:408
+#: usr/share/archlinux-tweak-tool/software_gui.py:43
+#: usr/share/archlinux-tweak-tool/software_gui.py:64
+#: usr/share/archlinux-tweak-tool/software_gui.py:85
+#: usr/share/archlinux-tweak-tool/software_gui.py:108
+#: usr/share/archlinux-tweak-tool/software_gui.py:133
+#: usr/share/archlinux-tweak-tool/software_gui.py:156
+#: usr/share/archlinux-tweak-tool/software_gui.py:179
+#: usr/share/archlinux-tweak-tool/software_gui.py:224
+#: usr/share/archlinux-tweak-tool/software_gui.py:245
+#: usr/share/archlinux-tweak-tool/software_gui.py:277
+#: usr/share/archlinux-tweak-tool/software_gui.py:300
+#: usr/share/archlinux-tweak-tool/software_gui.py:332
+#: usr/share/archlinux-tweak-tool/software_gui.py:355
+#: usr/share/archlinux-tweak-tool/software_gui.py:378
+#: usr/share/archlinux-tweak-tool/software_gui.py:410
+#: usr/share/archlinux-tweak-tool/software_gui.py:433
+#: usr/share/archlinux-tweak-tool/software_gui.py:467
+#: usr/share/archlinux-tweak-tool/software_gui.py:494
+#: usr/share/archlinux-tweak-tool/system_gui.py:274
+#: usr/share/archlinux-tweak-tool/system_gui.py:297
+#: usr/share/archlinux-tweak-tool/system_gui.py:353
+msgid "Remove"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+msgid "High contrast &amp; large text"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/performance_gui.py:394
+#: usr/share/archlinux-tweak-tool/performance_gui.py:447
+#: usr/share/archlinux-tweak-tool/performance_gui.py:500
+#: usr/share/archlinux-tweak-tool/services_gui.py:406
+#: usr/share/archlinux-tweak-tool/software_gui.py:222
+#: usr/share/archlinux-tweak-tool/software_gui.py:243
+#: usr/share/archlinux-tweak-tool/software_gui.py:275
+#: usr/share/archlinux-tweak-tool/software_gui.py:298
+#: usr/share/archlinux-tweak-tool/software_gui.py:463
+#: usr/share/archlinux-tweak-tool/software_gui.py:490
+msgid "Install"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+msgid "Open Themer"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+msgid "Keyboard accessibility (X11)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#, python-brace-format
+msgid "{name} <b>installed</b> — backend for the toggles below"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#, python-brace-format
+msgid "{name} will be installed automatically on first toggle"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#, python-brace-format
+msgid ""
+"Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
+"toggles."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#, python-brace-format
+msgid "Requires {name} (needs an AUR helper such as yay)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+msgid ""
+"<i>Toggles apply immediately and are saved for next login. On a tiling WM "
+"that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
+"(or equivalent autostart script).</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+msgid "<b>What these do</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+msgid ""
+"press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
+"holding several together."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+msgid ""
+"a key only registers when held down briefly, so accidental light taps are "
+"ignored."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+msgid ""
+"ignores repeated presses of the same key in quick succession (accidental "
+"double-strikes)."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+msgid ""
+"move the mouse pointer using the numeric keypad instead of a physical mouse."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#, python-brace-format
+msgid "<small><b>{name}</b> — {desc}</small>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:55
+#: usr/share/archlinux-tweak-tool/gui.py:451
+msgid "Backup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:71
+msgid ""
+"This page is about backing up <b>your personal files</b> — documents, "
+"photos,\n"
+"projects, the things you cannot reinstall. A backup keeps a <b>versioned,\n"
+"deduplicated and encrypted</b> copy of them in a separate place, so you can "
+"get\n"
+"any file back after an accidental delete, a bad edit, or a dead disk."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:84
+msgid "<b>How this differs from Timeshift and Snapper</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:92
+msgid ""
+"<b>Timeshift</b> and <b>Snapper</b> take <b>system snapshots</b> on the "
+"<b>same disk</b>.\n"
+"They exist to roll the operating system back after a bad update or a broken "
+"package —\n"
+"Timeshift even excludes your home folder by default. They are <b>not</b> a "
+"backup of\n"
+"your documents, and if the disk dies the snapshots die with it.\n"
+"\n"
+"A <b>backup</b> is a copy of your files on a <b>different disk or another "
+"machine</b>, so\n"
+"they survive disk failure, theft, or an accidental delete. The two are "
+"complementary:\n"
+"snapshots fix the system, backups protect your data."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:108
+msgid "<b>Keep a copy off-site (cloud)</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:116
+msgid ""
+"Both apps below are built on <b>BorgBackup</b>, which can send the same "
+"encrypted\n"
+"backup over SSH to a NAS, a home server, or a remote / <b>cloud</b> host. "
+"Aim for the\n"
+"<b>3-2-1 rule</b>: 3 copies of your data, on 2 kinds of media, with 1 of "
+"them off-site —\n"
+"so a fire, theft or ransomware at home still leaves you a safe copy."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:129
+msgid "<b>Backup apps</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/backup_gui.py:140
+msgid ""
+"<i>Our recommendation: use either one. <b>Pika Backup</b> is the simplest "
+"and blends in\n"
+"with the desktop; <b>Vorta</b> gives you more options and scheduling "
+"profiles. Both wrap\n"
+"BorgBackup, so their archives are interchangeable — pick whichever feels "
+"nicer.</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:46
+#, python-brace-format
+msgid "Opening terminal to install {package}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:61
+msgid "Opening terminal to install and configure snapshots..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:69
+msgid "Snapshot setup complete"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:77
+msgid ""
+"This removes the btrfs snapshot stack:\n"
+"• disables the snapshot timers\n"
+"• removes the snapper <b>root</b> config\n"
+"• removes snapper, snap-pac, btrfs-assistant and btrfsmaintenance\n"
+"\n"
+"Your <b>snapshots are kept</b> on disk — the @snapshots subvolume is "
+"untouched. Use Btrfs Assistant to view or delete them. Re-running <b>Enable "
+"snapshots</b> sets everything up again."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:85
+msgid "Remove snapshot stack?"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:90
+msgid "Opening terminal to remove the snapshot stack..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs.py:98
+msgid "Snapshot stack removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:16
+msgid "creates and manages snapshots"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:17
+msgid "snapshots on every pacman action"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:18
+msgid "GUI to browse and restore"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:19
+msgid "scheduled scrub, balance and trim"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:32
+#, python-brace-format
+msgid "<b>{pkg}</b> <small>— {blurb}</small>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:36
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:28
+#: usr/share/archlinux-tweak-tool/performance.py:770
+msgid "unknown"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:38
+#, python-brace-format
+msgid ""
+"<span foreground='{color}'>Not available — this system's root filesystem is "
+"<b>{fstype}</b>, not btrfs</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:43
+msgid ""
+"<small>Btrfs snapshots need a btrfs root, and the filesystem is chosen when "
+"the system\n"
+"is installed — it cannot be switched afterwards. Pick btrfs in the installer "
+"to use this page.</small>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:64
+#, python-brace-format
+msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
+msgid "installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:609
+msgid "not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:74
+#, python-brace-format
+msgid "Snapper root config (/etc/snapper/configs/root): {state}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:75
+msgid "configured"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:75
+msgid "not configured"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:81
+#, python-brace-format
+msgid "Cleanup timer (prunes snap-pac pairs): {state}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:82
+#: usr/share/archlinux-tweak-tool/functions.py:646
+#: usr/share/archlinux-tweak-tool/performance.py:52
+#: usr/share/archlinux-tweak-tool/performance.py:727
+#: usr/share/archlinux-tweak-tool/performance.py:768
+#: usr/share/archlinux-tweak-tool/performance.py:1644
+#: usr/share/archlinux-tweak-tool/performance.py:1658
+msgid "disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:82
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:89
+msgid "enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:88
+#, python-brace-format
+msgid "btrfsmaintenance (scrub · balance · trim): {state}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:89
+msgid "not enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:94
+msgid "Snapshots are active"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:94
+msgid "Snapshots are not set up yet"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:104
+#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:277
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:51
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:85
+#, python-brace-format
+msgid "Install {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:126
+#: usr/share/archlinux-tweak-tool/gui.py:455
+msgid "Btrfs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:143
+msgid ""
+"Your root filesystem is <b>btrfs</b>, so snapshots can be used on this "
+"system.\n"
+"These snapshot tools are <b>not on the ISO</b> — install them here, then "
+"enable snapshots.\n"
+"\n"
+"How it works: a snapshot pair is taken on every <b>pacman</b> action (via "
+"snap-pac);\n"
+"<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:152
+msgid ""
+"Btrfs snapshots let you roll the system back after an update breaks "
+"something.\n"
+"This page needs a <b>btrfs</b> root filesystem — see <b>Status</b> below.\n"
+"\n"
+"Where it is available: a snapshot pair is taken on every <b>pacman</b> "
+"action\n"
+"(via snap-pac); <b>no</b> hourly timeline snapshots, and cleanup prunes old "
+"pairs."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:165
+msgid "<b>Snapshot tools (not on the ISO)</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
+#: usr/share/archlinux-tweak-tool/services_gui.py:240
+#: usr/share/archlinux-tweak-tool/services_gui.py:420
+msgid "<b>Status</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:192
+msgid "<b>Setup</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:197
+msgid "Enable snapshots"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:198
+msgid ""
+"Install any missing tools and configure snapshots (config + timers + "
+"baseline)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:203
+msgid "Disable snapshots"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:204
+msgid "Remove the snapshot tools and config — snapshots already taken are kept"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/btrfs_gui.py:215
+msgid ""
+"<i>This setup does not add a boot-menu snapshot picker. Rollback is done "
+"from the\n"
+"running system or the live ISO with snapper — Btrfs Assistant makes this "
+"easy.\n"
+"If you installed with GRUB you can add a picker yourself with grub-btrfs;\n"
+"systemd-boot has no equivalent.</i>"
+msgstr ""
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:581
 #, python-brace-format
@@ -290,13 +856,6 @@ msgstr ""
 msgid "Opening terminal to install {name}..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/fastfetch.py:514
-#: usr/share/archlinux-tweak-tool/fastfetch.py:565
-#: usr/share/archlinux-tweak-tool/fastfetch.py:632
-#, python-brace-format
-msgid "{name} installed"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/fastfetch.py:523
 msgid "fastfetch installation failed or was cancelled"
 msgstr ""
@@ -308,12 +867,16 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
 #: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#: usr/share/archlinux-tweak-tool/privacy.py:382
+#: usr/share/archlinux-tweak-tool/privacy.py:384
 #, python-brace-format
 msgid "{name} disabled"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
 #: usr/share/archlinux-tweak-tool/fastfetch.py:581
+#: usr/share/archlinux-tweak-tool/privacy.py:339
+#: usr/share/archlinux-tweak-tool/privacy.py:341
 #, python-brace-format
 msgid "{name} enabled"
 msgstr ""
@@ -333,29 +896,22 @@ msgid "{name} is <b>not installed</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:619
+#: usr/share/archlinux-tweak-tool/privacy.py:195
+#: usr/share/archlinux-tweak-tool/privacy.py:241
 #, python-brace-format
 msgid "{name} is already installed"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch.py:643
 #: usr/share/archlinux-tweak-tool/fastfetch.py:676
+#: usr/share/archlinux-tweak-tool/privacy.py:218
+#: usr/share/archlinux-tweak-tool/privacy.py:264
+#: usr/share/archlinux-tweak-tool/privacy.py:356
 #: usr/share/archlinux-tweak-tool/wallpaper.py:189
 #: usr/share/archlinux-tweak-tool/wallpaper.py:220
 #: usr/share/archlinux-tweak-tool/wallpaper.py:234
 #, python-brace-format
 msgid "{name} is not installed"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch.py:656
-#: usr/share/archlinux-tweak-tool/wallpaper.py:201
-#, python-brace-format
-msgid "{name} removed"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch.py:673
-#: usr/share/archlinux-tweak-tool/wallpaper.py:147
-#, python-brace-format
-msgid "{name} launched"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:41
@@ -536,14 +1092,11 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:246
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:279
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:55
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:89
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:51
 #, python-brace-format
 msgid "Remove {name}"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/fastfetch_gui.py:277
-#, python-brace-format
-msgid "Install {name}"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:287
@@ -579,15 +1132,6 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/performance.py:766
 #: usr/share/archlinux-tweak-tool/performance.py:1655
 msgid "<b>enabled</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/functions.py:646
-#: usr/share/archlinux-tweak-tool/performance.py:52
-#: usr/share/archlinux-tweak-tool/performance.py:727
-#: usr/share/archlinux-tweak-tool/performance.py:768
-#: usr/share/archlinux-tweak-tool/performance.py:1644
-#: usr/share/archlinux-tweak-tool/performance.py:1658
-msgid "disabled"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/functions.py:648
@@ -754,10 +1298,6 @@ msgstr ""
 msgid "Dev"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/gui.py:443
-msgid "Accessibility"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/gui.py:445
 msgid "AI Tools"
 msgstr ""
@@ -769,14 +1309,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:449
 msgid "Autostart"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:451
-msgid "Backup"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/gui.py:455
-msgid "Btrfs"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:457
@@ -831,6 +1363,7 @@ msgid "Network"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:485
+#: usr/share/archlinux-tweak-tool/office_gui.py:49
 msgid "Office"
 msgstr ""
 
@@ -876,6 +1409,7 @@ msgid "Software"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:18
 msgid "Streamline"
 msgstr ""
 
@@ -1514,10 +2048,6 @@ msgstr ""
 msgid "Install {p}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:609
-msgid "not installed"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:629
 #, python-brace-format
 msgid "{action} completed for {pkg_name}"
@@ -2142,11 +2672,6 @@ msgstr ""
 msgid "HOOKS line not found in /etc/mkinitcpio.conf"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:28
-#: usr/share/archlinux-tweak-tool/performance.py:770
-msgid "unknown"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:31
 msgid "absent"
 msgstr ""
@@ -2191,37 +2716,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:114
 msgid "Remove pacman lock"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:115
-#: usr/share/archlinux-tweak-tool/packages_gui.py:253
-#: usr/share/archlinux-tweak-tool/performance_gui.py:256
-#: usr/share/archlinux-tweak-tool/performance_gui.py:396
-#: usr/share/archlinux-tweak-tool/performance_gui.py:449
-#: usr/share/archlinux-tweak-tool/performance_gui.py:502
-#: usr/share/archlinux-tweak-tool/services_gui.py:408
-#: usr/share/archlinux-tweak-tool/software_gui.py:43
-#: usr/share/archlinux-tweak-tool/software_gui.py:64
-#: usr/share/archlinux-tweak-tool/software_gui.py:85
-#: usr/share/archlinux-tweak-tool/software_gui.py:108
-#: usr/share/archlinux-tweak-tool/software_gui.py:133
-#: usr/share/archlinux-tweak-tool/software_gui.py:156
-#: usr/share/archlinux-tweak-tool/software_gui.py:179
-#: usr/share/archlinux-tweak-tool/software_gui.py:224
-#: usr/share/archlinux-tweak-tool/software_gui.py:245
-#: usr/share/archlinux-tweak-tool/software_gui.py:277
-#: usr/share/archlinux-tweak-tool/software_gui.py:300
-#: usr/share/archlinux-tweak-tool/software_gui.py:332
-#: usr/share/archlinux-tweak-tool/software_gui.py:355
-#: usr/share/archlinux-tweak-tool/software_gui.py:378
-#: usr/share/archlinux-tweak-tool/software_gui.py:410
-#: usr/share/archlinux-tweak-tool/software_gui.py:433
-#: usr/share/archlinux-tweak-tool/software_gui.py:467
-#: usr/share/archlinux-tweak-tool/software_gui.py:494
-#: usr/share/archlinux-tweak-tool/system_gui.py:274
-#: usr/share/archlinux-tweak-tool/system_gui.py:297
-#: usr/share/archlinux-tweak-tool/system_gui.py:353
-msgid "Remove"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:127
@@ -2663,6 +3157,31 @@ msgstr ""
 msgid "Firewall"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/office.py:20
+msgid "Suites"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/office.py:38
+msgid "Mail"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/office.py:47
+msgid "Editors"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/office.py:56
+msgid "PDF & Notes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/office.py:66
+msgid "Scanning"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/office.py:107
+#, python-brace-format
+msgid "{name} needs the {repo} repo — enable it on the Pacman page"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/packages.py:316
 msgid "Status: <b>Cleaning pacman cache</b>"
 msgstr ""
@@ -2729,10 +3248,12 @@ msgid "Select Packages File to Install"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/packages.py:635
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:338
 msgid "_Cancel"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/packages.py:636
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:339
 msgid "_Open"
 msgstr ""
 
@@ -3814,19 +4335,6 @@ msgstr ""
 msgid "<b>Ananicy</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/performance_gui.py:394
-#: usr/share/archlinux-tweak-tool/performance_gui.py:447
-#: usr/share/archlinux-tweak-tool/performance_gui.py:500
-#: usr/share/archlinux-tweak-tool/services_gui.py:406
-#: usr/share/archlinux-tweak-tool/software_gui.py:222
-#: usr/share/archlinux-tweak-tool/software_gui.py:243
-#: usr/share/archlinux-tweak-tool/software_gui.py:275
-#: usr/share/archlinux-tweak-tool/software_gui.py:298
-#: usr/share/archlinux-tweak-tool/software_gui.py:463
-#: usr/share/archlinux-tweak-tool/software_gui.py:490
-msgid "Install"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/performance_gui.py:411
 msgid "ananicy-cpp service : …"
 msgstr ""
@@ -4210,6 +4718,136 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1146
 msgid "Patching GRUB config and regenerating..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:16
+#, python-brace-format
+msgid "{name} for Firefox <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:18
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:49
+#, python-brace-format
+msgid "{name} for Firefox"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:33
+#, python-brace-format
+msgid "{name} — ad/tracker blocking via /etc/hosts <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:35
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:83
+#, python-brace-format
+msgid "{name} — ad/tracker blocking via /etc/hosts"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:42
+#, python-brace-format
+msgid "Enable or disable {name} — check /etc/hosts <b>active</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:44
+#, python-brace-format
+msgid "Enable or disable {name} — check /etc/hosts inactive"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:87
+msgid "<i>No hosts whitelisted yet</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:149
+msgid "Enter a host to whitelist"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:156
+#, python-brace-format
+msgid "{host} is already whitelisted"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:164
+#: usr/share/archlinux-tweak-tool/privacy.py:182
+msgid "Could not write the allowlist file"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:168
+#, python-brace-format
+msgid "Whitelisted {host}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:171
+#, python-brace-format
+msgid "Whitelisting {host}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:186
+#, python-brace-format
+msgid "Removed {host} from whitelist"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:188
+#, python-brace-format
+msgid "Re-blocking {host}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:306
+#, python-brace-format
+msgid "{name} is not installed — install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:327
+#, python-brace-format
+msgid "Enabling {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:344
+#, python-brace-format
+msgid "Enable or disable {name} — check /etc/hosts <b>enabled</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:370
+#, python-brace-format
+msgid "Disabling {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy.py:387
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:104
+#, python-brace-format
+msgid "Enable or disable {name} — check /etc/hosts disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:24
+msgid "Privacy/Security"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:38
+msgid "<b>Content Blocking</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:72
+msgid "<b>Network &amp; Tracking Protection</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:106
+#, python-brace-format
+msgid "Enable {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:111
+#, python-brace-format
+msgid "Disable {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:123
+msgid "<b>Whitelist (allowlist)</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:133
+msgid "Paste a URL or host, e.g. marketingplatform.google.com"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/privacy_gui.py:136
+msgid "Add to whitelist"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/sddm.py:347
@@ -4989,11 +5627,6 @@ msgstr ""
 msgid "<b>Tools</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services_gui.py:240
-#: usr/share/archlinux-tweak-tool/services_gui.py:420
-msgid "<b>Status</b>"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/services_gui.py:248
 msgid "Enable cups"
 msgstr ""
@@ -5289,6 +5922,8 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/shell.py:415
 #: usr/share/archlinux-tweak-tool/shell.py:462
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:232
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:292
 msgid "No packages selected"
 msgstr ""
 
@@ -6454,24 +7089,6 @@ msgstr ""
 msgid "Pamac Aur <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software_gui.py:41
-#: usr/share/archlinux-tweak-tool/software_gui.py:62
-#: usr/share/archlinux-tweak-tool/software_gui.py:83
-#: usr/share/archlinux-tweak-tool/software_gui.py:106
-#: usr/share/archlinux-tweak-tool/software_gui.py:131
-#: usr/share/archlinux-tweak-tool/software_gui.py:154
-#: usr/share/archlinux-tweak-tool/software_gui.py:177
-#: usr/share/archlinux-tweak-tool/software_gui.py:330
-#: usr/share/archlinux-tweak-tool/software_gui.py:353
-#: usr/share/archlinux-tweak-tool/software_gui.py:374
-#: usr/share/archlinux-tweak-tool/software_gui.py:408
-#: usr/share/archlinux-tweak-tool/software_gui.py:431
-#: usr/share/archlinux-tweak-tool/system_gui.py:272
-#: usr/share/archlinux-tweak-tool/system_gui.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:351
-msgid "Launch/Install"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software_gui.py:60
 msgid "Octopi - Qt package manager"
 msgstr ""
@@ -6543,6 +7160,146 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:556
 msgid "Launch"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline.py:43
+msgid "Removal terminal opened"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline.py:50
+msgid "Streamline removal finished"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline.py:78
+msgid "Install terminal opened"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline.py:85
+msgid "Streamline reinstall finished"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline.py:131
+#, python-brace-format
+msgid "Saved: {filename}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:31
+msgid ""
+" Remove optional apps that shipped on this system, grouped by category.\n"
+" Each section shows apps <b>still installed</b> (left, tick to remove) next "
+"to those <b>already removed</b> (right, tick to reinstall).\n"
+" Tick a <b>category</b> to select all its apps, then untick the ones you "
+"want to keep.\n"
+" <b>Save profile</b> stores your current selection. <b>Save removed list</b> "
+"records what's actually\n"
+" gone now (the full list minus what's still installed). Import either on a "
+"future install to re-remove."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:43
+msgid "Also remove unused dependencies (-Rns)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:102
+msgid "Search packages…"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:139
+msgid "<b>Still installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:141
+msgid "<b>Already removed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:222
+msgid ""
+"No optional apps from the Kiro package list are installed on this system."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:243
+#, python-brace-format
+msgid "Remove {count} selected package?"
+msgid_plural "Remove {count} selected packages?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:247
+#, python-brace-format
+msgid ""
+"This will remove:\n"
+"\n"
+"{preview}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:249
+#, python-brace-format
+msgid ""
+"pacman reported a problem with this selection:\n"
+"\n"
+"{preview}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:266
+msgid "No removed packages selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:274
+#, python-brace-format
+msgid "Reinstall {count} selected package?"
+msgid_plural "Reinstall {count} selected packages?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:277
+#, python-brace-format
+msgid ""
+"This will install:\n"
+"\n"
+"{packages}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:300
+msgid "Nothing removed yet — every optional app is still installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:320
+#, python-brace-format
+msgid "Profile imported — {count} installed app selected"
+msgid_plural "Profile imported — {count} installed apps selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:334
+msgid "Select a Streamline profile to import"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:343
+msgid "Profile files (*.txt)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:358
+msgid "Import cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:369
+msgid "Remove selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:371
+msgid "Save profile"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:373
+msgid "Reinstall selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:375
+msgid "Save removed list"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:377
+msgid "Import profile"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/system.py:34
