@@ -56,6 +56,7 @@ def setup_sddm_config(self, sddm):
             fn.log_info_concise(f"  From: {fn.sddm_default_d2_kiro}")
             fn.log_info_concise(f"  To:   {fn.sddm_default_d2}")
             fn.shutil.copy(fn.sddm_default_d2_kiro, fn.sddm_default_d2)
+            sddm.set_default_theme()
             fn.debug_print("✓ SDDM config copied")
             fn.debug_print("Showing user notification")
             fn.debug_print("We changed your sddm configuration files so that ATT could start")

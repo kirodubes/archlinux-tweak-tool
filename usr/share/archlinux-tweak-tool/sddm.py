@@ -17,6 +17,39 @@ _SDDM_THEME_DIR = "/usr/share/sddm/themes"
 _VETO_WORDS = {"manager", "configurator", "editor"}
 
 
+def simplicity_theme():
+    """Return (package, theme id) of the Simplicity login theme this system uses."""
+    # KiroTux ships its own Simplicity theme; kiro-sddm-simplicity conflicts with it and would remove it
+    if fn.is_kirotux():
+        return "kirotux-sddm-simplicity", "simplicity-kirotux"
+    return "kiro-sddm-simplicity", "edu-simplicity"
+
+
+def set_default_theme():
+    """Point Current= at this system's Simplicity theme after ATT's Kiro defaults were copied in."""
+    _pkg, theme = simplicity_theme()
+    if theme == "edu-simplicity" or not fn.path.isfile(fn.sddm_default_d2):
+        return
+    with open(fn.sddm_default_d2, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    lines = [f"Current={theme}\n" if line.startswith("Current=") else line for line in lines]
+    with open(fn.sddm_default_d2, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    fn.log_info_concise(f"  Theme:  Current={theme} (KiroTux)")
+
+
+def theme_background(theme_dir):
+    """Return the background image path a theme's theme.conf points at."""
+    try:
+        with open(fn.path.join(theme_dir, "theme.conf"), "r", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("background="):
+                    return fn.path.join(theme_dir, line.split("=", 1)[1].strip())
+    except OSError:
+        pass
+    return fn.path.join(theme_dir, "images", "background.jpg")
+
+
 def _sync_db_mtime():
     try:
         mtimes = [os.path.getmtime(f) for f in glob.glob("/var/lib/pacman/sync/*.db")]
@@ -406,10 +439,21 @@ def pop_theme_box(self, combo):
             name = ""
 
     coms.sort()
+    selected = None
     for i, item in enumerate(coms):
         combo.get_model().append(item)
         if name.lower() == item.lower():
-            combo.set_selected(i)
+            selected = i
+
+    # A missing Current= theme gives SDDM's grey fallback screen; preselect ours so the next Apply repairs it
+    if selected is None and name:
+        _pkg, theme = simplicity_theme()
+        fn.log_warn(f"SDDM theme '{name}' is not installed - the login screen falls back to the plain SDDM theme")
+        if theme in coms:
+            selected = coms.index(theme)
+            fn.log_info(f"Preselected '{theme}' - press Apply settings to repair the login screen")
+    if selected is not None:
+        combo.set_selected(selected)
 
 
 def pop_gtk_cursor_names(combo):
@@ -444,6 +488,7 @@ def on_click_sddm_reset_original_att(self, _widget=None):
         fn.log_info_concise(f"  From: {fn.sddm_default_d2_kiro}")
         fn.log_info_concise(f"  To:   {fn.sddm_default_d2}")
         fn.shutil.copy(fn.sddm_default_d2_kiro, fn.sddm_default_d2)
+        set_default_theme()
         fn.log_success("ATT SDDM configuration applied")
         fn.messagebox(self, "Success", "ATT SDDM configuration applied.\n\nRestarting ATT...")
         fn.restart_program()
@@ -725,8 +770,11 @@ def on_click_sddm_enable(self, _widget=None):
 def on_set_sddm_wallpaper(self, _widget=None):
     """Apply the selected image as the Simplicity theme wallpaper."""
     fn.log_subsection("Applying SDDM Wallpaper")
-    simplicity_images = "/usr/share/sddm/themes/edu-simplicity/images"
-    simplicity_conf = "/usr/share/sddm/themes/edu-simplicity/theme.conf"
+    _pkg, theme = simplicity_theme()
+    theme_dir = fn.path.join(_SDDM_THEME_DIR, theme)
+    simplicity_images = theme_dir + "/images"
+    simplicity_conf = theme_dir + "/theme.conf"
+    conf_bak = simplicity_conf + "-bak"
     dest = simplicity_images + "/background.jpg"
     dest_bak = simplicity_images + "/background.jpg-bak"
 
@@ -736,22 +784,23 @@ def on_set_sddm_wallpaper(self, _widget=None):
         return
 
     if not fn.path.isdir(simplicity_images):
-        fn.show_in_app_notification(self, "Simplicity theme not found - install it first")
+        fn.show_in_app_notification(self, f"{theme} theme not found - install it first")
         return
 
     try:
-        if fn.path.isfile(dest) and not fn.path.isfile(dest_bak):
-            fn.log_info_concise(f"  From: {dest}")
-            fn.log_info_concise(f"  To:   {dest_bak}")
-            fn.shutil.copy(dest, dest_bak)
-            fn.debug_print("[DEBUG] Backup created: " + dest_bak)
+        for src, bak in ((dest, dest_bak), (simplicity_conf, conf_bak)):
+            if fn.path.isfile(src) and not fn.path.isfile(bak):
+                fn.log_info_concise(f"  From: {src}")
+                fn.log_info_concise(f"  To:   {bak}")
+                fn.shutil.copy(src, bak)
+                fn.debug_print("[DEBUG] Backup created: " + bak)
         pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
         pixbuf.savev(dest, "jpeg", [], [])
         with open(simplicity_conf, "w", encoding="utf-8") as f:
             f.write("[General]\nbackground=images/background.jpg\n")
         fn.log_info_concise(f"  From: {path}")
         fn.log_info_concise(f"  To:   {dest}")
-        fn.log_info_concise("  Theme: edu-simplicity")
+        fn.log_info_concise(f"  Theme: {theme}")
         fn.debug_print("[DEBUG] Wallpaper saved and theme config updated")
         fn.log_success("Simplicity wallpaper applied")
         fn.show_in_app_notification(self, "Simplicity wallpaper applied")
@@ -763,27 +812,34 @@ def on_set_sddm_wallpaper(self, _widget=None):
 def on_restore_sddm_wallpaper(self, _widget=None):
     """Restore the backed-up original Simplicity theme wallpaper."""
     fn.log_subsection("Restoring Default SDDM Wallpaper")
-    simplicity_images = "/usr/share/sddm/themes/edu-simplicity/images"
-    simplicity_conf = "/usr/share/sddm/themes/edu-simplicity/theme.conf"
+    _pkg, theme = simplicity_theme()
+    theme_dir = fn.path.join(_SDDM_THEME_DIR, theme)
+    simplicity_images = theme_dir + "/images"
+    simplicity_conf = theme_dir + "/theme.conf"
+    conf_bak = simplicity_conf + "-bak"
     dest = simplicity_images + "/background.jpg"
     dest_bak = simplicity_images + "/background.jpg-bak"
 
     if not fn.path.isdir(simplicity_images):
-        fn.show_in_app_notification(self, "Simplicity theme not found - install it first")
+        fn.show_in_app_notification(self, f"{theme} theme not found - install it first")
         return
 
-    if not fn.path.isfile(dest_bak):
+    if not fn.path.isfile(dest_bak) and not fn.path.isfile(conf_bak):
         fn.show_in_app_notification(self, "No backup found - apply a wallpaper first")
         return
 
     try:
-        fn.log_info_concise(f"  From: {dest_bak}")
-        fn.log_info_concise(f"  To:   {dest}")
-        fn.shutil.copy(dest_bak, dest)
-        with open(simplicity_conf, "w", encoding="utf-8") as f:
-            f.write("[General]\nbackground=images/background.jpg\n")
+        for bak, target in ((dest_bak, dest), (conf_bak, simplicity_conf)):
+            if fn.path.isfile(bak):
+                fn.log_info_concise(f"  From: {bak}")
+                fn.log_info_concise(f"  To:   {target}")
+                fn.shutil.copy(bak, target)
+        # Older ATT versions backed up only the image; their theme.conf always pointed at background.jpg
+        if not fn.path.isfile(conf_bak):
+            with open(simplicity_conf, "w", encoding="utf-8") as f:
+                f.write("[General]\nbackground=images/background.jpg\n")
         self.sddm_wallpaper_lbl.set_text("Default wallpaper restored")
-        self.sddm_wallpaper_preview.set_filename(dest)
+        self.sddm_wallpaper_preview.set_filename(theme_background(theme_dir))
         self.sddm_wallpaper_preview.get_parent().set_visible(True)
         self.login_wallpaper_path = ""
         fn.debug_print("[DEBUG] Backup restored and theme config updated")
@@ -871,14 +927,15 @@ def on_click_remove_bibatar_cursor(self, _widget=None):
 
 
 def on_click_install_simplicity(self, _widget=None):
-    """Install the kiro-sddm-simplicity theme and enable wallpaper widgets."""
-    fn.log_subsection("Install kiro-sddm-simplicity")
-    fn.debug_print("Launching terminal to install kiro-sddm-simplicity...")
+    """Install this system's Simplicity theme and enable wallpaper widgets."""
+    pkg, _theme = simplicity_theme()
+    fn.log_subsection(f"Install {pkg}")
+    fn.debug_print(f"Launching terminal to install {pkg}...")
     fn.show_in_app_notification(self, "Opening terminal to install Simplicity theme...")
-    process = fn.launch_pacman_install_in_terminal("kiro-sddm-simplicity")
+    process = fn.launch_pacman_install_in_terminal(pkg)
 
     def refresh():
-        if fn.check_package_installed("kiro-sddm-simplicity"):
+        if fn.check_package_installed(pkg):
             fn.debug_print("Simplicity theme installed — enabling wallpaper widgets")
             for btn in (
                 self.btn_simplicity_browse,
@@ -890,7 +947,7 @@ def on_click_install_simplicity(self, _widget=None):
                 btn.set_sensitive(True)
             self.sddm_folder_entry.set_sensitive(True)
             self.btn_install_simplicity.set_visible(False)
-            self.btn_remove_simplicity.set_visible(True)
+            self.btn_remove_simplicity.set_visible(not fn.is_kirotux())
             pop_theme_box(self, self.theme_sddm)
             folder_path = self.sddm_folder_entry.get_text().strip()
             if fn.path.isdir(folder_path):
@@ -908,15 +965,16 @@ def on_click_install_simplicity(self, _widget=None):
 
 
 def on_click_remove_simplicity(self, _widget=None):
-    """Remove the kiro-sddm-simplicity theme and disable wallpaper widgets."""
-    fn.log_subsection("Remove kiro-sddm-simplicity")
-    fn.debug_print("Launching terminal to remove kiro-sddm-simplicity...")
+    """Remove this system's Simplicity theme and disable wallpaper widgets."""
+    pkg, theme = simplicity_theme()
+    fn.log_subsection(f"Remove {pkg}")
+    fn.debug_print(f"Launching terminal to remove {pkg}...")
     fn.show_in_app_notification(self, "Opening terminal to remove Simplicity theme...")
-    process = fn.launch_pacman_remove_in_terminal("kiro-sddm-simplicity")
+    process = fn.launch_pacman_remove_in_terminal(pkg)
 
     def refresh():
-        if not fn.check_package_installed("kiro-sddm-simplicity"):
-            theme_dir = "/usr/share/sddm/themes/edu-simplicity"
+        if not fn.check_package_installed(pkg):
+            theme_dir = fn.path.join(_SDDM_THEME_DIR, theme)
             if fn.path.isdir(theme_dir):
                 fn.shutil.rmtree(theme_dir, ignore_errors=True)
                 fn.log_info("Removed leftover theme directory")

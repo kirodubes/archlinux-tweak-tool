@@ -7,7 +7,8 @@ import functools
 
 def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
     """Create the SDDM login manager configuration GUI."""
-    _pkg = fn.check_packages_installed(["sddm", "sddm-git", "kiro-sddm-simplicity"])
+    simplicity_pkg, simplicity_id = sddm.simplicity_theme()
+    _pkg = fn.check_packages_installed(["sddm", "sddm-git", simplicity_pkg])
 
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
@@ -63,7 +64,9 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
         vboxstack_sddm.append(hbox_sep_config)
 
         if fn.path.isfile(fn.sddm_default_d2):
-            simplicity_installed = _pkg["kiro-sddm-simplicity"]
+            simplicity_installed = _pkg[simplicity_pkg]
+            if fn.is_kirotux():
+                fn.log_info(f"KiroTux: SDDM page manages {simplicity_pkg} ({simplicity_id})")
 
             hbox_section_login = _build_section_title(Gtk, "Login Settings")
 
@@ -199,7 +202,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_apply.append(btn_apply_settings)
             hbox_apply.append(btn_enable_sddm)
 
-            hbox_section_wallpaper = _build_section_title(Gtk, "Wallpaper for edu-simplicity theme")
+            hbox_section_wallpaper = _build_section_title(Gtk, f"Wallpaper for {simplicity_id} theme")
 
             hbox_wp_lbl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_wp_desc = Gtk.Label(xalign=0)
@@ -215,7 +218,8 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             self.btn_remove_simplicity = Gtk.Button(label="Remove Simplicity theme")
             self.btn_remove_simplicity.connect("clicked", functools.partial(sddm.on_click_remove_simplicity, self))
             self.btn_remove_simplicity.set_margin_end(10)
-            self.btn_remove_simplicity.set_visible(simplicity_installed)
+            # KiroTux has no other login theme, so removing its own would leave the grey SDDM fallback
+            self.btn_remove_simplicity.set_visible(simplicity_installed and not fn.is_kirotux())
             hbox_wp_lbl.append(self.btn_remove_simplicity)
 
             hbox_wp_folder = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -277,7 +281,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             self.sddm_wallpaper_preview.set_size_request(-1, 150)
             self.sddm_wallpaper_preview.set_hexpand(True)
             hbox_wp_preview.append(self.sddm_wallpaper_preview)
-            default_sddm_wallpaper = "/usr/share/sddm/themes/edu-simplicity/images/background.jpg"
+            default_sddm_wallpaper = sddm.theme_background(fn.path.join("/usr/share/sddm/themes", simplicity_id))
             fallback_wallpaper = "/usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.jpg"
             if fn.path.isfile(default_sddm_wallpaper):
                 self.sddm_wallpaper_lbl.set_text(default_sddm_wallpaper)

@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.01
+
+### SDDM page knows the KiroTux login theme
+
+**What Changed.** A KiroTux Hyprland user reported that SDDM changes from ATT did not apply and that the login fell back to the plain grey SDDM screen with a "file not found" error. The SDDM page only knew Kiro's `kiro-sddm-simplicity` (`edu-simplicity`). On KiroTux it offered "Install Simplicity theme", and that package conflicts with `kirotux-sddm-simplicity` (both own `/etc/sddm.conf.d/999-force-x11`), so installing it removed the KiroTux theme and left `Current=` pointing at a missing folder. The wallpaper buttons, "Reset to ATT default", the automatic config repair and both fix-sddm scripts also only knew `edu-simplicity`. On KiroTux the page now manages `kirotux-sddm-simplicity` / `simplicity-kirotux` everywhere. Install reinstalls the KiroTux theme, and Remove is hidden because KiroTux has no other login theme. Kiro and other distros behave as before. When `Current=` names a theme that isn't installed, the page warns and preselects this system's Simplicity theme, so pressing Apply settings repairs a broken login screen.
+
+**Technical Details.** New `sddm.simplicity_theme()` returns `(package, theme id)` based on the existing `fn.is_kirotux()` (`/etc/dev-rel` `ISO_CODENAME=kirotux`). `sddm.set_default_theme()` rewrites `Current=` after ATT's Kiro `kde_settings.conf` is copied in (called from `on_click_sddm_reset_original_att` and `functions_sddm.setup_sddm_config`). It does nothing on Kiro. `sddm.theme_background()` reads `background=` from a theme's `theme.conf` for the preview, because KiroTux uses `background.png` and Kiro uses `background.jpg`. Wallpaper Apply now also backs up `theme.conf` to `theme.conf-bak` once. Restore copies back whichever backups exist and keeps the old jpg-only behaviour for backups made by older ATT versions. `fix-sddm-config` and `fix-sddm-conf` set `Current=simplicity-kirotux` on KiroTux after copying the defaults. Tested headless: `simplicity_theme()` and `set_default_theme()` both ways on a scratch `kde_settings.conf`, and `theme_background()` against the KiroTux theme source. Not yet tested on a KiroTux install.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/sddm.py`, `usr/share/archlinux-tweak-tool/sddm_gui.py`, `usr/share/archlinux-tweak-tool/functions_sddm.py`, `usr/share/archlinux-tweak-tool/data/bin/fix-sddm-config`, `usr/bin/fix-sddm-conf`, `CHANGELOG.md`
+
 ## 2026.10.31
 
 ### Menu entry in all 13 Kiro languages

@@ -85,6 +85,16 @@ patch_live_user_settings() {
     sed -i "s/Session=xfce/#Session=/g" "$SDDM_KDE" 2>/dev/null
     sed -i "s/User=liveuser/#User=/g"   "$SDDM_KDE" 2>/dev/null
     success "Live-user settings cleared from $SDDM_KDE"
+    patch_kirotux_theme
+}
+
+# The ATT and Kiro defaults name edu-simplicity, which KiroTux does not ship (grey SDDM fallback screen)
+patch_kirotux_theme() {
+    if grep -qx "ISO_CODENAME=kirotux" /etc/dev-rel 2>/dev/null; then
+        info "KiroTux detected — using the KiroTux login theme"
+        sed -i "s/^Current=.*/Current=simplicity-kirotux/" "$SDDM_KDE"
+        success "Current=simplicity-kirotux set in $SDDM_KDE"
+    fi
 }
 
 apply_local() {

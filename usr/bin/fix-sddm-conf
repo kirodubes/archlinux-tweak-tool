@@ -80,6 +80,14 @@ info "Target: /etc/sddm.conf.d/kde_settings.conf"
 sudo cp -v /usr/share/archlinux-tweak-tool/data/sddm.conf.d/kde_settings.conf /etc/sddm.conf.d/kde_settings.conf
 success "kde_settings.conf installed"
 
+# ── KiroTux login theme ───────────────────────────────────────────────────────
+# The ATT default names edu-simplicity, which KiroTux does not ship (grey SDDM fallback screen)
+if grep -qx "ISO_CODENAME=kirotux" /etc/dev-rel 2>/dev/null; then
+    header "Setting the KiroTux login theme"
+    sudo sed -i "s/^Current=.*/Current=simplicity-kirotux/" /etc/sddm.conf.d/kde_settings.conf
+    success "Current=simplicity-kirotux set in /etc/sddm.conf.d/kde_settings.conf"
+fi
+
 # ── Done ──────────────────────────────────────────────────────────────────────
 echo ""
 separator
