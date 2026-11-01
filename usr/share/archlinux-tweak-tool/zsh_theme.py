@@ -3,6 +3,7 @@
 # ============================================================
 
 import functions as fn
+from att_i18n import _
 
 
 def get_themes(combo):
@@ -58,8 +59,8 @@ def set_config(self, theme):
             f.writelines(theme_list)
             f.close()
 
-        fn.show_in_app_notification(self, "Settings Saved Successfully")
+        fn.show_in_app_notification(self, _("Settings Saved Successfully"))
 
     except Exception as error:
         fn.log_error(str(error))
-        fn.messagebox(self, "Error!!", "Something went wrong setting this theme.")
+        fn.messagebox(self, _("Error!!"), _("Something went wrong setting this theme."))

@@ -6,6 +6,7 @@
 import functions as fn
 
 from functions import GLib
+from att_i18n import _
 
 
 def create_user(self):
@@ -54,18 +55,18 @@ def create_user(self):
                     fn.system(useradd)
                     fn.system(user_password + " | " + "chpasswd -c SHA512")
                 fn.log_success(f"User account {username} created successfully")
-                GLib.idle_add(fn.show_in_app_notification, self, "User has been created")
+                GLib.idle_add(fn.show_in_app_notification, self, _("User has been created"))
             except Exception as error:
                 fn.log_error(f"Failed to create user account: {error}")
-                fn.messagebox(self, "Error", f"Failed to create user: {error}")
+                fn.messagebox(self, _("Error"), _("Failed to create user: {error}").format(error=error))
         else:
             fn.log_warn("Password mismatch")
-            fn.show_in_app_notification(self, "Passwords are not the same")
-            fn.messagebox(self, "Message", "Passwords are not the same")
+            fn.show_in_app_notification(self, _("Passwords are not the same"))
+            fn.messagebox(self, _("Message"), _("Passwords are not the same"))
     else:
         fn.log_warn("Missing required fields")
-        fn.show_in_app_notification(self, "First fill in all the fields")
-        fn.messagebox(self, "Message", "First fill in all the fields")
+        fn.show_in_app_notification(self, _("First fill in all the fields"))
+        fn.messagebox(self, _("Message"), _("First fill in all the fields"))
 
 
 def _do_delete_user(self):
@@ -77,10 +78,10 @@ def _do_delete_user(self):
             fn.debug_print(f"Removing user account: {username}")
             fn.system("userdel " + username)
             fn.log_success(f"User {username} deleted - home folder retained")
-            GLib.idle_add(fn.show_in_app_notification, self, "User has been deleted")
+            GLib.idle_add(fn.show_in_app_notification, self, _("User has been deleted"))
         except Exception as error:
             fn.log_error(f"Failed to delete user: {error}")
-            fn.messagebox(self, "Error", f"Failed to delete user: {error}")
+            fn.messagebox(self, _("Error"), _("Failed to delete user: {error}").format(error=error))
 
 
 def _do_delete_all_user(self):
@@ -92,10 +93,10 @@ def _do_delete_all_user(self):
             fn.debug_print(f"Removing user account and home folder: {username}")
             fn.system("userdel -r -f " + username)
             fn.log_success(f"User {username} and home folder deleted")
-            GLib.idle_add(fn.show_in_app_notification, self, "User and home folder has been deleted")
+            GLib.idle_add(fn.show_in_app_notification, self, _("User and home folder has been deleted"))
         except Exception as error:
             fn.log_error(f"Failed to delete user and home folder: {error}")
-            fn.messagebox(self, "Error", f"Failed to delete user: {error}")
+            fn.messagebox(self, _("Error"), _("Failed to delete user: {error}").format(error=error))
 
 
 def pop_cbt_users(self, combo):

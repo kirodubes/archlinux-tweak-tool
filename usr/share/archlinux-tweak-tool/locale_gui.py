@@ -4,6 +4,7 @@
 
 import functools
 import locale_settings as locale
+from att_i18n import _
 
 
 def gui(self, Gtk, vboxstack_locale, fn):
@@ -12,7 +13,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Title ─────────────────────────────────────────────
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
-    lbl_title.set_text("Locale, Keyboard & Timezone")
+    lbl_title.set_text(_("Locale, Keyboard & Timezone"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     lbl_title.set_margin_end(10)
@@ -26,7 +27,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: Current Settings ─────────────────────────
     hbox_status_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_status_header = Gtk.Label(xalign=0)
-    lbl_status_header.set_markup("<b>Current Settings</b>")
+    lbl_status_header.set_markup(_("<b>Current Settings</b>"))
     lbl_status_header.set_margin_start(10)
     lbl_status_header.set_margin_top(15)
     lbl_status_header.set_margin_bottom(5)
@@ -34,7 +35,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_locale_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_locale_key = Gtk.Label(xalign=0)
-    lbl_locale_key.set_text("System Locale:")
+    lbl_locale_key.set_text(_("System Locale:"))
     lbl_locale_key.set_margin_start(10)
     lbl_locale_key.set_size_request(185, -1)
     self.lbl_locale_current = Gtk.Label(xalign=0)
@@ -44,7 +45,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_language_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_language_key = Gtk.Label(xalign=0)
-    lbl_language_key.set_text("Language (LANGUAGE):")
+    lbl_language_key.set_text(_("Language (LANGUAGE):"))
     lbl_language_key.set_margin_start(10)
     lbl_language_key.set_size_request(185, -1)
     self.lbl_language_current = Gtk.Label(xalign=0)
@@ -54,7 +55,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_keymap_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_keymap_key = Gtk.Label(xalign=0)
-    lbl_keymap_key.set_text("Console Keymap:")
+    lbl_keymap_key.set_text(_("Console Keymap:"))
     lbl_keymap_key.set_margin_start(10)
     lbl_keymap_key.set_size_request(185, -1)
     self.lbl_keymap_current = Gtk.Label(xalign=0)
@@ -64,7 +65,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_x11_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_x11_key = Gtk.Label(xalign=0)
-    lbl_x11_key.set_text("X11 Layout:")
+    lbl_x11_key.set_text(_("X11 Layout:"))
     lbl_x11_key.set_margin_start(10)
     lbl_x11_key.set_size_request(185, -1)
     self.lbl_x11_current = Gtk.Label(xalign=0)
@@ -74,7 +75,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_tz_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_tz_key = Gtk.Label(xalign=0)
-    lbl_tz_key.set_text("Timezone:")
+    lbl_tz_key.set_text(_("Timezone:"))
     lbl_tz_key.set_margin_start(10)
     lbl_tz_key.set_size_request(185, -1)
     self.lbl_timezone_current = Gtk.Label(xalign=0)
@@ -85,7 +86,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: System Locale ─────────────────────────────
     hbox_locale_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_locale_header = Gtk.Label(xalign=0)
-    lbl_locale_header.set_markup("<b>System Locale</b>")
+    lbl_locale_header.set_markup(_("<b>System Locale</b>"))
     lbl_locale_header.set_margin_start(10)
     lbl_locale_header.set_margin_top(15)
     lbl_locale_header.set_margin_bottom(5)
@@ -95,7 +96,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     self.locale_dropdown = Gtk.DropDown.new_from_strings([""])
     self.locale_dropdown.set_size_request(300, -1)
     self.locale_dropdown.set_margin_start(10)
-    btn_locale_apply = Gtk.Button(label="Apply")
+    btn_locale_apply = Gtk.Button(label=_("Apply"))
     btn_locale_apply.set_margin_start(10)
     btn_locale_apply.connect("clicked", functools.partial(locale.on_apply_locale, self))
     self.lbl_locale_result = Gtk.Label(xalign=0)
@@ -108,7 +109,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: Individual Categories (LC_*) ─────────────
     hbox_lc_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_lc_header = Gtk.Label(xalign=0)
-    lbl_lc_header.set_markup("<b>Individual Categories</b>")
+    lbl_lc_header.set_markup(_("<b>Individual Categories</b>"))
     lbl_lc_header.set_margin_start(10)
     lbl_lc_header.set_margin_top(15)
     lbl_lc_header.set_margin_bottom(5)
@@ -118,18 +119,18 @@ def gui(self, Gtk, vboxstack_locale, fn):
     lbl_lc_intro = Gtk.Label(xalign=0)
     lbl_lc_intro.set_wrap(True)
     lbl_lc_intro.set_text(
-        "Override single categories while keeping your system language — for example English "
+        _("Override single categories while keeping your system language — for example English "
         "with European numbers, currency and date formatting. \"Use LANG (default)\" leaves a "
-        "category following your LANG."
+        "category following your LANG.")
     )
     lbl_lc_intro.set_margin_start(10)
     lbl_lc_intro.set_margin_end(10)
     hbox_lc_intro.append(lbl_lc_intro)
 
     lc_labels = {
-        "LC_NUMERIC": "Numbers (LC_NUMERIC):",
-        "LC_MONETARY": "Currency (LC_MONETARY):",
-        "LC_TIME": "Date & time (LC_TIME):",
+        "LC_NUMERIC": _("Numbers (LC_NUMERIC):"),
+        "LC_MONETARY": _("Currency (LC_MONETARY):"),
+        "LC_TIME": _("Date & time (LC_TIME):"),
     }
     self.lc_dropdowns = {}
     hbox_lc_rows = []
@@ -141,7 +142,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
         lbl_lc_row.set_size_request(200, -1)
         dropdown_lc = Gtk.DropDown.new_from_strings([""])
         dropdown_lc.set_size_request(260, -1)
-        btn_lc_apply = Gtk.Button(label="Apply")
+        btn_lc_apply = Gtk.Button(label=_("Apply"))
         btn_lc_apply.connect("clicked", functools.partial(locale.on_apply_lc, self, category))
         hbox_lc_row.append(lbl_lc_row)
         hbox_lc_row.append(dropdown_lc)
@@ -150,7 +151,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
         hbox_lc_rows.append(hbox_lc_row)
 
     hbox_lc_reset = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    btn_lc_reset = Gtk.Button(label="Reset all to LANG")
+    btn_lc_reset = Gtk.Button(label=_("Reset all to LANG"))
     btn_lc_reset.set_margin_start(10)
     btn_lc_reset.connect("clicked", functools.partial(locale.on_reset_lc, self))
     self.lbl_lc_result = Gtk.Label(xalign=0)
@@ -162,14 +163,14 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: Generate New Locale ──────────────────────
     hbox_gen_locale_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_gen_locale_header = Gtk.Label(xalign=0)
-    lbl_gen_locale_header.set_markup("<b>Generate New Locale</b>")
+    lbl_gen_locale_header.set_markup(_("<b>Generate New Locale</b>"))
     lbl_gen_locale_header.set_margin_start(10)
     lbl_gen_locale_header.set_margin_top(15)
     lbl_gen_locale_header.set_margin_bottom(5)
     hbox_gen_locale_header.append(lbl_gen_locale_header)
 
     hbox_gen_locale_load = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    btn_load_available = Gtk.Button(label="Load Available Locales")
+    btn_load_available = Gtk.Button(label=_("Load Available Locales"))
     btn_load_available.set_margin_start(10)
     self.available_locale_dropdown = Gtk.DropDown.new_from_strings([""])
     self.available_locale_dropdown.set_size_request(300, -1)
@@ -178,7 +179,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     hbox_gen_locale_load.append(self.available_locale_dropdown)
 
     hbox_gen_locale_apply = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.btn_available_apply = Gtk.Button(label="Apply")
+    self.btn_available_apply = Gtk.Button(label=_("Apply"))
     self.btn_available_apply.set_margin_start(10)
     self.btn_available_apply.set_sensitive(False)
     self.btn_available_apply.connect("clicked", functools.partial(locale.on_apply_generate_locale, self))
@@ -203,7 +204,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: Console Keyboard (TTY) ───────────────────
     hbox_keymap_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_keymap_header = Gtk.Label(xalign=0)
-    lbl_keymap_header.set_markup("<b>Console Keyboard (TTY)</b>")
+    lbl_keymap_header.set_markup(_("<b>Console Keyboard (TTY)</b>"))
     lbl_keymap_header.set_margin_start(10)
     lbl_keymap_header.set_margin_top(15)
     lbl_keymap_header.set_margin_bottom(5)
@@ -213,10 +214,10 @@ def gui(self, Gtk, vboxstack_locale, fn):
     self.keymap_dropdown = Gtk.DropDown.new_from_strings([""])
     self.keymap_dropdown.set_size_request(300, -1)
     self.keymap_dropdown.set_margin_start(10)
-    btn_keymap_apply = Gtk.Button(label="Apply")
+    btn_keymap_apply = Gtk.Button(label=_("Apply"))
     btn_keymap_apply.set_margin_start(10)
     btn_keymap_apply.connect("clicked", functools.partial(locale.on_apply_keymap, self))
-    btn_keymap_sync = Gtk.Button(label="Sync from X11")
+    btn_keymap_sync = Gtk.Button(label=_("Sync from X11"))
     btn_keymap_sync.set_margin_start(10)
     btn_keymap_sync.connect("clicked", functools.partial(locale.on_sync_keymap, self))
     self.lbl_keymap_result = Gtk.Label(xalign=0)
@@ -230,7 +231,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: X11 / Wayland Keyboard ───────────────────
     hbox_x11_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_x11_header = Gtk.Label(xalign=0)
-    lbl_x11_header.set_markup("<b>X11 / Wayland Keyboard</b>")
+    lbl_x11_header.set_markup(_("<b>X11 / Wayland Keyboard</b>"))
     lbl_x11_header.set_margin_start(10)
     lbl_x11_header.set_margin_top(15)
     lbl_x11_header.set_margin_bottom(5)
@@ -238,7 +239,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_x11_layout_ctrl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_x11_layout = Gtk.Label(xalign=0)
-    lbl_x11_layout.set_text("Layout:")
+    lbl_x11_layout.set_text(_("Layout:"))
     lbl_x11_layout.set_margin_start(10)
     lbl_x11_layout.set_size_request(70, -1)
     self.x11_layout_dropdown = Gtk.DropDown.new_from_strings([""])
@@ -248,7 +249,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
 
     hbox_x11_variant_ctrl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_x11_variant = Gtk.Label(xalign=0)
-    lbl_x11_variant.set_text("Variant:")
+    lbl_x11_variant.set_text(_("Variant:"))
     lbl_x11_variant.set_margin_start(10)
     lbl_x11_variant.set_size_request(70, -1)
     self.x11_variant_dropdown = Gtk.DropDown.new_from_strings([""])
@@ -257,7 +258,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     hbox_x11_variant_ctrl.append(self.x11_variant_dropdown)
 
     hbox_x11_apply = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    btn_x11_apply = Gtk.Button(label="Apply")
+    btn_x11_apply = Gtk.Button(label=_("Apply"))
     btn_x11_apply.set_margin_start(10)
     btn_x11_apply.connect("clicked", functools.partial(locale.on_apply_x11, self))
     self.lbl_x11_result = Gtk.Label(xalign=0)
@@ -287,7 +288,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     # ── Section: Timezone ─────────────────────────────────
     hbox_tz_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_tz_header = Gtk.Label(xalign=0)
-    lbl_tz_header.set_markup("<b>Timezone</b>")
+    lbl_tz_header.set_markup(_("<b>Timezone</b>"))
     lbl_tz_header.set_margin_start(10)
     lbl_tz_header.set_margin_top(15)
     lbl_tz_header.set_margin_bottom(5)
@@ -297,7 +298,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
     self.timezone_dropdown = Gtk.DropDown.new_from_strings([""])
     self.timezone_dropdown.set_size_request(300, -1)
     self.timezone_dropdown.set_margin_start(10)
-    btn_tz_apply = Gtk.Button(label="Apply")
+    btn_tz_apply = Gtk.Button(label=_("Apply"))
     btn_tz_apply.set_margin_start(10)
     btn_tz_apply.connect("clicked", functools.partial(locale.on_apply_timezone, self))
     self.lbl_tz_result = Gtk.Label(xalign=0)

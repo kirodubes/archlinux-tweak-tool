@@ -4,6 +4,7 @@
 
 import functions as fn
 from gi.repository import GLib
+from att_i18n import _
 
 
 def setup_sddm_config(self, sddm):
@@ -64,7 +65,7 @@ def setup_sddm_config(self, sddm):
             GLib.idle_add(
                 fn.show_in_app_notification,
                 self,
-                "We had to change your sddm configuration files",
+                _("We had to change your sddm configuration files"),
             )
             fn.debug_print("✓ User notified about SDDM changes")
     else:

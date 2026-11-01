@@ -148,7 +148,7 @@ def check_grub_splash():
         for line in open("/etc/default/grub").readlines():
             s = line.strip()
             if s.startswith("GRUB_CMDLINE_LINUX_DEFAULT"):
-                _, _, rest = s.partition("=")
+                _unused, _unused2, rest = s.partition("=")
                 rest = rest.strip()
                 if rest and rest[0] in ("'", '"'):
                     rest = rest[1:]
@@ -233,7 +233,7 @@ def check_early_kms(module):
         for line in open("/etc/mkinitcpio.conf").readlines():
             s = line.strip()
             if s.startswith("MODULES="):
-                _, _, rest = s.partition("=")
+                _unused, _unused2, rest = s.partition("=")
                 rest = rest.strip().strip("()\"'")
                 return module in rest.split()
     except OSError:

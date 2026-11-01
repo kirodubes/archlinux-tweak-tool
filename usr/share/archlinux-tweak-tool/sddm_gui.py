@@ -3,6 +3,7 @@
 # ============================================================
 
 import functools
+from att_i18n import _
 
 
 def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
@@ -13,9 +14,9 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
     if fn.check_content("sddm", fn.display_manager_service):
-        lbl_title.set_text("Sddm (active)")
+        lbl_title.set_text(_("Sddm (active)"))
     else:
-        lbl_title.set_text("Sddm (inactive)")
+        lbl_title.set_text(_("Sddm (inactive)"))
     lbl_title.set_name("title")
     lbl_title.set_margin_start(10)
     hbox_title.append(lbl_title)
@@ -27,16 +28,16 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
     hbox_sep_top.append(hsep_top)
 
     if _pkg["sddm"] or _pkg["sddm-git"]:
-        hbox_section_config = _build_section_title(Gtk, "Configuration Setup")
+        hbox_section_config = _build_section_title(Gtk, _("Configuration Setup"))
 
         hbox_config_info = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         lbl_config_info = Gtk.Label(xalign=0)
         lbl_config_info.set_text(
-            "We recommend to use the default sddm configuration setup\n"
+            _("We recommend to use the default sddm configuration setup\n"
             "Sddm configuration split into two files: /etc/sddm.conf "
             "and /etc/sddm.conf.d/kde_settings.conf\n"
             "/etc/sddm.conf.d/kde_settings.conf contains all the parameters - We will backup your files\n"
-            "You can also restore your own original configuration if you want to - auto restart ATT\n"
+            "You can also restore your own original configuration if you want to - auto restart ATT\n")
         )
         lbl_config_info.set_margin_start(10)
         hbox_config_info.append(lbl_config_info)
@@ -44,10 +45,10 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
         hbox_config_btns = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         hbox_config_btns.set_margin_start(130)
         hbox_config_btns.set_margin_end(130)
-        btn_apply_att_config = Gtk.Button(label="Apply the Sddm configuration from ATT - auto restart ATT")
+        btn_apply_att_config = Gtk.Button(label=_("Apply the Sddm configuration from ATT - auto restart ATT"))
         btn_apply_att_config.connect("clicked", functools.partial(sddm.on_click_sddm_reset_original_att, self))
         hbox_config_btns.append(btn_apply_att_config)
-        btn_apply_original_config = Gtk.Button(label="Apply your original Sddm configuration - auto restart ATT")
+        btn_apply_original_config = Gtk.Button(label=_("Apply your original Sddm configuration - auto restart ATT"))
         btn_apply_original_config.connect("clicked", functools.partial(sddm.on_click_sddm_reset_original, self))
         hbox_config_btns.append(btn_apply_original_config)
 
@@ -68,11 +69,11 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             if fn.is_kirotux():
                 fn.log_info(f"KiroTux: SDDM page manages {simplicity_pkg} ({simplicity_id})")
 
-            hbox_section_login = _build_section_title(Gtk, "Login Settings")
+            hbox_section_login = _build_section_title(Gtk, _("Login Settings"))
 
             hbox_auto = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             hbox_auto_lbl = Gtk.Label(xalign=0)
-            hbox_auto_lbl.set_text("Auto login enabled or disabled")
+            hbox_auto_lbl.set_text(_("Auto login enabled or disabled"))
             hbox_auto_lbl.set_margin_start(10)
             hbox_auto_lbl.set_hexpand(True)
             self.autologin_sddm = Gtk.Switch()
@@ -84,7 +85,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
 
             hbox_session = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_session = Gtk.Label(xalign=0)
-            lbl_session.set_text("Autologin into this desktop")
+            lbl_session.set_text(_("Autologin into this desktop"))
             lbl_session.set_margin_start(10)
             lbl_session.set_hexpand(True)
             self.sessions_sddm = Gtk.DropDown.new_from_strings([])
@@ -99,7 +100,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
 
             hbox_theme = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_theme = Gtk.Label(xalign=0)
-            lbl_theme.set_text("Theme")
+            lbl_theme.set_text(_("Theme"))
             lbl_theme.set_margin_start(10)
             lbl_theme.set_hexpand(True)
             self.theme_sddm = Gtk.DropDown.new_from_strings([])
@@ -129,25 +130,25 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_theme_preview.append(self.sddm_theme_preview)
             sddm._update_sddm_theme_preview(self)
 
-            hbox_section_cursor = _build_section_title(Gtk, "Cursor Settings")
+            hbox_section_cursor = _build_section_title(Gtk, _("Cursor Settings"))
 
             hbox_bibata = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-            btn_install_bibata = Gtk.Button(label="Install Bibata cursors")
+            btn_install_bibata = Gtk.Button(label=_("Install Bibata cursors"))
             btn_install_bibata.connect("clicked", functools.partial(sddm.on_click_install_bibata_cursor, self))
             btn_install_bibata.set_margin_start(10)
             btn_install_bibata.set_margin_end(10)
-            btn_remove_bibata = Gtk.Button(label="Remove Bibata cursors")
+            btn_remove_bibata = Gtk.Button(label=_("Remove Bibata cursors"))
             btn_remove_bibata.connect("clicked", functools.partial(sddm.on_click_remove_bibata_cursor, self))
             btn_remove_bibata.set_margin_end(10)
             hbox_bibata.append(btn_install_bibata)
             hbox_bibata.append(btn_remove_bibata)
 
             hbox_bibata_extra = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-            btn_install_bibata_extra = Gtk.Button(label="Install Bibata extra cursors")
+            btn_install_bibata_extra = Gtk.Button(label=_("Install Bibata extra cursors"))
             btn_install_bibata_extra.connect("clicked", functools.partial(sddm.on_click_install_bibatar_cursor, self))
             btn_install_bibata_extra.set_margin_start(10)
             btn_install_bibata_extra.set_margin_end(10)
-            btn_remove_bibata_extra = Gtk.Button(label="Remove Bibata extra cursors")
+            btn_remove_bibata_extra = Gtk.Button(label=_("Remove Bibata extra cursors"))
             btn_remove_bibata_extra.connect("clicked", functools.partial(sddm.on_click_remove_bibatar_cursor, self))
             btn_remove_bibata_extra.set_margin_end(10)
             hbox_bibata_extra.append(btn_install_bibata_extra)
@@ -155,13 +156,13 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
 
             hbox_cursor_hint = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_cursor_hint = Gtk.Label(xalign=0)
-            lbl_cursor_hint.set_text("Select your cursor theme for the login screen e.g. Bibata-Modern-Ice")
+            lbl_cursor_hint.set_text(_("Select your cursor theme for the login screen e.g. Bibata-Modern-Ice"))
             lbl_cursor_hint.set_margin_start(10)
             hbox_cursor_hint.append(lbl_cursor_hint)
 
             hbox_cursor = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_cursor = Gtk.Label(xalign=0)
-            lbl_cursor.set_text("Cursor theme only for SDDM (global cursor setting in maintenance)")
+            lbl_cursor.set_text(_("Cursor theme only for SDDM (global cursor setting in maintenance)"))
             lbl_cursor.set_margin_start(10)
             lbl_cursor.set_hexpand(True)
             self.sddm_cursor_themes = Gtk.DropDown.new_from_strings([])
@@ -189,33 +190,33 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_apply = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             btn_apply_settings = Gtk.Button()
             btn_apply_lbl = Gtk.Label()
-            btn_apply_lbl.set_markup("<b>Apply the above mentioned settings</b>")
+            btn_apply_lbl.set_markup(_("<b>Apply the above mentioned settings</b>"))
             btn_apply_settings.set_child(btn_apply_lbl)
             btn_apply_settings.connect("clicked", functools.partial(sddm.on_click_sddm_apply, self))
             btn_apply_settings.set_margin_start(10)
             btn_apply_settings.set_hexpand(True)
             sddm_git_active = _pkg["sddm-git"] and fn.check_service_enabled("sddm")
-            btn_enable_sddm = Gtk.Button(label="Install and enable sddm-git (when not yet active)")
+            btn_enable_sddm = Gtk.Button(label=_("Install and enable sddm-git (when not yet active)"))
             btn_enable_sddm.connect("clicked", functools.partial(sddm.on_click_sddm_enable, self))
             btn_enable_sddm.set_margin_end(10)
             btn_enable_sddm.set_visible(not sddm_git_active)
             hbox_apply.append(btn_apply_settings)
             hbox_apply.append(btn_enable_sddm)
 
-            hbox_section_wallpaper = _build_section_title(Gtk, f"Wallpaper for {simplicity_id} theme")
+            hbox_section_wallpaper = _build_section_title(Gtk, _("Wallpaper for {theme} theme").format(theme=simplicity_id))
 
             hbox_wp_lbl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             lbl_wp_desc = Gtk.Label(xalign=0)
-            lbl_wp_desc.set_text("Set background wallpaper for the Simplicity Sddm theme")
+            lbl_wp_desc.set_text(_("Set background wallpaper for the Simplicity Sddm theme"))
             lbl_wp_desc.set_margin_start(10)
             lbl_wp_desc.set_hexpand(True)
             hbox_wp_lbl.append(lbl_wp_desc)
-            self.btn_install_simplicity = Gtk.Button(label="Install Simplicity theme")
+            self.btn_install_simplicity = Gtk.Button(label=_("Install Simplicity theme"))
             self.btn_install_simplicity.connect("clicked", functools.partial(sddm.on_click_install_simplicity, self))
             self.btn_install_simplicity.set_margin_end(10)
             self.btn_install_simplicity.set_visible(not simplicity_installed)
             hbox_wp_lbl.append(self.btn_install_simplicity)
-            self.btn_remove_simplicity = Gtk.Button(label="Remove Simplicity theme")
+            self.btn_remove_simplicity = Gtk.Button(label=_("Remove Simplicity theme"))
             self.btn_remove_simplicity.connect("clicked", functools.partial(sddm.on_click_remove_simplicity, self))
             self.btn_remove_simplicity.set_margin_end(10)
             # KiroTux has no other login theme, so removing its own would leave the grey SDDM fallback
@@ -223,7 +224,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_wp_lbl.append(self.btn_remove_simplicity)
 
             hbox_wp_folder = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-            self.btn_simplicity_browse = Gtk.Button(label="Select folder")
+            self.btn_simplicity_browse = Gtk.Button(label=_("Select folder"))
             self.btn_simplicity_browse.connect("clicked", functools.partial(sddm.on_browse_sddm_folder, self))
             self.btn_simplicity_browse.set_margin_start(10)
             self.btn_simplicity_browse.set_margin_end(10)
@@ -233,12 +234,12 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             self.sddm_folder_entry.set_hexpand(True)
             self.sddm_folder_entry.set_text(default_wp_folder)
             self.sddm_folder_entry.set_sensitive(simplicity_installed)
-            self.btn_simplicity_load = Gtk.Button(label="Load")
+            self.btn_simplicity_load = Gtk.Button(label=_("Load"))
             self.btn_simplicity_load.connect("clicked", functools.partial(sddm.on_load_sddm_folder, self))
             self.btn_simplicity_load.set_margin_start(10)
             self.btn_simplicity_load.set_margin_end(10)
             self.btn_simplicity_load.set_sensitive(simplicity_installed)
-            self.btn_simplicity_stop = Gtk.Button(label="Stop")
+            self.btn_simplicity_stop = Gtk.Button(label=_("Stop"))
             self.btn_simplicity_stop.connect("clicked", functools.partial(sddm.on_stop_sddm_loading, self))
             self.btn_simplicity_stop.set_margin_end(10)
             self.btn_simplicity_stop.set_sensitive(simplicity_installed)
@@ -264,7 +265,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
 
             hbox_wp_selected = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             self.sddm_wallpaper_lbl = Gtk.Label(xalign=0)
-            self.sddm_wallpaper_lbl.set_text("No wallpaper selected")
+            self.sddm_wallpaper_lbl.set_text(_("No wallpaper selected"))
             self.sddm_wallpaper_lbl.set_margin_start(10)
             self.sddm_wallpaper_lbl.set_hexpand(True)
             self.sddm_wallpaper_lbl.set_ellipsize(Pango.EllipsizeMode.START)
@@ -292,16 +293,16 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
                 hbox_wp_preview.set_visible(False)
 
             hbox_wp_btns = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-            self.btn_simplicity_apply = Gtk.Button(label="Apply wallpaper")
+            self.btn_simplicity_apply = Gtk.Button(label=_("Apply wallpaper"))
             self.btn_simplicity_apply.connect("clicked", functools.partial(sddm.on_set_sddm_wallpaper, self))
             self.btn_simplicity_apply.set_margin_start(10)
             self.btn_simplicity_apply.set_margin_end(10)
             self.btn_simplicity_apply.set_sensitive(simplicity_installed)
-            self.btn_simplicity_restore = Gtk.Button(label="Restore default")
+            self.btn_simplicity_restore = Gtk.Button(label=_("Restore default"))
             self.btn_simplicity_restore.connect("clicked", functools.partial(sddm.on_restore_sddm_wallpaper, self))
             self.btn_simplicity_restore.set_margin_end(10)
             self.btn_simplicity_restore.set_sensitive(simplicity_installed)
-            btn_fix_sddm_conf = Gtk.Button(label="Fix SDDM config")
+            btn_fix_sddm_conf = Gtk.Button(label=_("Fix SDDM config"))
             btn_fix_sddm_conf.set_margin_end(10)
             btn_fix_sddm_conf.connect("clicked", functools.partial(sddm.on_click_fix_sddm_conf, self))
             hbox_wp_btns_spacer = Gtk.Box()
@@ -324,12 +325,12 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             vboxstack_sddm.append(hbox_apply)
 
             # ── Available themes ───────────────────────────────────────────
-            hbox_section_available = _build_section_title(Gtk, "Available SDDM Themes")
+            hbox_section_available = _build_section_title(Gtk, _("Available SDDM Themes"))
 
             hbox_refresh_avail = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
             hbox_refresh_avail.set_margin_start(10)
             hbox_refresh_avail.set_margin_top(4)
-            btn_refresh_avail = Gtk.Button(label="Refresh list")
+            btn_refresh_avail = Gtk.Button(label=_("Refresh list"))
             btn_refresh_avail.set_size_request(100, 28)
             hbox_refresh_avail.append(btn_refresh_avail)
 
@@ -338,11 +339,11 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_avail_select.set_margin_top(4)
             hbox_avail_select.set_margin_bottom(6)
             lbl_avail_select = Gtk.Label(xalign=0)
-            lbl_avail_select.set_text("Select package")
+            lbl_avail_select.set_text(_("Select package"))
             lbl_avail_select.set_size_request(120, -1)
             lbl_avail_select.set_hexpand(True)
             dd_avail_sddm = Gtk.DropDown.new_from_strings([])
-            btn_install_sddm_theme = Gtk.Button(label="Install theme")
+            btn_install_sddm_theme = Gtk.Button(label=_("Install theme"))
             btn_install_sddm_theme.set_size_request(140, 30)
             btn_install_sddm_theme.set_margin_end(10)
             hbox_avail_select.append(lbl_avail_select)
@@ -358,7 +359,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_aur_toggle.set_margin_start(10)
             hbox_aur_toggle.set_margin_top(4)
             lbl_aur_toggle = Gtk.Label(xalign=0)
-            lbl_aur_toggle.set_text("Include AUR packages")
+            lbl_aur_toggle.set_text(_("Include AUR packages"))
             lbl_aur_toggle.set_hexpand(True)
             switch_aur = Gtk.Switch()
             switch_aur.set_active(bool(aur_helper))
@@ -371,7 +372,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_sort_toggle.set_margin_start(10)
             hbox_sort_toggle.set_margin_top(4)
             lbl_sort_toggle = Gtk.Label(xalign=0)
-            lbl_sort_toggle.set_text("Sort by recently updated (AUR)")
+            lbl_sort_toggle.set_text(_("Sort by recently updated (AUR)"))
             lbl_sort_toggle.set_hexpand(True)
             switch_sort_date = Gtk.Switch()
             switch_sort_date.set_active(False)
@@ -406,7 +407,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
                     fn.log_warn("No SDDM theme package selected")
                     return
                 fn.log_subsection(f"Installing SDDM theme: {selected}")
-                fn.show_in_app_notification(self, f"Installing: {selected}")
+                fn.show_in_app_notification(self, _("Installing: {name}").format(name=selected))
 
                 def _run():
                     if aur_helper:
@@ -433,11 +434,11 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             hbox_remove_sddm_select.set_margin_top(4)
             hbox_remove_sddm_select.set_margin_bottom(6)
             lbl_remove_select = Gtk.Label(xalign=0)
-            lbl_remove_select.set_text("Remove installed")
+            lbl_remove_select.set_text(_("Remove installed"))
             lbl_remove_select.set_size_request(120, -1)
             lbl_remove_select.set_hexpand(True)
             dd_remove_sddm = Gtk.DropDown.new_from_strings([])
-            btn_remove_sddm_theme = Gtk.Button(label="Remove theme")
+            btn_remove_sddm_theme = Gtk.Button(label=_("Remove theme"))
             btn_remove_sddm_theme.set_size_request(140, 30)
             btn_remove_sddm_theme.set_margin_end(10)
             hbox_remove_sddm_select.append(lbl_remove_select)
@@ -456,7 +457,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
 
             def _on_refresh_avail_clicked(_widget):
                 fn.log_subsection("Refreshing SDDM available themes...")
-                fn.show_in_app_notification(self, "Refreshing available themes...")
+                fn.show_in_app_notification(self, _("Refreshing available themes..."))
 
                 def _run():
                     pkgs = sddm.list_available_sddm_packages(force=True, use_aur=switch_aur.get_active())
@@ -478,7 +479,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
             def _on_sort_toggle_changed(_widget, _param):
                 fn.log_info(f"SDDM sort by date: {switch_sort_date.get_active()}")
                 if switch_sort_date.get_active() and not _aur_modified:
-                    fn.show_in_app_notification(self, "Fetching AUR package dates...")
+                    fn.show_in_app_notification(self, _("Fetching AUR package dates..."))
 
                     def _run():
                         nonlocal _aur_modified
@@ -504,10 +505,10 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
                     pkg = ""
                 if not pkg:
                     fn.log_warn(f"Could not find package owning {theme_dir} — cannot remove")
-                    fn.show_in_app_notification(self, f"No package found for theme: {theme}")
+                    fn.show_in_app_notification(self, _("No package found for theme: {name}").format(name=theme))
                     return
                 fn.log_subsection(f"Removing SDDM theme: {pkg}")
-                fn.show_in_app_notification(self, f"Removing: {pkg}")
+                fn.show_in_app_notification(self, _("Removing: {name}").format(name=pkg))
 
                 def _run():
                     process = fn.launch_pacman_remove_in_terminal(pkg)
@@ -565,7 +566,7 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
     else:
         hbox_not_installed = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         lbl_not_installed = Gtk.Label(xalign=0)
-        lbl_not_installed.set_text("Sddm is not installed")
+        lbl_not_installed.set_text(_("Sddm is not installed"))
         lbl_not_installed.set_name("title")
         lbl_not_installed.set_margin_start(10)
         hbox_not_installed.append(lbl_not_installed)
@@ -576,10 +577,10 @@ def gui(self, Gtk, Pango, vboxstack_sddm, sddm, fn):
         hbox_sep_not_installed.append(hsep_not_installed)
 
         message = Gtk.Label()
-        message.set_markup("<b>Sddm does not seem to be installed</b>")
+        message.set_markup(_("<b>Sddm does not seem to be installed</b>"))
         message.set_margin_start(10)
 
-        install_sddm = Gtk.Button(label="Install sddm-git and enable it")
+        install_sddm = Gtk.Button(label=_("Install sddm-git and enable it"))
         install_sddm.connect("clicked", functools.partial(sddm.on_click_att_sddm_clicked, self))
         install_sddm.set_margin_start(10)
         install_sddm.set_margin_end(10)

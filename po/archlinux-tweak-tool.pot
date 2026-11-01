@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:06+0100\n"
+"POT-Creation-Date: 2026-11-01 08:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -692,6 +692,10 @@ msgstr ""
 msgid "No browsers detected"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/functions_sddm.py:68
+msgid "We had to change your sddm configuration files"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
 msgstr ""
@@ -821,6 +825,8 @@ msgid "Maintenance"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:483
+#: usr/share/archlinux-tweak-tool/network_gui.py:65
+#: usr/share/archlinux-tweak-tool/network_gui.py:445
 msgid "Network"
 msgstr ""
 
@@ -861,6 +867,7 @@ msgid "Services"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/gui.py:504
+#: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr ""
 
@@ -1617,6 +1624,216 @@ msgstr ""
 msgid "<small>Current: {entry_id}</small>"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/locale_gui.py:16
+msgid "Locale, Keyboard & Timezone"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:30
+msgid "<b>Current Settings</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:38
+msgid "System Locale:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:48
+msgid "Language (LANGUAGE):"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:58
+msgid "Console Keymap:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:68
+msgid "X11 Layout:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:78
+msgid "Timezone:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:89
+msgid "<b>System Locale</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:99
+#: usr/share/archlinux-tweak-tool/locale_gui.py:145
+#: usr/share/archlinux-tweak-tool/locale_gui.py:182
+#: usr/share/archlinux-tweak-tool/locale_gui.py:217
+#: usr/share/archlinux-tweak-tool/locale_gui.py:261
+#: usr/share/archlinux-tweak-tool/locale_gui.py:301
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
+#: usr/share/archlinux-tweak-tool/themes_gui.py:101
+msgid "Apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:112
+msgid "<b>Individual Categories</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:122
+msgid ""
+"Override single categories while keeping your system language — for example "
+"English with European numbers, currency and date formatting. \"Use LANG "
+"(default)\" leaves a category following your LANG."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:131
+msgid "Numbers (LC_NUMERIC):"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:132
+msgid "Currency (LC_MONETARY):"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:133
+msgid "Date & time (LC_TIME):"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:154
+msgid "Reset all to LANG"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:166
+msgid "<b>Generate New Locale</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:173
+msgid "Load Available Locales"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:207
+msgid "<b>Console Keyboard (TTY)</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:220
+msgid "Sync from X11"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:234
+msgid "<b>X11 / Wayland Keyboard</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:242
+msgid "Layout:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:252
+msgid "Variant:"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:291
+msgid "<b>Timezone</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:16
+msgid "Use LANG (default)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:111
+msgid "No locale variables to set"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:122
+#: usr/share/archlinux-tweak-tool/locale_settings.py:283
+#: usr/share/archlinux-tweak-tool/locale_settings.py:350
+#: usr/share/archlinux-tweak-tool/locale_settings.py:511
+#, python-brace-format
+msgid "Failed: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:147
+#: usr/share/archlinux-tweak-tool/locale_settings.py:188
+msgid "(not set)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:218
+#: usr/share/archlinux-tweak-tool/locale_settings.py:241
+#: usr/share/archlinux-tweak-tool/locale_settings.py:261
+#: usr/share/archlinux-tweak-tool/locale_settings.py:292
+#: usr/share/archlinux-tweak-tool/locale_settings.py:336
+#: usr/share/archlinux-tweak-tool/locale_settings.py:501
+msgid "Applying…"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:224
+#, python-brace-format
+msgid "System locale set to {locale} — log out to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:248
+#, python-brace-format
+msgid "{category} reset to follow LANG"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:252
+#, python-brace-format
+msgid "{category} set to {locale}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:267
+msgid "Per-category locale overrides reset to LANG"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:279
+#: usr/share/archlinux-tweak-tool/locale_settings.py:280
+#, python-brace-format
+msgid "Console keymap set to {keymap}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:299
+msgid "Syncing…"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:306
+msgid "No X11 layout set — cannot sync"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:311
+msgid "Keymap list not loaded yet — cannot sync"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#, python-brace-format
+msgid "No TTY keymap matching '{layout}'"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:344
+#: usr/share/archlinux-tweak-tool/locale_settings.py:347
+#, python-brace-format
+msgid "X11 layout set to {layout}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:437
+msgid "No locale selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:441
+#, python-brace-format
+msgid "Generating {locale} in terminal…"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:473
+#, python-brace-format
+msgid "Generating locale {locale}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:478
+msgid "Failed to update /etc/locale.gen"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:488
+#, python-brace-format
+msgid "Locale {locale} generated and set — log out to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:507
+#: usr/share/archlinux-tweak-tool/locale_settings.py:508
+#, python-brace-format
+msgid "Timezone set to {timezone}"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/maintenance.py:330
 msgid "Select a cursor theme first"
 msgstr ""
@@ -1629,6 +1846,8 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:424
+#: usr/share/archlinux-tweak-tool/sddm.py:347
+#: usr/share/archlinux-tweak-tool/sddm.py:371
 msgid "Failed!!"
 msgstr ""
 
@@ -2090,17 +2309,13 @@ msgstr ""
 msgid "Choose the number of parallel downloads for pacman"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
-#: usr/share/archlinux-tweak-tool/themes_gui.py:101
-msgid "Apply"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:332
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:136
 msgid "Install Bibata cursors"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:336
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:140
 msgid "Remove Bibata cursors"
 msgstr ""
 
@@ -2162,6 +2377,290 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:510
 msgid "Boot / Initramfs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:12
+msgid "1. Install the samba server - <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:14
+#: usr/share/archlinux-tweak-tool/network_gui.py:246
+msgid "1. Install the samba server"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:17
+msgid "Discover other computers in your network - <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:19
+#: usr/share/archlinux-tweak-tool/network_gui.py:126
+msgid "Discover other computers in your network"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:22
+#: usr/share/archlinux-tweak-tool/network_gui.py:311
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:913
+msgid "Disable Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:22
+#: usr/share/archlinux-tweak-tool/network_gui.py:311
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:906
+msgid "Enable Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:26
+#: usr/share/archlinux-tweak-tool/network_gui.py:373
+#: usr/share/archlinux-tweak-tool/services.py:806
+msgid "Block network discovery (mDNS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:27
+#: usr/share/archlinux-tweak-tool/network_gui.py:374
+#: usr/share/archlinux-tweak-tool/services.py:806
+msgid "Allow network discovery (mDNS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:32
+#: usr/share/archlinux-tweak-tool/network_gui.py:378
+#: usr/share/archlinux-tweak-tool/services.py:811
+msgid "Block Samba file sharing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:33
+#: usr/share/archlinux-tweak-tool/network_gui.py:379
+#: usr/share/archlinux-tweak-tool/services.py:811
+msgid "Allow Samba file sharing"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:41
+#: usr/share/archlinux-tweak-tool/network_gui.py:398
+#: usr/share/archlinux-tweak-tool/services.py:971
+msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:42
+#: usr/share/archlinux-tweak-tool/network_gui.py:405
+#: usr/share/archlinux-tweak-tool/services.py:973
+msgid "Launch firewall-config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:44
+#: usr/share/archlinux-tweak-tool/network_gui.py:400
+msgid "Graphical firewall editor (firewall-config)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:45
+#: usr/share/archlinux-tweak-tool/network_gui.py:405
+msgid "Install firewall-config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:53
+#: usr/share/archlinux-tweak-tool/services.py:602
+#: usr/share/archlinux-tweak-tool/services.py:608
+#: usr/share/archlinux-tweak-tool/services.py:780
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services_gui.py:269
+#: usr/share/archlinux-tweak-tool/services_gui.py:275
+#: usr/share/archlinux-tweak-tool/services_gui.py:335
+#: usr/share/archlinux-tweak-tool/services_gui.py:341
+#: usr/share/archlinux-tweak-tool/services_gui.py:535
+msgid "<b>active</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:53
+#: usr/share/archlinux-tweak-tool/services.py:604
+#: usr/share/archlinux-tweak-tool/services.py:610
+#: usr/share/archlinux-tweak-tool/services.py:780
+#: usr/share/archlinux-tweak-tool/services.py:782
+#: usr/share/archlinux-tweak-tool/services.py:784
+#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services_gui.py:271
+#: usr/share/archlinux-tweak-tool/services_gui.py:277
+#: usr/share/archlinux-tweak-tool/services_gui.py:337
+#: usr/share/archlinux-tweak-tool/services_gui.py:343
+#: usr/share/archlinux-tweak-tool/services_gui.py:537
+msgid "inactive"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:55
+#: usr/share/archlinux-tweak-tool/services.py:788
+#, python-brace-format
+msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:109
+msgid "<b>Network Discovery</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:117
+msgid "<b>✓ Network discovery installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:119
+msgid "✗ Network discovery not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:127
+msgid "Install network discovery"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:129
+msgid "Uninstall network discovery"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:144
+msgid "<b>Name Resolution</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:151
+msgid "Select hosts: line for name resolution (connect to computers/NAS)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:159
+msgid "Kiro default"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:160
+msgid "Standard (systemd default)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:161
+msgid "With mdns + wins"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:162
+msgid "With mdns_minimal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:163
+msgid "With mdns4_minimal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:164
+msgid "Custom order (no systemd)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:190
+msgid "Apply selected nsswitch.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:192
+msgid "Reset to your default nsswitch.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:202
+msgid "Edit the /etc/nsswitch.conf in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:227
+msgid "<b>Samba File Sharing</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:234
+msgid ""
+"You install a samba server if you need to share a folder and its contents in "
+"your home network\n"
+"The purpose is to create <b>one</b> shared folder - the current user can "
+"later access this folder from other computers\n"
+"We will create the folder 'Shared' in your home directory if it is not "
+"already there\n"
+" "
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:247
+msgid "Install Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:249
+msgid "Uninstall Samba"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:264
+msgid "2. Apply the configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:270
+msgid "Apply default samba.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:272
+msgid "Reset to your default samba.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:282
+msgid "Edit samba.conf in terminal"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:291
+msgid ""
+"3. Create a password for the current user to be able to access the Samba "
+"server"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:298
+msgid "Create a password for the current user (pop-up)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:306
+msgid "4. Start the Samba service"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:316
+msgid "Restart Samba (smb + nmb)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:324
+msgid "You can now reboot and enjoy the <b>'Shared'</b> folder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:349
+msgid "<b>Firewall</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:361
+#: usr/share/archlinux-tweak-tool/services.py:799
+msgid ""
+"Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
+"you protected."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:363
+#: usr/share/archlinux-tweak-tool/services.py:801
+msgid "Firewall (firewalld) is <b>inactive</b>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:370
+#: usr/share/archlinux-tweak-tool/services.py:796
+msgid "Disable firewall"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:370
+#: usr/share/archlinux-tweak-tool/services.py:796
+msgid "Enable firewall"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:416
+msgid ""
+"With the Avahi daemon (network discovery) running on both the server and "
+"client,\n"
+"the file manager on the client should automatically find the server.\n"
+"Firewall: a server sharing files needs both 'Allow network discovery (mDNS)' "
+"and 'Allow Samba file sharing'.\n"
+"A client only needs 'Allow network discovery (mDNS)' — it connects outward, "
+"so Samba does not need opening on the client."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:438
+msgid "firewalld is <b>not installed</b> — no firewall controls available."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/network_gui.py:447
+msgid "Firewall"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/packages.py:316
@@ -2379,6 +2878,7 @@ msgid ""
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:24
+#: usr/share/archlinux-tweak-tool/zsh_theme.py:62
 msgid "Settings Saved Successfully"
 msgstr ""
 
@@ -3427,6 +3927,673 @@ msgstr ""
 msgid "Storage & Memory"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:39
+msgid "<b>Install / Remove Plymouth</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:49
+msgid ""
+"Install adds the plymouth hook to <tt>/etc/mkinitcpio.conf</tt> and rebuilds "
+"initramfs.\n"
+"Remove strips the hook, optionally cleans <tt>quiet splash</tt> from the "
+"kernel cmdline,\n"
+"optionally removes <tt>plymouth-theme-*</tt> packages, and rebuilds "
+"initramfs.\n"
+"Every step is shown in the terminal — prompts ask before destructive cleanup."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:59
+msgid "Install Plymouth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:61
+msgid "Remove Plymouth"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:66
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:55
+msgid "<b>Installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:84
+msgid "<b>Bootloader Integration</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:95
+msgid "Detected bootloader"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:121
+msgid "Add quiet splash to cmdline + entries"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:134
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1000
+msgid "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contains <tt>quiet splash</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:138
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1004
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> <tt>/etc/kernel/cmdline</"
+"tt> is missing <tt>quiet splash</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:142
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1008
+msgid "<b>OK:</b> all boot entries contain <tt>quiet splash</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:147
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1013
+#, python-brace-format
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> {count} boot entry "
+"missing <tt>quiet splash</tt>."
+msgid_plural ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> {count} boot entries "
+"missing <tt>quiet splash</tt>."
+msgstr[0] ""
+msgstr[1] ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:170
+msgid "Add quiet splash and run grub-mkconfig"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:176
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1192
+msgid ""
+"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contains <tt>quiet splash</"
+"tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:180
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> "
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
+"<tt>quiet splash</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:200
+msgid ""
+"Add <tt>quiet splash</tt> to the <tt>cmdline</tt>\n"
+"in your limine configuration file <tt>limine.conf</tt>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:206
+msgid ""
+"Add <tt>quiet splash</tt> to the <tt>options</tt> line\n"
+"in your rEFInd stanza (<tt>/boot/EFI/refind/refind.conf</tt>)."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:221
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> In <tt>/etc/"
+"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> appears before "
+"<tt>plymouth</tt>.\n"
+"Move <tt>plymouth</tt> before <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</"
+"tt> so the splash screen renders correctly."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
+msgid "<b>Early KMS</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:255
+msgid "Detected GPU"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:258
+msgid "Not detected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:272
+#, python-brace-format
+msgid "Add {module} to MODULES and rebuild initramfs"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:282
+msgid ""
+"NVIDIA early KMS setup varies by driver (open vs proprietary).\n"
+"See the <tt>plymouth</tt> section of the Arch Wiki for your driver."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:290
+#, python-brace-format
+msgid ""
+"Dracut auto-detects KMS modules in most cases.\n"
+"For forced loading add e.g. <tt>force_drivers+=\" amdgpu \"</tt> to a file "
+"in\n"
+"<tt>/etc/dracut.conf.d/</tt> and run <tt>{command}</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:305
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1134
+#, python-brace-format
+msgid ""
+"<b>OK:</b> <tt>{module}</tt> is already in <tt>MODULES</tt> — early KMS "
+"active."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:312
+#, python-brace-format
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> <tt>{module}</tt> not in "
+"<tt>MODULES</tt> in <tt>/etc/mkinitcpio.conf</tt>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:348
+msgid "<b>Installed themes</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:358
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> plymouth dracut module "
+"not active — themes will not render at boot."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:361
+msgid "Enable plymouth dracut module"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:366
+msgid ""
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> plymouth hook not found "
+"in /etc/mkinitcpio.conf — themes will not render at boot."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:369
+msgid "Add plymouth hook to mkinitcpio.conf"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:391
+msgid "<b>Active theme</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:402
+msgid "Select theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:411
+#: usr/share/archlinux-tweak-tool/themer_gui.py:160
+#: usr/share/archlinux-tweak-tool/themer_gui.py:316
+#: usr/share/archlinux-tweak-tool/themer_gui.py:362
+msgid "Apply theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:421
+#, python-brace-format
+msgid ""
+"Applying a theme sets it with <tt>plymouth-set-default-theme</tt> then\n"
+"rebuilds the initramfs with <tt>{command}</tt>. This takes a few seconds."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:430
+#, python-brace-format
+msgid "Reset to {distro} default"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:446
+msgid "<b>Available themes</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:451
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:333
+msgid "Refresh list"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:461
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:342
+msgid "Select package"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:470
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:346
+msgid "Install theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:479
+msgid ""
+"<span foreground=\"#FFA500\"><b>Note:</b></span> Installing a theme does not "
+"activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:490
+msgid "<i>No AUR helper (paru/yay) or active repo found</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:559
+msgid "Installing Plymouth..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:637
+msgid "Removing Plymouth..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:825
+#, python-brace-format
+msgid "Applying Plymouth theme: {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:868
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:410
+#, python-brace-format
+msgid "Installing: {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:889
+#, python-brace-format
+msgid "Resetting Plymouth theme to {name}..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:920
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:460
+msgid "Refreshing available themes..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:952
+msgid "Adding quiet splash to cmdline + entries..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1027
+msgid "Writing dracut conf and rebuilding initramfs..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1045
+msgid "Adding plymouth hook and rebuilding initramfs..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1102
+#, python-brace-format
+msgid "Adding {module} to MODULES..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/plymouth_gui.py:1146
+msgid "Patching GRUB config and regenerating..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:347
+#: usr/share/archlinux-tweak-tool/sddm.py:371
+msgid "There seems to have been a problem in \"set_sddm_value\""
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:494
+msgid ""
+"ATT SDDM configuration applied.\n"
+"\n"
+"Restarting ATT..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:494
+#: usr/share/archlinux-tweak-tool/sddm.py:524
+msgid "Success"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:498
+#: usr/share/archlinux-tweak-tool/sddm.py:528
+#: usr/share/archlinux-tweak-tool/sddm.py:683
+#: usr/share/archlinux-tweak-tool/sddm.py:686
+#: usr/share/archlinux-tweak-tool/shell.py:88
+#: usr/share/archlinux-tweak-tool/shell.py:114
+#: usr/share/archlinux-tweak-tool/shell.py:169
+#: usr/share/archlinux-tweak-tool/shell.py:196
+#: usr/share/archlinux-tweak-tool/shell.py:312
+#: usr/share/archlinux-tweak-tool/shell.py:343
+#: usr/share/archlinux-tweak-tool/themer.py:388
+#: usr/share/archlinux-tweak-tool/themer.py:412
+#: usr/share/archlinux-tweak-tool/themer.py:439
+#: usr/share/archlinux-tweak-tool/themer.py:462
+#: usr/share/archlinux-tweak-tool/themer.py:485
+#: usr/share/archlinux-tweak-tool/themer.py:505
+#: usr/share/archlinux-tweak-tool/themer.py:528
+#: usr/share/archlinux-tweak-tool/themer.py:546
+#: usr/share/archlinux-tweak-tool/themer.py:562
+#: usr/share/archlinux-tweak-tool/themer.py:580
+#: usr/share/archlinux-tweak-tool/user.py:61
+#: usr/share/archlinux-tweak-tool/user.py:84
+#: usr/share/archlinux-tweak-tool/user.py:99
+msgid "Error"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:498
+#: usr/share/archlinux-tweak-tool/sddm.py:528
+#, python-brace-format
+msgid "Failed to apply configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:511
+msgid "No Backup Found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:512
+msgid ""
+"No backup files found.\n"
+"\n"
+"Apply the ATT configuration first to create a backup."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:524
+msgid ""
+"Original SDDM configuration restored.\n"
+"\n"
+"Restarting ATT..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:535
+#, python-brace-format
+msgid "{message} — click 'Apply the above mentioned settings' to save"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:543
+msgid "Autologin disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:543
+msgid "Autologin enabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:552
+msgid "Choose a folder with wallpapers"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:577
+#: usr/share/archlinux-tweak-tool/wallpaper.py:478
+msgid "Folder not found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:681
+msgid "SDDM settings applied successfully"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:683
+msgid "Could not read SDDM configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:686
+#, python-brace-format
+msgid "Failed to apply SDDM settings: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:692
+msgid "sddm is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:697
+msgid "Enable Chaotic AUR first — sddm-git is not in standard repos"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:755
+msgid "sddm-git installed and enabled — please reboot"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:759
+msgid "sddm-git installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:785
+msgid "First choose a wallpaper image"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:789
+#: usr/share/archlinux-tweak-tool/sddm.py:826
+#, python-brace-format
+msgid "{theme} theme not found - install it first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:808
+msgid "Simplicity wallpaper applied"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:811
+msgid "Failed to apply wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:830
+msgid "No backup found - apply a wallpaper first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:843
+#: usr/share/archlinux-tweak-tool/sddm.py:849
+msgid "Default wallpaper restored"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:852
+msgid "Failed to restore wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:860
+msgid "Bibata cursors already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:862
+msgid "Opening terminal to install Bibata cursors..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:879
+msgid "Bibata cursors not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:881
+msgid "Opening terminal to remove Bibata cursors..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:898
+msgid "Bibata extra cursors already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:900
+msgid "Opening terminal to install Bibata extra cursors..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:917
+msgid "Bibata extra cursors not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:919
+msgid "Opening terminal to remove Bibata extra cursors..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:936
+msgid "Opening terminal to install Simplicity theme..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:974
+msgid "Opening terminal to remove Simplicity theme..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:1006
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:268
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:194
+msgid "No wallpaper selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:1028
+msgid ""
+"This will reset your SDDM configuration to the ATT defaults.\n"
+"\n"
+"• Backs up your current /etc/sddm.conf.d/ settings\n"
+"• Applies the default SDDM configuration from Kiro\n"
+"\n"
+"Your current settings will be saved as a backup before any changes are made."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:1033
+msgid "Fix SDDM Configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:1037
+msgid "Opening terminal to fix SDDM config..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm.py:1051
+msgid "SDDM configuration fixed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:17
+msgid "Sddm (active)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:19
+msgid "Sddm (inactive)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:31
+msgid "Configuration Setup"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:36
+msgid ""
+"We recommend to use the default sddm configuration setup\n"
+"Sddm configuration split into two files: /etc/sddm.conf and /etc/sddm.conf.d/"
+"kde_settings.conf\n"
+"/etc/sddm.conf.d/kde_settings.conf contains all the parameters - We will "
+"backup your files\n"
+"You can also restore your own original configuration if you want to - auto "
+"restart ATT\n"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:48
+msgid "Apply the Sddm configuration from ATT - auto restart ATT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:51
+msgid "Apply your original Sddm configuration - auto restart ATT"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:72
+msgid "Login Settings"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:76
+msgid "Auto login enabled or disabled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:88
+msgid "Autologin into this desktop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:103
+msgid "Theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:133
+msgid "Cursor Settings"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:147
+msgid "Install Bibata extra cursors"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:151
+msgid "Remove Bibata extra cursors"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:159
+msgid "Select your cursor theme for the login screen e.g. Bibata-Modern-Ice"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:165
+msgid "Cursor theme only for SDDM (global cursor setting in maintenance)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:193
+msgid "<b>Apply the above mentioned settings</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:199
+msgid "Install and enable sddm-git (when not yet active)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:206
+#, python-brace-format
+msgid "Wallpaper for {theme} theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:210
+msgid "Set background wallpaper for the Simplicity Sddm theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:214
+msgid "Install Simplicity theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:219
+msgid "Remove Simplicity theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:227
+msgid "Select folder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:237
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:156
+msgid "Load"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:242
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:161
+msgid "Stop"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:296
+#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:207
+msgid "Apply wallpaper"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:301
+msgid "Restore default"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:305
+msgid "Fix SDDM config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:328
+msgid "Available SDDM Themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:362
+msgid "Include AUR packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:375
+msgid "Sort by recently updated (AUR)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:437
+msgid "Remove installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:441
+msgid "Remove theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:482
+msgid "Fetching AUR package dates..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:508
+#, python-brace-format
+msgid "No package found for theme: {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:511
+#, python-brace-format
+msgid "Removing: {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:569
+msgid "Sddm is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:580
+msgid "<b>Sddm does not seem to be installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/sddm_gui.py:583
+msgid "Install sddm-git and enable it"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/services.py:34
 #, python-brace-format
 msgid "Nsswitch: {label}"
@@ -3620,34 +4787,6 @@ msgstr ""
 msgid "cups-pdf removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:602
-#: usr/share/archlinux-tweak-tool/services.py:608
-#: usr/share/archlinux-tweak-tool/services.py:780
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
-#: usr/share/archlinux-tweak-tool/services_gui.py:269
-#: usr/share/archlinux-tweak-tool/services_gui.py:275
-#: usr/share/archlinux-tweak-tool/services_gui.py:335
-#: usr/share/archlinux-tweak-tool/services_gui.py:341
-#: usr/share/archlinux-tweak-tool/services_gui.py:535
-msgid "<b>active</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:604
-#: usr/share/archlinux-tweak-tool/services.py:610
-#: usr/share/archlinux-tweak-tool/services.py:780
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
-#: usr/share/archlinux-tweak-tool/services_gui.py:271
-#: usr/share/archlinux-tweak-tool/services_gui.py:277
-#: usr/share/archlinux-tweak-tool/services_gui.py:337
-#: usr/share/archlinux-tweak-tool/services_gui.py:343
-#: usr/share/archlinux-tweak-tool/services_gui.py:537
-msgid "inactive"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/services.py:614
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
@@ -3710,55 +4849,6 @@ msgstr ""
 msgid "system-config-printer removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:788
-#, python-brace-format
-msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:793
-#: usr/share/archlinux-tweak-tool/services.py:913
-msgid "Disable Samba"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:793
-#: usr/share/archlinux-tweak-tool/services.py:906
-msgid "Enable Samba"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:796
-msgid "Disable firewall"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:796
-msgid "Enable firewall"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:799
-msgid ""
-"Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
-"you protected."
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:801
-msgid "Firewall (firewalld) is <b>inactive</b>."
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:806
-msgid "Allow network discovery (mDNS)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:806
-msgid "Block network discovery (mDNS)"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:811
-msgid "Allow Samba file sharing"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:811
-msgid "Block Samba file sharing"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/services.py:857
 msgid "Nsswitch config reset"
 msgstr ""
@@ -3806,14 +4896,6 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/services.py:956
 msgid "Launching firewall-config..."
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:971
-msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/services.py:973
-msgid "Launch firewall-config"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/services.py:974
@@ -4059,6 +5141,707 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/services_gui.py:736
 #, python-brace-format
 msgid "<b>{name}</b>  <span foreground='#4e9a06'>● custom</span>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:21
+#: usr/share/archlinux-tweak-tool/shell_gui.py:290
+msgid "Bash and bash-completion are already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:24
+#: usr/share/archlinux-tweak-tool/shell_gui.py:292
+msgid "Bash is already installed and bash-completion is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:32
+msgid "Installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:39
+msgid "bash and bash-completion installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:51
+#: usr/share/archlinux-tweak-tool/shell.py:624
+#: usr/share/archlinux-tweak-tool/shell.py:670
+#: usr/share/archlinux-tweak-tool/shell.py:693
+msgid "Removal started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:58
+msgid "bash-completion removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:81
+msgid "ATT ~/.bashrc applied — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:88
+#, python-brace-format
+msgid "Failed to apply bash configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:109
+msgid "~/.bashrc restored — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:114
+#, python-brace-format
+msgid "Failed to restore bash configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:159
+msgid "ATT config.fish applied — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:164
+msgid "ATT config.fish source not found"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:169
+#, python-brace-format
+msgid "Failed to apply fish configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:191
+msgid "config.fish restored — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:196
+#, python-brace-format
+msgid "Failed to restore fish configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:207
+msgid "Fish is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:210
+msgid "Installing fish..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:217
+msgid "Fish installed — page updated"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:218
+#: usr/share/archlinux-tweak-tool/shell_gui.py:487
+msgid "Fish is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:233
+#: usr/share/archlinux-tweak-tool/shell.py:257
+msgid "Fish is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:236
+#: usr/share/archlinux-tweak-tool/shell.py:260
+msgid "Removing fish - terminal opened"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:243
+#: usr/share/archlinux-tweak-tool/shell.py:267
+msgid "Fish removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:268
+msgid "Fish is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:305
+msgid "ATT ~/.zshrc applied — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:312
+#, python-brace-format
+msgid "Failed to apply zsh configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:337
+msgid "~/.zshrc restored — log out and back in to apply"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:343
+#, python-brace-format
+msgid "Failed to restore zsh configuration: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:355
+#, python-brace-format
+msgid "Zsh theme set to {name}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:370
+msgid "oh-my-zsh-git already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:375
+msgid "No AUR helper found — install yay or paru first"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:380
+msgid "oh-my-zsh-git installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:387
+msgid "oh-my-zsh-git installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:415
+#: usr/share/archlinux-tweak-tool/shell.py:462
+msgid "No packages selected"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:423
+#, python-brace-format
+msgid "Enable chaotic-aur first: {packages}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:427
+#: usr/share/archlinux-tweak-tool/shell.py:466
+msgid "Opening terminal..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:438
+msgid "Extra shell applications installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:478
+msgid "Extra shell applications removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:508
+msgid "zsh is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:511
+msgid "Installing zsh..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:519
+msgid "zsh installed — page updated"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:520
+#: usr/share/archlinux-tweak-tool/shell_gui.py:427
+msgid "Zsh is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:524
+msgid "zsh installation failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:536
+msgid "Zsh is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:539
+msgid "Removing zsh - terminal opened"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:547
+msgid "Zsh removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:548
+msgid "Zsh is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:552
+msgid "Zsh removal failed or was cancelled"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:561
+#: usr/share/archlinux-tweak-tool/shell_gui.py:16
+msgid "Zsh-completion is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:563
+#: usr/share/archlinux-tweak-tool/shell_gui.py:18
+msgid "Zsh-completion is <b>not</b> installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:568
+#: usr/share/archlinux-tweak-tool/shell_gui.py:35
+msgid "Zsh-syntax-highlighting is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:570
+#: usr/share/archlinux-tweak-tool/shell_gui.py:37
+msgid "Zsh-syntax-highlighting is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:575
+#: usr/share/archlinux-tweak-tool/shell_gui.py:70
+msgid "Oh-my-zsh-git is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:577
+#: usr/share/archlinux-tweak-tool/shell_gui.py:72
+msgid "Oh-my-zsh-git is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:597
+msgid "zsh-completions already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:601
+msgid "zsh-completions installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:608
+msgid "zsh-completions installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:620
+msgid "zsh-completions is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:631
+msgid "zsh-completions removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:643
+msgid "zsh-syntax-highlighting already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:647
+msgid "zsh-syntax-highlighting installation started"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:654
+msgid "zsh-syntax-highlighting installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:666
+msgid "zsh-syntax-highlighting is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:677
+msgid "zsh-syntax-highlighting removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:689
+msgid "oh-my-zsh-git is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:700
+msgid "oh-my-zsh-git removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:712
+msgid "Alacritty is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:714
+msgid "Alacritty is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:719
+msgid "alacritty-tweak-tool is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:721
+msgid "alacritty-tweak-tool is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:732
+msgid "alacritty is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:736
+msgid "Opening terminal to install alacritty"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:744
+msgid "alacritty installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:755
+msgid "alacritty is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:759
+msgid "Opening terminal to remove alacritty"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:767
+msgid "alacritty removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:778
+msgid "alacritty-tweak-tool is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:782
+msgid "Opening terminal to install alacritty-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:791
+msgid "alacritty-tweak-tool installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:802
+msgid "alacritty-tweak-tool is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:806
+msgid "Opening terminal to remove alacritty-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:815
+msgid "alacritty-tweak-tool removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:832
+#: usr/share/archlinux-tweak-tool/software.py:1237
+msgid "Alacritty Tweak Tool launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:835
+msgid "alacritty-tweak-tool not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:840
+msgid "fish-tweak-tool is <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:842
+msgid "fish-tweak-tool is <b>not installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:853
+msgid "fish-tweak-tool is already installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:857
+msgid "Opening terminal to install fish-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:866
+msgid "fish-tweak-tool installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:877
+msgid "fish-tweak-tool is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:881
+msgid "Opening terminal to remove fish-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:890
+msgid "fish-tweak-tool removed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:907
+msgid "Fish Tweak Tool launched"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell.py:910
+msgid "fish-tweak-tool not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:24
+msgid "Install zsh-completion"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:26
+msgid "Remove zsh-completion"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:43
+msgid "Install Zsh-syntax-highlighting"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:47
+msgid "Remove Zsh-syntax-highlighting"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:78
+msgid "Install Oh-my-zsh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:80
+msgid "Remove Oh-my-zsh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:90
+#: usr/share/archlinux-tweak-tool/shell_gui.py:310
+#: usr/share/archlinux-tweak-tool/shell_gui.py:507
+msgid "<b>ATT config</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:100
+msgid "Overwrite your ~/.zshrc with the ATT zshrc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:106
+msgid "Install the ATT zshrc configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:108
+msgid "Reset back to the original ~/.zshrc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:118
+msgid "<b>Themes</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:128
+msgid "Zsh themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:140
+msgid "Apply Zsh theme"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:181
+#: usr/share/archlinux-tweak-tool/shell_gui.py:338
+#: usr/share/archlinux-tweak-tool/shell_gui.py:533
+msgid "<b>Change shell</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:192
+msgid ""
+"Restart your terminal to apply the new Zsh theme\n"
+"<b>If you just switched shell, log-out first</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:199
+msgid "Apply zsh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:275
+#: usr/share/archlinux-tweak-tool/shell_gui.py:416
+#: usr/share/archlinux-tweak-tool/shell_gui.py:476
+msgid "<b>Installation</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:286
+msgid "Bash is already <b>installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:288
+#: usr/share/archlinux-tweak-tool/shell_gui.py:377
+msgid "Bash is not installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:298
+msgid "Install bash-completion"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:300
+msgid "Remove bash-completion"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:320
+msgid "Overwrite your ~/.bashrc with the ATT bashrc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:326
+msgid "Install the ATT bashrc configuration"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:328
+msgid "Reset back to your original ~/.bashrc"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:348
+msgid "<b>If you just switched shell, log-out first</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:354
+msgid "Apply bash"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:388
+msgid "<b>Bash does not seem to be installed</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:433
+msgid "Install Zsh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:435
+msgid "Remove Zsh"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:493
+msgid "Install Fish"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:495
+msgid "Remove Fish"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:517
+msgid "Overwrite your ~/.config/fish/config.fish with the ATT config"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:523
+msgid "Install the ATT config.fish"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:525
+msgid "Reset back to the original ~/.config/fish/config.fish"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:544
+msgid ""
+"Restart your terminal to apply the new Fish config\n"
+"<b>If you just switched shell, log-out first</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:551
+msgid "Apply fish"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:569
+msgid "<b>Fish Tweak Tool</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:586
+msgid "Install fish-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:588
+msgid "Remove fish-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:596
+msgid "<i>Enable the Nemesis repo (Pacman page) to install fish-tweak-tool</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:603
+msgid "Launch Fish Tweak Tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:615
+msgid ""
+"<b>Set up your fish shell in clicks — no config files to edit.</b>\n"
+"\n"
+"• <b>Presets</b> — apply a whole look (prompt + plugins + theme + greeting) "
+"in one click\n"
+"• <b>Prompts</b> — install Tide, Hydro or Pure, or pick a built-in style "
+"(one active at a time)\n"
+"• <b>Plugins</b> — toggle the must-haves via fisher: fzf, autopair, sponge, "
+"puffer-fish\n"
+"• <b>Themes</b> — 25 colour themes with a live hover preview and dark / "
+"light variants\n"
+"• <b>Settings</b> — greeting (fastfetch or custom), cursor shape, one-click "
+"backup &amp; restore\n"
+"• <b>No black box</b> — every change runs in a terminal so you see the exact "
+"command\n"
+"\n"
+"<i>Your fish config is always backed up before any change.</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:645
+msgid ""
+"The shell configurations of the ATT contain aliases that require certain "
+"applications\n"
+"\n"
+"Here you can select the missing applications and install them\n"
+"Activate the nemesis repo (when needed) to install all of them\n"
+"\n"
+"Applications that were NOT installed will be <b>unselected</b> again\n"
+"Activate the necessary repos"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:652
+msgid "Select them all"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:695
+msgid "Install packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:701
+msgid "Remove packages"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:738
+msgid "Install Alacritty"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:740
+msgid "Remove Alacritty"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:749
+msgid "<b>Alacritty Tweak Tool</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:766
+msgid "Install alacritty-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:768
+msgid "Remove alacritty-tweak-tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:776
+msgid ""
+"<i>Enable the Nemesis repo (Pacman page) to install alacritty-tweak-tool</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:787
+msgid "<b>Alacritty Tweak Tool - Tab preview</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:796
+msgid "Themes"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:797
+msgid "Appearance"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:798
+msgid "Advanced"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:799
+msgid "Behavior"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:800
+msgid "Creator"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:822
+#, python-brace-format
+msgid "{name} — screenshot coming soon"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:830
+msgid "<b>Launch</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:840
+msgid "Launch Alacritty Tweak Tool"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:854
+msgid ""
+"304 themes to choose from or create your own theme with the click of a button"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:869
+msgid "BASH (active)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:870
+msgid "ZSH (active)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:871
+msgid "FISH (active)"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/shell_gui.py:873
+msgid "EXTRA"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/software.py:23
@@ -4651,10 +6434,6 @@ msgstr ""
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/software.py:1237
-msgid "Alacritty Tweak Tool launched"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/software.py:1240
 msgid "alacritty-tweak-tool not found"
 msgstr ""
@@ -5045,19 +6824,6 @@ msgid ""
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/themer.py:388
-#: usr/share/archlinux-tweak-tool/themer.py:412
-#: usr/share/archlinux-tweak-tool/themer.py:439
-#: usr/share/archlinux-tweak-tool/themer.py:462
-#: usr/share/archlinux-tweak-tool/themer.py:485
-#: usr/share/archlinux-tweak-tool/themer.py:505
-#: usr/share/archlinux-tweak-tool/themer.py:528
-#: usr/share/archlinux-tweak-tool/themer.py:546
-#: usr/share/archlinux-tweak-tool/themer.py:562
-#: usr/share/archlinux-tweak-tool/themer.py:580
-msgid "Error"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themer.py:388
 #, python-brace-format
 msgid "Failed to toggle polybar: {error}"
 msgstr ""
@@ -5148,12 +6914,6 @@ msgstr ""
 msgid ""
 "Select theme\n"
 "<small>(install desktop first to be able to select a theme)</small>"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/themer_gui.py:160
-#: usr/share/archlinux-tweak-tool/themer_gui.py:316
-#: usr/share/archlinux-tweak-tool/themer_gui.py:362
-msgid "Apply theme"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:162
@@ -5378,6 +7138,106 @@ msgstr ""
 msgid "Show the installed themes"
 msgstr ""
 
+#: usr/share/archlinux-tweak-tool/user.py:58
+msgid "User has been created"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:61
+#, python-brace-format
+msgid "Failed to create user: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:64
+#: usr/share/archlinux-tweak-tool/user.py:65
+msgid "Passwords are not the same"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:65
+#: usr/share/archlinux-tweak-tool/user.py:69
+msgid "Message"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:68
+#: usr/share/archlinux-tweak-tool/user.py:69
+msgid "First fill in all the fields"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:81
+msgid "User has been deleted"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:84
+#: usr/share/archlinux-tweak-tool/user.py:99
+#, python-brace-format
+msgid "Failed to delete user: {error}"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user.py:96
+msgid "User and home folder has been deleted"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:13
+msgid "User management"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:25
+msgid "<b>Create user</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:31
+msgid "    Name"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:36
+msgid "    Username"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:41
+msgid "    Account type"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:46
+msgid "    Password"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:51
+msgid "    Confirm password"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:85
+msgid ""
+"The following groups are used for an administrator:\n"
+"audio, video, network, storage, rfkill, wheel, autologin, sambashare"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:91
+msgid "Apply settings"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:97
+msgid "<b>Delete user</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:108
+msgid "<b>Beware - you could delete your own user account</b>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:115
+#: usr/share/archlinux-tweak-tool/user_gui.py:116
+msgid "Remove the selected user"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:118
+msgid "Remove the selected user and the home folder"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/user_gui.py:142
+msgid ""
+"On <b>pure Arch Linux</b> remember to 'EDITOR=nano visudo' and uncomment the "
+"line '%wheel ALL=(ALL:ALL) ALL'\n"
+"if you want your users to have administrator rights"
+msgstr ""
+
 #: usr/share/archlinux-tweak-tool/wallpaper.py:124
 msgid "No backup found"
 msgstr ""
@@ -5442,10 +7302,6 @@ msgstr ""
 msgid "Choose a wallpaper folder"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/wallpaper.py:478
-msgid "Folder not found"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/wallpaper.py:565
 msgid "Select a wallpaper first"
 msgstr ""
@@ -5478,10 +7334,6 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:48
 #, python-brace-format
 msgid "Install/launch {name}"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:55
-msgid "<b>Installed</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:64
@@ -5542,30 +7394,22 @@ msgstr ""
 msgid "Known wallpaper folders - pick one to load it"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:156
-msgid "Load"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:161
-msgid "Stop"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:194
-msgid "No wallpaper selected"
-msgstr ""
-
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:202
 msgid "Scale:"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/wallpaper_gui.py:207
-msgid "Apply wallpaper"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:221
 #, python-brace-format
 msgid ""
 "<i>Tip: source {path} in your WM autostart to restore wallpaper on login</i>"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/zsh_theme.py:66
+msgid "Error!!"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/zsh_theme.py:66
+msgid "Something went wrong setting this theme."
 msgstr ""
 
 #: po/archlinux-tweak-tool.desktop.in:2

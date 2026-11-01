@@ -11,6 +11,7 @@ import urllib.parse
 import functions as fn
 import os
 from gi.repository import Gtk, Gio, Gdk, GdkPixbuf, Pango
+from att_i18n import _
 
 _SDDM_AVAILABLE_CACHE = "/etc/att/cache_sddm_available.json"
 _SDDM_THEME_DIR = "/usr/share/sddm/themes"
@@ -343,7 +344,7 @@ def set_sddm_value(self, lists, value, session, state, theme, cursor):
 
     except Exception as error:
         fn.log_error(str(error))
-        fn.messagebox(self, "Failed!!", 'There seems to have been a problem in "set_sddm_value"')
+        fn.messagebox(self, _("Failed!!"), _('There seems to have been a problem in "set_sddm_value"'))
 
 
 def set_user_autologin_value(self, lists, value, session, state):
@@ -367,7 +368,7 @@ def set_user_autologin_value(self, lists, value, session, state):
 
     except Exception as error:
         fn.log_error(str(error))
-        fn.messagebox(self, "Failed!!", 'There seems to have been a problem in "set_sddm_value"')
+        fn.messagebox(self, _("Failed!!"), _('There seems to have been a problem in "set_sddm_value"'))
 
 
 def get_sddm_lines(files):
@@ -490,11 +491,11 @@ def on_click_sddm_reset_original_att(self, _widget=None):
         fn.shutil.copy(fn.sddm_default_d2_kiro, fn.sddm_default_d2)
         set_default_theme()
         fn.log_success("ATT SDDM configuration applied")
-        fn.messagebox(self, "Success", "ATT SDDM configuration applied.\n\nRestarting ATT...")
+        fn.messagebox(self, _("Success"), _("ATT SDDM configuration applied.\n\nRestarting ATT..."))
         fn.restart_program()
     except Exception as error:
         fn.log_error(f"Failed to apply ATT SDDM configuration: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply configuration: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply configuration: {error}").format(error=error))
 
 
 def on_click_sddm_reset_original(self, _widget=None):
@@ -507,8 +508,8 @@ def on_click_sddm_reset_original(self, _widget=None):
             fn.log_warn("No SDDM backup files found")
             fn.messagebox(
                 self,
-                "No Backup Found",
-                "No backup files found.\n\nApply the ATT configuration first to create a backup.",
+                _("No Backup Found"),
+                _("No backup files found.\n\nApply the ATT configuration first to create a backup."),
             )
             return
         if fn.path.isfile(d1_bak):
@@ -520,25 +521,26 @@ def on_click_sddm_reset_original(self, _widget=None):
             fn.log_info_concise(f"  To:   {fn.sddm_default_d2}")
             fn.shutil.copy(d2_bak, fn.sddm_default_d2)
         fn.log_success("Original SDDM configuration restored")
-        fn.messagebox(self, "Success", "Original SDDM configuration restored.\n\nRestarting ATT...")
+        fn.messagebox(self, _("Success"), _("Original SDDM configuration restored.\n\nRestarting ATT..."))
         fn.restart_program()
     except Exception as error:
         fn.log_error(f"Failed to apply original SDDM configuration: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply configuration: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply configuration: {error}").format(error=error))
 
 
 def on_sddm_setting_changed(self, message, *_):
     """Log that a setting changed and prompt the user to apply."""
     fn.log_info(f"{message} — click 'Apply the above mentioned settings' to save")
-    fn.show_in_app_notification(self, f"{message} — click 'Apply the above mentioned settings' to save")
+    fn.show_in_app_notification(
+        self, _("{message} — click 'Apply the above mentioned settings' to save").format(message=message)
+    )
 
 
 def on_autologin_sddm_activated(self, widget, _param_spec=None):
     """Handle autologin switch state change"""
     try:
         is_active = widget.get_active()
-        state_str = "enabled" if is_active else "disabled"
-        on_sddm_setting_changed(self, f"Autologin {state_str}")
+        on_sddm_setting_changed(self, _("Autologin enabled") if is_active else _("Autologin disabled"))
     except Exception as error:
         fn.log_error(f"Failed to configure autologin: {error}")
 
@@ -547,7 +549,7 @@ def on_browse_sddm_folder(self, _widget=None):
     """Open a folder chooser for the SDDM wallpaper directory."""
     fn.log_subsection("Browse SDDM wallpaper folder")
     dialog = Gtk.FileDialog()
-    dialog.set_title("Choose a folder with wallpapers")
+    dialog.set_title(_("Choose a folder with wallpapers"))
     current = self.sddm_folder_entry.get_text().strip()
     start = current if fn.path.isdir(current) else fn.home
     dialog.set_initial_folder(Gio.File.new_for_path(start))
@@ -572,7 +574,7 @@ def on_load_sddm_folder(self, _widget=None):
         _populate_sddm_thumbs(self, folder_path)
     else:
         fn.log_warn(f"SDDM wallpaper folder not found: {folder_path}")
-        fn.show_in_app_notification(self, "Folder not found")
+        fn.show_in_app_notification(self, _("Folder not found"))
 
 
 def on_stop_sddm_loading(self, _widget=None):
@@ -676,23 +678,23 @@ def on_click_sddm_apply(self, _widget=None):
             fn.log_info_concise(f"  Saved to: {fn.sddm_default_d2}")
             fn.debug_print("Config file written successfully")
             fn.log_success("SDDM settings applied successfully")
-            fn.show_in_app_notification(self, "SDDM settings applied successfully")
+            fn.show_in_app_notification(self, _("SDDM settings applied successfully"))
         else:
-            fn.messagebox(self, "Error", "Could not read SDDM configuration")
+            fn.messagebox(self, _("Error"), _("Could not read SDDM configuration"))
     except Exception as error:
         fn.log_error(f"Failed to apply SDDM settings: {error}")
-        fn.messagebox(self, "Error", f"Failed to apply SDDM settings: {error}")
+        fn.messagebox(self, _("Error"), _("Failed to apply SDDM settings: {error}").format(error=error))
 
 
 def _do_install_sddm_git(self, set_graphical_target=False):
     if fn.check_package_installed("sddm-git"):
         fn.log_info("sddm is already installed")
-        fn.GLib.idle_add(fn.show_in_app_notification, self, "sddm is already installed")
+        fn.GLib.idle_add(fn.show_in_app_notification, self, _("sddm is already installed"))
         return
     if not fn.check_chaotic_aur_active():
         fn.log_warn("sddm-git requires Chaotic AUR — enable it first in the Pacman tab")
         fn.GLib.idle_add(
-            fn.show_in_app_notification, self, "Enable Chaotic AUR first — sddm-git is not in standard repos"
+            fn.show_in_app_notification, self, _("Enable Chaotic AUR first — sddm-git is not in standard repos")
         )
         return
     fn.log_subsection("Install and enable sddm-git")
@@ -750,11 +752,11 @@ read -p 'Press Enter to close...'
             fn.invalidate_pkg_cache()
             if fn.check_package_installed("sddm-git"):
                 fn.log_success("sddm-git installed")
-                fn.GLib.idle_add(fn.show_in_app_notification, self, "sddm-git installed and enabled — please reboot")
+                fn.GLib.idle_add(fn.show_in_app_notification, self, _("sddm-git installed and enabled — please reboot"))
                 fn.GLib.idle_add(self.rebuild_sddm_page)
             else:
                 fn.log_warn("sddm-git installation did not complete")
-                fn.GLib.idle_add(fn.show_in_app_notification, self, "sddm-git installation failed or was cancelled")
+                fn.GLib.idle_add(fn.show_in_app_notification, self, _("sddm-git installation failed or was cancelled"))
                 fn.GLib.idle_add(self.rebuild_sddm_page)
         except Exception as error:
             fn.log_error(f"Failed to install sddm-git: {error}")
@@ -780,11 +782,11 @@ def on_set_sddm_wallpaper(self, _widget=None):
 
     path = getattr(self, "login_wallpaper_path", None)
     if not path or not fn.path.isfile(path):
-        fn.show_in_app_notification(self, "First choose a wallpaper image")
+        fn.show_in_app_notification(self, _("First choose a wallpaper image"))
         return
 
     if not fn.path.isdir(simplicity_images):
-        fn.show_in_app_notification(self, f"{theme} theme not found - install it first")
+        fn.show_in_app_notification(self, _("{theme} theme not found - install it first").format(theme=theme))
         return
 
     try:
@@ -803,10 +805,10 @@ def on_set_sddm_wallpaper(self, _widget=None):
         fn.log_info_concise(f"  Theme: {theme}")
         fn.debug_print("[DEBUG] Wallpaper saved and theme config updated")
         fn.log_success("Simplicity wallpaper applied")
-        fn.show_in_app_notification(self, "Simplicity wallpaper applied")
+        fn.show_in_app_notification(self, _("Simplicity wallpaper applied"))
     except Exception as error:
         fn.log_error(str(error))
-        fn.show_in_app_notification(self, "Failed to apply wallpaper")
+        fn.show_in_app_notification(self, _("Failed to apply wallpaper"))
 
 
 def on_restore_sddm_wallpaper(self, _widget=None):
@@ -821,11 +823,11 @@ def on_restore_sddm_wallpaper(self, _widget=None):
     dest_bak = simplicity_images + "/background.jpg-bak"
 
     if not fn.path.isdir(simplicity_images):
-        fn.show_in_app_notification(self, f"{theme} theme not found - install it first")
+        fn.show_in_app_notification(self, _("{theme} theme not found - install it first").format(theme=theme))
         return
 
     if not fn.path.isfile(dest_bak) and not fn.path.isfile(conf_bak):
-        fn.show_in_app_notification(self, "No backup found - apply a wallpaper first")
+        fn.show_in_app_notification(self, _("No backup found - apply a wallpaper first"))
         return
 
     try:
@@ -838,16 +840,16 @@ def on_restore_sddm_wallpaper(self, _widget=None):
         if not fn.path.isfile(conf_bak):
             with open(simplicity_conf, "w", encoding="utf-8") as f:
                 f.write("[General]\nbackground=images/background.jpg\n")
-        self.sddm_wallpaper_lbl.set_text("Default wallpaper restored")
+        self.sddm_wallpaper_lbl.set_text(_("Default wallpaper restored"))
         self.sddm_wallpaper_preview.set_filename(theme_background(theme_dir))
         self.sddm_wallpaper_preview.get_parent().set_visible(True)
         self.login_wallpaper_path = ""
         fn.debug_print("[DEBUG] Backup restored and theme config updated")
         fn.log_success("Default wallpaper restored")
-        fn.show_in_app_notification(self, "Default wallpaper restored")
+        fn.show_in_app_notification(self, _("Default wallpaper restored"))
     except Exception as error:
         fn.log_error(str(error))
-        fn.show_in_app_notification(self, "Failed to restore wallpaper")
+        fn.show_in_app_notification(self, _("Failed to restore wallpaper"))
 
 
 def on_click_install_bibata_cursor(self, _widget=None):
@@ -855,9 +857,9 @@ def on_click_install_bibata_cursor(self, _widget=None):
     fn.log_subsection("Install Bibata Cursors")
     if fn.check_package_installed("bibata-cursor-theme"):
         fn.log_info("Bibata cursors already installed")
-        fn.show_in_app_notification(self, "Bibata cursors already installed")
+        fn.show_in_app_notification(self, _("Bibata cursors already installed"))
         return
-    fn.show_in_app_notification(self, "Opening terminal to install Bibata cursors...")
+    fn.show_in_app_notification(self, _("Opening terminal to install Bibata cursors..."))
     process = fn.launch_pacman_install_in_terminal("bibata-cursor-theme")
 
     def wait_and_refresh():
@@ -874,9 +876,9 @@ def on_click_remove_bibata_cursor(self, _widget=None):
     fn.log_subsection("Remove Bibata Cursors")
     if not fn.check_package_installed("bibata-cursor-theme"):
         fn.log_info("Bibata cursors not installed")
-        fn.show_in_app_notification(self, "Bibata cursors not installed")
+        fn.show_in_app_notification(self, _("Bibata cursors not installed"))
         return
-    fn.show_in_app_notification(self, "Opening terminal to remove Bibata cursors...")
+    fn.show_in_app_notification(self, _("Opening terminal to remove Bibata cursors..."))
     process = fn.launch_pacman_remove_in_terminal("bibata-cursor-theme")
 
     def wait_and_refresh():
@@ -893,9 +895,9 @@ def on_click_install_bibatar_cursor(self, _widget=None):
     fn.log_subsection("Install Bibata Extra Cursors")
     if fn.check_package_installed("bibata-extra-cursor-theme"):
         fn.log_info("Bibata extra cursors already installed")
-        fn.show_in_app_notification(self, "Bibata extra cursors already installed")
+        fn.show_in_app_notification(self, _("Bibata extra cursors already installed"))
         return
-    fn.show_in_app_notification(self, "Opening terminal to install Bibata extra cursors...")
+    fn.show_in_app_notification(self, _("Opening terminal to install Bibata extra cursors..."))
     process = fn.launch_pacman_install_in_terminal("bibata-extra-cursor-theme")
 
     def wait_and_refresh():
@@ -912,9 +914,9 @@ def on_click_remove_bibatar_cursor(self, _widget=None):
     fn.log_subsection("Remove Bibata Extra Cursors")
     if not fn.check_package_installed("bibata-extra-cursor-theme"):
         fn.log_info("Bibata extra cursors not installed")
-        fn.show_in_app_notification(self, "Bibata extra cursors not installed")
+        fn.show_in_app_notification(self, _("Bibata extra cursors not installed"))
         return
-    fn.show_in_app_notification(self, "Opening terminal to remove Bibata extra cursors...")
+    fn.show_in_app_notification(self, _("Opening terminal to remove Bibata extra cursors..."))
     process = fn.launch_pacman_remove_in_terminal("bibata-extra-cursor-theme")
 
     def wait_and_refresh():
@@ -931,7 +933,7 @@ def on_click_install_simplicity(self, _widget=None):
     pkg, _theme = simplicity_theme()
     fn.log_subsection(f"Install {pkg}")
     fn.debug_print(f"Launching terminal to install {pkg}...")
-    fn.show_in_app_notification(self, "Opening terminal to install Simplicity theme...")
+    fn.show_in_app_notification(self, _("Opening terminal to install Simplicity theme..."))
     process = fn.launch_pacman_install_in_terminal(pkg)
 
     def refresh():
@@ -969,7 +971,7 @@ def on_click_remove_simplicity(self, _widget=None):
     pkg, theme = simplicity_theme()
     fn.log_subsection(f"Remove {pkg}")
     fn.debug_print(f"Launching terminal to remove {pkg}...")
-    fn.show_in_app_notification(self, "Opening terminal to remove Simplicity theme...")
+    fn.show_in_app_notification(self, _("Opening terminal to remove Simplicity theme..."))
     process = fn.launch_pacman_remove_in_terminal(pkg)
 
     def refresh():
@@ -1001,7 +1003,7 @@ def on_click_remove_simplicity(self, _widget=None):
             self.sddm_wallpaper_preview.set_paintable(None)
             if fn.path.isfile(fallback):
                 self.sddm_wallpaper_preview.set_filename(fallback)
-            self.sddm_wallpaper_lbl.set_text("No wallpaper selected")
+            self.sddm_wallpaper_lbl.set_text(_("No wallpaper selected"))
         pop_theme_box(self, self.theme_sddm)
 
     def wait_and_refresh():
@@ -1023,16 +1025,16 @@ def on_click_att_sddm_clicked(self, _widget=None):
 def on_click_fix_sddm_conf(self, _widget):
     """Confirm and run the fix-sddm-config script to reset to ATT defaults."""
     message = (
-        "This will reset your SDDM configuration to the ATT defaults.\n\n"
+        _("This will reset your SDDM configuration to the ATT defaults.\n\n"
         "• Backs up your current /etc/sddm.conf.d/ settings\n"
         "• Applies the default SDDM configuration from Kiro\n\n"
-        "Your current settings will be saved as a backup before any changes are made."
+        "Your current settings will be saved as a backup before any changes are made.")
     )
-    if not fn.confirm_dialog(self, "Fix SDDM Configuration", message):
+    if not fn.confirm_dialog(self, _("Fix SDDM Configuration"), message):
         return
 
     fn.log_subsection("Fixing SDDM configuration...")
-    fn.show_in_app_notification(self, "Opening terminal to fix SDDM config...")
+    fn.show_in_app_notification(self, _("Opening terminal to fix SDDM config..."))
     fn.debug_print("Terminal cmd: alacritty -e /usr/share/archlinux-tweak-tool/data/bin/fix-sddm-config")
     process = fn.subprocess.Popen(
         ["alacritty", "-e", "/usr/share/archlinux-tweak-tool/data/bin/fix-sddm-config"],
@@ -1046,7 +1048,7 @@ def on_click_fix_sddm_conf(self, _widget):
         pop_gtk_cursor_names(self.sddm_cursor_themes)
         self.autologin_sddm.set_active(get_autologin_state())
         fn.log_success("SDDM configuration fixed")
-        fn.show_in_app_notification(self, "SDDM configuration fixed")
+        fn.show_in_app_notification(self, _("SDDM configuration fixed"))
 
     def wait_and_notify():
         process.wait()
