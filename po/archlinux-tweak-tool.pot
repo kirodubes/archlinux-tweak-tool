@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 07:38+0100\n"
+"POT-Creation-Date: 2026-11-01 07:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,6 @@ msgid "<b>enabled</b>"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/functions.py:646
-#: usr/share/archlinux-tweak-tool/services.py:421
 msgid "disabled"
 msgstr ""
 
@@ -516,123 +515,122 @@ msgstr ""
 msgid "   Install bluedevil (Plasma dependencies)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:421
-msgid "enabled"
+#: usr/share/archlinux-tweak-tool/services.py:424
+msgid "Auto-connect disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:425
-#, python-brace-format
-msgid "Auto-connect {state}"
+#: usr/share/archlinux-tweak-tool/services.py:424
+msgid "Auto-connect enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:433
+#: usr/share/archlinux-tweak-tool/services.py:432
 msgid "Opening terminal to install bluetooth-autoconnect..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:444
+#: usr/share/archlinux-tweak-tool/services.py:443
 #: usr/share/archlinux-tweak-tool/services_gui.py:61
 #: usr/share/archlinux-tweak-tool/services_gui.py:400
 msgid "   bluetooth-autoconnect is <b>installed</b> and enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:458
+#: usr/share/archlinux-tweak-tool/services.py:457
 msgid "bluetooth-autoconnect is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:470
+#: usr/share/archlinux-tweak-tool/services.py:469
 #: usr/share/archlinux-tweak-tool/services_gui.py:63
 #: usr/share/archlinux-tweak-tool/services_gui.py:402
 msgid "   Install bluetooth-autoconnect"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:483
+#: usr/share/archlinux-tweak-tool/services.py:482
 msgid "Bluetooth has been enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:494
+#: usr/share/archlinux-tweak-tool/services.py:493
 msgid "Bluetooth has been disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:505
+#: usr/share/archlinux-tweak-tool/services.py:504
 msgid "Bluetooth has been restarted"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:513
+#: usr/share/archlinux-tweak-tool/services.py:512
 msgid "Opening terminal to install cups..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:523
+#: usr/share/archlinux-tweak-tool/services.py:522
 msgid "CUPS installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:524
+#: usr/share/archlinux-tweak-tool/services.py:523
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
 msgid "Cups printing is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:527
+#: usr/share/archlinux-tweak-tool/services.py:526
 msgid "CUPS installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:537
+#: usr/share/archlinux-tweak-tool/services.py:536
 msgid "Opening terminal to remove cups..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:547
+#: usr/share/archlinux-tweak-tool/services.py:546
 msgid "CUPS removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:548
+#: usr/share/archlinux-tweak-tool/services.py:547
 #: usr/share/archlinux-tweak-tool/services_gui.py:16
 #: usr/share/archlinux-tweak-tool/services_gui.py:118
 msgid "Install cups printing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:551
+#: usr/share/archlinux-tweak-tool/services.py:550
 msgid "CUPS removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:561
+#: usr/share/archlinux-tweak-tool/services.py:560
 msgid "Opening terminal to install cups-pdf..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:570
+#: usr/share/archlinux-tweak-tool/services.py:569
 msgid "cups-pdf installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:571
+#: usr/share/archlinux-tweak-tool/services.py:570
 #: usr/share/archlinux-tweak-tool/services_gui.py:19
 msgid "Cups-pdf is <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:574
+#: usr/share/archlinux-tweak-tool/services.py:573
 msgid "cups-pdf installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:582
+#: usr/share/archlinux-tweak-tool/services.py:581
 msgid "Opening terminal to remove cups-pdf..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:591
+#: usr/share/archlinux-tweak-tool/services.py:590
 msgid "cups-pdf removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:592
+#: usr/share/archlinux-tweak-tool/services.py:591
 #: usr/share/archlinux-tweak-tool/services_gui.py:21
 #: usr/share/archlinux-tweak-tool/services_gui.py:137
 msgid "Install cups-pdf printing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:595
+#: usr/share/archlinux-tweak-tool/services.py:594
 msgid "cups-pdf removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:604
-#: usr/share/archlinux-tweak-tool/services.py:610
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
-#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services.py:603
+#: usr/share/archlinux-tweak-tool/services.py:609
+#: usr/share/archlinux-tweak-tool/services.py:781
+#: usr/share/archlinux-tweak-tool/services.py:783
+#: usr/share/archlinux-tweak-tool/services.py:785
+#: usr/share/archlinux-tweak-tool/services.py:787
 #: usr/share/archlinux-tweak-tool/services_gui.py:269
 #: usr/share/archlinux-tweak-tool/services_gui.py:275
 #: usr/share/archlinux-tweak-tool/services_gui.py:335
@@ -641,12 +639,12 @@ msgstr ""
 msgid "<b>active</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:606
-#: usr/share/archlinux-tweak-tool/services.py:612
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
-#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services.py:605
+#: usr/share/archlinux-tweak-tool/services.py:611
+#: usr/share/archlinux-tweak-tool/services.py:781
+#: usr/share/archlinux-tweak-tool/services.py:783
+#: usr/share/archlinux-tweak-tool/services.py:785
+#: usr/share/archlinux-tweak-tool/services.py:787
 #: usr/share/archlinux-tweak-tool/services_gui.py:271
 #: usr/share/archlinux-tweak-tool/services_gui.py:277
 #: usr/share/archlinux-tweak-tool/services_gui.py:337
@@ -655,187 +653,187 @@ msgstr ""
 msgid "inactive"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:616
+#: usr/share/archlinux-tweak-tool/services.py:615
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:670
+#: usr/share/archlinux-tweak-tool/services.py:669
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
 msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:693
+#: usr/share/archlinux-tweak-tool/services.py:692
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
 #: usr/share/archlinux-tweak-tool/services_gui.py:155
 msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:710
+#: usr/share/archlinux-tweak-tool/services.py:709
 #: usr/share/archlinux-tweak-tool/services_gui.py:31
 msgid "   HP drivers have been <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:726
+#: usr/share/archlinux-tweak-tool/services.py:725
 #: usr/share/archlinux-tweak-tool/services_gui.py:33
 #: usr/share/archlinux-tweak-tool/services_gui.py:173
 msgid "   Install HP drivers"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:735
+#: usr/share/archlinux-tweak-tool/services.py:734
 msgid "Opening terminal to install system-config-printer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:744
+#: usr/share/archlinux-tweak-tool/services.py:743
 msgid "system-config-printer installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:746
+#: usr/share/archlinux-tweak-tool/services.py:745
 msgid "Install System-config-printer - <b>Installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:751
+#: usr/share/archlinux-tweak-tool/services.py:750
 msgid "system-config-printer installation failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:760
+#: usr/share/archlinux-tweak-tool/services.py:759
 msgid "Opening terminal to remove system-config-printer..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:769
+#: usr/share/archlinux-tweak-tool/services.py:768
 msgid "system-config-printer removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:770
+#: usr/share/archlinux-tweak-tool/services.py:769
 msgid "Install System-config-printer"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:773
+#: usr/share/archlinux-tweak-tool/services.py:772
 msgid "system-config-printer removal failed or was cancelled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:790
+#: usr/share/archlinux-tweak-tool/services.py:789
 #, python-brace-format
 msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:795
-#: usr/share/archlinux-tweak-tool/services.py:915
+#: usr/share/archlinux-tweak-tool/services.py:794
+#: usr/share/archlinux-tweak-tool/services.py:914
 msgid "Disable Samba"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:795
-#: usr/share/archlinux-tweak-tool/services.py:908
+#: usr/share/archlinux-tweak-tool/services.py:794
+#: usr/share/archlinux-tweak-tool/services.py:907
 msgid "Enable Samba"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:798
+#: usr/share/archlinux-tweak-tool/services.py:797
 msgid "Disable firewall"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:798
+#: usr/share/archlinux-tweak-tool/services.py:797
 msgid "Enable firewall"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:801
+#: usr/share/archlinux-tweak-tool/services.py:800
 msgid ""
 "Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
 "you protected."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:803
+#: usr/share/archlinux-tweak-tool/services.py:802
 msgid "Firewall (firewalld) is <b>inactive</b>."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:808
+#: usr/share/archlinux-tweak-tool/services.py:807
 msgid "Allow network discovery (mDNS)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:808
+#: usr/share/archlinux-tweak-tool/services.py:807
 msgid "Block network discovery (mDNS)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:813
+#: usr/share/archlinux-tweak-tool/services.py:812
 msgid "Allow Samba file sharing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:813
+#: usr/share/archlinux-tweak-tool/services.py:812
 msgid "Block Samba file sharing"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:859
+#: usr/share/archlinux-tweak-tool/services.py:858
 msgid "Nsswitch config reset"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:864
+#: usr/share/archlinux-tweak-tool/services.py:863
 msgid "No nsswitch backup available"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:878
+#: usr/share/archlinux-tweak-tool/services.py:877
 msgid "nsswitch.conf opened in terminal"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:900
-#: usr/share/archlinux-tweak-tool/services.py:1004
+#: usr/share/archlinux-tweak-tool/services.py:899
+#: usr/share/archlinux-tweak-tool/services.py:1003
 msgid "Samba is not yet installed."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:906
+#: usr/share/archlinux-tweak-tool/services.py:905
 msgid "Samba disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:913
+#: usr/share/archlinux-tweak-tool/services.py:912
 msgid "Samba enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:922
+#: usr/share/archlinux-tweak-tool/services.py:921
 msgid "firewalld is not installed."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:930
+#: usr/share/archlinux-tweak-tool/services.py:929
 msgid "Firewall disabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:934
+#: usr/share/archlinux-tweak-tool/services.py:933
 msgid "Firewall enabled"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:958
+#: usr/share/archlinux-tweak-tool/services.py:957
 msgid "Launching firewall-config..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:973
+#: usr/share/archlinux-tweak-tool/services.py:972
 msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:975
+#: usr/share/archlinux-tweak-tool/services.py:974
 msgid "Launch firewall-config"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:976
+#: usr/share/archlinux-tweak-tool/services.py:975
 msgid "firewall-config install finished"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:983
+#: usr/share/archlinux-tweak-tool/services.py:982
 msgid "Enable the firewall first."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1026
+#: usr/share/archlinux-tweak-tool/services.py:1025
 msgid "Samba configuration applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1041
+#: usr/share/archlinux-tweak-tool/services.py:1040
 msgid "Original smb.conf is applied"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1047
+#: usr/share/archlinux-tweak-tool/services.py:1046
 msgid "No backup configuration present"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/services.py:1061
+#: usr/share/archlinux-tweak-tool/services.py:1060
 msgid "Opening samba.conf in terminal with nano"
 msgstr ""
 

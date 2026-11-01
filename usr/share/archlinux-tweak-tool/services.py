@@ -418,11 +418,10 @@ def on_bt_autoconnect_toggled(self, switch, _gparam):
     fn.log_subsection("Bluetooth Auto-Connect")
     set_bluetooth_autoenable(enabled)
     state = "enabled" if enabled else "disabled"
-    state_text = _("enabled") if enabled else _("disabled")
     try:
         fn.restart_service("bluetooth")
         fn.log_success(f"Bluetooth auto-connect {state}; service restarted")
-        fn.show_in_app_notification(self, _("Auto-connect {state}").format(state=state_text))
+        fn.show_in_app_notification(self, _("Auto-connect enabled") if enabled else _("Auto-connect disabled"))
     except Exception as error:
         fn.log_error(f"Failed to restart bluetooth: {error}")
 
