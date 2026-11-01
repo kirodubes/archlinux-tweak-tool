@@ -2,6 +2,14 @@
 
 ## 2026.11.01
 
+### German sidebar: "Celestial themes" matches "Arc themes"
+
+**What Changed.** In German the sidebar showed "Arc themes" right next to "Celestial-Themes". Both now read the same way: "Celestial themes". Found in the KiroTux language test on a German system.
+
+**Technical Details.** One `msgstr` in `po/de.po` (`msgid "Celestial themes"`), recompiled with `po/make-mo.sh`. The sentences that use "Celestial-Themes" grammatically ("Installation der Celestial-Themes abgeschlossen") are unchanged.
+
+**Files Modified.** `po/de.po`, `usr/share/locale/de/LC_MESSAGES/archlinux-tweak-tool.mo`, `CHANGELOG.md`
+
 ### ATT starts again on X11
 
 **What Changed.** After the language plumbing went in, ATT crashed on every X11 desktop right after the password prompt with `RuntimeError: Gtk couldn't be initialized`. Wayland was not affected. The launcher now passes the display to ATT again.

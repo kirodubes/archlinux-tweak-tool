@@ -1475,7 +1475,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:31
 #: usr/share/archlinux-tweak-tool/gui.py:457
 msgid "Celestial themes"
-msgstr "Celestial-Themes"
+msgstr "Celestial themes"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:45
 msgid ""
