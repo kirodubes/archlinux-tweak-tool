@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -30,22 +30,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (schermvergroter)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Plaktoetsen"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Trage toetsen"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Stuiterende toetsen"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Muistoetsen"
 
@@ -153,11 +153,11 @@ msgstr "{name} uitgeschakeld (huidige sessie)"
 msgid "Accessibility"
 msgstr "Toegankelijkheid"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Hulpmiddelen voor toegankelijkheid"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -178,8 +178,8 @@ msgstr "Hulpmiddelen voor toegankelijkheid"
 msgid "Launch/Install"
 msgstr "Starten/installeren"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -239,22 +239,22 @@ msgstr "Starten/installeren"
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Hoog contrast &amp; grote tekst"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr ""
 "Thema's met hoog contrast <b>geïnstalleerd</b>. Pas ze toe op de Themer-"
 "pagina"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "Installeer GTK-thema's met hoog contrast en grote tekst (gnome-themes-extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -292,27 +292,27 @@ msgstr ""
 msgid "Install"
 msgstr "Installeren"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Themer openen"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Toegankelijkheid van het toetsenbord (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr "{name} <b>geïnstalleerd</b>, nodig voor de schakelaars hieronder"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr ""
 "{name} wordt automatisch geïnstalleerd zodra je voor het eerst een "
 "schakelaar gebruikt"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -321,12 +321,12 @@ msgstr ""
 "Vereist <b>{name}</b>. Installeer een AUR-helper (bijv. yay) om deze "
 "schakelaars te gebruiken."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "Vereist {name} (heeft een AUR-helper nodig, zoals yay)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -336,11 +336,11 @@ msgstr ""
 "Gebruik je een tiling WM die XDG-autostart negeert, voeg dan de bijbehorende "
 "xkbset-regel toe aan je run.sh (of een ander autostart-script).</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>Wat ze doen</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -348,7 +348,7 @@ msgstr ""
 "druk modifiertoetsen (Shift, Ctrl, Alt, Super) één voor één in, in plaats "
 "van er meerdere tegelijk ingedrukt te houden."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
@@ -356,7 +356,7 @@ msgstr ""
 "een toets wordt pas geregistreerd als je hem even ingedrukt houdt, zodat "
 "lichte, onbedoelde aanslagen worden genegeerd."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
@@ -364,14 +364,14 @@ msgstr ""
 "negeert herhaald indrukken van dezelfde toets in korte tijd (per ongeluk "
 "dubbel aanslaan)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "beweeg de muisaanwijzer met het numerieke toetsenblok in plaats van met een "
 "echte muis."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b>: {desc}</small>"
@@ -937,8 +937,8 @@ msgid ""
 "Click yes to remove the lock file\n"
 "and try running ATT again"
 msgstr ""
-"Het lockbestand is gevonden. Dit betekent dat er al een exemplaar van <b>"
-"ArchLinux Tweak Tool</b> draait.\n"
+"Het lockbestand is gevonden. Dit betekent dat er al een exemplaar van "
+"<b>ArchLinux Tweak Tool</b> draait.\n"
 "Klik op ja om het lockbestand te verwijderen\n"
 "en probeer ATT daarna opnieuw te starten"
 
@@ -958,6 +958,10 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
 msgid "You first need to close the existing application"
 msgstr "Sluit eerst de bestaande toepassing"
+
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT is al geopend."
 
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
@@ -1053,8 +1057,8 @@ msgid ""
 "get\n"
 "any file back after an accidental delete, a bad edit, or a dead disk."
 msgstr ""
-"Op deze pagina draait het om een back-up van <b>je persoonlijke bestanden</b>"
-": documenten, foto's,\n"
+"Op deze pagina draait het om een back-up van <b>je persoonlijke bestanden</"
+"b>: documenten, foto's,\n"
 "projecten, alles wat je niet opnieuw kunt installeren. Een back-up bewaart "
 "er een <b>versiebeheerde,\n"
 "gededupliceerde en versleutelde</b> kopie van op een aparte plek, zodat je\n"
@@ -1081,8 +1085,8 @@ msgid ""
 "complementary:\n"
 "snapshots fix the system, backups protect your data."
 msgstr ""
-"<b>Timeshift</b> en <b>Snapper</b> maken <b>systeemsnapshots</b> op <b>"
-"dezelfde schijf</b>.\n"
+"<b>Timeshift</b> en <b>Snapper</b> maken <b>systeemsnapshots</b> op "
+"<b>dezelfde schijf</b>.\n"
 "Ze zijn bedoeld om het besturingssysteem terug te zetten na een foute update "
 "of een kapot pakket.\n"
 "Timeshift sluit je thuismap zelfs standaard uit. Het is <b>geen</b> back-up "
@@ -1343,8 +1347,8 @@ msgid ""
 msgstr ""
 "Met Btrfs-snapshots zet je het systeem terug als een update iets stuk "
 "maakt.\n"
-"Deze pagina heeft een <b>btrfs</b>-hoofdbestandssysteem nodig, zie <b>"
-"Status</b> hieronder.\n"
+"Deze pagina heeft een <b>btrfs</b>-hoofdbestandssysteem nodig, zie "
+"<b>Status</b> hieronder.\n"
 "\n"
 "Waar het beschikbaar is: bij elke <b>pacman</b>-actie wordt een snapshotpaar "
 "gemaakt\n"
@@ -1547,8 +1551,8 @@ msgid ""
 msgstr ""
 "Selecteer de pakketten die je wilt installeren of verwijderen en klik op de "
 "juiste knop.\n"
-"Elk Celestial-thema bevat een basisvariant, een <b>donkere</b> en een <b>"
-"lichte</b> variant in drie DPI-niveaus.\n"
+"Elk Celestial-thema bevat een basisvariant, een <b>donkere</b> en een "
+"<b>lichte</b> variant in drie DPI-niveaus.\n"
 "Zorg dat de <b>Nemesis-repository is ingeschakeld</b>. Zie het tabblad "
 "\"Pacman\" voor details."
 
@@ -1615,8 +1619,8 @@ msgid ""
 "Removing the forge uses a plain removal, so the build tools and any themes "
 "it already generated stay."
 msgstr ""
-"Dit is <b>geen thema</b>. Het is het gereedschap dat de thema's hierboven <b>"
-"bouwt</b>.\n"
+"Dit is <b>geen thema</b>. Het is het gereedschap dat de thema's hierboven "
+"<b>bouwt</b>.\n"
 "Het bouwt het Celestial GTK-thema opnieuw in elke accentkleur die je "
 "opgeeft, dus je bent niet beperkt tot de\n"
 "lijst op deze pagina. Je hebt het alleen nodig als je een kleur wilt die nog "
@@ -1886,8 +1890,8 @@ msgstr "Voorbeeld"
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:176
 msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
 msgstr ""
-"Back-up maken van de configuraties die deze desktop overschrijft naar ~/"
-".config-att ..."
+"Back-up maken van de configuraties die deze desktop overschrijft naar "
+"~/.config-att ..."
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:209
 msgid "Install all desktops"
@@ -3227,9 +3231,9 @@ msgid ""
 "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
 "Apply."
 msgstr ""
-"Wissel de live CPU-scheduler (lavd, bpfland, rusty…) zonder herstart met <b>"
-"scx-manager</b>, dat al is geïnstalleerd. Kies een scheduler en een profiel "
-"en klik op Toepassen."
+"Wissel de live CPU-scheduler (lavd, bpfland, rusty…) zonder herstart met "
+"<b>scx-manager</b>, dat al is geïnstalleerd. Kies een scheduler en een "
+"profiel en klik op Toepassen."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:69
 msgid "<i>read the guide</i>"
@@ -3452,7 +3456,8 @@ msgstr "<small>Huidig: onbekend</small>"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:1059
 #, python-brace-format
 msgid "Default boot entry set to: {label} — Reboot to verify"
-msgstr "Standaard opstartitem ingesteld op: {label}. Herstart om te controleren"
+msgstr ""
+"Standaard opstartitem ingesteld op: {label}. Herstart om te controleren"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:758
 #, python-brace-format
@@ -3955,7 +3960,8 @@ msgstr "Pacman-cache opgeschoond"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:536
 msgid "Removing temp files and cleaning cache..."
-msgstr "Tijdelijke bestanden worden verwijderd en de cache wordt opgeschoond..."
+msgstr ""
+"Tijdelijke bestanden worden verwijderd en de cache wordt opgeschoond..."
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:546
 msgid "Pacman lock removed"
@@ -4857,8 +4863,8 @@ msgstr ""
 "alleen pakketten uit de sync-db (minder pakketten)\n"
 " - Optie: <b>Alle geïnstalleerde pakketten</b> exporteert alle pakketten die "
 "nu op je systeem staan \n"
-" - Tip: om in de terminal de pakketten uit de AUR te zien, typ je: pacman -"
-"Qqem\n"
+" - Tip: om in de terminal de pakketten uit de AUR te zien, typ je: pacman "
+"-Qqem\n"
 "\n"
 " Een lijst met geïnstalleerde pakketten wordt geëxporteerd naar <b>.config/"
 "archlinux-tweak-tool/packages</b>"
@@ -6221,9 +6227,9 @@ msgid ""
 "<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
 "<tt>quiet splash</tt>."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Waarschuwing:</b></span> <tt>"
-"GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> mist <tt>quiet "
-"splash</tt>."
+"<span foreground=\"#FFA500\"><b>Waarschuwing:</b></span> "
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> mist "
+"<tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:200
 msgid ""
@@ -6252,8 +6258,8 @@ msgstr ""
 "<span foreground=\"#FFA500\"><b>Waarschuwing:</b></span> In <tt>/etc/"
 "mkinitcpio.conf</tt> staat <tt>encrypt</tt>/<tt>lvm2</tt> vóór <tt>plymouth</"
 "tt>.\n"
-"Verplaats <tt>plymouth</tt> vóór <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>"
-"lvm2</tt>, zodat het opstartscherm goed wordt weergegeven."
+"Verplaats <tt>plymouth</tt> vóór <tt>encrypt</tt>/<tt>sd-encrypt</tt>/"
+"<tt>lvm2</tt>, zodat het opstartscherm goed wordt weergegeven."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -6399,8 +6405,8 @@ msgid ""
 "activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Let op:</b></span> Een thema installeren "
-"activeert het niet. Ga hierboven naar <b>Thema selecteren</b> en klik op <b>"
-"Thema toepassen</b>."
+"activeert het niet. Ga hierboven naar <b>Thema selecteren</b> en klik op "
+"<b>Thema toepassen</b>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:490
 msgid "<i>No AUR helper (paru/yay) or active repo found</i>"
@@ -6706,7 +6712,8 @@ msgstr "sddm is al geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:697
 msgid "Enable Chaotic AUR first — sddm-git is not in standard repos"
-msgstr "Schakel eerst Chaotic AUR in. sddm-git staat niet in de standaardrepo's"
+msgstr ""
+"Schakel eerst Chaotic AUR in. sddm-git staat niet in de standaardrepo's"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:755
 msgid "sddm-git installed and enabled — please reboot"
@@ -7210,7 +7217,8 @@ msgstr "Veelgebruikte printerdrivers installeren: <b>Geïnstalleerd</b>"
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
 #: usr/share/archlinux-tweak-tool/services_gui.py:155
 msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
-msgstr "   Veelgebruikte printerdrivers installeren (foomatic, gutenprint, ...)"
+msgstr ""
+"   Veelgebruikte printerdrivers installeren (foomatic, gutenprint, ...)"
 
 #: usr/share/archlinux-tweak-tool/services.py:708
 #: usr/share/archlinux-tweak-tool/services_gui.py:31
@@ -7555,7 +7563,8 @@ msgstr "Gebruikersservices"
 #: usr/share/archlinux-tweak-tool/services_gui.py:714
 #, python-brace-format
 msgid "<b>{count}</b> active user services  ·  <b>{custom}</b> custom"
-msgstr "<b>{count}</b> actieve gebruikersservices  ·  <b>{custom}</b> aangepast"
+msgstr ""
+"<b>{count}</b> actieve gebruikersservices  ·  <b>{custom}</b> aangepast"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:736
 #, python-brace-format
@@ -8399,8 +8408,8 @@ msgstr "Installatie van discover gestart"
 #: usr/share/archlinux-tweak-tool/software_gui.py:150
 msgid "KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>"
 msgstr ""
-"KDE Discover: KDE-softwarecentrum (haalt KDE-afhankelijkheden binnen) <b>"
-"geïnstalleerd</b>"
+"KDE Discover: KDE-softwarecentrum (haalt KDE-afhankelijkheden binnen) "
+"<b>geïnstalleerd</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:326
 msgid "plasma-discover installed"
@@ -8821,7 +8830,8 @@ msgstr "Schakel eerst nemesis/chaotic-AUR in op het tabblad Pacman"
 
 #: usr/share/archlinux-tweak-tool/software.py:1110
 msgid "archlinux-logout is on nemesis/chaotic-AUR — installing..."
-msgstr "archlinux-logout staat in nemesis/chaotic-AUR en wordt geïnstalleerd..."
+msgstr ""
+"archlinux-logout staat in nemesis/chaotic-AUR en wordt geïnstalleerd..."
 
 #: usr/share/archlinux-tweak-tool/software.py:1116
 #: usr/share/archlinux-tweak-tool/software_gui.py:459
@@ -8878,8 +8888,8 @@ msgstr "Verwijderen van kiro-powermenu voltooid"
 #: usr/share/archlinux-tweak-tool/software_gui.py:522
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"
 msgstr ""
-"ATT-nanorc toepassen op /etc/nanorc (er wordt eerst een back-up gemaakt) <b>"
-"toegepast</b>"
+"ATT-nanorc toepassen op /etc/nanorc (er wordt eerst een back-up gemaakt) "
+"<b>toegepast</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1224
 #: usr/share/archlinux-tweak-tool/software_gui.py:524
@@ -9898,7 +9908,8 @@ msgstr "<b>Configuratie van {name}</b>"
 #, python-brace-format
 msgid ""
 "<i>Store your wallpapers in {path} — {name} picks them up automatically</i>"
-msgstr "<i>Bewaar je achtergronden in {path}. {name} pikt ze automatisch op</i>"
+msgstr ""
+"<i>Bewaar je achtergronden in {path}. {name} pikt ze automatisch op</i>"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format

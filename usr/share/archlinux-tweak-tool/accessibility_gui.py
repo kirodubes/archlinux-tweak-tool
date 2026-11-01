@@ -97,6 +97,8 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     vboxstack_accessibility.append(hbox_title)
     vboxstack_accessibility.append(hbox_sep)
 
+    # Every row label wraps: an unwrapped label's minimum width is its whole text, so the longest one (high
+    # contrast, in Russian) widened the page and pushed every row's buttons past a half-screen window's edge.
     # ── Assistive tools ──────────────────────────────────────────────
     vboxstack_accessibility.append(_section_header(Gtk, _("Assistive tools")))
     for app in accessibility.ACCESSIBILITY_APPS:
@@ -104,6 +106,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
         hbox_row.set_margin_top(4)
         label = Gtk.Label(xalign=0)
         label.set_markup(_(app["label"]))
+        label.set_wrap(True)
         label.set_margin_start(20)
         label.set_margin_end(10)
         label.set_hexpand(True)
@@ -129,6 +132,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     hbox_hc = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_hc.set_margin_top(4)
     lbl_hc = Gtk.Label(xalign=0)
+    lbl_hc.set_wrap(True)
     lbl_hc.set_margin_start(20)
     lbl_hc.set_margin_end(10)
     lbl_hc.set_hexpand(True)
@@ -172,6 +176,7 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
     hbox_xkbset = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_xkbset.set_margin_top(4)
     lbl_xkbset = Gtk.Label(xalign=0)
+    lbl_xkbset.set_wrap(True)
     lbl_xkbset.set_margin_start(20)
     lbl_xkbset.set_margin_end(10)
     lbl_xkbset.set_hexpand(True)
@@ -217,9 +222,11 @@ def gui(self, Gtk, vboxstack_accessibility, fn):
         vbox_label.set_valign(Gtk.Align.CENTER)
         lbl_feature = Gtk.Label(xalign=0)
         lbl_feature.set_text(_(feature["label"]))
+        lbl_feature.set_wrap(True)
         lbl_cmd = Gtk.Label(xalign=0)
         lbl_cmd.set_markup(f"<small><tt>{fn.GLib.markup_escape_text(feature['on'])}</tt></small>")
         lbl_cmd.set_selectable(True)
+        lbl_cmd.set_wrap(True)
         vbox_label.append(lbl_feature)
         vbox_label.append(lbl_cmd)
 

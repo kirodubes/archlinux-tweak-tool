@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -30,22 +30,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (ekran büyüteci)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Yapışkan Tuşlar"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Yavaş Tuşlar"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Sekme Tuşları"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Fare Tuşları"
 
@@ -151,11 +151,11 @@ msgstr "{name} devre dışı bırakıldı (geçerli oturum)"
 msgid "Accessibility"
 msgstr "Erişilebilirlik"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Yardımcı araçlar"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -176,8 +176,8 @@ msgstr "Yardımcı araçlar"
 msgid "Launch/Install"
 msgstr "Başlat/Yükle"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -237,20 +237,20 @@ msgstr "Başlat/Yükle"
 msgid "Remove"
 msgstr "Kaldırın"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Yüksek karşıtlık &amp; büyük metin"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr "Yüksek karşıtlıklı temalar <b>yüklü</b>: Themer sayfasında uygulayın"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "Yüksek karşıtlıklı ve büyük metinli GTK temalarını yükle (gnome-themes-extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -288,25 +288,25 @@ msgstr ""
 msgid "Install"
 msgstr "Yükle"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Themer'ı aç"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Klavye erişilebilirliği (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr "{name} <b>yüklü</b>: aşağıdaki anahtarların arka ucu"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr "{name} ilk anahtar değişikliğinde otomatik olarak yüklenecek"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -315,12 +315,12 @@ msgstr ""
 "<b>{name}</b> gerekli: bu anahtarları etkinleştirmek için bir AUR yardımcısı "
 "(ör. yay) yükleyin."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "{name} gerekli (yay gibi bir AUR yardımcısı gerektirir)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -331,11 +331,11 @@ msgstr ""
 "xkbset satırını run.sh dosyanıza (veya eşdeğer otomatik başlatma betiğine) "
 "ekleyin.</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>Bunlar ne işe yarar</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -343,7 +343,7 @@ msgstr ""
 "değiştirici tuşlara (Shift, Ctrl, Alt, Super) birkaçına birden basılı tutmak "
 "yerine tek tek basın."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
@@ -351,20 +351,20 @@ msgstr ""
 "bir tuş yalnızca kısa süre basılı tutulduğunda algılanır, böylece "
 "yanlışlıkla yapılan hafif dokunuşlar yok sayılır."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
 msgstr ""
 "aynı tuşa art arda hızlı basılmasını yok sayar (yanlışlıkla çift vuruşlar)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "fare imlecini fiziksel fare yerine sayısal tuş takımıyla hareket ettirin."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b>: {desc}</small>"
@@ -952,6 +952,10 @@ msgstr ""
 msgid "You first need to close the existing application"
 msgstr "Önce mevcut uygulamayı kapatmanız gerekir"
 
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT zaten açık."
+
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
 #: usr/share/archlinux-tweak-tool/fastfetch.py:581
@@ -1162,8 +1166,8 @@ msgstr ""
 "kaldırır\n"
 "\n"
 "<b>Anlık görüntüleriniz diskte kalır</b>: @snapshots alt birimine "
-"dokunulmaz. Görüntülemek veya silmek için Btrfs Assistant'ı kullanın. <b>"
-"Anlık görüntüleri etkinleştir</b> işlemini yeniden çalıştırmak her şeyi "
+"dokunulmaz. Görüntülemek veya silmek için Btrfs Assistant'ı kullanın. "
+"<b>Anlık görüntüleri etkinleştir</b> işlemini yeniden çalıştırmak her şeyi "
 "yeniden kurar."
 
 #: usr/share/archlinux-tweak-tool/btrfs.py:85
@@ -1539,8 +1543,8 @@ msgid ""
 msgstr ""
 "Yüklemek veya kaldırmak istediğiniz paketleri seçin, ardından uygun düğmeye "
 "tıklayın.\n"
-"Her celestial teması üç DPI düzeyinde bir temel, bir <b>Koyu</b> ve bir <b>"
-"Açık</b> varyant içerir.\n"
+"Her celestial teması üç DPI düzeyinde bir temel, bir <b>Koyu</b> ve bir "
+"<b>Açık</b> varyant içerir.\n"
 "<b>Nemesis deposunun etkin olduğundan</b> emin olun: ayrıntılar için "
 "\"Pacman\" sekmesine bakın."
 
@@ -3230,8 +3234,8 @@ msgid ""
 "<small>Both of Kiro's kernels — <b>CachyOS</b> (default) and <b>Zen</b> — "
 "support scx-manager's settings.</small>"
 msgstr ""
-"<small>Kiro'nun her iki çekirdeği, <b>CachyOS</b> (varsayılan) ve <b>Zen</b>"
-", scx-manager ayarlarını destekler.</small>"
+"<small>Kiro'nun her iki çekirdeği, <b>CachyOS</b> (varsayılan) ve <b>Zen</"
+"b>, scx-manager ayarlarını destekler.</small>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:103
 #, python-brace-format
@@ -3244,7 +3248,8 @@ msgstr "Dracut: Initramfs Oluşturucu"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:131
 msgid "Regenerate all initramfs images for all installed kernels."
-msgstr "Yüklü tüm çekirdekler için tüm initramfs görüntülerini yeniden oluştur."
+msgstr ""
+"Yüklü tüm çekirdekler için tüm initramfs görüntülerini yeniden oluştur."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:134
 msgid "Regenerate All Initramfs"
@@ -4694,8 +4699,9 @@ msgid ""
 msgstr ""
 "Hem sunucuda hem istemcide Avahi hizmeti (ağ keşfi) çalışırken,\n"
 "istemcideki dosya yöneticisi sunucuyu otomatik olarak bulmalıdır.\n"
-"Güvenlik duvarı: dosya paylaşan bir sunucunun hem 'Ağ keşfine izin ver (mDNS)"
-"' hem de 'Samba dosya paylaşımına izin ver' seçeneklerine ihtiyacı vardır.\n"
+"Güvenlik duvarı: dosya paylaşan bir sunucunun hem 'Ağ keşfine izin ver "
+"(mDNS)' hem de 'Samba dosya paylaşımına izin ver' seçeneklerine ihtiyacı "
+"vardır.\n"
 "İstemcinin yalnızca 'Ağ keşfine izin ver (mDNS)' seçeneğine ihtiyacı vardır: "
 "dışarıya doğru bağlanır, bu yüzden istemcide Samba'nın açılması gerekmez."
 
@@ -4740,7 +4746,8 @@ msgstr "Durum: <b>Pacman önbelleği temizleniyor</b>"
 #: usr/share/archlinux-tweak-tool/packages.py:346
 msgid ""
 "Status: <b>Performing full system upgrade - do not power off your system</b>"
-msgstr "Durum: <b>Tam sistem yükseltmesi yapılıyor - sisteminizi kapatmayın</b>"
+msgstr ""
+"Durum: <b>Tam sistem yükseltmesi yapılıyor - sisteminizi kapatmayın</b>"
 
 #: usr/share/archlinux-tweak-tool/packages.py:378
 msgid "Status: <b>Full system upgrade - completed</b>"
@@ -5809,7 +5816,8 @@ msgstr "Ayarlama başarısız oldu: ATT günlüğüne bakın"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2286
 msgid "No backup at /etc/makepkg.conf-bak — nothing to restore."
-msgstr "/etc/makepkg.conf-bak konumunda yedek yok: geri yüklenecek bir şey yok."
+msgstr ""
+"/etc/makepkg.conf-bak konumunda yedek yok: geri yüklenecek bir şey yok."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2303
 msgid "MAKEFLAGS restored — back to Arch's single-threaded default"
@@ -6125,8 +6133,8 @@ msgid ""
 msgstr ""
 "Yükle, plymouth kancasını <tt>/etc/mkinitcpio.conf</tt> dosyasına ekler ve "
 "initramfs'i yeniden oluşturur.\n"
-"Kaldır, kancayı çıkarır, isteğe bağlı olarak çekirdek komut satırından <tt>"
-"quiet splash</tt> değerini temizler,\n"
+"Kaldır, kancayı çıkarır, isteğe bağlı olarak çekirdek komut satırından "
+"<tt>quiet splash</tt> değerini temizler,\n"
 "isteğe bağlı olarak <tt>plymouth-theme-*</tt> paketlerini kaldırır ve "
 "initramfs'i yeniden oluşturur.\n"
 "Her adım terminalde gösterilir: yıkıcı temizlikten önce istemler sorar."
@@ -6242,8 +6250,9 @@ msgstr ""
 "<span foreground=\"#FFA500\"><b>Uyarı:</b></span> <tt>/etc/mkinitcpio.conf</"
 "tt> içinde <tt>encrypt</tt>/<tt>lvm2</tt>, <tt>plymouth</tt> öğesinden önce "
 "geliyor.\n"
-"Açılış ekranının doğru görüntülenmesi için <tt>plymouth</tt> öğesini <tt>"
-"encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</tt> öğelerinden önceye taşıyın."
+"Açılış ekranının doğru görüntülenmesi için <tt>plymouth</tt> öğesini "
+"<tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</tt> öğelerinden önceye "
+"taşıyın."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -8873,8 +8882,8 @@ msgstr "kiro-powermenu kaldırma işlemi tamamlandı"
 #: usr/share/archlinux-tweak-tool/software_gui.py:522
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"
 msgstr ""
-"ATT nanorc dosyasını /etc/nanorc üzerine uygula (önce yedek oluşturulur) <b>"
-"uygulandı</b>"
+"ATT nanorc dosyasını /etc/nanorc üzerine uygula (önce yedek oluşturulur) "
+"<b>uygulandı</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1224
 #: usr/share/archlinux-tweak-tool/software_gui.py:524
@@ -9775,8 +9784,8 @@ msgid ""
 "if you want your users to have administrator rights"
 msgstr ""
 "<b>Saf Arch Linux</b> üzerinde, kullanıcılarınızın yönetici haklarına sahip "
-"olmasını istiyorsanız 'EDITOR=nano visudo' çalıştırmayı ve '%wheel ALL="
-"(ALL:ALL) ALL'\n"
+"olmasını istiyorsanız 'EDITOR=nano visudo' çalıştırmayı ve '%wheel "
+"ALL=(ALL:ALL) ALL'\n"
 "satırının yorumunu kaldırmayı unutmayın"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:124

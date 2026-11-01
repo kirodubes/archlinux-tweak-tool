@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -31,22 +31,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (lupă de ecran)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Taste lipicioase"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Taste lente"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Taste cu revenire"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Taste pentru mouse"
 
@@ -153,11 +153,11 @@ msgstr "{name} dezactivat (sesiunea curentă)"
 msgid "Accessibility"
 msgstr "Accesibilitate"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Instrumente de asistare"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -178,8 +178,8 @@ msgstr "Instrumente de asistare"
 msgid "Launch/Install"
 msgstr "Lansează/Instalează"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -239,21 +239,21 @@ msgstr "Lansează/Instalează"
 msgid "Remove"
 msgstr "Elimină"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Contrast ridicat &amp; text mare"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr ""
 "Temele cu contrast ridicat sunt <b>instalate</b>: aplică-le în pagina Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "Instalează teme GTK cu contrast ridicat &amp; text mare (gnome-themes-extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -291,26 +291,26 @@ msgstr ""
 msgid "Install"
 msgstr "Instalează"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Deschide Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Accesibilitatea tastaturii (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr ""
 "{name} <b>instalat</b>: componenta de bază pentru comutatoarele de mai jos"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr "{name} va fi instalat automat la prima comutare"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -319,12 +319,12 @@ msgstr ""
 "Necesită <b>{name}</b>: instalează un asistent AUR (de ex. yay) pentru a "
 "activa aceste comutatoare."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "Necesită {name} (are nevoie de un asistent AUR precum yay)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -335,11 +335,11 @@ msgstr ""
 "adaugă linia xkbset echivalentă în run.sh (sau în scriptul tău echivalent de "
 "pornire automată).</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>Ce fac acestea</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -347,7 +347,7 @@ msgstr ""
 "apeși tastele modificatoare (Shift, Ctrl, Alt, Super) pe rând, în loc să le "
 "ții apăsate pe mai multe deodată."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
@@ -355,7 +355,7 @@ msgstr ""
 "o tastă se înregistrează doar dacă este ținută apăsată scurt timp, astfel "
 "atingerile ușoare accidentale sunt ignorate."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
@@ -363,13 +363,13 @@ msgstr ""
 "ignoră apăsările repetate ale aceleiași taste în succesiune rapidă (lovituri "
 "duble accidentale)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "deplasezi cursorul mouse-ului cu tastatura numerică în loc de un mouse fizic."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b>: {desc}</small>"
@@ -959,6 +959,10 @@ msgstr ""
 msgid "You first need to close the existing application"
 msgstr "Mai întâi trebuie să închizi aplicația existentă"
 
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT este deja deschis."
+
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
 #: usr/share/archlinux-tweak-tool/fastfetch.py:581
@@ -1327,8 +1331,8 @@ msgstr ""
 "Aceste instrumente pentru instantanee <b>nu se află pe ISO</b>: instalează-"
 "le aici, apoi activează instantaneele.\n"
 "\n"
-"Cum funcționează: o pereche de instantanee se creează la fiecare acțiune <b>"
-"pacman</b> (prin snap-pac);\n"
+"Cum funcționează: o pereche de instantanee se creează la fiecare acțiune "
+"<b>pacman</b> (prin snap-pac);\n"
 "<b>nu</b> există instantanee orare de tip cronologie. Curățarea elimină "
 "automat perechile vechi."
 
@@ -1345,8 +1349,8 @@ msgid ""
 msgstr ""
 "Instantaneele Btrfs îți permit să readuci sistemul la o stare anterioară "
 "după ce o actualizare strică ceva.\n"
-"Această pagină necesită un sistem de fișiere root <b>btrfs</b>: vezi <b>"
-"Stare</b> mai jos.\n"
+"Această pagină necesită un sistem de fișiere root <b>btrfs</b>: vezi "
+"<b>Stare</b> mai jos.\n"
 "\n"
 "Unde este disponibil: o pereche de instantanee se creează la fiecare acțiune "
 "<b>pacman</b>\n"
@@ -1548,8 +1552,8 @@ msgid ""
 msgstr ""
 "Selectează pachetele pe care vrei să le instalezi sau să le elimini, apoi "
 "apasă butonul potrivit.\n"
-"Fiecare temă celestial include o variantă de bază, una <b>Dark</b> și una <b>"
-"Light</b>, în trei trepte DPI.\n"
+"Fiecare temă celestial include o variantă de bază, una <b>Dark</b> și una "
+"<b>Light</b>, în trei trepte DPI.\n"
 "Asigură-te că <b>depozitul Nemesis este activat</b>: vezi fila „Pacman” "
 "pentru detalii."
 
@@ -1623,8 +1627,8 @@ msgstr ""
 "lista din această pagină. Ai nevoie de el doar dacă vrei o culoare care nu "
 "este încă inclusă.\n"
 "\n"
-"Instalează două comenzi: <b>celestial-theme-forge</b> (generatorul) și <b>"
-"theme-forge-picker</b>\n"
+"Instalează două comenzi: <b>celestial-theme-forge</b> (generatorul) și "
+"<b>theme-forge-picker</b>\n"
 "(un mic selector GTK4 cu pipetă de ecran: xcolor pe X11, hyprpicker pe "
 "Wayland). Culorile tale\n"
 "proprii sunt reținute în <b>custom-colors.def</b> și generate alături de "
@@ -1641,7 +1645,8 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:206
 msgid "Celestial is made by zquestz — open the upstream project on GitHub"
-msgstr "Celestial este creat de zquestz: deschide proiectul principal pe GitHub"
+msgstr ""
+"Celestial este creat de zquestz: deschide proiectul principal pe GitHub"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:227
 msgid "Remove the generator"
@@ -1699,7 +1704,8 @@ msgstr "{desktop} a fost instalat"
 #: usr/share/archlinux-tweak-tool/desktopr.py:864
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
-msgstr "{desktop} a eșuat: negăsit: {packages}: activează {repo} în fila Pacman"
+msgstr ""
+"{desktop} a eșuat: negăsit: {packages}: activează {repo} în fila Pacman"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:868
 #, python-brace-format
@@ -1844,7 +1850,8 @@ msgstr "Desktop"
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:44
 #, python-brace-format
 msgid "Make sure the {repo1} and {repo2} are both enabled - see Pacman tab"
-msgstr "Asigură-te că {repo1} și {repo2} sunt ambele activate: vezi fila Pacman"
+msgstr ""
+"Asigură-te că {repo1} și {repo2} sunt ambele activate: vezi fila Pacman"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:50
 msgid "Select a desktop"
@@ -2395,8 +2402,8 @@ msgid ""
 "\n"
 "<i>A backup (config.jsonc.ftt-bak) is written before every save.</i>"
 msgstr ""
-"<b>Proiectează afișarea fastfetch din câteva clicuri, cu previzualizare "
-"live.</b>\n"
+"<b>Proiectează afișarea fastfetch din câteva clicuri, cu previzualizare live."
+"</b>\n"
 "\n"
 "• <b>Module</b>: afișează / ascunde, reordonează și editează opțiunile "
 "fiecărui modul\n"
@@ -3228,8 +3235,8 @@ msgid ""
 "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
 "Apply."
 msgstr ""
-"Schimbă planificatorul CPU live (lavd, bpfland, rusty…) fără repornire cu <b>"
-"scx-manager</b>, deja instalat. Alege un planificator și un profil, apoi "
+"Schimbă planificatorul CPU live (lavd, bpfland, rusty…) fără repornire cu "
+"<b>scx-manager</b>, deja instalat. Alege un planificator și un profil, apoi "
 "apasă Aplică."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:69
@@ -3255,7 +3262,8 @@ msgstr "Dracut: generator de initramfs"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:131
 msgid "Regenerate all initramfs images for all installed kernels."
-msgstr "Regenerează toate imaginile initramfs pentru toate kernelele instalate."
+msgstr ""
+"Regenerează toate imaginile initramfs pentru toate kernelele instalate."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:134
 msgid "Regenerate All Initramfs"
@@ -4176,8 +4184,8 @@ msgstr ""
 "O partiție swap reală este activă:\n"
 "  {swap}\n"
 "\n"
-"Dacă folosești suspendarea pe disc (hibernare), eliminarea hook-ului „resume"
-"” o va strica.\n"
+"Dacă folosești suspendarea pe disc (hibernare), eliminarea hook-ului "
+"„resume” o va strica.\n"
 "\n"
 "Continui oricum?"
 
@@ -4359,9 +4367,9 @@ msgid ""
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
 "applications and SDDM login screen."
 msgstr ""
-"Aplică tema de cursor global în: xcursor de sistem și de utilizator, GTK2/3/"
-"4, XFCE, GNOME (gsettings), KDE Plasma și ecranul de autentificare SDDM. "
-"Afectează toate aplicațiile și ecranul de autentificare SDDM."
+"Aplică tema de cursor global în: xcursor de sistem și de utilizator, "
+"GTK2/3/4, XFCE, GNOME (gsettings), KDE Plasma și ecranul de autentificare "
+"SDDM. Afectează toate aplicațiile și ecranul de autentificare SDDM."
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
 msgid "<b>Current state</b>"
@@ -6228,9 +6236,9 @@ msgid ""
 "<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
 "<tt>quiet splash</tt>."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Avertisment:</b></span> în <tt>"
-"GRUB_CMDLINE_LINUX_DEFAULT</tt> din <tt>/etc/default/grub</tt> lipsește <tt>"
-"quiet splash</tt>."
+"<span foreground=\"#FFA500\"><b>Avertisment:</b></span> în "
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> din <tt>/etc/default/grub</tt> lipsește "
+"<tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:200
 msgid ""
@@ -6257,10 +6265,10 @@ msgid ""
 "tt> so the splash screen renders correctly."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Avertisment:</b></span> În <tt>/etc/"
-"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> apare înaintea <tt>"
-"plymouth</tt>.\n"
-"Mută <tt>plymouth</tt> înaintea <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>"
-"lvm2</tt> pentru ca ecranul de întâmpinare să se afișeze corect."
+"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> apare înaintea "
+"<tt>plymouth</tt>.\n"
+"Mută <tt>plymouth</tt> înaintea <tt>encrypt</tt>/<tt>sd-encrypt</tt>/"
+"<tt>lvm2</tt> pentru ca ecranul de întâmpinare să se afișeze corect."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -6473,7 +6481,8 @@ msgstr "{name} pentru Firefox"
 #: usr/share/archlinux-tweak-tool/privacy.py:33
 #, python-brace-format
 msgid "{name} — ad/tracker blocking via /etc/hosts <b>installed</b>"
-msgstr "{name}: blocarea reclamelor/trackerelor prin /etc/hosts <b>instalat</b>"
+msgstr ""
+"{name}: blocarea reclamelor/trackerelor prin /etc/hosts <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:35
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:83
@@ -7208,8 +7217,8 @@ msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
 msgstr ""
-"   Instalează driverele comune pentru imprimante (foomatic, gutenprint, "
-"...) - <b>Instalat</b>"
+"   Instalează driverele comune pentru imprimante (foomatic, gutenprint, ...) "
+"- <b>Instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:691
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
@@ -8196,8 +8205,8 @@ msgstr ""
 "• <b>Fără cutie neagră</b>: fiecare modificare rulează într-un terminal, "
 "deci vezi comanda exactă\n"
 "\n"
-"<i>Configurația ta fish este întotdeauna salvată înainte de orice "
-"modificare.</i>"
+"<i>Configurația ta fish este întotdeauna salvată înainte de orice modificare."
+"</i>"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:645
 msgid ""
@@ -8847,7 +8856,8 @@ msgstr "archlinux-logout se află în nemesis/chaotic-AUR: se instalează..."
 #: usr/share/archlinux-tweak-tool/software.py:1116
 #: usr/share/archlinux-tweak-tool/software_gui.py:459
 msgid "ArchLinux Logout - Session logout tool <b>installed</b>"
-msgstr "ArchLinux Logout - instrument de deconectare a sesiunii <b>instalat</b>"
+msgstr ""
+"ArchLinux Logout - instrument de deconectare a sesiunii <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1118
 msgid "archlinux-logout installed"
@@ -9268,8 +9278,8 @@ msgstr "Eliminarea gnome-firmware a început"
 #: usr/share/archlinux-tweak-tool/system.py:530
 msgid "Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>"
 msgstr ""
-"Temporizator de reîmprospătare a metadatelor (fwupd-refresh.timer) <b>"
-"activat</b>"
+"Temporizator de reîmprospătare a metadatelor (fwupd-refresh.timer) "
+"<b>activat</b>"
 
 #: usr/share/archlinux-tweak-tool/system.py:532
 msgid "Metadata refresh timer (fwupd-refresh.timer)"
@@ -10086,8 +10096,8 @@ msgid ""
 "Uninstalling a WM later leaves its ~/.config subfolder intact — remove it "
 "yourself if no longer needed."
 msgstr ""
-"Configurațiile pe care instalarea le suprascrie sunt salvate mai întâi în ~/"
-".config-att.\n"
+"Configurațiile pe care instalarea le suprascrie sunt salvate mai întâi în "
+"~/.config-att.\n"
 "Dezinstalarea ulterioară a unui manager de ferestre lasă intact subdosarul "
 "său din ~/.config: elimină-l singur dacă nu mai este necesar."
 

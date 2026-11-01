@@ -2,6 +2,22 @@
 
 ## 2026.11.01
 
+### Accessibility page fits a half-screen window
+
+**What Changed.** In a half-screen window (a niri column, for example) the Start/Install and Remove buttons for Orca, Onboard and KMag sat past the right edge. In Spanish they were just visible. In Russian they were cut off completely. The labels on the page now wrap, so the buttons and switches stay inside the window.
+
+**Technical Details.** In GTK4, a label that doesn't wrap can't get narrower than its whole text. The longest one, the high-contrast line (in Russian), set the page's minimum width, and the ScrolledWindow put every row's buttons into horizontal scroll. `set_wrap(True)` on the assistive-tool labels, the high-contrast label, the xkbset status label and the AccessX feature and command labels. Measured headless (Broadway) with `Gtk.Widget.measure`: the page's minimum width went from 922 to 446 px in Russian and from 734 to 357 px in Spanish. A Russian screenshot at 640 px shows every button.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/accessibility_gui.py`, `CHANGELOG.md`
+
+### "ATT is already open." is translated
+
+**What Changed.** When you start ATT a second time and it can't bring the open window to the front, a notification says ATT is already open. It was always English. It now uses the same language as ATT: your choice from the language dropdown, or else your system language.
+
+**Technical Details.** The launcher is bash and runs before pkexec, so it can't use ATT's translation object directly. The string is now `att_i18n.ALREADY_OPEN` (`N_()`, so `make-mo.sh` extracts it), and the launcher prints it with a short `python3 -I -c` that imports `att_i18n` with `ATT_USER_LANG` set from the user's locale. If Python fails, it falls back to the English text. The launcher runs as the user, so `att_i18n` reads the same `prefs.json`. Translated in all 13 catalogs. `make-mo.sh` also rewrapped strings that had been saved unwrapped, and renumbered the source references. Checked with `msgcat --no-wrap`: the new entry is the only content change.
+
+**Files Modified.** `usr/bin/archlinux-tweak-tool`, `usr/share/archlinux-tweak-tool/att_i18n.py`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`, `CHANGELOG.md`
+
 ### German sidebar: "Celestial themes" matches "Arc themes"
 
 **What Changed.** In German the sidebar showed "Arc themes" right next to "Celestial-Themes". Both now read the same way: "Celestial themes". Found in the KiroTux language test on a German system.

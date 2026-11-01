@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 10:45+0100\n"
+"POT-Creation-Date: 2026-11-01 19:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,22 +31,22 @@ msgid "KMag (screen magnifier)"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr ""
 
@@ -150,11 +150,11 @@ msgstr ""
 msgid "Accessibility"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -175,8 +175,8 @@ msgstr ""
 msgid "Launch/Install"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -236,19 +236,19 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -286,71 +286,71 @@ msgstr ""
 msgid "Install"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
 "toggles."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
 "(or equivalent autostart script).</i>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr ""
@@ -922,6 +922,10 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
 msgid "You first need to close the existing application"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/autostart.py:102

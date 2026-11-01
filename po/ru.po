@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -31,22 +31,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (экранная лупа)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Залипание клавиш"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Медленные клавиши"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Игнорирование дребезга клавиш"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Управление мышью с клавиатуры"
 
@@ -153,11 +153,11 @@ msgstr "{name} отключён (в текущем сеансе)"
 msgid "Accessibility"
 msgstr "Специальные возможности"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Вспомогательные средства"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -178,8 +178,8 @@ msgstr "Вспомогательные средства"
 msgid "Launch/Install"
 msgstr "Запустить/установить"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -239,23 +239,23 @@ msgstr "Запустить/установить"
 msgid "Remove"
 msgstr "Удалить"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Высокая контрастность и крупный текст"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr ""
 "Темы с высокой контрастностью <b>установлены</b>, примените их на странице "
 "Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "Установить GTK-темы с высокой контрастностью и крупным текстом (gnome-themes-"
 "extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -293,25 +293,25 @@ msgstr ""
 msgid "Install"
 msgstr "Установить"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Открыть Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Специальные возможности клавиатуры (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr "{name} <b>установлен</b>, это бэкенд для переключателей ниже"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr "{name} будет установлен автоматически при первом переключении"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -320,12 +320,12 @@ msgstr ""
 "Требуется <b>{name}</b>: установите помощник AUR (например, yay), чтобы "
 "включить эти переключатели."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "Требуется {name} (нужен помощник AUR, например yay)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -336,11 +336,11 @@ msgstr ""
 "соответствующую строку xkbset в ваш run.sh (или аналогичный скрипт "
 "автозапуска).</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>Что они делают</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -348,7 +348,7 @@ msgstr ""
 "нажимайте клавиши-модификаторы (Shift, Ctrl, Alt, Super) по одной, а не "
 "удерживайте несколько сразу."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
@@ -356,7 +356,7 @@ msgstr ""
 "клавиша срабатывает, только если её удерживать некоторое время, поэтому "
 "случайные лёгкие касания игнорируются."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
@@ -364,13 +364,13 @@ msgstr ""
 "игнорирует повторные нажатия одной и той же клавиши через короткие "
 "промежутки времени (случайные двойные нажатия)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "управляйте указателем мыши с цифровой клавиатуры вместо физической мыши."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b> — {desc}</small>"
@@ -843,8 +843,8 @@ msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
 msgstr ""
-"ATT также может <b>устанавливать и запускать другие инструменты настройки</b>"
-", каждый из которых посвящён одному приложению. Вы найдёте их на этих "
+"ATT также может <b>устанавливать и запускать другие инструменты настройки</"
+"b>, каждый из которых посвящён одному приложению. Вы найдёте их на этих "
 "страницах:"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
@@ -952,13 +952,17 @@ msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
 msgstr ""
-"Ваше текущее ядро не поддерживает базовые вызовы функций ОС. Для работы <b>"
-"ArchLinux Tweak Tool</b> они необходимы."
+"Ваше текущее ядро не поддерживает базовые вызовы функций ОС. Для работы "
+"<b>ArchLinux Tweak Tool</b> они необходимы."
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
 msgid "You first need to close the existing application"
 msgstr "Сначала нужно закрыть уже запущенное приложение"
+
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT уже открыт."
 
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
@@ -1342,8 +1346,8 @@ msgid ""
 "pairs."
 msgstr ""
 "Снимки Btrfs позволяют откатить систему, если обновление что-то сломало.\n"
-"Для этой страницы нужна корневая файловая система <b>btrfs</b>, см. <b>"
-"Состояние</b> ниже.\n"
+"Для этой страницы нужна корневая файловая система <b>btrfs</b>, см. "
+"<b>Состояние</b> ниже.\n"
 "\n"
 "Где это доступно: пара снимков создаётся при каждом действии <b>pacman</b>\n"
 "(через snap-pac); почасовых снимков <b>нет</b>, а очистка удаляет старые "
@@ -1547,8 +1551,8 @@ msgstr ""
 "кнопку.\n"
 "Каждая тема celestial поставляется в базовом, <b>тёмном</b> и <b>светлом</b> "
 "варианте в трёх размерах DPI.\n"
-"Убедитесь, что <b>репозиторий Nemesis включён</b>, подробности на вкладке «"
-"Pacman»."
+"Убедитесь, что <b>репозиторий Nemesis включён</b>, подробности на вкладке "
+"«Pacman»."
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:82
 #: usr/share/archlinux-tweak-tool/themes_gui.py:176
@@ -1619,15 +1623,15 @@ msgstr ""
 "списком на этой странице. Он нужен, только если вам требуется цвет, которого "
 "ещё нет в поставке.\n"
 "\n"
-"Он устанавливает две команды: <b>celestial-theme-forge</b> (генератор) и <b>"
-"theme-forge-picker</b>\n"
+"Он устанавливает две команды: <b>celestial-theme-forge</b> (генератор) и "
+"<b>theme-forge-picker</b>\n"
 "(небольшой выбор цвета на GTK4 с пипеткой для экрана: xcolor в X11, "
 "hyprpicker в Wayland). Ваши собственные\n"
 "цвета запоминаются в <b>custom-colors.def</b> и создаются вместе с "
 "готовыми.\n"
 "\n"
-"Он подтягивает инструменты сборки (git, python, sassc, inkscape, imagemagick)"
-", и ему нужна копия\n"
+"Он подтягивает инструменты сборки (git, python, sassc, inkscape, "
+"imagemagick), и ему нужна копия\n"
 "исходников темы celestial для сборки. Результат это папка темы, которую вы "
 "устанавливаете сами:\n"
 "создание цвета здесь не добавляет его в флажки выше.\n"
@@ -2404,8 +2408,8 @@ msgstr ""
 "умолчанию, восстановление резервной копии, правка JSONC\n"
 "• <b>Предпросмотр</b>: настоящий вывод fastfetch по мере правок (с vte4)\n"
 "\n"
-"<i>Резервная копия (config.jsonc.ftt-bak) создаётся перед каждым "
-"сохранением.</i>"
+"<i>Резервная копия (config.jsonc.ftt-bak) создаётся перед каждым сохранением."
+"</i>"
 
 #: usr/share/archlinux-tweak-tool/functions.py:646
 #: usr/share/archlinux-tweak-tool/performance.py:34
@@ -2845,8 +2849,8 @@ msgid ""
 msgstr ""
 "Выберите пакеты, которые хотите установить или удалить, затем нажмите нужную "
 "кнопку.\n"
-"Убедитесь, что <b>репозиторий Nemesis включён</b>, подробности на вкладке «"
-"Pacman»."
+"Убедитесь, что <b>репозиторий Nemesis включён</b>, подробности на вкладке "
+"«Pacman»."
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:56
 msgid "<i>Coming soon — to be added later.</i>"
@@ -3480,8 +3484,8 @@ msgid ""
 "grub.\n"
 "ATT will fix this automatically when you click Set as Default.</small>"
 msgstr ""
-"<small><b>Примечание:</b> GRUB_DEFAULT в /etc/default/grub не установлен в «"
-"saved».\n"
+"<small><b>Примечание:</b> GRUB_DEFAULT в /etc/default/grub не установлен в "
+"«saved».\n"
 "ATT исправит это автоматически, когда вы нажмёте «Сделать по умолчанию».</"
 "small>"
 
@@ -3575,8 +3579,8 @@ msgid ""
 "(default)\" leaves a category following your LANG."
 msgstr ""
 "Переопределяйте отдельные категории, сохраняя язык системы, например "
-"английский язык с европейскими числами, валютой и форматом даты. «"
-"Использовать LANG (по умолчанию)» оставляет категорию следовать вашему LANG."
+"английский язык с европейскими числами, валютой и форматом даты. "
+"«Использовать LANG (по умолчанию)» оставляет категорию следовать вашему LANG."
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:131
 msgid "Numbers (LC_NUMERIC):"
@@ -4348,9 +4352,9 @@ msgid ""
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
 "applications and SDDM login screen."
 msgstr ""
-"Применяет тему курсора глобально: системный и пользовательский xcursor, GTK2/"
-"3/4, XFCE, GNOME (gsettings), KDE Plasma и экран входа SDDM. Затрагивает все "
-"приложения и экран входа SDDM."
+"Применяет тему курсора глобально: системный и пользовательский xcursor, "
+"GTK2/3/4, XFCE, GNOME (gsettings), KDE Plasma и экран входа SDDM. "
+"Затрагивает все приложения и экран входа SDDM."
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
 msgid "<b>Current state</b>"
@@ -5532,7 +5536,8 @@ msgstr "ananicy-cpp и cachyos-ananicy-rules-git <b>установлены</b>"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:30
 msgid ""
 "ananicy-cpp is <b>installed</b> (cachyos-ananicy-rules-git not installed)"
-msgstr "ananicy-cpp <b>установлен</b> (cachyos-ananicy-rules-git не установлен)"
+msgstr ""
+"ananicy-cpp <b>установлен</b> (cachyos-ananicy-rules-git не установлен)"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1412
 #: usr/share/archlinux-tweak-tool/performance_gui.py:33
@@ -6161,7 +6166,8 @@ msgstr "Добавить quiet splash в командную строку и за
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:134
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1000
 msgid "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contains <tt>quiet splash</tt>."
-msgstr "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> содержит <tt>quiet splash</tt>."
+msgstr ""
+"<b>OK:</b> <tt>/etc/kernel/cmdline</tt> содержит <tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:138
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1004
@@ -6206,8 +6212,8 @@ msgid ""
 "<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contains <tt>quiet splash</"
 "tt>."
 msgstr ""
-"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> содержит <tt>quiet splash</tt>"
-"."
+"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> содержит <tt>quiet splash</"
+"tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:180
 msgid ""
@@ -6215,9 +6221,9 @@ msgid ""
 "<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
 "<tt>quiet splash</tt>."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Предупреждение:</b></span> в <tt>"
-"GRUB_CMDLINE_LINUX_DEFAULT</tt> в <tt>/etc/default/grub</tt> отсутствует <tt>"
-"quiet splash</tt>."
+"<span foreground=\"#FFA500\"><b>Предупреждение:</b></span> в "
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> в <tt>/etc/default/grub</tt> отсутствует "
+"<tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:200
 msgid ""
@@ -6244,10 +6250,10 @@ msgid ""
 "tt> so the splash screen renders correctly."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Предупреждение:</b></span> в <tt>/etc/"
-"mkinitcpio.conf</tt> <tt>encrypt</tt>/<tt>lvm2</tt> стоит перед <tt>"
-"plymouth</tt>.\n"
-"Переместите <tt>plymouth</tt> перед <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>"
-"lvm2</tt>, чтобы заставка отображалась правильно."
+"mkinitcpio.conf</tt> <tt>encrypt</tt>/<tt>lvm2</tt> стоит перед "
+"<tt>plymouth</tt>.\n"
+"Переместите <tt>plymouth</tt> перед <tt>encrypt</tt>/<tt>sd-encrypt</tt>/"
+"<tt>lvm2</tt>, чтобы заставка отображалась правильно."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -6389,8 +6395,8 @@ msgid ""
 "activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Примечание:</b></span> установка темы не "
-"активирует её. Перейдите к пункту <b>Выбрать тему</b> выше и нажмите <b>"
-"Применить тему</b>."
+"активирует её. Перейдите к пункту <b>Выбрать тему</b> выше и нажмите "
+"<b>Применить тему</b>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:490
 msgid "<i>No AUR helper (paru/yay) or active repo found</i>"
@@ -6472,7 +6478,8 @@ msgstr "{name}: блокировка рекламы и трекеров чере
 #: usr/share/archlinux-tweak-tool/privacy.py:42
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>active</b>"
-msgstr "Включить или отключить {name}: проверьте, что /etc/hosts <b>активен</b>"
+msgstr ""
+"Включить или отключить {name}: проверьте, что /etc/hosts <b>активен</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:44
 #, python-brace-format
@@ -6530,7 +6537,8 @@ msgstr "Включение {name}..."
 #: usr/share/archlinux-tweak-tool/privacy.py:344
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>enabled</b>"
-msgstr "Включить или отключить {name}: проверьте, что /etc/hosts <b>включён</b>"
+msgstr ""
+"Включить или отключить {name}: проверьте, что /etc/hosts <b>включён</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:370
 #, python-brace-format
@@ -8162,8 +8170,8 @@ msgid ""
 "\n"
 "<i>Your fish config is always backed up before any change.</i>"
 msgstr ""
-"<b>Настройте оболочку fish щелчками мыши, без правки файлов конфигурации.</b>"
-"\n"
+"<b>Настройте оболочку fish щелчками мыши, без правки файлов конфигурации.</"
+"b>\n"
 "\n"
 "• <b>Пресеты</b>: применяйте весь облик (приглашение + плагины + тема + "
 "приветствие) одним щелчком\n"
@@ -8399,8 +8407,8 @@ msgstr "Начата установка discover"
 #: usr/share/archlinux-tweak-tool/software_gui.py:150
 msgid "KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>"
 msgstr ""
-"KDE Discover - центр программ KDE (подтягивает зависимости KDE) <b>"
-"установлен</b>"
+"KDE Discover - центр программ KDE (подтягивает зависимости KDE) "
+"<b>установлен</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:326
 msgid "plasma-discover installed"
@@ -8416,7 +8424,8 @@ msgstr "PacHub запущен"
 
 #: usr/share/archlinux-tweak-tool/software.py:394
 msgid "No AUR helper found — install yay, paru, trizen or pikaur first"
-msgstr "Помощник AUR не найден, сначала установите yay, paru, trizen или pikaur"
+msgstr ""
+"Помощник AUR не найден, сначала установите yay, paru, trizen или pikaur"
 
 #: usr/share/archlinux-tweak-tool/software.py:399
 msgid "pachub installation started"
@@ -8632,7 +8641,8 @@ msgstr "Удаление flatpak завершено"
 #: usr/share/archlinux-tweak-tool/software.py:753
 #: usr/share/archlinux-tweak-tool/software.py:837
 msgid "No AUR helper found - install yay, paru, trizen or pikaur first"
-msgstr "Помощник AUR не найден, сначала установите yay, paru, trizen или pikaur"
+msgstr ""
+"Помощник AUR не найден, сначала установите yay, paru, trizen или pikaur"
 
 #: usr/share/archlinux-tweak-tool/software.py:771
 msgid "snapd installation started"
@@ -8878,8 +8888,8 @@ msgstr "Удаление kiro-powermenu завершено"
 #: usr/share/archlinux-tweak-tool/software_gui.py:522
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"
 msgstr ""
-"Применить nanorc из ATT к /etc/nanorc (сначала создаётся резервная копия) <b>"
-"применено</b>"
+"Применить nanorc из ATT к /etc/nanorc (сначала создаётся резервная копия) "
+"<b>применено</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1224
 #: usr/share/archlinux-tweak-tool/software_gui.py:524
@@ -9907,7 +9917,8 @@ msgstr "<b>Конфигурация {name}</b>"
 #, python-brace-format
 msgid ""
 "<i>Store your wallpapers in {path} — {name} picks them up automatically</i>"
-msgstr "<i>Храните свои обои в {path}, {name} подхватывает их автоматически</i>"
+msgstr ""
+"<i>Храните свои обои в {path}, {name} подхватывает их автоматически</i>"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format

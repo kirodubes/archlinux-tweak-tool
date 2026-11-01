@@ -127,3 +127,7 @@ ngettext = _translation.ngettext
 def N_(text):
     """Mark a string for translation without translating it here."""
     return text
+
+
+# Shown by the usr/bin/archlinux-tweak-tool launcher (bash) when ATT is already running; it reads it from here.
+ALREADY_OPEN = N_("ATT is already open.")

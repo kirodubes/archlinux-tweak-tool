@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -30,22 +30,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (Bildschirmlupe)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Einrastfunktion"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Anschlagverzögerung"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Prellschutz"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Maustasten"
 
@@ -150,11 +150,11 @@ msgstr "{name} deaktiviert (aktuelle Sitzung)"
 msgid "Accessibility"
 msgstr "Barrierefreiheit"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Hilfsmittel"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -175,8 +175,8 @@ msgstr "Hilfsmittel"
 msgid "Launch/Install"
 msgstr "Starten/Installieren"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -236,22 +236,22 @@ msgstr "Starten/Installieren"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Hoher Kontrast &amp; große Schrift"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
 msgstr ""
 "Hochkontrast-Themes <b>installiert</b>: Wende sie auf der Themer-Seite an"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "GTK-Themes mit hohem Kontrast und großer Schrift installieren (gnome-themes-"
 "extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -289,25 +289,25 @@ msgstr ""
 msgid "Install"
 msgstr "Installieren"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Themer öffnen"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Tastatur-Bedienungshilfen (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr "{name} <b>installiert</b>: Backend für die Schalter unten"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr "{name} wird beim ersten Umschalten automatisch installiert"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -316,12 +316,12 @@ msgstr ""
 "Benötigt <b>{name}</b>: Installiere einen AUR-Helper (z. B. yay), um diese "
 "Schalter zu aktivieren."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "Benötigt {name} (erfordert einen AUR-Helper wie yay)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -332,11 +332,11 @@ msgstr ""
 "xkbset-Zeile zu deiner run.sh (oder einem gleichwertigen Autostart-Skript) "
 "hinzu.</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>Was diese Funktionen bewirken</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -344,15 +344,15 @@ msgstr ""
 "Sondertasten (Shift, Strg, Alt, Super) einzeln drücken, statt mehrere "
 "gleichzeitig gedrückt zu halten."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
 msgstr ""
-"eine Taste wird nur registriert, wenn sie kurz gehalten wird, versehentliche"
-" leichte Berührungen werden ignoriert."
+"eine Taste wird nur registriert, wenn sie kurz gehalten wird, versehentliche "
+"leichte Berührungen werden ignoriert."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
@@ -360,13 +360,13 @@ msgstr ""
 "ignoriert wiederholtes schnelles Drücken derselben Taste (versehentliche "
 "Doppelanschläge)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "den Mauszeiger mit dem Ziffernblock statt mit einer echten Maus bewegen."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b>: {desc}</small>"
@@ -838,8 +838,8 @@ msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
 msgstr ""
-"ATT kann auch <b>weitere Tweak-Tools installieren und starten</b>, jedes für"
-" genau eine Anwendung. Du findest sie auf diesen Seiten:"
+"ATT kann auch <b>weitere Tweak-Tools installieren und starten</b>, jedes für "
+"genau eine Anwendung. Du findest sie auf diesen Seiten:"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
 msgid "choose from 300+ Alacritty themes or create new ones"
@@ -875,8 +875,8 @@ msgstr "konfiguriere die fish-Shell"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
 msgid ""
-"<i>They install from the Nemesis repo — enable it on the Pacman page "
-"first.</i>"
+"<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
+"i>"
 msgstr ""
 "<i>Sie werden aus dem Nemesis-Repo installiert. Aktiviere es zuerst auf der "
 "Pacman-Seite.</i>"
@@ -896,8 +896,8 @@ msgstr "Nano-Editor-Farben"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
 msgid ""
-"ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of "
-"/etc/nanorc is always created first."
+"ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
+"etc/nanorc is always created first."
 msgstr ""
 "ATT enthält eine <b>farbige nanorc</b>. Klicke auf eine Option, um zu "
 "wählen. Zuvor wird immer ein Backup von /etc/nanorc erstellt."
@@ -927,11 +927,13 @@ msgstr "Sperrdatei gefunden"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
 msgid ""
-"The lock file has been found. This indicates there is already an instance of <b>ArchLinux Tweak Tool</b> running.\n"
+"The lock file has been found. This indicates there is already an instance of "
+"<b>ArchLinux Tweak Tool</b> running.\n"
 "Click yes to remove the lock file\n"
 "and try running ATT again"
 msgstr ""
-"Die Sperrdatei wurde gefunden. Das bedeutet, dass bereits eine Instanz des <b>ArchLinux Tweak Tool</b> läuft.\n"
+"Die Sperrdatei wurde gefunden. Das bedeutet, dass bereits eine Instanz des "
+"<b>ArchLinux Tweak Tool</b> läuft.\n"
 "Klicke auf Ja, um die Sperrdatei zu entfernen\n"
 "und starte ATT dann erneut"
 
@@ -945,13 +947,17 @@ msgid ""
 "Tweak Tool</b> requires these to work."
 msgstr ""
 "Dein aktueller Kernel unterstützt grundlegende Betriebssystem-"
-"Funktionsaufrufe nicht. Das <b>ArchLinux Tweak Tool</b> benötigt sie für den"
-" Betrieb."
+"Funktionsaufrufe nicht. Das <b>ArchLinux Tweak Tool</b> benötigt sie für den "
+"Betrieb."
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
 msgid "You first need to close the existing application"
 msgstr "Du musst zuerst die bestehende Anwendung schließen"
+
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT ist bereits geöffnet."
 
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
@@ -1040,15 +1046,21 @@ msgstr "Backup"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:71
 msgid ""
-"This page is about backing up <b>your personal files</b> — documents, photos,\n"
+"This page is about backing up <b>your personal files</b> — documents, "
+"photos,\n"
 "projects, the things you cannot reinstall. A backup keeps a <b>versioned,\n"
-"deduplicated and encrypted</b> copy of them in a separate place, so you can get\n"
+"deduplicated and encrypted</b> copy of them in a separate place, so you can "
+"get\n"
 "any file back after an accidental delete, a bad edit, or a dead disk."
 msgstr ""
-"Auf dieser Seite geht es um die Sicherung <b>deiner persönlichen Dateien</b>: Dokumente, Fotos,\n"
-"Projekte, alles, was du nicht neu installieren kannst. Ein Backup bewahrt eine <b>versionierte,\n"
-"deduplizierte und verschlüsselte</b> Kopie davon an einem getrennten Ort auf, damit du\n"
-"jede Datei nach versehentlichem Löschen, einer fehlerhaften Änderung oder einem Festplattenausfall zurückholen kannst."
+"Auf dieser Seite geht es um die Sicherung <b>deiner persönlichen Dateien</"
+"b>: Dokumente, Fotos,\n"
+"Projekte, alles, was du nicht neu installieren kannst. Ein Backup bewahrt "
+"eine <b>versionierte,\n"
+"deduplizierte und verschlüsselte</b> Kopie davon an einem getrennten Ort "
+"auf, damit du\n"
+"jede Datei nach versehentlichem Löschen, einer fehlerhaften Änderung oder "
+"einem Festplattenausfall zurückholen kannst."
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:84
 msgid "<b>How this differs from Timeshift and Snapper</b>"
@@ -1056,22 +1068,33 @@ msgstr "<b>Unterschied zu Timeshift und Snapper</b>"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:92
 msgid ""
-"<b>Timeshift</b> and <b>Snapper</b> take <b>system snapshots</b> on the <b>same disk</b>.\n"
-"They exist to roll the operating system back after a bad update or a broken package —\n"
-"Timeshift even excludes your home folder by default. They are <b>not</b> a backup of\n"
+"<b>Timeshift</b> and <b>Snapper</b> take <b>system snapshots</b> on the "
+"<b>same disk</b>.\n"
+"They exist to roll the operating system back after a bad update or a broken "
+"package —\n"
+"Timeshift even excludes your home folder by default. They are <b>not</b> a "
+"backup of\n"
 "your documents, and if the disk dies the snapshots die with it.\n"
 "\n"
-"A <b>backup</b> is a copy of your files on a <b>different disk or another machine</b>, so\n"
-"they survive disk failure, theft, or an accidental delete. The two are complementary:\n"
+"A <b>backup</b> is a copy of your files on a <b>different disk or another "
+"machine</b>, so\n"
+"they survive disk failure, theft, or an accidental delete. The two are "
+"complementary:\n"
 "snapshots fix the system, backups protect your data."
 msgstr ""
-"<b>Timeshift</b> und <b>Snapper</b> erstellen <b>System-Snapshots</b> auf der <b>selben Festplatte</b>.\n"
-"Sie dienen dazu, das Betriebssystem nach einem fehlerhaften Update oder defekten Paket zurückzusetzen.\n"
-"Timeshift schließt deinen Home-Ordner sogar standardmäßig aus. Sie sind <b>kein</b> Backup\n"
-"deiner Dokumente, und wenn die Festplatte ausfällt, sind auch die Snapshots weg.\n"
+"<b>Timeshift</b> und <b>Snapper</b> erstellen <b>System-Snapshots</b> auf "
+"der <b>selben Festplatte</b>.\n"
+"Sie dienen dazu, das Betriebssystem nach einem fehlerhaften Update oder "
+"defekten Paket zurückzusetzen.\n"
+"Timeshift schließt deinen Home-Ordner sogar standardmäßig aus. Sie sind "
+"<b>kein</b> Backup\n"
+"deiner Dokumente, und wenn die Festplatte ausfällt, sind auch die Snapshots "
+"weg.\n"
 "\n"
-"Ein <b>Backup</b> ist eine Kopie deiner Dateien auf einer <b>anderen Festplatte oder einem anderen Rechner</b>, damit\n"
-"sie Festplattenausfall, Diebstahl oder versehentliches Löschen überstehen. Beides ergänzt sich:\n"
+"Ein <b>Backup</b> ist eine Kopie deiner Dateien auf einer <b>anderen "
+"Festplatte oder einem anderen Rechner</b>, damit\n"
+"sie Festplattenausfall, Diebstahl oder versehentliches Löschen überstehen. "
+"Beides ergänzt sich:\n"
 "Snapshots reparieren das System, Backups schützen deine Daten."
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:108
@@ -1080,15 +1103,22 @@ msgstr "<b>Eine Kopie extern aufbewahren (Cloud)</b>"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:116
 msgid ""
-"Both apps below are built on <b>BorgBackup</b>, which can send the same encrypted\n"
-"backup over SSH to a NAS, a home server, or a remote / <b>cloud</b> host. Aim for the\n"
-"<b>3-2-1 rule</b>: 3 copies of your data, on 2 kinds of media, with 1 of them off-site —\n"
+"Both apps below are built on <b>BorgBackup</b>, which can send the same "
+"encrypted\n"
+"backup over SSH to a NAS, a home server, or a remote / <b>cloud</b> host. "
+"Aim for the\n"
+"<b>3-2-1 rule</b>: 3 copies of your data, on 2 kinds of media, with 1 of "
+"them off-site —\n"
 "so a fire, theft or ransomware at home still leaves you a safe copy."
 msgstr ""
-"Beide Apps unten basieren auf <b>BorgBackup</b>, das dasselbe verschlüsselte\n"
-"Backup per SSH an ein NAS, einen Heimserver oder einen entfernten Host bzw. die <b>Cloud</b> senden kann. Halte dich an die\n"
-"<b>3-2-1-Regel</b>: 3 Kopien deiner Daten auf 2 Arten von Medien, davon 1 extern,\n"
-"sodass dir bei Feuer, Diebstahl oder Ransomware zu Hause immer noch eine sichere Kopie bleibt."
+"Beide Apps unten basieren auf <b>BorgBackup</b>, das dasselbe "
+"verschlüsselte\n"
+"Backup per SSH an ein NAS, einen Heimserver oder einen entfernten Host bzw. "
+"die <b>Cloud</b> senden kann. Halte dich an die\n"
+"<b>3-2-1-Regel</b>: 3 Kopien deiner Daten auf 2 Arten von Medien, davon 1 "
+"extern,\n"
+"sodass dir bei Feuer, Diebstahl oder Ransomware zu Hause immer noch eine "
+"sichere Kopie bleibt."
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:129
 msgid "<b>Backup apps</b>"
@@ -1096,13 +1126,19 @@ msgstr "<b>Backup-Apps</b>"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:140
 msgid ""
-"<i>Our recommendation: use either one. <b>Pika Backup</b> is the simplest and blends in\n"
-"with the desktop; <b>Vorta</b> gives you more options and scheduling profiles. Both wrap\n"
-"BorgBackup, so their archives are interchangeable — pick whichever feels nicer.</i>"
+"<i>Our recommendation: use either one. <b>Pika Backup</b> is the simplest "
+"and blends in\n"
+"with the desktop; <b>Vorta</b> gives you more options and scheduling "
+"profiles. Both wrap\n"
+"BorgBackup, so their archives are interchangeable — pick whichever feels "
+"nicer.</i>"
 msgstr ""
-"<i>Unsere Empfehlung: Nimm eine von beiden. <b>Pika Backup</b> ist am einfachsten und fügt sich\n"
-"in den Desktop ein; <b>Vorta</b> bietet mehr Optionen und Zeitplan-Profile. Beide nutzen\n"
-"BorgBackup, daher sind ihre Archive austauschbar. Nimm, was dir besser gefällt.</i>"
+"<i>Unsere Empfehlung: Nimm eine von beiden. <b>Pika Backup</b> ist am "
+"einfachsten und fügt sich\n"
+"in den Desktop ein; <b>Vorta</b> bietet mehr Optionen und Zeitplan-Profile. "
+"Beide nutzen\n"
+"BorgBackup, daher sind ihre Archive austauschbar. Nimm, was dir besser "
+"gefällt.</i>"
 
 #: usr/share/archlinux-tweak-tool/btrfs.py:46
 #, python-brace-format
@@ -1125,14 +1161,19 @@ msgid ""
 "• removes the snapper <b>root</b> config\n"
 "• removes snapper, snap-pac, btrfs-assistant and btrfsmaintenance\n"
 "\n"
-"Your <b>snapshots are kept</b> on disk — the @snapshots subvolume is untouched. Use Btrfs Assistant to view or delete them. Re-running <b>Enable snapshots</b> sets everything up again."
+"Your <b>snapshots are kept</b> on disk — the @snapshots subvolume is "
+"untouched. Use Btrfs Assistant to view or delete them. Re-running <b>Enable "
+"snapshots</b> sets everything up again."
 msgstr ""
 "Dies entfernt den btrfs-Snapshot-Stack:\n"
 "• deaktiviert die Snapshot-Timer\n"
 "• entfernt die snapper-<b>root</b>-Konfiguration\n"
 "• entfernt snapper, snap-pac, btrfs-assistant und btrfsmaintenance\n"
 "\n"
-"Deine <b>Snapshots bleiben erhalten</b> auf der Festplatte, das Subvolume @snapshots bleibt unberührt. Nutze Btrfs Assistant, um sie anzusehen oder zu löschen. Erneutes Ausführen von <b>Snapshots aktivieren</b> richtet alles wieder ein."
+"Deine <b>Snapshots bleiben erhalten</b> auf der Festplatte, das Subvolume "
+"@snapshots bleibt unberührt. Nutze Btrfs Assistant, um sie anzusehen oder zu "
+"löschen. Erneutes Ausführen von <b>Snapshots aktivieren</b> richtet alles "
+"wieder ein."
 
 #: usr/share/archlinux-tweak-tool/btrfs.py:85
 msgid "Remove snapshot stack?"
@@ -1184,11 +1225,15 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:43
 msgid ""
-"<small>Btrfs snapshots need a btrfs root, and the filesystem is chosen when the system\n"
-"is installed — it cannot be switched afterwards. Pick btrfs in the installer to use this page.</small>"
+"<small>Btrfs snapshots need a btrfs root, and the filesystem is chosen when "
+"the system\n"
+"is installed — it cannot be switched afterwards. Pick btrfs in the installer "
+"to use this page.</small>"
 msgstr ""
-"<small>Btrfs-Snapshots benötigen ein btrfs-Root, und das Dateisystem wird bei der Installation des Systems\n"
-"gewählt. Es lässt sich nachträglich nicht ändern. Wähle btrfs im Installer, um diese Seite zu nutzen.</small>"
+"<small>Btrfs-Snapshots benötigen ein btrfs-Root, und das Dateisystem wird "
+"bei der Installation des Systems\n"
+"gewählt. Es lässt sich nachträglich nicht ändern. Wähle btrfs im Installer, "
+"um diese Seite zu nutzen.</small>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:64
 #, python-brace-format
@@ -1269,31 +1314,45 @@ msgstr "Btrfs"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:143
 msgid ""
-"Your root filesystem is <b>btrfs</b>, so snapshots can be used on this system.\n"
-"These snapshot tools are <b>not on the ISO</b> — install them here, then enable snapshots.\n"
+"Your root filesystem is <b>btrfs</b>, so snapshots can be used on this "
+"system.\n"
+"These snapshot tools are <b>not on the ISO</b> — install them here, then "
+"enable snapshots.\n"
 "\n"
-"How it works: a snapshot pair is taken on every <b>pacman</b> action (via snap-pac);\n"
+"How it works: a snapshot pair is taken on every <b>pacman</b> action (via "
+"snap-pac);\n"
 "<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
 msgstr ""
-"Dein Root-Dateisystem ist <b>btrfs</b>, daher können Snapshots auf diesem System genutzt werden.\n"
-"Diese Snapshot-Tools sind <b>nicht auf dem ISO</b>. Installiere sie hier und aktiviere dann Snapshots.\n"
+"Dein Root-Dateisystem ist <b>btrfs</b>, daher können Snapshots auf diesem "
+"System genutzt werden.\n"
+"Diese Snapshot-Tools sind <b>nicht auf dem ISO</b>. Installiere sie hier und "
+"aktiviere dann Snapshots.\n"
 "\n"
-"So funktioniert es: Bei jeder <b>pacman</b>-Aktion wird ein Snapshot-Paar erstellt (via snap-pac);\n"
-"<b>keine</b> stündlichen Timeline-Snapshots. Die Bereinigung entfernt alte Paare automatisch."
+"So funktioniert es: Bei jeder <b>pacman</b>-Aktion wird ein Snapshot-Paar "
+"erstellt (via snap-pac);\n"
+"<b>keine</b> stündlichen Timeline-Snapshots. Die Bereinigung entfernt alte "
+"Paare automatisch."
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:152
 msgid ""
-"Btrfs snapshots let you roll the system back after an update breaks something.\n"
+"Btrfs snapshots let you roll the system back after an update breaks "
+"something.\n"
 "This page needs a <b>btrfs</b> root filesystem — see <b>Status</b> below.\n"
 "\n"
-"Where it is available: a snapshot pair is taken on every <b>pacman</b> action\n"
-"(via snap-pac); <b>no</b> hourly timeline snapshots, and cleanup prunes old pairs."
+"Where it is available: a snapshot pair is taken on every <b>pacman</b> "
+"action\n"
+"(via snap-pac); <b>no</b> hourly timeline snapshots, and cleanup prunes old "
+"pairs."
 msgstr ""
-"Mit Btrfs-Snapshots kannst du das System zurücksetzen, wenn ein Update etwas kaputtmacht.\n"
-"Diese Seite benötigt ein <b>btrfs</b>-Root-Dateisystem, siehe <b>Status</b> unten.\n"
+"Mit Btrfs-Snapshots kannst du das System zurücksetzen, wenn ein Update etwas "
+"kaputtmacht.\n"
+"Diese Seite benötigt ein <b>btrfs</b>-Root-Dateisystem, siehe <b>Status</b> "
+"unten.\n"
 "\n"
-"Wo es verfügbar ist: Bei jeder <b>pacman</b>-Aktion wird ein Snapshot-Paar erstellt\n"
-"(via snap-pac); <b>keine</b> stündlichen Timeline-Snapshots, und die Bereinigung entfernt alte Paare."
+"Wo es verfügbar ist: Bei jeder <b>pacman</b>-Aktion wird ein Snapshot-Paar "
+"erstellt\n"
+"(via snap-pac); <b>keine</b> stündlichen Timeline-Snapshots, und die "
+"Bereinigung entfernt alte Paare."
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:165
 msgid "<b>Snapshot tools (not on the ISO)</b>"
@@ -1326,22 +1385,26 @@ msgid "Disable snapshots"
 msgstr "Snapshots deaktivieren"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:204
-msgid ""
-"Remove the snapshot tools and config — snapshots already taken are kept"
+msgid "Remove the snapshot tools and config — snapshots already taken are kept"
 msgstr ""
 "Snapshot-Tools und Konfiguration entfernen, bereits erstellte Snapshots "
 "bleiben erhalten"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:215
 msgid ""
-"<i>This setup does not add a boot-menu snapshot picker. Rollback is done from the\n"
-"running system or the live ISO with snapper — Btrfs Assistant makes this easy.\n"
+"<i>This setup does not add a boot-menu snapshot picker. Rollback is done "
+"from the\n"
+"running system or the live ISO with snapper — Btrfs Assistant makes this "
+"easy.\n"
 "If you installed with GRUB you can add a picker yourself with grub-btrfs;\n"
 "systemd-boot has no equivalent.</i>"
 msgstr ""
-"<i>Diese Einrichtung fügt keine Snapshot-Auswahl im Bootmenü hinzu. Das Zurücksetzen erfolgt\n"
-"über das laufende System oder das Live-ISO mit snapper. Btrfs Assistant macht das einfach.\n"
-"Wenn du mit GRUB installiert hast, kannst du selbst eine Auswahl mit grub-btrfs ergänzen;\n"
+"<i>Diese Einrichtung fügt keine Snapshot-Auswahl im Bootmenü hinzu. Das "
+"Zurücksetzen erfolgt\n"
+"über das laufende System oder das Live-ISO mit snapper. Btrfs Assistant "
+"macht das einfach.\n"
+"Wenn du mit GRUB installiert hast, kannst du selbst eine Auswahl mit grub-"
+"btrfs ergänzen;\n"
 "systemd-boot hat kein Gegenstück.</i>"
 
 #: usr/share/archlinux-tweak-tool/celestial.py:20
@@ -1445,8 +1508,7 @@ msgstr "{name} starten"
 #: usr/share/archlinux-tweak-tool/celestial.py:300
 msgid "Enable nemesis_repo on the Pacman page to install the generator"
 msgstr ""
-"Aktiviere nemesis_repo auf der Pacman-Seite, um den Generator zu "
-"installieren"
+"Aktiviere nemesis_repo auf der Pacman-Seite, um den Generator zu installieren"
 
 #: usr/share/archlinux-tweak-tool/celestial.py:306
 msgid "The generator is not installed"
@@ -1479,13 +1541,19 @@ msgstr "Celestial themes"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:45
 msgid ""
-"Select the packages you want to install or remove, then click the appropriate button.\n"
-"Every celestial theme ships a base, a <b>Dark</b> and a <b>Light</b> variant in three DPI tiers.\n"
-"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" tab for details."
+"Select the packages you want to install or remove, then click the "
+"appropriate button.\n"
+"Every celestial theme ships a base, a <b>Dark</b> and a <b>Light</b> variant "
+"in three DPI tiers.\n"
+"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" "
+"tab for details."
 msgstr ""
-"Wähle die Pakete aus, die du installieren oder entfernen möchtest, und klicke dann auf die passende Schaltfläche.\n"
-"Jedes Celestial-Theme enthält eine Basis-, eine <b>Dark</b>- und eine <b>Light</b>-Variante in drei DPI-Stufen.\n"
-"Stelle sicher, dass das <b>Nemesis-Repository aktiviert ist</b>. Details findest du im Tab \"Pacman\"."
+"Wähle die Pakete aus, die du installieren oder entfernen möchtest, und "
+"klicke dann auf die passende Schaltfläche.\n"
+"Jedes Celestial-Theme enthält eine Basis-, eine <b>Dark</b>- und eine "
+"<b>Light</b>-Variante in drei DPI-Stufen.\n"
+"Stelle sicher, dass das <b>Nemesis-Repository aktiviert ist</b>. Details "
+"findest du im Tab \"Pacman\"."
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:82
 #: usr/share/archlinux-tweak-tool/themes_gui.py:176
@@ -1527,33 +1595,51 @@ msgstr "<b>Theme-Generator: celestial-theme-forge</b>"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:183
 msgid ""
-"This is <b>not a theme</b> — it is the tool that <b>builds</b> the themes above.\n"
-"It rebuilds the Celestial GTK theme in any accent colour you name, so you are not limited to the\n"
-"list on this page. You only need it if you want a colour that is not shipped yet.\n"
+"This is <b>not a theme</b> — it is the tool that <b>builds</b> the themes "
+"above.\n"
+"It rebuilds the Celestial GTK theme in any accent colour you name, so you "
+"are not limited to the\n"
+"list on this page. You only need it if you want a colour that is not shipped "
+"yet.\n"
 "\n"
-"It installs two commands: <b>celestial-theme-forge</b> (the generator) and <b>theme-forge-picker</b>\n"
-"(a small GTK4 picker with a screen eyedropper — xcolor on X11, hyprpicker on Wayland). Your own\n"
-"colours are remembered in <b>custom-colors.def</b> and generated alongside the curated ones.\n"
+"It installs two commands: <b>celestial-theme-forge</b> (the generator) and "
+"<b>theme-forge-picker</b>\n"
+"(a small GTK4 picker with a screen eyedropper — xcolor on X11, hyprpicker on "
+"Wayland). Your own\n"
+"colours are remembered in <b>custom-colors.def</b> and generated alongside "
+"the curated ones.\n"
 "\n"
-"It pulls in build tools (git, python, sassc, inkscape, imagemagick) and it needs a checkout of the\n"
-"celestial theme sources to build against. The result is a theme folder you install yourself —\n"
+"It pulls in build tools (git, python, sassc, inkscape, imagemagick) and it "
+"needs a checkout of the\n"
+"celestial theme sources to build against. The result is a theme folder you "
+"install yourself —\n"
 "generating a colour here does not add it to the checkboxes above.\n"
 "\n"
-"Removing the forge uses a plain removal, so the build tools and any themes it already generated stay."
+"Removing the forge uses a plain removal, so the build tools and any themes "
+"it already generated stay."
 msgstr ""
-"Dies ist <b>kein Theme</b>, sondern das Werkzeug, das die oben genannten Themes <b>erzeugt</b>.\n"
-"Es baut das Celestial-GTK-Theme in jeder beliebigen Akzentfarbe neu, du bist also nicht auf die\n"
-"Liste dieser Seite beschränkt. Du brauchst es nur, wenn du eine Farbe möchtest, die noch nicht enthalten ist.\n"
+"Dies ist <b>kein Theme</b>, sondern das Werkzeug, das die oben genannten "
+"Themes <b>erzeugt</b>.\n"
+"Es baut das Celestial-GTK-Theme in jeder beliebigen Akzentfarbe neu, du bist "
+"also nicht auf die\n"
+"Liste dieser Seite beschränkt. Du brauchst es nur, wenn du eine Farbe "
+"möchtest, die noch nicht enthalten ist.\n"
 "\n"
-"Es installiert zwei Befehle: <b>celestial-theme-forge</b> (den Generator) und <b>theme-forge-picker</b>\n"
-"(einen kleinen GTK4-Farbwähler mit Bildschirm-Pipette: xcolor unter X11, hyprpicker unter Wayland). Deine eigenen\n"
-"Farben werden in <b>custom-colors.def</b> gespeichert und zusammen mit den vorgegebenen erzeugt.\n"
+"Es installiert zwei Befehle: <b>celestial-theme-forge</b> (den Generator) "
+"und <b>theme-forge-picker</b>\n"
+"(einen kleinen GTK4-Farbwähler mit Bildschirm-Pipette: xcolor unter X11, "
+"hyprpicker unter Wayland). Deine eigenen\n"
+"Farben werden in <b>custom-colors.def</b> gespeichert und zusammen mit den "
+"vorgegebenen erzeugt.\n"
 "\n"
-"Es zieht Build-Tools nach (git, python, sassc, inkscape, imagemagick) und benötigt einen Checkout der\n"
-"Celestial-Theme-Quellen, gegen den gebaut wird. Das Ergebnis ist ein Theme-Ordner, den du selbst installierst:\n"
+"Es zieht Build-Tools nach (git, python, sassc, inkscape, imagemagick) und "
+"benötigt einen Checkout der\n"
+"Celestial-Theme-Quellen, gegen den gebaut wird. Das Ergebnis ist ein Theme-"
+"Ordner, den du selbst installierst:\n"
 "Eine hier erzeugte Farbe erscheint nicht bei den Checkboxen oben.\n"
 "\n"
-"Das Entfernen der Forge ist ein einfaches Entfernen, die Build-Tools und bereits erzeugte Themes bleiben also erhalten."
+"Das Entfernen der Forge ist ein einfaches Entfernen, die Build-Tools und "
+"bereits erzeugte Themes bleiben also erhalten."
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:206
 msgid "Celestial is made by zquestz — open the upstream project on GitHub"
@@ -1576,14 +1662,19 @@ msgstr "{name} installiert: ein weiterer Schritt für korrektes Theming"
 #: usr/share/archlinux-tweak-tool/desktopr.py:584
 #, python-brace-format
 msgid ""
-"Your /etc/environment sets variables that override {name}'s own theme. Left active, {name} shows dark elements and a yellow warning notification/popup.\n"
+"Your /etc/environment sets variables that override {name}'s own theme. Left "
+"active, {name} shows dark elements and a yellow warning notification/popup.\n"
 "\n"
-"Edit /etc/environment, put a '#' in front of these lines, then log out and back in:\n"
+"Edit /etc/environment, put a '#' in front of these lines, then log out and "
+"back in:\n"
 "{lines}"
 msgstr ""
-"Deine /etc/environment setzt Variablen, die das eigene Theme von {name} überschreiben. Bleiben sie aktiv, zeigt {name} dunkle Elemente und eine gelbe Warnbenachrichtigung bzw. ein Popup.\n"
+"Deine /etc/environment setzt Variablen, die das eigene Theme von {name} "
+"überschreiben. Bleiben sie aktiv, zeigt {name} dunkle Elemente und eine "
+"gelbe Warnbenachrichtigung bzw. ein Popup.\n"
 "\n"
-"Bearbeite /etc/environment, setze ein '#' vor diese Zeilen und melde dich dann ab und wieder an:\n"
+"Bearbeite /etc/environment, setze ein '#' vor diese Zeilen und melde dich "
+"dann ab und wieder an:\n"
 "{lines}"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:606
@@ -1682,11 +1773,18 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "IMPORTANT — {name} theming:\n"
-"Your /etc/environment sets variables that override {name}'s own theme. Left active, {name} shows dark elements and a yellow warning notification/popup. After installing, edit /etc/environment, put a '#' in front of these lines, then log out and back in:\n"
+"Your /etc/environment sets variables that override {name}'s own theme. Left "
+"active, {name} shows dark elements and a yellow warning notification/popup. "
+"After installing, edit /etc/environment, put a '#' in front of these lines, "
+"then log out and back in:\n"
 "{lines}"
 msgstr ""
 "WICHTIG, Theming von {name}:\n"
-"Deine /etc/environment setzt Variablen, die das eigene Theme von {name} überschreiben. Bleiben sie aktiv, zeigt {name} dunkle Elemente und eine gelbe Warnbenachrichtigung bzw. ein Popup. Bearbeite nach der Installation /etc/environment, setze ein '#' vor diese Zeilen und melde dich dann ab und wieder an:\n"
+"Deine /etc/environment setzt Variablen, die das eigene Theme von {name} "
+"überschreiben. Bleiben sie aktiv, zeigt {name} dunkle Elemente und eine "
+"gelbe Warnbenachrichtigung bzw. ein Popup. Bearbeite nach der Installation /"
+"etc/environment, setze ein '#' vor diese Zeilen und melde dich dann ab und "
+"wieder an:\n"
 "{lines}"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:1216
@@ -1777,9 +1875,11 @@ msgid ""
 "Uninstalling a desktop leaves its ~/.config subfolder intact\n"
 "Remove it yourself if no longer needed\n"
 msgstr ""
-"Bei der Installation eines Desktops sichern wir nur die Konfigurationen, die er überschreibt\n"
+"Bei der Installation eines Desktops sichern wir nur die Konfigurationen, die "
+"er überschreibt\n"
 "Das Backup liegt im Ordner ~/.config-att\n"
-"Beim Deinstallieren eines Desktops bleibt sein Unterordner in ~/.config erhalten\n"
+"Beim Deinstallieren eines Desktops bleibt sein Unterordner in ~/.config "
+"erhalten\n"
 "Entferne ihn selbst, wenn du ihn nicht mehr brauchst\n"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:151
@@ -1788,8 +1888,7 @@ msgid "Preview"
 msgstr "Vorschau"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:176
-msgid ""
-"Backing up the configs this desktop will overwrite to ~/.config-att ..."
+msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
 msgstr ""
 "Konfigurationen, die dieser Desktop überschreibt, werden nach ~/.config-att "
 "gesichert ..."
@@ -2293,9 +2392,12 @@ msgid ""
 "<b>Design your fastfetch output in clicks, with a live preview.</b>\n"
 "\n"
 "• <b>Modules</b> — show / hide, reorder and edit per-module options\n"
-"• <b>Logo &amp; Appearance</b> — 500+ built-in logos or your own image; key, title and separator colours\n"
-"• <b>Install / Enable</b> — install fastfetch, add it to bash / zsh / fish startup, optional lolcat\n"
-"• <b>Presets &amp; Raw</b> — bundled presets or the Kiro default, restore a backup, edit the JSONC\n"
+"• <b>Logo &amp; Appearance</b> — 500+ built-in logos or your own image; key, "
+"title and separator colours\n"
+"• <b>Install / Enable</b> — install fastfetch, add it to bash / zsh / fish "
+"startup, optional lolcat\n"
+"• <b>Presets &amp; Raw</b> — bundled presets or the Kiro default, restore a "
+"backup, edit the JSONC\n"
 "• <b>Live preview</b> — real fastfetch output as you tweak (with vte4)\n"
 "\n"
 "<i>A backup (config.jsonc.ftt-bak) is written before every save.</i>"
@@ -2745,11 +2847,15 @@ msgstr "{name} (Basis)"
 #: usr/share/archlinux-tweak-tool/icons_gui.py:45
 #: usr/share/archlinux-tweak-tool/themes_gui.py:132
 msgid ""
-"Select the packages you want to install or remove, then click the appropriate button.\n"
-"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" tab for details."
+"Select the packages you want to install or remove, then click the "
+"appropriate button.\n"
+"Ensure that the <b>Nemesis repository is enabled</b> — see the \"Pacman\" "
+"tab for details."
 msgstr ""
-"Wähle die Pakete aus, die du installieren oder entfernen möchtest, und klicke dann auf den passenden Button.\n"
-"Stelle sicher, dass das <b>Nemesis-Repo aktiviert ist</b>, Details findest du im Tab \"Pacman\"."
+"Wähle die Pakete aus, die du installieren oder entfernen möchtest, und "
+"klicke dann auf den passenden Button.\n"
+"Stelle sicher, dass das <b>Nemesis-Repo aktiviert ist</b>, Details findest "
+"du im Tab \"Pacman\"."
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:56
 msgid "<i>Coming soon — to be added later.</i>"
@@ -2869,8 +2975,8 @@ msgstr "Vanilla-Arch-ISO erstellen"
 #: usr/share/archlinux-tweak-tool/iso_gui.py:137
 msgid ""
 "Builds the official Arch Linux installer ISO with archiso's releng profile. "
-"archiso is installed first if missing — if it cannot be installed, the build"
-" does not run. The ISO lands in ~/ArchISO."
+"archiso is installed first if missing — if it cannot be installed, the build "
+"does not run. The ISO lands in ~/ArchISO."
 msgstr ""
 "Erstellt das offizielle Arch-Linux-Installer-ISO mit dem releng-Profil von "
 "archiso. archiso wird zuerst installiert, falls es fehlt. Lässt es sich "
@@ -3106,8 +3212,8 @@ msgstr "Kernel-Manager"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:31
 msgid ""
-"You will see the chaotic-aur kernels only when adding the repo in the Pacman"
-" tab."
+"You will see the chaotic-aur kernels only when adding the repo in the Pacman "
+"tab."
 msgstr ""
 "Du siehst die chaotic-aur-Kernel nur, wenn du das Repo im Tab Pacman "
 "hinzufügst."
@@ -3122,8 +3228,8 @@ msgstr "CPU-Scheduler"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:60
 msgid ""
-"Switch the live CPU scheduler (lavd, bpfland, rusty…) without a reboot using"
-" <b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
+"Switch the live CPU scheduler (lavd, bpfland, rusty…) without a reboot using "
+"<b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
 "Apply."
 msgstr ""
 "Wechsle den laufenden CPU-Scheduler (lavd, bpfland, rusty…) ohne Neustart "
@@ -3221,7 +3327,8 @@ msgstr ""
 "\n"
 "{pkg_lines}\n"
 "\n"
-"Lösung: Aktiviere {repo_str} auf der Seite ATT > Pacman und versuche es erneut."
+"Lösung: Aktiviere {repo_str} auf der Seite ATT > Pacman und versuche es "
+"erneut."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:289
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:387
@@ -3240,7 +3347,8 @@ msgid ""
 "\n"
 "Would you like to install them now?"
 msgstr ""
-"Die folgenden Pakete werden für die vollständige Kernel-Verwaltung benötigt:\n"
+"Die folgenden Pakete werden für die vollständige Kernel-Verwaltung "
+"benötigt:\n"
 "\n"
 "{pkg_list}\n"
 "\n"
@@ -3264,16 +3372,19 @@ msgid ""
 "Reason:\n"
 "{reasons}\n"
 "\n"
-"ATT will install the required packages and then install {pkg} in one terminal."
+"ATT will install the required packages and then install {pkg} in one "
+"terminal."
 msgstr ""
-"Die folgenden Pakete werden für die vollständige Kernel-Verwaltung benötigt:\n"
+"Die folgenden Pakete werden für die vollständige Kernel-Verwaltung "
+"benötigt:\n"
 "\n"
 "{prereq_list}\n"
 "\n"
 "Grund:\n"
 "{reasons}\n"
 "\n"
-"ATT installiert die erforderlichen Pakete und anschließend {pkg} in einem Terminal."
+"ATT installiert die erforderlichen Pakete und anschließend {pkg} in einem "
+"Terminal."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:458
 #, python-brace-format
@@ -3379,11 +3490,14 @@ msgstr "<b>Standard-Booteintrag (GRUB)</b>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:906
 msgid ""
-"<small><b>Note:</b> GRUB_DEFAULT is not set to \"saved\" in /etc/default/grub.\n"
+"<small><b>Note:</b> GRUB_DEFAULT is not set to \"saved\" in /etc/default/"
+"grub.\n"
 "ATT will fix this automatically when you click Set as Default.</small>"
 msgstr ""
-"<small><b>Hinweis:</b> GRUB_DEFAULT ist in /etc/default/grub nicht auf \"saved\" gesetzt.\n"
-"ATT behebt das automatisch, wenn du auf Als Standard festlegen klickst.</small>"
+"<small><b>Hinweis:</b> GRUB_DEFAULT ist in /etc/default/grub nicht auf "
+"\"saved\" gesetzt.\n"
+"ATT behebt das automatisch, wenn du auf Als Standard festlegen klickst.</"
+"small>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:953
 #, python-brace-format
@@ -4060,14 +4174,16 @@ msgid ""
 "A real swap partition is active:\n"
 "  {swap}\n"
 "\n"
-"If you use suspend-to-disk (hibernation), removing the 'resume' hook will break it.\n"
+"If you use suspend-to-disk (hibernation), removing the 'resume' hook will "
+"break it.\n"
 "\n"
 "Proceed anyway?"
 msgstr ""
 "Eine echte Swap-Partition ist aktiv:\n"
 "  {swap}\n"
 "\n"
-"Wenn du Suspend-to-Disk (Ruhezustand) nutzt, funktioniert er nach dem Entfernen des Hooks 'resume' nicht mehr.\n"
+"Wenn du Suspend-to-Disk (Ruhezustand) nutzt, funktioniert er nach dem "
+"Entfernen des Hooks 'resume' nicht mehr.\n"
 "\n"
 "Trotzdem fortfahren?"
 
@@ -4271,8 +4387,8 @@ msgstr "Echter Swap:"
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:439
 msgid ""
 "Remove the 'resume' hook from /etc/mkinitcpio.conf — suppresses the 'no "
-"resume device' boot warning on systems without a hibernation swap partition."
-" Backs up to /etc/mkinitcpio.conf.bak and rebuilds initramfs."
+"resume device' boot warning on systems without a hibernation swap partition. "
+"Backs up to /etc/mkinitcpio.conf.bak and rebuilds initramfs."
 msgstr ""
 "Entfernt den Hook 'resume' aus /etc/mkinitcpio.conf: Dadurch wird die Boot-"
 "Warnung „no resume device“ auf Systemen ohne Swap-Partition für den "
@@ -4284,8 +4400,8 @@ msgid ""
 "Regenerate all initramfs images (mkinitcpio -P). Run after manual HOOKS "
 "changes or when troubleshooting boot."
 msgstr ""
-"Alle Initramfs-Images neu erzeugen (mkinitcpio -P). Führe das nach manuellen"
-" HOOKS-Änderungen oder bei Boot-Problemen aus."
+"Alle Initramfs-Images neu erzeugen (mkinitcpio -P). Führe das nach manuellen "
+"HOOKS-Änderungen oder bei Boot-Problemen aus."
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:464
 msgid "Regenerate initramfs"
@@ -4492,14 +4608,20 @@ msgstr "<b>Samba-Dateifreigabe</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:234
 msgid ""
-"You install a samba server if you need to share a folder and its contents in your home network\n"
-"The purpose is to create <b>one</b> shared folder - the current user can later access this folder from other computers\n"
-"We will create the folder 'Shared' in your home directory if it is not already there\n"
+"You install a samba server if you need to share a folder and its contents in "
+"your home network\n"
+"The purpose is to create <b>one</b> shared folder - the current user can "
+"later access this folder from other computers\n"
+"We will create the folder 'Shared' in your home directory if it is not "
+"already there\n"
 " "
 msgstr ""
-"Installiere einen Samba-Server, wenn du einen Ordner samt Inhalt in deinem Heimnetzwerk freigeben möchtest\n"
-"Ziel ist ein <b>einziger</b> freigegebener Ordner: Der aktuelle Benutzer kann später von anderen Computern darauf zugreifen\n"
-"Wir legen den Ordner 'Shared' in deinem Home-Verzeichnis an, falls er dort noch nicht existiert\n"
+"Installiere einen Samba-Server, wenn du einen Ordner samt Inhalt in deinem "
+"Heimnetzwerk freigeben möchtest\n"
+"Ziel ist ein <b>einziger</b> freigegebener Ordner: Der aktuelle Benutzer "
+"kann später von anderen Computern darauf zugreifen\n"
+"Wir legen den Ordner 'Shared' in deinem Home-Verzeichnis an, falls er dort "
+"noch nicht existiert\n"
 " "
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:247
@@ -4560,8 +4682,8 @@ msgid ""
 "Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
 "you protected."
 msgstr ""
-"Die Firewall (firewalld) ist <b>aktiv</b>: Kiro aktiviert sie standardmäßig,"
-" um dich zu schützen."
+"Die Firewall (firewalld) ist <b>aktiv</b>: Kiro aktiviert sie standardmäßig, "
+"um dich zu schützen."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:363
 #: usr/share/archlinux-tweak-tool/services.py:801
@@ -4580,15 +4702,21 @@ msgstr "Firewall aktivieren"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:416
 msgid ""
-"With the Avahi daemon (network discovery) running on both the server and client,\n"
+"With the Avahi daemon (network discovery) running on both the server and "
+"client,\n"
 "the file manager on the client should automatically find the server.\n"
-"Firewall: a server sharing files needs both 'Allow network discovery (mDNS)' and 'Allow Samba file sharing'.\n"
-"A client only needs 'Allow network discovery (mDNS)' — it connects outward, so Samba does not need opening on the client."
+"Firewall: a server sharing files needs both 'Allow network discovery (mDNS)' "
+"and 'Allow Samba file sharing'.\n"
+"A client only needs 'Allow network discovery (mDNS)' — it connects outward, "
+"so Samba does not need opening on the client."
 msgstr ""
 "Wenn der Avahi-Daemon (Netzwerkerkennung) auf Server und Client läuft,\n"
 "sollte der Dateimanager des Clients den Server automatisch finden.\n"
-"Firewall: Ein Server, der Dateien freigibt, braucht sowohl 'Netzwerkerkennung erlauben (mDNS)' als auch 'Samba-Dateifreigabe erlauben'.\n"
-"Ein Client braucht nur 'Netzwerkerkennung erlauben (mDNS)': Er verbindet sich nach außen, daher muss Samba auf dem Client nicht geöffnet werden."
+"Firewall: Ein Server, der Dateien freigibt, braucht sowohl "
+"'Netzwerkerkennung erlauben (mDNS)' als auch 'Samba-Dateifreigabe "
+"erlauben'.\n"
+"Ein Client braucht nur 'Netzwerkerkennung erlauben (mDNS)': Er verbindet "
+"sich nach außen, daher muss Samba auf dem Client nicht geöffnet werden."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:438
 msgid "firewalld is <b>not installed</b> — no firewall controls available."
@@ -4632,8 +4760,8 @@ msgstr "Status: <b>Pacman-Cache wird bereinigt</b>"
 msgid ""
 "Status: <b>Performing full system upgrade - do not power off your system</b>"
 msgstr ""
-"Status: <b>Vollständiges Systemupgrade läuft: Schalte dein System nicht "
-"aus</b>"
+"Status: <b>Vollständiges Systemupgrade läuft: Schalte dein System nicht aus</"
+"b>"
 
 #: usr/share/archlinux-tweak-tool/packages.py:378
 msgid "Status: <b>Full system upgrade - completed</b>"
@@ -4669,7 +4797,8 @@ msgid ""
 "Failed to lock database, pacman lockfile exists at {path}\n"
 "Is another pacman process running ?"
 msgstr ""
-"Datenbank konnte nicht gesperrt werden, die pacman-Sperrdatei existiert unter {path}\n"
+"Datenbank konnte nicht gesperrt werden, die pacman-Sperrdatei existiert "
+"unter {path}\n"
 "Läuft ein anderer pacman-Prozess?"
 
 #: usr/share/archlinux-tweak-tool/packages.py:594
@@ -4725,18 +4854,25 @@ msgstr "<b>Pakete exportieren</b>"
 #: usr/share/archlinux-tweak-tool/packages_gui.py:28
 msgid ""
 " <b>No AUR packages are exported</b>\n"
-" - Option: <b>Explicitly Installed Packages</b> (recommended) packages only found in sync db (less packages)\n"
-" - Option: <b>All Installed Packages</b> will export all packages currently installed on your system \n"
-" - Tip: To see packages installed from AUR in the terminal type: pacman -Qqem\n"
+" - Option: <b>Explicitly Installed Packages</b> (recommended) packages only "
+"found in sync db (less packages)\n"
+" - Option: <b>All Installed Packages</b> will export all packages currently "
+"installed on your system \n"
+" - Tip: To see packages installed from AUR in the terminal type: pacman "
+"-Qqem\n"
 "\n"
-" A list of installed packages will be exported to <b>.config/archlinux-tweak-tool/packages</b>"
+" A list of installed packages will be exported to <b>.config/archlinux-tweak-"
+"tool/packages</b>"
 msgstr ""
 " <b>Es werden keine AUR-Pakete exportiert</b>\n"
-" - Option: <b>Explizit installierte Pakete</b> (empfohlen): nur Pakete aus der Sync-DB (weniger Pakete)\n"
-" - Option: <b>Alle installierten Pakete</b> exportiert alle Pakete, die aktuell auf deinem System installiert sind \n"
+" - Option: <b>Explizit installierte Pakete</b> (empfohlen): nur Pakete aus "
+"der Sync-DB (weniger Pakete)\n"
+" - Option: <b>Alle installierten Pakete</b> exportiert alle Pakete, die "
+"aktuell auf deinem System installiert sind \n"
 " - Tipp: Pakete aus dem AUR zeigst du im Terminal an mit: pacman -Qqem\n"
 "\n"
-" Eine Liste der installierten Pakete wird nach <b>.config/archlinux-tweak-tool/packages</b> exportiert"
+" Eine Liste der installierten Pakete wird nach <b>.config/archlinux-tweak-"
+"tool/packages</b> exportiert"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:44
 msgid "<b> Install Packages</b>"
@@ -4760,11 +4896,13 @@ msgstr "<b>Pakete installieren</b>"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:101
 msgid ""
-" <b>WARNING:</b> Proceed with caution this will install packages onto your system!\n"
+" <b>WARNING:</b> Proceed with caution this will install packages onto your "
+"system!\n"
 " Packages from the AUR are not supported \n"
 " This also performs a full system upgrade\n"
 "\n"
-" - A list of packages are sourced from <b>.config/archlinux-tweak-tool/packages</b>\n"
+" - A list of packages are sourced from <b>.config/archlinux-tweak-tool/"
+"packages</b>\n"
 " - To ignore a package, add a # in front of the package name\n"
 " - A reboot is needed when core Linux packages are installed"
 msgstr ""
@@ -4772,7 +4910,8 @@ msgstr ""
 " Pakete aus dem AUR werden nicht unterstützt \n"
 " Dabei wird auch ein vollständiges Systemupgrade durchgeführt\n"
 "\n"
-" - Eine Paketliste wird aus <b>.config/archlinux-tweak-tool/packages</b> gelesen\n"
+" - Eine Paketliste wird aus <b>.config/archlinux-tweak-tool/packages</b> "
+"gelesen\n"
 " - Um ein Paket zu ignorieren, setze ein # vor den Paketnamen\n"
 " - Ein Neustart ist nötig, wenn Linux-Kernpakete installiert werden"
 
@@ -4797,12 +4936,14 @@ msgid ""
 " <b>Build packages from source using makepkg</b>\n"
 " - Build packages from PKGBUILD files\n"
 " - Requires base-devel package group to be installed\n"
-" - Arch Linux creates a -debug package by default; this behavior can be changed"
+" - Arch Linux creates a -debug package by default; this behavior can be "
+"changed"
 msgstr ""
 " <b>Pakete mit makepkg aus dem Quellcode bauen</b>\n"
 " - Pakete aus PKGBUILD-Dateien bauen\n"
 " - Setzt voraus, dass die Paketgruppe base-devel installiert ist\n"
-" - Arch Linux erzeugt standardmäßig ein -debug-Paket; dieses Verhalten lässt sich ändern"
+" - Arch Linux erzeugt standardmäßig ein -debug-Paket; dieses Verhalten lässt "
+"sich ändern"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:243
 msgid "Remove the debug in /etc/makepkg.conf"
@@ -5550,8 +5691,8 @@ msgstr "preload ist bereits installiert"
 msgid ""
 "Enable Chaotic AUR or Nemesis repo first — preload is not in standard repos"
 msgstr ""
-"Aktiviere zuerst Chaotic AUR oder das Nemesis-Repo: preload ist nicht in den"
-" Standard-Repos"
+"Aktiviere zuerst Chaotic AUR oder das Nemesis-Repo: preload ist nicht in den "
+"Standard-Repos"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1963
 msgid "preload has been installed"
@@ -5600,11 +5741,11 @@ msgstr "gamemode wurde deaktiviert und gestoppt"
 #: usr/share/archlinux-tweak-tool/performance.py:2156
 #, python-brace-format
 msgid ""
-"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Detected CPU cores:"
-" <b>{cores}</b>"
+"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Detected CPU cores: "
+"<b>{cores}</b>"
 msgstr ""
-"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Erkannte CPU-Kerne:"
-" <b>{cores}</b>"
+"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Erkannte CPU-Kerne: "
+"<b>{cores}</b>"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2168
 msgid "Restore /etc/makepkg.conf from /etc/makepkg.conf-bak"
@@ -5635,7 +5776,8 @@ msgid ""
 msgstr ""
 "\n"
 "<b>{reserved} Kerne bleiben frei</b>\n"
-"<tt>-j{jobs}</tt> lässt {reserved} Kerne für den Desktop übrig, damit die Oberfläche und eine\n"
+"<tt>-j{jobs}</tt> lässt {reserved} Kerne für den Desktop übrig, damit die "
+"Oberfläche und eine\n"
 "Bluetooth-Maus reaktionsschnell bleiben, während ein langer Build läuft.\n"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2243
@@ -5747,14 +5889,20 @@ msgstr "<b>Tuned</b>"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:104
 msgid ""
 "<b>Tuned</b> - Dynamic system tuning for power management\n"
-"<b>Tuned-PPD</b> - Power Profiles Daemon integration for desktop environments\n"
-"If <b>TLP</b> is installed, it will be disabled when Tuned is enabled (they conflict).\n"
-"If <b>power-profiles-daemon</b> is installed, it will be removed before installing Tuned-PPD (they conflict)."
+"<b>Tuned-PPD</b> - Power Profiles Daemon integration for desktop "
+"environments\n"
+"If <b>TLP</b> is installed, it will be disabled when Tuned is enabled (they "
+"conflict).\n"
+"If <b>power-profiles-daemon</b> is installed, it will be removed before "
+"installing Tuned-PPD (they conflict)."
 msgstr ""
 "<b>Tuned</b>: Dynamisches System-Tuning für die Energieverwaltung\n"
-"<b>Tuned-PPD</b>: Integration des Power Profiles Daemon für Desktop-Umgebungen\n"
-"Wenn <b>TLP</b> installiert ist, wird es deaktiviert, sobald Tuned aktiviert wird (sie stehen im Konflikt).\n"
-"Wenn <b>power-profiles-daemon</b> installiert ist, wird er vor der Installation von Tuned-PPD entfernt (sie stehen im Konflikt)."
+"<b>Tuned-PPD</b>: Integration des Power Profiles Daemon für Desktop-"
+"Umgebungen\n"
+"Wenn <b>TLP</b> installiert ist, wird es deaktiviert, sobald Tuned aktiviert "
+"wird (sie stehen im Konflikt).\n"
+"Wenn <b>power-profiles-daemon</b> installiert ist, wird er vor der "
+"Installation von Tuned-PPD entfernt (sie stehen im Konflikt)."
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:116
 msgid "tuned is not installed"
@@ -5933,11 +6081,16 @@ msgstr "<b>Build-Einstellungen (makepkg.conf)</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:553
 msgid ""
-"Set <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt> — all cores for max build speed, or keep 2 free to stay responsive while building.\n"
-"ATT writes <tt>/etc/makepkg.conf-bak</tt> at startup — Restore brings it back."
+"Set <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt> — all cores for max build "
+"speed, or keep 2 free to stay responsive while building.\n"
+"ATT writes <tt>/etc/makepkg.conf-bak</tt> at startup — Restore brings it "
+"back."
 msgstr ""
-"Setze <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt>: alle Kerne für maximale Build-Geschwindigkeit oder 2 frei lassen, um beim Bauen reaktionsschnell zu bleiben.\n"
-"ATT schreibt beim Start <tt>/etc/makepkg.conf-bak</tt>. Mit Wiederherstellen bekommst du sie zurück."
+"Setze <b>MAKEFLAGS</b> in <tt>/etc/makepkg.conf</tt>: alle Kerne für "
+"maximale Build-Geschwindigkeit oder 2 frei lassen, um beim Bauen "
+"reaktionsschnell zu bleiben.\n"
+"ATT schreibt beim Start <tt>/etc/makepkg.conf-bak</tt>. Mit Wiederherstellen "
+"bekommst du sie zurück."
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:563
 msgid "MAKEFLAGS : …"
@@ -5987,15 +6140,22 @@ msgstr "<b>Plymouth installieren / entfernen</b>"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:49
 msgid ""
-"Install adds the plymouth hook to <tt>/etc/mkinitcpio.conf</tt> and rebuilds initramfs.\n"
-"Remove strips the hook, optionally cleans <tt>quiet splash</tt> from the kernel cmdline,\n"
-"optionally removes <tt>plymouth-theme-*</tt> packages, and rebuilds initramfs.\n"
+"Install adds the plymouth hook to <tt>/etc/mkinitcpio.conf</tt> and rebuilds "
+"initramfs.\n"
+"Remove strips the hook, optionally cleans <tt>quiet splash</tt> from the "
+"kernel cmdline,\n"
+"optionally removes <tt>plymouth-theme-*</tt> packages, and rebuilds "
+"initramfs.\n"
 "Every step is shown in the terminal — prompts ask before destructive cleanup."
 msgstr ""
-"Installieren fügt den Hook plymouth zu <tt>/etc/mkinitcpio.conf</tt> hinzu und baut das initramfs neu.\n"
-"Entfernen löscht den Hook, bereinigt optional <tt>quiet splash</tt> aus der Kernel-Kommandozeile,\n"
-"entfernt optional <tt>plymouth-theme-*</tt>-Pakete und baut das initramfs neu.\n"
-"Jeder Schritt wird im Terminal angezeigt, vor destruktiver Bereinigung wird nachgefragt."
+"Installieren fügt den Hook plymouth zu <tt>/etc/mkinitcpio.conf</tt> hinzu "
+"und baut das initramfs neu.\n"
+"Entfernen löscht den Hook, bereinigt optional <tt>quiet splash</tt> aus der "
+"Kernel-Kommandozeile,\n"
+"entfernt optional <tt>plymouth-theme-*</tt>-Pakete und baut das initramfs "
+"neu.\n"
+"Jeder Schritt wird im Terminal angezeigt, vor destruktiver Bereinigung wird "
+"nachgefragt."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:59
 msgid "Install Plymouth"
@@ -6024,19 +6184,17 @@ msgstr "quiet splash zu Kommandozeile und Einträgen hinzufügen"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:134
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1000
-msgid ""
-"<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contains <tt>quiet splash</tt>."
-msgstr ""
-"<b>OK:</b> <tt>/etc/kernel/cmdline</tt> enthält <tt>quiet splash</tt>."
+msgid "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contains <tt>quiet splash</tt>."
+msgstr "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> enthält <tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:138
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1004
 msgid ""
-"<span foreground=\"#FFA500\"><b>Warning:</b></span> "
-"<tt>/etc/kernel/cmdline</tt> is missing <tt>quiet splash</tt>."
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> <tt>/etc/kernel/cmdline</"
+"tt> is missing <tt>quiet splash</tt>."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Warnung:</b></span> In "
-"<tt>/etc/kernel/cmdline</tt> fehlt <tt>quiet splash</tt>."
+"<span foreground=\"#FFA500\"><b>Warnung:</b></span> In <tt>/etc/kernel/"
+"cmdline</tt> fehlt <tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:142
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1008
@@ -6066,17 +6224,16 @@ msgstr "quiet splash hinzufügen und grub-mkconfig ausführen"
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:176
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1192
 msgid ""
-"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contains <tt>quiet "
-"splash</tt>."
+"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contains <tt>quiet splash</"
+"tt>."
 msgstr ""
-"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> enthält <tt>quiet "
-"splash</tt>."
+"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> enthält <tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:180
 msgid ""
 "<span foreground=\"#FFA500\"><b>Warning:</b></span> "
-"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing"
-" <tt>quiet splash</tt>."
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
+"<tt>quiet splash</tt>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Warnung:</b></span> In "
 "<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> fehlt "
@@ -6100,11 +6257,17 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:221
 msgid ""
-"<span foreground=\"#FFA500\"><b>Warning:</b></span> In <tt>/etc/mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> appears before <tt>plymouth</tt>.\n"
-"Move <tt>plymouth</tt> before <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</tt> so the splash screen renders correctly."
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> In <tt>/etc/"
+"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> appears before "
+"<tt>plymouth</tt>.\n"
+"Move <tt>plymouth</tt> before <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</"
+"tt> so the splash screen renders correctly."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Warnung:</b></span> In <tt>/etc/mkinitcpio.conf</tt> steht <tt>encrypt</tt>/<tt>lvm2</tt> vor <tt>plymouth</tt>.\n"
-"Verschiebe <tt>plymouth</tt> vor <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>lvm2</tt>, damit der Splash-Screen korrekt angezeigt wird."
+"<span foreground=\"#FFA500\"><b>Warnung:</b></span> In <tt>/etc/"
+"mkinitcpio.conf</tt> steht <tt>encrypt</tt>/<tt>lvm2</tt> vor <tt>plymouth</"
+"tt>.\n"
+"Verschiebe <tt>plymouth</tt> vor <tt>encrypt</tt>/<tt>sd-encrypt</tt>/"
+"<tt>lvm2</tt>, damit der Splash-Screen korrekt angezeigt wird."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -6136,11 +6299,13 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "Dracut auto-detects KMS modules in most cases.\n"
-"For forced loading add e.g. <tt>force_drivers+=\" amdgpu \"</tt> to a file in\n"
+"For forced loading add e.g. <tt>force_drivers+=\" amdgpu \"</tt> to a file "
+"in\n"
 "<tt>/etc/dracut.conf.d/</tt> and run <tt>{command}</tt>."
 msgstr ""
 "Dracut erkennt KMS-Module in den meisten Fällen automatisch.\n"
-"Zum erzwungenen Laden füge z. B. <tt>force_drivers+=\" amdgpu \"</tt> in eine Datei in\n"
+"Zum erzwungenen Laden füge z. B. <tt>force_drivers+=\" amdgpu \"</tt> in "
+"eine Datei in\n"
 "<tt>/etc/dracut.conf.d/</tt> ein und führe <tt>{command}</tt> aus."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:305
@@ -6156,8 +6321,8 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:312
 #, python-brace-format
 msgid ""
-"<span foreground=\"#FFA500\"><b>Warning:</b></span> <tt>{module}</tt> not in"
-" <tt>MODULES</tt> in <tt>/etc/mkinitcpio.conf</tt>."
+"<span foreground=\"#FFA500\"><b>Warning:</b></span> <tt>{module}</tt> not in "
+"<tt>MODULES</tt> in <tt>/etc/mkinitcpio.conf</tt>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Warnung:</b></span> <tt>{module}</tt> fehlt "
 "in <tt>MODULES</tt> in <tt>/etc/mkinitcpio.conf</tt>."
@@ -6212,7 +6377,8 @@ msgid ""
 "Applying a theme sets it with <tt>plymouth-set-default-theme</tt> then\n"
 "rebuilds the initramfs with <tt>{command}</tt>. This takes a few seconds."
 msgstr ""
-"Beim Anwenden wird ein Theme mit <tt>plymouth-set-default-theme</tt> gesetzt und danach\n"
+"Beim Anwenden wird ein Theme mit <tt>plymouth-set-default-theme</tt> gesetzt "
+"und danach\n"
 "das initramfs mit <tt>{command}</tt> neu gebaut. Das dauert einige Sekunden."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:430
@@ -6241,8 +6407,8 @@ msgstr "Theme installieren"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:479
 msgid ""
-"<span foreground=\"#FFA500\"><b>Note:</b></span> Installing a theme does not"
-" activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
+"<span foreground=\"#FFA500\"><b>Note:</b></span> Installing a theme does not "
+"activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Hinweis:</b></span> Das Installieren eines "
 "Themes aktiviert es nicht. Gehe oben zu <b>Theme auswählen</b> und klicke "
@@ -6386,8 +6552,8 @@ msgstr "{name} wird aktiviert..."
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>enabled</b>"
 msgstr ""
-"{name} aktivieren oder deaktivieren: Prüfe in /etc/hosts den Eintrag <b>"
-"enabled</b>"
+"{name} aktivieren oder deaktivieren: Prüfe in /etc/hosts den Eintrag "
+"<b>enabled</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:370
 #, python-brace-format
@@ -6399,8 +6565,8 @@ msgstr "{name} wird deaktiviert..."
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts disabled"
 msgstr ""
-"{name} aktivieren oder deaktivieren: Prüfe in /etc/hosts den Eintrag „"
-"disabled“"
+"{name} aktivieren oder deaktivieren: Prüfe in /etc/hosts den Eintrag "
+"„disabled“"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:24
 msgid "Privacy/Security"
@@ -6651,12 +6817,14 @@ msgid ""
 "\n"
 "Your current settings will be saved as a backup before any changes are made."
 msgstr ""
-"Dadurch wird deine SDDM-Konfiguration auf die ATT-Standardwerte zurückgesetzt.\n"
+"Dadurch wird deine SDDM-Konfiguration auf die ATT-Standardwerte "
+"zurückgesetzt.\n"
 "\n"
 "• Sichert deine aktuellen Einstellungen in /etc/sddm.conf.d/\n"
 "• Wendet die SDDM-Standardkonfiguration von Kiro an\n"
 "\n"
-"Deine aktuellen Einstellungen werden als Sicherung gespeichert, bevor Änderungen vorgenommen werden."
+"Deine aktuellen Einstellungen werden als Sicherung gespeichert, bevor "
+"Änderungen vorgenommen werden."
 
 #: usr/share/archlinux-tweak-tool/sddm.py:1033
 msgid "Fix SDDM Configuration"
@@ -6685,9 +6853,12 @@ msgstr "Konfiguration einrichten"
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:36
 msgid ""
 "We recommend to use the default sddm configuration setup\n"
-"Sddm configuration split into two files: /etc/sddm.conf and /etc/sddm.conf.d/kde_settings.conf\n"
-"/etc/sddm.conf.d/kde_settings.conf contains all the parameters - We will backup your files\n"
-"You can also restore your own original configuration if you want to - auto restart ATT\n"
+"Sddm configuration split into two files: /etc/sddm.conf and /etc/sddm.conf.d/"
+"kde_settings.conf\n"
+"/etc/sddm.conf.d/kde_settings.conf contains all the parameters - We will "
+"backup your files\n"
+"You can also restore your own original configuration if you want to - auto "
+"restart ATT\n"
 msgstr ""
 "Wir empfehlen, die Standardkonfiguration von SDDM zu verwenden.\n"
 "Die SDDM-Konfiguration ist auf zwei Dateien aufgeteilt: /etc/sddm.conf und /"
@@ -7187,8 +7358,10 @@ msgstr "System-config-printer installieren"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:111
 msgid ""
-"Printing can be a challenge. We recommend reading the Arch wiki cups page. Check before you buy.\n"
-"There are also printer specific pages. Lastly the AUR might contain the driver you need."
+"Printing can be a challenge. We recommend reading the Arch wiki cups page. "
+"Check before you buy.\n"
+"There are also printer specific pages. Lastly the AUR might contain the "
+"driver you need."
 msgstr ""
 "Drucken kann eine Herausforderung sein. Wir empfehlen, die cups-Seite im "
 "Arch-Wiki zu lesen. Informiere dich vor dem Kauf.\n"
@@ -7306,8 +7479,7 @@ msgstr ""
 "Funktioniert mit PipeWire und PulseAudio."
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:429
-msgid ""
-"You can install all the bluetooth packages here and enable the service."
+msgid "You can install all the bluetooth packages here and enable the service."
 msgstr ""
 "Hier kannst du alle Bluetooth-Pakete installieren und den Dienst aktivieren."
 
@@ -7461,8 +7633,7 @@ msgstr "Bash-Konfiguration konnte nicht wiederhergestellt werden: {error}"
 #: usr/share/archlinux-tweak-tool/shell.py:159
 msgid "ATT config.fish applied — log out and back in to apply"
 msgstr ""
-"ATT config.fish angewendet: Melde dich ab und wieder an, um sie zu "
-"übernehmen"
+"ATT config.fish angewendet: Melde dich ab und wieder an, um sie zu übernehmen"
 
 #: usr/share/archlinux-tweak-tool/shell.py:164
 msgid "ATT config.fish source not found"
@@ -7533,8 +7704,7 @@ msgstr "Zsh-Konfiguration konnte nicht angewendet werden: {error}"
 #: usr/share/archlinux-tweak-tool/shell.py:337
 msgid "~/.zshrc restored — log out and back in to apply"
 msgstr ""
-"~/.zshrc wiederhergestellt: Melde dich ab und wieder an, um sie zu "
-"übernehmen"
+"~/.zshrc wiederhergestellt: Melde dich ab und wieder an, um sie zu übernehmen"
 
 #: usr/share/archlinux-tweak-tool/shell.py:343
 #, python-brace-format
@@ -7992,8 +8162,7 @@ msgid "Remove fish-tweak-tool"
 msgstr "fish-tweak-tool entfernen"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:596
-msgid ""
-"<i>Enable the Nemesis repo (Pacman page) to install fish-tweak-tool</i>"
+msgid "<i>Enable the Nemesis repo (Pacman page) to install fish-tweak-tool</i>"
 msgstr ""
 "<i>Aktiviere das Nemesis-Repo (Seite Pacman), um fish-tweak-tool zu "
 "installieren</i>"
@@ -8006,12 +8175,18 @@ msgstr "Fish Tweak Tool starten"
 msgid ""
 "<b>Set up your fish shell in clicks — no config files to edit.</b>\n"
 "\n"
-"• <b>Presets</b> — apply a whole look (prompt + plugins + theme + greeting) in one click\n"
-"• <b>Prompts</b> — install Tide, Hydro or Pure, or pick a built-in style (one active at a time)\n"
-"• <b>Plugins</b> — toggle the must-haves via fisher: fzf, autopair, sponge, puffer-fish\n"
-"• <b>Themes</b> — 25 colour themes with a live hover preview and dark / light variants\n"
-"• <b>Settings</b> — greeting (fastfetch or custom), cursor shape, one-click backup &amp; restore\n"
-"• <b>No black box</b> — every change runs in a terminal so you see the exact command\n"
+"• <b>Presets</b> — apply a whole look (prompt + plugins + theme + greeting) "
+"in one click\n"
+"• <b>Prompts</b> — install Tide, Hydro or Pure, or pick a built-in style "
+"(one active at a time)\n"
+"• <b>Plugins</b> — toggle the must-haves via fisher: fzf, autopair, sponge, "
+"puffer-fish\n"
+"• <b>Themes</b> — 25 colour themes with a live hover preview and dark / "
+"light variants\n"
+"• <b>Settings</b> — greeting (fastfetch or custom), cursor shape, one-click "
+"backup &amp; restore\n"
+"• <b>No black box</b> — every change runs in a terminal so you see the exact "
+"command\n"
 "\n"
 "<i>Your fish config is always backed up before any change.</i>"
 msgstr ""
@@ -8035,7 +8210,8 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:645
 msgid ""
-"The shell configurations of the ATT contain aliases that require certain applications\n"
+"The shell configurations of the ATT contain aliases that require certain "
+"applications\n"
 "\n"
 "Here you can select the missing applications and install them\n"
 "Activate the nemesis repo (when needed) to install all of them\n"
@@ -8126,8 +8302,7 @@ msgstr "Alacritty Tweak Tool starten"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:854
 msgid ""
-"304 themes to choose from or create your own theme with the click of a "
-"button"
+"304 themes to choose from or create your own theme with the click of a button"
 msgstr "Wähle aus 304 Themes oder erstelle mit einem Klick dein eigenes Theme"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:869
@@ -8784,13 +8959,18 @@ msgstr "<b>AUR-Helper</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:207
 msgid ""
-"<i>The AUR is a <b>community</b> repository — packages are submitted by users and are\n"
-"<b>not reviewed</b> by Arch or Kiro. They build and run code on your system, so install\n"
+"<i>The AUR is a <b>community</b> repository — packages are submitted by "
+"users and are\n"
+"<b>not reviewed</b> by Arch or Kiro. They build and run code on your system, "
+"so install\n"
 "only what you trust, and reach for the official repositories first.</i>"
 msgstr ""
-"<i>Das AUR ist ein <b>Community</b>-Repository: Pakete werden von Nutzern eingereicht und\n"
-"<b>nicht geprüft</b>, weder von Arch noch von Kiro. Sie bauen und führen Code auf deinem System aus. Installiere\n"
-"also nur, was du kennst, und greife zuerst auf die offiziellen Repositories zurück.</i>"
+"<i>Das AUR ist ein <b>Community</b>-Repository: Pakete werden von Nutzern "
+"eingereicht und\n"
+"<b>nicht geprüft</b>, weder von Arch noch von Kiro. Sie bauen und führen "
+"Code auf deinem System aus. Installiere\n"
+"also nur, was du kennst, und greife zuerst auf die offiziellen Repositories "
+"zurück.</i>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:318
 msgid "<b>Flatpak / Snap / AppImage</b>"
@@ -8852,10 +9032,14 @@ msgstr "Gespeichert: {filename}"
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:31
 msgid ""
 " Remove optional apps that shipped on this system, grouped by category.\n"
-" Each section shows apps <b>still installed</b> (left, tick to remove) next to those <b>already removed</b> (right, tick to reinstall).\n"
-" Tick a <b>category</b> to select all its apps, then untick the ones you want to keep.\n"
-" <b>Save profile</b> stores your current selection. <b>Save removed list</b> records what's actually\n"
-" gone now (the full list minus what's still installed). Import either on a future install to re-remove."
+" Each section shows apps <b>still installed</b> (left, tick to remove) next "
+"to those <b>already removed</b> (right, tick to reinstall).\n"
+" Tick a <b>category</b> to select all its apps, then untick the ones you "
+"want to keep.\n"
+" <b>Save profile</b> stores your current selection. <b>Save removed list</b> "
+"records what's actually\n"
+" gone now (the full list minus what's still installed). Import either on a "
+"future install to re-remove."
 msgstr ""
 "Entferne optionale Apps, die mit diesem System ausgeliefert wurden, nach "
 "Kategorie gruppiert.\n"
@@ -9221,8 +9405,8 @@ msgid ""
 "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
 "devices your vendor publishes to LVFS will show updates."
 msgstr ""
-"GNOME Firmware aktualisiert BIOS/UEFI, SSDs, Docks und mehr über fwupd/LVFS."
-" Updates erscheinen nur für Geräte, die dein Hersteller auf LVFS "
+"GNOME Firmware aktualisiert BIOS/UEFI, SSDs, Docks und mehr über fwupd/LVFS. "
+"Updates erscheinen nur für Geräte, die dein Hersteller auf LVFS "
 "veröffentlicht."
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:395
@@ -9248,11 +9432,11 @@ msgstr "Ups!"
 #: usr/share/archlinux-tweak-tool/themer.py:54
 #, python-brace-format
 msgid ""
-"you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. So"
-" we can not enable this feature."
+"you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. So "
+"we can not enable this feature."
 msgstr ""
-"Du hast anscheinend keine Datei <b>{name}</b> in deinem Verzeichnis "
-"<i>{path}</i>. Deshalb können wir diese Funktion nicht aktivieren."
+"Du hast anscheinend keine Datei <b>{name}</b> in deinem Verzeichnis <i>{path}"
+"</i>. Deshalb können wir diese Funktion nicht aktivieren."
 
 #: usr/share/archlinux-tweak-tool/themer.py:388
 #, python-brace-format
@@ -9333,7 +9517,8 @@ msgstr "Theme-Umschalter"
 #: usr/share/archlinux-tweak-tool/themer_gui.py:345
 #: usr/share/archlinux-tweak-tool/themer_gui.py:424
 msgid ""
-"Reload your window manager with <b>Super + Shift + R</b> after you make your changes..\n"
+"Reload your window manager with <b>Super + Shift + R</b> after you make your "
+"changes..\n"
 "First install the desktop via the Desktop menu then theme it."
 msgstr ""
 "Lade deinen Window-Manager mit <b>Super + Shift + R</b> neu, nachdem du "
@@ -9350,7 +9535,8 @@ msgid ""
 "<small>(install desktop first to be able to select a theme)</small>"
 msgstr ""
 "Theme auswählen\n"
-"<small>(installiere zuerst den Desktop, um ein Theme auswählen zu können)</small>"
+"<small>(installiere zuerst den Desktop, um ein Theme auswählen zu können)</"
+"small>"
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:162
 #: usr/share/archlinux-tweak-tool/themer_gui.py:318
@@ -9408,8 +9594,8 @@ msgstr "{path} konnte nicht geschrieben werden"
 #: usr/share/archlinux-tweak-tool/themes.py:322
 msgid "Enable or Disable the Plasma Qt theme overrides (/etc/environment)"
 msgstr ""
-"Qt-Theme-Überschreibungen von Plasma aktivieren oder deaktivieren "
-"(/etc/environment)"
+"Qt-Theme-Überschreibungen von Plasma aktivieren oder deaktivieren (/etc/"
+"environment)"
 
 #: usr/share/archlinux-tweak-tool/themes.py:350
 #, python-brace-format
@@ -9442,8 +9628,8 @@ msgstr "{path} aktualisiert"
 #: usr/share/archlinux-tweak-tool/themes.py:400
 msgid "Qt overrides OFF — Plasma controls its theme; log out and back in"
 msgstr ""
-"Qt-Überschreibungen AUS: Plasma steuert sein Theme selbst; melde dich ab und"
-" wieder an"
+"Qt-Überschreibungen AUS: Plasma steuert sein Theme selbst; melde dich ab und "
+"wieder an"
 
 #: usr/share/archlinux-tweak-tool/themes.py:402
 msgid "Qt overrides restored (qt5ct/Kvantum) — log out and back in"
@@ -9476,27 +9662,34 @@ msgstr "Systemweites GTK-Theme entfernt: melde dich ab und wieder an"
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:80
 msgid ""
-"Optional override: GTK_THEME forces this one theme on every GTK app for every user, and partly restyles libadwaita apps.\n"
+"Optional override: GTK_THEME forces this one theme on every GTK app for "
+"every user, and partly restyles libadwaita apps.\n"
 "Leave it on None to let each user's own theme settings decide."
 msgstr ""
-"Optionale Überschreibung: GTK_THEME erzwingt dieses eine Theme für jede GTK-App und jeden Benutzer und gestaltet libadwaita-Apps teilweise um.\n"
-"Lass es auf Keins, damit die Theme-Einstellungen des jeweiligen Benutzers entscheiden."
+"Optionale Überschreibung: GTK_THEME erzwingt dieses eine Theme für jede GTK-"
+"App und jeden Benutzer und gestaltet libadwaita-Apps teilweise um.\n"
+"Lass es auf Keins, damit die Theme-Einstellungen des jeweiligen Benutzers "
+"entscheiden."
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:88
 msgid ""
-"<span foreground=\"#FFA500\">Set the system-wide GTK theme in "
-"/etc/environment</span>"
+"<span foreground=\"#FFA500\">Set the system-wide GTK theme in /etc/"
+"environment</span>"
 msgstr ""
 "<span foreground=\"#FFA500\">Systemweites GTK-Theme in /etc/environment "
 "setzen</span>"
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:158
 msgid ""
-"<span size=\"large\">The GTK theme is set per user — pick it in your desktop's appearance settings.\n"
-"The setting below is an optional system-wide override; leave it on None normally.</span>"
+"<span size=\"large\">The GTK theme is set per user — pick it in your "
+"desktop's appearance settings.\n"
+"The setting below is an optional system-wide override; leave it on None "
+"normally.</span>"
 msgstr ""
-"<span size=\"large\">Das GTK-Theme wird pro Benutzer gesetzt: Wähle es in den Darstellungseinstellungen deines Desktops.\n"
-"Die Einstellung unten ist eine optionale systemweite Überschreibung; lass sie normalerweise auf Keins.</span>"
+"<span size=\"large\">Das GTK-Theme wird pro Benutzer gesetzt: Wähle es in "
+"den Darstellungseinstellungen deines Desktops.\n"
+"Die Einstellung unten ist eine optionale systemweite Überschreibung; lass "
+"sie normalerweise auf Keins.</span>"
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:169
 msgid ""
@@ -9611,7 +9804,8 @@ msgstr "Ausgewählten Benutzer und den Home-Ordner entfernen"
 
 #: usr/share/archlinux-tweak-tool/user_gui.py:142
 msgid ""
-"On <b>pure Arch Linux</b> remember to 'EDITOR=nano visudo' and uncomment the line '%wheel ALL=(ALL:ALL) ALL'\n"
+"On <b>pure Arch Linux</b> remember to 'EDITOR=nano visudo' and uncomment the "
+"line '%wheel ALL=(ALL:ALL) ALL'\n"
 "if you want your users to have administrator rights"
 msgstr ""
 "Auf <b>reinem Arch Linux</b> musst du 'EDITOR=nano visudo' ausführen und die "
@@ -9884,8 +10078,8 @@ msgid ""
 "first.</b></span>"
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Diese Kiro-Wayland-Editionen brauchen ein "
-"zusätzliches Repo (nemesis_repo, chaotic-aur oder cachyos). Aktiviere zuerst"
-" eins im Pacman-Tab.</b></span>"
+"zusätzliches Repo (nemesis_repo, chaotic-aur oder cachyos). Aktiviere zuerst "
+"eins im Pacman-Tab.</b></span>"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:236
 msgid "Install selected"
@@ -9894,10 +10088,13 @@ msgstr "Ausgewählte installieren"
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:250
 msgid ""
 "Configs the install overwrites are backed up to ~/.config-att first.\n"
-"Uninstalling a WM later leaves its ~/.config subfolder intact — remove it yourself if no longer needed."
+"Uninstalling a WM later leaves its ~/.config subfolder intact — remove it "
+"yourself if no longer needed."
 msgstr ""
-"Konfigurationen, die die Installation überschreibt, werden zuvor in ~/.config-att gesichert.\n"
-"Wenn du einen WM später deinstallierst, bleibt sein ~/.config-Unterordner erhalten: Entferne ihn selbst, falls du ihn nicht mehr brauchst."
+"Konfigurationen, die die Installation überschreibt, werden zuvor in "
+"~/.config-att gesichert.\n"
+"Wenn du einen WM später deinstallierst, bleibt sein ~/.config-Unterordner "
+"erhalten: Entferne ihn selbst, falls du ihn nicht mehr brauchst."
 
 #: usr/share/archlinux-tweak-tool/zsh_theme.py:66
 msgid "Error!!"

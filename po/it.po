@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 08:26+0100\n"
+"POT-Creation-Date: 2026-11-01 19:11+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -30,22 +30,22 @@ msgid "KMag (screen magnifier)"
 msgstr "KMag (lente d'ingrandimento)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:38
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:273
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:280
 msgid "Sticky Keys"
 msgstr "Tasti permanenti"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:45
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid "Slow Keys"
 msgstr "Tasti lenti"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:52
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:278
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
 msgid "Bounce Keys"
 msgstr "Tasti anti-rimbalzo"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:59
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid "Mouse Keys"
 msgstr "Tasti mouse"
 
@@ -149,11 +149,11 @@ msgstr "{name} disattivato (sessione corrente)"
 msgid "Accessibility"
 msgstr "Accessibilità"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:101
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:103
 msgid "Assistive tools"
 msgstr "Strumenti di assistenza"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:112
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:115
 #: usr/share/archlinux-tweak-tool/backup_gui.py:33
 #: usr/share/archlinux-tweak-tool/office_gui.py:29
 #: usr/share/archlinux-tweak-tool/software_gui.py:41
@@ -174,8 +174,8 @@ msgstr "Strumenti di assistenza"
 msgid "Launch/Install"
 msgstr "Avvia/Installa"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:117
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:178
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:120
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:183
 #: usr/share/archlinux-tweak-tool/ai.py:104
 #: usr/share/archlinux-tweak-tool/ai.py:160
 #: usr/share/archlinux-tweak-tool/ai.py:206
@@ -235,20 +235,21 @@ msgstr "Avvia/Installa"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:128
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
 msgstr "Alto contrasto &amp; testo grande"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:138
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
-msgstr "Temi ad alto contrasto <b>installati</b>: applicali nella pagina Themer"
+msgstr ""
+"Temi ad alto contrasto <b>installati</b>: applicali nella pagina Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:140
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
 "Installa i temi GTK ad alto contrasto e a testo grande (gnome-themes-extra)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:145
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
 #: usr/share/archlinux-tweak-tool/ai.py:131
 #: usr/share/archlinux-tweak-tool/ai.py:187
@@ -286,25 +287,25 @@ msgstr ""
 msgid "Install"
 msgstr "Installa"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:150
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:154
 msgid "Open Themer"
 msgstr "Apri Themer"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:168
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:172
 msgid "Keyboard accessibility (X11)"
 msgstr "Accessibilità da tastiera (X11)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:190
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
 msgstr "{name} <b>installato</b>: backend per gli interruttori qui sotto"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:192
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
 msgid "{name} will be installed automatically on first toggle"
 msgstr "{name} verrà installato automaticamente al primo uso dell'interruttore"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:200
 #, python-brace-format
 msgid ""
 "Requires <b>{name}</b> — install an AUR helper (e.g. yay) to enable these "
@@ -313,12 +314,12 @@ msgstr ""
 "Richiede <b>{name}</b>: installa un helper AUR (ad es. yay) per attivare "
 "questi interruttori."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:203
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:208
 #, python-brace-format
 msgid "Requires {name} (needs an AUR helper such as yay)"
 msgstr "Richiede {name} (serve un helper AUR come yay)"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:250
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:257
 msgid ""
 "<i>Toggles apply immediately and are saved for next login. On a tiling WM "
 "that ignores XDG autostart, add the equivalent xkbset line to your run.sh "
@@ -328,11 +329,11 @@ msgstr ""
 "accesso. Su un TWM che ignora l'autostart XDG, aggiungi la riga xkbset "
 "equivalente al tuo run.sh (o a uno script di autostart equivalente).</i>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:269
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
 msgstr "<b>A cosa servono</b>"
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:274
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
 msgid ""
 "press modifier keys (Shift, Ctrl, Alt, Super) one at a time instead of "
 "holding several together."
@@ -340,7 +341,7 @@ msgstr ""
 "premi i tasti modificatori (Maiusc, Ctrl, Alt, Super) uno alla volta invece "
 "di tenerne premuti più insieme."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:283
 msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
@@ -348,7 +349,7 @@ msgstr ""
 "un tasto viene registrato solo se tenuto premuto per un attimo, così i "
 "tocchi leggeri accidentali vengono ignorati."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:279
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
@@ -356,14 +357,14 @@ msgstr ""
 "ignora le pressioni ripetute dello stesso tasto in rapida successione (doppi "
 "colpi accidentali)."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:281
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
 "move the mouse pointer using the numeric keypad instead of a physical mouse."
 msgstr ""
 "muovi il puntatore del mouse con il tastierino numerico invece che con un "
 "mouse fisico."
 
-#: usr/share/archlinux-tweak-tool/accessibility_gui.py:285
+#: usr/share/archlinux-tweak-tool/accessibility_gui.py:292
 #, python-brace-format
 msgid "<small><b>{name}</b> — {desc}</small>"
 msgstr "<small><b>{name}</b>: {desc}</small>"
@@ -876,8 +877,8 @@ msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
 msgstr ""
-"<i>Si installano dal repository Nemesis: abilitalo prima nella pagina "
-"Pacman.</i>"
+"<i>Si installano dal repository Nemesis: abilitalo prima nella pagina Pacman."
+"</i>"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
 msgid "Don't show this again"
@@ -951,6 +952,10 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
 msgid "You first need to close the existing application"
 msgstr "Devi prima chiudere l'applicazione già in esecuzione"
+
+#: usr/share/archlinux-tweak-tool/att_i18n.py:133
+msgid "ATT is already open."
+msgstr "ATT è già aperto."
 
 #: usr/share/archlinux-tweak-tool/autostart.py:102
 #: usr/share/archlinux-tweak-tool/fastfetch.py:541
@@ -1104,8 +1109,8 @@ msgid ""
 msgstr ""
 "Entrambe le app qui sotto si basano su <b>BorgBackup</b>, che può inviare lo "
 "stesso backup cifrato\n"
-"tramite SSH a un NAS, a un server domestico o a un host remoto / <b>cloud</b>"
-". Punta alla\n"
+"tramite SSH a un NAS, a un server domestico o a un host remoto / <b>cloud</"
+"b>. Punta alla\n"
 "<b>regola 3-2-1</b>: 3 copie dei tuoi dati, su 2 tipi di supporto, con 1 "
 "fuori sede,\n"
 "così un incendio, un furto o un ransomware a casa ti lasciano comunque una "
@@ -1536,8 +1541,8 @@ msgid ""
 msgstr ""
 "Seleziona i pacchetti che vuoi installare o rimuovere, poi clicca sul "
 "pulsante appropriato.\n"
-"Ogni tema Celestial include una variante base, una <b>Scura</b> e una <b>"
-"Chiara</b> in tre livelli di DPI.\n"
+"Ogni tema Celestial include una variante base, una <b>Scura</b> e una "
+"<b>Chiara</b> in tre livelli di DPI.\n"
 "Assicurati che il <b>repository Nemesis sia abilitato</b>: vedi la scheda "
 "\"Pacman\" per i dettagli."
 
@@ -1611,8 +1616,8 @@ msgstr ""
 "all'elenco di questa pagina. Ti serve solo se vuoi un colore che non è "
 "ancora incluso.\n"
 "\n"
-"Installa due comandi: <b>celestial-theme-forge</b> (il generatore) e <b>"
-"theme-forge-picker</b>\n"
+"Installa due comandi: <b>celestial-theme-forge</b> (il generatore) e "
+"<b>theme-forge-picker</b>\n"
 "(un piccolo selettore GTK4 con contagocce su schermo: xcolor su X11, "
 "hyprpicker su Wayland). I tuoi\n"
 "colori vengono ricordati in <b>custom-colors.def</b> e generati insieme a "
@@ -1655,9 +1660,9 @@ msgid ""
 "back in:\n"
 "{lines}"
 msgstr ""
-"Il tuo /etc/environment imposta variabili che sovrascrivono il tema di {name}"
-". Se restano attive, {name} mostra elementi scuri e una notifica/popup di "
-"avviso giallo.\n"
+"Il tuo /etc/environment imposta variabili che sovrascrivono il tema di "
+"{name}. Se restano attive, {name} mostra elementi scuri e una notifica/popup "
+"di avviso giallo.\n"
 "\n"
 "Modifica /etc/environment, metti un '#' davanti a queste righe, poi esci e "
 "rientra:\n"
@@ -1767,10 +1772,10 @@ msgid ""
 "{lines}"
 msgstr ""
 "IMPORTANTE, tema di {name}:\n"
-"Il tuo /etc/environment imposta variabili che sovrascrivono il tema di {name}"
-". Se restano attive, {name} mostra elementi scuri e una notifica/popup di "
-"avviso giallo. Dopo l'installazione, modifica /etc/environment, metti un '#' "
-"davanti a queste righe, poi esci e rientra:\n"
+"Il tuo /etc/environment imposta variabili che sovrascrivono il tema di "
+"{name}. Se restano attive, {name} mostra elementi scuri e una notifica/popup "
+"di avviso giallo. Dopo l'installazione, modifica /etc/environment, metti un "
+"'#' davanti a queste righe, poi esci e rientra:\n"
 "{lines}"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:1216
@@ -1862,8 +1867,8 @@ msgstr ""
 "Quando si installa un desktop, viene salvato un backup solo delle "
 "configurazioni che sovrascriverà\n"
 "Il backup si trova nella cartella ~/.config-att\n"
-"La disinstallazione di un desktop lascia intatta la sua sottocartella di ~/"
-".config\n"
+"La disinstallazione di un desktop lascia intatta la sua sottocartella di "
+"~/.config\n"
 "Rimuovila tu stesso se non ti serve più\n"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:151
@@ -2399,8 +2404,8 @@ msgstr ""
 "• <b>Anteprima in tempo reale</b>: l'output reale di fastfetch mentre "
 "modifichi (con vte4)\n"
 "\n"
-"<i>Prima di ogni salvataggio viene scritto un backup (config.jsonc.ftt-bak)"
-".</i>"
+"<i>Prima di ogni salvataggio viene scritto un backup (config.jsonc.ftt-bak)."
+"</i>"
 
 #: usr/share/archlinux-tweak-tool/functions.py:646
 #: usr/share/archlinux-tweak-tool/performance.py:34
@@ -3439,7 +3444,8 @@ msgstr "<small>Attuale: sconosciuta</small>"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:1059
 #, python-brace-format
 msgid "Default boot entry set to: {label} — Reboot to verify"
-msgstr "Voce di avvio predefinita impostata su: {label}. Riavvia per verificare"
+msgstr ""
+"Voce di avvio predefinita impostata su: {label}. Riavvia per verificare"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:758
 #, python-brace-format
@@ -3475,8 +3481,8 @@ msgid ""
 msgstr ""
 "<small><b>Nota:</b> GRUB_DEFAULT non è impostato su \"saved\" in /etc/"
 "default/grub.\n"
-"ATT lo correggerà automaticamente quando clicchi su Imposta come "
-"predefinita.</small>"
+"ATT lo correggerà automaticamente quando clicchi su Imposta come predefinita."
+"</small>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:953
 #, python-brace-format
@@ -6160,7 +6166,8 @@ msgstr "Aggiungi quiet splash alla cmdline e alle voci"
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:134
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1000
 msgid "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contains <tt>quiet splash</tt>."
-msgstr "<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contiene <tt>quiet splash</tt>."
+msgstr ""
+"<b>OK:</b> <tt>/etc/kernel/cmdline</tt> contiene <tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:138
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1004
@@ -6202,8 +6209,8 @@ msgid ""
 "<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contains <tt>quiet splash</"
 "tt>."
 msgstr ""
-"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contiene <tt>quiet splash</tt>"
-"."
+"<b>OK:</b> <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> contiene <tt>quiet splash</"
+"tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:180
 msgid ""
@@ -6211,9 +6218,9 @@ msgid ""
 "<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> in <tt>/etc/default/grub</tt> is missing "
 "<tt>quiet splash</tt>."
 msgstr ""
-"<span foreground=\"#FFA500\"><b>Avviso:</b></span> in <tt>"
-"GRUB_CMDLINE_LINUX_DEFAULT</tt> di <tt>/etc/default/grub</tt> manca <tt>"
-"quiet splash</tt>."
+"<span foreground=\"#FFA500\"><b>Avviso:</b></span> in "
+"<tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> di <tt>/etc/default/grub</tt> manca "
+"<tt>quiet splash</tt>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:200
 msgid ""
@@ -6240,10 +6247,10 @@ msgid ""
 "tt> so the splash screen renders correctly."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Avviso:</b></span> in <tt>/etc/"
-"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> compare prima di <tt>"
-"plymouth</tt>.\n"
-"Sposta <tt>plymouth</tt> prima di <tt>encrypt</tt>/<tt>sd-encrypt</tt>/<tt>"
-"lvm2</tt> perché la schermata di avvio venga mostrata correttamente."
+"mkinitcpio.conf</tt>, <tt>encrypt</tt>/<tt>lvm2</tt> compare prima di "
+"<tt>plymouth</tt>.\n"
+"Sposta <tt>plymouth</tt> prima di <tt>encrypt</tt>/<tt>sd-encrypt</tt>/"
+"<tt>lvm2</tt> perché la schermata di avvio venga mostrata correttamente."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:241
 msgid "<b>Early KMS</b>"
@@ -6385,8 +6392,8 @@ msgid ""
 "activate it. Go to <b>Select theme</b> above and click <b>Apply theme</b>."
 msgstr ""
 "<span foreground=\"#FFA500\"><b>Nota:</b></span> installare un tema non lo "
-"attiva. Vai a <b>Seleziona tema</b> qui sopra e clicca su <b>Applica tema</b>"
-"."
+"attiva. Vai a <b>Seleziona tema</b> qui sopra e clicca su <b>Applica tema</"
+"b>."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:490
 msgid "<i>No AUR helper (paru/yay) or active repo found</i>"
@@ -7193,8 +7200,8 @@ msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
 msgstr ""
-"   Installa i driver di stampa comuni (foomatic, gutenprint, ...) - <b>"
-"Installati</b>"
+"   Installa i driver di stampa comuni (foomatic, gutenprint, ...) - "
+"<b>Installati</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:691
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
@@ -7545,7 +7552,8 @@ msgstr "Servizi utente"
 #: usr/share/archlinux-tweak-tool/services_gui.py:714
 #, python-brace-format
 msgid "<b>{count}</b> active user services  ·  <b>{custom}</b> custom"
-msgstr "<b>{count}</b> servizi utente attivi  ·  <b>{custom}</b> personalizzati"
+msgstr ""
+"<b>{count}</b> servizi utente attivi  ·  <b>{custom}</b> personalizzati"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:736
 #, python-brace-format
@@ -8315,7 +8323,8 @@ msgstr "Installazione di octopi avviata"
 
 #: usr/share/archlinux-tweak-tool/software.py:94
 msgid "Octopi - GUI package manager <b>installed</b>"
-msgstr "Octopi - Gestore di pacchetti con interfaccia grafica <b>installato</b>"
+msgstr ""
+"Octopi - Gestore di pacchetti con interfaccia grafica <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:96
 msgid "octopi installed"
@@ -8393,8 +8402,8 @@ msgstr "Installazione di discover avviata"
 #: usr/share/archlinux-tweak-tool/software_gui.py:150
 msgid "KDE Discover - KDE software center (pulls KDE deps) <b>installed</b>"
 msgstr ""
-"KDE Discover - Centro software di KDE (richiede dipendenze KDE) <b>"
-"installato</b>"
+"KDE Discover - Centro software di KDE (richiede dipendenze KDE) "
+"<b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:326
 msgid "plasma-discover installed"
@@ -8820,7 +8829,8 @@ msgstr "archlinux-logout è su nemesis/chaotic-AUR: installazione..."
 #: usr/share/archlinux-tweak-tool/software.py:1116
 #: usr/share/archlinux-tweak-tool/software_gui.py:459
 msgid "ArchLinux Logout - Session logout tool <b>installed</b>"
-msgstr "ArchLinux Logout - Strumento di uscita dalla sessione <b>installato</b>"
+msgstr ""
+"ArchLinux Logout - Strumento di uscita dalla sessione <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1118
 msgid "archlinux-logout installed"
@@ -8871,8 +8881,8 @@ msgstr "Rimozione di kiro-powermenu completata"
 #: usr/share/archlinux-tweak-tool/software_gui.py:522
 msgid "Apply ATT nanorc to /etc/nanorc (backup created first) <b>applied</b>"
 msgstr ""
-"Applica il nanorc di ATT a /etc/nanorc (prima viene creato un backup) <b>"
-"applicato</b>"
+"Applica il nanorc di ATT a /etc/nanorc (prima viene creato un backup) "
+"<b>applicato</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1224
 #: usr/share/archlinux-tweak-tool/software_gui.py:524
@@ -10045,8 +10055,8 @@ msgid ""
 "Uninstalling a WM later leaves its ~/.config subfolder intact — remove it "
 "yourself if no longer needed."
 msgstr ""
-"Le configurazioni sovrascritte dall'installazione vengono prima salvate in ~/"
-".config-att.\n"
+"Le configurazioni sovrascritte dall'installazione vengono prima salvate in "
+"~/.config-att.\n"
 "La disinstallazione successiva di un WM lascia intatta la sua sottocartella "
 "di ~/.config: rimuovila tu se non ti serve più."
 

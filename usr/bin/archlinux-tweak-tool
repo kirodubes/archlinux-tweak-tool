@@ -21,7 +21,11 @@ if pgrep -f '^python3 /usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py' >
         && xdotool search --name '^Arch Linux Tweak Tool$' windowactivate >/dev/null 2>&1; then
         exit 0
     fi
-    command -v notify-send >/dev/null && notify-send -i archlinux-tweak-tool "Arch Linux Tweak Tool" "ATT is already open."
+    # att_i18n picks the same language ATT shows: the saved choice in prefs.json, else the user's locale
+    ALREADY_OPEN=$(ATT_USER_LANG="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-$LANG}}}" python3 -I -c \
+        'import sys; sys.path.insert(0, "/usr/share/archlinux-tweak-tool"); import att_i18n as i; print(i._(i.ALREADY_OPEN))' \
+        2>/dev/null) || ALREADY_OPEN="ATT is already open."
+    command -v notify-send >/dev/null && notify-send -i archlinux-tweak-tool "Arch Linux Tweak Tool" "$ALREADY_OPEN"
     exit 0
 fi
 
