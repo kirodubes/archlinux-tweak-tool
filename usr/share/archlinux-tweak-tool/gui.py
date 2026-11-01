@@ -208,14 +208,14 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     # ==========================================================
 
     def _build_icons_neocandy():
-        _, _, extras = icons.get_available_icon_counts()
+        _neocandy, _surfn, extras = icons.get_available_icon_counts()
         fn.log_info(f"Neo Candy icons available to install: {extras}")
         icons_gui.gui_neocandy(self, Gtk, GdkPixbuf, vboxstack_icons_neocandy, icons, fn, base_dir)
 
     _defer_tab(vboxstack_icons_neocandy, _build_icons_neocandy)
 
     def _build_icons_surfn():
-        _, surfn, _ = icons.get_available_icon_counts()
+        _neocandy, surfn, _extras = icons.get_available_icon_counts()
         fn.log_info(f"Surfn icons available to install: {surfn}")
         icons_gui.gui_surfn(self, Gtk, GdkPixbuf, vboxstack_icons_surfn, icons, fn, base_dir)
 
