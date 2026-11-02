@@ -1683,7 +1683,13 @@
         "timezone",
         "region",
         "keymap",
-        "clock"
+        "clock",
+        "language pack",
+        "translation",
+        "spell check",
+        "dictionary",
+        "hunspell",
+        "firefox language"
       ],
       "labels": [
         "available",
@@ -1712,6 +1718,7 @@
         "numbers",
         "numeric",
         "override",
+        "packs",
         "settings",
         "single",
         "sync",

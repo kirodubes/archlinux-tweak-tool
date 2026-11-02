@@ -9,6 +9,7 @@ import threading
 import subprocess
 import functions as fn
 from gi.repository import GLib, Gtk
+import att_i18n
 from att_i18n import _
 
 # Per-category locale overrides exposed in the UI. Each can follow LANG (unset)
@@ -193,6 +194,180 @@ def populate_dropdowns(self):
         GLib.idle_add(_populate)
 
     threading.Thread(target=_run, daemon=True).start()
+    refresh_language_packs(self)
+
+
+# ── Language packs ─────────────────────────────────────────────────────
+# Arch ships app translations and spell-check dictionaries as separate packages.
+# app      : package that must be installed before its pack is offered
+# prefix   : pack name = prefix + candidate, tried in order
+# patterns : candidates built from the locale's language (ll) and country (cc)
+_APP_PATTERNS = ("{ll}-{cc}", "{ll}", "{ll}-{ll}")
+LANGPACK_APPS = [
+    {"app": "firefox", "label": "Firefox", "prefix": "firefox-i18n-", "patterns": _APP_PATTERNS},
+    {"app": "thunderbird", "label": "Thunderbird", "prefix": "thunderbird-i18n-", "patterns": _APP_PATTERNS},
+    {"app": "libreoffice-fresh", "label": "LibreOffice", "prefix": "libreoffice-fresh-", "patterns": _APP_PATTERNS},
+    {"app": "libreoffice-still", "label": "LibreOffice", "prefix": "libreoffice-still-", "patterns": _APP_PATTERNS},
+    # comprehensive = the French superset dictionary; _any = the all-countries Spanish one
+    {"app": "hunspell", "label": "Hunspell", "prefix": "hunspell-",
+     "patterns": ("{ll}_{cc}", "{ll}-{cc}", "{ll}", "{ll}_any", "{ll}-comprehensive")},
+]
+# English is built into these apps; their en-us pack would add nothing.
+_BUILTIN_PACKS = {"firefox-i18n-en-us", "thunderbird-i18n-en-us"}
+# Firefox and Thunderbird ignore an installed language pack until intl.locale.requested is set:
+# "" follows the system language, "de" asks for German. A default pref, so the app's own setting still wins.
+_LANGUAGE_PREFS = {
+    "firefox-i18n-": "/usr/lib/firefox/browser/defaults/preferences/att-language.js",
+    "thunderbird-i18n-": "/usr/lib/thunderbird/defaults/pref/att-language.js",
+}
+
+
+def _requested_locale(package, prefix):
+    """firefox-i18n-pt-br -> pt-BR, the locale code Firefox and Thunderbird expect."""
+    ll, _sep, cc = package[len(prefix):].partition("-")
+    return f"{ll}-{cc.upper()}" if cc else ll
+
+
+def _wanted_language_prefs(packages, follow_system):
+    """Return {pref file: content} for the Firefox/Thunderbird packs among packages."""
+    wanted = {}
+    for prefix, target in _LANGUAGE_PREFS.items():
+        pkg = next((p for p in packages if p.startswith(prefix)), None)
+        if pkg is None or not os.path.isdir(os.path.dirname(target)):
+            continue
+        value = "" if follow_system else _requested_locale(pkg, prefix)
+        wanted[target] = ("// Written by ArchLinux Tweak Tool (Locale page, Language Packs).\n"
+                          f'pref("intl.locale.requested", "{value}");\n')
+    return wanted
+
+
+def _stale_language_prefs(wanted):
+    """Return the pref files whose content differs from what the packs need."""
+    stale = []
+    for target, content in wanted.items():
+        try:
+            with open(target, encoding="utf-8") as f:
+                if f.read() == content:
+                    continue
+        except OSError:
+            pass
+        stale.append(target)
+    return stale
+
+
+def _write_language_prefs(packages, follow_system):
+    """Make Firefox/Thunderbird use their installed language pack."""
+    for target, content in _wanted_language_prefs(packages, follow_system).items():
+        try:
+            with open(target, "w", encoding="utf-8") as f:
+                f.write(content)
+            fn.log_info(f"Wrote {target}: {content.splitlines()[-1]}")
+        except OSError as e:
+            fn.log_error(f"Could not write {target}: {e}")
+
+
+def _pack_language():
+    """Return (language to install for, how to show it, follows the system language)."""
+    system = _read_locale_conf().get("LANG", "") or "en_US.UTF-8"
+    chosen = att_i18n.ACTIVE
+    if chosen and chosen.split("_")[0] != system.split("_")[0].split(".")[0]:
+        return chosen, att_i18n.name(chosen), False
+    return system, system, True
+
+
+def find_language_packs(lang, repo_names, installed):
+    """Return (label, package) for every pack that exists for lang and whose app is installed."""
+    base = lang.split(".")[0].split("@")[0]
+    ll, _sep, cc = base.lower().partition("_")
+    if not ll or ll in ("c", "posix"):
+        return []
+    packs = []
+    for entry in LANGPACK_APPS:
+        if entry["app"] not in installed:
+            continue
+        for pattern in entry["patterns"]:
+            if "{cc}" in pattern and not cc:
+                continue
+            name = entry["prefix"] + pattern.format(ll=ll, cc=cc)
+            if name in repo_names:
+                if name not in _BUILTIN_PACKS:
+                    packs.append((entry["label"], name))
+                break
+    return packs
+
+
+def refresh_language_packs(self):
+    """Rebuild the Language Packs rows for ATT's chosen language (else the system's) in the background."""
+    def _run():
+        lang, shown, self.langpack_follow_system = _pack_language()
+        repo_names = set(_fetch(["pacman", "-Slq"]))
+        installed = {entry["app"] for entry in LANGPACK_APPS if fn.check_package_installed(entry["app"])}
+        packs = find_language_packs(lang, repo_names, installed)
+        status = [(label, pkg, fn.check_package_installed(pkg)) for label, pkg in packs]
+        self.langpack_missing = [pkg for _label, pkg, done in status if not done]
+        self.langpack_installed = [pkg for _label, pkg, done in status if done]
+        self.langpack_stale = _stale_language_prefs(
+            _wanted_language_prefs(self.langpack_installed, self.langpack_follow_system))
+        fn.log_info(f"Language packs for {lang}: {', '.join(pkg for _l, pkg in packs) or 'none'}")
+        GLib.idle_add(_show, shown, status)
+
+    def _show(lang, status):
+        child = self.langpack_rows.get_first_child()
+        while child is not None:
+            self.langpack_rows.remove(child)
+            child = self.langpack_rows.get_first_child()
+        self.lbl_langpack_intro.set_text(
+            _("Some apps ship their translations and spell-check dictionaries as separate packages. "
+              "These are the ones for {language}.").format(language=lang)
+        )
+        for label, pkg, done in status:
+            row = Gtk.Label(xalign=0)
+            row.set_margin_start(10)
+            state = _("installed") if done else _("not installed")
+            row.set_markup(f"{GLib.markup_escape_text(label)} — <tt>{pkg}</tt> — {state}")
+            self.langpack_rows.append(row)
+        self.btn_langpack_install.set_sensitive(bool(self.langpack_missing or self.langpack_stale))
+        if not status:
+            set_result(self.lbl_langpack_result,
+                       _("No app on this system needs a separate language pack for {language}.").format(language=lang), "ok")
+        elif not self.langpack_missing and not self.langpack_stale:
+            set_result(self.lbl_langpack_result,
+                       _("All language packs for {language} are installed.").format(language=lang), "ok")
+        else:
+            self.lbl_langpack_result.set_text("")
+
+    threading.Thread(target=_run, daemon=True).start()
+
+
+def on_install_language_packs(self, _widget):
+    """Install the missing language packs in one terminal, then refresh the rows."""
+    packages = list(getattr(self, "langpack_missing", []))
+    if not packages:
+        # packs already there (installed by hand), only their pref was missing or out of date
+        _write_language_prefs(getattr(self, "langpack_installed", []), getattr(self, "langpack_follow_system", True))
+        fn.show_in_app_notification(self, _("Restart the apps to use their language packs."))
+        refresh_language_packs(self)
+        return
+    fn.log_subsection(f"Locale - Install language packs: {' '.join(packages)}")
+    process = fn.launch_pacman_install_in_terminal(" ".join(packages))
+    set_result(self.lbl_langpack_result, _("Installing in the terminal…"), "pending")
+
+    def _wait():
+        if process is not None:
+            process.communicate()
+        fn.invalidate_pkg_cache()
+        done = [pkg for pkg in packages if fn.check_package_installed(pkg)]
+        _write_language_prefs(done, getattr(self, "langpack_follow_system", True))
+        if len(done) == len(packages):
+            fn.log_success(f"Language packs installed: {' '.join(done)}")
+            GLib.idle_add(fn.show_in_app_notification, self,
+                          _("Language packs installed: {packages}. Restart the apps to use them.").format(
+                              packages=", ".join(done)))
+        else:
+            fn.log_warn(f"Language packs not all installed: {' '.join(sorted(set(packages) - set(done)))}")
+        refresh_language_packs(self)
+
+    threading.Thread(target=_wait, daemon=True).start()
 
 
 def on_apply_locale(self, _widget):
@@ -225,6 +400,7 @@ def on_apply_locale(self, _widget):
             self.lbl_locale_result,
             f"System locale set to {locale_val} — log out to apply",
         )
+        refresh_language_packs(self)
 
     threading.Thread(target=_apply, daemon=True).start()
 

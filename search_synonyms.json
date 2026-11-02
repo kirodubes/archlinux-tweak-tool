@@ -13,7 +13,7 @@
   "Icons Surfn": ["icon theme", "surfn", "mint", "tela", "numix", "papirus", "plasma", "arc", "breeze"],
   "ISO": ["iso", "kiro iso builder", "kib", "build iso", "image", "live", "installer", "archiso", "spin", "distro"],
   "Kernels": ["kernel", "linux-zen", "linux-cachyos", "lts", "initramfs", "mkinitcpio", "dracut", "boot menu"],
-  "Locale": ["language", "keyboard", "timezone", "region", "keymap", "clock"],
+  "Locale": ["language", "keyboard", "timezone", "region", "keymap", "clock", "language pack", "translation", "spell check", "dictionary", "hunspell", "firefox language"],
   "Logging": ["logs", "journal", "journalctl", "investigator", "errors"],
   "Maintenance": ["cleanup", "orphans", "mirrors", "cache", "paccache", "update mirrors"],
   "Network": ["firewall", "firewalld", "samba", "wifi", "dns", "ip", "smb", "share", "ufw"],

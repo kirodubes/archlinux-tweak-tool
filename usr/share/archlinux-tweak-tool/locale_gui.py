@@ -308,6 +308,35 @@ def gui(self, Gtk, vboxstack_locale, fn):
     hbox_tz_ctrl.append(btn_tz_apply)
     hbox_tz_ctrl.append(self.lbl_tz_result)
 
+    # ── Section: Language Packs ───────────────────────────
+    hbox_langpack_header = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    lbl_langpack_header = Gtk.Label(xalign=0)
+    lbl_langpack_header.set_markup(_("<b>Language Packs</b>"))
+    lbl_langpack_header.set_margin_start(10)
+    lbl_langpack_header.set_margin_top(15)
+    lbl_langpack_header.set_margin_bottom(5)
+    hbox_langpack_header.append(lbl_langpack_header)
+
+    self.lbl_langpack_intro = Gtk.Label(xalign=0)
+    self.lbl_langpack_intro.set_wrap(True)
+    self.lbl_langpack_intro.set_margin_start(10)
+    self.lbl_langpack_intro.set_margin_end(10)
+
+    self.langpack_rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+    self.langpack_rows.set_margin_top(5)
+    self.langpack_missing = []
+
+    hbox_langpack_install = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    self.btn_langpack_install = Gtk.Button(label=_("Install language packs"))
+    self.btn_langpack_install.set_margin_start(10)
+    self.btn_langpack_install.set_sensitive(False)
+    self.btn_langpack_install.connect("clicked", functools.partial(locale.on_install_language_packs, self))
+    self.lbl_langpack_result = Gtk.Label(xalign=0)
+    self.lbl_langpack_result.set_margin_start(10)
+    self.lbl_langpack_result.set_wrap(True)
+    hbox_langpack_install.append(self.btn_langpack_install)
+    hbox_langpack_install.append(self.lbl_langpack_result)
+
     # ── Assemble page ──────────────────────────────────────
     vboxstack_locale.append(hbox_title)
     vboxstack_locale.append(hbox_sep)
@@ -335,5 +364,9 @@ def gui(self, Gtk, vboxstack_locale, fn):
     vboxstack_locale.append(hbox_x11_apply)
     vboxstack_locale.append(hbox_tz_header)
     vboxstack_locale.append(hbox_tz_ctrl)
+    vboxstack_locale.append(hbox_langpack_header)
+    vboxstack_locale.append(self.lbl_langpack_intro)
+    vboxstack_locale.append(self.langpack_rows)
+    vboxstack_locale.append(hbox_langpack_install)
 
     locale.populate_dropdowns(self)

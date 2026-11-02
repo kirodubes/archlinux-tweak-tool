@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-01 19:11+0100\n"
+"POT-Creation-Date: 2026-11-02 16:58+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1234,11 +1234,13 @@ msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>: {blurb}</small>: {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
+#: usr/share/archlinux-tweak-tool/locale_settings.py:326
 msgid "installed"
 msgstr "インストール済み"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:609
+#: usr/share/archlinux-tweak-tool/locale_settings.py:326
 msgid "not installed"
 msgstr "未インストール"
 
@@ -3626,112 +3628,155 @@ msgstr "バリアント："
 msgid "<b>Timezone</b>"
 msgstr "<b>タイムゾーン</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:16
+#: usr/share/archlinux-tweak-tool/locale_gui.py:314
+msgid "<b>Language Packs</b>"
+msgstr "<b>言語パック</b>"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:330
+msgid "Install language packs"
+msgstr "言語パックをインストール"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:17
 msgid "Use LANG (default)"
 msgstr "LANG を使用（デフォルト）"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:111
+#: usr/share/archlinux-tweak-tool/locale_settings.py:112
 msgid "No locale variables to set"
 msgstr "設定するロケール変数がありません"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:122
-#: usr/share/archlinux-tweak-tool/locale_settings.py:283
-#: usr/share/archlinux-tweak-tool/locale_settings.py:350
-#: usr/share/archlinux-tweak-tool/locale_settings.py:511
+#: usr/share/archlinux-tweak-tool/locale_settings.py:123
+#: usr/share/archlinux-tweak-tool/locale_settings.py:459
+#: usr/share/archlinux-tweak-tool/locale_settings.py:526
+#: usr/share/archlinux-tweak-tool/locale_settings.py:687
 #, python-brace-format
 msgid "Failed: {error}"
 msgstr "失敗しました: {error}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:147
-#: usr/share/archlinux-tweak-tool/locale_settings.py:188
+#: usr/share/archlinux-tweak-tool/locale_settings.py:148
+#: usr/share/archlinux-tweak-tool/locale_settings.py:189
 msgid "(not set)"
 msgstr "（未設定）"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:218
-#: usr/share/archlinux-tweak-tool/locale_settings.py:241
-#: usr/share/archlinux-tweak-tool/locale_settings.py:261
-#: usr/share/archlinux-tweak-tool/locale_settings.py:292
-#: usr/share/archlinux-tweak-tool/locale_settings.py:336
-#: usr/share/archlinux-tweak-tool/locale_settings.py:501
+#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#, python-brace-format
+msgid ""
+"Some apps ship their translations and spell-check dictionaries as separate "
+"packages. These are the ones for {language}."
+msgstr ""
+"一部のアプリは、翻訳とスペルチェック用の辞書を別のパッケージで提供していま"
+"す。{language} 用のパッケージは次のとおりです。"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:332
+#, python-brace-format
+msgid "No app on this system needs a separate language pack for {language}."
+msgstr ""
+"このシステムには、{language} 用の個別の言語パックが必要なアプリはありません。"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:335
+#, python-brace-format
+msgid "All language packs for {language} are installed."
+msgstr "{language} の言語パックはすべてインストール済みです。"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:348
+msgid "Restart the apps to use their language packs."
+msgstr "言語パックを使うには、アプリを再起動してください。"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:353
+msgid "Installing in the terminal…"
+msgstr "ターミナルでインストールしています…"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:364
+#, python-brace-format
+msgid "Language packs installed: {packages}. Restart the apps to use them."
+msgstr ""
+"言語パックをインストールしました: {packages}。使うにはアプリを再起動してくだ"
+"さい。"
+
+#: usr/share/archlinux-tweak-tool/locale_settings.py:393
+#: usr/share/archlinux-tweak-tool/locale_settings.py:417
+#: usr/share/archlinux-tweak-tool/locale_settings.py:437
+#: usr/share/archlinux-tweak-tool/locale_settings.py:468
+#: usr/share/archlinux-tweak-tool/locale_settings.py:512
+#: usr/share/archlinux-tweak-tool/locale_settings.py:677
 msgid "Applying…"
 msgstr "適用しています…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:224
+#: usr/share/archlinux-tweak-tool/locale_settings.py:399
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
 msgstr ""
 "システムロケールを {locale} に設定しました。適用するにはログアウトしてくださ"
 "い"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:248
+#: usr/share/archlinux-tweak-tool/locale_settings.py:424
 #, python-brace-format
 msgid "{category} reset to follow LANG"
 msgstr "{category} を LANG に従うようにリセットしました"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:252
+#: usr/share/archlinux-tweak-tool/locale_settings.py:428
 #, python-brace-format
 msgid "{category} set to {locale}"
 msgstr "{category} を {locale} に設定しました"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:267
+#: usr/share/archlinux-tweak-tool/locale_settings.py:443
 msgid "Per-category locale overrides reset to LANG"
 msgstr "カテゴリごとのロケール上書きを LANG にリセットしました"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:279
-#: usr/share/archlinux-tweak-tool/locale_settings.py:280
+#: usr/share/archlinux-tweak-tool/locale_settings.py:455
+#: usr/share/archlinux-tweak-tool/locale_settings.py:456
 #, python-brace-format
 msgid "Console keymap set to {keymap}"
 msgstr "コンソールのキーマップを {keymap} に設定しました"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:299
+#: usr/share/archlinux-tweak-tool/locale_settings.py:475
 msgid "Syncing…"
 msgstr "同期しています…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:306
+#: usr/share/archlinux-tweak-tool/locale_settings.py:482
 msgid "No X11 layout set — cannot sync"
 msgstr "X11 レイアウトが設定されていないため、同期できません"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:311
+#: usr/share/archlinux-tweak-tool/locale_settings.py:487
 msgid "Keymap list not loaded yet — cannot sync"
 msgstr "キーマップ一覧がまだ読み込まれていないため、同期できません"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#: usr/share/archlinux-tweak-tool/locale_settings.py:496
 #, python-brace-format
 msgid "No TTY keymap matching '{layout}'"
 msgstr "「{layout}」に一致する TTY キーマップがありません"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:344
-#: usr/share/archlinux-tweak-tool/locale_settings.py:347
+#: usr/share/archlinux-tweak-tool/locale_settings.py:520
+#: usr/share/archlinux-tweak-tool/locale_settings.py:523
 #, python-brace-format
 msgid "X11 layout set to {layout}"
 msgstr "X11 レイアウトを {layout} に設定しました"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:437
+#: usr/share/archlinux-tweak-tool/locale_settings.py:613
 msgid "No locale selected"
 msgstr "ロケールが選択されていません"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:441
+#: usr/share/archlinux-tweak-tool/locale_settings.py:617
 #, python-brace-format
 msgid "Generating {locale} in terminal…"
 msgstr "ターミナルで {locale} を生成しています…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:473
+#: usr/share/archlinux-tweak-tool/locale_settings.py:649
 #, python-brace-format
 msgid "Generating locale {locale}..."
 msgstr "ロケール {locale} を生成しています..."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:478
+#: usr/share/archlinux-tweak-tool/locale_settings.py:654
 msgid "Failed to update /etc/locale.gen"
 msgstr "/etc/locale.gen を更新できませんでした"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:488
+#: usr/share/archlinux-tweak-tool/locale_settings.py:664
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
 msgstr ""
 "ロケール {locale} を生成して設定しました。適用するにはログアウトしてください"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:507
-#: usr/share/archlinux-tweak-tool/locale_settings.py:508
+#: usr/share/archlinux-tweak-tool/locale_settings.py:683
+#: usr/share/archlinux-tweak-tool/locale_settings.py:684
 #, python-brace-format
 msgid "Timezone set to {timezone}"
 msgstr "タイムゾーンを {timezone} に設定しました"

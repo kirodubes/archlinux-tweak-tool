@@ -1,5 +1,27 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.02
+
+### Language packs for Firefox, Thunderbird, LibreOffice and spell-check
+
+**What Changed.** The Locale page has a new **Language Packs** section. Arch ships the translations of Firefox, Thunderbird and LibreOffice, and the spell-check dictionaries, as separate packages, so after an install in Italian Firefox stayed English. The section lists the packs for your language, but only for apps that are installed, so a system without Firefox gets no Firefox pack. One button installs the missing packs in a terminal. It then makes Firefox and Thunderbird use them; restart them to see the change.
+- The language is the one ATT is shown in, if you chose one in its language dropdown. Otherwise it's your system language. ATT in Deutsch on an Italian system offers the German packs, and Firefox then opens in German.
+- It works for every language Arch has packs for, not only ATT's 13. Every name is looked up in the repos.
+- When the packs are already installed (for example by hand) but Firefox ignores them, the button only sets that, without a terminal.
+- Checked on a test VM with an Italian system: in Italian, then with ATT in Deutsch. In both cases the packs were installed and Firefox opened in that language.
+
+**Technical Details.** `locale_settings.py`:
+- `LANGPACK_APPS` lists, for each app, the prefix and the name candidates built from the locale (`ll-cc`, `ll`, `ll-ll`; hunspell also `ll_cc`, `ll_any` and `ll-comprehensive`). `find_language_packs()` is a pure function over one `pacman -Slq` list. Tested for it/de_AT/es_MX/es_BE/fr_BE/pt_PT/pt_BR/nl_BE/zh_TW/ja/tr/en_US/en_GB, for C, and for all 13 ATT codes.
+- English packs (`*-i18n-en-us`) are skipped, because English is built in.
+- Firefox and Thunderbird ignore an installed pack until `intl.locale.requested` is set. ATT writes a default pref file: `/usr/lib/firefox/browser/defaults/preferences/att-language.js`, and `/usr/lib/thunderbird/defaults/pref/att-language.js`. The value is `""` (follow the system language) when the language matches the system's, otherwise the pack's own code (`de`, `pt-BR`). It's a default pref, so the app's own language setting still wins. A `user.js` would have locked the language in every profile.
+- `_stale_language_prefs()` re-enables the button when that file is missing or different.
+- LibreOffice follows the system language on its own. With ATT in another language, its pack is installed but LibreOffice stays in the system language.
+- The section follows `att_i18n.ACTIVE` (the saved choice) when its base language differs from `LANG`. It refreshes on page build and after **Apply** on System Locale.
+- 8 new strings in all 13 catalogs (1945/1945), each round reviewed in a separate pass with back-translations. Hungarian and Turkish end on `{language}`, so the placeholder takes no suffix.
+- `search_synonyms.json` now finds the page by "language pack", "spell check", "dictionary", "hunspell", "firefox language"; `search_index.json` is regenerated.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/locale_settings.py`, `locale_gui.py`, `search_index.json`, `search_synonyms.json`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`, `CHANGELOG.md`, `CLAUDE.md`
+
 ## 2026.11.01
 
 ### Accessibility page fits a half-screen window
