@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 16:58+0100\n"
+"POT-Creation-Date: 2026-11-02 17:18+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1200,13 +1200,13 @@ msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>：{blurb}</small>：{state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "installed"
 msgstr "已安装"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:609
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "not installed"
 msgstr "未安装"
 
@@ -2569,11 +2569,14 @@ msgid "Support the project"
 msgstr "支持本项目"
 
 #: usr/share/archlinux-tweak-tool/gui.py:557
+#: usr/share/archlinux-tweak-tool/locale_gui.py:328
 #, python-brace-format
 msgid "System ({language})"
 msgstr "系统（{language}）"
 
 #: usr/share/archlinux-tweak-tool/gui.py:560
+#: usr/share/archlinux-tweak-tool/locale_gui.py:324
+#: usr/share/archlinux-tweak-tool/locale_gui.py:378
 msgid "Language"
 msgstr "语言"
 
@@ -3408,55 +3411,55 @@ msgstr "仅 systemd-boot、limine、GRUB 和 rEFInd 系统支持设置默认启�
 msgid "<small>Current: {entry_id}</small>"
 msgstr "<small>当前：{entry_id}</small>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:16
+#: usr/share/archlinux-tweak-tool/locale_gui.py:17
 msgid "Locale, Keyboard & Timezone"
 msgstr "区域设置、键盘和时区"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:30
+#: usr/share/archlinux-tweak-tool/locale_gui.py:31
 msgid "<b>Current Settings</b>"
 msgstr "<b>当前设置</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:38
+#: usr/share/archlinux-tweak-tool/locale_gui.py:39
 msgid "System Locale:"
 msgstr "系统区域设置："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:48
+#: usr/share/archlinux-tweak-tool/locale_gui.py:49
 msgid "Language (LANGUAGE):"
 msgstr "语言 (LANGUAGE)："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:58
+#: usr/share/archlinux-tweak-tool/locale_gui.py:59
 msgid "Console Keymap:"
 msgstr "控制台键盘映射："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:68
+#: usr/share/archlinux-tweak-tool/locale_gui.py:69
 msgid "X11 Layout:"
 msgstr "X11 布局："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:78
+#: usr/share/archlinux-tweak-tool/locale_gui.py:79
 msgid "Timezone:"
 msgstr "时区："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:89
+#: usr/share/archlinux-tweak-tool/locale_gui.py:90
 msgid "<b>System Locale</b>"
 msgstr "<b>系统区域设置</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:99
-#: usr/share/archlinux-tweak-tool/locale_gui.py:145
-#: usr/share/archlinux-tweak-tool/locale_gui.py:182
-#: usr/share/archlinux-tweak-tool/locale_gui.py:217
-#: usr/share/archlinux-tweak-tool/locale_gui.py:261
-#: usr/share/archlinux-tweak-tool/locale_gui.py:301
+#: usr/share/archlinux-tweak-tool/locale_gui.py:100
+#: usr/share/archlinux-tweak-tool/locale_gui.py:146
+#: usr/share/archlinux-tweak-tool/locale_gui.py:183
+#: usr/share/archlinux-tweak-tool/locale_gui.py:218
+#: usr/share/archlinux-tweak-tool/locale_gui.py:262
+#: usr/share/archlinux-tweak-tool/locale_gui.py:302
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
 #: usr/share/archlinux-tweak-tool/themes_gui.py:101
 msgid "Apply"
 msgstr "应用"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:112
+#: usr/share/archlinux-tweak-tool/locale_gui.py:113
 msgid "<b>Individual Categories</b>"
 msgstr "<b>单独类别</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:122
+#: usr/share/archlinux-tweak-tool/locale_gui.py:123
 msgid ""
 "Override single categories while keeping your system language — for example "
 "English with European numbers, currency and date formatting. \"Use LANG "
@@ -3465,61 +3468,73 @@ msgstr ""
 "在保留系统语言的同时覆盖单个类别，例如英语搭配欧洲的数字、货币和日期格式。“使"
 "用 LANG（默认）”会让该类别跟随你的 LANG。"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:131
+#: usr/share/archlinux-tweak-tool/locale_gui.py:132
 msgid "Numbers (LC_NUMERIC):"
 msgstr "数字 (LC_NUMERIC)："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:132
+#: usr/share/archlinux-tweak-tool/locale_gui.py:133
 msgid "Currency (LC_MONETARY):"
 msgstr "货币 (LC_MONETARY)："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:133
+#: usr/share/archlinux-tweak-tool/locale_gui.py:134
 msgid "Date & time (LC_TIME):"
 msgstr "日期和时间 (LC_TIME)："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:154
+#: usr/share/archlinux-tweak-tool/locale_gui.py:155
 msgid "Reset all to LANG"
 msgstr "全部重置为 LANG"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:166
+#: usr/share/archlinux-tweak-tool/locale_gui.py:167
 msgid "<b>Generate New Locale</b>"
 msgstr "<b>生成新的区域设置</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:173
+#: usr/share/archlinux-tweak-tool/locale_gui.py:174
 msgid "Load Available Locales"
 msgstr "加载可用的区域设置"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:207
+#: usr/share/archlinux-tweak-tool/locale_gui.py:208
 msgid "<b>Console Keyboard (TTY)</b>"
 msgstr "<b>控制台键盘 (TTY)</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:220
+#: usr/share/archlinux-tweak-tool/locale_gui.py:221
 msgid "Sync from X11"
 msgstr "从 X11 同步"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:234
+#: usr/share/archlinux-tweak-tool/locale_gui.py:235
 msgid "<b>X11 / Wayland Keyboard</b>"
 msgstr "<b>X11 / Wayland 键盘</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:242
+#: usr/share/archlinux-tweak-tool/locale_gui.py:243
 msgid "Layout:"
 msgstr "布局："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:252
+#: usr/share/archlinux-tweak-tool/locale_gui.py:253
 msgid "Variant:"
 msgstr "变体："
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:291
+#: usr/share/archlinux-tweak-tool/locale_gui.py:292
 msgid "<b>Timezone</b>"
 msgstr "<b>时区</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:314
+#: usr/share/archlinux-tweak-tool/locale_gui.py:315
 msgid "<b>Language Packs</b>"
 msgstr "<b>语言包</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:330
+#: usr/share/archlinux-tweak-tool/locale_gui.py:355
 msgid "Install language packs"
 msgstr "安装语言包"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:382
+msgid "Keyboard"
+msgstr "键盘"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:386
+msgid "Timezone"
+msgstr "时区"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:387
+msgid "Language Packs"
+msgstr "语言包"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:17
 msgid "Use LANG (default)"
@@ -3530,9 +3545,9 @@ msgid "No locale variables to set"
 msgstr "没有要设置的区域设置变量"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:123
-#: usr/share/archlinux-tweak-tool/locale_settings.py:459
-#: usr/share/archlinux-tweak-tool/locale_settings.py:526
-#: usr/share/archlinux-tweak-tool/locale_settings.py:687
+#: usr/share/archlinux-tweak-tool/locale_settings.py:473
+#: usr/share/archlinux-tweak-tool/locale_settings.py:540
+#: usr/share/archlinux-tweak-tool/locale_settings.py:701
 #, python-brace-format
 msgid "Failed: {error}"
 msgstr "失败：{error}"
@@ -3542,7 +3557,7 @@ msgstr "失败：{error}"
 msgid "(not set)"
 msgstr "（未设置）"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#: usr/share/archlinux-tweak-tool/locale_settings.py:334
 #, python-brace-format
 msgid ""
 "Some apps ship their translations and spell-check dictionaries as separate "
@@ -3551,111 +3566,111 @@ msgstr ""
 "部分应用将翻译和拼写检查词典作为单独的软件包提供。以下是适用于 {language} 的"
 "软件包。"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:332
+#: usr/share/archlinux-tweak-tool/locale_settings.py:346
 #, python-brace-format
 msgid "No app on this system needs a separate language pack for {language}."
 msgstr "此系统上没有应用需要 {language} 的单独语言包。"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:335
+#: usr/share/archlinux-tweak-tool/locale_settings.py:349
 #, python-brace-format
 msgid "All language packs for {language} are installed."
 msgstr "{language} 的所有语言包均已安装。"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:348
+#: usr/share/archlinux-tweak-tool/locale_settings.py:362
 msgid "Restart the apps to use their language packs."
 msgstr "重启应用即可使用其语言包。"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:353
+#: usr/share/archlinux-tweak-tool/locale_settings.py:367
 msgid "Installing in the terminal…"
 msgstr "正在终端中安装…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:364
+#: usr/share/archlinux-tweak-tool/locale_settings.py:378
 #, python-brace-format
 msgid "Language packs installed: {packages}. Restart the apps to use them."
 msgstr "已安装语言包：{packages}。重启应用即可使用。"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:393
-#: usr/share/archlinux-tweak-tool/locale_settings.py:417
-#: usr/share/archlinux-tweak-tool/locale_settings.py:437
-#: usr/share/archlinux-tweak-tool/locale_settings.py:468
-#: usr/share/archlinux-tweak-tool/locale_settings.py:512
-#: usr/share/archlinux-tweak-tool/locale_settings.py:677
+#: usr/share/archlinux-tweak-tool/locale_settings.py:407
+#: usr/share/archlinux-tweak-tool/locale_settings.py:431
+#: usr/share/archlinux-tweak-tool/locale_settings.py:451
+#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:526
+#: usr/share/archlinux-tweak-tool/locale_settings.py:691
 msgid "Applying…"
 msgstr "正在应用…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:399
+#: usr/share/archlinux-tweak-tool/locale_settings.py:413
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
 msgstr "系统区域设置已设为 {locale}，注销后生效"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:424
+#: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
 msgid "{category} reset to follow LANG"
 msgstr "{category} 已重置为跟随 LANG"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:428
+#: usr/share/archlinux-tweak-tool/locale_settings.py:442
 #, python-brace-format
 msgid "{category} set to {locale}"
 msgstr "{category} 已设为 {locale}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:443
+#: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
 msgstr "各类别的区域设置覆盖已重置为 LANG"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:455
-#: usr/share/archlinux-tweak-tool/locale_settings.py:456
+#: usr/share/archlinux-tweak-tool/locale_settings.py:469
+#: usr/share/archlinux-tweak-tool/locale_settings.py:470
 #, python-brace-format
 msgid "Console keymap set to {keymap}"
 msgstr "控制台键盘映射已设为 {keymap}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:475
+#: usr/share/archlinux-tweak-tool/locale_settings.py:489
 msgid "Syncing…"
 msgstr "正在同步…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:496
 msgid "No X11 layout set — cannot sync"
 msgstr "未设置 X11 布局，无法同步"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:487
+#: usr/share/archlinux-tweak-tool/locale_settings.py:501
 msgid "Keymap list not loaded yet — cannot sync"
 msgstr "键盘映射列表尚未加载，无法同步"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:496
+#: usr/share/archlinux-tweak-tool/locale_settings.py:510
 #, python-brace-format
 msgid "No TTY keymap matching '{layout}'"
 msgstr "没有与“{layout}”匹配的 TTY 键盘映射"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:520
-#: usr/share/archlinux-tweak-tool/locale_settings.py:523
+#: usr/share/archlinux-tweak-tool/locale_settings.py:534
+#: usr/share/archlinux-tweak-tool/locale_settings.py:537
 #, python-brace-format
 msgid "X11 layout set to {layout}"
 msgstr "X11 布局已设为 {layout}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:613
+#: usr/share/archlinux-tweak-tool/locale_settings.py:627
 msgid "No locale selected"
 msgstr "未选择区域设置"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:617
+#: usr/share/archlinux-tweak-tool/locale_settings.py:631
 #, python-brace-format
 msgid "Generating {locale} in terminal…"
 msgstr "正在终端中生成 {locale}…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:649
+#: usr/share/archlinux-tweak-tool/locale_settings.py:663
 #, python-brace-format
 msgid "Generating locale {locale}..."
 msgstr "正在生成区域设置 {locale}..."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:654
+#: usr/share/archlinux-tweak-tool/locale_settings.py:668
 msgid "Failed to update /etc/locale.gen"
 msgstr "更新 /etc/locale.gen 失败"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:664
+#: usr/share/archlinux-tweak-tool/locale_settings.py:678
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
 msgstr "区域设置 {locale} 已生成并设置，注销后生效"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:683
-#: usr/share/archlinux-tweak-tool/locale_settings.py:684
+#: usr/share/archlinux-tweak-tool/locale_settings.py:697
+#: usr/share/archlinux-tweak-tool/locale_settings.py:698
 #, python-brace-format
 msgid "Timezone set to {timezone}"
 msgstr "时区已设为 {timezone}"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 16:58+0100\n"
+"POT-Creation-Date: 2026-11-02 17:18+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1242,13 +1242,13 @@ msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>: {blurb}</small>: {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "installed"
 msgstr "geïnstalleerd"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:609
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "not installed"
 msgstr "niet geïnstalleerd"
 
@@ -2671,11 +2671,14 @@ msgid "Support the project"
 msgstr "Steun het project"
 
 #: usr/share/archlinux-tweak-tool/gui.py:557
+#: usr/share/archlinux-tweak-tool/locale_gui.py:328
 #, python-brace-format
 msgid "System ({language})"
 msgstr "Systeem ({language})"
 
 #: usr/share/archlinux-tweak-tool/gui.py:560
+#: usr/share/archlinux-tweak-tool/locale_gui.py:324
+#: usr/share/archlinux-tweak-tool/locale_gui.py:378
 msgid "Language"
 msgstr "Taal"
 
@@ -3532,55 +3535,55 @@ msgstr ""
 msgid "<small>Current: {entry_id}</small>"
 msgstr "<small>Huidig: {entry_id}</small>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:16
+#: usr/share/archlinux-tweak-tool/locale_gui.py:17
 msgid "Locale, Keyboard & Timezone"
 msgstr "Landinstelling, toetsenbord en tijdzone"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:30
+#: usr/share/archlinux-tweak-tool/locale_gui.py:31
 msgid "<b>Current Settings</b>"
 msgstr "<b>Huidige instellingen</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:38
+#: usr/share/archlinux-tweak-tool/locale_gui.py:39
 msgid "System Locale:"
 msgstr "Systeemlandinstelling:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:48
+#: usr/share/archlinux-tweak-tool/locale_gui.py:49
 msgid "Language (LANGUAGE):"
 msgstr "Taal (LANGUAGE):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:58
+#: usr/share/archlinux-tweak-tool/locale_gui.py:59
 msgid "Console Keymap:"
 msgstr "Console-toetsenbordindeling:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:68
+#: usr/share/archlinux-tweak-tool/locale_gui.py:69
 msgid "X11 Layout:"
 msgstr "X11-indeling:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:78
+#: usr/share/archlinux-tweak-tool/locale_gui.py:79
 msgid "Timezone:"
 msgstr "Tijdzone:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:89
+#: usr/share/archlinux-tweak-tool/locale_gui.py:90
 msgid "<b>System Locale</b>"
 msgstr "<b>Systeemtaal</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:99
-#: usr/share/archlinux-tweak-tool/locale_gui.py:145
-#: usr/share/archlinux-tweak-tool/locale_gui.py:182
-#: usr/share/archlinux-tweak-tool/locale_gui.py:217
-#: usr/share/archlinux-tweak-tool/locale_gui.py:261
-#: usr/share/archlinux-tweak-tool/locale_gui.py:301
+#: usr/share/archlinux-tweak-tool/locale_gui.py:100
+#: usr/share/archlinux-tweak-tool/locale_gui.py:146
+#: usr/share/archlinux-tweak-tool/locale_gui.py:183
+#: usr/share/archlinux-tweak-tool/locale_gui.py:218
+#: usr/share/archlinux-tweak-tool/locale_gui.py:262
+#: usr/share/archlinux-tweak-tool/locale_gui.py:302
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
 #: usr/share/archlinux-tweak-tool/themes_gui.py:101
 msgid "Apply"
 msgstr "Toepassen"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:112
+#: usr/share/archlinux-tweak-tool/locale_gui.py:113
 msgid "<b>Individual Categories</b>"
 msgstr "<b>Afzonderlijke categorieën</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:122
+#: usr/share/archlinux-tweak-tool/locale_gui.py:123
 msgid ""
 "Override single categories while keeping your system language — for example "
 "English with European numbers, currency and date formatting. \"Use LANG "
@@ -3590,61 +3593,73 @@ msgstr ""
 "Engels met Europese getallen, valuta en datumnotatie. \"LANG gebruiken "
 "(standaard)\" laat een categorie je LANG volgen."
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:131
+#: usr/share/archlinux-tweak-tool/locale_gui.py:132
 msgid "Numbers (LC_NUMERIC):"
 msgstr "Getallen (LC_NUMERIC):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:132
+#: usr/share/archlinux-tweak-tool/locale_gui.py:133
 msgid "Currency (LC_MONETARY):"
 msgstr "Valuta (LC_MONETARY):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:133
+#: usr/share/archlinux-tweak-tool/locale_gui.py:134
 msgid "Date & time (LC_TIME):"
 msgstr "Datum en tijd (LC_TIME):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:154
+#: usr/share/archlinux-tweak-tool/locale_gui.py:155
 msgid "Reset all to LANG"
 msgstr "Alles terugzetten naar LANG"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:166
+#: usr/share/archlinux-tweak-tool/locale_gui.py:167
 msgid "<b>Generate New Locale</b>"
 msgstr "<b>Nieuwe taalinstelling genereren</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:173
+#: usr/share/archlinux-tweak-tool/locale_gui.py:174
 msgid "Load Available Locales"
 msgstr "Beschikbare landinstellingen laden"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:207
+#: usr/share/archlinux-tweak-tool/locale_gui.py:208
 msgid "<b>Console Keyboard (TTY)</b>"
 msgstr "<b>Console-toetsenbord (TTY)</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:220
+#: usr/share/archlinux-tweak-tool/locale_gui.py:221
 msgid "Sync from X11"
 msgstr "Synchroniseren vanuit X11"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:234
+#: usr/share/archlinux-tweak-tool/locale_gui.py:235
 msgid "<b>X11 / Wayland Keyboard</b>"
 msgstr "<b>X11- / Wayland-toetsenbord</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:242
+#: usr/share/archlinux-tweak-tool/locale_gui.py:243
 msgid "Layout:"
 msgstr "Indeling:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:252
+#: usr/share/archlinux-tweak-tool/locale_gui.py:253
 msgid "Variant:"
 msgstr "Variant:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:291
+#: usr/share/archlinux-tweak-tool/locale_gui.py:292
 msgid "<b>Timezone</b>"
 msgstr "<b>Tijdzone</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:314
+#: usr/share/archlinux-tweak-tool/locale_gui.py:315
 msgid "<b>Language Packs</b>"
 msgstr "<b>Taalpakketten</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:330
+#: usr/share/archlinux-tweak-tool/locale_gui.py:355
 msgid "Install language packs"
 msgstr "Taalpakketten installeren"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:382
+msgid "Keyboard"
+msgstr "Toetsenbord"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:386
+msgid "Timezone"
+msgstr "Tijdzone"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:387
+msgid "Language Packs"
+msgstr "Taalpakketten"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:17
 msgid "Use LANG (default)"
@@ -3655,9 +3670,9 @@ msgid "No locale variables to set"
 msgstr "Geen landinstellingsvariabelen om in te stellen"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:123
-#: usr/share/archlinux-tweak-tool/locale_settings.py:459
-#: usr/share/archlinux-tweak-tool/locale_settings.py:526
-#: usr/share/archlinux-tweak-tool/locale_settings.py:687
+#: usr/share/archlinux-tweak-tool/locale_settings.py:473
+#: usr/share/archlinux-tweak-tool/locale_settings.py:540
+#: usr/share/archlinux-tweak-tool/locale_settings.py:701
 #, python-brace-format
 msgid "Failed: {error}"
 msgstr "Mislukt: {error}"
@@ -3667,7 +3682,7 @@ msgstr "Mislukt: {error}"
 msgid "(not set)"
 msgstr "(niet ingesteld)"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#: usr/share/archlinux-tweak-tool/locale_settings.py:334
 #, python-brace-format
 msgid ""
 "Some apps ship their translations and spell-check dictionaries as separate "
@@ -3676,118 +3691,118 @@ msgstr ""
 "Sommige apps leveren hun vertalingen en spellingwoordenboeken als aparte "
 "pakketten. Dit zijn de pakketten voor {language}."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:332
+#: usr/share/archlinux-tweak-tool/locale_settings.py:346
 #, python-brace-format
 msgid "No app on this system needs a separate language pack for {language}."
 msgstr ""
 "Geen enkele app op dit systeem heeft een apart taalpakket nodig voor "
 "{language}."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:335
+#: usr/share/archlinux-tweak-tool/locale_settings.py:349
 #, python-brace-format
 msgid "All language packs for {language} are installed."
 msgstr "Alle taalpakketten voor {language} zijn geïnstalleerd."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:348
+#: usr/share/archlinux-tweak-tool/locale_settings.py:362
 msgid "Restart the apps to use their language packs."
 msgstr "Herstart de apps om hun taalpakketten te gebruiken."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:353
+#: usr/share/archlinux-tweak-tool/locale_settings.py:367
 msgid "Installing in the terminal…"
 msgstr "Bezig met installeren in de terminal…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:364
+#: usr/share/archlinux-tweak-tool/locale_settings.py:378
 #, python-brace-format
 msgid "Language packs installed: {packages}. Restart the apps to use them."
 msgstr ""
 "Taalpakketten geïnstalleerd: {packages}. Herstart de apps om ze te gebruiken."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:393
-#: usr/share/archlinux-tweak-tool/locale_settings.py:417
-#: usr/share/archlinux-tweak-tool/locale_settings.py:437
-#: usr/share/archlinux-tweak-tool/locale_settings.py:468
-#: usr/share/archlinux-tweak-tool/locale_settings.py:512
-#: usr/share/archlinux-tweak-tool/locale_settings.py:677
+#: usr/share/archlinux-tweak-tool/locale_settings.py:407
+#: usr/share/archlinux-tweak-tool/locale_settings.py:431
+#: usr/share/archlinux-tweak-tool/locale_settings.py:451
+#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:526
+#: usr/share/archlinux-tweak-tool/locale_settings.py:691
 msgid "Applying…"
 msgstr "Bezig met toepassen…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:399
+#: usr/share/archlinux-tweak-tool/locale_settings.py:413
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
 msgstr ""
 "Systeemlandinstelling ingesteld op {locale}. Meld je af om dit toe te passen"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:424
+#: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
 msgid "{category} reset to follow LANG"
 msgstr "{category} teruggezet om LANG te volgen"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:428
+#: usr/share/archlinux-tweak-tool/locale_settings.py:442
 #, python-brace-format
 msgid "{category} set to {locale}"
 msgstr "{category} ingesteld op {locale}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:443
+#: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
 msgstr "Overschrijvingen per categorie teruggezet naar LANG"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:455
-#: usr/share/archlinux-tweak-tool/locale_settings.py:456
+#: usr/share/archlinux-tweak-tool/locale_settings.py:469
+#: usr/share/archlinux-tweak-tool/locale_settings.py:470
 #, python-brace-format
 msgid "Console keymap set to {keymap}"
 msgstr "Console-toetsenbordindeling ingesteld op {keymap}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:475
+#: usr/share/archlinux-tweak-tool/locale_settings.py:489
 msgid "Syncing…"
 msgstr "Synchroniseren…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:496
 msgid "No X11 layout set — cannot sync"
 msgstr "Geen X11-indeling ingesteld, synchroniseren kan niet"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:487
+#: usr/share/archlinux-tweak-tool/locale_settings.py:501
 msgid "Keymap list not loaded yet — cannot sync"
 msgstr ""
 "Lijst met toetsenbordindelingen nog niet geladen, synchroniseren kan niet"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:496
+#: usr/share/archlinux-tweak-tool/locale_settings.py:510
 #, python-brace-format
 msgid "No TTY keymap matching '{layout}'"
 msgstr "Geen TTY-toetsenbordindeling die past bij '{layout}'"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:520
-#: usr/share/archlinux-tweak-tool/locale_settings.py:523
+#: usr/share/archlinux-tweak-tool/locale_settings.py:534
+#: usr/share/archlinux-tweak-tool/locale_settings.py:537
 #, python-brace-format
 msgid "X11 layout set to {layout}"
 msgstr "X11-indeling ingesteld op {layout}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:613
+#: usr/share/archlinux-tweak-tool/locale_settings.py:627
 msgid "No locale selected"
 msgstr "Geen landinstelling geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:617
+#: usr/share/archlinux-tweak-tool/locale_settings.py:631
 #, python-brace-format
 msgid "Generating {locale} in terminal…"
 msgstr "{locale} wordt gegenereerd in de terminal…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:649
+#: usr/share/archlinux-tweak-tool/locale_settings.py:663
 #, python-brace-format
 msgid "Generating locale {locale}..."
 msgstr "Landinstelling {locale} wordt gegenereerd..."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:654
+#: usr/share/archlinux-tweak-tool/locale_settings.py:668
 msgid "Failed to update /etc/locale.gen"
 msgstr "/etc/locale.gen bijwerken mislukt"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:664
+#: usr/share/archlinux-tweak-tool/locale_settings.py:678
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
 msgstr ""
 "Landinstelling {locale} gegenereerd en ingesteld. Meld je af om dit toe te "
 "passen"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:683
-#: usr/share/archlinux-tweak-tool/locale_settings.py:684
+#: usr/share/archlinux-tweak-tool/locale_settings.py:697
+#: usr/share/archlinux-tweak-tool/locale_settings.py:698
 #, python-brace-format
 msgid "Timezone set to {timezone}"
 msgstr "Tijdzone ingesteld op {timezone}"

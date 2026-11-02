@@ -2,10 +2,18 @@
 
 ## 2026.11.02
 
+### Locale page in tabs
+
+**What Changed.** The Locale page had become too long to scroll through. Like the Network page, it now keeps **Current Settings** at the top and puts the rest into four tabs: **Language** (system locale, individual categories, generate a locale), **Keyboard** (console and X11/Wayland), **Timezone** and **Language Packs**. Checked on a test VM in Dutch.
+
+**Technical Details.** `locale_gui.py` builds a `Gtk.Stack` + `Gtk.StackSwitcher` with the same settings as `network_gui.py` (SLIDE_UP_DOWN, non-homogeneous) and adds the existing section widgets to one box per tab, so no handler changed. There are 3 new tab titles: "Keyboard", "Timezone", "Language Packs" ("Language" already existed). Each takes its words from the catalog's own section header and was reviewed in all 13 languages. `search_index.json` is regenerated.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/locale_gui.py`, `search_index.json`, `po/*`, `usr/share/locale/*`
+
 ### Language packs for Firefox, Thunderbird, LibreOffice and spell-check
 
 **What Changed.** The Locale page has a new **Language Packs** section. Arch ships the translations of Firefox, Thunderbird and LibreOffice, and the spell-check dictionaries, as separate packages, so after an install in Italian Firefox stayed English. The section lists the packs for your language, but only for apps that are installed, so a system without Firefox gets no Firefox pack. One button installs the missing packs in a terminal. It then makes Firefox and Thunderbird use them; restart them to see the change.
-- The language is the one ATT is shown in, if you chose one in its language dropdown. Otherwise it's your system language. ATT in Deutsch on an Italian system offers the German packs, and Firefox then opens in German.
+- A **Language** dropdown in the section lists ATT's 14 languages in their own names, plus "System (…)". It starts on the language ATT is shown in, when that differs from the system language, so ATT in Deutsch on an Italian system offers the German packs. Firefox then opens in German. Choosing English on a non-English system installs nothing for Firefox (English is built in) and only asks it for `en-US`.
 - It works for every language Arch has packs for, not only ATT's 13. Every name is looked up in the repos.
 - When the packs are already installed (for example by hand) but Firefox ignores them, the button only sets that, without a terminal.
 - Checked on a test VM with an Italian system: in Italian, then with ATT in Deutsch. In both cases the packs were installed and Firefox opened in that language.
@@ -16,7 +24,7 @@
 - Firefox and Thunderbird ignore an installed pack until `intl.locale.requested` is set. ATT writes a default pref file: `/usr/lib/firefox/browser/defaults/preferences/att-language.js`, and `/usr/lib/thunderbird/defaults/pref/att-language.js`. The value is `""` (follow the system language) when the language matches the system's, otherwise the pack's own code (`de`, `pt-BR`). It's a default pref, so the app's own language setting still wins. A `user.js` would have locked the language in every profile.
 - `_stale_language_prefs()` re-enables the button when that file is missing or different.
 - LibreOffice follows the system language on its own. With ATT in another language, its pack is installed but LibreOffice stays in the system language.
-- The section follows `att_i18n.ACTIVE` (the saved choice) when its base language differs from `LANG`. It refreshes on page build and after **Apply** on System Locale.
+- The dropdown reuses ATT's "System ({language})" and "Language" strings and `att_i18n.available()`. `langpack_default_choice()` takes `att_i18n.ACTIVE` when its base language differs from `LANG`. `_pack_language()` maps `en` to `en_US`, so the en_US hunspell dictionary is offered. The list refreshes on page build, on a dropdown change and after **Apply** on System Locale.
 - 8 new strings in all 13 catalogs (1945/1945), each round reviewed in a separate pass with back-translations. Hungarian and Turkish end on `{language}`, so the placeholder takes no suffix.
 - `search_synonyms.json` now finds the page by "language pack", "spell check", "dictionary", "hunspell", "firefox language"; `search_index.json` is regenerated.
 

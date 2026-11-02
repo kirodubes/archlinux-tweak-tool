@@ -3,6 +3,7 @@
 # ============================================================
 
 import functools
+import att_i18n
 import locale_settings as locale
 from att_i18n import _
 
@@ -317,6 +318,30 @@ def gui(self, Gtk, vboxstack_locale, fn):
     lbl_langpack_header.set_margin_bottom(5)
     hbox_langpack_header.append(lbl_langpack_header)
 
+    # Our 14 languages in their own names; "System (…)" follows LANG
+    hbox_langpack_choice = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    lbl_langpack_choice = Gtk.Label(xalign=0)
+    lbl_langpack_choice.set_text(_("Language"))
+    lbl_langpack_choice.set_margin_start(10)
+    lbl_langpack_choice.set_size_request(70, -1)
+    self.langpack_codes = [None, *att_i18n.available()]
+    langpack_labels = [_("System ({language})").format(language=att_i18n.name(att_i18n.SYSTEM))]
+    langpack_labels.extend(att_i18n.name(code) for code in self.langpack_codes[1:])
+    self.langpack_dropdown = Gtk.DropDown.new_from_strings(langpack_labels)
+    self.langpack_dropdown.set_size_request(250, -1)
+    self.langpack_choice = locale.langpack_default_choice()
+    if self.langpack_choice in self.langpack_codes:
+        self.langpack_dropdown.set_selected(self.langpack_codes.index(self.langpack_choice))
+
+    def _on_langpack_choice(dropdown, _pspec):
+        self.langpack_choice = self.langpack_codes[dropdown.get_selected()]
+        fn.log_info(f"Language packs: showing {self.langpack_choice or 'system language'}")
+        locale.refresh_language_packs(self)
+
+    self.langpack_dropdown.connect("notify::selected", _on_langpack_choice)
+    hbox_langpack_choice.append(lbl_langpack_choice)
+    hbox_langpack_choice.append(self.langpack_dropdown)
+
     self.lbl_langpack_intro = Gtk.Label(xalign=0)
     self.lbl_langpack_intro.set_wrap(True)
     self.lbl_langpack_intro.set_margin_start(10)
@@ -337,36 +362,45 @@ def gui(self, Gtk, vboxstack_locale, fn):
     hbox_langpack_install.append(self.btn_langpack_install)
     hbox_langpack_install.append(self.lbl_langpack_result)
 
-    # ── Assemble page ──────────────────────────────────────
-    vboxstack_locale.append(hbox_title)
-    vboxstack_locale.append(hbox_sep)
-    vboxstack_locale.append(hbox_status_header)
-    vboxstack_locale.append(hbox_locale_status)
-    vboxstack_locale.append(hbox_language_status)
-    vboxstack_locale.append(hbox_keymap_status)
-    vboxstack_locale.append(hbox_x11_status)
-    vboxstack_locale.append(hbox_tz_status)
-    vboxstack_locale.append(hbox_locale_header)
-    vboxstack_locale.append(hbox_locale_ctrl)
-    vboxstack_locale.append(hbox_lc_header)
-    vboxstack_locale.append(hbox_lc_intro)
-    for hbox_lc_row in hbox_lc_rows:
-        vboxstack_locale.append(hbox_lc_row)
-    vboxstack_locale.append(hbox_lc_reset)
-    vboxstack_locale.append(hbox_gen_locale_header)
-    vboxstack_locale.append(hbox_gen_locale_load)
-    vboxstack_locale.append(hbox_gen_locale_apply)
-    vboxstack_locale.append(hbox_keymap_header)
-    vboxstack_locale.append(hbox_keymap_ctrl)
-    vboxstack_locale.append(hbox_x11_header)
-    vboxstack_locale.append(hbox_x11_layout_ctrl)
-    vboxstack_locale.append(hbox_x11_variant_ctrl)
-    vboxstack_locale.append(hbox_x11_apply)
-    vboxstack_locale.append(hbox_tz_header)
-    vboxstack_locale.append(hbox_tz_ctrl)
-    vboxstack_locale.append(hbox_langpack_header)
-    vboxstack_locale.append(self.lbl_langpack_intro)
-    vboxstack_locale.append(self.langpack_rows)
-    vboxstack_locale.append(hbox_langpack_install)
+    # ── Assemble page: overview on top, one tab per topic (like the Network page) ──
+    stack = Gtk.Stack()
+    stack.set_transition_type(Gtk.StackTransitionType.SLIDE_UP_DOWN)
+    stack.set_transition_duration(350)
+    stack.set_hhomogeneous(False)
+    stack.set_vhomogeneous(False)
+    stack_switcher = Gtk.StackSwitcher()
+    stack_switcher.set_orientation(Gtk.Orientation.HORIZONTAL)
+    stack_switcher.set_stack(stack)
+    stack_switcher.set_margin_start(10)
+    stack_switcher.set_margin_top(15)
+
+    tabs = [
+        ("stack_locale_language", _("Language"), [
+            hbox_locale_header, hbox_locale_ctrl, hbox_lc_header, hbox_lc_intro, *hbox_lc_rows, hbox_lc_reset,
+            hbox_gen_locale_header, hbox_gen_locale_load, hbox_gen_locale_apply,
+        ]),
+        ("stack_locale_keyboard", _("Keyboard"), [
+            hbox_keymap_header, hbox_keymap_ctrl, hbox_x11_header, hbox_x11_layout_ctrl, hbox_x11_variant_ctrl,
+            hbox_x11_apply,
+        ]),
+        ("stack_locale_timezone", _("Timezone"), [hbox_tz_header, hbox_tz_ctrl]),
+        ("stack_locale_langpacks", _("Language Packs"), [
+            hbox_langpack_header, hbox_langpack_choice, self.lbl_langpack_intro, self.langpack_rows,
+            hbox_langpack_install,
+        ]),
+    ]
+    for name, title, widgets in tabs:
+        vbox_tab = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+        for widget in widgets:
+            vbox_tab.append(widget)
+        stack.add_titled(vbox_tab, name, title)
+
+    for widget in (hbox_title, hbox_sep, hbox_status_header, hbox_locale_status, hbox_language_status,
+                   hbox_keymap_status, hbox_x11_status, hbox_tz_status, stack_switcher):
+        vboxstack_locale.append(widget)
+    stack.set_hexpand(True)
+    stack.set_vexpand(True)
+    vboxstack_locale.append(stack)
+    fn.log_info("Locale page built with tabs: Language, Keyboard, Timezone, Language Packs")
 
     locale.populate_dropdowns(self)

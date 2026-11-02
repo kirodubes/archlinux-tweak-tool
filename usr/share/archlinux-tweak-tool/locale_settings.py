@@ -228,14 +228,19 @@ def _requested_locale(package, prefix):
     return f"{ll}-{cc.upper()}" if cc else ll
 
 
-def _wanted_language_prefs(packages, follow_system):
+def _wanted_language_prefs(packages, follow_system, english=False):
     """Return {pref file: content} for the Firefox/Thunderbird packs among packages."""
     wanted = {}
     for prefix, target in _LANGUAGE_PREFS.items():
         pkg = next((p for p in packages if p.startswith(prefix)), None)
-        if pkg is None or not os.path.isdir(os.path.dirname(target)):
+        if not os.path.isdir(os.path.dirname(target)):
             continue
-        value = "" if follow_system else _requested_locale(pkg, prefix)
+        if pkg is not None:
+            value = "" if follow_system else _requested_locale(pkg, prefix)
+        elif english and not follow_system:
+            value = "en-US"  # English is built in: no pack, only the request
+        else:
+            continue
         wanted[target] = ("// Written by ArchLinux Tweak Tool (Locale page, Language Packs).\n"
                           f'pref("intl.locale.requested", "{value}");\n')
     return wanted
@@ -255,9 +260,10 @@ def _stale_language_prefs(wanted):
     return stale
 
 
-def _write_language_prefs(packages, follow_system):
+def _write_language_prefs(self, packages):
     """Make Firefox/Thunderbird use their installed language pack."""
-    for target, content in _wanted_language_prefs(packages, follow_system).items():
+    wanted = _wanted_language_prefs(packages, self.langpack_follow_system, self.langpack_english)
+    for target, content in wanted.items():
         try:
             with open(target, "w", encoding="utf-8") as f:
                 f.write(content)
@@ -266,13 +272,19 @@ def _write_language_prefs(packages, follow_system):
             fn.log_error(f"Could not write {target}: {e}")
 
 
-def _pack_language():
-    """Return (language to install for, how to show it, follows the system language)."""
-    system = _read_locale_conf().get("LANG", "") or "en_US.UTF-8"
+def langpack_default_choice():
+    """ATT's own language when it differs from the system language, else None (= system)."""
     chosen = att_i18n.ACTIVE
-    if chosen and chosen.split("_")[0] != system.split("_")[0].split(".")[0]:
-        return chosen, att_i18n.name(chosen), False
-    return system, system, True
+    system = _read_locale_conf().get("LANG", "") or "en_US.UTF-8"
+    return chosen if chosen and chosen.split("_")[0] != system.split("_")[0].split(".")[0] else None
+
+
+def _pack_language(choice):
+    """Return (locale to look packs up for, how to show it, follows the system language)."""
+    system = _read_locale_conf().get("LANG", "") or "en_US.UTF-8"
+    if choice is None or choice.split("_")[0] == system.split("_")[0].split(".")[0]:
+        return system, system, True
+    return ("en_US" if choice == "en" else choice), att_i18n.name(choice), False
 
 
 def find_language_packs(lang, repo_names, installed):
@@ -299,7 +311,9 @@ def find_language_packs(lang, repo_names, installed):
 def refresh_language_packs(self):
     """Rebuild the Language Packs rows for ATT's chosen language (else the system's) in the background."""
     def _run():
-        lang, shown, self.langpack_follow_system = _pack_language()
+        choice = getattr(self, "langpack_choice", None)
+        lang, shown, self.langpack_follow_system = _pack_language(choice)
+        self.langpack_english = lang.startswith("en")
         repo_names = set(_fetch(["pacman", "-Slq"]))
         installed = {entry["app"] for entry in LANGPACK_APPS if fn.check_package_installed(entry["app"])}
         packs = find_language_packs(lang, repo_names, installed)
@@ -307,7 +321,7 @@ def refresh_language_packs(self):
         self.langpack_missing = [pkg for _label, pkg, done in status if not done]
         self.langpack_installed = [pkg for _label, pkg, done in status if done]
         self.langpack_stale = _stale_language_prefs(
-            _wanted_language_prefs(self.langpack_installed, self.langpack_follow_system))
+            _wanted_language_prefs(self.langpack_installed, self.langpack_follow_system, self.langpack_english))
         fn.log_info(f"Language packs for {lang}: {', '.join(pkg for _l, pkg in packs) or 'none'}")
         GLib.idle_add(_show, shown, status)
 
@@ -344,7 +358,7 @@ def on_install_language_packs(self, _widget):
     packages = list(getattr(self, "langpack_missing", []))
     if not packages:
         # packs already there (installed by hand), only their pref was missing or out of date
-        _write_language_prefs(getattr(self, "langpack_installed", []), getattr(self, "langpack_follow_system", True))
+        _write_language_prefs(self, getattr(self, "langpack_installed", []))
         fn.show_in_app_notification(self, _("Restart the apps to use their language packs."))
         refresh_language_packs(self)
         return
@@ -357,7 +371,7 @@ def on_install_language_packs(self, _widget):
             process.communicate()
         fn.invalidate_pkg_cache()
         done = [pkg for pkg in packages if fn.check_package_installed(pkg)]
-        _write_language_prefs(done, getattr(self, "langpack_follow_system", True))
+        _write_language_prefs(self, done)
         if len(done) == len(packages):
             fn.log_success(f"Language packs installed: {' '.join(done)}")
             GLib.idle_add(fn.show_in_app_notification, self,

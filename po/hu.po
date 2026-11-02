@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 16:58+0100\n"
+"POT-Creation-Date: 2026-11-02 17:18+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1240,13 +1240,13 @@ msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>: {blurb}</small>: {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "installed"
 msgstr "telepítve"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:609
-#: usr/share/archlinux-tweak-tool/locale_settings.py:326
+#: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "not installed"
 msgstr "nincs telepítve"
 
@@ -2667,11 +2667,14 @@ msgid "Support the project"
 msgstr "A projekt támogatása"
 
 #: usr/share/archlinux-tweak-tool/gui.py:557
+#: usr/share/archlinux-tweak-tool/locale_gui.py:328
 #, python-brace-format
 msgid "System ({language})"
 msgstr "Rendszer ({language})"
 
 #: usr/share/archlinux-tweak-tool/gui.py:560
+#: usr/share/archlinux-tweak-tool/locale_gui.py:324
+#: usr/share/archlinux-tweak-tool/locale_gui.py:378
 msgid "Language"
 msgstr "Nyelv"
 
@@ -3536,55 +3539,55 @@ msgstr ""
 msgid "<small>Current: {entry_id}</small>"
 msgstr "<small>Jelenlegi: {entry_id}</small>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:16
+#: usr/share/archlinux-tweak-tool/locale_gui.py:17
 msgid "Locale, Keyboard & Timezone"
 msgstr "Területi beállítás, billentyűzet és időzóna"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:30
+#: usr/share/archlinux-tweak-tool/locale_gui.py:31
 msgid "<b>Current Settings</b>"
 msgstr "<b>Jelenlegi beállítások</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:38
+#: usr/share/archlinux-tweak-tool/locale_gui.py:39
 msgid "System Locale:"
 msgstr "Rendszer nyelve:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:48
+#: usr/share/archlinux-tweak-tool/locale_gui.py:49
 msgid "Language (LANGUAGE):"
 msgstr "Nyelv (LANGUAGE):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:58
+#: usr/share/archlinux-tweak-tool/locale_gui.py:59
 msgid "Console Keymap:"
 msgstr "Konzol billentyűkiosztása:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:68
+#: usr/share/archlinux-tweak-tool/locale_gui.py:69
 msgid "X11 Layout:"
 msgstr "X11 kiosztás:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:78
+#: usr/share/archlinux-tweak-tool/locale_gui.py:79
 msgid "Timezone:"
 msgstr "Időzóna:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:89
+#: usr/share/archlinux-tweak-tool/locale_gui.py:90
 msgid "<b>System Locale</b>"
 msgstr "<b>Rendszer nyelve</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:99
-#: usr/share/archlinux-tweak-tool/locale_gui.py:145
-#: usr/share/archlinux-tweak-tool/locale_gui.py:182
-#: usr/share/archlinux-tweak-tool/locale_gui.py:217
-#: usr/share/archlinux-tweak-tool/locale_gui.py:261
-#: usr/share/archlinux-tweak-tool/locale_gui.py:301
+#: usr/share/archlinux-tweak-tool/locale_gui.py:100
+#: usr/share/archlinux-tweak-tool/locale_gui.py:146
+#: usr/share/archlinux-tweak-tool/locale_gui.py:183
+#: usr/share/archlinux-tweak-tool/locale_gui.py:218
+#: usr/share/archlinux-tweak-tool/locale_gui.py:262
+#: usr/share/archlinux-tweak-tool/locale_gui.py:302
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
 #: usr/share/archlinux-tweak-tool/themes_gui.py:101
 msgid "Apply"
 msgstr "Alkalmaz"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:112
+#: usr/share/archlinux-tweak-tool/locale_gui.py:113
 msgid "<b>Individual Categories</b>"
 msgstr "<b>Egyes kategóriák</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:122
+#: usr/share/archlinux-tweak-tool/locale_gui.py:123
 msgid ""
 "Override single categories while keeping your system language — for example "
 "English with European numbers, currency and date formatting. \"Use LANG "
@@ -3594,61 +3597,73 @@ msgstr ""
 "angol nyelv európai számokkal, pénznemmel és dátumformázással. A „LANG "
 "használata (alapértelmezett)” beállítás a kategóriát a LANG értékéhez köti."
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:131
+#: usr/share/archlinux-tweak-tool/locale_gui.py:132
 msgid "Numbers (LC_NUMERIC):"
 msgstr "Számok (LC_NUMERIC):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:132
+#: usr/share/archlinux-tweak-tool/locale_gui.py:133
 msgid "Currency (LC_MONETARY):"
 msgstr "Pénznem (LC_MONETARY):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:133
+#: usr/share/archlinux-tweak-tool/locale_gui.py:134
 msgid "Date & time (LC_TIME):"
 msgstr "Dátum és idő (LC_TIME):"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:154
+#: usr/share/archlinux-tweak-tool/locale_gui.py:155
 msgid "Reset all to LANG"
 msgstr "Mind visszaállítása a LANG értékére"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:166
+#: usr/share/archlinux-tweak-tool/locale_gui.py:167
 msgid "<b>Generate New Locale</b>"
 msgstr "<b>Új területi beállítás előállítása</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:173
+#: usr/share/archlinux-tweak-tool/locale_gui.py:174
 msgid "Load Available Locales"
 msgstr "Elérhető területi beállítások betöltése"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:207
+#: usr/share/archlinux-tweak-tool/locale_gui.py:208
 msgid "<b>Console Keyboard (TTY)</b>"
 msgstr "<b>Konzolbillentyűzet (TTY)</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:220
+#: usr/share/archlinux-tweak-tool/locale_gui.py:221
 msgid "Sync from X11"
 msgstr "Szinkronizálás az X11-ből"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:234
+#: usr/share/archlinux-tweak-tool/locale_gui.py:235
 msgid "<b>X11 / Wayland Keyboard</b>"
 msgstr "<b>X11 / Wayland billentyűzet</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:242
+#: usr/share/archlinux-tweak-tool/locale_gui.py:243
 msgid "Layout:"
 msgstr "Kiosztás:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:252
+#: usr/share/archlinux-tweak-tool/locale_gui.py:253
 msgid "Variant:"
 msgstr "Változat:"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:291
+#: usr/share/archlinux-tweak-tool/locale_gui.py:292
 msgid "<b>Timezone</b>"
 msgstr "<b>Időzóna</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:314
+#: usr/share/archlinux-tweak-tool/locale_gui.py:315
 msgid "<b>Language Packs</b>"
 msgstr "<b>Nyelvi csomagok</b>"
 
-#: usr/share/archlinux-tweak-tool/locale_gui.py:330
+#: usr/share/archlinux-tweak-tool/locale_gui.py:355
 msgid "Install language packs"
 msgstr "Nyelvi csomagok telepítése"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:382
+msgid "Keyboard"
+msgstr "Billentyűzet"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:386
+msgid "Timezone"
+msgstr "Időzóna"
+
+#: usr/share/archlinux-tweak-tool/locale_gui.py:387
+msgid "Language Packs"
+msgstr "Nyelvi csomagok"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:17
 msgid "Use LANG (default)"
@@ -3659,9 +3674,9 @@ msgid "No locale variables to set"
 msgstr "Nincs beállítandó területi változó"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:123
-#: usr/share/archlinux-tweak-tool/locale_settings.py:459
-#: usr/share/archlinux-tweak-tool/locale_settings.py:526
-#: usr/share/archlinux-tweak-tool/locale_settings.py:687
+#: usr/share/archlinux-tweak-tool/locale_settings.py:473
+#: usr/share/archlinux-tweak-tool/locale_settings.py:540
+#: usr/share/archlinux-tweak-tool/locale_settings.py:701
 #, python-brace-format
 msgid "Failed: {error}"
 msgstr "Sikertelen: {error}"
@@ -3671,7 +3686,7 @@ msgstr "Sikertelen: {error}"
 msgid "(not set)"
 msgstr "(nincs beállítva)"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:320
+#: usr/share/archlinux-tweak-tool/locale_settings.py:334
 #, python-brace-format
 msgid ""
 "Some apps ship their translations and spell-check dictionaries as separate "
@@ -3680,119 +3695,119 @@ msgstr ""
 "Egyes alkalmazások külön csomagban adják a fordításaikat és a helyesírás-"
 "ellenőrző szótáraikat. Ezek tartoznak ehhez a nyelvhez: {language}."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:332
+#: usr/share/archlinux-tweak-tool/locale_settings.py:346
 #, python-brace-format
 msgid "No app on this system needs a separate language pack for {language}."
 msgstr ""
 "Ezen a rendszeren egyik alkalmazásnak sem kell külön nyelvi csomag ehhez a "
 "nyelvhez: {language}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:335
+#: usr/share/archlinux-tweak-tool/locale_settings.py:349
 #, python-brace-format
 msgid "All language packs for {language} are installed."
 msgstr "Ennek a nyelvnek minden nyelvi csomagja telepítve van: {language}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:348
+#: usr/share/archlinux-tweak-tool/locale_settings.py:362
 msgid "Restart the apps to use their language packs."
 msgstr "Indítsd újra az alkalmazásokat a nyelvi csomagjaik használatához."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:353
+#: usr/share/archlinux-tweak-tool/locale_settings.py:367
 msgid "Installing in the terminal…"
 msgstr "Telepítés a terminálban…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:364
+#: usr/share/archlinux-tweak-tool/locale_settings.py:378
 #, python-brace-format
 msgid "Language packs installed: {packages}. Restart the apps to use them."
 msgstr ""
 "Telepített nyelvi csomagok: {packages}. Indítsd újra az alkalmazásokat a "
 "használatukhoz."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:393
-#: usr/share/archlinux-tweak-tool/locale_settings.py:417
-#: usr/share/archlinux-tweak-tool/locale_settings.py:437
-#: usr/share/archlinux-tweak-tool/locale_settings.py:468
-#: usr/share/archlinux-tweak-tool/locale_settings.py:512
-#: usr/share/archlinux-tweak-tool/locale_settings.py:677
+#: usr/share/archlinux-tweak-tool/locale_settings.py:407
+#: usr/share/archlinux-tweak-tool/locale_settings.py:431
+#: usr/share/archlinux-tweak-tool/locale_settings.py:451
+#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:526
+#: usr/share/archlinux-tweak-tool/locale_settings.py:691
 msgid "Applying…"
 msgstr "Beállítás folyamatban…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:399
+#: usr/share/archlinux-tweak-tool/locale_settings.py:413
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
 msgstr "A rendszer nyelve beállítva: {locale}. Az alkalmazáshoz jelentkezz ki"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:424
+#: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
 msgid "{category} reset to follow LANG"
 msgstr "{category} visszaállítva a LANG követésére"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:428
+#: usr/share/archlinux-tweak-tool/locale_settings.py:442
 #, python-brace-format
 msgid "{category} set to {locale}"
 msgstr "{category} beállítva: {locale}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:443
+#: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
 msgstr ""
 "A kategóriánkénti területi felülbírálások visszaállítva a LANG értékére"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:455
-#: usr/share/archlinux-tweak-tool/locale_settings.py:456
+#: usr/share/archlinux-tweak-tool/locale_settings.py:469
+#: usr/share/archlinux-tweak-tool/locale_settings.py:470
 #, python-brace-format
 msgid "Console keymap set to {keymap}"
 msgstr "A konzol billentyűkiosztása beállítva: {keymap}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:475
+#: usr/share/archlinux-tweak-tool/locale_settings.py:489
 msgid "Syncing…"
 msgstr "Szinkronizálás…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:482
+#: usr/share/archlinux-tweak-tool/locale_settings.py:496
 msgid "No X11 layout set — cannot sync"
 msgstr "Nincs X11 kiosztás beállítva, a szinkronizálás nem lehetséges"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:487
+#: usr/share/archlinux-tweak-tool/locale_settings.py:501
 msgid "Keymap list not loaded yet — cannot sync"
 msgstr ""
 "A billentyűkiosztás-lista még nincs betöltve, a szinkronizálás nem lehetséges"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:496
+#: usr/share/archlinux-tweak-tool/locale_settings.py:510
 #, python-brace-format
 msgid "No TTY keymap matching '{layout}'"
 msgstr "Nincs '{layout}' kiosztásnak megfelelő TTY-billentyűkiosztás"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:520
-#: usr/share/archlinux-tweak-tool/locale_settings.py:523
+#: usr/share/archlinux-tweak-tool/locale_settings.py:534
+#: usr/share/archlinux-tweak-tool/locale_settings.py:537
 #, python-brace-format
 msgid "X11 layout set to {layout}"
 msgstr "Az X11 kiosztás beállítva: {layout}"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:613
+#: usr/share/archlinux-tweak-tool/locale_settings.py:627
 msgid "No locale selected"
 msgstr "Nincs kiválasztott területi beállítás"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:617
+#: usr/share/archlinux-tweak-tool/locale_settings.py:631
 #, python-brace-format
 msgid "Generating {locale} in terminal…"
 msgstr "{locale} előállítása terminálban…"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:649
+#: usr/share/archlinux-tweak-tool/locale_settings.py:663
 #, python-brace-format
 msgid "Generating locale {locale}..."
 msgstr "A(z) {locale} területi beállítás előállítása..."
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:654
+#: usr/share/archlinux-tweak-tool/locale_settings.py:668
 msgid "Failed to update /etc/locale.gen"
 msgstr "Az /etc/locale.gen frissítése sikertelen"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:664
+#: usr/share/archlinux-tweak-tool/locale_settings.py:678
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
 msgstr ""
 "A(z) {locale} területi beállítás előállítva és beállítva. Az alkalmazáshoz "
 "jelentkezz ki"
 
-#: usr/share/archlinux-tweak-tool/locale_settings.py:683
-#: usr/share/archlinux-tweak-tool/locale_settings.py:684
+#: usr/share/archlinux-tweak-tool/locale_settings.py:697
+#: usr/share/archlinux-tweak-tool/locale_settings.py:698
 #, python-brace-format
 msgid "Timezone set to {timezone}"
 msgstr "Az időzóna beállítva: {timezone}"
