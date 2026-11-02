@@ -130,7 +130,7 @@ The tool is written in Python with GTK4 and is built with extensibility and user
 - **Services**: Enable/disable systemd services
 - **Autostart**: Manage applications that launch at login
 - **User Management**: Create and configure user accounts
-- **Locale**: Set locale, keyboard layout, and timezone
+- **Locale**: Set locale, keyboard layout and timezone, and install language packs for Firefox, Thunderbird, LibreOffice and spell-check
 
 ### 🚀 Performance & Optimization
 
@@ -199,7 +199,7 @@ ATT currently has **24 tabs** (sidebar pages):
 | **Fastfetch**   | Configure fastfetch system-info display and presets                                 |
 | **Icons**       | Install and manage icon themes                                                      |
 | **Kernels**     | Install and remove kernels; GRUB and dracut/mkinitcpio integration                  |
-| **Locale**      | Set locale, keyboard layout, and timezone                                           |
+| **Locale**      | Locale, keyboard, timezone; language packs for Firefox, Thunderbird, LibreOffice    |
 | **Logging**     | Browse ATT session logs and system journal entries                                  |
 | **Maintenance** | Mirror ranking, orphan package removal, pacman cache cleanup, lock-file removal     |
 | **Network**     | Network tools and Samba share configuration                                         |
@@ -252,6 +252,10 @@ ATT is available in English, Dutch, German, Spanish, French, Brazilian Portugues
 Turkish, Polish, Japanese, Simplified Chinese and Romanian. It follows your system language. To pick another one,
 use the language dropdown in the header, next to ♥ Support, then click **Restart ATT**. The choice is saved for
 later starts. Logs stay in English.
+
+Apps such as Firefox, Thunderbird and LibreOffice, and the spell-check dictionaries, ship their translations as
+separate packages. The **Language Packs** tab on the Locale page installs them for the language you pick, and makes
+Firefox and Thunderbird use them.
 
 Translations live in `po/` as gettext catalogs. Corrections are welcome in
 [Discussions](https://github.com/kirodubes/kiro-discussions).
