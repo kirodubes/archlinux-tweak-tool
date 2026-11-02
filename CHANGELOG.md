@@ -2,6 +2,14 @@
 
 ## 2026.11.02
 
+### att-check finds the pages again
+
+**What Changed.** Since the page titles became translatable on 2026-11-01, `att-check` found no pages in `gui.py` and reported all 34 as "STALE", so it checked nothing. It now reads the titles again: on this machine 32 PASS and 1 WARN. The WARN is AI Tools, because `jan-bin` is only in the cachyos repo.
+
+**Technical Details.** `read_gui_pages()` only accepted a plain string as the third argument of `stack.add_titled()`. The titles are now `_("Locale")`, a call. A small `title_of()` helper also accepts a `_()` call with a single string and returns that English string, which stays the key for `att_check.PAGES`.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/att_check.py`
+
 ### Locale page in tabs
 
 **What Changed.** The Locale page had become too long to scroll through. Like the Network page, it now keeps **Current Settings** at the top and puts the rest into four tabs: **Language** (system locale, individual categories, generate a locale), **Keyboard** (console and X11/Wayland), **Timezone** and **Language Packs**. Checked on a test VM in Dutch.

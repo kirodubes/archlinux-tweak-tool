@@ -595,6 +595,13 @@ def read_gui_pages():
     tree = ast.parse(open(os.path.join(BASE_DIR, "gui.py")).read())
     pages = []
 
+    def title_of(arg):
+        # titles are translatable since 2026-11-01: _("Locale"); the English msgid is the page key
+        if (isinstance(arg, ast.Call) and isinstance(arg.func, ast.Name) and arg.func.id == "_"
+                and len(arg.args) == 1):
+            arg = arg.args[0]
+        return arg.value if isinstance(arg, ast.Constant) and isinstance(arg.value, str) else None
+
     def visit(node, guard):
         if isinstance(node, ast.If):
             for child in node.body:
@@ -604,8 +611,8 @@ def read_gui_pages():
             return
         if (isinstance(node, ast.Expr) and isinstance(node.value, ast.Call)
                 and isinstance(node.value.func, ast.Attribute) and node.value.func.attr == "add_titled"
-                and len(node.value.args) == 3 and isinstance(node.value.args[2], ast.Constant)):
-            pages.append((node.value.args[2].value, guard))
+                and len(node.value.args) == 3 and title_of(node.value.args[2]) is not None):
+            pages.append((title_of(node.value.args[2]), guard))
         for child in ast.iter_child_nodes(node):
             visit(child, guard)
 
