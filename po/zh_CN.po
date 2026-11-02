@@ -3494,7 +3494,7 @@ msgstr "加载可用的区域设置"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:208
 msgid "<b>Console Keyboard (TTY)</b>"
-msgstr "<b>控制台键盘 (TTY)</b>"
+msgstr "<b>控制台键盘（TTY）</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:221
 msgid "Sync from X11"

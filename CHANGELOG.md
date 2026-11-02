@@ -16,6 +16,8 @@
 
 **Technical Details.** `locale_gui.py` builds a `Gtk.Stack` + `Gtk.StackSwitcher` with the same settings as `network_gui.py` (SLIDE_UP_DOWN, non-homogeneous) and adds the existing section widgets to one box per tab, so no handler changed. There are 3 new tab titles: "Keyboard", "Timezone", "Language Packs" ("Language" already existed). Each takes its words from the catalog's own section header and was reviewed in all 13 languages. `search_index.json` is regenerated.
 
+Chinese: the Keyboard tab's console header now uses full-width brackets, 控制台键盘（TTY）, like the Japanese catalog.
+
 **Files Modified.** `usr/share/archlinux-tweak-tool/locale_gui.py`, `search_index.json`, `po/*`, `usr/share/locale/*`
 
 ### Language packs for Firefox, Thunderbird, LibreOffice and spell-check
