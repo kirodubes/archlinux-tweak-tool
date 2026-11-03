@@ -10,19 +10,27 @@ from att_i18n import _, N_
 from gi.repository import Gtk
 
 NSSWITCH_OPTIONS = {
-    "Kiro default": "mymachines files mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns wins myhostname",
-    "Standard (systemd default)": "mymachines resolve [!UNAVAIL=return] files myhostname dns",
-    "With mdns + wins": "mymachines resolve [!UNAVAIL=return] files dns mdns wins myhostname",
-    "With mdns_minimal": "mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns",
-    "With mdns4_minimal": "mymachines mdns4_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns",
-    "Custom order (no systemd)": "files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns wins",
+    N_("Kiro default"): "mymachines files mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns wins myhostname",
+    N_("Standard (systemd default)"): "mymachines resolve [!UNAVAIL=return] files myhostname dns",
+    N_("With mdns + wins"): "mymachines resolve [!UNAVAIL=return] files dns mdns wins myhostname",
+    N_("With mdns_minimal"): "mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns",
+    N_("With mdns4_minimal"): "mymachines mdns4_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns",
+    N_("Custom order (no systemd)"): "files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns wins",
 }
+
+
+def selected_nsswitch(dropdown):
+    """Return the English name of the preset selected in the nsswitch dropdown, or None."""
+    # By position: the dropdown shows translated names, the dict keys stay English
+    presets = list(NSSWITCH_OPTIONS)
+    index = dropdown.get_selected()
+    return presets[index] if index < len(presets) else None
 
 
 def choose_nsswitch(self):
     """Apply the selected nsswitch preset to /etc/nsswitch.conf."""
     fn.log_subsection("Apply Nsswitch Configuration")
-    label = fn.get_combo_text(self.nsswitch_choices)
+    label = selected_nsswitch(self.nsswitch_choices)
 
     if label in NSSWITCH_OPTIONS:
         hosts_line = NSSWITCH_OPTIONS[label]
@@ -31,7 +39,7 @@ def choose_nsswitch(self):
         fn.debug_print("  File   : /etc/nsswitch.conf")
         fn.copy_nsswitch(hosts_line)
         fn.log_success("Nsswitch configuration applied")
-        GLib.idle_add(fn.show_in_app_notification, self, _("Nsswitch: {label}").format(label=label))
+        GLib.idle_add(fn.show_in_app_notification, self, _("Nsswitch: {label}").format(label=_(label)))
     else:
         fn.log_warn(f"Unknown nsswitch preset: {label}")
 

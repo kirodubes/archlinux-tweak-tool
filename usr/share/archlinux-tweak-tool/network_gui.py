@@ -154,16 +154,7 @@ def gui(self, Gtk, vboxstack_network, fn):
     hbox_nsswitch_desc.append(label_nsswitch_desc)
 
     hbox_nsswitch_dropdown = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.nsswitch_choices = Gtk.DropDown.new_from_strings(
-        [
-            _("Kiro default"),
-            _("Standard (systemd default)"),
-            _("With mdns + wins"),
-            _("With mdns_minimal"),
-            _("With mdns4_minimal"),
-            _("Custom order (no systemd)"),
-        ]
-    )
+    self.nsswitch_choices = Gtk.DropDown.new_from_strings([_(preset) for preset in services.NSSWITCH_OPTIONS])
     self.nsswitch_choices.set_selected(0)
     self.nsswitch_choices.set_margin_start(10)
     self.nsswitch_choices.set_margin_end(10)
@@ -175,7 +166,7 @@ def gui(self, Gtk, vboxstack_network, fn):
     label_nsswitch_preview.set_margin_end(10)
 
     def _update_nsswitch_preview(*args):
-        key = fn.get_combo_text(self.nsswitch_choices)
+        key = services.selected_nsswitch(self.nsswitch_choices)
         hosts_line = services.NSSWITCH_OPTIONS.get(key, "")
         label_nsswitch_preview.set_markup(f"<tt>hosts: {hosts_line}</tt>")
         if args:

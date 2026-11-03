@@ -2,6 +2,14 @@
 
 ## 2026.11.03
 
+### Nsswitch presets work in every language
+
+**What Changed.** In any language other than English, the Network page's nsswitch preset did nothing: the preview showed an empty `hosts:` line and Apply only logged "Unknown nsswitch preset", leaving `/etc/nsswitch.conf` untouched. Found by a targeted read of the i18n code for translated text used as a lookup key.
+
+**Technical Details.** The dropdown shows translated names, but both the preview and `choose_nsswitch()` looked the selected text up in the English-keyed `NSSWITCH_OPTIONS`. The keys are now `N_()`-marked (still extracted by `make-mo.sh`, msgids unchanged), the dropdown is built from them, and the new `services.selected_nsswitch()` returns the English key by position (`get_selected()`), like the theme "None" entry. The rest of the AST scan was clean: no f-strings or concatenation inside `_()`, and no other translated text compared or used as a key.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/services.py`, `usr/share/archlinux-tweak-tool/network_gui.py`
+
 ### Second review of 10 translations
 
 **What Changed.** French, Portuguese (Brazil), Italian, Russian, Hungarian, Turkish, Polish, Japanese, Chinese and Romanian got their second review, this time by Copilot (gpt-6-luna; Claude drafted them on 2026-11-01). 1,320 strings now read more naturally or use the right term: wrong gender agreement in French, "Logout" left in English in Portuguese, comma splices in Russian, ASCII punctuation in Chinese, repo names that Japanese had translated, Turkish "Bounce Keys" called the wrong feature.
