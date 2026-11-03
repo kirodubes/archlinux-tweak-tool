@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.03
+
+### Repo hint only when a repo is missing
+
+**What Changed.** At startup ATT always printed "To unlock all features, add Chaotic-AUR and Nemesis repo to your pacman.conf", twice, even on Kiro where both repos are enabled. It now prints the hint only when one of them is missing, and names only the missing one ("add Nemesis repo …"). Found during a Spanish install test on a Kiro VM.
+
+**Technical Details.** New `_log_missing_repos_hint()` in the entry point uses the existing `fn.check_chaotic_aur_active()` / `fn.check_nemesis_repo_active()` (cached pacman.conf read) and replaces both unconditional `log_info` calls. The alacritty hint is unchanged. Log text stays English (CLAUDE.md: log calls are never translated).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ## 2026.11.02
 
 ### att-check finds the pages again

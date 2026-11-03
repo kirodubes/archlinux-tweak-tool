@@ -244,6 +244,19 @@ def _resolve_effective_theme():
     return None, False, None
 
 
+def _log_missing_repos_hint():
+    missing = [
+        name
+        for name, active in (
+            ("Chaotic-AUR", fn.check_chaotic_aur_active()),
+            ("Nemesis repo", fn.check_nemesis_repo_active()),
+        )
+        if not active
+    ]
+    if missing:
+        fn.log_info(f"To unlock all features, add {' and '.join(missing)} to your pacman.conf.")
+
+
 class Main(Gtk.ApplicationWindow):
     def __init__(self, app):
         print("=" * 75)
@@ -271,10 +284,8 @@ class Main(Gtk.ApplicationWindow):
         else:
             print(f"[System] Distro={fn.distr} | Theme=not set | User={fn.sudo_username}", flush=True)
             print("=" * 75)
-        fn.log_info(
-            "To unlock all features, add Chaotic-AUR and Nemesis repo to your pacman.conf.\n"
-            "For terminal operations and full transparency, alacritty must be installed"
-        )
+        _log_missing_repos_hint()
+        fn.log_info("For terminal operations and full transparency, alacritty must be installed")
 
         fn.findgroup()
         fn.resolve_desktop()
@@ -480,7 +491,7 @@ class Main(Gtk.ApplicationWindow):
         fn.debug_print(f"{'TOTAL (incl. window setup)':<40} {total_time - startup_start:>11.3f}s")
         fn.debug_print("=" * 75)
         fn.debug_print("")
-        fn.log_info("To unlock all features, add Chaotic-AUR and Nemesis repo to your pacman.conf.")
+        _log_missing_repos_hint()
         fn.log_info("For terminal operations and full transparency, alacritty must be installed.")
         msg = _("Config backups complete - Welcome to the ArchLinux Tweak Tool!")
         GLib.idle_add(fn.show_in_app_notification, self, msg)
