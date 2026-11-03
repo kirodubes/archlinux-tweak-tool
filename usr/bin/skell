@@ -29,6 +29,30 @@ set -Euo pipefail
 DRY_RUN=false
 NAME="$(basename "$0")"
 
+# ── Translation (same block as /usr/local/lib/kiro-common.sh) ───────────────
+# gettext domain kiro-system-files; off-Kiro there is no catalog, so the text stays English.
+export TEXTDOMAIN=kiro-system-files
+# The user's own locale stays first, so other programs (pacman) keep their pt_PT / zh_TW catalogs;
+# glibc falls through the list message by message.
+if [[ -z "${LANGUAGE:-}" ]]; then
+    _kiro_loc="${LC_ALL:-${LC_MESSAGES:-${LANG:-}}}"
+    case "${_kiro_loc}" in
+        pt_BR*|zh_CN*) ;;
+        pt*) export LANGUAGE="${_kiro_loc%%[.@]*}:pt_BR" ;;
+        zh*) export LANGUAGE="${_kiro_loc%%[.@]*}:zh_CN" ;;
+    esac
+    unset _kiro_loc
+fi
+if command -v gettext >/dev/null 2>&1 && command -v gettext.sh >/dev/null 2>&1; then
+    # shellcheck source=/dev/null
+    . gettext.sh
+    _t() { gettext "$1"; }
+    _tf() { eval_gettext "$1"; }
+else
+    _t() { printf '%s' "$1"; }
+    _tf() { local _s="$1"; eval "printf '%s' \"${_s//\"/\\\"}\""; }
+fi
+
 # ── Inlined helpers (kept in step with /usr/local/lib/kiro-common.sh) ─────────
 if command -v tput >/dev/null 2>&1 && [[ -t 1 ]]; then
     RED="$(tput setaf 1)";    GREEN="$(tput setaf 2)"
@@ -80,10 +104,11 @@ show_version() {
 }
 
 execute_or_dryrun() {
+    # shellcheck disable=SC2034  # read by _tf (eval_gettext), which shellcheck cannot see
     local description="$1"; shift
     if [[ "${DRY_RUN}" == "true" ]]; then
-        log_info "[DRY-RUN] Would execute: ${description}"
-        log_info "[DRY-RUN] Command: $*"
+        log_info "[DRY-RUN] $(_tf 'Would execute: $description')"
+        log_info "[DRY-RUN] $(_t "Command:") $*"
     else
         "$@"
     fi
@@ -91,7 +116,9 @@ execute_or_dryrun() {
 
 on_error() {
     echo
-    echo "${RED}ERROR on line ${1}: ${2:-}${RESET}" >&2
+    # shellcheck disable=SC2034  # read by _tf (eval_gettext), which shellcheck cannot see
+    local line="$1" cmd="${2:-}"
+    echo "${RED}$(_tf 'ERROR on line $line: $cmd')${RESET}" >&2
     sleep 10
 }
 trap 'on_error "$LINENO" "$BASH_COMMAND"' ERR
@@ -109,33 +136,32 @@ main() {
                 ;;
             -d|--dry-run)
                 DRY_RUN=true
-                log_info "Dry-run mode enabled — no changes will be made"
+                log_info "$(_t "Dry-run mode enabled — no changes will be made")"
                 ;;
             *)
-                echo "${RED}Unknown option: $arg${RESET}" >&2
+                echo "${RED}$(_t "Unknown option:") ${arg}${RESET}" >&2
                 exit 1
                 ;;
         esac
     done
 
-    log_section "${NAME} — restore default configuration from /etc/skel (fast backup)"
-    echo "${NAME} copies /etc/skel to your home directory after backing up only the"
-    echo "configs it is about to overwrite — not your entire ~/.config."
+    log_section "$(_tf '$NAME — restore default configuration from /etc/skel (fast backup)')"
+    echo "$(_tf '$NAME copies /etc/skel to your home directory after backing up only the configs it is about to overwrite — not your entire ~/.config.')"
     echo
-    echo "New configurations often end up in /etc/skel — ${NAME} brings them into use."
+    echo "$(_tf 'New configurations often end up in /etc/skel — $NAME brings them into use.')"
     echo
-    echo "It backs up each ~/.config entry that /etc/skel/.config contains (date/time"
-    echo "stamped), then overwrites your configs with everything in /etc/skel."
+    echo "$(_t "It backs up each ~/.config entry that /etc/skel/.config contains (date/time stamped), then overwrites your configs with everything in /etc/skel.")"
     echo
-    echo "For a full ~/.config backup instead, use kiro-skell-all."
+    echo "$(_t "For a full ~/.config backup instead, use kiro-skell-all.")"
     echo
-    echo "Useful when a tiling WM is crashing — run ${NAME} in a terminal or TTY to recover."
+    echo "$(_tf 'Useful when a tiling WM is crashing — run $NAME in a terminal or TTY to recover.')"
     echo
 
     if [[ "$DRY_RUN" == "false" ]]; then
-        read -rp "Can we copy/paste the content from /etc/skel to your home directory? (y/n) " response
+        # Translators: keep the answer keys (y/n) as they are; the script only accepts y or Y.
+        read -rp "$(_t "Can we copy/paste the content from /etc/skel to your home directory? (y/n) ")" response
         if [[ "$response" != [yY] ]]; then
-            log_info "Nothing has been changed."
+            log_info "$(_t "Nothing has been changed.")"
             return
         fi
     fi
@@ -147,25 +173,25 @@ main() {
 
     # ── Scoped backup: only the ~/.config entries /etc/skel will overwrite ────
     if [[ -d /etc/skel/.config ]]; then
-        log_info "Backing up only the configs /etc/skel overwrites to ${backup_dir}"
+        log_info "$(_tf 'Backing up only the configs /etc/skel overwrites to $backup_dir')"
         execute_or_dryrun "Create backup dir ${backup_dir}" mkdir -p "$backup_dir/.config"
         for entry in /etc/skel/.config/*; do
             local name
             name="$(basename "$entry")"
             if [[ -e "$HOME/.config/$name" ]]; then
-                log_info "  backing up ~/.config/$name"
+                log_info "  $(_tf 'backing up ~/.config/$name')"
                 execute_or_dryrun "Backup ~/.config/$name" cp -Rf "$HOME/.config/$name" "$backup_dir/.config/"
             fi
         done
     else
-        log_info "No /etc/skel/.config found — nothing to back up"
+        log_info "$(_t "No /etc/skel/.config found — nothing to back up")"
     fi
 
     # ── Overwrite all: copy everything in /etc/skel into home ─────────────────
-    log_info "Copying /etc/skel to home — be patient"
+    log_info "$(_t "Copying /etc/skel to home — be patient")"
     execute_or_dryrun "Copy /etc/skel to $HOME" cp -r /etc/skel/. "$HOME"
 
-    log_success "${NAME} done"
+    log_success "$(_tf '$NAME done')"
 }
 
 main "$@"

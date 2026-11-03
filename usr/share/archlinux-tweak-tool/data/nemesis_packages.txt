@@ -156,6 +156,7 @@ kiro-gdrive
 kiro-ghostty
 kiro-grub-theme
 kiro-hlwm
+kiro-hwd
 kiro-hyprland
 kiro-hyprland-dms
 kiro-hyprland-noctalia
