@@ -8,6 +8,7 @@
   "Celestial themes": ["gtk theme", "appearance", "look", "colour", "color", "swatch", "palette", "dark", "light", "accent"],
   "Desktop": ["environment", "de", "wm", "window manager", "tiling", "kde", "plasma", "gnome", "xfce", "i3", "x11", "xorg"],
   "Fastfetch": ["neofetch", "system info", "fetch", "terminal logo"],
+  "Hybrid graphics": ["prime", "prime-run", "nvidia prime", "optimus", "dgpu", "discrete gpu", "dedicated gpu", "dual gpu", "two gpus", "switcheroo", "dri_prime", "gpu offload", "graphics card", "laptop gpu"],
   "Icons Horst": ["icon theme", "horst", "folder", "colour folders", "color folders", "mint-y", "surfn", "neo candy"],
   "Icons Neo Candy": ["icon theme", "neo candy", "candy", "mint", "tela", "numix", "papirus", "qogir", "arc", "breeze"],
   "Icons Surfn": ["icon theme", "surfn", "mint", "tela", "numix", "papirus", "plasma", "arc", "breeze"],

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 15:48+0100\n"
+"POT-Creation-Date: 2026-11-03 16:38+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -149,7 +149,7 @@ msgid "{name} disabled (current session)"
 msgstr "{name} отключён (в текущем сеансе)"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:85
-#: usr/share/archlinux-tweak-tool/gui.py:443
+#: usr/share/archlinux-tweak-tool/gui.py:452
 msgid "Accessibility"
 msgstr "Специальные возможности"
 
@@ -206,6 +206,7 @@ msgstr "Запустить/установить"
 #: usr/share/archlinux-tweak-tool/ai_gui.py:342
 #: usr/share/archlinux-tweak-tool/autostart.py:161
 #: usr/share/archlinux-tweak-tool/backup_gui.py:38
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:66
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:115
 #: usr/share/archlinux-tweak-tool/office_gui.py:34
 #: usr/share/archlinux-tweak-tool/packages_gui.py:253
@@ -731,7 +732,7 @@ msgstr "Начата установка openclaw"
 
 #: usr/share/archlinux-tweak-tool/ai_gui.py:13
 #: usr/share/archlinux-tweak-tool/dev_gui.py:531
-#: usr/share/archlinux-tweak-tool/gui.py:445
+#: usr/share/archlinux-tweak-tool/gui.py:454
 msgid "AI Tools"
 msgstr "Инструменты ИИ"
 
@@ -854,20 +855,20 @@ msgstr "выбирайте из более чем 300 тем Alacritty или с
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
-#: usr/share/archlinux-tweak-tool/gui.py:504
+#: usr/share/archlinux-tweak-tool/gui.py:517
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Оболочки"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
-#: usr/share/archlinux-tweak-tool/gui.py:506
+#: usr/share/archlinux-tweak-tool/gui.py:519
 msgid "Software"
 msgstr "Программы"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
-#: usr/share/archlinux-tweak-tool/gui.py:466
+#: usr/share/archlinux-tweak-tool/gui.py:475
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
@@ -1016,7 +1017,7 @@ msgstr "_Открыть"
 
 #: usr/share/archlinux-tweak-tool/autostart.py:245
 #: usr/share/archlinux-tweak-tool/dev_gui.py:539
-#: usr/share/archlinux-tweak-tool/gui.py:449
+#: usr/share/archlinux-tweak-tool/gui.py:458
 msgid "Autostart"
 msgstr "Автозапуск"
 
@@ -1045,7 +1046,7 @@ msgid "Add"
 msgstr "Добавить"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:55
-#: usr/share/archlinux-tweak-tool/gui.py:451
+#: usr/share/archlinux-tweak-tool/gui.py:460
 msgid "Backup"
 msgstr "Резервное копирование"
 
@@ -1237,16 +1238,19 @@ msgstr ""
 "пользоваться этой страницей.</small>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:64
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:101
 #, python-brace-format
 msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
 #: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "installed"
 msgstr "установлен"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:609
 #: usr/share/archlinux-tweak-tool/locale_settings.py:340
 msgid "not installed"
@@ -1311,7 +1315,7 @@ msgid "Install {name}"
 msgstr "Установить {name}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:126
-#: usr/share/archlinux-tweak-tool/gui.py:455
+#: usr/share/archlinux-tweak-tool/gui.py:464
 msgid "Btrfs"
 msgstr "Btrfs"
 
@@ -1359,6 +1363,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>Инструменты для снимков (нет на ISO)</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:184
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -1535,7 +1540,7 @@ msgstr ""
 "Включите nemesis_repo на странице Pacman, чтобы установить темы celestial"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:31
-#: usr/share/archlinux-tweak-tool/gui.py:457
+#: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Celestial themes"
 msgstr "Темы celestial"
 
@@ -1838,7 +1843,7 @@ msgstr "Все рабочие столы удалены"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:30
 #: usr/share/archlinux-tweak-tool/dev_gui.py:549
-#: usr/share/archlinux-tweak-tool/gui.py:463
+#: usr/share/archlinux-tweak-tool/gui.py:472
 msgid "Desktop"
 msgstr "Рабочий стол"
 
@@ -1970,7 +1975,7 @@ msgid "Session"
 msgstr "Сеанс"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:497
-#: usr/share/archlinux-tweak-tool/gui.py:512
+#: usr/share/archlinux-tweak-tool/gui.py:525
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:505
 msgid "System"
 msgstr "Система"
@@ -1984,53 +1989,53 @@ msgid "Icons"
 msgstr "Значки"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:592
-#: usr/share/archlinux-tweak-tool/gui.py:475
+#: usr/share/archlinux-tweak-tool/gui.py:488
 msgid "Kernels"
 msgstr "Ядра"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:614
-#: usr/share/archlinux-tweak-tool/gui.py:477
+#: usr/share/archlinux-tweak-tool/gui.py:490
 msgid "Locale"
 msgstr "Локаль"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:621
-#: usr/share/archlinux-tweak-tool/gui.py:481
+#: usr/share/archlinux-tweak-tool/gui.py:494
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:52
 msgid "Maintenance"
 msgstr "Обслуживание"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:628
-#: usr/share/archlinux-tweak-tool/gui.py:483
+#: usr/share/archlinux-tweak-tool/gui.py:496
 #: usr/share/archlinux-tweak-tool/network_gui.py:65
-#: usr/share/archlinux-tweak-tool/network_gui.py:445
+#: usr/share/archlinux-tweak-tool/network_gui.py:436
 msgid "Network"
 msgstr "Сеть"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:642
-#: usr/share/archlinux-tweak-tool/gui.py:487
+#: usr/share/archlinux-tweak-tool/gui.py:500
 #: usr/share/archlinux-tweak-tool/iso_gui.py:84
 #: usr/share/archlinux-tweak-tool/packages_gui.py:20
 msgid "Packages"
 msgstr "Пакеты"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:648
-#: usr/share/archlinux-tweak-tool/gui.py:489
+#: usr/share/archlinux-tweak-tool/gui.py:502
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:508
 msgid "Pacman"
 msgstr "Pacman"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:655
-#: usr/share/archlinux-tweak-tool/gui.py:491
+#: usr/share/archlinux-tweak-tool/gui.py:504
 msgid "Plymouth"
 msgstr "Plymouth"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:709
-#: usr/share/archlinux-tweak-tool/gui.py:493
+#: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Privacy"
 msgstr "Конфиденциальность"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:716
-#: usr/share/archlinux-tweak-tool/gui.py:495
+#: usr/share/archlinux-tweak-tool/gui.py:508
 #: usr/share/archlinux-tweak-tool/performance_gui.py:58
 msgid "Performance"
 msgstr "Производительность"
@@ -2044,13 +2049,13 @@ msgid "SDDM"
 msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:767
-#: usr/share/archlinux-tweak-tool/gui.py:502
+#: usr/share/archlinux-tweak-tool/gui.py:515
 #: usr/share/archlinux-tweak-tool/services_gui.py:77
 msgid "Services"
 msgstr "Службы"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:803
-#: usr/share/archlinux-tweak-tool/gui.py:514
+#: usr/share/archlinux-tweak-tool/gui.py:527
 msgid "Themer"
 msgstr "Themer"
 
@@ -2060,12 +2065,12 @@ msgid "Themes"
 msgstr "Темы"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:816
-#: usr/share/archlinux-tweak-tool/gui.py:516
+#: usr/share/archlinux-tweak-tool/gui.py:529
 msgid "User"
 msgstr "Пользователь"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:822
-#: usr/share/archlinux-tweak-tool/gui.py:518
+#: usr/share/archlinux-tweak-tool/gui.py:531
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
 msgid "Wallpaper"
 msgstr "Обои"
@@ -2201,7 +2206,7 @@ msgid "{name} is already installed"
 msgstr "{name} уже установлен"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:41
-#: usr/share/archlinux-tweak-tool/gui.py:297
+#: usr/share/archlinux-tweak-tool/gui.py:306
 msgid "Fastfetch Editor"
 msgstr "Редактор Fastfetch"
 
@@ -2584,12 +2589,12 @@ msgstr ""
 "{project} бесплатен и имеет открытый исходный код. Если он вам помогает, вот "
 "способы поддержать его разработку. Спасибо."
 
-#: usr/share/archlinux-tweak-tool/gui.py:135
+#: usr/share/archlinux-tweak-tool/gui.py:137
 #, python-brace-format
 msgid "on {distro}"
 msgstr "на {distro}"
 
-#: usr/share/archlinux-tweak-tool/gui.py:309
+#: usr/share/archlinux-tweak-tool/gui.py:318
 msgid ""
 "fastfetch configuration file not found.\n"
 "Install <b>fastfetch</b> and enable it to use this tab."
@@ -2597,95 +2602,385 @@ msgstr ""
 "Файл конфигурации fastfetch не найден.\n"
 "Установите <b>fastfetch</b> и включите его, чтобы пользоваться этой вкладкой."
 
-#: usr/share/archlinux-tweak-tool/gui.py:441
+#: usr/share/archlinux-tweak-tool/gui.py:450
 msgid "Dev"
 msgstr "Разработка"
 
-#: usr/share/archlinux-tweak-tool/gui.py:447
+#: usr/share/archlinux-tweak-tool/gui.py:456
 #: usr/share/archlinux-tweak-tool/themes_gui.py:118
 msgid "Arc themes"
 msgstr "Темы Arc"
 
-#: usr/share/archlinux-tweak-tool/gui.py:464
+#: usr/share/archlinux-tweak-tool/gui.py:473
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:156
 msgid "Desktop - Wayland"
 msgstr "Рабочий стол - Wayland"
 
-#: usr/share/archlinux-tweak-tool/gui.py:468
+#: usr/share/archlinux-tweak-tool/gui.py:479
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:154
+msgid "Hybrid graphics"
+msgstr "Гибридная графика"
+
+#: usr/share/archlinux-tweak-tool/gui.py:481
 msgid "Icons Horst"
 msgstr "Значки Horst"
 
-#: usr/share/archlinux-tweak-tool/gui.py:469
+#: usr/share/archlinux-tweak-tool/gui.py:482
 msgid "Icons Neo Candy"
 msgstr "Значки Neo Candy"
 
-#: usr/share/archlinux-tweak-tool/gui.py:470
+#: usr/share/archlinux-tweak-tool/gui.py:483
 msgid "Icons Surfn"
 msgstr "Значки Surfn"
 
-#: usr/share/archlinux-tweak-tool/gui.py:473
+#: usr/share/archlinux-tweak-tool/gui.py:486
 #: usr/share/archlinux-tweak-tool/iso_gui.py:31
 msgid "ISO"
 msgstr "ISO"
 
-#: usr/share/archlinux-tweak-tool/gui.py:479
+#: usr/share/archlinux-tweak-tool/gui.py:492
 msgid "Logging"
 msgstr "Журналирование"
 
-#: usr/share/archlinux-tweak-tool/gui.py:485
+#: usr/share/archlinux-tweak-tool/gui.py:498
 #: usr/share/archlinux-tweak-tool/office_gui.py:49
 msgid "Office"
 msgstr "Офис"
 
-#: usr/share/archlinux-tweak-tool/gui.py:500
+#: usr/share/archlinux-tweak-tool/gui.py:513
 msgid "Sddm"
 msgstr "SDDM"
 
-#: usr/share/archlinux-tweak-tool/gui.py:510
+#: usr/share/archlinux-tweak-tool/gui.py:523
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
 msgid "Streamline"
 msgstr "Streamline"
 
-#: usr/share/archlinux-tweak-tool/gui.py:541
+#: usr/share/archlinux-tweak-tool/gui.py:554
 msgid "Restart ATT"
 msgstr "Перезапустить ATT"
 
-#: usr/share/archlinux-tweak-tool/gui.py:545
+#: usr/share/archlinux-tweak-tool/gui.py:558
 msgid "Quit ATT"
 msgstr "Выйти из ATT"
 
-#: usr/share/archlinux-tweak-tool/gui.py:548
+#: usr/share/archlinux-tweak-tool/gui.py:561
 msgid "♥ Support"
 msgstr "♥ Поддержать"
 
-#: usr/share/archlinux-tweak-tool/gui.py:551
+#: usr/share/archlinux-tweak-tool/gui.py:564
 msgid "Support the project"
 msgstr "Поддержать проект"
 
-#: usr/share/archlinux-tweak-tool/gui.py:557
+#: usr/share/archlinux-tweak-tool/gui.py:570
 #: usr/share/archlinux-tweak-tool/locale_gui.py:328
 #, python-brace-format
 msgid "System ({language})"
 msgstr "Системный ({language})"
 
-#: usr/share/archlinux-tweak-tool/gui.py:560
+#: usr/share/archlinux-tweak-tool/gui.py:573
 #: usr/share/archlinux-tweak-tool/locale_gui.py:324
 #: usr/share/archlinux-tweak-tool/locale_gui.py:378
 msgid "Language"
 msgstr "Язык"
 
-#: usr/share/archlinux-tweak-tool/gui.py:569
+#: usr/share/archlinux-tweak-tool/gui.py:582
 msgid "Saved. ATT shows the new language when it starts again."
 msgstr "Сохранено. ATT покажет новый язык при следующем запуске."
 
-#: usr/share/archlinux-tweak-tool/gui.py:632
+#: usr/share/archlinux-tweak-tool/gui.py:645
 #, python-brace-format
 msgid "No page matches '{text}'"
 msgstr "Нет страниц, соответствующих «{text}»"
 
-#: usr/share/archlinux-tweak-tool/gui.py:636
+#: usr/share/archlinux-tweak-tool/gui.py:649
 msgid "Search (Enter)"
 msgstr "Поиск (Enter)"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:176
+#, python-brace-format
+msgid "{path} already exists (your own copy) — ATT leaves it alone"
+msgstr "{path} уже существует (это ваша копия) — ATT не будет её менять"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:188
+#: usr/share/archlinux-tweak-tool/themes.py:305
+#: usr/share/archlinux-tweak-tool/themes.py:506
+#, python-brace-format
+msgid "Could not write {path}"
+msgstr "Не удалось записать {path}"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:191
+#, python-brace-format
+msgid "Wrote {path}"
+msgstr "Записан файл {path}"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:224
+#, python-brace-format
+msgid "Opening terminal to install {packages}..."
+msgstr "Открываем терминал для установки {packages}..."
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:256
+#, python-brace-format
+msgid "Removed {path}"
+msgstr "Удалён файл {path}"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:257
+msgid "Nothing removed"
+msgstr "Ничего не удалено"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:267
+#, python-brace-format
+msgid ""
+"This deletes the launcher copy ATT wrote in\n"
+"<b>{folder}</b>.\n"
+"\n"
+"That app starts on the default GPU again and follows package updates again. "
+"Launchers you made yourself are not touched."
+msgid_plural ""
+"This deletes the {count} launcher copies ATT wrote in\n"
+"<b>{folder}</b>.\n"
+"\n"
+"Those apps start on the default GPU again and follow package updates again. "
+"Launchers you made yourself are not touched."
+msgstr[0] ""
+"Будет удалена {count} копия ярлыка, созданная ATT, в\n"
+"<b>{folder}</b>.\n"
+"\n"
+"Это приложение снова будет запускаться на GPU по умолчанию и получать "
+"обновления вместе с пакетом. Ярлыки, созданные вами, не будут затронуты."
+msgstr[1] ""
+"Будут удалены {count} копии ярлыков, созданных ATT, в\n"
+"<b>{folder}</b>.\n"
+"\n"
+"Эти приложения снова будут запускаться на GPU по умолчанию и получать "
+"обновления вместе с пакетом. Ярлыки, созданные вами, не будут затронуты."
+msgstr[2] ""
+"Будут удалены {count} копий ярлыков, созданных ATT, в\n"
+"<b>{folder}</b>.\n"
+"\n"
+"Эти приложения снова будут запускаться на GPU по умолчанию и получать "
+"обновления вместе с пакетом. Ярлыки, созданные вами, не будут затронуты."
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:275
+msgid "Remove all GPU overrides?"
+msgstr "Удалить все переопределения GPU?"
+
+#: usr/share/archlinux-tweak-tool/hybrid.py:281
+#, python-brace-format
+msgid "Removed {count} override"
+msgid_plural "Removed {count} overrides"
+msgstr[0] "Удалено {count} переопределение"
+msgstr[1] "Удалено {count} переопределения"
+msgstr[2] "Удалено {count} переопределений"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:15
+msgid "provides prime-run for the NVIDIA driver"
+msgstr "предоставляет prime-run для драйвера NVIDIA"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:16
+msgid "GPU list and the desktop menu entry"
+msgstr "список GPU и пункт меню рабочего стола"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:47
+msgid "other"
+msgstr "другое"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:48
+msgid "discrete — offload target"
+msgstr "дискретный — целевой GPU для запуска приложений"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:49
+msgid "drives the display"
+msgstr "управляет дисплеем"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:49
+msgid "secondary"
+msgstr "вторичный"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:50
+#, python-brace-format
+msgid ""
+"<b>{card}</b>  {vendor} · driver <b>{driver}</b> · {role}\n"
+"<small>{name}</small>"
+msgstr ""
+"<b>{card}</b>  {vendor} · драйвер <b>{driver}</b> · {role}\n"
+"<small>{name}</small>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:51
+msgid "none"
+msgstr "нет"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:60
+msgid "<i>No overrides yet.</i>"
+msgstr "<i>Переопределений пока нет.</i>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:63
+#, python-brace-format
+msgid "<b>{name}</b>  <small>{path}</small>"
+msgstr "<b>{name}</b>  <small>{path}</small>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:84
+#, python-brace-format
+msgid "Hybrid graphics detected — {count} GPU"
+msgid_plural "Hybrid graphics detected — {count} GPUs"
+msgstr[0] "Обнаружена гибридная графика — {count} GPU"
+msgstr[1] "Обнаружена гибридная графика — {count} GPU"
+msgstr[2] "Обнаружена гибридная графика — {count} GPU"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:88
+msgid "--dev: page forced on with fewer than two GPUs"
+msgstr ""
+"--dev: принудительно показывать страницу, если обнаружено меньше двух GPU"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:104
+#, python-brace-format
+msgid "switcheroo-control service: {state}"
+msgstr "Служба switcheroo-control: {state}"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:105
+msgid "not running"
+msgstr "не запущена"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:105
+msgid "running"
+msgstr "запущена"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:114
+#, python-brace-format
+msgid ""
+"From a terminal or a launcher:   <tt><b>{prefix} &lt;app&gt;</b></tt>\n"
+"Steam → game → Properties → Launch Options:   <tt><b>{prefix} %command%</b></"
+"tt>"
+msgstr ""
+"Из терминала или ярлыка:   <tt><b>{prefix} &lt;app&gt;</b></tt>\n"
+"Steam → игра → Свойства → Параметры запуска:   <tt><b>{prefix} %command%</b>"
+"</tt>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:120
+msgid ""
+"<small>prime-run comes with <b>nvidia-prime</b> — install it below.</small>"
+msgstr ""
+"<small>prime-run входит в состав <b>nvidia-prime</b> — установите этот пакет "
+"с помощью кнопки ниже.</small>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:124
+msgid ""
+"<small>The discrete GPU does not use the proprietary NVIDIA driver, so "
+"Mesa's <b>DRI_PRIME=1</b> is used instead of prime-run.</small>"
+msgstr ""
+"<small>На дискретном GPU используется не проприетарный драйвер NVIDIA, "
+"поэтому вместо prime-run применяется <b>DRI_PRIME=1</b> из Mesa.</small>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:136
+#, python-brace-format
+msgid ""
+"Not available — this machine has {count} graphics card; hybrid graphics "
+"needs two"
+msgid_plural ""
+"Not available — this machine has {count} graphics cards; hybrid graphics "
+"needs two"
+msgstr[0] ""
+"Недоступно — для гибридной графики нужны две видеокарты, а на этом "
+"компьютере их {count}"
+msgstr[1] ""
+"Недоступно — для гибридной графики нужны две видеокарты, а на этом "
+"компьютере их {count}"
+msgstr[2] ""
+"Недоступно — для гибридной графики нужны две видеокарты, а на этом "
+"компьютере их {count}"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:168
+msgid ""
+"This machine has <b>two graphics cards</b>: a power-saving one that drives "
+"the screen and a\n"
+"faster discrete one. Apps start on the power-saving card unless you ask for "
+"the discrete one."
+msgstr ""
+"В этом компьютере есть <b>две видеокарты</b>: энергосберегающая, которая "
+"управляет экраном, и\n"
+"более быстрая дискретная. По умолчанию приложения запускаются на "
+"энергосберегающей, если не выбрать дискретную."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:173
+msgid ""
+"On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
+"chosen apps on the\n"
+"faster discrete card. This page needs <b>two graphics cards</b> — see "
+"<b>Status</b> below."
+msgstr ""
+"На ноутбуках с двумя видеокартами (например, Intel + NVIDIA) эта страница "
+"запускает выбранные приложения на\n"
+"более быстрой дискретной видеокарте. Для работы страницы нужны <b>две "
+"видеокарты</b> — см. <b>Состояние</b> ниже."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:177
+msgid ""
+"\n"
+"\n"
+"Your desktop also offers <b>Launch using Discrete Graphics</b> in the app "
+"menu (right-click)."
+msgstr ""
+"\n"
+"\n"
+"В меню приложений рабочего стола также есть пункт <b>Запустить с "
+"использованием дискретной графики</b> (правый щелчок)."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:179
+msgid ""
+"\n"
+"\n"
+"Your desktop has no <b>Launch using Discrete Graphics</b> menu entry — use "
+"the commands or the overrides below."
+msgstr ""
+"\n"
+"\n"
+"В меню приложений рабочего стола нет пункта <b>Запустить с использованием "
+"дискретной графики</b> — используйте команды или переопределения ниже."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:192
+msgid "Install missing packages"
+msgstr "Установить недостающие пакеты"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
+msgid ""
+"Install nvidia-prime and switcheroo-control in a terminal, then enable "
+"switcheroo-control"
+msgstr ""
+"Установите nvidia-prime и switcheroo-control в терминале, затем включите "
+"switcheroo-control"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:200
+msgid "<b>Run an app on the discrete GPU</b>"
+msgstr "<b>Запустить приложение на дискретном GPU</b>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:205
+msgid "<b>Always run an app on the discrete GPU</b>"
+msgstr "<b>Всегда запускать приложение на дискретном GPU</b>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:207
+#, python-brace-format
+msgid ""
+"ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
+"command above in front.\n"
+"<span foreground='{color}'>A copy does not follow package updates of that "
+"app</span> — remove it to go back to the original launcher."
+msgstr ""
+"ATT копирует ярлык приложения в <b>~/.local/share/applications</b>, добавляя "
+"указанную выше команду перед исходной.\n"
+"<span foreground='{color}'>Копия ярлыка не обновляется вместе с пакетом "
+"приложения</span> — удалите её, чтобы вернуться к исходному ярлыку."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:220
+msgid "Always use discrete GPU"
+msgstr "Всегда использовать дискретный GPU"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+msgid "<b>Current overrides</b>"
+msgstr "<b>Текущие переопределения</b>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:229
+msgid "Remove all overrides"
+msgstr "Удалить все переопределения"
 
 #: usr/share/archlinux-tweak-tool/icons.py:76
 msgid "Other"
@@ -4481,7 +4776,7 @@ msgid "1. Install the samba server - <b>installed</b>"
 msgstr "1. Установите сервер samba: <b>установлен</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:14
-#: usr/share/archlinux-tweak-tool/network_gui.py:246
+#: usr/share/archlinux-tweak-tool/network_gui.py:237
 msgid "1. Install the samba server"
 msgstr "1. Установите сервер samba"
 
@@ -4495,72 +4790,72 @@ msgid "Discover other computers in your network"
 msgstr "Обнаруживать другие компьютеры в вашей сети"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:22
-#: usr/share/archlinux-tweak-tool/network_gui.py:311
-#: usr/share/archlinux-tweak-tool/services.py:793
-#: usr/share/archlinux-tweak-tool/services.py:913
+#: usr/share/archlinux-tweak-tool/network_gui.py:302
+#: usr/share/archlinux-tweak-tool/services.py:801
+#: usr/share/archlinux-tweak-tool/services.py:921
 msgid "Disable Samba"
 msgstr "Отключить Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:22
-#: usr/share/archlinux-tweak-tool/network_gui.py:311
-#: usr/share/archlinux-tweak-tool/services.py:793
-#: usr/share/archlinux-tweak-tool/services.py:906
+#: usr/share/archlinux-tweak-tool/network_gui.py:302
+#: usr/share/archlinux-tweak-tool/services.py:801
+#: usr/share/archlinux-tweak-tool/services.py:914
 msgid "Enable Samba"
 msgstr "Включить Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:26
-#: usr/share/archlinux-tweak-tool/network_gui.py:373
-#: usr/share/archlinux-tweak-tool/services.py:806
+#: usr/share/archlinux-tweak-tool/network_gui.py:364
+#: usr/share/archlinux-tweak-tool/services.py:814
 msgid "Block network discovery (mDNS)"
 msgstr "Заблокировать обнаружение в сети (mDNS)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:27
-#: usr/share/archlinux-tweak-tool/network_gui.py:374
-#: usr/share/archlinux-tweak-tool/services.py:806
+#: usr/share/archlinux-tweak-tool/network_gui.py:365
+#: usr/share/archlinux-tweak-tool/services.py:814
 msgid "Allow network discovery (mDNS)"
 msgstr "Разрешить обнаружение в сети (mDNS)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:32
-#: usr/share/archlinux-tweak-tool/network_gui.py:378
-#: usr/share/archlinux-tweak-tool/services.py:811
+#: usr/share/archlinux-tweak-tool/network_gui.py:369
+#: usr/share/archlinux-tweak-tool/services.py:819
 msgid "Block Samba file sharing"
 msgstr "Заблокировать общий доступ к файлам Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:33
-#: usr/share/archlinux-tweak-tool/network_gui.py:379
-#: usr/share/archlinux-tweak-tool/services.py:811
+#: usr/share/archlinux-tweak-tool/network_gui.py:370
+#: usr/share/archlinux-tweak-tool/services.py:819
 msgid "Allow Samba file sharing"
 msgstr "Разрешить общий доступ к файлам Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:41
-#: usr/share/archlinux-tweak-tool/network_gui.py:398
-#: usr/share/archlinux-tweak-tool/services.py:971
+#: usr/share/archlinux-tweak-tool/network_gui.py:389
+#: usr/share/archlinux-tweak-tool/services.py:979
 msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
 msgstr "Графический редактор брандмауэра (firewall-config): <b>установлен</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:42
-#: usr/share/archlinux-tweak-tool/network_gui.py:405
-#: usr/share/archlinux-tweak-tool/services.py:973
+#: usr/share/archlinux-tweak-tool/network_gui.py:396
+#: usr/share/archlinux-tweak-tool/services.py:981
 msgid "Launch firewall-config"
 msgstr "Запустить firewall-config"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:44
-#: usr/share/archlinux-tweak-tool/network_gui.py:400
+#: usr/share/archlinux-tweak-tool/network_gui.py:391
 msgid "Graphical firewall editor (firewall-config)"
 msgstr "Графический редактор брандмауэра (firewall-config)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:45
-#: usr/share/archlinux-tweak-tool/network_gui.py:405
+#: usr/share/archlinux-tweak-tool/network_gui.py:396
 msgid "Install firewall-config"
 msgstr "Установить firewall-config"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:53
-#: usr/share/archlinux-tweak-tool/services.py:602
-#: usr/share/archlinux-tweak-tool/services.py:608
-#: usr/share/archlinux-tweak-tool/services.py:780
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services.py:610
+#: usr/share/archlinux-tweak-tool/services.py:616
+#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services.py:790
+#: usr/share/archlinux-tweak-tool/services.py:792
+#: usr/share/archlinux-tweak-tool/services.py:794
 #: usr/share/archlinux-tweak-tool/services_gui.py:269
 #: usr/share/archlinux-tweak-tool/services_gui.py:275
 #: usr/share/archlinux-tweak-tool/services_gui.py:335
@@ -4570,12 +4865,12 @@ msgid "<b>active</b>"
 msgstr "<b>активно</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:53
-#: usr/share/archlinux-tweak-tool/services.py:604
-#: usr/share/archlinux-tweak-tool/services.py:610
-#: usr/share/archlinux-tweak-tool/services.py:780
-#: usr/share/archlinux-tweak-tool/services.py:782
-#: usr/share/archlinux-tweak-tool/services.py:784
-#: usr/share/archlinux-tweak-tool/services.py:786
+#: usr/share/archlinux-tweak-tool/services.py:612
+#: usr/share/archlinux-tweak-tool/services.py:618
+#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services.py:790
+#: usr/share/archlinux-tweak-tool/services.py:792
+#: usr/share/archlinux-tweak-tool/services.py:794
 #: usr/share/archlinux-tweak-tool/services_gui.py:271
 #: usr/share/archlinux-tweak-tool/services_gui.py:277
 #: usr/share/archlinux-tweak-tool/services_gui.py:337
@@ -4585,7 +4880,7 @@ msgid "inactive"
 msgstr "неактивно"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:55
-#: usr/share/archlinux-tweak-tool/services.py:788
+#: usr/share/archlinux-tweak-tool/services.py:796
 #, python-brace-format
 msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
 msgstr "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Брандмауэр: {firewall}"
@@ -4619,47 +4914,23 @@ msgid "Select hosts: line for name resolution (connect to computers/NAS)"
 msgstr ""
 "Выберите строку hosts: для разрешения имён (подключение к компьютерам/NAS)"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:159
-msgid "Kiro default"
-msgstr "Стандартные настройки Kiro"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:160
-msgid "Standard (systemd default)"
-msgstr "Стандартная (по умолчанию в systemd)"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:161
-msgid "With mdns + wins"
-msgstr "С mdns + wins"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:162
-msgid "With mdns_minimal"
-msgstr "С mdns_minimal"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:163
-msgid "With mdns4_minimal"
-msgstr "С mdns4_minimal"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:164
-msgid "Custom order (no systemd)"
-msgstr "Свой порядок (без systemd)"
-
-#: usr/share/archlinux-tweak-tool/network_gui.py:190
+#: usr/share/archlinux-tweak-tool/network_gui.py:181
 msgid "Apply selected nsswitch.conf"
 msgstr "Применить выбранный nsswitch.conf"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:192
+#: usr/share/archlinux-tweak-tool/network_gui.py:183
 msgid "Reset to your default nsswitch.conf"
 msgstr "Восстановить настройки nsswitch.conf по умолчанию"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:202
+#: usr/share/archlinux-tweak-tool/network_gui.py:193
 msgid "Edit the /etc/nsswitch.conf in terminal"
 msgstr "Править /etc/nsswitch.conf в терминале"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:227
+#: usr/share/archlinux-tweak-tool/network_gui.py:218
 msgid "<b>Samba File Sharing</b>"
 msgstr "<b>Общий доступ к файлам Samba</b>"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:234
+#: usr/share/archlinux-tweak-tool/network_gui.py:225
 msgid ""
 "You install a samba server if you need to share a folder and its contents in "
 "your home network\n"
@@ -4676,31 +4947,31 @@ msgstr ""
 "Мы создадим папку «Shared» в вашем домашнем каталоге, если её там ещё нет\n"
 "  "
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:247
+#: usr/share/archlinux-tweak-tool/network_gui.py:238
 msgid "Install Samba"
 msgstr "Установить Samba"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:249
+#: usr/share/archlinux-tweak-tool/network_gui.py:240
 msgid "Uninstall Samba"
 msgstr "Удалить Samba"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:264
+#: usr/share/archlinux-tweak-tool/network_gui.py:255
 msgid "2. Apply the configuration"
 msgstr "2. Примените конфигурацию"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:270
+#: usr/share/archlinux-tweak-tool/network_gui.py:261
 msgid "Apply default samba.conf"
 msgstr "Применить samba.conf по умолчанию"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:272
+#: usr/share/archlinux-tweak-tool/network_gui.py:263
 msgid "Reset to your default samba.conf"
 msgstr "Восстановить настройки samba.conf по умолчанию"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:282
+#: usr/share/archlinux-tweak-tool/network_gui.py:273
 msgid "Edit samba.conf in terminal"
 msgstr "Править samba.conf в терминале"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:291
+#: usr/share/archlinux-tweak-tool/network_gui.py:282
 msgid ""
 "3. Create a password for the current user to be able to access the Samba "
 "server"
@@ -4708,28 +4979,28 @@ msgstr ""
 "3. Создайте пароль для текущего пользователя, чтобы он мог обращаться к "
 "серверу Samba"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:298
+#: usr/share/archlinux-tweak-tool/network_gui.py:289
 msgid "Create a password for the current user (pop-up)"
 msgstr "Создать пароль для текущего пользователя (всплывающее окно)"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:306
+#: usr/share/archlinux-tweak-tool/network_gui.py:297
 msgid "4. Start the Samba service"
 msgstr "4. Запустите службу Samba"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:316
+#: usr/share/archlinux-tweak-tool/network_gui.py:307
 msgid "Restart Samba (smb + nmb)"
 msgstr "Перезапустить Samba (smb + nmb)"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:324
+#: usr/share/archlinux-tweak-tool/network_gui.py:315
 msgid "You can now reboot and enjoy the <b>'Shared'</b> folder"
 msgstr "Теперь можно перезагрузиться и пользоваться папкой <b>«Shared»</b>"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:349
+#: usr/share/archlinux-tweak-tool/network_gui.py:340
 msgid "<b>Firewall</b>"
 msgstr "<b>Брандмауэр</b>"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:361
-#: usr/share/archlinux-tweak-tool/services.py:799
+#: usr/share/archlinux-tweak-tool/network_gui.py:352
+#: usr/share/archlinux-tweak-tool/services.py:807
 msgid ""
 "Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
 "you protected."
@@ -4737,22 +5008,22 @@ msgstr ""
 "Брандмауэр (firewalld) <b>активен</b>: Kiro включает его по умолчанию для "
 "вашей защиты."
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:363
-#: usr/share/archlinux-tweak-tool/services.py:801
+#: usr/share/archlinux-tweak-tool/network_gui.py:354
+#: usr/share/archlinux-tweak-tool/services.py:809
 msgid "Firewall (firewalld) is <b>inactive</b>."
 msgstr "Брандмауэр (firewalld) <b>неактивен</b>."
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:370
-#: usr/share/archlinux-tweak-tool/services.py:796
+#: usr/share/archlinux-tweak-tool/network_gui.py:361
+#: usr/share/archlinux-tweak-tool/services.py:804
 msgid "Disable firewall"
 msgstr "Отключить брандмауэр"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:370
-#: usr/share/archlinux-tweak-tool/services.py:796
+#: usr/share/archlinux-tweak-tool/network_gui.py:361
+#: usr/share/archlinux-tweak-tool/services.py:804
 msgid "Enable firewall"
 msgstr "Включить брандмауэр"
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:416
+#: usr/share/archlinux-tweak-tool/network_gui.py:407
 msgid ""
 "With the Avahi daemon (network discovery) running on both the server and "
 "client,\n"
@@ -4769,11 +5040,11 @@ msgstr ""
 "Клиенту нужно только «Разрешить обнаружение в сети (mDNS)»: он подключается "
 "наружу, поэтому на клиенте открывать Samba не требуется."
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:438
+#: usr/share/archlinux-tweak-tool/network_gui.py:429
 msgid "firewalld is <b>not installed</b> — no firewall controls available."
 msgstr "firewalld <b>не установлен</b>, средств управления брандмауэром нет."
 
-#: usr/share/archlinux-tweak-tool/network_gui.py:447
+#: usr/share/archlinux-tweak-tool/network_gui.py:438
 msgid "Firewall"
 msgstr "Брандмауэр"
 
@@ -7058,16 +7329,40 @@ msgstr "<b>Похоже, SDDM не установлен</b>"
 msgid "Install sddm-git and enable it"
 msgstr "Установить sddm-git и включить его"
 
-#: usr/share/archlinux-tweak-tool/services.py:34
+#: usr/share/archlinux-tweak-tool/services.py:13
+msgid "Kiro default"
+msgstr "Стандартные настройки Kiro"
+
+#: usr/share/archlinux-tweak-tool/services.py:14
+msgid "Standard (systemd default)"
+msgstr "Стандартная (по умолчанию в systemd)"
+
+#: usr/share/archlinux-tweak-tool/services.py:15
+msgid "With mdns + wins"
+msgstr "С mdns + wins"
+
+#: usr/share/archlinux-tweak-tool/services.py:16
+msgid "With mdns_minimal"
+msgstr "С mdns_minimal"
+
+#: usr/share/archlinux-tweak-tool/services.py:17
+msgid "With mdns4_minimal"
+msgstr "С mdns4_minimal"
+
+#: usr/share/archlinux-tweak-tool/services.py:18
+msgid "Custom order (no systemd)"
+msgstr "Свой порядок (без systemd)"
+
+#: usr/share/archlinux-tweak-tool/services.py:42
 #, python-brace-format
 msgid "Nsswitch: {label}"
 msgstr "Nsswitch: {label}"
 
-#: usr/share/archlinux-tweak-tool/services.py:48
+#: usr/share/archlinux-tweak-tool/services.py:56
 msgid "Smb.conf ATT configuration applied"
 msgstr "Конфигурация smb.conf из ATT применена"
 
-#: usr/share/archlinux-tweak-tool/services.py:61
+#: usr/share/archlinux-tweak-tool/services.py:69
 #, python-brace-format
 msgid ""
 "Create Shared folder?\n"
@@ -7080,188 +7375,188 @@ msgstr ""
 "ATT создаст {path} как папку общего доступа samba.\n"
 "Если вы выберете «Нет», создайте папку сами до подключения."
 
-#: usr/share/archlinux-tweak-tool/services.py:123
+#: usr/share/archlinux-tweak-tool/services.py:131
 #, python-brace-format
 msgid "Setting samba password for {username}..."
 msgstr "Установка пароля samba для {username}..."
 
-#: usr/share/archlinux-tweak-tool/services.py:164
+#: usr/share/archlinux-tweak-tool/services.py:172
 msgid "✗ Samba is installed but the smb service is not running."
 msgstr "✗ Samba установлена, но служба smb не запущена."
 
-#: usr/share/archlinux-tweak-tool/services.py:178
+#: usr/share/archlinux-tweak-tool/services.py:186
 msgid "✓ Samba restarted. Check other services in the status bar."
 msgstr "✓ Samba перезапущена. Проверьте другие службы в строке состояния."
 
-#: usr/share/archlinux-tweak-tool/services.py:199
+#: usr/share/archlinux-tweak-tool/services.py:207
 msgid "PulseAudio install completed"
 msgstr "Установка PulseAudio завершена"
 
-#: usr/share/archlinux-tweak-tool/services.py:218
+#: usr/share/archlinux-tweak-tool/services.py:226
 msgid "PipeWire install completed"
 msgstr "Установка PipeWire завершена"
 
-#: usr/share/archlinux-tweak-tool/services.py:235
+#: usr/share/archlinux-tweak-tool/services.py:243
 #: usr/share/archlinux-tweak-tool/services_gui.py:41
 msgid "Bluez packages are already <b>installed</b>"
 msgstr "Пакеты Bluez уже <b>установлены</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:256
+#: usr/share/archlinux-tweak-tool/services.py:264
 #: usr/share/archlinux-tweak-tool/services_gui.py:43
 #: usr/share/archlinux-tweak-tool/services_gui.py:436
 msgid "Install bluetooth packages"
 msgstr "Установить пакеты bluetooth"
 
-#: usr/share/archlinux-tweak-tool/services.py:277
+#: usr/share/archlinux-tweak-tool/services.py:285
 #: usr/share/archlinux-tweak-tool/services_gui.py:46
 msgid "   Blueberry is already <b>installed</b>"
 msgstr "   Blueberry уже <b>установлен</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:293
+#: usr/share/archlinux-tweak-tool/services.py:301
 #: usr/share/archlinux-tweak-tool/services_gui.py:48
 #: usr/share/archlinux-tweak-tool/services_gui.py:461
 msgid "   Install blueberry"
 msgstr "   Установить blueberry"
 
-#: usr/share/archlinux-tweak-tool/services.py:309
+#: usr/share/archlinux-tweak-tool/services.py:317
 #: usr/share/archlinux-tweak-tool/services_gui.py:51
 msgid "   Blueman is already <b>installed</b>"
 msgstr "   Blueman уже <b>установлен</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:325
+#: usr/share/archlinux-tweak-tool/services.py:333
 #: usr/share/archlinux-tweak-tool/services_gui.py:53
 #: usr/share/archlinux-tweak-tool/services_gui.py:479
 msgid "   Install blueman"
 msgstr "   Установить blueman"
 
-#: usr/share/archlinux-tweak-tool/services.py:341
+#: usr/share/archlinux-tweak-tool/services.py:349
 #: usr/share/archlinux-tweak-tool/services_gui.py:56
 msgid "   Bluedevil is already <b>installed</b>"
 msgstr "   Bluedevil уже <b>установлен</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:357
+#: usr/share/archlinux-tweak-tool/services.py:365
 #: usr/share/archlinux-tweak-tool/services_gui.py:58
 #: usr/share/archlinux-tweak-tool/services_gui.py:497
 msgid "   Install bluedevil (Plasma dependencies)"
 msgstr "   Установить bluedevil (зависимости Plasma)"
 
-#: usr/share/archlinux-tweak-tool/services.py:423
+#: usr/share/archlinux-tweak-tool/services.py:431
 msgid "Auto-connect disabled"
 msgstr "Автоподключение отключено"
 
-#: usr/share/archlinux-tweak-tool/services.py:423
+#: usr/share/archlinux-tweak-tool/services.py:431
 msgid "Auto-connect enabled"
 msgstr "Автоподключение включено"
 
-#: usr/share/archlinux-tweak-tool/services.py:431
+#: usr/share/archlinux-tweak-tool/services.py:439
 msgid "Opening terminal to install bluetooth-autoconnect..."
 msgstr "Открывается терминал для установки bluetooth-autoconnect..."
 
-#: usr/share/archlinux-tweak-tool/services.py:442
+#: usr/share/archlinux-tweak-tool/services.py:450
 #: usr/share/archlinux-tweak-tool/services_gui.py:61
 #: usr/share/archlinux-tweak-tool/services_gui.py:400
 msgid "   bluetooth-autoconnect is <b>installed</b> and enabled"
 msgstr "   bluetooth-autoconnect <b>установлен</b> и включён"
 
-#: usr/share/archlinux-tweak-tool/services.py:456
+#: usr/share/archlinux-tweak-tool/services.py:464
 msgid "bluetooth-autoconnect is not installed"
 msgstr "bluetooth-autoconnect не установлен"
 
-#: usr/share/archlinux-tweak-tool/services.py:468
+#: usr/share/archlinux-tweak-tool/services.py:476
 #: usr/share/archlinux-tweak-tool/services_gui.py:63
 #: usr/share/archlinux-tweak-tool/services_gui.py:402
 msgid "   Install bluetooth-autoconnect"
 msgstr "   Установить bluetooth-autoconnect"
 
-#: usr/share/archlinux-tweak-tool/services.py:481
+#: usr/share/archlinux-tweak-tool/services.py:489
 msgid "Bluetooth has been enabled"
 msgstr "Bluetooth включён"
 
-#: usr/share/archlinux-tweak-tool/services.py:492
+#: usr/share/archlinux-tweak-tool/services.py:500
 msgid "Bluetooth has been disabled"
 msgstr "Bluetooth отключён"
 
-#: usr/share/archlinux-tweak-tool/services.py:503
+#: usr/share/archlinux-tweak-tool/services.py:511
 msgid "Bluetooth has been restarted"
 msgstr "Bluetooth перезапущен"
 
-#: usr/share/archlinux-tweak-tool/services.py:511
+#: usr/share/archlinux-tweak-tool/services.py:519
 msgid "Opening terminal to install cups..."
 msgstr "Открывается терминал для установки cups..."
 
-#: usr/share/archlinux-tweak-tool/services.py:521
+#: usr/share/archlinux-tweak-tool/services.py:529
 msgid "CUPS installed"
 msgstr "CUPS установлен"
 
-#: usr/share/archlinux-tweak-tool/services.py:522
+#: usr/share/archlinux-tweak-tool/services.py:530
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
 msgid "Cups printing is <b>installed</b>"
 msgstr "Система печати CUPS <b>установлена</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:525
+#: usr/share/archlinux-tweak-tool/services.py:533
 msgid "CUPS installation failed or was cancelled"
 msgstr "Установка CUPS не удалась или была отменена"
 
-#: usr/share/archlinux-tweak-tool/services.py:535
+#: usr/share/archlinux-tweak-tool/services.py:543
 msgid "Opening terminal to remove cups..."
 msgstr "Открывается терминал для удаления cups..."
 
-#: usr/share/archlinux-tweak-tool/services.py:545
+#: usr/share/archlinux-tweak-tool/services.py:553
 msgid "CUPS removed"
 msgstr "CUPS удалён"
 
-#: usr/share/archlinux-tweak-tool/services.py:546
+#: usr/share/archlinux-tweak-tool/services.py:554
 #: usr/share/archlinux-tweak-tool/services_gui.py:16
 #: usr/share/archlinux-tweak-tool/services_gui.py:118
 msgid "Install cups printing"
 msgstr "Установить печать cups"
 
-#: usr/share/archlinux-tweak-tool/services.py:549
+#: usr/share/archlinux-tweak-tool/services.py:557
 msgid "CUPS removal failed or was cancelled"
 msgstr "Удаление CUPS не удалось или было отменено"
 
-#: usr/share/archlinux-tweak-tool/services.py:559
+#: usr/share/archlinux-tweak-tool/services.py:567
 msgid "Opening terminal to install cups-pdf..."
 msgstr "Открывается терминал для установки cups-pdf..."
 
-#: usr/share/archlinux-tweak-tool/services.py:568
+#: usr/share/archlinux-tweak-tool/services.py:576
 msgid "cups-pdf installed"
 msgstr "cups-pdf установлен"
 
-#: usr/share/archlinux-tweak-tool/services.py:569
+#: usr/share/archlinux-tweak-tool/services.py:577
 #: usr/share/archlinux-tweak-tool/services_gui.py:19
 msgid "Cups-pdf is <b>installed</b>"
 msgstr "Cups-pdf <b>установлен</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:572
+#: usr/share/archlinux-tweak-tool/services.py:580
 msgid "cups-pdf installation failed or was cancelled"
 msgstr "Установка cups-pdf не удалась или была отменена"
 
-#: usr/share/archlinux-tweak-tool/services.py:580
+#: usr/share/archlinux-tweak-tool/services.py:588
 msgid "Opening terminal to remove cups-pdf..."
 msgstr "Открывается терминал для удаления cups-pdf..."
 
-#: usr/share/archlinux-tweak-tool/services.py:589
+#: usr/share/archlinux-tweak-tool/services.py:597
 msgid "cups-pdf removed"
 msgstr "cups-pdf удалён"
 
-#: usr/share/archlinux-tweak-tool/services.py:590
+#: usr/share/archlinux-tweak-tool/services.py:598
 #: usr/share/archlinux-tweak-tool/services_gui.py:21
 #: usr/share/archlinux-tweak-tool/services_gui.py:137
 msgid "Install cups-pdf printing"
 msgstr "Установить печать cups-pdf"
 
-#: usr/share/archlinux-tweak-tool/services.py:593
+#: usr/share/archlinux-tweak-tool/services.py:601
 msgid "cups-pdf removal failed or was cancelled"
 msgstr "Удаление cups-pdf не удалось или было отменено"
 
-#: usr/share/archlinux-tweak-tool/services.py:614
+#: usr/share/archlinux-tweak-tool/services.py:622
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
 msgstr "Служба Cups: {service}   Сокет Cups: {socket}"
 
-#: usr/share/archlinux-tweak-tool/services.py:668
+#: usr/share/archlinux-tweak-tool/services.py:676
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
 msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
@@ -7269,126 +7564,126 @@ msgid ""
 msgstr ""
 "Стандартные драйверы принтеров (foomatic, gutenprint, ...) <b>установлены</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:691
+#: usr/share/archlinux-tweak-tool/services.py:699
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
 #: usr/share/archlinux-tweak-tool/services_gui.py:155
 msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
 msgstr ""
 "   Установить стандартные драйверы принтеров (foomatic, gutenprint, ...)"
 
-#: usr/share/archlinux-tweak-tool/services.py:708
+#: usr/share/archlinux-tweak-tool/services.py:716
 #: usr/share/archlinux-tweak-tool/services_gui.py:31
 msgid "   HP drivers have been <b>installed</b>"
 msgstr "   Драйверы HP <b>установлены</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:724
+#: usr/share/archlinux-tweak-tool/services.py:732
 #: usr/share/archlinux-tweak-tool/services_gui.py:33
 #: usr/share/archlinux-tweak-tool/services_gui.py:173
 msgid "   Install HP drivers"
 msgstr "   Установить драйверы HP"
 
-#: usr/share/archlinux-tweak-tool/services.py:733
+#: usr/share/archlinux-tweak-tool/services.py:741
 msgid "Opening terminal to install system-config-printer..."
 msgstr "Открывается терминал для установки system-config-printer..."
 
-#: usr/share/archlinux-tweak-tool/services.py:742
+#: usr/share/archlinux-tweak-tool/services.py:750
 msgid "system-config-printer installed"
 msgstr "system-config-printer установлен"
 
-#: usr/share/archlinux-tweak-tool/services.py:744
+#: usr/share/archlinux-tweak-tool/services.py:752
 msgid "Install System-config-printer - <b>Installed</b>"
 msgstr "System-config-printer <b>установлен</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:749
+#: usr/share/archlinux-tweak-tool/services.py:757
 msgid "system-config-printer installation failed or was cancelled"
 msgstr "Установка system-config-printer не удалась или была отменена"
 
-#: usr/share/archlinux-tweak-tool/services.py:758
+#: usr/share/archlinux-tweak-tool/services.py:766
 msgid "Opening terminal to remove system-config-printer..."
 msgstr "Открывается терминал для удаления system-config-printer..."
 
-#: usr/share/archlinux-tweak-tool/services.py:767
+#: usr/share/archlinux-tweak-tool/services.py:775
 msgid "system-config-printer removed"
 msgstr "system-config-printer удалён"
 
-#: usr/share/archlinux-tweak-tool/services.py:768
+#: usr/share/archlinux-tweak-tool/services.py:776
 msgid "Install System-config-printer"
 msgstr "Установить System-config-printer"
 
-#: usr/share/archlinux-tweak-tool/services.py:771
+#: usr/share/archlinux-tweak-tool/services.py:779
 msgid "system-config-printer removal failed or was cancelled"
 msgstr "Удаление system-config-printer не удалось или было отменено"
 
-#: usr/share/archlinux-tweak-tool/services.py:857
+#: usr/share/archlinux-tweak-tool/services.py:865
 msgid "Nsswitch config reset"
 msgstr "Конфигурация nsswitch сброшена"
 
-#: usr/share/archlinux-tweak-tool/services.py:862
+#: usr/share/archlinux-tweak-tool/services.py:870
 msgid "No nsswitch backup available"
 msgstr "Резервной копии nsswitch нет"
 
-#: usr/share/archlinux-tweak-tool/services.py:876
+#: usr/share/archlinux-tweak-tool/services.py:884
 msgid "nsswitch.conf opened in terminal"
 msgstr "nsswitch.conf открыт в терминале"
 
-#: usr/share/archlinux-tweak-tool/services.py:898
-#: usr/share/archlinux-tweak-tool/services.py:1002
+#: usr/share/archlinux-tweak-tool/services.py:906
+#: usr/share/archlinux-tweak-tool/services.py:1010
 msgid "Samba is not yet installed."
 msgstr "Samba ещё не установлена."
 
-#: usr/share/archlinux-tweak-tool/services.py:904
+#: usr/share/archlinux-tweak-tool/services.py:912
 msgid "Samba disabled"
 msgstr "Samba отключена"
 
-#: usr/share/archlinux-tweak-tool/services.py:911
+#: usr/share/archlinux-tweak-tool/services.py:919
 msgid "Samba enabled"
 msgstr "Samba включена"
 
-#: usr/share/archlinux-tweak-tool/services.py:920
+#: usr/share/archlinux-tweak-tool/services.py:928
 msgid "firewalld is not installed."
 msgstr "firewalld не установлен."
 
-#: usr/share/archlinux-tweak-tool/services.py:928
+#: usr/share/archlinux-tweak-tool/services.py:936
 msgid "Firewall disabled"
 msgstr "Брандмауэр отключён"
 
-#: usr/share/archlinux-tweak-tool/services.py:932
+#: usr/share/archlinux-tweak-tool/services.py:940
 msgid "Firewall enabled"
 msgstr "Брандмауэр включён"
 
-#: usr/share/archlinux-tweak-tool/services.py:941
+#: usr/share/archlinux-tweak-tool/services.py:949
 msgid "network discovery (mDNS)"
 msgstr "обнаружение в сети (mDNS)"
 
-#: usr/share/archlinux-tweak-tool/services.py:946
+#: usr/share/archlinux-tweak-tool/services.py:954
 msgid "Samba file sharing"
 msgstr "общий доступ к файлам Samba"
 
-#: usr/share/archlinux-tweak-tool/services.py:956
+#: usr/share/archlinux-tweak-tool/services.py:964
 msgid "Launching firewall-config..."
 msgstr "Запуск firewall-config..."
 
-#: usr/share/archlinux-tweak-tool/services.py:974
+#: usr/share/archlinux-tweak-tool/services.py:982
 msgid "firewall-config install finished"
 msgstr "Установка firewall-config завершена"
 
-#: usr/share/archlinux-tweak-tool/services.py:981
+#: usr/share/archlinux-tweak-tool/services.py:989
 msgid "Enable the firewall first."
 msgstr "Сначала включите брандмауэр."
 
-#: usr/share/archlinux-tweak-tool/services.py:1024
+#: usr/share/archlinux-tweak-tool/services.py:1032
 msgid "Samba configuration applied"
 msgstr "Конфигурация Samba применена"
 
-#: usr/share/archlinux-tweak-tool/services.py:1039
+#: usr/share/archlinux-tweak-tool/services.py:1047
 msgid "Original smb.conf is applied"
 msgstr "Исходный smb.conf применён"
 
-#: usr/share/archlinux-tweak-tool/services.py:1045
+#: usr/share/archlinux-tweak-tool/services.py:1053
 msgid "No backup configuration present"
 msgstr "Резервная конфигурация отсутствует"
 
-#: usr/share/archlinux-tweak-tool/services.py:1059
+#: usr/share/archlinux-tweak-tool/services.py:1067
 msgid "Opening samba.conf in terminal with nano"
 msgstr "Открывается samba.conf в терминале с помощью nano"
 
@@ -9642,12 +9937,6 @@ msgstr "Не удалось прочитать {path}"
 #, python-brace-format
 msgid "No matching line in {path}"
 msgstr "Нет подходящей строки в {path}"
-
-#: usr/share/archlinux-tweak-tool/themes.py:305
-#: usr/share/archlinux-tweak-tool/themes.py:506
-#, python-brace-format
-msgid "Could not write {path}"
-msgstr "Не удалось записать {path}"
 
 #: usr/share/archlinux-tweak-tool/themes.py:322
 msgid "Enable or Disable the Plasma Qt theme overrides (/etc/environment)"

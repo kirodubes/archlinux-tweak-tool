@@ -10,6 +10,7 @@ from att_i18n import _
 import backup
 import btrfs
 import desktopr
+import hybrid
 import maintenance
 import fastfetch
 import performance
@@ -26,6 +27,7 @@ import accessibility_gui
 import backup_gui
 import btrfs_gui
 import celestial_gui
+import hybrid_gui
 import icons_gui
 import iso_gui
 import themes_gui
@@ -187,6 +189,7 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     vboxstack_accessibility = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vboxstack_backup = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vboxstack_btrfs = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    vboxstack_hybrid = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vboxstack_celestial = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
     # ==========================================================
@@ -275,6 +278,12 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     _defer_tab(
         vboxstack_desktop, lambda: desktopr_gui.gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir)
     )
+
+    # ==========================================================
+    #                HYBRID GRAPHICS
+    # ==========================================================
+
+    _defer_tab(vboxstack_hybrid, lambda: hybrid_gui.gui(self, Gtk, vboxstack_hybrid, hybrid, fn))
 
     # # ==========================================================
     # #               FASTFETCH
@@ -464,6 +473,10 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     stack.add_titled(vboxstack_wayland, "stack_wayland", _("Desktop - Wayland"))  # Wayland WM picker
 
     stack.add_titled(vboxstack_fastfetch, "stack4", _("Fastfetch"))  # fastfetch config
+
+    # Always listed, even with one GPU: the page then renders disabled with Status
+    # explaining why, so the sidebar is identical on every machine (docs/videos).
+    stack.add_titled(vboxstack_hybrid, "stack_hybrid", _("Hybrid graphics"))  # prime-run / DRI_PRIME offload
 
     stack.add_titled(vboxstack_icons_horst, "stack_icons_horst", _("Icons Horst"))  # Horst colour-folder icons (both sets)
     stack.add_titled(vboxstack_icons_neocandy, "stack_icons_neocandy", _("Icons Neo Candy"))  # Neo Candy icon themes

@@ -468,6 +468,13 @@ def _probe_btrfs(facts):
     return False, f"not used (root is {facts['root_fs']}); ATT shows this page disabled", True
 
 
+def _probe_hybrid(_facts):
+    count = len(importlib.import_module("hybrid").list_gpus())
+    if count >= 2:
+        return True, f"{count} GPUs found", True
+    return False, f"not used ({count} GPU); ATT shows this page disabled", True
+
+
 def _probe_desktop(facts):
     return facts["desktop"] != "none", f"desktop detected ({facts['desktop']})", False
 
@@ -536,6 +543,8 @@ PAGES = {
         "choose_one": True,
     },
     "Fastfetch": {"modules": ("fastfetch", "fastfetch_gui")},
+    "Hybrid graphics": {"modules": ("hybrid", "hybrid_gui"), "catalog": lambda: {p: None for p in
+                        importlib.import_module("hybrid").PACKAGES}, "probes": (_probe_hybrid,)},
     "Icons Horst": {"catalog": _icon_horst, "choose_one": True},
     "Icons Neo Candy": {"catalog": lambda: _icon_set("neocandy"), "choose_one": True},
     "Icons Surfn": {"catalog": lambda: _icon_set("surfn"), "choose_one": True},
@@ -696,7 +705,8 @@ def evaluate_page(title, facts, index):
     hard_fail = [row for row in probe_rows if not row[0] and row[2]]
     soft_fail = [row for row in probe_rows if not row[0] and not row[2]]
 
-    if title == "Btrfs" and hard_fail:
+    # Hardware-dependent pages: off-target hardware is expected, not a failure.
+    if title in ("Btrfs", "Hybrid graphics") and hard_fail:
         verdict = NA
     elif hard_fail or (pkg_rows and obtainable == 0):
         verdict = FAIL
