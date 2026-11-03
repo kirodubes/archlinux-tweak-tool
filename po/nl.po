@@ -2627,7 +2627,7 @@ msgstr "Desktop - Wayland"
 #: usr/share/archlinux-tweak-tool/gui.py:479
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:154
 msgid "Hybrid graphics"
-msgstr "Hybride grafische configuratie"
+msgstr "Hybride graphics"
 
 #: usr/share/archlinux-tweak-tool/gui.py:481
 msgid "Icons Horst"
