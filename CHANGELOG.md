@@ -2,6 +2,14 @@
 
 ## 2026.11.03
 
+### Second review of 10 translations
+
+**What Changed.** French, Portuguese (Brazil), Italian, Russian, Hungarian, Turkish, Polish, Japanese, Chinese and Romanian got their second review, this time by Copilot (gpt-6-luna; Claude drafted them on 2026-11-01). 1,320 strings now read more naturally or use the right term: wrong gender agreement in French, "Logout" left in English in Portuguese, comma splices in Russian, ASCII punctuation in Chinese, repo names that Japanese had translated, Turkish "Bounce Keys" called the wrong feature.
+
+**Technical Details.** `ai-review.py` per language (1,948 strings, ~1,700 findings), then `apply-review.py`, whose guards keep placeholders, markup and line breaks: 1,320 applied, 155 rejected by the guards (those strings keep their translation). Left out before applying: 311 Turkish findings that only switched short buttons to the polite form (the reviewer went both ways, "Yükle" to "Yükleyin" and "Kaldırın" to "Kaldır"), dash-to-colon separator changes in every language, and capitalising "celestial". Two fixes (pl, zh_CN) lost the trailing `" "` of the Samba explanation; restored by hand so `msgfmt -c` passes. de/es/nl/.pot changed only in line references (`make-mo.sh`).
+
+**Files Modified.** `po/{fr,pt_BR,it,ru,hu,tr,pl,ja,zh_CN,ro}.po`, `po/{de,es,nl}.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
+
 ### Repo hint only when a repo is missing
 
 **What Changed.** At startup ATT always printed "To unlock all features, add Chaotic-AUR and Nemesis repo to your pacman.conf", twice, even on Kiro where both repos are enabled. It now prints the hint only when one of them is missing, and names only the missing one ("add Nemesis repo …"). Found during a Spanish install test on a Kiro VM.

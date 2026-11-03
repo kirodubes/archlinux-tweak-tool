@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -139,8 +139,8 @@ msgstr "{name} szükséges: előbb telepíts egy AUR-segédet"
 #, python-brace-format
 msgid "{name} enabled (current session + saved for next login)"
 msgstr ""
-"{name} engedélyezve (jelenlegi munkamenet, és mentve a következő "
-"bejelentkezésre)"
+"{name} engedélyezve a jelenlegi munkamenetben, és elmentve a következő "
+"bejelentkezéshez"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:67
 #, python-brace-format
@@ -240,7 +240,7 @@ msgstr "Eltávolítás"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:131
 msgid "High contrast &amp; large text"
-msgstr "Nagy kontraszt &amp; nagy szöveg"
+msgstr "Nagy kontraszt &amp; nagy betűméret"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:142
 msgid "High-contrast themes <b>installed</b> — apply them on the Themer page"
@@ -250,7 +250,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
-"Nagy kontrasztú és nagy szövegű GTK-témák telepítése (gnome-themes-extra)"
+"Nagy kontrasztú és nagy betűs GTK-témák telepítése (gnome-themes-extra)"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
@@ -350,8 +350,8 @@ msgid ""
 "a key only registers when held down briefly, so accidental light taps are "
 "ignored."
 msgstr ""
-"a billentyű csak akkor érzékelődik, ha rövid ideig lenyomva tartod, így a "
-"véletlen könnyű érintések figyelmen kívül maradnak."
+"A billentyű csak akkor érzékelődik, ha rövid ideig lenyomva tartod, így a "
+"véletlen, enyhe leütéseket figyelmen kívül hagyja."
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:286
 msgid ""
@@ -414,8 +414,8 @@ msgstr "a jan eltávolítása elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:144
 msgid "Jan needs the cachyos repo. Enable [cachyos] in pacman.conf first."
 msgstr ""
-"A Jannak szüksége van a cachyos tárolóra. Előbb engedélyezd a [cachyos] "
-"szakaszt a pacman.conf fájlban."
+"A Jan használatához szükség van a cachyos tárolóra. Előbb engedélyezd a "
+"[cachyos] szakaszt a pacman.conf fájlban."
 
 #: usr/share/archlinux-tweak-tool/ai.py:159
 #: usr/share/archlinux-tweak-tool/ai_gui.py:90
@@ -433,7 +433,7 @@ msgstr "a jan telepítése elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:186
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI"
-msgstr "aichat - mindent egyben LLM parancssori eszköz"
+msgstr "aichat - sokfunkciós LLM-parancssori eszköz"
 
 #: usr/share/archlinux-tweak-tool/ai.py:188
 msgid "aichat removal complete"
@@ -446,7 +446,7 @@ msgstr "az aichat eltávolítása elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:205
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI <b>installed</b>"
-msgstr "aichat - mindent egyben LLM parancssori eszköz <b>telepítve</b>"
+msgstr "aichat - sokfunkciós LLM-parancssori eszköz <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:207
 msgid "aichat installation complete"
@@ -459,7 +459,7 @@ msgstr "az aichat telepítése elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:232
 #: usr/share/archlinux-tweak-tool/ai_gui.py:64
 msgid "Open WebUI - Browser UI for Ollama"
-msgstr "Open WebUI - böngészős felület az Ollamához"
+msgstr "Open WebUI - böngészős felület az Ollama használatához"
 
 #: usr/share/archlinux-tweak-tool/ai.py:234
 msgid "open-webui removal complete"
@@ -481,7 +481,8 @@ msgstr "Nem található AUR-segéd. Előbb telepítsd a yay-t vagy a paru-t."
 #: usr/share/archlinux-tweak-tool/ai.py:258
 #: usr/share/archlinux-tweak-tool/ai_gui.py:64
 msgid "Open WebUI - Browser UI for Ollama <b>installed</b>"
-msgstr "Open WebUI - böngészős felület az Ollamához <b>telepítve</b>"
+msgstr ""
+"Open WebUI - böngészős felület az Ollama használatához <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:261
 msgid "open-webui installation complete"
@@ -520,7 +521,7 @@ msgstr "a claude-code telepítése elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:378
 #: usr/share/archlinux-tweak-tool/ai_gui.py:150
 msgid "Aider - AI pair programming"
-msgstr "Aider - MI páros programozás"
+msgstr "Aider - MI-vel végzett páros programozás"
 
 #: usr/share/archlinux-tweak-tool/ai.py:380
 msgid "aider removal complete"
@@ -537,7 +538,7 @@ msgstr "Az aider beállítása fut..."
 #: usr/share/archlinux-tweak-tool/ai.py:411
 #: usr/share/archlinux-tweak-tool/ai_gui.py:150
 msgid "Aider - AI pair programming <b>installed</b>"
-msgstr "Aider - MI páros programozás <b>telepítve</b>"
+msgstr "Aider - MI-vel végzett páros programozás <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:413
 msgid "aider installation complete"
@@ -610,7 +611,7 @@ msgstr "az antigravity-cli telepítése elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:538
 #: usr/share/archlinux-tweak-tool/ai_gui.py:226
 msgid "Antigravity (previous gemini)"
-msgstr "Antigravity (korábban gemini)"
+msgstr "Antigravity (korábban Gemini)"
 
 #: usr/share/archlinux-tweak-tool/ai.py:540
 msgid "antigravity removal complete"
@@ -623,7 +624,7 @@ msgstr "az antigravity eltávolítása elindult"
 #: usr/share/archlinux-tweak-tool/ai.py:562
 #: usr/share/archlinux-tweak-tool/ai_gui.py:226
 msgid "Antigravity (previous gemini) <b>installed</b>"
-msgstr "Antigravity (korábban gemini) <b>telepítve</b>"
+msgstr "Antigravity (korábban Gemini) <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:565
 msgid "antigravity installation complete"
@@ -826,16 +827,16 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr ""
 "A konfigurációs mentések elkészültek - Üdvözlünk az ArchLinux Tweak Toolban!"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "További Tweak Toolok"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
@@ -843,59 +844,59 @@ msgstr ""
 "Az ATT <b>más tweak toolokat is tud telepíteni és elindítani</b>, mindegyik "
 "egy-egy alkalmazásra szakosodott. Ezeket ezeken az oldalakon találod:"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "válogass a több mint 300 Alacritty-téma közül, vagy készíts újakat"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
-msgstr "Shellek"
+msgstr "Parancsértelmezők"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "Szoftver"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "állítsd be, mit és hogyan jelenítsen meg a Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "a fish shell beállítása"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
 msgstr ""
 "<i>A Nemesis tárolóból települnek: előbb engedélyezd a Pacman oldalon.</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "Ne mutasd újra"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "Bezárás"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "A nano szerkesztő színei"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
@@ -903,30 +904,30 @@ msgstr ""
 "Az ATT egy <b>színes nanorc</b> fájlt tartalmaz. Kattints az egyikre a "
 "kiválasztáshoz: az /etc/nanorc fájlról mindig készül előtte mentés."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
 msgstr "Alapértelmezett megtartása"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "ATT színek alkalmazása"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "Az ATT nanorc alkalmazva az /etc/nanorc fájlra"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "Az ATT nanorc alkalmazása sikertelen"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "Zárolófájl található"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -938,11 +939,11 @@ msgstr ""
 "Kattints az igenre a zárolófájl törléséhez,\n"
 "majd próbáld újra elindítani az ATT-t"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "A kernel nem támogatott"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -950,8 +951,8 @@ msgstr ""
 "A jelenlegi kernel nem támogatja az alapvető operációs rendszer-hívásokat. "
 "Az <b>ArchLinux Tweak Tool</b> működéséhez ezekre szükség van."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "Előbb be kell zárnod a már futó alkalmazást"
 
@@ -1219,7 +1220,7 @@ msgid ""
 "<span foreground='{color}'>Not available — this system's root filesystem is "
 "<b>{fstype}</b>, not btrfs</span>"
 msgstr ""
-"<span foreground='{color}'>Nem érhető el: a rendszer gyökér fájlrendszere "
+"<span foreground='{color}'>Nem érhető el: a rendszer gyökérfájlrendszere "
 "<b>{fstype}</b>, nem btrfs</span>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:43
@@ -1466,7 +1467,7 @@ msgstr[1] "{count} téma telepítése..."
 
 #: usr/share/archlinux-tweak-tool/celestial.py:153
 msgid "Celestial themes installation complete"
-msgstr "A celestial témák telepítése kész"
+msgstr "A Celestial témák telepítése kész"
 
 #: usr/share/archlinux-tweak-tool/celestial.py:164
 #: usr/share/archlinux-tweak-tool/themes.py:125
@@ -1483,7 +1484,7 @@ msgstr[1] "{count} téma eltávolítása..."
 
 #: usr/share/archlinux-tweak-tool/celestial.py:176
 msgid "Celestial themes removal complete"
-msgstr "A celestial témák eltávolítása kész"
+msgstr "A Celestial témák eltávolítása kész"
 
 #: usr/share/archlinux-tweak-tool/celestial.py:271
 msgid "Opening the celestial-gtk-theme project page"
@@ -1576,7 +1577,7 @@ msgstr "Összes"
 #: usr/share/archlinux-tweak-tool/icons_gui.py:108
 #: usr/share/archlinux-tweak-tool/themes_gui.py:238
 msgid "None"
-msgstr "Nincs"
+msgstr "Egyik sem"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:154
 #: usr/share/archlinux-tweak-tool/themes_gui.py:259
@@ -1679,7 +1680,8 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/desktopr.py:606
 #, python-brace-format
 msgid "{name} lock file found, do you want to remove it and continue?"
-msgstr "{name} zárolófájl található, szeretnéd eltávolítani és folytatni?"
+msgstr ""
+"A(z) {name} zárolófájlja megtalálható. Szeretnéd eltávolítani és folytatni?"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:648
 #, python-brace-format
@@ -2127,7 +2129,7 @@ msgstr "Intel ME tiltólista"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:1001
 msgid "Bluetooth USB reset"
-msgstr "Bluetooth USB-alaphelyzetbe állítás"
+msgstr "Bluetooth USB-eszköz visszaállítása"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:1006
 msgid "Kernel zswap"
@@ -2230,7 +2232,7 @@ msgstr "{name} konfigurációjának alkalmazása"
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:68
 #, python-brace-format
 msgid "Reset your {name} backup"
-msgstr "A(z) {name} biztonsági mentésének visszaállítása"
+msgstr "A(z) {name} biztonsági mentésének alaphelyzetbe állítása"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:69
 #, python-brace-format
@@ -2407,8 +2409,8 @@ msgstr ""
 "cím- és elválasztószínek\n"
 "• <b>Telepítés / engedélyezés</b>: a fastfetch telepítése, bash / zsh / fish "
 "indításhoz adása, opcionális lolcat\n"
-"• <b>Előbeállítások &amp; nyers</b>: mellékelt előbeállítások vagy a Kiro "
-"alapértelmezése, mentés visszaállítása, a JSONC szerkesztése\n"
+"• <b>Előbeállítások &amp; nyers konfiguráció</b>: mellékelt előbeállítások "
+"vagy a Kiro alapértelmezése, mentés visszaállítása, a JSONC szerkesztése\n"
 "• <b>Élő előnézet</b>: valódi fastfetch-kimenet módosítás közben (vte4-"
 "gyel)\n"
 "\n"
@@ -2516,7 +2518,7 @@ msgstr "Válassz egy smb.conf fájlt, vagy készíts sajátot"
 #: usr/share/archlinux-tweak-tool/functions.py:2629
 #, python-brace-format
 msgid "Shell changed to {shell} for user - logout"
-msgstr "A shell a felhasználónál erre változott: {shell}: jelentkezz ki"
+msgstr "A felhasználó shellje erre változott: {shell}. Jelentkezz ki."
 
 #: usr/share/archlinux-tweak-tool/functions.py:3144
 msgid "URL copied to clipboard"
@@ -2541,7 +2543,7 @@ msgstr "URL másolása"
 
 #: usr/share/archlinux-tweak-tool/functions_backup.py:451
 msgid "Failed to restore nanorc backup"
-msgstr "A nanorc mentésének visszaállítása sikertelen"
+msgstr "A nanorc biztonsági mentésének visszaállítása sikertelen"
 
 #: usr/share/archlinux-tweak-tool/functions_backup.py:454
 msgid "No nanorc backup found"
@@ -2549,7 +2551,7 @@ msgstr "Nem található nanorc-mentés"
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
 msgid "We had to change your sddm configuration files"
-msgstr "Módosítanunk kellett az sddm konfigurációs fájljait"
+msgstr "Módosítanunk kellett az SDDM konfigurációs fájljait"
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -2733,7 +2735,7 @@ msgstr "Kijelöltük a vegyes válogatást: {name} ikonok"
 #: usr/share/archlinux-tweak-tool/icons.py:163
 #, python-brace-format
 msgid "We have selected the variation selection - {name} icons"
-msgstr "Kijelöltük a változatok válogatását: {name} ikonok"
+msgstr "Kijelöltük a változatokból álló válogatást: {name} ikonok"
 
 #: usr/share/archlinux-tweak-tool/icons.py:169
 #: usr/share/archlinux-tweak-tool/icons.py:217
@@ -2744,32 +2746,32 @@ msgstr "Egyetlen {name} ikont sem jelöltünk ki"
 #: usr/share/archlinux-tweak-tool/icons.py:175
 #, python-brace-format
 msgid "We have selected the {name} family themes"
-msgstr "Kijelöltük a(z) {name} családi témákat"
+msgstr "Kijelöltük a(z) {name} témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:181
 #, python-brace-format
 msgid "We have selected the {name} flexible family themes"
-msgstr "Kijelöltük a(z) {name} flexible családi témákat"
+msgstr "Kijelöltük a(z) {name} rugalmas témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:187
 #, python-brace-format
 msgid "We have selected the {name} mono family themes"
-msgstr "Kijelöltük a(z) {name} mono családi témákat"
+msgstr "Kijelöltük a(z) {name} monokróm témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:193
 #, python-brace-format
 msgid "We have selected the {name} flat family themes"
-msgstr "Kijelöltük a(z) {name} flat családi témákat"
+msgstr "Kijelöltük a(z) {name} lapos témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:199
 #, python-brace-format
 msgid "We have selected the {name} ghost family themes"
-msgstr "Kijelöltük a(z) {name} ghost családi témákat"
+msgstr "Kijelöltük a(z) {name} ghost témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:205
 #, python-brace-format
 msgid "We have selected the {name} orb family themes"
-msgstr "Kijelöltük a(z) {name} orb családi témákat"
+msgstr "Kijelöltük a(z) {name} orb témacsalád témáit"
 
 #: usr/share/archlinux-tweak-tool/icons.py:224
 #, python-brace-format
@@ -2799,7 +2801,7 @@ msgstr[1] "{count} {name} ikoncsomag telepítése..."
 #: usr/share/archlinux-tweak-tool/icons.py:731
 #, python-brace-format
 msgid "{name} icons installation complete"
-msgstr "A(z) {name} ikonok telepítése kész"
+msgstr "A(z) {name} ikonok telepítése befejeződött"
 
 #: usr/share/archlinux-tweak-tool/icons.py:611
 #: usr/share/archlinux-tweak-tool/icons.py:740
@@ -2819,7 +2821,7 @@ msgstr[1] "{count} {name} ikoncsomag eltávolítása..."
 #: usr/share/archlinux-tweak-tool/icons.py:757
 #, python-brace-format
 msgid "{name} icons removal complete"
-msgstr "A(z) {name} ikonok eltávolítása kész"
+msgstr "A(z) {name} ikonok eltávolítása befejeződött"
 
 #: usr/share/archlinux-tweak-tool/icons.py:684
 #: usr/share/archlinux-tweak-tool/icons.py:777
@@ -2864,7 +2866,7 @@ msgstr "<i>Hamarosan: később kerül be.</i>"
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:97
 msgid "Choose the icon theme(s)"
-msgstr "Válaszd ki az ikontémá(ka)t"
+msgstr "Válaszd ki az ikontémákat"
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:132
 msgid "Show the installed icon themes"
@@ -2896,7 +2898,7 @@ msgstr "{name} nincs telepítve"
 #: usr/share/archlinux-tweak-tool/iso.py:94
 #, python-brace-format
 msgid "{name} is <b>not installed</b> — it will be installed first"
-msgstr "{name} <b>nincs telepítve</b>: előbb telepítésre kerül"
+msgstr "{name} <b>nincs telepítve</b>: előbb telepítjük"
 
 #: usr/share/archlinux-tweak-tool/iso.py:101
 msgid "Opening terminal to build the Arch ISO"
@@ -2907,9 +2909,9 @@ msgid ""
 "Build your own personalised Arch-based ISO with the Kiro ISO Builder — a "
 "GTK4 front-end with one-click host pre-flight fixes."
 msgstr ""
-"Építsd meg a saját, személyre szabott Arch-alapú ISO-dat a Kiro ISO "
-"Builderrel: egy GTK4-es kezelőfelület egykattintásos gazdagép-előellenőrzési "
-"javításokkal."
+"Készíts saját, személyre szabott Arch-alapú ISO-t a Kiro ISO Builderrel: ez "
+"egy GTK4-es kezelőfelület, amely egy kattintással kijavítja a gazdagépen az "
+"előzetes ellenőrzés során talált problémákat."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:62
 msgid "Install kiro-iso-builder"
@@ -2980,8 +2982,8 @@ msgid ""
 "does not run. The ISO lands in ~/ArchISO."
 msgstr ""
 "Az archiso releng profiljával elkészíti a hivatalos Arch Linux telepítő ISO-"
-"t. Az archiso hiányában előbb telepítésre kerül; ha nem telepíthető, az "
-"építés nem fut le. Az ISO a ~/ArchISO mappába kerül."
+"t. Ha az archiso nincs telepítve, előbb telepíti; ha ez nem sikerül, az "
+"összeállítás nem indul el. Az ISO a ~/ArchISO mappába kerül."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:149
 msgid "Build vanilla Arch ISO"
@@ -2989,7 +2991,7 @@ msgstr "Egyszerű Arch ISO építése"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:17
 msgid "Vanilla Arch kernel"
-msgstr "Egyszerű Arch kernel"
+msgstr "Alap Arch kernel"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:18
 #: usr/share/archlinux-tweak-tool/kernel.py:26
@@ -3002,11 +3004,11 @@ msgstr "Szabványos Arch"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:25
 msgid "Long-term support kernel"
-msgstr "Hosszú támogatású kernel"
+msgstr "Hosszú távú támogatású kernel"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:33
 msgid "Tuned for desktop responsiveness"
-msgstr "Az asztali reagálókészségre hangolva"
+msgstr "Az asztali környezet gyors reakcióira hangolva"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:41
 msgid "Security-focused kernel"
@@ -3038,7 +3040,7 @@ msgstr "CachyOS BORE ütemezővel"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:83
 msgid "CachyOS long-term support kernel"
-msgstr "A CachyOS hosszú támogatású kernelje"
+msgstr "A CachyOS hosszú távú támogatású kernelje"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:92
 msgid "CachyOS release candidate kernel"
@@ -3050,7 +3052,7 @@ msgstr "CachyOS kernel CJK TTY betűtípus-támogatással"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:110
 msgid "Xanmod long-term support kernel"
-msgstr "Xanmod hosszú támogatású kernel"
+msgstr "Xanmod hosszú távú támogatású kernel"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:112
 #: usr/share/archlinux-tweak-tool/kernel.py:121
@@ -3094,7 +3096,7 @@ msgstr "Mainline"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:176
 msgid "Long-term support kernel 5.15"
-msgstr "Hosszú támogatású kernel 5.15"
+msgstr "Hosszú távú támogatású kernel 5.15"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:178
 #: usr/share/archlinux-tweak-tool/kernel.py:187
@@ -3105,15 +3107,15 @@ msgstr "Meghatározott LTS-verziók"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:185
 msgid "Long-term support kernel 6.1"
-msgstr "Hosszú támogatású kernel 6.1"
+msgstr "Hosszú távú támogatású kernel 6.1"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:194
 msgid "Long-term support kernel 6.12"
-msgstr "Hosszú támogatású kernel 6.12"
+msgstr "Hosszú távú támogatású kernel 6.12"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:203
 msgid "Long-term support kernel 6.6"
-msgstr "Hosszú támogatású kernel 6.6"
+msgstr "Hosszú távú támogatású kernel 6.6"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:213
 msgid "Arch kernel optimized for x86-64-v2"
@@ -3123,7 +3125,7 @@ msgstr "x86-64-v2-re optimalizált Arch kernel"
 #: usr/share/archlinux-tweak-tool/kernel.py:225
 #: usr/share/archlinux-tweak-tool/kernel.py:235
 msgid "x86-64 microarch level builds"
-msgstr "x86-64 mikroarchitektúra-szintű buildek"
+msgstr "x86-64 mikroarchitektúra-szintű változatok"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:223
 msgid "Arch kernel optimized for x86-64-v3 (Haswell+)"
@@ -3177,7 +3179,7 @@ msgstr "Kernel VFIO/GPU-átadási javításokkal"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:312
 msgid "LTS kernel with VFIO/GPU passthrough patches"
-msgstr "LTS kernel VFIO/GPU-átadási javításokkal"
+msgstr "Hosszú távú támogatású kernel VFIO/GPU-átadási javításokkal"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:343
 msgid "CachyOS kernel"
@@ -3233,9 +3235,9 @@ msgid ""
 "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
 "Apply."
 msgstr ""
-"Váltsd át az élő processzor-ütemezőt (lavd, bpfland, rusty…) újraindítás "
-"nélkül a <b>scx-manager</b> segítségével: már telepítve van. Válassz "
-"ütemezőt és profilt, majd kattints az Alkalmaz gombra."
+"Váltsd át az éppen használt processzor-ütemezőt (lavd, bpfland, rusty…) "
+"újraindítás nélkül a <b>scx-manager</b> segítségével: már telepítve van. "
+"Válassz ütemezőt és profilt, majd kattints az Alkalmaz gombra."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:69
 msgid "<i>read the guide</i>"
@@ -3268,7 +3270,7 @@ msgstr "Az összes initramfs újragenerálása"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:149
 msgid "Dracut: initramfs regeneration complete"
-msgstr "Dracut: az initramfs újragenerálása kész"
+msgstr "Dracut: az initramfs újragenerálása befejeződött"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:163
 msgid "Arch Kernels"
@@ -3306,8 +3308,8 @@ msgid ""
 "  • {pkg}\n"
 "    Why: {reason}"
 msgstr ""
-"  • {pkg}\n"
-"    Ok: {reason}"
+"• {pkg}\n"
+"    Miért: {reason}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:270
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:366
@@ -3383,8 +3385,8 @@ msgstr ""
 "Indoklás:\n"
 "{reasons}\n"
 "\n"
-"Az ATT telepíti a szükséges csomagokat, majd ugyanabban a terminálban a "
-"következőt is: {pkg}."
+"Az ATT telepíti a szükséges csomagokat, majd ugyanabban a terminálban "
+"telepíti a(z) {pkg} csomagot is."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:458
 #, python-brace-format
@@ -3423,12 +3425,12 @@ msgstr "{p} telepítése"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:629
 #, python-brace-format
 msgid "{action} completed for {pkg_name}"
-msgstr "{action} befejeződött ehhez: {pkg_name}"
+msgstr "{action} befejeződött a(z) {pkg_name} esetében"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:663
 #, python-brace-format
 msgid "Installation completed for {pkg}"
-msgstr "A telepítés befejeződött ehhez: {pkg}"
+msgstr "A(z) {pkg} telepítése befejeződött"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:704
 msgid "<b>Default Boot Entry (systemd-boot)</b>"
@@ -3549,7 +3551,7 @@ msgstr "<b>Jelenlegi beállítások</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:39
 msgid "System Locale:"
-msgstr "Rendszer nyelve:"
+msgstr "Rendszer területi beállítása:"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:49
 msgid "Language (LANGUAGE):"
@@ -3705,7 +3707,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/locale_settings.py:349
 #, python-brace-format
 msgid "All language packs for {language} are installed."
-msgstr "Ennek a nyelvnek minden nyelvi csomagja telepítve van: {language}"
+msgstr "A(z) {language} nyelvhez tartozó összes nyelvi csomag telepítve van"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:362
 msgid "Restart the apps to use their language packs."
@@ -3734,7 +3736,8 @@ msgstr "Beállítás folyamatban…"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:413
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
-msgstr "A rendszer nyelve beállítva: {locale}. Az alkalmazáshoz jelentkezz ki"
+msgstr ""
+"A rendszer területi beállítása: {locale}. Az alkalmazáshoz jelentkezz ki"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
@@ -3749,7 +3752,8 @@ msgstr "{category} beállítva: {locale}"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
 msgstr ""
-"A kategóriánkénti területi felülbírálások visszaállítva a LANG értékére"
+"A kategóriánkénti területi beállítások felülbírálása visszaállítva a LANG "
+"követésére"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:469
 #: usr/share/archlinux-tweak-tool/locale_settings.py:470
@@ -3773,7 +3777,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/locale_settings.py:510
 #, python-brace-format
 msgid "No TTY keymap matching '{layout}'"
-msgstr "Nincs '{layout}' kiosztásnak megfelelő TTY-billentyűkiosztás"
+msgstr "Nincs a(z) '{layout}' kiosztásnak megfelelő TTY-billentyűkiosztás"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:534
 #: usr/share/archlinux-tweak-tool/locale_settings.py:537
@@ -4055,7 +4059,7 @@ msgstr "Az archlinux-keyring csomag letöltése..."
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:591
 msgid "Download completed, installing package..."
-msgstr "A letöltés kész, a csomag telepítése..."
+msgstr "A letöltés befejeződött, a csomag telepítése folyamatban van..."
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:594
 msgid "No files found after download"
@@ -4240,17 +4244,16 @@ msgid ""
 "\n"
 "Proceed anyway?"
 msgstr ""
-"Aktív egy valódi swap partíció:\n"
+"Aktív egy valódi swap-partíció:\n"
 "  {swap}\n"
 "\n"
-"Ha a lemezre alvást (hibernálást) használod, a „resume” hook eltávolítása "
-"elrontja.\n"
+"Ha hibernálást használsz, a „resume” hook eltávolítása ellehetetleníti azt.\n"
 "\n"
 "Mégis folytatod?"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:977
 msgid "Hibernation may be in use"
-msgstr "A hibernálás lehet, hogy használatban van"
+msgstr "Lehet, hogy használod a hibernálást"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:986
 #, python-brace-format
@@ -4285,7 +4288,7 @@ msgstr "megvan"
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:35
 #, python-brace-format
 msgid "{swap}  (hibernation may be in use)"
-msgstr "{swap}  (a hibernálás lehet, hogy használatban van)"
+msgstr "{swap}  (lehet, hogy használod a hibernálást)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:37
 msgid "none (ZRAM-only or no swap)"
@@ -4364,7 +4367,7 @@ msgstr "A legjobb kulcsszerverek lekérése a ~/.gnupg/gpg.conf fájlhoz"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:203
 msgid "Set the mainstream servers from Arch Linux"
-msgstr "Az Arch Linux fő szervereinek beállítása"
+msgstr "Az Arch Linux fő tükörszervereinek beállítása"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:204
 msgid "Set mainstream"
@@ -4473,7 +4476,7 @@ msgstr "Initramfs újragenerálása"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:506
 msgid "Mirrors"
-msgstr "Tükrök"
+msgstr "A tükörszerverek"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:507
 msgid "Keys & GPG"
@@ -4733,7 +4736,7 @@ msgstr "A Samba újraindítása (smb + nmb)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:324
 msgid "You can now reboot and enjoy the <b>'Shared'</b> folder"
-msgstr "Most újraindíthatod a gépet, és élvezheted a <b>„Shared”</b> mappát"
+msgstr "Most újraindíthatod a gépet, és használhatod a <b>„Shared”</b> mappát."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:349
 msgid "<b>Firewall</b>"
@@ -4923,16 +4926,16 @@ msgid ""
 " A list of installed packages will be exported to <b>.config/archlinux-tweak-"
 "tool/packages</b>"
 msgstr ""
-" <b>Egyetlen AUR-csomag sem kerül exportálásra</b>\n"
+"<b>Egyetlen AUR-csomag sem kerül exportálásra</b>\n"
 " - Beállítás: <b>Kifejezetten telepített csomagok</b> (ajánlott): csak a "
-"szinkronizált adatbázisban található csomagok (kevesebb csomag)\n"
-" - Beállítás: <b>Az összes telepített csomag</b> a rendszeren jelenleg "
-"telepített összes csomagot exportálja \n"
-" - Tipp: az AUR-ból telepített csomagok terminálban való megtekintéséhez írd "
-"be: pacman -Qqem\n"
+"szinkronizált adatbázisban szereplő csomagokat exportálja (kevesebb csomag)\n"
+" - Beállítás: <b>Az összes telepített csomag</b>: a rendszeren jelenleg "
+"telepített összes csomagot exportálja\n"
+" - Tipp: az AUR-ból telepített csomagok megtekintéséhez írd be a terminálba: "
+"pacman -Qqem\n"
 "\n"
-" A telepített csomagok listája a <b>.config/archlinux-tweak-tool/packages</"
-"b> fájlba kerül exportálásra"
+" A program a telepített csomagok listáját a <b>.config/archlinux-tweak-tool/"
+"packages</b> fájlba exportálja."
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:44
 msgid "<b> Install Packages</b>"
@@ -5017,7 +5020,7 @@ msgstr "<b>A debug rendben</b>"
 #: usr/share/archlinux-tweak-tool/packages_gui.py:251
 #: usr/share/archlinux-tweak-tool/packages_gui.py:260
 msgid "Debug not ok"
-msgstr "A debug nem rendben"
+msgstr "A debug nincs rendben"
 
 #: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:22
 msgid "Arch Linux Tweak Tool: Confirm package installation"
@@ -5113,7 +5116,7 @@ msgstr "Terminál megnyitása a yay-git telepítéséhez"
 
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:248
 msgid "Opening terminal to build yay-git"
-msgstr "Terminál megnyitása a yay-git építéséhez"
+msgstr "A terminál megnyitása a yay-git fordításához"
 
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:261
 msgid "Opening terminal to install paru-git"
@@ -5121,7 +5124,7 @@ msgstr "Terminál megnyitása a paru-git telepítéséhez"
 
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:272
 msgid "Opening terminal to build paru-git"
-msgstr "Terminál megnyitása a paru-git építéséhez"
+msgstr "A terminál megnyitása a paru-git fordításához"
 
 #: usr/share/archlinux-tweak-tool/pacman_functions.py:298
 msgid "Installing Nemesis keyring and mirrorlist..."
@@ -5168,11 +5171,11 @@ msgstr "A helyi pacman visszaállítása"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
-msgstr "A pacman ATT-s alaphelyzetbe állítása"
+msgstr "Pacman-beállítások visszaállítása az ATT-ben"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:96
 msgid "Blank pacman (auto reboot) and select"
-msgstr "Üres pacman (automatikus újraindítás), és kiválasztás"
+msgstr "Pacman-konfiguráció ürítése (automatikus újraindítás) és kiválasztás"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:98
 msgid "Edit pacman.conf in terminal"
@@ -5216,7 +5219,7 @@ msgstr "A Nemesis tároló engedélyezése"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:151
 msgid "Enable Chaotic-Aur repo"
-msgstr "A Chaotic-Aur tároló engedélyezése"
+msgstr "A Chaotic-AUR tároló engedélyezése"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:156
 msgid "Enable CachyOS repo"
@@ -5232,11 +5235,11 @@ msgstr "<b>AUR-segéd</b>"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: disabled"
-msgstr "Chaotic-Aur tároló: letiltva"
+msgstr "Chaotic-AUR tároló: letiltva"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: enabled"
-msgstr "Chaotic-Aur tároló: engedélyezve"
+msgstr "Chaotic-AUR tároló: engedélyezve"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:353
 msgid "Nemesis repo: disabled"
@@ -5607,7 +5610,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/performance.py:1402
 #: usr/share/archlinux-tweak-tool/performance_gui.py:27
 msgid "ananicy-cpp and cachyos-ananicy-rules-git are <b>installed</b>"
-msgstr "Az ananicy-cpp és a cachyos-ananicy-rules-git <b>telepítve van</b>"
+msgstr "Az ananicy-cpp és a cachyos-ananicy-rules-git <b>telepítve vannak</b>"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1407
 #: usr/share/archlinux-tweak-tool/performance_gui.py:30
@@ -5837,9 +5840,9 @@ msgid ""
 msgstr ""
 "\n"
 "<b>{reserved} mag szabadon marad</b>\n"
-"A <tt>-j{jobs}</tt> {reserved} magot meghagy az asztalnak, így a felület és "
-"egy\n"
-"Bluetooth-egér akkor is reagál, amíg egy hosszú építés fut.\n"
+"A <tt>-j{jobs}</tt> {reserved} magot szabadon hagy az asztali környezet "
+"számára, így a felület és egy\n"
+"Bluetooth-egér is reagál, amíg egy hosszú fordítás tart.\n"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2243
 #, python-brace-format
@@ -5867,25 +5870,26 @@ msgid ""
 "<b>Restore backup</b> on this page to undo at any time."
 msgstr ""
 "<b>Mi változott</b>\n"
-"A(z) <tt>{conf}</tt> mostantól a <b>MAKEFLAGS=\"-j{jobs}\"</b> értéket "
+"A(z) <tt>{conf}</tt> mostantól a <b>MAKEFLAGS=\\\"-j{jobs}\\\"</b> értéket "
 "állítja be.\n"
 "Előző sor:\n"
 "<tt>{before}</tt>\n"
 "\n"
 "<b>Miért fontos</b>\n"
-"A <tt>MAKEFLAGS</tt> azt szabályozza, hány párhuzamos feladatot használ a "
+"A <tt>MAKEFLAGS</tt> szabályozza, hány párhuzamos feladatot használ a "
 "<tt>makepkg</tt>,\n"
-"ha AUR-csomagokat épít vagy forrásból fordít. Az Arch a\n"
-"<tt>#MAKEFLAGS=\"-j2\"</tt> sort kikommentezve szállítja, így az "
+"amikor AUR-csomagokat épít vagy forrásból fordít. Az Arch a\n"
+"<tt>#MAKEFLAGS=\\\"-j2\\\"</tt> sort kikommentezve szállítja, ezért az "
 "alapértelmezés\n"
-"gyakorlatilag egyszálú. A te {ncores} magos processzorodon ez sok\n"
-"sebességet veszni hagy: sok AUR-építés percekről\n"
-"másodpercekre rövidül, ha a magok munkába állnak.\n"
+"gyakorlatilag egyszálú. A te {ncores} magos processzorodon így sok\n"
+"feldolgozási teljesítmény marad kihasználatlanul: számos AUR-csomag építése "
+"percekről\n"
+"másodpercekre rövidül, ha a processzormagok dolgoznak.\n"
 "{reserve_block}\n"
 "<b>Hogyan vonhatod vissza</b>\n"
-"A mentés itt található: <tt>{backup}</tt>. Kattints a\n"
-"<b>Mentés visszaállítása</b> gombra ezen az oldalon, hogy bármikor "
-"visszavond."
+"A mentés itt található: <tt>{backup}</tt>. Kattints bármikor ezen az oldalon "
+"a\n"
+"<b>Biztonsági másolat visszaállítása</b> gombra a módosítás visszavonásához."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2274
 msgid "Tune failed — see ATT log"
@@ -5897,7 +5901,7 @@ msgstr "Nincs mentés itt: /etc/makepkg.conf-bak, nincs mit visszaállítani."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2303
 msgid "MAKEFLAGS restored — back to Arch's single-threaded default"
-msgstr "MAKEFLAGS visszaállítva: vissza az Arch egyszálú alapértelmezésére"
+msgstr "MAKEFLAGS visszaállítva: az Arch egyszálú alapértelmezett beállítására"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2307
 msgid "MAKEFLAGS restored from backup"
@@ -6157,7 +6161,7 @@ msgstr "MAKEFLAGS: …"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:570
 #, python-brace-format
 msgid "Optimize for all {ncores_detected} cores"
-msgstr "Optimalizálás mind a(z) {ncores_detected} magra"
+msgstr "Az összes {ncores_detected} mag használata"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:575
 #, python-brace-format
@@ -6205,12 +6209,13 @@ msgid ""
 "Every step is shown in the terminal — prompts ask before destructive cleanup."
 msgstr ""
 "A telepítés hozzáadja a plymouth hookot az <tt>/etc/mkinitcpio.conf</tt> "
-"fájlhoz, és újraépíti az initramfs-t.\n"
+"fájlhoz, majd újraépíti az initramfs-t.\n"
 "Az eltávolítás kiveszi a hookot, igény szerint törli a <tt>quiet splash</tt> "
 "beállítást a kernel parancssorából,\n"
-"igény szerint eltávolítja a <tt>plymouth-theme-*</tt> csomagokat, és "
+"igény szerint eltávolítja a <tt>plymouth-theme-*</tt> csomagokat, majd "
 "újraépíti az initramfs-t.\n"
-"Minden lépés látszik a terminálban: a romboló takarítás előtt rákérdez."
+"Minden lépés megjelenik a terminálban: a rendszer módosítása előtt "
+"megerősítést kér."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:59
 msgid "Install Plymouth"
@@ -6339,12 +6344,13 @@ msgstr "Észlelt videokártya"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:258
 msgid "Not detected"
-msgstr "Nem észlelhető"
+msgstr "Nincs észlelve"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:272
 #, python-brace-format
 msgid "Add {module} to MODULES and rebuild initramfs"
-msgstr "A(z) {module} hozzáadása a MODULES-hoz és az initramfs újraépítése"
+msgstr ""
+"A(z) {module} hozzáadása a MODULES listához és az initramfs újraépítése"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:282
 msgid ""
@@ -6439,8 +6445,8 @@ msgid ""
 "Applying a theme sets it with <tt>plymouth-set-default-theme</tt> then\n"
 "rebuilds the initramfs with <tt>{command}</tt>. This takes a few seconds."
 msgstr ""
-"A téma alkalmazása beállítja a <tt>plymouth-set-default-theme</tt> "
-"paranccsal, majd\n"
+"A téma alkalmazásakor a <tt>plymouth-set-default-theme</tt> paranccsal "
+"állítja be a témát, majd\n"
 "újraépíti az initramfs-t a(z) <tt>{command}</tt> paranccsal. Ez néhány "
 "másodpercig tart."
 
@@ -6529,7 +6535,7 @@ msgstr "A(z) {module} hozzáadása a MODULES-hoz..."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:1146
 msgid "Patching GRUB config and regenerating..."
-msgstr "A GRUB-konfiguráció javítása és újragenerálása..."
+msgstr "A GRUB-konfiguráció módosítása és újragenerálása..."
 
 #: usr/share/archlinux-tweak-tool/privacy.py:16
 #, python-brace-format
@@ -6890,7 +6896,7 @@ msgstr ""
 "• Elmenti a jelenlegi /etc/sddm.conf.d/ beállításaidat\n"
 "• Alkalmazza a Kiro alapértelmezett SDDM-konfigurációját\n"
 "\n"
-"A jelenlegi beállításaid mentésként elmentődnek, mielőtt bármi módosulna."
+"A módosítások előtt biztonsági másolat készül a jelenlegi beállításaidról."
 
 #: usr/share/archlinux-tweak-tool/sddm.py:1033
 msgid "Fix SDDM Configuration"
@@ -6906,11 +6912,11 @@ msgstr "Az SDDM-konfiguráció kijavítva"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:17
 msgid "Sddm (active)"
-msgstr "Sddm (aktív)"
+msgstr "SDDM (aktív)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:19
 msgid "Sddm (inactive)"
-msgstr "Sddm (inaktív)"
+msgstr "SDDM (inaktív)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:31
 msgid "Configuration Setup"
@@ -6937,12 +6943,12 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:48
 msgid "Apply the Sddm configuration from ATT - auto restart ATT"
 msgstr ""
-"Az ATT Sddm-konfigurációjának alkalmazása - az ATT automatikusan újraindul"
+"Az ATT SDDM-konfigurációjának alkalmazása: az ATT automatikusan újraindul"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:51
 msgid "Apply your original Sddm configuration - auto restart ATT"
 msgstr ""
-"Az eredeti Sddm-konfiguráció alkalmazása - az ATT automatikusan újraindul"
+"Az eredeti SDDM-konfigurációd alkalmazása: az ATT automatikusan újraindul"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:72
 msgid "Login Settings"
@@ -6998,7 +7004,7 @@ msgstr "Háttérkép a(z) {theme} témához"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:210
 msgid "Set background wallpaper for the Simplicity Sddm theme"
-msgstr "Háttérkép beállítása a Simplicity Sddm témához"
+msgstr "Háttérkép beállítása a Simplicity SDDM-témához"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:214
 msgid "Install Simplicity theme"
@@ -7041,7 +7047,7 @@ msgstr "Elérhető SDDM-témák"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:362
 msgid "Include AUR packages"
-msgstr "AUR-csomagok belevétele"
+msgstr "AUR-csomagok megjelenítése"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:375
 msgid "Sort by recently updated (AUR)"
@@ -7071,11 +7077,11 @@ msgstr "Eltávolítás: {name}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:569
 msgid "Sddm is not installed"
-msgstr "Az Sddm nincs telepítve"
+msgstr "Az SDDM nincs telepítve"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:580
 msgid "<b>Sddm does not seem to be installed</b>"
-msgstr "<b>Úgy tűnik, az Sddm nincs telepítve</b>"
+msgstr "<b>Úgy tűnik, az SDDM nincs telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:583
 msgid "Install sddm-git and enable it"
@@ -7198,15 +7204,15 @@ msgstr "   A bluetooth-autoconnect telepítése"
 
 #: usr/share/archlinux-tweak-tool/services.py:481
 msgid "Bluetooth has been enabled"
-msgstr "A Bluetooth engedélyezve"
+msgstr "A Bluetooth engedélyezve van"
 
 #: usr/share/archlinux-tweak-tool/services.py:492
 msgid "Bluetooth has been disabled"
-msgstr "A Bluetooth letiltva"
+msgstr "A Bluetooth le van tiltva"
 
 #: usr/share/archlinux-tweak-tool/services.py:503
 msgid "Bluetooth has been restarted"
-msgstr "A Bluetooth újraindítva"
+msgstr "A Bluetooth újra lett indítva"
 
 #: usr/share/archlinux-tweak-tool/services.py:511
 msgid "Opening terminal to install cups..."
@@ -7214,7 +7220,7 @@ msgstr "Terminál megnyitása a cups telepítéséhez..."
 
 #: usr/share/archlinux-tweak-tool/services.py:521
 msgid "CUPS installed"
-msgstr "A CUPS telepítve"
+msgstr "A CUPS telepítve van"
 
 #: usr/share/archlinux-tweak-tool/services.py:522
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
@@ -7290,8 +7296,8 @@ msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
 "<b>Installed</b>"
 msgstr ""
-"   Gyakori nyomtatóillesztők telepítése (foomatic, gutenprint, ...) - "
-"<b>Telepítve</b>"
+"• Gyakori nyomtató-illesztőprogramok telepítése (foomatic, gutenprint, ...) "
+"• <b>Telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:691
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
@@ -7320,7 +7326,7 @@ msgstr "A system-config-printer telepítve"
 
 #: usr/share/archlinux-tweak-tool/services.py:744
 msgid "Install System-config-printer - <b>Installed</b>"
-msgstr "A System-config-printer telepítése - <b>Telepítve</b>"
+msgstr "A System-config-printer telepítése: <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:749
 msgid "system-config-printer installation failed or was cancelled"
@@ -7417,7 +7423,7 @@ msgstr "A samba.conf megnyitása terminálban nanóval"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:36
 msgid "Install system-config-printer - <b>Installed</b>"
-msgstr "A system-config-printer telepítése - <b>Telepítve</b>"
+msgstr "A system-config-printer telepítése: <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:38
 #: usr/share/archlinux-tweak-tool/services_gui.py:191
@@ -7519,12 +7525,12 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/services_gui.py:305
 #: usr/share/archlinux-tweak-tool/services_gui.py:306
 msgid "Install and switch to Pulseaudio"
-msgstr "A Pulseaudio telepítése és átváltás rá"
+msgstr "Telepítsd a PulseAudiót, és válts rá"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:318
 #: usr/share/archlinux-tweak-tool/services_gui.py:319
 msgid "Install and switch to Pipewire"
-msgstr "A Pipewire telepítése és átváltás rá"
+msgstr "Telepítsd a PipeWire-t, és válts rá"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:346
 #, python-brace-format
@@ -7545,13 +7551,13 @@ msgid ""
 "Reconnect paired headsets at login (AutoEnable). Works with PipeWire and "
 "PulseAudio."
 msgstr ""
-"A párosított fejhallgatók újracsatlakoztatása bejelentkezéskor (AutoEnable). "
-"PipeWire-rel és PulseAudióval működik."
+"Bejelentkezéskor csatlakoztasd újra a párosított fejhallgatókat "
+"(AutoEnable). PipeWire-rel és PulseAudio-val működik."
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:429
 msgid "You can install all the bluetooth packages here and enable the service."
 msgstr ""
-"Itt telepítheted az összes bluetooth-csomagot, és engedélyezheted a "
+"Itt telepítheted az összes Bluetooth-csomagot, és engedélyezheted a "
 "szolgáltatást."
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:437
@@ -7565,7 +7571,7 @@ msgstr "Bluetooth eltávolítása"
 #: usr/share/archlinux-tweak-tool/services_gui.py:454
 msgid "Choose one of these tools to connect to your bluetooth devices:"
 msgstr ""
-"Válassz egyet ezek közül az eszközök közül a bluetooth-eszközeidhez való "
+"Válassz egyet ezek közül az eszközök közül a Bluetooth-eszközeidhez való "
 "csatlakozáshoz:"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:462
@@ -8257,23 +8263,24 @@ msgid ""
 "\n"
 "<i>Your fish config is always backed up before any change.</i>"
 msgstr ""
-"<b>Állítsd be a fish shelled kattintásokkal: nem kell konfigurációs fájlokat "
-"szerkesztened.</b>\n"
+"<b>Állítsd be a fish shellt néhány kattintással: nem kell konfigurációs "
+"fájlokat szerkesztened.</b>\n"
 "\n"
-"• <b>Előbeállítások</b>: egy egész megjelenés (prompt + bővítmények + téma + "
-"üdvözlés) alkalmazása egy kattintással\n"
-"• <b>Promptok</b>: Tide, Hydro vagy Pure telepítése, vagy beépített stílus "
-"választása (egyszerre egy aktív)\n"
-"• <b>Bővítmények</b>: a nélkülözhetetlenek kapcsolása a fisheren át: fzf, "
-"autopair, sponge, puffer-fish\n"
-"• <b>Témák</b>: 25 színtéma élő előnézettel lebegtetéskor, sötét / világos "
-"változatokban\n"
-"• <b>Beállítások</b>: üdvözlés (fastfetch vagy egyéni), kurzoralak, "
-"egykattintásos mentés &amp; visszaállítás\n"
-"• <b>Nincs fekete doboz</b>: minden módosítás terminálban fut, így látod a "
-"pontos parancsot\n"
+"• <b>Előbeállítások</b>: egy teljes megjelenés (prompt + bővítmények + téma "
+"+ üdvözlés) alkalmazása egy kattintással\n"
+"• <b>Promptok</b>: telepítsd a Tide, Hydro vagy Pure promptot, vagy válassz "
+"egy beépített stílust (egyszerre csak egy lehet aktív)\n"
+"• <b>Bővítmények</b>: a nélkülözhetetlenek be- és kikapcsolása a fisherrel: "
+"fzf, autopair, sponge, puffer-fish\n"
+"• <b>Témák</b>: 25 színtéma élő előnézettel rámutatáskor, sötét és világos "
+"változatokkal\n"
+"• <b>Beállítások</b>: üdvözlés (fastfetch vagy egyéni), kurzor alakja, "
+"mentés és visszaállítás egy kattintással\n"
+"• <b>Nincs fekete doboz</b>: minden módosítás terminálban fut, így láthatod "
+"a pontos parancsot\n"
 "\n"
-"<i>A fish-konfigurációdról minden módosítás előtt mentés készül.</i>"
+"<i>A fish konfigurációjáról minden módosítás előtt biztonsági másolat készül."
+"</i>"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:645
 msgid ""
@@ -8337,7 +8344,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:787
 msgid "<b>Alacritty Tweak Tool - Tab preview</b>"
-msgstr "<b>Alacritty Tweak Tool - Fül előnézete</b>"
+msgstr "<b>Alacritty Tweak Tool: fül előnézete</b>"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:797
 msgid "Appearance"
@@ -8393,7 +8400,7 @@ msgstr "EXTRA"
 #: usr/share/archlinux-tweak-tool/software.py:23
 #: usr/share/archlinux-tweak-tool/software.py:52
 msgid "Pamac launched"
-msgstr "A Pamac elindítva"
+msgstr "A pamac elindítva"
 
 #: usr/share/archlinux-tweak-tool/software.py:27
 msgid "pamac-aur installation started"
@@ -8401,11 +8408,11 @@ msgstr "A pamac-aur telepítése elindult"
 
 #: usr/share/archlinux-tweak-tool/software.py:41
 msgid "Pamac - GUI package manager <b>installed</b>"
-msgstr "Pamac - grafikus csomagkezelő <b>telepítve</b>"
+msgstr "pamac: grafikus csomagkezelő <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:43
 msgid "pamac-aur installed"
-msgstr "a pamac-aur telepítve"
+msgstr "A pamac-aur telepítve van"
 
 #: usr/share/archlinux-tweak-tool/software.py:75
 #: usr/share/archlinux-tweak-tool/software.py:104
@@ -8418,11 +8425,11 @@ msgstr "Az octopi telepítése elindult"
 
 #: usr/share/archlinux-tweak-tool/software.py:94
 msgid "Octopi - GUI package manager <b>installed</b>"
-msgstr "Octopi - grafikus csomagkezelő <b>telepítve</b>"
+msgstr "Octopi: grafikus csomagkezelő <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:96
 msgid "octopi installed"
-msgstr "az octopi telepítve"
+msgstr "Az octopi telepítve van"
 
 #: usr/share/archlinux-tweak-tool/software.py:128
 #: usr/share/archlinux-tweak-tool/software.py:161
@@ -8436,13 +8443,13 @@ msgstr "A bazaar telepítése elindult"
 #: usr/share/archlinux-tweak-tool/software.py:145
 #: usr/share/archlinux-tweak-tool/software_gui.py:82
 msgid "Bazaar <b>installed</b>"
-msgstr "Bazaar <b>telepítve</b>"
+msgstr "A Bazaar <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:149
 #: usr/share/archlinux-tweak-tool/software.py:684
 #: usr/share/archlinux-tweak-tool/software_gui.py:328
 msgid "Flatpak - Manage Flatpak apps <b>installed</b>"
-msgstr "Flatpak - Flatpak-alkalmazások kezelése <b>telepítve</b>"
+msgstr "Flatpak: Flatpak-alkalmazások kezelése <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:151
 msgid "bazaar installed"
@@ -8460,7 +8467,7 @@ msgstr "A shelly telepítése elindult"
 #: usr/share/archlinux-tweak-tool/software.py:203
 #: usr/share/archlinux-tweak-tool/software_gui.py:104
 msgid "Shelly - Modern package manager <b>installed</b>"
-msgstr "Shelly - modern csomagkezelő <b>telepítve</b>"
+msgstr "Shelly: modern csomagkezelő <b>telepítve van</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:205
 msgid "shelly installed"
@@ -8511,8 +8518,8 @@ msgstr "A PacHub elindítva"
 #: usr/share/archlinux-tweak-tool/software.py:394
 msgid "No AUR helper found — install yay, paru, trizen or pikaur first"
 msgstr ""
-"Nem található AUR-segéd: előbb telepítsd a yay-t, paru-t, trizent vagy "
-"pikaurt"
+"Nem található AUR-segéd: előbb telepítsd a yay-t, paru-t, trizen-t vagy "
+"pikaur-t"
 
 #: usr/share/archlinux-tweak-tool/software.py:399
 msgid "pachub installation started"
@@ -8541,7 +8548,7 @@ msgid ""
 "Build <b>yay-git</b> from AUR instead?\n"
 "(git clone + makepkg — takes a few minutes)"
 msgstr ""
-"A <b>yay-git</b> építése helyette az AUR-ból?\n"
+"Inkább az AUR-ból építsd a <b>yay-git</b>-et?\n"
 "(git clone + makepkg: néhány percig tart)"
 
 #: usr/share/archlinux-tweak-tool/software.py:434
@@ -8563,7 +8570,7 @@ msgid ""
 "Build <b>paru-git</b> from AUR instead?\n"
 "(git clone + makepkg — takes a few minutes)"
 msgstr ""
-"A <b>paru-git</b> építése helyette az AUR-ból?\n"
+"Inkább az AUR-ból építsd a <b>paru-git</b>-et?\n"
 "(git clone + makepkg: néhány percig tart)"
 
 #: usr/share/archlinux-tweak-tool/software.py:469
@@ -8729,8 +8736,8 @@ msgstr "a flatpak eltávolítása kész"
 #: usr/share/archlinux-tweak-tool/software.py:837
 msgid "No AUR helper found - install yay, paru, trizen or pikaur first"
 msgstr ""
-"Nem található AUR-segéd: előbb telepítsd a yay-t, paru-t, trizent vagy "
-"pikaurt"
+"Nem található AUR-segéd: előbb telepítsd a yay-t, paru-t, trizen-t vagy "
+"pikaur-t"
 
 #: usr/share/archlinux-tweak-tool/software.py:771
 msgid "snapd installation started"
@@ -8953,7 +8960,7 @@ msgstr "A kiro-powermenu telepítése elindult"
 
 #: usr/share/archlinux-tweak-tool/software.py:1173
 msgid "powermenu - Power menu for twms <b>installed</b>"
-msgstr "powermenu - kilépési menü csempéző ablakkezelőkhöz <b>telepítve</b>"
+msgstr "powermenu - műveletmenü csempéző ablakkezelőkhöz <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1175
 msgid "kiro-powermenu installed"
@@ -8965,7 +8972,7 @@ msgstr "A kiro-powermenu eltávolítása elindult"
 
 #: usr/share/archlinux-tweak-tool/software.py:1197
 msgid "powermenu - Power menu for twms"
-msgstr "powermenu - kilépési menü csempéző ablakkezelőkhöz"
+msgstr "powermenu - műveletmenü csempéző ablakkezelőkhöz"
 
 #: usr/share/archlinux-tweak-tool/software.py:1199
 msgid "kiro-powermenu removal complete"
@@ -9037,9 +9044,9 @@ msgid ""
 msgstr ""
 "<i>Az AUR egy <b>közösségi</b> tároló: a csomagokat a felhasználók töltik "
 "fel, és az Arch vagy a Kiro\n"
-"<b>nem vizsgálja át</b> őket. Kódot építenek és futtatnak a rendszereden, "
-"ezért csak azt telepítsd,\n"
-"amiben megbízol, és előbb a hivatalos tárolókhoz nyúlj.</i>"
+"<b>nem vizsgálja át</b> őket. A csomagok kódot fordíthatnak le és "
+"futtathatnak a rendszereden, ezért csak azt telepítsd,\n"
+"amiben megbízol, és először a hivatalos tárolókat részesítsd előnyben.</i>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:318
 msgid "<b>Flatpak / Snap / AppImage</b>"
@@ -9055,11 +9062,11 @@ msgstr "<b>Kijelentkezéskezelők</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:486
 msgid "powermenu - Power menu for i3/sway <b>installed</b>"
-msgstr "powermenu - kilépési menü i3/sway-hez <b>telepítve</b>"
+msgstr "powermenu - műveletmenü i3/sway-hez <b>telepítve</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:488
 msgid "powermenu - Power menu for i3/sway"
-msgstr "powermenu - kilépési menü i3/sway-hez"
+msgstr "powermenu - műveletmenü i3/sway-hez"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:513
 msgid "<b>Nano Editor</b>"
@@ -9112,17 +9119,19 @@ msgid ""
 " gone now (the full list minus what's still installed). Import either on a "
 "future install to re-remove."
 msgstr ""
-" Távolítsd el a rendszerrel érkezett választható alkalmazásokat, kategóriák "
+"Távolítsd el a rendszerrel érkezett választható alkalmazásokat kategóriák "
 "szerint csoportosítva.\n"
-" Minden szakasz balra a <b>még telepített</b> alkalmazásokat mutatja (jelöld "
-"be az eltávolításhoz), jobbra az <b>már eltávolítottakat</b> (jelöld be az "
-"újratelepítéshez).\n"
-" Jelölj be egy <b>kategóriát</b> az összes alkalmazásának kijelöléséhez, "
-"majd szedd ki a jelölést azokról, amelyeket meg akarsz tartani.\n"
-" A <b>Profil mentése</b> a jelenlegi kijelölésedet tárolja. Az "
-"<b>Eltávolítottak listájának mentése</b> azt rögzíti, ami ténylegesen\n"
-" már eltűnt (a teljes lista mínusz ami még telepítve van). Bármelyiket "
-"importálhatod egy későbbi telepítéskor az újbóli eltávolításhoz."
+" Minden szakaszban bal oldalon a <b>még telepített</b> alkalmazásokat látod "
+"(jelöld be őket az eltávolításhoz), jobb oldalon pedig a <b>már "
+"eltávolítottakat</b> (jelöld be őket az újratelepítéshez).\n"
+" Jelölj be egy <b>kategóriát</b> az összes alkalmazás kijelöléséhez, majd "
+"vedd ki a jelölést azok mellől, amelyeket meg akarsz tartani.\n"
+" A <b>Profil mentése</b> elmenti a jelenlegi kijelölést. Az "
+"<b>Eltávolítottak listájának mentése</b> rögzíti, hogy mely alkalmazások "
+"vannak ténylegesen eltávolítva\n"
+"(a teljes listából kihagyva azokat, amelyek még telepítve vannak). "
+"Bármelyiket importálhatod egy későbbi telepítéskor az alkalmazások ismételt "
+"eltávolításához."
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:43
 msgid "Also remove unused dependencies (-Rns)"
@@ -9454,7 +9463,7 @@ msgstr "Engedélyezett systemd-időzítők"
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:253
 msgid "Kernel Ring Buffer (dmesg)"
-msgstr "Kernel gyűrűpuffer (dmesg)"
+msgstr "Kernelüzenet-puffer (dmesg)"
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:315
 msgid "<b>Firmware</b>"
@@ -9591,10 +9600,10 @@ msgid ""
 "changes..\n"
 "First install the desktop via the Desktop menu then theme it."
 msgstr ""
-"A módosítások után töltsd újra az ablakkezelődet a <b>Super + Shift + R</b> "
-"billentyűkkel..\n"
-"Előbb telepítsd az asztali környezetet az Asztali környezet menün át, majd "
-"témázd."
+"A módosítások után töltsd újra az ablakkezelőt a <b>Super + Shift + R</b> "
+"billentyűkombinációval.\n"
+"Előbb telepítsd az asztali környezetet az Asztali környezet menüben, majd "
+"válassz hozzá témát."
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:148
 #: usr/share/archlinux-tweak-tool/themer_gui.py:237
@@ -9734,10 +9743,11 @@ msgid ""
 "every user, and partly restyles libadwaita apps.\n"
 "Leave it on None to let each user's own theme settings decide."
 msgstr ""
-"Opcionális felülbírálás: a GTK_THEME ezt az egy témát kényszeríti minden GTK-"
-"alkalmazásra, minden felhasználónál, és részben újrastílusozza a libadwaita-"
-"alkalmazásokat.\n"
-"Hagyd Nincs értéken, hogy minden felhasználó saját témabeállítása döntsön."
+"Opcionális felülbírálás: a GTK_THEME minden felhasználó minden GTK-"
+"alkalmazására ezt a témát kényszeríti, és részben megváltoztatja a "
+"libadwaita-alkalmazások megjelenését.\n"
+"Hagyd a Nincs értéken, hogy az egyes felhasználók saját témabeállításai "
+"érvényesüljenek."
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:88
 msgid ""
@@ -9846,7 +9856,7 @@ msgid ""
 "The following groups are used for an administrator:\n"
 "audio, video, network, storage, rfkill, wheel, autologin, sambashare"
 msgstr ""
-"A következő csoportokat használja egy rendszergazda:\n"
+"A rendszergazdai fiókhoz a következő csoportok tartoznak:\n"
 "audio, video, network, storage, rfkill, wheel, autologin, sambashare"
 
 #: usr/share/archlinux-tweak-tool/user_gui.py:91
@@ -9923,7 +9933,7 @@ msgstr "A(z) {name} nincs az automatikus indításban"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "Az ATT variety-konfigurációja nem található az adatmappában"
+msgstr "Az ATT Variety-konfigurációja nem található az adatmappában"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -10076,9 +10086,9 @@ msgid ""
 "<span foreground=\"#888888\">DankMaterialShell editions use Quickshell; "
 "Noctalia and Noctura use a conflicting Quickshell fork (noctalia-qs).</span>"
 msgstr ""
-"<span foreground=\"#888888\">A DankMaterialShell kiadások a Quickshellt "
-"használják; a Noctalia és a Noctura a Quickshell egy ütköző forkját "
-"(noctalia-qs).</span>"
+"<span foreground=\"#888888\">A DankMaterialShell kiadásai a Quickshellt "
+"használják; a Noctalia és a Noctura egy ütköző Quickshell-forkot (noctalia-"
+"qs) használ.</span>"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:48
 msgid "Select at least one window manager"
@@ -10166,7 +10176,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/zsh_theme.py:66
 msgid "Error!!"
-msgstr "Hiba!!"
+msgstr "Hiba!"
 
 #: usr/share/archlinux-tweak-tool/zsh_theme.py:66
 msgid "Something went wrong setting this theme."

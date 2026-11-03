@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -70,7 +70,7 @@ msgstr "{name} <b>instalat</b>"
 #: usr/share/archlinux-tweak-tool/wallpaper.py:147
 #, python-brace-format
 msgid "{name} launched"
-msgstr "{name} lansat"
+msgstr "{name} a fost lansat"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:99
 #: usr/share/archlinux-tweak-tool/backup.py:51
@@ -130,7 +130,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility.py:287
 #, python-brace-format
 msgid "Installing {name} (keyboard accessibility)..."
-msgstr "Se instalează {name} (accesibilitate tastatură)..."
+msgstr "Se instalează {name} (accesibilitatea tastaturii)..."
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:59
 #, python-brace-format
@@ -251,7 +251,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:144
 msgid "Install high-contrast &amp; large-text GTK themes (gnome-themes-extra)"
 msgstr ""
-"Instalează teme GTK cu contrast ridicat &amp; text mare (gnome-themes-extra)"
+"Instalează teme GTK cu contrast ridicat și text mare (gnome-themes-extra)"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:149
 #: usr/share/archlinux-tweak-tool/ai.py:82
@@ -331,9 +331,9 @@ msgid ""
 "(or equivalent autostart script).</i>"
 msgstr ""
 "<i>Comutatoarele se aplică imediat și sunt salvate pentru următoarea "
-"autentificare. Pe un manager de ferestre tiling care ignoră XDG autostart, "
-"adaugă linia xkbset echivalentă în run.sh (sau în scriptul tău echivalent de "
-"pornire automată).</i>"
+"autentificare. Pe un manager de ferestre cu aranjare în mozaic care ignoră "
+"XDG autostart, adaugă linia xkbset echivalentă în run.sh (sau în scriptul "
+"tău echivalent de pornire automată).</i>"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:276
 msgid "<b>What these do</b>"
@@ -360,8 +360,8 @@ msgid ""
 "ignores repeated presses of the same key in quick succession (accidental "
 "double-strikes)."
 msgstr ""
-"ignoră apăsările repetate ale aceleiași taste în succesiune rapidă (lovituri "
-"duble accidentale)."
+"ignoră apăsările repetate ale aceleiași taste într-un interval scurt "
+"(apăsări duble accidentale)."
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:288
 msgid ""
@@ -435,7 +435,7 @@ msgstr "Instalarea jan a început"
 #: usr/share/archlinux-tweak-tool/ai.py:186
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI"
-msgstr "aichat - CLI LLM totul-în-unu"
+msgstr "aichat - CLI LLM multifuncțional"
 
 #: usr/share/archlinux-tweak-tool/ai.py:188
 msgid "aichat removal complete"
@@ -448,7 +448,7 @@ msgstr "Eliminarea aichat a început"
 #: usr/share/archlinux-tweak-tool/ai.py:205
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI <b>installed</b>"
-msgstr "aichat - CLI LLM totul-în-unu <b>instalat</b>"
+msgstr "aichat - CLI LLM multifuncțional <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:207
 msgid "aichat installation complete"
@@ -483,7 +483,7 @@ msgstr "Nu s-a găsit niciun asistent AUR. Instalează mai întâi yay sau paru.
 #: usr/share/archlinux-tweak-tool/ai.py:258
 #: usr/share/archlinux-tweak-tool/ai_gui.py:64
 msgid "Open WebUI - Browser UI for Ollama <b>installed</b>"
-msgstr "Open WebUI - Interfață în browser pentru Ollama <b>instalat</b>"
+msgstr "Open WebUI - Interfață în browser pentru Ollama <b>instalată</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:261
 msgid "open-webui installation complete"
@@ -496,7 +496,7 @@ msgstr "Instalarea open-webui a început"
 #: usr/share/archlinux-tweak-tool/ai.py:315
 #: usr/share/archlinux-tweak-tool/ai_gui.py:124
 msgid "Claude Code - Anthropic CLI"
-msgstr "Claude Code - CLI Anthropic"
+msgstr "Claude Code - CLI-ul Anthropic"
 
 #: usr/share/archlinux-tweak-tool/ai.py:317
 msgid "claude-code removal complete"
@@ -509,7 +509,7 @@ msgstr "Eliminarea claude-code a început"
 #: usr/share/archlinux-tweak-tool/ai.py:339
 #: usr/share/archlinux-tweak-tool/ai_gui.py:124
 msgid "Claude Code - Anthropic CLI <b>installed</b>"
-msgstr "Claude Code - CLI Anthropic <b>instalat</b>"
+msgstr "Claude Code - CLI-ul Anthropic <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:341
 msgid "claude-code installation complete"
@@ -612,7 +612,7 @@ msgstr "Instalarea antigravity-cli a început"
 #: usr/share/archlinux-tweak-tool/ai.py:538
 #: usr/share/archlinux-tweak-tool/ai_gui.py:226
 msgid "Antigravity (previous gemini)"
-msgstr "Antigravity (fostul gemini)"
+msgstr "Antigravity (fostul Gemini)"
 
 #: usr/share/archlinux-tweak-tool/ai.py:540
 msgid "antigravity removal complete"
@@ -625,7 +625,7 @@ msgstr "Eliminarea antigravity a început"
 #: usr/share/archlinux-tweak-tool/ai.py:562
 #: usr/share/archlinux-tweak-tool/ai_gui.py:226
 msgid "Antigravity (previous gemini) <b>installed</b>"
-msgstr "Antigravity (fostul gemini) <b>instalat</b>"
+msgstr "Antigravity (fostul Gemini) <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:565
 msgid "antigravity installation complete"
@@ -638,7 +638,7 @@ msgstr "Instalarea antigravity a început"
 #: usr/share/archlinux-tweak-tool/ai.py:591
 #: usr/share/archlinux-tweak-tool/ai_gui.py:253
 msgid "OpenCode - TUI AI coding assistant"
-msgstr "OpenCode - Asistent de programare IA în TUI"
+msgstr "OpenCode - Asistent de programare IA cu interfață TUI"
 
 #: usr/share/archlinux-tweak-tool/ai.py:593
 msgid "OpenCode removal complete"
@@ -655,7 +655,7 @@ msgstr "Eliminarea OpenCode a eșuat"
 #: usr/share/archlinux-tweak-tool/ai.py:615
 #: usr/share/archlinux-tweak-tool/ai_gui.py:253
 msgid "OpenCode - TUI AI coding assistant <b>installed</b>"
-msgstr "OpenCode - Asistent de programare IA în TUI <b>instalat</b>"
+msgstr "OpenCode - Asistent de programare IA cu interfață TUI <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:618
 msgid "OpenCode installation complete"
@@ -828,57 +828,57 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr ""
 "Copiile de rezervă ale configurației s-au încheiat. Bun venit la ArchLinux "
 "Tweak Tool!"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "Mai multe instrumente Tweak"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
 msgstr ""
-"ATT poate <b>instala și lansa și alte instrumente Tweak</b>, fiecare dedicat "
+"ATT poate <b>instala și lansa alte instrumente Tweak</b>, fiecare dedicat "
 "unei singure aplicații. Le găsești în aceste pagini:"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "alege dintre peste 300 de teme Alacritty sau creează altele noi"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shell-uri"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "Software"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "configurează ce afișează Fastfetch și cum"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "configurează shell-ul fish"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
@@ -886,20 +886,20 @@ msgstr ""
 "<i>Se instalează din depozitul Nemesis: activează-l mai întâi în pagina "
 "Pacman.</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "Nu mai afișa acest mesaj"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "Închide"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "Culorile editorului Nano"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
@@ -907,30 +907,30 @@ msgstr ""
 "ATT include un <b>nanorc colorat</b>. Fă clic pe unul pentru a-l alege: o "
 "copie de rezervă a /etc/nanorc este creată întotdeauna mai întâi."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
-msgstr "Păstrează implicitul"
+msgstr "Păstrează setarea implicită"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "Aplică culorile ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "nanorc ATT aplicat în /etc/nanorc"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "Aplicarea nanorc ATT a eșuat"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "Fișier de blocare găsit"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -942,11 +942,11 @@ msgstr ""
 "Apasă Da pentru a elimina fișierul de blocare\n"
 "și încearcă să pornești din nou ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "Kernel neacceptat"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -954,8 +954,8 @@ msgstr ""
 "Kernelul tău actual nu acceptă apelurile de bază ale funcțiilor sistemului "
 "de operare. <b>ArchLinux Tweak Tool</b> are nevoie de ele pentru a funcționa."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "Mai întâi trebuie să închizi aplicația existentă"
 
@@ -1088,8 +1088,8 @@ msgid ""
 msgstr ""
 "<b>Timeshift</b> și <b>Snapper</b> creează <b>instantanee de sistem</b> pe "
 "<b>același disc</b>.\n"
-"Ele există pentru a readuce sistemul de operare la o stare anterioară după o "
-"actualizare proastă sau un pachet defect:\n"
+"Sunt concepute pentru a readuce sistemul de operare la o stare anterioară "
+"după o actualizare proastă sau un pachet defect:\n"
 "Timeshift exclude chiar și dosarul tău home în mod implicit. Ele <b>nu</b> "
 "sunt o copie de rezervă a\n"
 "documentelor tale, iar dacă discul se strică, instantaneele se pierd odată "
@@ -1103,7 +1103,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:108
 msgid "<b>Keep a copy off-site (cloud)</b>"
-msgstr "<b>Păstrează o copie în afara locației (cloud)</b>"
+msgstr "<b>Păstrează o copie într-o altă locație (cloud)</b>"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:116
 msgid ""
@@ -1120,13 +1120,13 @@ msgstr ""
 "criptată prin SSH către un NAS, un server de acasă sau o gazdă la distanță / "
 "<b>cloud</b>. Respectă\n"
 "<b>regula 3-2-1</b>: 3 copii ale datelor, pe 2 tipuri de suporturi, cu 1 "
-"dintre ele în afara locației,\n"
+"dintre ele într-o altă locație,\n"
 "astfel încât un incendiu, un furt sau un ransomware acasă să îți lase totuși "
 "o copie în siguranță."
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:129
 msgid "<b>Backup apps</b>"
-msgstr "<b>Aplicații de copii de rezervă</b>"
+msgstr "<b>Aplicații de backup</b>"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:140
 msgid ""
@@ -1204,7 +1204,7 @@ msgstr "interfață grafică pentru navigare și restaurare"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:19
 msgid "scheduled scrub, balance and trim"
-msgstr "scrub, balance și trim programate"
+msgstr "verificare, echilibrare și TRIM programate"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:32
 #, python-brace-format
@@ -1233,9 +1233,9 @@ msgid ""
 "is installed — it cannot be switched afterwards. Pick btrfs in the installer "
 "to use this page.</small>"
 msgstr ""
-"<small>Instantaneele Btrfs necesită o rădăcină btrfs, iar sistemul de "
-"fișiere se alege la instalarea\n"
-"sistemului: nu poate fi schimbat ulterior. Alege btrfs în program de "
+"<small>Instantaneele Btrfs necesită o partiție rădăcină cu btrfs, iar "
+"sistemul de fișiere se alege la instalarea\n"
+"sistemului: nu poate fi schimbat ulterior. Alege btrfs în programul de "
 "instalare pentru a folosi această pagină.</small>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:64
@@ -1328,8 +1328,8 @@ msgid ""
 "snap-pac);\n"
 "<b>no</b> hourly timeline snapshots. Cleanup prunes old pairs automatically."
 msgstr ""
-"Sistemul tău de fișiere root este <b>btrfs</b>, deci instantaneele pot fi "
-"folosite pe acest sistem.\n"
+"Sistemul de fișiere al partiției root este <b>btrfs</b>, deci instantaneele "
+"pot fi folosite pe acest sistem.\n"
 "Aceste instrumente pentru instantanee <b>nu se află pe ISO</b>: instalează-"
 "le aici, apoi activează instantaneele.\n"
 "\n"
@@ -1354,8 +1354,8 @@ msgstr ""
 "Această pagină necesită un sistem de fișiere root <b>btrfs</b>: vezi "
 "<b>Stare</b> mai jos.\n"
 "\n"
-"Unde este disponibil: o pereche de instantanee se creează la fiecare acțiune "
-"<b>pacman</b>\n"
+"În această configurație, o pereche de instantanee se creează la fiecare "
+"acțiune <b>pacman</b>\n"
 "(prin snap-pac); <b>nu</b> există instantanee orare de tip cronologie, iar "
 "curățarea elimină perechile vechi."
 
@@ -1383,7 +1383,7 @@ msgid ""
 "baseline)"
 msgstr ""
 "Instalează instrumentele lipsă și configurează instantaneele (configurație + "
-"temporizatoare + punct de plecare)"
+"temporizatoare + instantaneu de bază)"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:203
 msgid "Disable snapshots"
@@ -1406,7 +1406,7 @@ msgid ""
 msgstr ""
 "<i>Această configurare nu adaugă un selector de instantanee în meniul de "
 "pornire. Revenirea se face din\n"
-"sistemul în execuție sau din ISO-ul live cu snapper: Btrfs Assistant o face "
+"sistemul pornit sau din ISO-ul live cu snapper: Btrfs Assistant o face "
 "ușoară.\n"
 "Dacă ai instalat cu GRUB, poți adăuga singur un selector cu grub-btrfs;\n"
 "systemd-boot nu are un echivalent.</i>"
@@ -1647,8 +1647,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:206
 msgid "Celestial is made by zquestz — open the upstream project on GitHub"
-msgstr ""
-"Celestial este creat de zquestz: deschide proiectul principal pe GitHub"
+msgstr "Celestial este creat de zquestz: deschide proiectul original pe GitHub"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:227
 msgid "Remove the generator"
@@ -1674,7 +1673,7 @@ msgid ""
 "back in:\n"
 "{lines}"
 msgstr ""
-"/etc/environment al tău setează variabile care suprascriu tema proprie a "
+"Fișierul /etc/environment definește variabile care suprascriu tema proprie a "
 "{name}. Dacă rămân active, {name} afișează elemente întunecate și o "
 "notificare/fereastră de avertizare galbenă.\n"
 "\n"
@@ -1707,7 +1706,8 @@ msgstr "{desktop} a fost instalat"
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
-"{desktop} a eșuat: negăsit: {packages}: activează {repo} în fila Pacman"
+"Instalarea {desktop} a eșuat: pachetele {packages} nu au fost găsite: "
+"activează {repo} în fila Pacman"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:868
 #, python-brace-format
@@ -1761,7 +1761,7 @@ msgstr "Activează {repos} înainte de a instala un desktop"
 #: usr/share/archlinux-tweak-tool/desktopr.py:1187
 #, python-brace-format
 msgid "Installing {name} is a one-way operation"
-msgstr "Instalarea {name} este o operație fără întoarcere"
+msgstr "Instalarea {name} este ireversibilă"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:1190
 #, python-brace-format
@@ -1783,8 +1783,8 @@ msgid ""
 "then log out and back in:\n"
 "{lines}"
 msgstr ""
-"IMPORTANT, tematizarea {name}:\n"
-"/etc/environment al tău setează variabile care suprascriu tema proprie a "
+"IMPORTANT: pentru tematizarea {name}:\n"
+"Fișierul /etc/environment definește variabile care suprascriu tema proprie a "
 "{name}. Dacă rămân active, {name} afișează elemente întunecate și o "
 "notificare/fereastră de avertizare galbenă. După instalare, editează /etc/"
 "environment, pune un „#” în fața acestor linii, apoi deconectează-te și "
@@ -1861,11 +1861,11 @@ msgstr "Selectează un desktop"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:84
 msgid "Install desktop"
-msgstr "Instalează desktop"
+msgstr "Instalează desktopul"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:99
 msgid "Remove desktop"
-msgstr "Elimină desktop"
+msgstr "Elimină desktopul"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:110
 msgid "Clear package cache before installation"
@@ -1893,7 +1893,7 @@ msgstr "Previzualizare"
 msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
 msgstr ""
 "Se face copia de rezervă a configurațiilor pe care acest desktop le va "
-"suprascrie în ~/.config-att ..."
+"suprascrie în ~/.config-att..."
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:209
 msgid "Install all desktops"
@@ -1929,8 +1929,8 @@ msgid ""
 "WARNING: Installing {name} is a one-way operation — removal requires a "
 "system reinstall"
 msgstr ""
-"AVERTISMENT: Instalarea {name} este o operație fără întoarcere: eliminarea "
-"necesită reinstalarea sistemului"
+"AVERTISMENT: Instalarea {name} este ireversibilă: eliminarea necesită "
+"reinstalarea sistemului"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:321
 msgid "Dev Diagnostics"
@@ -1955,7 +1955,7 @@ msgstr "<span foreground='green'>activat</span>"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:451
 msgid "Session diagnostics"
-msgstr "Diagnosticare sesiune"
+msgstr "Diagnosticarea sesiunii"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:454
 msgid "Distro Detection"
@@ -1985,7 +1985,7 @@ msgstr "Sistem"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:527
 msgid "Per-tab status"
-msgstr "Stare pe file"
+msgstr "Stare pentru fiecare filă"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:579
 msgid "Icons"
@@ -1994,12 +1994,12 @@ msgstr "Pictograme"
 #: usr/share/archlinux-tweak-tool/dev_gui.py:592
 #: usr/share/archlinux-tweak-tool/gui.py:475
 msgid "Kernels"
-msgstr "Kernele"
+msgstr "Kerneli"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:614
 #: usr/share/archlinux-tweak-tool/gui.py:477
 msgid "Locale"
-msgstr "Localizare"
+msgstr "Setări regionale"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:621
 #: usr/share/archlinux-tweak-tool/gui.py:481
@@ -2218,8 +2218,7 @@ msgid ""
 "<b>Some distros have their own configuration and/or application, "
 "investigate</b>"
 msgstr ""
-"<b>Unele distribuții au propria configurație și/sau aplicație, "
-"investighează</b>"
+"<b>Unele distribuții au propria configurație și/sau aplicație: verifică</b>"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:58
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:62
@@ -2235,7 +2234,7 @@ msgstr "Aplică configurația {name}"
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:68
 #, python-brace-format
 msgid "Reset your {name} backup"
-msgstr "Resetează copia de rezervă {name}"
+msgstr "Resetează copia de rezervă pentru {name}"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:69
 #, python-brace-format
@@ -2336,7 +2335,7 @@ msgstr "Arată IP-ul public"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:103
 msgid "Show locale"
-msgstr "Arată localizarea"
+msgstr "Arată setările regionale"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:104
 msgid "Show battery"
@@ -2409,11 +2408,11 @@ msgstr ""
 "\n"
 "• <b>Module</b>: afișează / ascunde, reordonează și editează opțiunile "
 "fiecărui modul\n"
-"• <b>Logo &amp; Aspect</b>: peste 500 de logouri încorporate sau propria "
+"• <b>Logo &amp; aspect</b>: peste 500 de logouri încorporate sau propria "
 "imagine; culori pentru cheie, titlu și separator\n"
-"• <b>Instalare / Activare</b>: instalează fastfetch, adaugă-l la pornirea "
+"• <b>Instalare / activare</b>: instalează fastfetch, adaugă-l la pornirea "
 "bash / zsh / fish, lolcat opțional\n"
-"• <b>Presetări &amp; Brut</b>: presetări incluse sau cea implicită Kiro, "
+"• <b>Presetări &amp; cod brut</b>: presetări incluse sau cea implicită Kiro, "
 "restaurează o copie de rezervă, editează JSONC\n"
 "• <b>Previzualizare live</b>: ieșirea reală fastfetch pe măsură ce modifici "
 "(cu vte4)\n"
@@ -2555,7 +2554,7 @@ msgstr "Nu s-a găsit nicio copie de rezervă nanorc"
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
 msgid "We had to change your sddm configuration files"
-msgstr "A trebuit să modificăm fișierele tale de configurare sddm"
+msgstr "A trebuit să modificăm fișierele tale de configurare SDDM"
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -2649,7 +2648,7 @@ msgstr "Birou"
 
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr "Sddm"
+msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
@@ -2707,8 +2706,8 @@ msgid ""
 "Neither {repo1} nor {repo2} is enabled — add them in the Pacman tab before "
 "installing"
 msgstr ""
-"Nici {repo1}, nici {repo2} nu este activat: adaugă-le în fila Pacman înainte "
-"de instalare"
+"Nici {repo1}, nici {repo2} nu sunt activate: adaugă-le în fila Pacman "
+"înainte de instalare"
 
 #: usr/share/archlinux-tweak-tool/icons.py:127
 #: usr/share/archlinux-tweak-tool/icons.py:136
@@ -2729,17 +2728,17 @@ msgstr "Am selectat toate pictogramele {name}"
 #: usr/share/archlinux-tweak-tool/icons.py:151
 #, python-brace-format
 msgid "We have selected the mint selection - {name} icons"
-msgstr "Am selectat selecția mint: pictogramele {name}"
+msgstr "Am selectat selecția verde-mentă: pictogramele {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:157
 #, python-brace-format
 msgid "We have selected the mixing selection - {name} icons"
-msgstr "Am selectat selecția mixing: pictogramele {name}"
+msgstr "Am selectat selecția de mixare: pictogramele {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:163
 #, python-brace-format
 msgid "We have selected the variation selection - {name} icons"
-msgstr "Am selectat selecția variation: pictogramele {name}"
+msgstr "Am selectat selecția de variații: pictogramele {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:169
 #: usr/share/archlinux-tweak-tool/icons.py:217
@@ -2755,27 +2754,27 @@ msgstr "Am selectat temele familiei {name}"
 #: usr/share/archlinux-tweak-tool/icons.py:181
 #, python-brace-format
 msgid "We have selected the {name} flexible family themes"
-msgstr "Am selectat temele familiei flexibile {name}"
+msgstr "Am selectat temele flexibile din familia {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:187
 #, python-brace-format
 msgid "We have selected the {name} mono family themes"
-msgstr "Am selectat temele familiei mono {name}"
+msgstr "Am selectat temele monocrome din familia {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:193
 #, python-brace-format
 msgid "We have selected the {name} flat family themes"
-msgstr "Am selectat temele familiei flat {name}"
+msgstr "Am selectat temele plate din familia {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:199
 #, python-brace-format
 msgid "We have selected the {name} ghost family themes"
-msgstr "Am selectat temele familiei ghost {name}"
+msgstr "Am selectat temele ghost din familia {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:205
 #, python-brace-format
 msgid "We have selected the {name} orb family themes"
-msgstr "Am selectat temele familiei orb {name}"
+msgstr "Am selectat temele orb din familia {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:224
 #, python-brace-format
@@ -2785,7 +2784,7 @@ msgstr "Am selectat pictogramele {family}"
 #: usr/share/archlinux-tweak-tool/icons.py:240
 #: usr/share/archlinux-tweak-tool/icons.py:256
 msgid "We show the installed icon themes"
-msgstr "Arătăm temele de pictograme instalate"
+msgstr "Afișează temele de pictograme instalate"
 
 #: usr/share/archlinux-tweak-tool/icons.py:593
 #: usr/share/archlinux-tweak-tool/icons.py:720
@@ -2869,11 +2868,11 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:56
 msgid "<i>Coming soon — to be added later.</i>"
-msgstr "<i>În curând: va fi adăugat mai târziu.</i>"
+msgstr "<i>În curând: va fi adăugat.</i>"
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:97
 msgid "Choose the icon theme(s)"
-msgstr "Alege tema (temele) de pictograme"
+msgstr "Alege temele de pictograme"
 
 #: usr/share/archlinux-tweak-tool/icons_gui.py:132
 msgid "Show the installed icon themes"
@@ -2916,8 +2915,8 @@ msgid ""
 "Build your own personalised Arch-based ISO with the Kiro ISO Builder — a "
 "GTK4 front-end with one-click host pre-flight fixes."
 msgstr ""
-"Construiește-ți propriul ISO personalizat bazat pe Arch cu Kiro ISO Builder: "
-"o interfață GTK4 cu remedieri de verificare a gazdei dintr-un singur clic."
+"Creează-ți propriul ISO bazat pe Arch cu Kiro ISO Builder: o interfață GTK4 "
+"cu remedieri preliminare ale sistemului gazdă printr-un singur clic."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:62
 msgid "Install kiro-iso-builder"
@@ -3050,7 +3049,7 @@ msgstr "Kernel CachyOS cu suport pe termen lung"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:92
 msgid "CachyOS release candidate kernel"
-msgstr "Kernel CachyOS release candidate"
+msgstr "Kernel CachyOS, versiune candidată"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:101
 msgid "CachyOS kernel with CJK TTY font support"
@@ -3094,7 +3093,7 @@ msgstr "Liquorix"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:167
 msgid "Latest upstream mainline kernel"
-msgstr "Cel mai recent kernel mainline upstream"
+msgstr "Cel mai recent kernel din ramura principală"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:169
 msgid "Mainline"
@@ -3131,7 +3130,7 @@ msgstr "Kernel Arch optimizat pentru x86-64-v2"
 #: usr/share/archlinux-tweak-tool/kernel.py:225
 #: usr/share/archlinux-tweak-tool/kernel.py:235
 msgid "x86-64 microarch level builds"
-msgstr "Compilări pe nivel de microarhitectură x86-64"
+msgstr "Versiuni pentru nivelurile de microarhitectură x86-64"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:223
 msgid "Arch kernel optimized for x86-64-v3 (Haswell+)"
@@ -3217,14 +3216,15 @@ msgstr "Se regenerează initramfs..."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:17
 msgid "Kernel Manager"
-msgstr "Manager de kernele"
+msgstr "Manager de kerneluri"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:31
 msgid ""
 "You will see the chaotic-aur kernels only when adding the repo in the Pacman "
 "tab."
 msgstr ""
-"Vei vedea kernelele chaotic-aur doar după ce adaugi depozitul în fila Pacman."
+"Vei vedea kernelurile chaotic-aur doar după ce adaugi depozitul în fila "
+"Pacman."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:40
 msgid "Running kernel: <b>...</b>"
@@ -3240,9 +3240,9 @@ msgid ""
 "<b>scx-manager</b> — already installed. Pick a scheduler and profile, then "
 "Apply."
 msgstr ""
-"Schimbă planificatorul CPU live (lavd, bpfland, rusty…) fără repornire cu "
-"<b>scx-manager</b>, deja instalat. Alege un planificator și un profil, apoi "
-"apasă Aplică."
+"Schimbă din mers planificatorul CPU (lavd, bpfland, rusty…) fără să "
+"repornești, folosind <b>scx-manager</b>, care este deja instalat. Alege un "
+"planificator și un profil, apoi apasă Aplică."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:69
 msgid "<i>read the guide</i>"
@@ -3253,8 +3253,8 @@ msgid ""
 "<small>Both of Kiro's kernels — <b>CachyOS</b> (default) and <b>Zen</b> — "
 "support scx-manager's settings.</small>"
 msgstr ""
-"<small>Ambele kernele Kiro, <b>CachyOS</b> (implicit) și <b>Zen</b>, acceptă "
-"setările scx-manager.</small>"
+"<small>Ambele kerneluri Kiro, <b>CachyOS</b> (implicit) și <b>Zen</b>, sunt "
+"compatibile cu setările scx-manager.</small>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:103
 #, python-brace-format
@@ -3268,11 +3268,11 @@ msgstr "Dracut: generator de initramfs"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:131
 msgid "Regenerate all initramfs images for all installed kernels."
 msgstr ""
-"Regenerează toate imaginile initramfs pentru toate kernelele instalate."
+"Regenerează toate imaginile initramfs pentru toate kernelurile instalate."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:134
 msgid "Regenerate All Initramfs"
-msgstr "Regenerează tot initramfs"
+msgstr "Regenerează toate imaginile initramfs"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:149
 msgid "Dracut: initramfs regeneration complete"
@@ -3280,24 +3280,24 @@ msgstr "Dracut: regenerarea initramfs s-a încheiat"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:163
 msgid "Arch Kernels"
-msgstr "Kernele Arch"
+msgstr "Kerneluri Arch"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:178
 msgid "Load Available Kernels"
-msgstr "Încarcă kernelele disponibile"
+msgstr "Încarcă kernelurile disponibile"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:179
 msgid "CachyOS Kernels"
-msgstr "Kernele CachyOS"
+msgstr "Kerneluri CachyOS"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:191
 msgid "No additional CachyOS kernels found."
-msgstr "Nu s-au găsit kernele CachyOS suplimentare."
+msgstr "Nu s-au găsit kerneluri CachyOS suplimentare."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:209
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:223
 msgid "Check for New Kernels"
-msgstr "Caută kernele noi"
+msgstr "Caută kerneluri noi"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:215
 msgid "Scanning..."
@@ -3305,7 +3305,7 @@ msgstr "Se scanează..."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:231
 msgid "Chaotic-AUR Kernels"
-msgstr "Kernele Chaotic-AUR"
+msgstr "Kerneluri Chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:263
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:359
@@ -3332,13 +3332,12 @@ msgid ""
 "\n"
 "Fix: enable {repo_str} in ATT > Pacman page, then retry."
 msgstr ""
-"ATT are nevoie de următoarele pachete pentru a gestiona kernelele în "
+"ATT are nevoie de următoarele pachete pentru a gestiona kernelurile în "
 "siguranță:\n"
 "\n"
 "{pkg_lines}\n"
 "\n"
-"Remediere: activează {repo_str} în ATT > pagina Pacman, apoi încearcă din "
-"nou."
+"Remediere: activează {repo_str} în ATT > fila Pacman, apoi încearcă din nou."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:289
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:387
@@ -3357,7 +3356,8 @@ msgid ""
 "\n"
 "Would you like to install them now?"
 msgstr ""
-"Următoarele pachete sunt necesare pentru gestionarea completă a kernelelor:\n"
+"Următoarele pachete sunt necesare pentru gestionarea completă a "
+"kernelurilor:\n"
 "\n"
 "{pkg_list}\n"
 "\n"
@@ -3384,14 +3384,15 @@ msgid ""
 "ATT will install the required packages and then install {pkg} in one "
 "terminal."
 msgstr ""
-"Următoarele pachete sunt necesare pentru gestionarea completă a kernelelor:\n"
+"Următoarele pachete sunt necesare pentru gestionarea completă a "
+"kernelurilor:\n"
 "\n"
 "{prereq_list}\n"
 "\n"
 "Motiv:\n"
 "{reasons}\n"
 "\n"
-"ATT va instala pachetele necesare, apoi va instala {pkg}, într-un singur "
+"ATT va instala pachetele necesare, apoi va instala {pkg} într-un singur "
 "terminal."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:458
@@ -3431,7 +3432,7 @@ msgstr "Instalează {p}"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:629
 #, python-brace-format
 msgid "{action} completed for {pkg_name}"
-msgstr "{action} încheiat pentru {pkg_name}"
+msgstr "{action} s-a încheiat pentru {pkg_name}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:663
 #, python-brace-format
@@ -3743,12 +3744,12 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
 msgid "{category} reset to follow LANG"
-msgstr "{category} resetat pentru a urma LANG"
+msgstr "Categoria {category} a fost resetată pentru a urma LANG"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:442
 #, python-brace-format
 msgid "{category} set to {locale}"
-msgstr "{category} setat la {locale}"
+msgstr "Categoria {category} a fost setată la {locale}"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
@@ -3766,7 +3767,7 @@ msgstr "Se sincronizează…"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:496
 msgid "No X11 layout set — cannot sync"
-msgstr "Niciun aranjament X11 setat: nu se poate sincroniza"
+msgstr "Nu este setat niciun aranjament X11: nu se poate sincroniza"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:501
 msgid "Keymap list not loaded yet — cannot sync"
@@ -3895,7 +3896,7 @@ msgstr "Se deschide bufferul circular al kernelului (dmesg)..."
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:14
 msgid "Investigate your logs"
-msgstr "Investighează-ți jurnalele"
+msgstr "Analizează jurnalele"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:28
 msgid "<b>Journal</b>"
@@ -4095,7 +4096,7 @@ msgstr "Mirrorlist-ul tău original a revenit"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:668
 msgid "Mirrorlist displayed"
-msgstr "Mirrorlist afișat"
+msgstr "Lista mirrorlist este afișată"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:674
 msgid "Fastest Arch Linux servers saved - reflector"
@@ -4287,7 +4288,7 @@ msgstr "prezent"
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:35
 #, python-brace-format
 msgid "{swap}  (hibernation may be in use)"
-msgstr "{swap}  (hibernarea poate fi în uz)"
+msgstr "{swap} (este posibil să se folosească hibernarea)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:37
 msgid "none (ZRAM-only or no swap)"
@@ -4324,11 +4325,11 @@ msgstr "Elimină blocarea pacman"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:127
 msgid "Provide probe link (hardware diagnostics)"
-msgstr "Furnizează link de sondă (diagnosticare hardware)"
+msgstr "Furnizează linkul pentru diagnosticarea hardware"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:128
 msgid "Get probe link"
-msgstr "Obține link de sondă"
+msgstr "Obține linkul de diagnosticare hardware"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:141
 msgid "Re-install archlinux-keyring"
@@ -4378,7 +4379,7 @@ msgstr "Resetează mirrorlist-ul"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:221
 msgid "Get the best Arch Linux servers (takes a while)"
-msgstr "Obține cele mai bune servere Arch Linux (durează puțin)"
+msgstr "Obține cele mai bune servere Arch Linux (durează ceva timp)"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:222
 msgid "Run reflector"
@@ -4398,7 +4399,7 @@ msgstr "Instalează aplicații pentru a găsi cele mai bune servere Arch Linux"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:288
 msgid "Get the original ATT /etc/pacman.conf"
-msgstr "Obține /etc/pacman.conf original ATT"
+msgstr "Obține fișierul /etc/pacman.conf original de la ATT"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:289
 msgid "Reset pacman.conf"
@@ -4428,9 +4429,10 @@ msgid ""
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
 "applications and SDDM login screen."
 msgstr ""
-"Aplică tema de cursor global în: xcursor de sistem și de utilizator, "
-"GTK2/3/4, XFCE, GNOME (gsettings), KDE Plasma și ecranul de autentificare "
-"SDDM. Afectează toate aplicațiile și ecranul de autentificare SDDM."
+"Aplică tema de cursor la nivel global pentru: xcursor de sistem și de "
+"utilizator, GTK2/3/4, XFCE, GNOME (gsettings), KDE Plasma și ecranul de "
+"autentificare SDDM. Afectează toate aplicațiile și ecranul de autentificare "
+"SDDM."
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
 msgid "<b>Current state</b>"
@@ -4442,7 +4444,7 @@ msgstr "HOOKS:"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:407
 msgid "resume hook:"
-msgstr "Hook resume:"
+msgstr "Hook-ul resume:"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:418
 msgid "Real swap:"
@@ -4489,12 +4491,12 @@ msgstr "Pornire / Initramfs"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:12
 msgid "1. Install the samba server - <b>installed</b>"
-msgstr "1. Instalează serverul samba - <b>instalat</b>"
+msgstr "1. Instalează serverul Samba - <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:14
 #: usr/share/archlinux-tweak-tool/network_gui.py:246
 msgid "1. Install the samba server"
-msgstr "1. Instalează serverul samba"
+msgstr "1. Instalează serverul Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:17
 msgid "Discover other computers in your network - <b>installed</b>"
@@ -5022,7 +5024,7 @@ msgstr "<b>Debug ok</b>"
 #: usr/share/archlinux-tweak-tool/packages_gui.py:251
 #: usr/share/archlinux-tweak-tool/packages_gui.py:260
 msgid "Debug not ok"
-msgstr "Debug nu este ok"
+msgstr "Debug nu este în regulă"
 
 #: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:22
 msgid "Arch Linux Tweak Tool: Confirm package installation"
@@ -5170,7 +5172,7 @@ msgstr "Aplică depozitul personalizat"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:92
 msgid "Reset your pacman local"
-msgstr "Resetează pacman local"
+msgstr "Resetează configurația locală pacman"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
@@ -5178,7 +5180,7 @@ msgstr "Resetează pacman ATT"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:96
 msgid "Blank pacman (auto reboot) and select"
-msgstr "Pacman gol (repornire automată) și selectează"
+msgstr "Golește configurația pacman (repornire automată) și selectează una"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:98
 msgid "Edit pacman.conf in terminal"
@@ -5222,7 +5224,7 @@ msgstr "Activează depozitul Nemesis"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:151
 msgid "Enable Chaotic-Aur repo"
-msgstr "Activează depozitul Chaotic-Aur"
+msgstr "Activează depozitul Chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:156
 msgid "Enable CachyOS repo"
@@ -5238,11 +5240,11 @@ msgstr "<b>Asistent AUR</b>"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: disabled"
-msgstr "Depozitul Chaotic-Aur: dezactivat"
+msgstr "Depozitul Chaotic-AUR: dezactivat"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: enabled"
-msgstr "Depozitul Chaotic-Aur: activat"
+msgstr "Depozitul Chaotic-AUR: activat"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:353
 msgid "Nemesis repo: disabled"
@@ -5291,19 +5293,19 @@ msgstr "paru-git instalat"
 #: usr/share/archlinux-tweak-tool/performance.py:59
 #, python-brace-format
 msgid "Tuned service : {tuned}   Tuned-PPD service : {tuned_ppd}"
-msgstr "Serviciul Tuned : {tuned}   Serviciul Tuned-PPD : {tuned_ppd}"
+msgstr "Serviciul Tuned: {tuned}   Serviciul Tuned-PPD: {tuned_ppd}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:69
 #: usr/share/archlinux-tweak-tool/performance_gui.py:686
 #, python-brace-format
 msgid "tuned service : {status}"
-msgstr "serviciul tuned : {status}"
+msgstr "Serviciul tuned: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:74
 #: usr/share/archlinux-tweak-tool/performance_gui.py:689
 #, python-brace-format
 msgid "tuned-ppd service : {status}"
-msgstr "serviciul tuned-ppd : {status}"
+msgstr "Serviciul tuned-ppd: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:93
 #, python-brace-format
@@ -5635,7 +5637,7 @@ msgid ""
 "Enable Chaotic AUR or Nemesis repo first — cachyos-ananicy-rules-git is not "
 "in standard repos"
 msgstr ""
-"Activează mai întâi depozitul Chaotic AUR sau Nemesis: cachyos-ananicy-rules-"
+"Activează mai întâi depozitul Chaotic-AUR sau Nemesis: cachyos-ananicy-rules-"
 "git nu se află în depozitele standard"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1476
@@ -5755,7 +5757,7 @@ msgstr "preload este deja instalat"
 msgid ""
 "Enable Chaotic AUR or Nemesis repo first — preload is not in standard repos"
 msgstr ""
-"Activează mai întâi depozitul Chaotic AUR sau Nemesis: preload nu se află în "
+"Activează mai întâi depozitul Chaotic-AUR sau Nemesis: preload nu se află în "
 "depozitele standard"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1963
@@ -5978,7 +5980,7 @@ msgstr "Elimină tuned"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:135
 msgid "tuned service : …"
-msgstr "serviciul tuned : …"
+msgstr "serviciul tuned: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:140
 msgid "Enable tuned"
@@ -6006,7 +6008,7 @@ msgstr "Elimină tuned-ppd"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:178
 msgid "tuned-ppd service : …"
-msgstr "serviciul tuned-ppd : …"
+msgstr "serviciul tuned-ppd: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:183
 msgid "Enable tuned-ppd"
@@ -6022,7 +6024,7 @@ msgstr "Repornește tuned-ppd"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:201
 msgid "Active tuned profile : …"
-msgstr "Profil tuned activ : …"
+msgstr "Profil tuned activ: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:209
 msgid "Apply Profile"
@@ -6042,7 +6044,7 @@ msgstr "Creează"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:271
 msgid "zram : …"
-msgstr "zram : …"
+msgstr "zram: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:277
 #: usr/share/archlinux-tweak-tool/system_gui.py:370
@@ -6061,7 +6063,7 @@ msgstr "<b>TRIM SSD/NVMe</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:308
 msgid "fstrim.timer : …"
-msgstr "fstrim.timer : …"
+msgstr "fstrim.timer: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:312
 msgid "Enable fstrim.timer"
@@ -6077,7 +6079,7 @@ msgstr "Elimină irqbalance"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:358
 msgid "irqbalance service : …"
-msgstr "serviciul irqbalance : …"
+msgstr "Serviciul irqbalance: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:362
 msgid "Enable irqbalance"
@@ -6093,7 +6095,7 @@ msgstr "<b>Ananicy</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:411
 msgid "ananicy-cpp service : …"
-msgstr "serviciul ananicy-cpp : …"
+msgstr "Serviciul ananicy-cpp: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:415
 msgid "Enable ananicy-cpp"
@@ -6109,7 +6111,7 @@ msgstr "<b>GameMode</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:464
 msgid "gamemode service : …"
-msgstr "serviciul gamemode : …"
+msgstr "Serviciul gamemode: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:468
 msgid "Enable gamemode"
@@ -6125,7 +6127,7 @@ msgstr "<b>Preload</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:517
 msgid "preload service : …"
-msgstr "serviciul preload : …"
+msgstr "Serviciul preload: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:521
 msgid "Enable preload"
@@ -6153,7 +6155,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:563
 msgid "MAKEFLAGS : …"
-msgstr "MAKEFLAGS : …"
+msgstr "MAKEFLAGS: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:570
 #, python-brace-format
@@ -6168,8 +6170,8 @@ msgstr "Păstrează 2 nuclee libere (-j{value})"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:577
 msgid "Build with 2 cores reserved so the desktop and mouse stay responsive"
 msgstr ""
-"Construiește cu 2 nuclee rezervate, astfel încât desktopul și mouse-ul să "
-"rămână reactive"
+"Construiește cu 2 nuclee rezervate, astfel încât desktopul să rămână "
+"receptiv și mouse-ul să răspundă prompt"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:580
 msgid "Edit makepkg.conf in terminal"
@@ -6554,12 +6556,14 @@ msgstr "{name}: blocarea reclamelor/trackerelor prin /etc/hosts"
 #: usr/share/archlinux-tweak-tool/privacy.py:42
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts <b>active</b>"
-msgstr "Activează sau dezactivează {name}: verifică /etc/hosts <b>activ</b>"
+msgstr ""
+"Activează sau dezactivează {name}: verifică dacă /etc/hosts este <b>activ</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:44
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts inactive"
-msgstr "Activează sau dezactivează {name}: verifică /etc/hosts inactiv"
+msgstr ""
+"Activează sau dezactivează {name}: verifică dacă /etc/hosts este inactiv"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:87
 msgid "<i>No hosts whitelisted yet</i>"
@@ -6567,7 +6571,7 @@ msgstr "<i>Încă nicio gazdă pe lista albă</i>"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:149
 msgid "Enter a host to whitelist"
-msgstr "Introdu o gazdă pentru lista albă"
+msgstr "Introdu o gazdă în lista albă"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:156
 #, python-brace-format
@@ -6577,7 +6581,7 @@ msgstr "{host} este deja pe lista albă"
 #: usr/share/archlinux-tweak-tool/privacy.py:164
 #: usr/share/archlinux-tweak-tool/privacy.py:182
 msgid "Could not write the allowlist file"
-msgstr "Nu s-a putut scrie fișierul listei permise"
+msgstr "Nu s-a putut scrie fișierul listei de permisiuni"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:168
 #, python-brace-format
@@ -6635,7 +6639,7 @@ msgstr "<b>Blocarea conținutului</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:72
 msgid "<b>Network &amp; Tracking Protection</b>"
-msgstr "<b>Protecție rețea &amp; urmărire</b>"
+msgstr "<b>Protecție pentru rețea și împotriva urmăririi</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:106
 #, python-brace-format
@@ -6968,8 +6972,8 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:165
 msgid "Cursor theme only for SDDM (global cursor setting in maintenance)"
 msgstr ""
-"Tema de cursor doar pentru SDDM (setarea globală a cursorului este în "
-"întreținere)"
+"Tema cursorului doar pentru SDDM (setarea globală a cursorului se găsește la "
+"Întreținere)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:193
 msgid "<b>Apply the above mentioned settings</b>"
@@ -7017,7 +7021,7 @@ msgstr "Aplică fundalul"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:301
 msgid "Restore default"
-msgstr "Restaurează implicitul"
+msgstr "Restaurează fundalul implicit"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:305
 msgid "Fix SDDM config"
@@ -7033,7 +7037,7 @@ msgstr "Include pachetele AUR"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:375
 msgid "Sort by recently updated (AUR)"
-msgstr "Sortează după actualizarea recentă (AUR)"
+msgstr "Sortează după data ultimei actualizări (AUR)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:437
 msgid "Remove installed"
@@ -7088,8 +7092,8 @@ msgid ""
 msgstr ""
 "Creezi dosarul Shared?\n"
 "\n"
-"ATT va crea {path} ca dosar partajat samba.\n"
-"Dacă alegi Nu, creează dosarul singur înainte de conectare."
+"ATT va crea {path} ca dosar partajat Samba.\n"
+"Dacă alegi Nu, creează manual dosarul înainte de conectare."
 
 #: usr/share/archlinux-tweak-tool/services.py:123
 #, python-brace-format
@@ -7270,7 +7274,7 @@ msgstr "Eliminarea cups-pdf a eșuat sau a fost anulată"
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
-msgstr "Serviciul Cups : {service}   Socketul Cups : {socket}"
+msgstr "Serviciul CUPS: {service}   Socketul CUPS: {socket}"
 
 #: usr/share/archlinux-tweak-tool/services.py:668
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
@@ -7309,7 +7313,7 @@ msgstr "system-config-printer instalat"
 
 #: usr/share/archlinux-tweak-tool/services.py:744
 msgid "Install System-config-printer - <b>Installed</b>"
-msgstr "Instalează System-config-printer - <b>Instalat</b>"
+msgstr "Instalează system-config-printer - <b>Instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/services.py:749
 msgid "system-config-printer installation failed or was cancelled"
@@ -7671,8 +7675,8 @@ msgstr "bash-completion eliminat"
 #: usr/share/archlinux-tweak-tool/shell.py:81
 msgid "ATT ~/.bashrc applied — log out and back in to apply"
 msgstr ""
-"ATT ~/.bashrc aplicat: deconectează-te și conectează-te din nou pentru a "
-"aplica"
+"Configurația ATT ~/.bashrc a fost aplicată: deconectează-te și conectează-te "
+"din nou pentru ca modificările să intre în vigoare"
 
 #: usr/share/archlinux-tweak-tool/shell.py:88
 #, python-brace-format
@@ -7692,8 +7696,8 @@ msgstr "Restaurarea configurației bash a eșuat: {error}"
 #: usr/share/archlinux-tweak-tool/shell.py:159
 msgid "ATT config.fish applied — log out and back in to apply"
 msgstr ""
-"ATT config.fish aplicat: deconectează-te și conectează-te din nou pentru a "
-"aplica"
+"Configurația ATT config.fish a fost aplicată: deconectează-te și conectează-"
+"te din nou pentru ca modificările să intre în vigoare"
 
 #: usr/share/archlinux-tweak-tool/shell.py:164
 msgid "ATT config.fish source not found"
@@ -7754,8 +7758,8 @@ msgstr "Fish <b>nu este instalat</b>"
 #: usr/share/archlinux-tweak-tool/shell.py:305
 msgid "ATT ~/.zshrc applied — log out and back in to apply"
 msgstr ""
-"ATT ~/.zshrc aplicat: deconectează-te și conectează-te din nou pentru a "
-"aplica"
+"Configurația ATT ~/.zshrc a fost aplicată: deconectează-te și conectează-te "
+"din nou pentru ca modificările să intre în vigoare"
 
 #: usr/share/archlinux-tweak-tool/shell.py:312
 #, python-brace-format
@@ -8090,7 +8094,7 @@ msgstr "Instalează configurația zshrc ATT"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:108
 msgid "Reset back to the original ~/.zshrc"
-msgstr "Revino la ~/.zshrc original"
+msgstr "Revino la fișierul original ~/.zshrc"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:118
 msgid "<b>Themes</b>"
@@ -8155,7 +8159,7 @@ msgstr "Instalează configurația bashrc ATT"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:328
 msgid "Reset back to your original ~/.bashrc"
-msgstr "Revino la ~/.bashrc original"
+msgstr "Revino la fișierul original ~/.bashrc"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:348
 msgid "<b>If you just switched shell, log-out first</b>"
@@ -8195,7 +8199,7 @@ msgstr "Instalează config.fish ATT"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:525
 msgid "Reset back to the original ~/.config/fish/config.fish"
-msgstr "Revino la ~/.config/fish/config.fish original"
+msgstr "Revino la fișierul original ~/.config/fish/config.fish"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:544
 msgid ""
@@ -8280,11 +8284,11 @@ msgid ""
 "Applications that were NOT installed will be <b>unselected</b> again\n"
 "Activate the necessary repos"
 msgstr ""
-"Configurațiile shell ale ATT conțin alias-uri care necesită anumite "
+"Configurațiile shell ale ATT conțin aliasuri care necesită anumite "
 "aplicații\n"
 "\n"
 "Aici poți selecta aplicațiile lipsă și le poți instala\n"
-"Activează depozitul nemesis (când este nevoie) pentru a le instala pe toate\n"
+"Activează depozitul Nemesis (când este nevoie) pentru a le instala pe toate\n"
 "\n"
 "Aplicațiile care NU au fost instalate vor fi din nou <b>deselectate</b>\n"
 "Activează depozitele necesare"
@@ -8435,7 +8439,7 @@ msgstr "Bazaar <b>instalat</b>"
 #: usr/share/archlinux-tweak-tool/software.py:684
 #: usr/share/archlinux-tweak-tool/software_gui.py:328
 msgid "Flatpak - Manage Flatpak apps <b>installed</b>"
-msgstr "Flatpak - gestionează aplicații Flatpak <b>instalat</b>"
+msgstr "Flatpak: gestionează aplicațiile Flatpak <b>instalate</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:151
 msgid "bazaar installed"
@@ -8514,7 +8518,7 @@ msgstr "Instalarea pachub a început"
 #: usr/share/archlinux-tweak-tool/software.py:404
 #: usr/share/archlinux-tweak-tool/software_gui.py:175
 msgid "PacHub - Pacman/AUR GUI (GTK4) <b>installed</b>"
-msgstr "PacHub - interfață grafică Pacman/AUR (GTK4) <b>instalat</b>"
+msgstr "PacHub - interfață grafică pentru Pacman/AUR (GTK4) <b>instalat</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:406
 msgid "pachub installation complete"
@@ -8732,7 +8736,7 @@ msgstr "Instalarea snapd a început"
 #: usr/share/archlinux-tweak-tool/software.py:784
 #: usr/share/archlinux-tweak-tool/software_gui.py:351
 msgid "Snapd - Manage Snap apps <b>installed</b>"
-msgstr "Snapd - gestionează aplicații Snap <b>instalat</b>"
+msgstr "Snapd - gestionează aplicații Snap (<b>instalat</b>)"
 
 #: usr/share/archlinux-tweak-tool/software.py:785
 msgid "snapd installed"
@@ -8762,7 +8766,7 @@ msgstr "Instalarea appmanager a început"
 #: usr/share/archlinux-tweak-tool/software.py:858
 #: usr/share/archlinux-tweak-tool/software_gui.py:372
 msgid "App-manager - Manage AppImages <b>installed</b>"
-msgstr "App-manager - gestionează AppImage-uri <b>instalat</b>"
+msgstr "App-manager - gestionează AppImage-uri (<b>instalat</b>)"
 
 #: usr/share/archlinux-tweak-tool/software.py:860
 msgid "appmanager installed"
@@ -9046,7 +9050,7 @@ msgstr "<b>Instrumente TUI pentru pachete</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:449
 msgid "<b>Logout Managers</b>"
-msgstr "<b>Manageri de deconectare</b>"
+msgstr "<b>Instrumente de deconectare</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:486
 msgid "powermenu - Power menu for i3/sway <b>installed</b>"
@@ -9075,7 +9079,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline.py:43
 msgid "Removal terminal opened"
-msgstr "Terminalul de eliminare a fost deschis"
+msgstr "Terminalul pentru eliminare a fost deschis"
 
 #: usr/share/archlinux-tweak-tool/streamline.py:50
 msgid "Streamline removal finished"
@@ -9083,7 +9087,7 @@ msgstr "Eliminarea Streamline s-a încheiat"
 
 #: usr/share/archlinux-tweak-tool/streamline.py:78
 msgid "Install terminal opened"
-msgstr "Terminalul de instalare a fost deschis"
+msgstr "Terminalul pentru instalare a fost deschis"
 
 #: usr/share/archlinux-tweak-tool/streamline.py:85
 msgid "Streamline reinstall finished"
@@ -9173,7 +9177,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:266
 msgid "No removed packages selected"
-msgstr "Niciun pachet eliminat selectat"
+msgstr "Nu ai selectat niciun pachet eliminat"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:274
 #, python-brace-format
@@ -9237,7 +9241,7 @@ msgstr "Salvează lista eliminată"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:377
 msgid "Import profile"
-msgstr "Importă profil"
+msgstr "Importă profilul"
 
 #: usr/share/archlinux-tweak-tool/system.py:121
 msgid "Installing inxi first..."
@@ -9473,9 +9477,9 @@ msgid ""
 "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
 "devices your vendor publishes to LVFS will show updates."
 msgstr ""
-"GNOME Firmware actualizează BIOS/UEFI, SSD-uri, docuri și altele prin fwupd/"
-"LVFS. Doar dispozitivele pe care furnizorul tău le publică în LVFS vor afișa "
-"actualizări."
+"GNOME Firmware actualizează BIOS/UEFI, SSD-uri, stații de andocare și altele "
+"prin fwupd/LVFS. Doar dispozitivele pe care furnizorul tău le publică în "
+"LVFS vor afișa actualizări."
 
 #: usr/share/archlinux-tweak-tool/system_gui.py:395
 msgid "<b>Hardware</b>"
@@ -9503,8 +9507,8 @@ msgid ""
 "you dont seem to have <b>{name}</b> file in your <i>{path}</i> directory. So "
 "we can not enable this feature."
 msgstr ""
-"Pare că nu ai fișierul <b>{name}</b> în directorul <i>{path}</i>. Așa că nu "
-"putem activa această funcție."
+"Se pare că nu ai fișierul <b>{name}</b> în directorul <i>{path}</i>. Prin "
+"urmare, nu poți activa această funcție."
 
 #: usr/share/archlinux-tweak-tool/themer.py:388
 #, python-brace-format
@@ -9578,7 +9582,7 @@ msgstr "<b>Tema NU este instalată</b>"
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:104
 msgid "Theme Switcher"
-msgstr "Comutator de teme"
+msgstr "Selector de teme"
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:142
 #: usr/share/archlinux-tweak-tool/themer_gui.py:230
@@ -9688,7 +9692,7 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/themes.py:568
 #, python-brace-format
 msgid "Updated {path}"
-msgstr "{path} actualizat"
+msgstr "S-a actualizat {path}"
 
 #: usr/share/archlinux-tweak-tool/themes.py:400
 msgid "Qt overrides OFF — Plasma controls its theme; log out and back in"
@@ -9811,7 +9815,7 @@ msgstr "Ștergerea utilizatorului a eșuat: {error}"
 
 #: usr/share/archlinux-tweak-tool/user.py:96
 msgid "User and home folder has been deleted"
-msgstr "Utilizatorul și dosarul home au fost șterse"
+msgstr "Utilizatorul și dosarul personal au fost șterse"
 
 #: usr/share/archlinux-tweak-tool/user_gui.py:13
 msgid "User management"
@@ -9868,7 +9872,7 @@ msgstr "Elimină utilizatorul selectat"
 
 #: usr/share/archlinux-tweak-tool/user_gui.py:118
 msgid "Remove the selected user and the home folder"
-msgstr "Elimină utilizatorul selectat și dosarul home"
+msgstr "Elimină utilizatorul selectat și dosarul personal"
 
 #: usr/share/archlinux-tweak-tool/user_gui.py:142
 msgid ""
@@ -9923,7 +9927,7 @@ msgstr "{name} nu este în pornirea automată"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "Configurația variety ATT nu a fost găsită în dosarul de date"
+msgstr "Configurația ATT pentru Variety nu a fost găsită în dosarul de date"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -10002,7 +10006,7 @@ msgstr "<i>Păstrează-ți fundalurile în {path}: {name} le preia automat</i>"
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format
 msgid "Save {name} variety config"
-msgstr "Salvează configurația variety {name}"
+msgstr "Salvează configurația Variety pentru {name}"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:110
 #, python-brace-format
@@ -10024,7 +10028,7 @@ msgstr "Răsfoiește"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:142
 msgid "Known wallpaper folders - pick one to load it"
-msgstr "Dosare de fundaluri cunoscute: alege unul pentru a-l încărca"
+msgstr "Dosare cunoscute cu fundaluri: alege unul pentru a-l încărca"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:202
 msgid "Scale:"
@@ -10095,8 +10099,8 @@ msgid ""
 "Selected editions conflict — they use incompatible Quickshell builds; "
 "deselect one family"
 msgstr ""
-"Edițiile selectate sunt în conflict: folosesc versiuni Quickshell "
-"incompatibile; deselectează o familie"
+"Edițiile selectate sunt incompatibile: folosesc versiuni Quickshell "
+"diferite; debifează una dintre familii"
 
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:63
 msgid "Select an installed window manager to remove"

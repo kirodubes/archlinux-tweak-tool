@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -824,16 +824,16 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr ""
 "Konfigurations-Backups abgeschlossen. Willkommen beim ArchLinux Tweak Tool!"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "Weitere Tweak-Tools"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
@@ -841,39 +841,39 @@ msgstr ""
 "ATT kann auch <b>weitere Tweak-Tools installieren und starten</b>, jedes für "
 "genau eine Anwendung. Du findest sie auf diesen Seiten:"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "wähle aus über 300 Alacritty-Themes oder erstelle neue"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shells"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "Software"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "konfiguriere, was Fastfetch anzeigt und wie"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "konfiguriere die fish-Shell"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
@@ -881,20 +881,20 @@ msgstr ""
 "<i>Sie werden aus dem Nemesis-Repo installiert. Aktiviere es zuerst auf der "
 "Pacman-Seite.</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "Nicht mehr anzeigen"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "Schließen"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "Nano-Editor-Farben"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
@@ -902,30 +902,30 @@ msgstr ""
 "ATT enthält eine <b>farbige nanorc</b>. Klicke auf eine Option, um zu "
 "wählen. Zuvor wird immer ein Backup von /etc/nanorc erstellt."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
 msgstr "Standard beibehalten"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "ATT-Farben anwenden"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "ATT-nanorc auf /etc/nanorc angewendet"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "ATT-nanorc konnte nicht angewendet werden"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "Sperrdatei gefunden"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -937,11 +937,11 @@ msgstr ""
 "Klicke auf Ja, um die Sperrdatei zu entfernen\n"
 "und starte ATT dann erneut"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "Kernel nicht unterstützt"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -950,8 +950,8 @@ msgstr ""
 "Funktionsaufrufe nicht. Das <b>ArchLinux Tweak Tool</b> benötigt sie für den "
 "Betrieb."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "Du musst zuerst die bestehende Anwendung schließen"
 

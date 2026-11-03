@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -302,7 +302,7 @@ msgstr "キーボードのアクセシビリティ（X11）"
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:195
 #, python-brace-format
 msgid "{name} <b>installed</b> — backend for the toggles below"
-msgstr "{name} は<b>インストール済み</b>です。以下の切り替えのバックエンドです"
+msgstr "{name} は<b>インストール済み</b>です。以下の切り替え機能を支えています"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:197
 #, python-brace-format
@@ -825,15 +825,15 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr "設定のバックアップが完了しました。ArchLinux Tweak Tool へようこそ！"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "その他の Tweak Tool"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
@@ -841,39 +841,39 @@ msgstr ""
 "ATT は、それぞれ 1 つのアプリケーション専用の<b>他の Tweak Tool をインストー"
 "ルして起動</b>することもできます。次のページにあります。"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "300 以上の Alacritty テーマから選ぶか、新しく作成できます"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "シェル"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "ソフトウェア"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "Fastfetch の表示内容と表示方法を設定します"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "fish シェルを設定します"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
@@ -881,51 +881,51 @@ msgstr ""
 "<i>Nemesis リポジトリからインストールされます。先に Pacman ページで有効にして"
 "ください。</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "今後は表示しない"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "閉じる"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "Nano エディターの色"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
 msgstr ""
-"ATT には<b>カラフルな nanorc</b> が含まれています。クリックして選択してくださ"
+"ATT には<b>色分け用の nanorc</b> が含まれています。クリックして選択してくださ"
 "い。/etc/nanorc のバックアップが必ず先に作成されます。"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
 msgstr "デフォルトのままにする"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "ATT の色を適用"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "ATT の nanorc を /etc/nanorc に適用しました"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "ATT の nanorc を適用できませんでした"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "ロックファイルが見つかりました"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -933,15 +933,15 @@ msgid ""
 "and try running ATT again"
 msgstr ""
 "ロックファイルが見つかりました。<b>ArchLinux Tweak Tool</b> がすでに実行中で"
-"ある可能性があります。\n"
+"あることを示しています。\n"
 "「はい」をクリックするとロックファイルを削除します。\n"
 "その後、もう一度 ATT を実行してください"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "カーネルはサポートされていません"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -949,8 +949,8 @@ msgstr ""
 "現在のカーネルは基本的な OS 関数呼び出しをサポートしていません。<b>ArchLinux "
 "Tweak Tool</b> の動作にはこれらが必要です。"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "先に実行中のアプリケーションを閉じてください"
 
@@ -1284,7 +1284,7 @@ msgstr "btrfsmaintenance（スクラブ・バランス・トリム）: {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:89
 msgid "not enabled"
-msgstr "無効"
+msgstr "有効化されていません"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:94
 msgid "Snapshots are active"
@@ -1843,7 +1843,7 @@ msgstr "デスクトップ"
 msgid "Make sure the {repo1} and {repo2} are both enabled - see Pacman tab"
 msgstr ""
 "{repo1} と {repo2} の両方が有効になっていることを確認してください。Pacman タ"
-"ブを参照"
+"ブを参照してください"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:50
 msgid "Select a desktop"
@@ -2552,7 +2552,7 @@ msgstr "手数料が低く、大部分がプロジェクトに届きます"
 
 #: usr/share/archlinux-tweak-tool/funding.py:20
 msgid "Recurring membership tiers"
-msgstr "定期メンバーシップのティア"
+msgstr "定期メンバーシップのプラン"
 
 #: usr/share/archlinux-tweak-tool/funding.py:21
 msgid "Early access and member-only perks"
@@ -2560,11 +2560,11 @@ msgstr "早期アクセスとメンバー限定の特典"
 
 #: usr/share/archlinux-tweak-tool/funding.py:22
 msgid "One-off donation, low fees"
-msgstr "単発の寄付、低手数料"
+msgstr "一回限りの寄付、低手数料"
 
 #: usr/share/archlinux-tweak-tool/funding.py:23
 msgid "One-off donation"
-msgstr "単発の寄付"
+msgstr "一回限りの寄付"
 
 #: usr/share/archlinux-tweak-tool/funding.py:40
 msgid "Support Kiro"
@@ -2638,7 +2638,7 @@ msgstr "オフィス"
 
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr "Sddm"
+msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
@@ -2718,7 +2718,7 @@ msgstr "{name} のアイコンをすべて選択しました"
 #: usr/share/archlinux-tweak-tool/icons.py:151
 #, python-brace-format
 msgid "We have selected the mint selection - {name} icons"
-msgstr "{name} のアイコンのミント系の選択を選びました"
+msgstr "{name} のミントのアイコンを選択しました"
 
 #: usr/share/archlinux-tweak-tool/icons.py:157
 #, python-brace-format
@@ -3114,7 +3114,7 @@ msgstr "x86-64-v2 向けに最適化した Arch カーネル"
 #: usr/share/archlinux-tweak-tool/kernel.py:225
 #: usr/share/archlinux-tweak-tool/kernel.py:235
 msgid "x86-64 microarch level builds"
-msgstr "x86-64 マイクロアーキテクチャレベルのビルド"
+msgstr "x86-64 のマイクロアーキテクチャレベル別ビルド"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:223
 msgid "Arch kernel optimized for x86-64-v3 (Haswell+)"
@@ -4378,7 +4378,7 @@ msgstr "最適な Arch Linux サーバーを探すアプリをインストール
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:288
 msgid "Get the original ATT /etc/pacman.conf"
-msgstr "ATT 元の /etc/pacman.conf を取得"
+msgstr "ATT の元の /etc/pacman.conf を取得"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:289
 msgid "Reset pacman.conf"
@@ -4408,9 +4408,9 @@ msgid ""
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
 "applications and SDDM login screen."
 msgstr ""
-"カーソルテーマを次にグローバル適用します: システムとユーザーの xcursor、"
-"GTK2/3/4、XFCE、GNOME（gsettings）、KDE Plasma、SDDM ログイン画面。すべてのア"
-"プリケーションと SDDM ログイン画面に影響します。"
+"カーソルテーマを次に一括適用します: システムとユーザーの xcursor、GTK2/3/4、"
+"XFCE、GNOME（gsettings）、KDE Plasma、SDDM ログイン画面。すべてのアプリケー"
+"ションと SDDM ログイン画面に影響します。"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
 msgid "<b>Current state</b>"
@@ -4999,12 +4999,12 @@ msgstr "/etc/makepkg.conf の debug を削除"
 #: usr/share/archlinux-tweak-tool/packages_gui.py:249
 #: usr/share/archlinux-tweak-tool/packages_gui.py:258
 msgid "<b>Debug ok</b>"
-msgstr "<b>Debug は問題なし</b>"
+msgstr "<b>debug: 問題なし</b>"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:251
 #: usr/share/archlinux-tweak-tool/packages_gui.py:260
 msgid "Debug not ok"
-msgstr "Debug は問題あり"
+msgstr "debug: 問題あり"
 
 #: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:22
 msgid "Arch Linux Tweak Tool: Confirm package installation"
@@ -5152,7 +5152,7 @@ msgstr "カスタムリポジトリを適用"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:92
 msgid "Reset your pacman local"
-msgstr "ローカルの pacman をリセット"
+msgstr "ローカルの pacman 設定に戻す"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
@@ -5172,7 +5172,7 @@ msgstr "<b>Arch Linux リポジトリ</b>"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:110
 msgid "# Enable Arch Linux core testing repo"
-msgstr "# Arch Linux の core テスティングリポジトリを有効にする"
+msgstr "# Arch Linux の core-testing リポジトリを有効にする"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:115
 msgid "Enable Arch Linux core repo"
@@ -5180,7 +5180,7 @@ msgstr "Arch Linux の core リポジトリを有効にする"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:120
 msgid "# Enable Arch Linux extra-testing repo"
-msgstr "# Arch Linux の extra テスティングリポジトリを有効にする"
+msgstr "# Arch Linux の extra-testing リポジトリを有効にする"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:125
 msgid "Enable Arch Linux extra repo"
@@ -5188,7 +5188,7 @@ msgstr "Arch Linux の extra リポジトリを有効にする"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:130
 msgid "# Enable Arch Linux multilib testing repo"
-msgstr "# Arch Linux の multilib テスティングリポジトリを有効にする"
+msgstr "# Arch Linux の multilib-testing リポジトリを有効にする"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:135
 msgid "Enable Arch Linux multilib repo"
@@ -6899,12 +6899,12 @@ msgid ""
 "You can also restore your own original configuration if you want to - auto "
 "restart ATT\n"
 msgstr ""
-"デフォルトの sddm 設定のセットアップの使用をおすすめします\n"
+"デフォルトの sddm 設定を使用することをおすすめします。\n"
 "Sddm の設定は 2 つのファイルに分かれています: /etc/sddm.conf と /etc/"
 "sddm.conf.d/kde_settings.conf\n"
 "/etc/sddm.conf.d/kde_settings.conf にはすべてのパラメーターが含まれています。"
-"ファイルはバックアップされます\n"
-"元の設定を復元することもできます。ATT は自動的に再起動します\n"
+"ファイルはバックアップされます。\n"
+"必要に応じて元の設定を復元することもできます。ATT は自動的に再起動します。\n"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:48
 msgid "Apply the Sddm configuration from ATT - auto restart ATT"
@@ -7066,7 +7066,7 @@ msgid ""
 "ATT will create {path} as your samba share folder.\n"
 "If you choose No, create the folder yourself before connecting."
 msgstr ""
-"Shared フォルダーを作成しますか？\n"
+"共有フォルダーを作成しますか？\n"
 "\n"
 "ATT は {path} を samba の共有フォルダーとして作成します。\n"
 "「いいえ」を選んだ場合は、接続する前に自分でフォルダーを作成してください。"
@@ -7680,7 +7680,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/shell.py:164
 msgid "ATT config.fish source not found"
-msgstr "ATT の config.fish のソースが見つかりません"
+msgstr "ATT の config.fish ファイルが見つかりません"
 
 #: usr/share/archlinux-tweak-tool/shell.py:169
 #, python-brace-format
@@ -8347,7 +8347,8 @@ msgstr "Alacritty Tweak Tool を起動"
 msgid ""
 "304 themes to choose from or create your own theme with the click of a button"
 msgstr ""
-"304 のテーマから選ぶか、ボタンをクリックするだけで自分のテーマを作成できます"
+"304 種類のテーマから選ぶか、ボタンをクリックするだけで自分のテーマを作成でき"
+"ます"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:869
 msgid "BASH (active)"
@@ -9089,7 +9090,7 @@ msgid ""
 " gone now (the full list minus what's still installed). Import either on a "
 "future install to re-remove."
 msgstr ""
-" このシステムに付属していたオプションのアプリを、カテゴリ別に削除します。\n"
+"このシステムに付属していたオプションのアプリを、カテゴリ別に削除します。\n"
 " 各セクションでは、<b>まだインストールされている</b>アプリ（左、チェックで削"
 "除）と、<b>すでに削除された</b>アプリ（右、チェックで再インストール）が並んで"
 "表示されます。\n"
@@ -9852,9 +9853,9 @@ msgid ""
 "line '%wheel ALL=(ALL:ALL) ALL'\n"
 "if you want your users to have administrator rights"
 msgstr ""
-"<b>純粋な Arch Linux</b> では、ユーザーに管理者権限を与える場"
-"合、'EDITOR=nano visudo' を実行して\n"
-"'%wheel ALL=(ALL:ALL) ALL' の行のコメントを外すことを忘れないでください"
+"<b>純粋な Arch Linux</b> では、ユーザーに管理者権限を与える場合、"
+"「EDITOR=nano visudo」を実行して\n"
+"「%wheel ALL=(ALL:ALL) ALL」の行のコメントを外すことを忘れないでください"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:124
 msgid "No backup found"
@@ -9868,7 +9869,7 @@ msgstr "{name} のバックアップを復元しました"
 #: usr/share/archlinux-tweak-tool/wallpaper.py:135
 #, python-brace-format
 msgid "Restore failed: {error}"
-msgstr "復元に失敗しました：{error}"
+msgstr "復元に失敗しました: {error}"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:160
 #, python-brace-format
@@ -9899,7 +9900,7 @@ msgstr "{name} は自動起動に含まれていません"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "データフォルダーに ATT の variety 設定が見つかりません"
+msgstr "データフォルダーに ATT の Variety 設定が見つかりません"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -9978,7 +9979,7 @@ msgstr "<i>壁紙を {path} に保存してください。{name} が自動的に
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format
 msgid "Save {name} variety config"
-msgstr "{name} の variety 設定を保存"
+msgstr "{name} の Variety 設定を保存"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:110
 #, python-brace-format
@@ -10022,7 +10023,7 @@ msgstr "ターミナルを開いています: {names}"
 #: usr/share/archlinux-tweak-tool/wayland.py:211
 #, python-brace-format
 msgid "Cannot remove {name} — log out of it first"
-msgstr "{name} は削除できません。先にそこからログアウトしてください"
+msgstr "{name} は削除できません: 先にログアウトしてください"
 
 #: usr/share/archlinux-tweak-tool/wayland.py:217
 #, python-brace-format

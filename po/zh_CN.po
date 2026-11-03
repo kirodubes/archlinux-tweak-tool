@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -137,7 +137,7 @@ msgstr "需要 {name}：请先安装 AUR 助手"
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:65
 #, python-brace-format
 msgid "{name} enabled (current session + saved for next login)"
-msgstr "{name} 已启用（当前会话，并保存至下次登录）"
+msgstr "{name} 已启用（当前会话生效，并已保存设置以供下次登录使用）"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:67
 #, python-brace-format
@@ -415,7 +415,7 @@ msgstr "jan 已开始安装"
 #: usr/share/archlinux-tweak-tool/ai.py:186
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI"
-msgstr "aichat - 全能 LLM 命令行工具"
+msgstr "aichat：集多种功能于一体的 LLM 命令行工具"
 
 #: usr/share/archlinux-tweak-tool/ai.py:188
 msgid "aichat removal complete"
@@ -428,7 +428,7 @@ msgstr "aichat 已开始移除"
 #: usr/share/archlinux-tweak-tool/ai.py:205
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI <b>installed</b>"
-msgstr "aichat - 全能 LLM 命令行工具 <b>已安装</b>"
+msgstr "aichat：集多种功能于一体的 LLM 命令行工具 <b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:207
 msgid "aichat installation complete"
@@ -652,7 +652,7 @@ msgstr "OpenCode 安装失败"
 #: usr/share/archlinux-tweak-tool/ai.py:646
 #: usr/share/archlinux-tweak-tool/ai_gui.py:279
 msgid "GitHub Copilot CLI"
-msgstr "GitHub Copilot 命令行工具"
+msgstr "GitHub Copilot CLI"
 
 #: usr/share/archlinux-tweak-tool/ai.py:648
 msgid "Copilot CLI removal complete"
@@ -669,7 +669,7 @@ msgstr "Copilot CLI 移除失败"
 #: usr/share/archlinux-tweak-tool/ai.py:668
 #: usr/share/archlinux-tweak-tool/ai_gui.py:279
 msgid "GitHub Copilot CLI <b>installed</b>"
-msgstr "GitHub Copilot 命令行工具 <b>已安装</b>"
+msgstr "GitHub Copilot CLI <b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:670
 msgid "Copilot CLI installation complete"
@@ -808,15 +808,15 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr "配置备份完成：欢迎使用 ArchLinux Tweak Tool！"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "更多调校工具"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
@@ -824,58 +824,58 @@ msgstr ""
 "ATT 还可以<b>安装并启动其他调校工具</b>，每个工具专用于一个应用。你可以在以下"
 "页面找到它们："
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "从 300 多个 Alacritty 主题中选择，或创建新主题"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shell"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "软件"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "配置 Fastfetch 显示的内容和方式"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "配置 fish shell"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
 msgstr "<i>它们从 Nemesis 软件源安装：请先在 Pacman 页面中启用它。</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "不再显示此提示"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "关闭"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "Nano 编辑器配色"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
@@ -883,30 +883,30 @@ msgstr ""
 "ATT 包含一个<b>彩色 nanorc</b>。点击其中一个即可选择：始终会先创建 /etc/"
 "nanorc 的备份。"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
 msgstr "保持默认"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "应用 ATT 配色"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "ATT nanorc 已应用到 /etc/nanorc"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "应用 ATT nanorc 失败"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "发现锁文件"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -917,11 +917,11 @@ msgstr ""
 "点击“是”删除锁文件，\n"
 "然后再次尝试运行 ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "内核不受支持"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -929,8 +929,8 @@ msgstr ""
 "你当前的内核不支持基本的操作系统函数调用。<b>ArchLinux Tweak Tool</b> 需要这"
 "些调用才能运行。"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "你需要先关闭已有的应用"
 
@@ -1684,7 +1684,7 @@ msgstr "安装桌面之前请先启用 {repos}"
 #: usr/share/archlinux-tweak-tool/desktopr.py:1187
 #, python-brace-format
 msgid "Installing {name} is a one-way operation"
-msgstr "安装 {name} 是单向操作"
+msgstr "安装 {name} 后无法撤销"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:1190
 #, python-brace-format
@@ -1806,7 +1806,7 @@ msgstr "预览"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:176
 msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
-msgstr "正在将此桌面将覆盖的配置备份到 ~/.config-att ..."
+msgstr "正在将此桌面会覆盖的配置备份到 ~/.config-att ..."
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:209
 msgid "Install all desktops"
@@ -2003,7 +2003,7 @@ msgstr "微码"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:922
 msgid "Audio stack (PipeWire)"
-msgstr "音频堆栈（PipeWire）"
+msgstr "音频系统（PipeWire）"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:930
 msgid "ZRAM"
@@ -2173,7 +2173,7 @@ msgstr "显示 Shell"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:86
 msgid "Show display"
-msgstr "显示显示器"
+msgstr "显示显示设备"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:87
 msgid "Show de"
@@ -2374,7 +2374,7 @@ msgstr "未找到文件：{package}"
 #: usr/share/archlinux-tweak-tool/functions.py:1460
 #: usr/share/archlinux-tweak-tool/maintenance.py:604
 msgid "Installation started..."
-msgstr "安装已开始..."
+msgstr "安装已开始……"
 
 #: usr/share/archlinux-tweak-tool/functions.py:1508
 #, python-brace-format
@@ -2451,7 +2451,7 @@ msgstr "未找到 nanorc 备份"
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
 msgid "We had to change your sddm configuration files"
-msgstr "我们不得不更改你的 sddm 配置文件"
+msgstr "我们不得不更改你的 SDDM 配置文件"
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -2515,7 +2515,7 @@ msgstr "Arc 主题"
 #: usr/share/archlinux-tweak-tool/gui.py:464
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:156
 msgid "Desktop - Wayland"
-msgstr "桌面 - Wayland"
+msgstr "桌面：Wayland"
 
 #: usr/share/archlinux-tweak-tool/gui.py:468
 msgid "Icons Horst"
@@ -2545,7 +2545,7 @@ msgstr "办公"
 
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr "Sddm"
+msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
@@ -2591,7 +2591,7 @@ msgstr "没有与“{text}”匹配的页面"
 
 #: usr/share/archlinux-tweak-tool/gui.py:636
 msgid "Search (Enter)"
-msgstr "搜索（回车）"
+msgstr "搜索（Return）"
 
 #: usr/share/archlinux-tweak-tool/icons.py:76
 msgid "Other"
@@ -2621,17 +2621,17 @@ msgstr "我们已选中所有 {name} 图标"
 #: usr/share/archlinux-tweak-tool/icons.py:151
 #, python-brace-format
 msgid "We have selected the mint selection - {name} icons"
-msgstr "我们已选中薄荷系列：{name} 图标"
+msgstr "我们已选中薄荷精选：{name} 图标"
 
 #: usr/share/archlinux-tweak-tool/icons.py:157
 #, python-brace-format
 msgid "We have selected the mixing selection - {name} icons"
-msgstr "我们已选中混搭系列：{name} 图标"
+msgstr "我们已选中混搭精选：{name} 图标"
 
 #: usr/share/archlinux-tweak-tool/icons.py:163
 #, python-brace-format
 msgid "We have selected the variation selection - {name} icons"
-msgstr "我们已选中变体系列：{name} 图标"
+msgstr "我们已选中变体精选：{name} 图标"
 
 #: usr/share/archlinux-tweak-tool/icons.py:169
 #: usr/share/archlinux-tweak-tool/icons.py:217
@@ -3020,7 +3020,7 @@ msgstr "针对 x86-64-v3 优化的 Arch 内核（Haswell 及更新）"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:233
 msgid "Arch kernel optimized for x86-64-v4 (AVX-512)"
-msgstr "针对 x86-64-v4 优化的 Arch 内核 (AVX-512)"
+msgstr "针对 x86-64-v4 优化的 Arch 内核（AVX-512）"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:244
 msgid "Optimized for AMD Zen 2 CPUs"
@@ -3315,7 +3315,7 @@ msgstr "{pkg} 安装完成"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:704
 msgid "<b>Default Boot Entry (systemd-boot)</b>"
-msgstr "<b>默认启动项 (systemd-boot)</b>"
+msgstr "<b>默认启动项（systemd-boot）</b>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:735
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:782
@@ -3358,7 +3358,7 @@ msgstr "设为默认"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:801
 msgid "<b>Default Boot Entry (limine)</b>"
-msgstr "<b>默认启动项 (limine)</b>"
+msgstr "<b>默认启动项（limine）</b>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:846
 #, python-brace-format
@@ -3367,7 +3367,7 @@ msgstr "设置 limine 默认启动项失败：{label}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:892
 msgid "<b>Default Boot Entry (GRUB)</b>"
-msgstr "<b>默认启动项 (GRUB)</b>"
+msgstr "<b>默认启动项（GRUB）</b>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:906
 msgid ""
@@ -3389,7 +3389,7 @@ msgstr "修复 /etc/default/grub 中的 GRUB_DEFAULT 失败"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:1016
 msgid "<b>Default Boot Entry (rEFInd)</b>"
-msgstr "<b>默认启动项 (rEFInd)</b>"
+msgstr "<b>默认启动项（rEFInd）</b>"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:1062
 #, python-brace-format
@@ -3658,7 +3658,7 @@ msgstr "正在终端中生成 {locale}…"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:663
 #, python-brace-format
 msgid "Generating locale {locale}..."
-msgstr "正在生成区域设置 {locale}..."
+msgstr "正在生成区域设置 {locale}……"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:668
 msgid "Failed to update /etc/locale.gen"
@@ -3691,11 +3691,11 @@ msgstr "需要 {pkg}：请先安装"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:17
 msgid "Opening current boot journal..."
-msgstr "正在打开本次启动的日志..."
+msgstr "正在打开本次启动的日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:33
 msgid "Opening previous boot journal..."
-msgstr "正在打开上次启动的日志..."
+msgstr "正在打开上次启动的日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:46
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:61
@@ -3716,23 +3716,23 @@ msgstr "需要 fzf：请先安装"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:50
 msgid "Opening journal errors viewer..."
-msgstr "正在打开日志错误查看器..."
+msgstr "正在打开日志错误查看器……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:65
 msgid "Opening recent journal (last 20 min)..."
-msgstr "正在打开最近的日志（最近 20 分钟）..."
+msgstr "正在打开最近的日志（最近 20 分钟）……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:81
 msgid "Opening Xorg log..."
-msgstr "正在打开 Xorg 日志..."
+msgstr "正在打开 Xorg 日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:97
 msgid "Opening pacman log..."
-msgstr "正在打开 pacman 日志..."
+msgstr "正在打开 pacman 日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:113
 msgid "Opening X session errors log..."
-msgstr "正在打开 X 会话错误日志..."
+msgstr "正在打开 X 会话错误日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:136
 msgid "X11 session detected — showing X session log"
@@ -3744,19 +3744,19 @@ msgstr "需要 bat：请先安装"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:159
 msgid "Opening Wayland compositor journal..."
-msgstr "正在打开 Wayland 合成器日志..."
+msgstr "正在打开 Wayland 合成器日志……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:182
 msgid "Opening boot performance analyzer..."
-msgstr "正在打开启动性能分析器..."
+msgstr "正在打开启动性能分析器……"
 
 #: usr/share/archlinux-tweak-tool/log_callbacks.py:197
 msgid "Opening kernel ring buffer (dmesg)..."
-msgstr "正在打开内核环形缓冲区 (dmesg)..."
+msgstr "正在打开内核环形缓冲区（dmesg）……"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:14
 msgid "Investigate your logs"
-msgstr "查看你的日志"
+msgstr "排查你的日志"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:28
 msgid "<b>Journal</b>"
@@ -3800,15 +3800,15 @@ msgstr "查看 X 会话错误（~/.xsession-errors 或 Xorg.0.log）"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:148
 msgid "<b>Boot &amp; Kernel</b>"
-msgstr "<b>启动 &amp; 内核</b>"
+msgstr "<b>启动与内核</b>"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:156
 msgid "Analyze boot performance (systemd-analyze blame)"
-msgstr "分析启动性能 (systemd-analyze blame)"
+msgstr "分析启动性能（systemd-analyze blame）"
 
 #: usr/share/archlinux-tweak-tool/logging_gui.py:169
 msgid "View kernel ring buffer (dmesg)"
-msgstr "查看内核环形缓冲区 (dmesg)"
+msgstr "查看内核环形缓冲区（dmesg）"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:330
 msgid "Select a cursor theme first"
@@ -3858,7 +3858,7 @@ msgstr ""
 "• 用户 xcursor 配置\n"
 "• GTK2、GTK3 和 GTK4 设置\n"
 "• XFCE 设置（如已安装）\n"
-"• GNOME 设置 (gsettings)\n"
+"• GNOME 设置（gsettings）\n"
 "• KDE Plasma 设置（如已安装）\n"
 "• SDDM 登录界面（如已安装）\n"
 "\n"
@@ -3958,11 +3958,11 @@ msgstr "已显示 mirrorlist"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:674
 msgid "Fastest Arch Linux servers saved - reflector"
-msgstr "最快的 Arch Linux 服务器已保存 - reflector"
+msgstr "最快的 Arch Linux 服务器已保存：reflector"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:680
 msgid "Fastest Arch Linux servers saved - rate-mirrors"
-msgstr "最快的 Arch Linux 服务器已保存 - rate-mirrors"
+msgstr "最快的 Arch Linux 服务器已保存：rate-mirrors"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:687
 msgid "Install reflector first."
@@ -3975,7 +3975,7 @@ msgstr "启用 reflector 定时器"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:697
 msgid "Reflector timer disabled"
-msgstr "Reflector 定时器已禁用"
+msgstr "reflector 定时器已禁用"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:701
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:241
@@ -3984,7 +3984,7 @@ msgstr "禁用 reflector 定时器"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:701
 msgid "Reflector timer enabled"
-msgstr "Reflector 定时器已启用"
+msgstr "reflector 定时器已启用"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:713
 msgid "Saved the original /etc/pacman.conf"
@@ -4285,8 +4285,9 @@ msgid ""
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
 "applications and SDDM login screen."
 msgstr ""
-"将光标主题全局应用到：系统和用户 xcursor、GTK2/3/4、XFCE、GNOME (gsettings)、"
-"KDE Plasma 以及 SDDM 登录界面。会影响所有应用和 SDDM 登录界面。"
+"将光标主题全局应用到：系统和用户 xcursor、GTK2/3/4、XFCE、GNOME"
+"（gsettings）、KDE Plasma 以及 SDDM 登录界面。会影响所有应用和 SDDM 登录界"
+"面。"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
 msgid "<b>Current state</b>"
@@ -4319,7 +4320,7 @@ msgid ""
 "Regenerate all initramfs images (mkinitcpio -P). Run after manual HOOKS "
 "changes or when troubleshooting boot."
 msgstr ""
-"重新生成所有 initramfs 镜像 (mkinitcpio -P)。在手动更改 HOOKS 后或排查启动问"
+"重新生成所有 initramfs 镜像（mkinitcpio -P）。在手动更改 HOOKS 后或排查启动问"
 "题时运行。"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:464
@@ -4344,12 +4345,12 @@ msgstr "启动 / Initramfs"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:12
 msgid "1. Install the samba server - <b>installed</b>"
-msgstr "1. 安装 samba 服务器 - <b>已安装</b>"
+msgstr "1. 安装 Samba 服务器 - <b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:14
 #: usr/share/archlinux-tweak-tool/network_gui.py:246
 msgid "1. Install the samba server"
-msgstr "1. 安装 samba 服务器"
+msgstr "1. 安装 Samba 服务器"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:17
 msgid "Discover other computers in your network - <b>installed</b>"
@@ -4378,7 +4379,7 @@ msgstr "启用 Samba"
 #: usr/share/archlinux-tweak-tool/network_gui.py:373
 #: usr/share/archlinux-tweak-tool/services.py:806
 msgid "Block network discovery (mDNS)"
-msgstr "阻止网络发现 (mDNS)"
+msgstr "阻止网络发现（mDNS）"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:27
 #: usr/share/archlinux-tweak-tool/network_gui.py:374
@@ -4402,7 +4403,7 @@ msgstr "允许 Samba 文件共享"
 #: usr/share/archlinux-tweak-tool/network_gui.py:398
 #: usr/share/archlinux-tweak-tool/services.py:971
 msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
-msgstr "图形化防火墙编辑器 (firewall-config) - <b>已安装</b>"
+msgstr "图形化防火墙编辑器（firewall-config）- <b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:42
 #: usr/share/archlinux-tweak-tool/network_gui.py:405
@@ -4413,7 +4414,7 @@ msgstr "启动 firewall-config"
 #: usr/share/archlinux-tweak-tool/network_gui.py:44
 #: usr/share/archlinux-tweak-tool/network_gui.py:400
 msgid "Graphical firewall editor (firewall-config)"
-msgstr "图形化防火墙编辑器 (firewall-config)"
+msgstr "图形化防火墙编辑器（firewall-config）"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:45
 #: usr/share/archlinux-tweak-tool/network_gui.py:405
@@ -4433,7 +4434,7 @@ msgstr "安装 firewall-config"
 #: usr/share/archlinux-tweak-tool/services_gui.py:341
 #: usr/share/archlinux-tweak-tool/services_gui.py:535
 msgid "<b>active</b>"
-msgstr "<b>活动</b>"
+msgstr "<b>运行中</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:53
 #: usr/share/archlinux-tweak-tool/services.py:604
@@ -4448,7 +4449,7 @@ msgstr "<b>活动</b>"
 #: usr/share/archlinux-tweak-tool/services_gui.py:343
 #: usr/share/archlinux-tweak-tool/services_gui.py:537
 msgid "inactive"
-msgstr "未活动"
+msgstr "未运行"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:55
 #: usr/share/archlinux-tweak-tool/services.py:788
@@ -4534,7 +4535,7 @@ msgid ""
 "already there\n"
 " "
 msgstr ""
-"如果你需要在家庭网络中共享某个文件夹及其内容，请安装 samba 服务器\n"
+"如果你需要在家庭网络中共享某个文件夹及其内容，请安装 Samba 服务器\n"
 "目的是创建<b>一个</b>共享文件夹，当前用户之后可以从其他计算机访问该文件夹\n"
 "如果你的主目录中还没有“Shared”文件夹，我们会创建它\n"
 " "
@@ -4579,7 +4580,7 @@ msgstr "4. 启动 Samba 服务"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:316
 msgid "Restart Samba (smb + nmb)"
-msgstr "重启 Samba (smb + nmb)"
+msgstr "重启 Samba（smb + nmb）"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:324
 msgid "You can now reboot and enjoy the <b>'Shared'</b> folder"
@@ -5005,7 +5006,7 @@ msgstr "应用自定义软件源"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:92
 msgid "Reset your pacman local"
-msgstr "重置你的本地 pacman"
+msgstr "重置你的本地 pacman 配置"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
@@ -5013,7 +5014,7 @@ msgstr "重置 pacman ATT"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:96
 msgid "Blank pacman (auto reboot) and select"
-msgstr "空白 pacman（自动重启）并选择"
+msgstr "清空 pacman 配置（自动重启）并选择"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:98
 msgid "Edit pacman.conf in terminal"
@@ -5061,7 +5062,7 @@ msgstr "启用 Chaotic-Aur 软件源"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:156
 msgid "Enable CachyOS repo"
-msgstr "启用 CachyOS 仓库"
+msgstr "启用 CachyOS 软件源"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:161
 msgid "<b>Add custom repo to pacman.conf</b>"
@@ -5264,11 +5265,11 @@ msgstr "Tuned-PPD 已重启"
 #: usr/share/archlinux-tweak-tool/performance.py:616
 #, python-brace-format
 msgid "Active profile: <b>{profile}</b> ({status})"
-msgstr "活动配置文件：<b>{profile}</b>（{status}）"
+msgstr "当前配置文件：<b>{profile}</b>（{status}）"
 
 #: usr/share/archlinux-tweak-tool/performance.py:620
 msgid "No active profile"
-msgstr "没有活动的配置文件"
+msgstr "没有正在使用的配置文件"
 
 #: usr/share/archlinux-tweak-tool/performance.py:661
 msgid "No profile selected"
@@ -5705,13 +5706,13 @@ msgstr ""
 "<tt>MAKEFLAGS</tt> 控制 <tt>makepkg</tt> 在构建 AUR 软件包\n"
 "或从源码编译时使用的并行任务数。Arch 默认将\n"
 "<tt>#MAKEFLAGS=\"-j2\"</tt> 注释掉，因此默认情况下\n"
-"实际上是单线程。在你的 {ncores} 核 CPU 上，这会浪费\n"
-"大量速度：一旦启用所有核心，许多 AUR 构建会从几分钟\n"
+"实际上是单线程。在你的 {ncores} 核 CPU 上，性能未能充分发挥：\n"
+"一旦启用所有核心，许多 AUR 构建会从几分钟\n"
 "缩短到几秒。\n"
 "{reserve_block}\n"
 "<b>如何还原</b>\n"
 "备份保存在 <tt>{backup}</tt>。随时点击本页面上的\n"
-"<b>还原备份</b>即可撤销。"
+"<b>恢复备份</b>即可撤销。"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2274
 msgid "Tune failed — see ATT log"
@@ -5719,7 +5720,7 @@ msgstr "调优失败：请查看 ATT 日志"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2286
 msgid "No backup at /etc/makepkg.conf-bak — nothing to restore."
-msgstr "/etc/makepkg.conf-bak 处没有备份，无可还原的内容。"
+msgstr "未找到 /etc/makepkg.conf-bak 备份文件，无需还原。"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2303
 msgid "MAKEFLAGS restored — back to Arch's single-threaded default"
@@ -5845,7 +5846,7 @@ msgstr "重启 tuned-ppd"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:201
 msgid "Active tuned profile : …"
-msgstr "活动的 tuned 配置文件：…"
+msgstr "当前 tuned 配置文件：…"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:209
 msgid "Apply Profile"
@@ -5971,7 +5972,7 @@ msgid ""
 msgstr ""
 "在 <tt>/etc/makepkg.conf</tt> 中设置 <b>MAKEFLAGS</b>：使用所有核心以获得最快"
 "构建速度，或保留 2 个核心空闲，以便在构建时保持响应。\n"
-"ATT 会在启动时写入 <tt>/etc/makepkg.conf-bak</tt>，“还原”可将其恢复。"
+"ATT 会在启动时写入 <tt>/etc/makepkg.conf-bak</tt>，点击“恢复备份”即可还原。"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:563
 msgid "MAKEFLAGS : …"
@@ -5985,7 +5986,7 @@ msgstr "针对全部 {ncores_detected} 个核心优化"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:575
 #, python-brace-format
 msgid "Keep 2 cores free (-j{value})"
-msgstr "保留 2 个核心空闲 (-j{value})"
+msgstr "保留 2 个核心空闲（-j{value}）"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:577
 msgid "Build with 2 cores reserved so the desktop and mouse stay responsive"
@@ -6027,9 +6028,10 @@ msgid ""
 "initramfs.\n"
 "Every step is shown in the terminal — prompts ask before destructive cleanup."
 msgstr ""
-"“安装”会将 plymouth 钩子添加到 <tt>/etc/mkinitcpio.conf</tt> 并重建 "
+"“安装 Plymouth”会将 plymouth 钩子添加到 <tt>/etc/mkinitcpio.conf</tt> 并重建 "
 "initramfs。\n"
-"“移除”会去掉该钩子，可选择从内核命令行中清除 <tt>quiet splash</tt>，\n"
+"“移除 Plymouth”会去掉该钩子，可选择从内核命令行中清除 <tt>quiet splash</"
+"tt>，\n"
 "可选择移除 <tt>plymouth-theme-*</tt> 软件包，并重建 initramfs。\n"
 "每一步都会在终端中显示，在进行破坏性清理之前会先提示确认。"
 
@@ -6124,7 +6126,7 @@ msgid ""
 "Add <tt>quiet splash</tt> to the <tt>options</tt> line\n"
 "in your rEFInd stanza (<tt>/boot/EFI/refind/refind.conf</tt>)."
 msgstr ""
-"请在 rEFInd 配置段 (<tt>/boot/EFI/refind/refind.conf</tt>) 中\n"
+"请在 rEFInd 配置段（<tt>/boot/EFI/refind/refind.conf</tt>）中\n"
 "将 <tt>quiet splash</tt> 添加到 <tt>options</tt> 行。"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:221
@@ -6364,7 +6366,7 @@ msgstr "启用或禁用 {name}，检查 /etc/hosts <b>活动</b>"
 #: usr/share/archlinux-tweak-tool/privacy.py:44
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts inactive"
-msgstr "启用或禁用 {name}，检查 /etc/hosts 未活动"
+msgstr "启用或禁用 {name}：检查 /etc/hosts 是否处于非活动状态"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:87
 msgid "<i>No hosts whitelisted yet</i>"
@@ -6382,7 +6384,7 @@ msgstr "{host} 已在白名单中"
 #: usr/share/archlinux-tweak-tool/privacy.py:164
 #: usr/share/archlinux-tweak-tool/privacy.py:182
 msgid "Could not write the allowlist file"
-msgstr "无法写入允许列表文件"
+msgstr "无法写入白名单文件"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:168
 #, python-brace-format
@@ -6392,7 +6394,7 @@ msgstr "已将 {host} 加入白名单"
 #: usr/share/archlinux-tweak-tool/privacy.py:171
 #, python-brace-format
 msgid "Whitelisting {host}..."
-msgstr "正在将 {host} 加入白名单..."
+msgstr "正在将 {host} 加入白名单……"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:186
 #, python-brace-format
@@ -6402,7 +6404,7 @@ msgstr "已将 {host} 从白名单中移除"
 #: usr/share/archlinux-tweak-tool/privacy.py:188
 #, python-brace-format
 msgid "Re-blocking {host}..."
-msgstr "正在重新拦截 {host}..."
+msgstr "正在重新拦截 {host}……"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:306
 #, python-brace-format
@@ -6412,7 +6414,7 @@ msgstr "{name} 未安装：请先安装"
 #: usr/share/archlinux-tweak-tool/privacy.py:327
 #, python-brace-format
 msgid "Enabling {name}..."
-msgstr "正在启用 {name}..."
+msgstr "正在启用 {name}……"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:344
 #, python-brace-format
@@ -6422,13 +6424,13 @@ msgstr "启用或禁用 {name}，检查 /etc/hosts <b>已启用</b>"
 #: usr/share/archlinux-tweak-tool/privacy.py:370
 #, python-brace-format
 msgid "Disabling {name}..."
-msgstr "正在禁用 {name}..."
+msgstr "正在禁用 {name}……"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:387
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:104
 #, python-brace-format
 msgid "Enable or disable {name} — check /etc/hosts disabled"
-msgstr "启用或禁用 {name}，检查 /etc/hosts 已禁用"
+msgstr "启用或禁用 {name}：检查 /etc/hosts 是否已禁用"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:24
 msgid "Privacy/Security"
@@ -6440,7 +6442,7 @@ msgstr "<b>内容拦截</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:72
 msgid "<b>Network &amp; Tracking Protection</b>"
-msgstr "<b>网络 &amp; 跟踪保护</b>"
+msgstr "<b>网络与跟踪保护</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:106
 #, python-brace-format
@@ -6467,7 +6469,7 @@ msgstr "添加到白名单"
 #: usr/share/archlinux-tweak-tool/sddm.py:347
 #: usr/share/archlinux-tweak-tool/sddm.py:371
 msgid "There seems to have been a problem in \"set_sddm_value\""
-msgstr "“set_sddm_value”中似乎出现了问题"
+msgstr "“set_sddm_value” 中似乎出现了问题"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:494
 msgid ""
@@ -6628,7 +6630,7 @@ msgstr "Bibata 光标已安装"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:862
 msgid "Opening terminal to install Bibata cursors..."
-msgstr "正在打开终端以安装 Bibata 光标..."
+msgstr "正在打开终端以安装 Bibata 光标……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:879
 msgid "Bibata cursors not installed"
@@ -6636,7 +6638,7 @@ msgstr "Bibata 光标未安装"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:881
 msgid "Opening terminal to remove Bibata cursors..."
-msgstr "正在打开终端以移除 Bibata 光标..."
+msgstr "正在打开终端以移除 Bibata 光标……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:898
 msgid "Bibata extra cursors already installed"
@@ -6644,7 +6646,7 @@ msgstr "Bibata 额外光标已安装"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:900
 msgid "Opening terminal to install Bibata extra cursors..."
-msgstr "正在打开终端以安装 Bibata 额外光标..."
+msgstr "正在打开终端以安装 Bibata 额外光标……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:917
 msgid "Bibata extra cursors not installed"
@@ -6652,15 +6654,15 @@ msgstr "Bibata 额外光标未安装"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:919
 msgid "Opening terminal to remove Bibata extra cursors..."
-msgstr "正在打开终端以移除 Bibata 额外光标..."
+msgstr "正在打开终端以移除 Bibata 额外光标……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:936
 msgid "Opening terminal to install Simplicity theme..."
-msgstr "正在打开终端以安装 Simplicity 主题..."
+msgstr "正在打开终端以安装 Simplicity 主题……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:974
 msgid "Opening terminal to remove Simplicity theme..."
-msgstr "正在打开终端以移除 Simplicity 主题..."
+msgstr "正在打开终端以移除 Simplicity 主题……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:1006
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:268
@@ -6690,7 +6692,7 @@ msgstr "修复 SDDM 配置"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:1037
 msgid "Opening terminal to fix SDDM config..."
-msgstr "正在打开终端以修复 SDDM 配置..."
+msgstr "正在打开终端以修复 SDDM 配置……"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:1051
 msgid "SDDM configuration fixed"
@@ -6698,11 +6700,11 @@ msgstr "SDDM 配置已修复"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:17
 msgid "Sddm (active)"
-msgstr "Sddm（活动）"
+msgstr "SDDM（活动）"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:19
 msgid "Sddm (inactive)"
-msgstr "Sddm（未活动）"
+msgstr "SDDM（未活动）"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:31
 msgid "Configuration Setup"
@@ -6718,18 +6720,18 @@ msgid ""
 "You can also restore your own original configuration if you want to - auto "
 "restart ATT\n"
 msgstr ""
-"我们建议使用默认的 sddm 配置\n"
-"Sddm 配置分为两个文件：/etc/sddm.conf 和 /etc/sddm.conf.d/kde_settings.conf\n"
+"我们建议使用默认的 SDDM 配置\n"
+"SDDM 配置分为两个文件：/etc/sddm.conf 和 /etc/sddm.conf.d/kde_settings.conf\n"
 "/etc/sddm.conf.d/kde_settings.conf 包含所有参数，我们会备份你的文件\n"
 "如果需要，你也可以恢复自己的原始配置，ATT 会自动重启\n"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:48
 msgid "Apply the Sddm configuration from ATT - auto restart ATT"
-msgstr "应用来自 ATT 的 Sddm 配置，ATT 会自动重启"
+msgstr "应用来自 ATT 的 SDDM 配置，ATT 会自动重启"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:51
 msgid "Apply your original Sddm configuration - auto restart ATT"
-msgstr "应用你的原始 Sddm 配置，ATT 会自动重启"
+msgstr "应用你的原始 SDDM 配置，ATT 会自动重启"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:72
 msgid "Login Settings"
@@ -6782,7 +6784,7 @@ msgstr "{theme} 主题的壁纸"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:210
 msgid "Set background wallpaper for the Simplicity Sddm theme"
-msgstr "为 Simplicity Sddm 主题设置背景壁纸"
+msgstr "为 Simplicity SDDM 主题设置背景壁纸"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:214
 msgid "Install Simplicity theme"
@@ -6829,7 +6831,7 @@ msgstr "包含 AUR 软件包"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:375
 msgid "Sort by recently updated (AUR)"
-msgstr "按最近更新排序 (AUR)"
+msgstr "按最近更新排序（AUR）"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:437
 msgid "Remove installed"
@@ -6841,7 +6843,7 @@ msgstr "移除主题"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:482
 msgid "Fetching AUR package dates..."
-msgstr "正在获取 AUR 软件包日期..."
+msgstr "正在获取 AUR 软件包日期……"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:508
 #, python-brace-format
@@ -6855,11 +6857,11 @@ msgstr "正在移除：{name}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:569
 msgid "Sddm is not installed"
-msgstr "Sddm 未安装"
+msgstr "SDDM 未安装"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:580
 msgid "<b>Sddm does not seem to be installed</b>"
-msgstr "<b>Sddm 似乎未安装</b>"
+msgstr "<b>SDDM 似乎未安装</b>"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:583
 msgid "Install sddm-git and enable it"
@@ -6882,9 +6884,9 @@ msgid ""
 "ATT will create {path} as your samba share folder.\n"
 "If you choose No, create the folder yourself before connecting."
 msgstr ""
-"创建 Shared 文件夹？\n"
+"创建共享文件夹？\n"
 "\n"
-"ATT 将创建 {path} 作为你的 samba 共享文件夹。\n"
+"ATT 将创建 {path} 作为你的 Samba 共享文件夹。\n"
 "如果选择“否”，请在连接之前自行创建该文件夹。"
 
 #: usr/share/archlinux-tweak-tool/services.py:123
@@ -6962,7 +6964,7 @@ msgstr "自动连接已启用"
 
 #: usr/share/archlinux-tweak-tool/services.py:431
 msgid "Opening terminal to install bluetooth-autoconnect..."
-msgstr "正在打开终端以安装 bluetooth-autoconnect..."
+msgstr "正在打开终端以安装 bluetooth-autoconnect……"
 
 #: usr/share/archlinux-tweak-tool/services.py:442
 #: usr/share/archlinux-tweak-tool/services_gui.py:61
@@ -6994,7 +6996,7 @@ msgstr "蓝牙已重启"
 
 #: usr/share/archlinux-tweak-tool/services.py:511
 msgid "Opening terminal to install cups..."
-msgstr "正在打开终端以安装 cups..."
+msgstr "正在打开终端以安装 cups……"
 
 #: usr/share/archlinux-tweak-tool/services.py:521
 msgid "CUPS installed"
@@ -7011,7 +7013,7 @@ msgstr "CUPS 安装失败或已取消"
 
 #: usr/share/archlinux-tweak-tool/services.py:535
 msgid "Opening terminal to remove cups..."
-msgstr "正在打开终端以移除 cups..."
+msgstr "正在打开终端以移除 cups……"
 
 #: usr/share/archlinux-tweak-tool/services.py:545
 msgid "CUPS removed"
@@ -7029,7 +7031,7 @@ msgstr "CUPS 移除失败或已取消"
 
 #: usr/share/archlinux-tweak-tool/services.py:559
 msgid "Opening terminal to install cups-pdf..."
-msgstr "正在打开终端以安装 cups-pdf..."
+msgstr "正在打开终端以安装 cups-pdf……"
 
 #: usr/share/archlinux-tweak-tool/services.py:568
 msgid "cups-pdf installed"
@@ -7046,7 +7048,7 @@ msgstr "cups-pdf 安装失败或已取消"
 
 #: usr/share/archlinux-tweak-tool/services.py:580
 msgid "Opening terminal to remove cups-pdf..."
-msgstr "正在打开终端以移除 cups-pdf..."
+msgstr "正在打开终端以移除 cups-pdf……"
 
 #: usr/share/archlinux-tweak-tool/services.py:589
 msgid "cups-pdf removed"
@@ -7094,7 +7096,7 @@ msgstr "   安装 HP 驱动"
 
 #: usr/share/archlinux-tweak-tool/services.py:733
 msgid "Opening terminal to install system-config-printer..."
-msgstr "正在打开终端以安装 system-config-printer..."
+msgstr "正在打开终端以安装 system-config-printer……"
 
 #: usr/share/archlinux-tweak-tool/services.py:742
 msgid "system-config-printer installed"
@@ -7110,7 +7112,7 @@ msgstr "system-config-printer 安装失败或已取消"
 
 #: usr/share/archlinux-tweak-tool/services.py:758
 msgid "Opening terminal to remove system-config-printer..."
-msgstr "正在打开终端以移除 system-config-printer..."
+msgstr "正在打开终端以移除 system-config-printer……"
 
 #: usr/share/archlinux-tweak-tool/services.py:767
 msgid "system-config-printer removed"
@@ -7163,7 +7165,7 @@ msgstr "防火墙已启用"
 
 #: usr/share/archlinux-tweak-tool/services.py:941
 msgid "network discovery (mDNS)"
-msgstr "网络发现 (mDNS)"
+msgstr "网络发现（mDNS）"
 
 #: usr/share/archlinux-tweak-tool/services.py:946
 msgid "Samba file sharing"
@@ -7171,7 +7173,7 @@ msgstr "Samba 文件共享"
 
 #: usr/share/archlinux-tweak-tool/services.py:956
 msgid "Launching firewall-config..."
-msgstr "正在启动 firewall-config..."
+msgstr "正在启动 firewall-config……"
 
 #: usr/share/archlinux-tweak-tool/services.py:974
 msgid "firewall-config install finished"
@@ -7288,10 +7290,10 @@ msgid ""
 "There are packages that conflict with each other.\n"
 "Report them if that is the case"
 msgstr ""
-"你有两个主要选择： \n"
-"  - <b>Pulseaudio</b>\n"
-"  - <b>Pipewire</b>\n"
-"安装 pulseaudio 或 pipewire 后请重启\n"
+"你有两个主要选择：\n"
+"  - <b>PulseAudio</b>\n"
+"  - <b>PipeWire</b>\n"
+"安装 PulseAudio 或 PipeWire 后请重启\n"
 "在终端中运行“inxi -A”可以看到正在运行的是哪种声音服务器\n"
 "有些软件包相互冲突。\n"
 "如果遇到这种情况，请反馈"
@@ -7299,17 +7301,17 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/services_gui.py:305
 #: usr/share/archlinux-tweak-tool/services_gui.py:306
 msgid "Install and switch to Pulseaudio"
-msgstr "安装并切换到 Pulseaudio"
+msgstr "安装并切换到 PulseAudio"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:318
 #: usr/share/archlinux-tweak-tool/services_gui.py:319
 msgid "Install and switch to Pipewire"
-msgstr "安装并切换到 Pipewire"
+msgstr "安装并切换到 PipeWire"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:346
 #, python-brace-format
 msgid "Pulseaudio service : {pulseaudio}   Pipewire service : {pipewire}"
-msgstr "Pulseaudio 服务：{pulseaudio}   Pipewire 服务：{pipewire}"
+msgstr "PulseAudio 服务：{pulseaudio}   PipeWire 服务：{pipewire}"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:356
 msgid "<b>Packages</b>"
@@ -7324,7 +7326,7 @@ msgid ""
 "Reconnect paired headsets at login (AutoEnable). Works with PipeWire and "
 "PulseAudio."
 msgstr ""
-"登录时重新连接已配对的耳机 (AutoEnable)。适用于 PipeWire 和 PulseAudio。"
+"登录时重新连接已配对的耳机（AutoEnable）。适用于 PipeWire 和 PulseAudio。"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:429
 msgid "You can install all the bluetooth packages here and enable the service."
@@ -7417,7 +7419,7 @@ msgstr "用户服务"
 #: usr/share/archlinux-tweak-tool/services_gui.py:714
 #, python-brace-format
 msgid "<b>{count}</b> active user services  ·  <b>{custom}</b> custom"
-msgstr "<b>{count}</b> 个活动的用户服务  ·  <b>{custom}</b> 个自定义"
+msgstr "<b>{count}</b> 个活动的用户服务  ·  <b>{custom}</b> 个自定义服务"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:736
 #, python-brace-format
@@ -7499,7 +7501,7 @@ msgstr "Fish 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:210
 msgid "Installing fish..."
-msgstr "正在安装 fish..."
+msgstr "正在安装 fish……"
 
 #: usr/share/archlinux-tweak-tool/shell.py:217
 msgid "Fish installed — page updated"
@@ -7583,7 +7585,7 @@ msgstr "请先启用 chaotic-aur：{packages}"
 #: usr/share/archlinux-tweak-tool/shell.py:427
 #: usr/share/archlinux-tweak-tool/shell.py:466
 msgid "Opening terminal..."
-msgstr "正在打开终端..."
+msgstr "正在打开终端……"
 
 #: usr/share/archlinux-tweak-tool/shell.py:438
 msgid "Extra shell applications installed"
@@ -7599,7 +7601,7 @@ msgstr "zsh 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:511
 msgid "Installing zsh..."
-msgstr "正在安装 zsh..."
+msgstr "正在安装 zsh……"
 
 #: usr/share/archlinux-tweak-tool/shell.py:519
 msgid "zsh installed — page updated"
@@ -7674,7 +7676,7 @@ msgstr "zsh-completions 已开始安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:608
 msgid "zsh-completions installed"
-msgstr "zsh-completions 已安装完成"
+msgstr "zsh-completions 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:620
 msgid "zsh-completions is not installed"
@@ -7694,7 +7696,7 @@ msgstr "zsh-syntax-highlighting 已开始安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:654
 msgid "zsh-syntax-highlighting installed"
-msgstr "zsh-syntax-highlighting 已安装完成"
+msgstr "zsh-syntax-highlighting 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:666
 msgid "zsh-syntax-highlighting is not installed"
@@ -7738,7 +7740,7 @@ msgstr "正在打开终端以安装 alacritty"
 
 #: usr/share/archlinux-tweak-tool/shell.py:744
 msgid "alacritty installed"
-msgstr "alacritty 已安装完成"
+msgstr "alacritty 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:755
 msgid "alacritty is not installed"
@@ -7762,7 +7764,7 @@ msgstr "正在打开终端以安装 alacritty-tweak-tool"
 
 #: usr/share/archlinux-tweak-tool/shell.py:791
 msgid "alacritty-tweak-tool installed"
-msgstr "alacritty-tweak-tool 已安装完成"
+msgstr "alacritty-tweak-tool 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:802
 msgid "alacritty-tweak-tool is not installed"
@@ -7803,7 +7805,7 @@ msgstr "正在打开终端以安装 fish-tweak-tool"
 
 #: usr/share/archlinux-tweak-tool/shell.py:866
 msgid "fish-tweak-tool installed"
-msgstr "fish-tweak-tool 已安装完成"
+msgstr "fish-tweak-tool 已安装"
 
 #: usr/share/archlinux-tweak-tool/shell.py:877
 msgid "fish-tweak-tool is not installed"
@@ -8029,8 +8031,8 @@ msgstr ""
 "• <b>提示符</b>：安装 Tide、Hydro 或 Pure，或选择内置样式（同一时间只启用一"
 "个）\n"
 "• <b>插件</b>：通过 fisher 开关必备插件：fzf、autopair、sponge、puffer-fish\n"
-"• <b>主题</b>：25 种配色主题，悬停即可实时预览，并提供深色 / 浅色变体\n"
-"• <b>设置</b>：问候语（fastfetch 或自定义）、光标形状、一键备份 &amp; 还原\n"
+"• <b>主题</b>：25 种配色主题，悬停即可实时预览，并提供深色和浅色变体\n"
+"• <b>设置</b>：问候语（fastfetch 或自定义）、光标形状、一键备份和还原\n"
 "• <b>没有黑箱</b>：每项更改都在终端中运行，你可以看到确切的命令\n"
 "\n"
 "<i>在进行任何更改之前，总会先备份你的 fish 配置。</i>"
@@ -8049,7 +8051,7 @@ msgstr ""
 "ATT 的 shell 配置包含需要某些应用的别名\n"
 "\n"
 "你可以在这里选择缺少的应用并安装它们\n"
-"需要时请启用 nemesis 软件源，以安装所有应用\n"
+"需要时请启用 Nemesis 软件源，以安装所有应用\n"
 "\n"
 "未安装的应用将再次被<b>取消选中</b>\n"
 "请启用必要的软件源"
@@ -8131,19 +8133,19 @@ msgstr "可从 304 个主题中选择，或只需点击一下即可创建你自�
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:869
 msgid "BASH (active)"
-msgstr "BASH（活动）"
+msgstr "BASH（当前使用）"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:870
 msgid "ZSH (active)"
-msgstr "ZSH（活动）"
+msgstr "ZSH（当前使用）"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:871
 msgid "FISH (active)"
-msgstr "FISH（活动）"
+msgstr "FISH（当前使用）"
 
 #: usr/share/archlinux-tweak-tool/shell_gui.py:873
 msgid "EXTRA"
-msgstr "额外"
+msgstr "其他"
 
 #: usr/share/archlinux-tweak-tool/software.py:23
 #: usr/share/archlinux-tweak-tool/software.py:52
@@ -8343,7 +8345,7 @@ msgstr "Trizen - AUR 助手（基于 Perl）<b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:499
 msgid "trizen installed"
-msgstr "trizen 已安装完成"
+msgstr "trizen 已安装"
 
 #: usr/share/archlinux-tweak-tool/software.py:511
 msgid "pikaur-git already installed"
@@ -8360,7 +8362,7 @@ msgstr "Pikaur-git - AUR 助手（基于 Python）<b>已安装</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:522
 msgid "pikaur-git installed"
-msgstr "pikaur-git 已安装完成"
+msgstr "pikaur-git 已安装"
 
 #: usr/share/archlinux-tweak-tool/software.py:534
 msgid "yay-git removal started"
@@ -8427,7 +8429,7 @@ msgstr "请先在 Pacman 标签页中启用 chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/software.py:620
 msgid "pacui is on chaotic-AUR — installing..."
-msgstr "pacui 位于 chaotic-AUR，正在安装..."
+msgstr "pacui 在 chaotic-AUR 软件源中，正在安装..."
 
 #: usr/share/archlinux-tweak-tool/software.py:626
 #: usr/share/archlinux-tweak-tool/software_gui.py:429
@@ -8552,7 +8554,7 @@ msgstr "pacseek 已启动"
 
 #: usr/share/archlinux-tweak-tool/software.py:947
 msgid "pacseek is on chaotic-AUR — installing..."
-msgstr "pacseek 位于 chaotic-AUR，正在安装..."
+msgstr "pacseek 在 chaotic-AUR 软件源中，正在安装..."
 
 #: usr/share/archlinux-tweak-tool/software.py:953
 #: usr/share/archlinux-tweak-tool/software_gui.py:406
@@ -8669,7 +8671,7 @@ msgstr "请先在 Pacman 标签页中启用 nemesis/chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/software.py:1110
 msgid "archlinux-logout is on nemesis/chaotic-AUR — installing..."
-msgstr "archlinux-logout 位于 nemesis/chaotic-AUR，正在安装..."
+msgstr "archlinux-logout 在 nemesis/chaotic-AUR 软件源中，正在安装..."
 
 #: usr/share/archlinux-tweak-tool/software.py:1116
 #: usr/share/archlinux-tweak-tool/software_gui.py:459
@@ -8825,7 +8827,7 @@ msgstr "Alacritty Tweak Tool：可从 300 多个主题中选择，或创建新�
 
 #: usr/share/archlinux-tweak-tool/streamline.py:43
 msgid "Removal terminal opened"
-msgstr "移除终端已打开"
+msgstr "已打开卸载终端"
 
 #: usr/share/archlinux-tweak-tool/streamline.py:50
 msgid "Streamline removal finished"
@@ -8856,12 +8858,12 @@ msgid ""
 " gone now (the full list minus what's still installed). Import either on a "
 "future install to re-remove."
 msgstr ""
-" 移除本系统上附带的可选应用，按类别分组。\n"
-" 每个部分在左侧显示<b>仍已安装</b>的应用（勾选以移除），在右侧显示<b>已移除</"
+"移除本系统上附带的可选应用，按类别分组。\n"
+" 每个部分在左侧显示<b>仍然安装</b>的应用（勾选以移除），在右侧显示<b>已移除</"
 "b>的应用（勾选以重新安装）。\n"
 " 勾选一个<b>类别</b>可选中其所有应用，然后取消勾选你想保留的应用。\n"
 " <b>保存配置文件</b>会保存你当前的选择。<b>保存已移除列表</b>会记录当前实际\n"
-" 已移除的内容（完整列表减去仍已安装的部分）。将来安装时导入其中任一个即可再次"
+" 已移除的内容（完整列表减去仍然安装的部分）。将来安装时导入其中任一个即可再次"
 "移除。"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:43
@@ -8874,7 +8876,7 @@ msgstr "搜索软件包…"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:139
 msgid "<b>Still installed</b>"
-msgstr "<b>仍已安装</b>"
+msgstr "<b>仍然安装</b>"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:141
 msgid "<b>Already removed</b>"
@@ -8988,7 +8990,7 @@ msgstr "inxi 安装失败或已取消"
 #: usr/share/archlinux-tweak-tool/system.py:293
 #: usr/share/archlinux-tweak-tool/system_gui.py:268
 msgid "Inspect with GParted <b>installed</b>"
-msgstr "使用 GParted 检查 <b>已安装</b>"
+msgstr "使用 GParted 检查（<b>已安装</b>）"
 
 #: usr/share/archlinux-tweak-tool/system.py:295
 #: usr/share/archlinux-tweak-tool/system_gui.py:270
@@ -8998,7 +9000,7 @@ msgstr "使用 GParted 检查"
 #: usr/share/archlinux-tweak-tool/system.py:301
 #: usr/share/archlinux-tweak-tool/system_gui.py:291
 msgid "Inspect with Partition Manager <b>installed</b>"
-msgstr "使用 Partition Manager 检查 <b>已安装</b>"
+msgstr "使用 Partition Manager 检查（<b>已安装</b>）"
 
 #: usr/share/archlinux-tweak-tool/system.py:303
 #: usr/share/archlinux-tweak-tool/system_gui.py:293
@@ -9323,7 +9325,7 @@ msgid ""
 "changes..\n"
 "First install the desktop via the Desktop menu then theme it."
 msgstr ""
-"更改完成后，请使用 <b>Super + Shift + R</b> 重新加载你的窗口管理器..\n"
+"更改完成后，请使用 <b>Super + Shift + R</b> 重新加载你的窗口管理器。\n"
 "请先通过“桌面”菜单安装桌面，然后再设置主题。"
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:148
@@ -9641,7 +9643,7 @@ msgstr "{name} 不在自启动中"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "在数据文件夹中未找到 ATT variety 配置"
+msgstr "在数据文件夹中未找到 ATT Variety 配置"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -9720,7 +9722,7 @@ msgstr "<i>请将你的壁纸存放在 {path}，{name} 会自动识别它们</i>
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format
 msgid "Save {name} variety config"
-msgstr "保存 {name} variety 配置"
+msgstr "保存 {name} Variety 配置"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:110
 #, python-brace-format
@@ -9763,7 +9765,7 @@ msgstr "正在打开终端：{names}"
 #: usr/share/archlinux-tweak-tool/wayland.py:211
 #, python-brace-format
 msgid "Cannot remove {name} — log out of it first"
-msgstr "无法移除 {name}：请先从中注销"
+msgstr "无法移除 {name}：请先退出该会话"
 
 #: usr/share/archlinux-tweak-tool/wayland.py:217
 #, python-brace-format

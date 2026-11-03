@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 17:18+0100\n"
+"POT-Creation-Date: 2026-11-03 15:48+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:18
 msgid "Orca (screen reader)"
-msgstr "Orca (screen reader)"
+msgstr "Orca (lettore di schermo)"
 
 #: usr/share/archlinux-tweak-tool/accessibility.py:19
 msgid "Onboard (on-screen keyboard)"
@@ -372,7 +372,7 @@ msgstr "<small><b>{name}</b>: {desc}</small>"
 #: usr/share/archlinux-tweak-tool/ai.py:81
 #: usr/share/archlinux-tweak-tool/ai_gui.py:38
 msgid "Ollama - Local LLM runner"
-msgstr "Ollama - Esecutore LLM locale"
+msgstr "Ollama - Ambiente di esecuzione locale per LLM"
 
 #: usr/share/archlinux-tweak-tool/ai.py:83
 msgid "ollama removal complete"
@@ -429,7 +429,7 @@ msgstr "Installazione di jan avviata"
 #: usr/share/archlinux-tweak-tool/ai.py:186
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI"
-msgstr "aichat - CLI LLM tutto in uno"
+msgstr "aichat - CLI tuttofare per LLM"
 
 #: usr/share/archlinux-tweak-tool/ai.py:188
 msgid "aichat removal complete"
@@ -442,7 +442,7 @@ msgstr "Rimozione di aichat avviata"
 #: usr/share/archlinux-tweak-tool/ai.py:205
 #: usr/share/archlinux-tweak-tool/ai_gui.py:331
 msgid "aichat - All-in-one LLM CLI <b>installed</b>"
-msgstr "aichat - CLI LLM tutto in uno <b>installato</b>"
+msgstr "aichat - CLI tuttofare per LLM <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/ai.py:207
 msgid "aichat installation complete"
@@ -823,16 +823,16 @@ msgstr "Leonardo.ai"
 msgid "Adobe Firefly"
 msgstr "Adobe Firefly"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:485
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:496
 msgid "Config backups complete - Welcome to the ArchLinux Tweak Tool!"
 msgstr ""
 "Backup delle configurazioni completato: benvenuto in ArchLinux Tweak Tool!"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:517
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:528
 msgid "More Tweak Tools"
 msgstr "Altri strumenti Tweak"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:530
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:541
 msgid ""
 "ATT can also <b>install and launch other tweak tools</b>, each dedicated to "
 "one application. You find them on these pages:"
@@ -840,39 +840,39 @@ msgstr ""
 "ATT può anche <b>installare e avviare altri strumenti Tweak</b>, ciascuno "
 "dedicato a una singola applicazione. Li trovi in queste pagine:"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:539
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:550
 msgid "choose from 300+ Alacritty themes or create new ones"
 msgstr "scegli tra oltre 300 temi Alacritty o creane di nuovi"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:776
 #: usr/share/archlinux-tweak-tool/gui.py:504
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shell"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:540
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:784
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Software"
 msgstr "Software"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:572
 #: usr/share/archlinux-tweak-tool/gui.py:466
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:542
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 msgid "configure what Fastfetch shows and how"
 msgstr "configura cosa mostra Fastfetch e come"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:543
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 msgid "configure the fish shell"
 msgstr "configura la shell fish"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:562
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:573
 msgid ""
 "<i>They install from the Nemesis repo — enable it on the Pacman page first.</"
 "i>"
@@ -880,20 +880,20 @@ msgstr ""
 "<i>Si installano dal repository Nemesis: abilitalo prima nella pagina Pacman."
 "</i>"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:566
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:577
 msgid "Don't show this again"
 msgstr "Non mostrare più"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:568
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "Chiudi"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:590
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:601
 msgid "Nano Editor Colors"
 msgstr "Colori dell'editor Nano"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:603
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:614
 msgid ""
 "ATT includes a <b>colorful nanorc</b>. Click one to choose — a backup of /"
 "etc/nanorc is always created first."
@@ -901,30 +901,30 @@ msgstr ""
 "ATT include un <b>nanorc colorato</b>. Clicca su uno per sceglierlo: un "
 "backup di /etc/nanorc viene sempre creato prima."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:628
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:639
 msgid "Keep default"
-msgstr "Mantieni predefinito"
+msgstr "Mantieni le impostazioni predefinite"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:629
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:640
 msgid "Apply ATT colors"
 msgstr "Applica i colori di ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:643
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:654
 #: usr/share/archlinux-tweak-tool/software.py:1212
 msgid "ATT nanorc applied to /etc/nanorc"
 msgstr "nanorc di ATT applicato a /etc/nanorc"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:646
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:657
 #: usr/share/archlinux-tweak-tool/software.py:1217
 msgid "Failed to apply ATT nanorc"
 msgstr "Applicazione di nanorc di ATT non riuscita"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:737
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
 #: usr/share/archlinux-tweak-tool/desktopr.py:604
 msgid "Lock File Found"
 msgstr "File di blocco trovato"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:740
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -936,11 +936,11 @@ msgstr ""
 "Clicca su sì per rimuovere il file di blocco\n"
 "e prova a riavviare ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
 msgid "Kernel Not Supported"
 msgstr "Kernel non supportato"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:754
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -948,8 +948,8 @@ msgstr ""
 "Il tuo kernel attuale non supporta le chiamate di funzione di base del "
 "sistema operativo. <b>ArchLinux Tweak Tool</b> ne ha bisogno per funzionare."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:783
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:785
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
 msgid "You first need to close the existing application"
 msgstr "Devi prima chiudere l'applicazione già in esecuzione"
 
@@ -1570,7 +1570,7 @@ msgstr "Tutti"
 #: usr/share/archlinux-tweak-tool/icons_gui.py:108
 #: usr/share/archlinux-tweak-tool/themes_gui.py:238
 msgid "None"
-msgstr "Nessuna"
+msgstr "Nessuno"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:154
 #: usr/share/archlinux-tweak-tool/themes_gui.py:259
@@ -1673,7 +1673,8 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/desktopr.py:606
 #, python-brace-format
 msgid "{name} lock file found, do you want to remove it and continue?"
-msgstr "File di blocco di {name} trovato, vuoi rimuoverlo e continuare?"
+msgstr ""
+"È stato trovato il file di blocco di {name}: vuoi rimuoverlo e continuare?"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:648
 #, python-brace-format
@@ -1694,8 +1695,8 @@ msgstr "{desktop} è stato installato"
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
-"{desktop} non riuscito: non trovato: {packages}: abilita {repo} nella scheda "
-"Pacman"
+"Installazione di {desktop} non riuscita: pacchetti non trovati: {packages}. "
+"Abilita {repo} nella scheda Pacman."
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:868
 #, python-brace-format
@@ -1918,12 +1919,12 @@ msgid ""
 "WARNING: Installing {name} is a one-way operation — removal requires a "
 "system reinstall"
 msgstr ""
-"ATTENZIONE: installare {name} è un'operazione irreversibile, la rimozione "
-"richiede la reinstallazione del sistema"
+"ATTENZIONE: installare {name} è un'operazione irreversibile: per rimuoverlo, "
+"devi reinstallare il sistema."
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:321
 msgid "Dev Diagnostics"
-msgstr "Diagnostica sviluppatore"
+msgstr "Diagnostica per sviluppatori"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:343
 msgid "What do these rows mean? — read the Dev Page Glossary"
@@ -2108,7 +2109,7 @@ msgstr "Unità systemd in errore"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:985
 msgid "Userspace tuning"
-msgstr "Ottimizzazione dello spazio utente"
+msgstr "Ottimizzazione in spazio utente"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:988
 msgid "OOM daemon (systemd-oomd)"
@@ -2232,11 +2233,11 @@ msgstr "Reimposta {name} (impostazioni predefinite: {defaults})"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:80
 msgid "Show os"
-msgstr "Mostra os"
+msgstr "Mostra sistema operativo"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:81
 msgid "Show hostname"
-msgstr "Mostra hostname"
+msgstr "Mostra nome host"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:82
 msgid "Show kernel"
@@ -2244,7 +2245,7 @@ msgstr "Mostra kernel"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:83
 msgid "Show uptime"
-msgstr "Mostra uptime"
+msgstr "Mostra tempo di attività"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:84
 msgid "Show packages"
@@ -2260,15 +2261,15 @@ msgstr "Mostra display"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:87
 msgid "Show de"
-msgstr "Mostra de"
+msgstr "Mostra DE"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:88
 msgid "Show wm"
-msgstr "Mostra wm"
+msgstr "Mostra WM"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:89
 msgid "Show wm theme"
-msgstr "Mostra tema wm"
+msgstr "Mostra tema WM"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:90
 msgid "Show theme"
@@ -2288,11 +2289,11 @@ msgstr "Mostra font del terminale"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:94
 msgid "Show cpu"
-msgstr "Mostra cpu"
+msgstr "Mostra CPU"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:95
 msgid "Show gpu"
-msgstr "Mostra gpu"
+msgstr "Mostra GPU"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:96
 msgid "Show memory"
@@ -2316,15 +2317,15 @@ msgstr "Mostra dischi"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:101
 msgid "Show local ip"
-msgstr "Mostra ip locale"
+msgstr "Mostra IP locale"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:102
 msgid "Show public ip"
-msgstr "Mostra ip pubblico"
+msgstr "Mostra IP pubblico"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:103
 msgid "Show locale"
-msgstr "Mostra lingua"
+msgstr "Mostra impostazioni locali"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:104
 msgid "Show battery"
@@ -2491,12 +2492,12 @@ msgstr "Disinstallazione di samba..."
 #: usr/share/archlinux-tweak-tool/functions.py:2408
 #, python-brace-format
 msgid "Allowing {label}..."
-msgstr "Consentire {label}..."
+msgstr "Consentendo {label}..."
 
 #: usr/share/archlinux-tweak-tool/functions.py:2410
 #, python-brace-format
 msgid "Blocking {label}..."
-msgstr "Blocco di {label}..."
+msgstr "Bloccando {label}..."
 
 #: usr/share/archlinux-tweak-tool/functions.py:2554
 msgid "Smb.conf has been saved"
@@ -2542,7 +2543,7 @@ msgstr "Nessun backup di nanorc trovato"
 
 #: usr/share/archlinux-tweak-tool/functions_sddm.py:68
 msgid "We had to change your sddm configuration files"
-msgstr "Abbiamo dovuto modificare i tuoi file di configurazione di sddm"
+msgstr "Abbiamo dovuto modificare i tuoi file di configurazione di SDDM"
 
 #: usr/share/archlinux-tweak-tool/funding.py:19
 msgid "Low fees — most reaches the project"
@@ -2632,11 +2633,11 @@ msgstr "Registrazione log"
 #: usr/share/archlinux-tweak-tool/gui.py:485
 #: usr/share/archlinux-tweak-tool/office_gui.py:49
 msgid "Office"
-msgstr "Office"
+msgstr "Ufficio"
 
 #: usr/share/archlinux-tweak-tool/gui.py:500
 msgid "Sddm"
-msgstr "Sddm"
+msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/gui.py:510
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
@@ -2716,7 +2717,7 @@ msgstr "Abbiamo selezionato tutte le icone {name}"
 #: usr/share/archlinux-tweak-tool/icons.py:151
 #, python-brace-format
 msgid "We have selected the mint selection - {name} icons"
-msgstr "Abbiamo selezionato la selezione mint - icone {name}"
+msgstr "Abbiamo selezionato la selezione mint: icone {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:157
 #, python-brace-format
@@ -2726,7 +2727,7 @@ msgstr "Abbiamo selezionato la selezione mista - icone {name}"
 #: usr/share/archlinux-tweak-tool/icons.py:163
 #, python-brace-format
 msgid "We have selected the variation selection - {name} icons"
-msgstr "Abbiamo selezionato la selezione variazioni - icone {name}"
+msgstr "Abbiamo selezionato la selezione delle varianti: icone {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:169
 #: usr/share/archlinux-tweak-tool/icons.py:217
@@ -2742,7 +2743,7 @@ msgstr "Abbiamo selezionato i temi della famiglia {name}"
 #: usr/share/archlinux-tweak-tool/icons.py:181
 #, python-brace-format
 msgid "We have selected the {name} flexible family themes"
-msgstr "Abbiamo selezionato i temi della famiglia flexible di {name}"
+msgstr "Abbiamo selezionato i temi della famiglia flessibile di {name}"
 
 #: usr/share/archlinux-tweak-tool/icons.py:187
 #, python-brace-format
@@ -2889,7 +2890,7 @@ msgstr "{name} non installato"
 #: usr/share/archlinux-tweak-tool/iso.py:94
 #, python-brace-format
 msgid "{name} is <b>not installed</b> — it will be installed first"
-msgstr "{name} <b>non è installato</b>: verrà installato prima"
+msgstr "{name} <b>non è installato</b>: verrà installato per primo"
 
 #: usr/share/archlinux-tweak-tool/iso.py:101
 msgid "Opening terminal to build the Arch ISO"
@@ -2900,8 +2901,8 @@ msgid ""
 "Build your own personalised Arch-based ISO with the Kiro ISO Builder — a "
 "GTK4 front-end with one-click host pre-flight fixes."
 msgstr ""
-"Crea la tua ISO personalizzata basata su Arch con Kiro ISO Builder, un front-"
-"end GTK4 con correzioni pre-flight dell'host con un clic."
+"Crea la tua ISO personalizzata basata su Arch con Kiro ISO Builder, "
+"un'interfaccia GTK4 con correzioni preliminari sull'host con un solo clic."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:62
 msgid "Install kiro-iso-builder"
@@ -2924,7 +2925,7 @@ msgstr "Anteprima della scheda"
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:81
 msgid "Pre-flight"
-msgstr "Pre-flight"
+msgstr "Verifiche preliminari"
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:82
 msgid "Desktops"
@@ -2941,7 +2942,7 @@ msgstr "Aggiungi applicazioni"
 #: usr/share/archlinux-tweak-tool/iso_gui.py:86
 #: usr/share/archlinux-tweak-tool/performance_gui.py:644
 msgid "Build"
-msgstr "Compila"
+msgstr "Crea"
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:87
 msgid "Done"
@@ -2972,9 +2973,9 @@ msgid ""
 "does not run. The ISO lands in ~/ArchISO."
 msgstr ""
 "Crea l'ISO ufficiale del programma di installazione di Arch Linux con il "
-"profilo releng di archiso. archiso viene installato prima se manca: se non è "
-"possibile installarlo, la creazione non viene eseguita. L'ISO viene salvata "
-"in ~/ArchISO."
+"profilo releng di archiso. Se archiso non è installato, viene installato "
+"prima: se non è possibile installarlo, la creazione non viene eseguita. "
+"L'ISO viene salvata in ~/ArchISO."
 
 #: usr/share/archlinux-tweak-tool/iso_gui.py:149
 msgid "Build vanilla Arch ISO"
@@ -3007,11 +3008,11 @@ msgstr "Kernel orientato alla sicurezza"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:49
 msgid "Real-time kernel"
-msgstr "Kernel real-time"
+msgstr "Kernel in tempo reale"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:57
 msgid "Real-time kernel (LTS base)"
-msgstr "Kernel real-time (base LTS)"
+msgstr "Kernel in tempo reale (base LTS)"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:65
 msgid "CachyOS default kernel"
@@ -3027,7 +3028,7 @@ msgstr "CachyOS"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:74
 msgid "CachyOS with BORE scheduler"
-msgstr "CachyOS con scheduler BORE"
+msgstr "CachyOS con pianificatore BORE"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:83
 msgid "CachyOS long-term support kernel"
@@ -3035,11 +3036,11 @@ msgstr "Kernel a supporto a lungo termine di CachyOS"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:92
 msgid "CachyOS release candidate kernel"
-msgstr "Kernel release candidate di CachyOS"
+msgstr "Kernel candidato al rilascio di CachyOS"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:101
 msgid "CachyOS kernel with CJK TTY font support"
-msgstr "Kernel CachyOS con supporto del font TTY CJK"
+msgstr "Kernel CachyOS con supporto ai font CJK nel TTY"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:110
 msgid "Xanmod long-term support kernel"
@@ -3055,7 +3056,7 @@ msgstr "Xanmod"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:119
 msgid "Xanmod real-time kernel"
-msgstr "Kernel real-time di Xanmod"
+msgstr "Kernel in tempo reale di Xanmod"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:128
 msgid "Xanmod optimized for x86-64-v2 (post-2009 CPUs)"
@@ -3071,7 +3072,7 @@ msgstr "Xanmod all'avanguardia, x86-64-v3"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:158
 msgid "Desktop/multimedia optimized kernel"
-msgstr "Kernel ottimizzato per desktop/multimedia"
+msgstr "Kernel ottimizzato per desktop e multimedia"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:160
 msgid "Liquorix"
@@ -3079,7 +3080,7 @@ msgstr "Liquorix"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:167
 msgid "Latest upstream mainline kernel"
-msgstr "Ultimo kernel mainline upstream"
+msgstr "Ultimo kernel mainline del ramo principale"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:169
 msgid "Mainline"
@@ -3116,7 +3117,7 @@ msgstr "Kernel Arch ottimizzato per x86-64-v2"
 #: usr/share/archlinux-tweak-tool/kernel.py:225
 #: usr/share/archlinux-tweak-tool/kernel.py:235
 msgid "x86-64 microarch level builds"
-msgstr "Build per livello di microarchitettura x86-64"
+msgstr "Versioni per livello di microarchitettura x86-64"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:223
 msgid "Arch kernel optimized for x86-64-v3 (Haswell+)"
@@ -3135,7 +3136,7 @@ msgstr "Ottimizzato per CPU AMD Zen 2"
 #: usr/share/archlinux-tweak-tool/kernel.py:266
 #: usr/share/archlinux-tweak-tool/kernel.py:276
 msgid "AMD Zen builds"
-msgstr "Build per AMD Zen"
+msgstr "Versioni per AMD Zen"
 
 #: usr/share/archlinux-tweak-tool/kernel.py:254
 msgid "Optimized for AMD Zen 3 CPUs"
@@ -3321,7 +3322,7 @@ msgstr ""
 "\n"
 "{pkg_lines}\n"
 "\n"
-"Soluzione: abilita {repo_str} in ATT > pagina Pacman, poi riprova."
+"Soluzione: abilita {repo_str} in ATT > scheda Pacman, poi riprova."
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:289
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:387
@@ -3413,7 +3414,7 @@ msgstr "Installa {p}"
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:629
 #, python-brace-format
 msgid "{action} completed for {pkg_name}"
-msgstr "{action} completato per {pkg_name}"
+msgstr "Operazione {action} completata per {pkg_name}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:663
 #, python-brace-format
@@ -3528,7 +3529,7 @@ msgstr "<small>Attuale: {entry_id}</small>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:17
 msgid "Locale, Keyboard & Timezone"
-msgstr "Lingua, tastiera e fuso orario"
+msgstr "Lingua regionale, tastiera e fuso orario"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:31
 msgid "<b>Current Settings</b>"
@@ -3536,7 +3537,7 @@ msgstr "<b>Impostazioni attuali</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:39
 msgid "System Locale:"
-msgstr "Lingua di sistema:"
+msgstr "Impostazioni internazionali di sistema:"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:49
 msgid "Language (LANGUAGE):"
@@ -3606,7 +3607,7 @@ msgstr "<b>Genera nuova lingua</b>"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:174
 msgid "Load Available Locales"
-msgstr "Carica le lingue disponibili"
+msgstr "Carica le impostazioni internazionali disponibili"
 
 #: usr/share/archlinux-tweak-tool/locale_gui.py:208
 msgid "<b>Console Keyboard (TTY)</b>"
@@ -3658,7 +3659,7 @@ msgstr "Usa LANG (predefinito)"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:112
 msgid "No locale variables to set"
-msgstr "Nessuna variabile di lingua da impostare"
+msgstr "Nessuna variabile di localizzazione da impostare"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:123
 #: usr/share/archlinux-tweak-tool/locale_settings.py:473
@@ -3720,21 +3721,24 @@ msgstr "Applicazione in corso…"
 #, python-brace-format
 msgid "System locale set to {locale} — log out to apply"
 msgstr ""
-"Lingua di sistema impostata su {locale}: esci dalla sessione per applicarla"
+"Impostazioni internazionali di sistema impostate su {locale}: esci dalla "
+"sessione per applicarle"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:438
 #, python-brace-format
 msgid "{category} reset to follow LANG"
-msgstr "{category} reimpostata per seguire LANG"
+msgstr "Valore di {category} ripristinato per seguire LANG"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:442
 #, python-brace-format
 msgid "{category} set to {locale}"
-msgstr "{category} impostata su {locale}"
+msgstr "Valore di {category} impostato su {locale}"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:457
 msgid "Per-category locale overrides reset to LANG"
-msgstr "Sostituzioni di lingua per categoria reimpostate su LANG"
+msgstr ""
+"Sostituzioni delle impostazioni internazionali per categoria reimpostate su "
+"LANG"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:469
 #: usr/share/archlinux-tweak-tool/locale_settings.py:470
@@ -3768,7 +3772,7 @@ msgstr "Layout X11 impostato su {layout}"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:627
 msgid "No locale selected"
-msgstr "Nessuna lingua selezionata"
+msgstr "Nessuna impostazione internazionale selezionata"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:631
 #, python-brace-format
@@ -3778,7 +3782,7 @@ msgstr "Generazione di {locale} nel terminale…"
 #: usr/share/archlinux-tweak-tool/locale_settings.py:663
 #, python-brace-format
 msgid "Generating locale {locale}..."
-msgstr "Generazione della lingua {locale}..."
+msgstr "Generazione delle impostazioni internazionali {locale}..."
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:668
 msgid "Failed to update /etc/locale.gen"
@@ -3788,7 +3792,8 @@ msgstr "Aggiornamento di /etc/locale.gen non riuscito"
 #, python-brace-format
 msgid "Locale {locale} generated and set — log out to apply"
 msgstr ""
-"Lingua {locale} generata e impostata: esci dalla sessione per applicarla"
+"Impostazioni internazionali {locale} generate e impostate: esci dalla "
+"sessione per applicarle"
 
 #: usr/share/archlinux-tweak-tool/locale_settings.py:697
 #: usr/share/archlinux-tweak-tool/locale_settings.py:698
@@ -3947,7 +3952,7 @@ msgstr[1] "Cursore salvato per {count} impostazioni"
 #: usr/share/archlinux-tweak-tool/sddm.py:347
 #: usr/share/archlinux-tweak-tool/sddm.py:371
 msgid "Failed!!"
-msgstr "Non riuscito!!"
+msgstr "Non riuscito!"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:425
 msgid "There seems to have been a problem in \"set_global_cursor\""
@@ -4073,7 +4078,7 @@ msgstr "I server principali sono stati salvati"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:666
 msgid "Your original mirrorlist is back"
-msgstr "La tua mirrorlist originale è tornata"
+msgstr "La mirrorlist originale è stata ripristinata"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:668
 msgid "Mirrorlist displayed"
@@ -4111,7 +4116,7 @@ msgstr "Timer di reflector abilitato"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:713
 msgid "Saved the original /etc/pacman.conf"
-msgstr "Il /etc/pacman.conf originale è stato salvato"
+msgstr "Il file /etc/pacman.conf originale è stato salvato"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:737
 msgid "The new /etc/pacman.d/gnupg/gpg.conf has been saved"
@@ -4230,7 +4235,7 @@ msgstr ""
 "Se usi la sospensione su disco (ibernazione), rimuovere l'hook 'resume' la "
 "renderà inutilizzabile.\n"
 "\n"
-"Procedere comunque?"
+"Procedi comunque?"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:977
 msgid "Hibernation may be in use"
@@ -4306,7 +4311,7 @@ msgstr "Rimuovi il blocco di pacman"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:127
 msgid "Provide probe link (hardware diagnostics)"
-msgstr "Fornisci il link della sonda (diagnostica hardware)"
+msgstr "Fornisci un link per la diagnostica hardware"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:128
 msgid "Get probe link"
@@ -4339,7 +4344,7 @@ msgstr "Ottieni i migliori keyserver per /etc/pacman.d/gnupg/gpg.conf"
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:175
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:188
 msgid "Backup and reset gpg.conf"
-msgstr "Backup e reimpostazione di gpg.conf"
+msgstr "Crea un backup e reimposta gpg.conf"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:187
 msgid "Get the best keyservers for ~/.gnupg/gpg.conf"
@@ -4351,7 +4356,7 @@ msgstr "Imposta i server principali di Arch Linux"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:204
 msgid "Set mainstream"
-msgstr "Imposta i principali"
+msgstr "Imposta i server principali"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:206
 msgid "Reset your mirrorlist"
@@ -4402,7 +4407,7 @@ msgstr "Rimuovi i cursori Bibata"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:344
 msgid "Choose your cursor theme for installed desktops and SDDM"
-msgstr "Scegli il tema di cursore per i desktop installati e per SDDM"
+msgstr "Scegli il tema del cursore per i desktop installati e per SDDM"
 
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:376
 msgid ""
@@ -4471,12 +4476,12 @@ msgstr "Avvio / Initramfs"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:12
 msgid "1. Install the samba server - <b>installed</b>"
-msgstr "1. Installa il server samba - <b>installato</b>"
+msgstr "1. Installa il server Samba - <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:14
 #: usr/share/archlinux-tweak-tool/network_gui.py:246
 msgid "1. Install the samba server"
-msgstr "1. Installa il server samba"
+msgstr "1. Installa il server Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:17
 msgid "Discover other computers in your network - <b>installed</b>"
@@ -4517,13 +4522,13 @@ msgstr "Consenti l'individuazione della rete (mDNS)"
 #: usr/share/archlinux-tweak-tool/network_gui.py:378
 #: usr/share/archlinux-tweak-tool/services.py:811
 msgid "Block Samba file sharing"
-msgstr "Blocca la condivisione file Samba"
+msgstr "Blocca la condivisione di file Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:33
 #: usr/share/archlinux-tweak-tool/network_gui.py:379
 #: usr/share/archlinux-tweak-tool/services.py:811
 msgid "Allow Samba file sharing"
-msgstr "Consenti la condivisione file Samba"
+msgstr "Consenti la condivisione di file Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:41
 #: usr/share/archlinux-tweak-tool/network_gui.py:398
@@ -4759,7 +4764,7 @@ msgstr ""
 "sia sul client,\n"
 "il file manager sul client dovrebbe trovare automaticamente il server.\n"
 "Firewall: un server che condivide file ha bisogno sia di 'Consenti "
-"l'individuazione della rete (mDNS)' sia di 'Consenti la condivisione file "
+"l'individuazione della rete (mDNS)' sia di 'Consenti la condivisione di file "
 "Samba'.\n"
 "Un client ha bisogno solo di 'Consenti l'individuazione della rete (mDNS)': "
 "si connette verso l'esterno, quindi Samba non deve essere aperto sul client."
@@ -4909,12 +4914,13 @@ msgid ""
 " A list of installed packages will be exported to <b>.config/archlinux-tweak-"
 "tool/packages</b>"
 msgstr ""
-" <b>Nessun pacchetto AUR viene esportato</b>\n"
-" - Opzione: <b>Pacchetti installati esplicitamente</b> (consigliata) solo i "
-"pacchetti presenti nel sync db (meno pacchetti)\n"
-" - Opzione: <b>Tutti i pacchetti installati</b> esporta tutti i pacchetti "
+"<b>Nessun pacchetto AUR viene esportato</b>\n"
+" - Opzione: <b>Pacchetti installati esplicitamente</b> (consigliata): "
+"vengono esportati solo i pacchetti presenti nel database di sincronizzazione "
+"(meno pacchetti)\n"
+" - Opzione: <b>Tutti i pacchetti installati</b>: esporta tutti i pacchetti "
 "attualmente installati sul sistema \n"
-" - Suggerimento: per vedere nel terminale i pacchetti installati dall'AUR "
+" - Suggerimento: per vedere nel terminale i pacchetti installati dall'AUR, "
 "digita: pacman -Qqem\n"
 "\n"
 " Un elenco dei pacchetti installati verrà esportato in <b>.config/archlinux-"
@@ -4952,15 +4958,15 @@ msgid ""
 " - To ignore a package, add a # in front of the package name\n"
 " - A reboot is needed when core Linux packages are installed"
 msgstr ""
-" <b>ATTENZIONE:</b> procedi con cautela, questo installerà pacchetti nel tuo "
+"<b>ATTENZIONE:</b> procedi con cautela: questo installerà pacchetti sul tuo "
 "sistema!\n"
 " I pacchetti dell'AUR non sono supportati \n"
 " Questo esegue anche un aggiornamento completo del sistema\n"
 "\n"
-" - Un elenco di pacchetti viene letto da <b>.config/archlinux-tweak-tool/"
+" - L'elenco dei pacchetti proviene da <b>.config/archlinux-tweak-tool/"
 "packages</b>\n"
 " - Per ignorare un pacchetto, aggiungi un # davanti al suo nome\n"
-" - Serve un riavvio quando vengono installati pacchetti Linux di base"
+" - Serve riavviare quando vengono installati pacchetti fondamentali di Linux"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:116
 msgid "Status: "
@@ -4994,7 +5000,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:243
 msgid "Remove the debug in /etc/makepkg.conf"
-msgstr "Rimuovi il debug in /etc/makepkg.conf"
+msgstr "Rimuovi il debug da /etc/makepkg.conf"
 
 #: usr/share/archlinux-tweak-tool/packages_gui.py:249
 #: usr/share/archlinux-tweak-tool/packages_gui.py:258
@@ -5153,7 +5159,7 @@ msgstr "Applica repository personalizzato"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:92
 msgid "Reset your pacman local"
-msgstr "Reimposta il tuo pacman locale"
+msgstr "Ripristina la configurazione locale di pacman"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:94
 msgid "Reset pacman ATT"
@@ -5205,11 +5211,11 @@ msgstr "Abilita il repository Nemesis"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:151
 msgid "Enable Chaotic-Aur repo"
-msgstr "Abilita il repository Chaotic-Aur"
+msgstr "Abilita il repository Chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:156
 msgid "Enable CachyOS repo"
-msgstr "Abilita repository CachyOS"
+msgstr "Abilita il repository CachyOS"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:161
 msgid "<b>Add custom repo to pacman.conf</b>"
@@ -5221,11 +5227,11 @@ msgstr "<b>Helper AUR</b>"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: disabled"
-msgstr "Repository Chaotic-Aur: disabilitato"
+msgstr "Repository Chaotic-AUR: disabilitato"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:349
 msgid "Chaotic-Aur repo: enabled"
-msgstr "Repository Chaotic-Aur: abilitato"
+msgstr "Repository Chaotic-AUR: abilitato"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:353
 msgid "Nemesis repo: disabled"
@@ -5274,19 +5280,19 @@ msgstr "paru-git installato"
 #: usr/share/archlinux-tweak-tool/performance.py:59
 #, python-brace-format
 msgid "Tuned service : {tuned}   Tuned-PPD service : {tuned_ppd}"
-msgstr "Servizio Tuned : {tuned}   Servizio Tuned-PPD : {tuned_ppd}"
+msgstr "Servizio Tuned: {tuned}   Servizio Tuned-PPD: {tuned_ppd}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:69
 #: usr/share/archlinux-tweak-tool/performance_gui.py:686
 #, python-brace-format
 msgid "tuned service : {status}"
-msgstr "servizio tuned : {status}"
+msgstr "Servizio tuned: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:74
 #: usr/share/archlinux-tweak-tool/performance_gui.py:689
 #, python-brace-format
 msgid "tuned-ppd service : {status}"
-msgstr "servizio tuned-ppd : {status}"
+msgstr "Servizio tuned-ppd: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:93
 #, python-brace-format
@@ -5446,8 +5452,8 @@ msgid ""
 "Enable zram compressed RAM swap - installs zram-generator\n"
 "ZRAM service : {status}"
 msgstr ""
-"Abilita lo swap in RAM compressa zram: installa zram-generator\n"
-"Servizio ZRAM : {status}"
+"Abilita lo swap zram con RAM compressa: installa zram-generator\n"
+"Servizio ZRAM: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:772
 #, python-brace-format
@@ -5456,7 +5462,7 @@ msgid ""
 "fstrim.timer : {status}"
 msgstr ""
 "Abilita il TRIM settimanale per unità SSD/NVMe con fstrim.timer\n"
-"fstrim.timer : {status}"
+"fstrim.timer: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:786
 #, python-brace-format
@@ -5587,8 +5593,9 @@ msgid ""
 "Auto nice daemon for CPU and I/O scheduling\n"
 "ananicy-cpp service : {status}"
 msgstr ""
-"Demone di auto nice per la pianificazione di CPU e I/O\n"
-"Servizio ananicy-cpp : {status}"
+"Demone che assegna automaticamente la priorità ai processi per la gestione "
+"di CPU e I/O\n"
+"Servizio ananicy-cpp: {status}"
 
 #: usr/share/archlinux-tweak-tool/performance.py:1402
 #: usr/share/archlinux-tweak-tool/performance_gui.py:27
@@ -5789,8 +5796,8 @@ msgid ""
 "MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Detected CPU cores: "
 "<b>{cores}</b>"
 msgstr ""
-"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Core CPU rilevati: "
-"<b>{cores}</b>"
+"MAKEFLAGS in /etc/makepkg.conf: <b>{makeflags}</b>   |   Core della CPU "
+"rilevati: <b>{cores}</b>"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2168
 msgid "Restore /etc/makepkg.conf from /etc/makepkg.conf-bak"
@@ -5857,14 +5864,14 @@ msgstr ""
 "\n"
 "<b>Perché è importante</b>\n"
 "<tt>MAKEFLAGS</tt> controlla quanti job paralleli usa <tt>makepkg</tt>\n"
-"quando compila pacchetti AUR o dal sorgente. Arch fornisce\n"
+"quando compila pacchetti AUR o codice sorgente. Arch fornisce\n"
 "<tt>#MAKEFLAGS=\"-j2\"</tt> commentato, quindi il valore predefinito è\n"
-"di fatto a thread singolo. Con la tua CPU a {ncores} core si spreca\n"
-"molta velocità: molte build AUR passano da minuti\n"
-"a secondi una volta impiegati tutti i core.\n"
+"di fatto a thread singolo. Con la tua CPU da {ncores} core si rinuncia\n"
+"a molta velocità: molte build AUR passano da minuti\n"
+"a secondi una volta utilizzati tutti i core.\n"
 "{reserve_block}\n"
 "<b>Come ripristinare</b>\n"
-"Un backup è conservato in <tt>{backup}</tt>. Clicca su\n"
+"Un backup è conservato in <tt>{backup}</tt>. Fai clic su\n"
 "<b>Ripristina backup</b> in questa pagina per annullare in qualsiasi momento."
 
 #: usr/share/archlinux-tweak-tool/performance.py:2274
@@ -5878,8 +5885,8 @@ msgstr "Nessun backup in /etc/makepkg.conf-bak: niente da ripristinare."
 #: usr/share/archlinux-tweak-tool/performance.py:2303
 msgid "MAKEFLAGS restored — back to Arch's single-threaded default"
 msgstr ""
-"MAKEFLAGS ripristinato: tornato al valore predefinito a thread singolo di "
-"Arch"
+"MAKEFLAGS ripristinato: ora è tornato al valore predefinito di Arch, a "
+"thread singolo"
 
 #: usr/share/archlinux-tweak-tool/performance.py:2307
 msgid "MAKEFLAGS restored from backup"
@@ -5960,7 +5967,7 @@ msgstr "Rimuovi tuned"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:135
 msgid "tuned service : …"
-msgstr "servizio tuned : …"
+msgstr "Servizio tuned: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:140
 msgid "Enable tuned"
@@ -5988,7 +5995,7 @@ msgstr "Rimuovi tuned-ppd"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:178
 msgid "tuned-ppd service : …"
-msgstr "servizio tuned-ppd : …"
+msgstr "Servizio tuned-ppd: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:183
 msgid "Enable tuned-ppd"
@@ -6004,7 +6011,7 @@ msgstr "Riavvia tuned-ppd"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:201
 msgid "Active tuned profile : …"
-msgstr "Profilo tuned attivo : …"
+msgstr "Profilo tuned attivo: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:209
 msgid "Apply Profile"
@@ -6024,7 +6031,7 @@ msgstr "Crea"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:271
 msgid "zram : …"
-msgstr "zram : …"
+msgstr "zram: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:277
 #: usr/share/archlinux-tweak-tool/system_gui.py:370
@@ -6043,7 +6050,7 @@ msgstr "<b>TRIM per SSD/NVMe</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:308
 msgid "fstrim.timer : …"
-msgstr "fstrim.timer : …"
+msgstr "fstrim.timer: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:312
 msgid "Enable fstrim.timer"
@@ -6059,7 +6066,7 @@ msgstr "Rimuovi irqbalance"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:358
 msgid "irqbalance service : …"
-msgstr "servizio irqbalance : …"
+msgstr "Servizio irqbalance: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:362
 msgid "Enable irqbalance"
@@ -6075,7 +6082,7 @@ msgstr "<b>Ananicy</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:411
 msgid "ananicy-cpp service : …"
-msgstr "servizio ananicy-cpp : …"
+msgstr "Servizio ananicy-cpp: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:415
 msgid "Enable ananicy-cpp"
@@ -6091,7 +6098,7 @@ msgstr "<b>GameMode</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:464
 msgid "gamemode service : …"
-msgstr "servizio gamemode : …"
+msgstr "Servizio gamemode: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:468
 msgid "Enable gamemode"
@@ -6107,7 +6114,7 @@ msgstr "<b>Preload</b>"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:517
 msgid "preload service : …"
-msgstr "servizio preload : …"
+msgstr "Servizio preload: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:521
 msgid "Enable preload"
@@ -6136,7 +6143,7 @@ msgstr ""
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:563
 msgid "MAKEFLAGS : …"
-msgstr "MAKEFLAGS : …"
+msgstr "MAKEFLAGS: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:570
 #, python-brace-format
@@ -6160,7 +6167,7 @@ msgstr "Modifica makepkg.conf nel terminale"
 #: usr/share/archlinux-tweak-tool/software_gui.py:531
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:116
 msgid "Restore backup"
-msgstr "Ripristina copia di sicurezza"
+msgstr "Ripristina backup"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:645
 msgid "Power"
@@ -6418,7 +6425,8 @@ msgid ""
 "Applying a theme sets it with <tt>plymouth-set-default-theme</tt> then\n"
 "rebuilds the initramfs with <tt>{command}</tt>. This takes a few seconds."
 msgstr ""
-"Applicare un tema lo imposta con <tt>plymouth-set-default-theme</tt> e poi\n"
+"L'applicazione di un tema lo imposta con <tt>plymouth-set-default-theme</tt> "
+"e poi\n"
 "ricostruisce initramfs con <tt>{command}</tt>. Richiede qualche secondo."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:430
@@ -6480,7 +6488,7 @@ msgstr "Installazione: {name}"
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:889
 #, python-brace-format
 msgid "Resetting Plymouth theme to {name}..."
-msgstr "Ripristino del tema Plymouth su {name}..."
+msgstr "Ripristino del tema Plymouth a {name}..."
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:920
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:460
@@ -6557,7 +6565,7 @@ msgstr "{host} è già nella whitelist"
 #: usr/share/archlinux-tweak-tool/privacy.py:164
 #: usr/share/archlinux-tweak-tool/privacy.py:182
 msgid "Could not write the allowlist file"
-msgstr "Impossibile scrivere il file della allowlist"
+msgstr "Impossibile scrivere il file della lista di autorizzazione"
 
 #: usr/share/archlinux-tweak-tool/privacy.py:168
 #, python-brace-format
@@ -6615,7 +6623,7 @@ msgstr "<b>Blocco dei contenuti</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:72
 msgid "<b>Network &amp; Tracking Protection</b>"
-msgstr "<b>Protezione di rete &amp; tracciamento</b>"
+msgstr "<b>Protezione della rete e dal tracciamento</b>"
 
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:106
 #, python-brace-format
@@ -6879,7 +6887,7 @@ msgstr "Sddm (attivo)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:19
 msgid "Sddm (inactive)"
-msgstr "Sddm (inattivo)"
+msgstr "SDDM (inattivo)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:31
 msgid "Configuration Setup"
@@ -6895,22 +6903,24 @@ msgid ""
 "You can also restore your own original configuration if you want to - auto "
 "restart ATT\n"
 msgstr ""
-"Consigliamo di usare la configurazione sddm predefinita\n"
-"La configurazione di Sddm è divisa in due file: /etc/sddm.conf e /etc/"
+"Consigliamo di usare la configurazione predefinita di SDDM\n"
+"La configurazione di SDDM è divisa in due file: /etc/sddm.conf e /etc/"
 "sddm.conf.d/kde_settings.conf\n"
-"/etc/sddm.conf.d/kde_settings.conf contiene tutti i parametri - Faremo un "
+"/etc/sddm.conf.d/kde_settings.conf contiene tutti i parametri: faremo un "
 "backup dei tuoi file\n"
-"Puoi anche ripristinare la tua configurazione originale se vuoi - riavvio "
-"automatico di ATT\n"
+"Puoi anche ripristinare la tua configurazione originale, se vuoi: ATT si "
+"riavvierà automaticamente\n"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:48
 msgid "Apply the Sddm configuration from ATT - auto restart ATT"
-msgstr "Applica la configurazione Sddm di ATT - riavvio automatico di ATT"
+msgstr ""
+"Applica la configurazione SDDM di ATT: ATT si riavvierà automaticamente"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:51
 msgid "Apply your original Sddm configuration - auto restart ATT"
 msgstr ""
-"Applica la tua configurazione Sddm originale - riavvio automatico di ATT"
+"Applica la tua configurazione SDDM originale: ATT si riavvierà "
+"automaticamente"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:72
 msgid "Login Settings"
@@ -6943,13 +6953,13 @@ msgstr "Rimuovi i cursori extra Bibata"
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:159
 msgid "Select your cursor theme for the login screen e.g. Bibata-Modern-Ice"
 msgstr ""
-"Seleziona il tema di cursore per la schermata di accesso, ad es. Bibata-"
+"Seleziona il tema del cursore per la schermata di accesso, ad es. Bibata-"
 "Modern-Ice"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:165
 msgid "Cursor theme only for SDDM (global cursor setting in maintenance)"
 msgstr ""
-"Tema di cursore solo per SDDM (impostazione globale del cursore in "
+"Tema del cursore solo per SDDM (impostazione globale del cursore in "
 "manutenzione)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:193
@@ -6967,7 +6977,7 @@ msgstr "Sfondo per il tema {theme}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:210
 msgid "Set background wallpaper for the Simplicity Sddm theme"
-msgstr "Imposta lo sfondo per il tema Sddm Simplicity"
+msgstr "Imposta lo sfondo per il tema Simplicity di SDDM"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:214
 msgid "Install Simplicity theme"
@@ -6998,7 +7008,7 @@ msgstr "Applica sfondo"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:301
 msgid "Restore default"
-msgstr "Ripristina predefinito"
+msgstr "Ripristina lo sfondo predefinito"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:305
 msgid "Fix SDDM config"
@@ -7018,7 +7028,7 @@ msgstr "Ordina per aggiornamento recente (AUR)"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:437
 msgid "Remove installed"
-msgstr "Rimuovi installati"
+msgstr "Rimuovi quelli installati"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:441
 msgid "Remove theme"
@@ -7040,11 +7050,11 @@ msgstr "Rimozione: {name}"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:569
 msgid "Sddm is not installed"
-msgstr "Sddm non è installato"
+msgstr "SDDM non è installato"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:580
 msgid "<b>Sddm does not seem to be installed</b>"
-msgstr "<b>Sddm non sembra essere installato</b>"
+msgstr "<b>SDDM non sembra essere installato</b>"
 
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:583
 msgid "Install sddm-git and enable it"
@@ -7057,7 +7067,7 @@ msgstr "Nsswitch: {label}"
 
 #: usr/share/archlinux-tweak-tool/services.py:48
 msgid "Smb.conf ATT configuration applied"
-msgstr "Configurazione smb.conf di ATT applicata"
+msgstr "Configurazione Smb.conf di ATT applicata"
 
 #: usr/share/archlinux-tweak-tool/services.py:61
 #, python-brace-format
@@ -7251,7 +7261,7 @@ msgstr "Rimozione di cups-pdf non riuscita o annullata"
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
-msgstr "Servizio Cups : {service}   Socket Cups : {socket}"
+msgstr "Servizio Cups: {service}   Socket Cups: {socket}"
 
 #: usr/share/archlinux-tweak-tool/services.py:668
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
@@ -7374,7 +7384,7 @@ msgstr "Configurazione di Samba applicata"
 
 #: usr/share/archlinux-tweak-tool/services.py:1039
 msgid "Original smb.conf is applied"
-msgstr "L'smb.conf originale è stato applicato"
+msgstr "È stato applicato lo smb.conf originale"
 
 #: usr/share/archlinux-tweak-tool/services.py:1045
 msgid "No backup configuration present"
@@ -7401,9 +7411,9 @@ msgid ""
 "There are also printer specific pages. Lastly the AUR might contain the "
 "driver you need."
 msgstr ""
-"La stampa può essere una sfida. Consigliamo di leggere la pagina cups "
-"dell'Arch wiki. Informati prima di acquistare.\n"
-"Ci sono anche pagine specifiche per le stampanti. Infine l'AUR potrebbe "
+"La stampa può essere complicata. Ti consigliamo di leggere la pagina di CUPS "
+"sull'Arch wiki. Verifica prima di acquistare.\n"
+"Ci sono anche pagine specifiche per le stampanti. Infine, l'AUR potrebbe "
 "contenere il driver che ti serve."
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:120
@@ -7484,7 +7494,7 @@ msgstr ""
 "Con 'inxi -A' in un terminale puoi vedere quale server audio è in "
 "esecuzione\n"
 "Ci sono pacchetti che sono in conflitto tra loro.\n"
-"Segnalali se è il caso"
+"Segnalali se è così"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:305
 #: usr/share/archlinux-tweak-tool/services_gui.py:306
@@ -7499,7 +7509,7 @@ msgstr "Installa e passa a Pipewire"
 #: usr/share/archlinux-tweak-tool/services_gui.py:346
 #, python-brace-format
 msgid "Pulseaudio service : {pulseaudio}   Pipewire service : {pipewire}"
-msgstr "Servizio Pulseaudio : {pulseaudio}   Servizio Pipewire : {pipewire}"
+msgstr "Servizio Pulseaudio: {pulseaudio}   Servizio Pipewire: {pipewire}"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:356
 msgid "<b>Packages</b>"
@@ -7574,7 +7584,7 @@ msgstr "Avvia/Riavvia bluetooth"
 #: usr/share/archlinux-tweak-tool/services_gui.py:539
 #, python-brace-format
 msgid "bluetooth service : {status}"
-msgstr "servizio bluetooth : {status}"
+msgstr "servizio bluetooth: {status}"
 
 #: usr/share/archlinux-tweak-tool/services_gui.py:628
 msgid "<b>User Services</b>"
@@ -7672,7 +7682,7 @@ msgstr "config.fish di ATT applicato: esci e rientra per applicarlo"
 
 #: usr/share/archlinux-tweak-tool/shell.py:164
 msgid "ATT config.fish source not found"
-msgstr "Sorgente di config.fish di ATT non trovato"
+msgstr "Sorgente di config.fish di ATT non trovata"
 
 #: usr/share/archlinux-tweak-tool/shell.py:169
 #, python-brace-format
@@ -8221,21 +8231,21 @@ msgid ""
 "\n"
 "<i>Your fish config is always backed up before any change.</i>"
 msgstr ""
-"<b>Configura la tua shell fish con pochi clic, senza file di configurazione "
-"da modificare.</b>\n"
+"<b>Configura la tua shell fish con pochi clic, senza dover modificare file "
+"di configurazione.</b>\n"
 "\n"
-"• <b>Preset</b>: applica un look completo (prompt + plugin + tema + "
+"• <b>Preset</b>: applica un aspetto completo (prompt + plugin + tema + "
 "messaggio di benvenuto) con un clic\n"
 "• <b>Prompt</b>: installa Tide, Hydro o Pure, oppure scegli uno stile "
 "integrato (uno attivo alla volta)\n"
 "• <b>Plugin</b>: attiva quelli indispensabili tramite fisher: fzf, autopair, "
 "sponge, puffer-fish\n"
 "• <b>Temi</b>: 25 temi di colore con anteprima al passaggio del mouse e "
-"varianti scura / chiara\n"
+"varianti scure/chiare\n"
 "• <b>Impostazioni</b>: messaggio di benvenuto (fastfetch o personalizzato), "
-"forma del cursore, backup &amp; ripristino con un clic\n"
-"• <b>Nessuna scatola nera</b>: ogni modifica viene eseguita in un terminale, "
-"così vedi il comando esatto\n"
+"forma del cursore, backup e ripristino con un clic\n"
+"• <b>Niente operazioni opache</b>: ogni modifica viene eseguita in un "
+"terminale, così puoi vedere il comando esatto\n"
 "\n"
 "<i>La tua configurazione di fish viene sempre salvata in un backup prima di "
 "ogni modifica.</i>"
@@ -8407,7 +8417,7 @@ msgstr "Bazaar <b>installato</b>"
 #: usr/share/archlinux-tweak-tool/software.py:684
 #: usr/share/archlinux-tweak-tool/software_gui.py:328
 msgid "Flatpak - Manage Flatpak apps <b>installed</b>"
-msgstr "Flatpak - Gestione delle app Flatpak <b>installato</b>"
+msgstr "Flatpak: gestisci le app Flatpak (<b>installato</b>)"
 
 #: usr/share/archlinux-tweak-tool/software.py:151
 msgid "bazaar installed"
@@ -8641,7 +8651,7 @@ msgstr "Abilita prima chaotic-AUR nella scheda Pacman"
 
 #: usr/share/archlinux-tweak-tool/software.py:620
 msgid "pacui is on chaotic-AUR — installing..."
-msgstr "pacui è su chaotic-AUR: installazione..."
+msgstr "pacui è disponibile su chaotic-AUR: installazione..."
 
 #: usr/share/archlinux-tweak-tool/software.py:626
 #: usr/share/archlinux-tweak-tool/software_gui.py:429
@@ -8766,7 +8776,7 @@ msgstr "pacseek avviato"
 
 #: usr/share/archlinux-tweak-tool/software.py:947
 msgid "pacseek is on chaotic-AUR — installing..."
-msgstr "pacseek è su chaotic-AUR: installazione..."
+msgstr "pacseek è disponibile su chaotic-AUR: installazione..."
 
 #: usr/share/archlinux-tweak-tool/software.py:953
 #: usr/share/archlinux-tweak-tool/software_gui.py:406
@@ -8918,7 +8928,7 @@ msgstr "Installazione di kiro-powermenu avviata"
 
 #: usr/share/archlinux-tweak-tool/software.py:1173
 msgid "powermenu - Power menu for twms <b>installed</b>"
-msgstr "powermenu - Menu di spegnimento per i TWM <b>installato</b>"
+msgstr "powermenu - Menu di alimentazione per i TWM <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/software.py:1175
 msgid "kiro-powermenu installed"
@@ -8930,7 +8940,7 @@ msgstr "Rimozione di kiro-powermenu avviata"
 
 #: usr/share/archlinux-tweak-tool/software.py:1197
 msgid "powermenu - Power menu for twms"
-msgstr "powermenu - Menu di spegnimento per i TWM"
+msgstr "powermenu - Menu di alimentazione per i TWM"
 
 #: usr/share/archlinux-tweak-tool/software.py:1199
 msgid "kiro-powermenu removal complete"
@@ -8954,7 +8964,7 @@ msgstr "alacritty-tweak-tool non trovato"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:14
 msgid "Software Installers"
-msgstr "Programmi di installazione software"
+msgstr "Installatori di software"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:29
 msgid "<b>GUI Package Managers</b>"
@@ -9016,15 +9026,15 @@ msgstr "<b>Strumenti per pacchetti TUI</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:449
 msgid "<b>Logout Managers</b>"
-msgstr "<b>Gestori di uscita</b>"
+msgstr "<b>Gestori di disconnessione</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:486
 msgid "powermenu - Power menu for i3/sway <b>installed</b>"
-msgstr "powermenu - Menu di spegnimento per i3/sway <b>installato</b>"
+msgstr "powermenu - Menu di alimentazione per i3/sway <b>installato</b>"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:488
 msgid "powermenu - Power menu for i3/sway"
-msgstr "powermenu - Menu di spegnimento per i3/sway"
+msgstr "powermenu - Menu di alimentazione per i3/sway"
 
 #: usr/share/archlinux-tweak-tool/software_gui.py:513
 msgid "<b>Nano Editor</b>"
@@ -9125,7 +9135,7 @@ msgid ""
 "\n"
 "{preview}"
 msgstr ""
-"Verrà rimosso:\n"
+"Questa operazione rimuoverà:\n"
 "\n"
 "{preview}"
 
@@ -9158,7 +9168,7 @@ msgid ""
 "\n"
 "{packages}"
 msgstr ""
-"Verrà installato:\n"
+"Questa operazione installerà:\n"
 "\n"
 "{packages}"
 
@@ -9208,7 +9218,7 @@ msgstr "Importa profilo"
 
 #: usr/share/archlinux-tweak-tool/system.py:121
 msgid "Installing inxi first..."
-msgstr "Installazione di inxi prima..."
+msgstr "Prima installazione di inxi..."
 
 #: usr/share/archlinux-tweak-tool/system.py:133
 msgid "inxi installation failed or was cancelled"
@@ -9556,8 +9566,8 @@ msgid ""
 "changes..\n"
 "First install the desktop via the Desktop menu then theme it."
 msgstr ""
-"Ricarica il tuo window manager con <b>Super + Maiusc + R</b> dopo aver fatto "
-"le modifiche..\n"
+"Ricarica il tuo window manager con <b>Super + Shift + R</b> dopo aver fatto "
+"le modifiche.\n"
 "Installa prima il desktop dal menu Desktop, poi applica il tema."
 
 #: usr/share/archlinux-tweak-tool/themer_gui.py:148
@@ -9694,8 +9704,8 @@ msgid ""
 msgstr ""
 "Sostituzione facoltativa: GTK_THEME impone questo tema a ogni app GTK per "
 "ogni utente e cambia in parte l'aspetto delle app libadwaita.\n"
-"Lascialo su Nessuno per lasciar decidere alle impostazioni del tema di ogni "
-"utente."
+"Lasciala su Nessuno: saranno le impostazioni del tema di ciascun utente a "
+"decidere."
 
 #: usr/share/archlinux-tweak-tool/themes_gui.py:88
 msgid ""
@@ -9881,7 +9891,7 @@ msgstr "{name} non è nell'avvio automatico"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:345
 msgid "ATT variety config not found in data folder"
-msgstr "Configurazione variety di ATT non trovata nella cartella dei dati"
+msgstr "Configurazione di Variety di ATT non trovata nella cartella dei dati"
 
 #: usr/share/archlinux-tweak-tool/wallpaper.py:375
 #, python-brace-format
@@ -9960,7 +9970,7 @@ msgstr "<i>Salva i tuoi sfondi in {path}: {name} li rileva automaticamente</i>"
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:107
 #, python-brace-format
 msgid "Save {name} variety config"
-msgstr "Salva la configurazione variety di {name}"
+msgstr "Salva la configurazione di Variety di {name}"
 
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:110
 #, python-brace-format
