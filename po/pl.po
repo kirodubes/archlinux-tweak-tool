@@ -10173,4 +10173,4 @@ msgstr "Graficzne narzędzie do konfigurowania i dostrajania systemu Arch Linux"
 
 #: po/archlinux-tweak-tool.desktop.in:11
 msgid "tweak;tool;tweaktool"
-msgstr "tweak;tool;tweaktool;dostrajanie;narzędzie"
+msgstr "tweak;tool;tweaktool;dostrajanie;narzędzie;"
