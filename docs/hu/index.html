@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | hangold be az Arch rendszeredet terminál nélkül</title>
+    <meta name="description" content="Az ArchLinux Tweak Tool (ATT) egy GTK4-alapú alkalmazás Arch-alapú rendszerekhez: 31 oldal, amely lefedi az asztali környezeteket, kerneleket, a Plymouth-ot, az SDDM-et, a témákat, csomagokat, szolgáltatásokat, a teljesítményt és a karbantartást. Ingyenes, nyílt, és sosem fekete doboz." />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | hangold be az Arch rendszeredet terminál nélkül" />
+    <meta property="og:description" content="Egy GTK4-es eszköz Arch-alapú rendszerekhez: asztali környezetek, kernelek, Plymouth, SDDM, témák, csomagok, szolgáltatások és karbantartás egy helyen." />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | hangold be az Arch rendszeredet terminál nélkül" />
+    <meta name="twitter:description" content="Egy GTK4-es eszköz Arch-alapú rendszerekhez, Erik Dubois tollából." />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'Másolva!';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Ugrás a tartalomra</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="ArchLinux Tweak Tool kezdőlap">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="Elsődleges">
+            <a href="#features">Funkciók</a>
+            <a href="#install">Telepítés</a>
+            <a href="#gallery">Galéria</a>
+            <a href="#watch">Megnézem</a>
+            <a href="#support">Adományozás</a>
+          </nav>
+
+          <div class="support" aria-label="Erik Dubois támogatása">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="Szponzorálás a GitHubon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">Szponzorálás</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="Támogatás Ko-fi-n">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="Csatlakozás Patreonon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="Adományozás: PayPal">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>HU</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="../nl/index.html" lang="nl" hreflang="nl">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="../ru/index.html" lang="ru" hreflang="ru">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="index.html" lang="hu" hreflang="hu" aria-current="page">Magyar</a>
+              <a href="../tr/index.html" lang="tr" hreflang="tr">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="../ja/index.html" lang="ja" hreflang="ja">日本語</a>
+              <a href="../zh/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">Téma</span>
+            <select id="theme-select" class="theme-select" aria-label="Oldal témája">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia (világos)</option>
+              <option value="paper">Paper (világos)</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="Akcentusszín">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="Égkék" aria-label="Égkék akcentusszín" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="Arany" aria-label="Arany akcentusszín" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="Smaragdzöld" aria-label="Smaragdzöld akcentusszín" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="Ibolya" aria-label="Ibolya akcentusszín" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="Rózsaszín" aria-label="Rózsaszín akcentusszín" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 oldal &middot; Arch-alapú rendszerek
+          </a>
+          <h1>Hangold be az Arch rendszeredet<br /><span class="accent">terminál nélkül</span></h1>
+          <p class="lead">
+            Tudod, mit szeretnél a rendszerednek: másik kernelt, szebb bejelentkezési képernyőt, egymáshoz illő témát, rendbe tett szolgáltatásokat. Az ATT mindezt egyetlen ablakba teszi, és pontosan megmondja, mit fog csinálni, mielőtt megteszi. Semmi rejtett dolog, semmi varázslat, a parancsokat pedig te tanulhatod meg.
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ATT telepítése
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              Forráskód a GitHubon
+            </a>
+          </div>
+          <p class="hero-foot">Ingyenes és nyílt &middot; a <code class="chip">nemesis_repo</code> tárolóból települ &middot; működik Arch és Arch-alapú rendszereken</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Miért az ATT</p>
+          <h2>Sosem fekete doboz</h2>
+          <p class="lead">
+            A rendszereszközökben az a legidegesítőbb, hogy nem tudod, mit csináltak a gépeddel. Az ATT fordítva készült: minden művelet elmagyarázza önmagát, a konzolkimenet pedig azért van ott, hogy elolvasd, tanulj belőle, és legközelebb magad is lefuttathasd.
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>Előtte</b>
+              <span>Még az előtt látod, mit fog megváltoztatni egy művelet, hogy bármihez hozzányúlna: megerősítő párbeszédablakban vagy egyszerű felirattal.</span>
+            </li>
+            <li>
+              <b>Közben</b>
+              <span>Nézheted, ahogy történik: a haladást, az aktuális lépést és az élő konzolkimenetet futás közben.</span>
+            </li>
+            <li>
+              <b>Utána</b>
+              <span>Összefoglalót kapsz arról, mi változott valójában: milyen fájlok íródtak, milyen csomagok települtek, mely szolgáltatásokat érintette.</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">beállítási oldal</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">parancs a telepítéshez</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">natív, Python 3</span></div>
+            <div class="stat"><span class="value">Ingyenes</span><span class="label">és nyílt forráskódú</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Funkciók</p>
+          <h2>Minden egy ablakban</h2>
+          <p class="lead">
+            Harmincegy oldal az oldalsávban, mindegyik egy olyan feladat, amelyet különben kézzel végeznél el fél tucat konfigurációs fájlban. Íme, mit kapsz.
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>Asztali környezetek és ablakkezelők</h3>
+              <p>Asztali környezetek telepítése és váltása (KDE, GNOME, Xfce, Hyprland, dwm és mások), X11 és Wayland munkamenetekhez egyaránt.</p>
+              <div class="pages"><span>Asztali környezet</span><span>Asztali környezet - Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Kernelek és initramfs</h3>
+              <p>Kernelek hozzáadása vagy eltávolítása egyetlen kattintással. Működik mkinitcpio-val és dracut-tal, és helyetted frissíti a GRUB-bejegyzéseket.</p>
+              <div class="pages"><span>Kernelek</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Indítóképernyő</h3>
+              <p>Plymouth-témák telepítése és váltása, a systemd-boot, GRUB, limine és rEFInd rendszerbetöltők beállításával, valamint javítással a hibás initramfs-hookokhoz.</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Bejelentkezéskezelő</h3>
+              <p>SDDM-témák előnézete és telepítése; kurzor, háttérkép, munkamenet és képernyőbeállítások megadása, majd a konfiguráció alkalmazása vagy javítása.</p>
+              <div class="pages"><span>Sddm</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Témák és ikonok</h3>
+              <p>GTK- és Plasma-témák, a teljes Arc család, valamint a Neo Candy, Surfn és Horst ikonkészletek, vagy egy összehangolt készlet alkalmazása egyetlen lépésben a Themer segítségével.</p>
+              <div class="pages"><span>Themer</span><span>Arc témák</span><span>Ikonok</span><span>Celestial témák</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Háttérképek</h3>
+              <p>Böngéssz bármelyik mappában, és állítsd be a háttérképet minden támogatott asztali környezeten és ablakkezelőn.</p>
+              <div class="pages"><span>Háttérkép</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Csomagok és pacman</h3>
+              <p>Exportáld a telepített csomagokat, importáld őket egy új gépen, és hangold magát a pacmant: tárolók, párhuzamos letöltések és a <code class="chip">pacman.conf</code> többi része.</p>
+              <div class="pages"><span>Csomagok</span><span>Pacman</span><span>Szoftver</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Szolgáltatások és automatikus indítás</h3>
+              <p>Systemd-szolgáltatások engedélyezése vagy letiltása, és annak eldöntése, mi induljon el bejelentkezéskor.</p>
+              <div class="pages"><span>Szolgáltatások</span><span>Automatikus indítás</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Teljesítmény</h3>
+              <p>CPU-governor, I/O-ütemező és a finomhangolási lehetőségek, amelyek eldöntik, hogy a géped gyorsnak vagy lomhának érződik.</p>
+              <div class="pages"><span>Teljesítmény</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Karbantartás</h3>
+              <p>A leggyorsabb tükrök rangsorolása, az árva csomagok eltávolítása, a pacman-gyorsítótár ürítése és az elavult zárolófájl törlése: a házimunka man-oldalak nélkül.</p>
+              <div class="pages"><span>Karbantartás</span><span>Biztonsági mentés</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Parancsértelmezők és terminál</h3>
+              <p>Válts az alapértelmezett parancsértelmező között (bash, zsh és fish), és állítsd be hozzá a környezetet, a témákat és a zsh-bővítményeket.</p>
+              <div class="pages"><span>Parancsértelmezők</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Rendszer és hálózat</h3>
+              <p>Hardveráttekintés, futó szolgáltatások és napló egy pillantással, továbbá hálózati eszközök és Samba-megosztások.</p>
+              <div class="pages"><span>Rendszer</span><span>Hálózat</span><span>Naplózás</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Felhasználók, nyelv és hozzáférés</h3>
+              <p>Felhasználói fiókok létrehozása és beállítása, nyelvi beállítások, billentyűzetkiosztás és időzóna megadása, valamint a kisegítő lehetőségek bekapcsolása.</p>
+              <div class="pages"><span>Felhasználó</span><span>Nyelvi beállítások</span><span>Kisegítő lehetőségek</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Adatvédelem</h3>
+              <p>DNS-szintű hirdetésblokkolás a hBlock segítségével, és néhány beállítás, amely a rendszeredet a saját dolgoddá teszi.</p>
+              <div class="pages"><span>Adatvédelem</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>MI-eszközök és extrák</h3>
+              <p>Claude AI-integráció a saját rendszeredhez nyújtott segítségért, irodai szoftverek telepítői, és az ISO-készítő eszközök, ha magad építesz ISO-t.</p>
+              <div class="pages"><span>MI-eszközök</span><span>Iroda</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Telepítés</p>
+          <h2>Két lépés, és már fut is</h2>
+          <p class="lead">
+            Az ATT a <code class="chip">nemesis_repo</code> tárolóból érkezik, amely egy aláírt pacman-tároló. Add hozzá a tárolót egyszer, majd telepítsd az ATT-t úgy, mint bármelyik másik csomagot. Minden alábbi lépés egy hétköznapi parancs, amelyet futtatás előtt el is olvashatsz.
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>1. lépés: a tároló hozzáadása a <code>/etc/pacman.conf</code> fájlhoz</h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">Másolás</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Szkriptet választanál? Ugyanezt csinálja</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">Másolás</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>Az aláírásról.</b> A <code>nemesis_repo</code> tárolót a Kiro kulcsa PGP-vel aláírja, a <code>kiro-keyring</code> csomagon keresztül megbízható, és örökli a globális <code>SigLevel</code> beállításodat. Ha kézzel adod hozzá a tárolót, mielőtt a kulcstartó telepítve lenne, állítsd be a <code>SigLevel = Optional</code> értéket ennél a tárolónál, amíg a kulcstartó a helyére nem kerül.
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>2. lépés: frissítés és telepítés</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">Másolás</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Ezután indítsd el az <b>ArchLinux Tweak Tool</b> alkalmazást az alkalmazásmenüből. Rendszergazdai jogosultságot csak akkor kér, ha egy művelethez tényleg szükség van rá.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Kompatibilitás</p>
+          <h2>Archra építve, Arch-alapú rendszereken is otthon van</h2>
+          <p class="lead">
+            Az ATT az ArcoLinuxon indult, és ma már a sima Arch rendszeren és azokon az Arch-alapú rendszereken fut, amelyeket az emberek valóban használnak: Artix, Manjaro, CachyOS, Kiro és még sok más. Ahol egy disztribúció a maga módján csinálja a dolgokat, az ATT ezt felismeri, és alkalmazkodik hozzá, ahelyett hogy küzdene ellene.
+          </p>
+          <ul class="prose-list">
+            <li><b>Mire lesz szükséged:</b> egy Arch vagy Arch-alapú rendszer, Python 3.8 vagy újabb, GTK 4.6 vagy újabb, és a pacman.</li>
+            <li><b>Opcionális, néhány oldalhoz:</b> az alacritty a csomagműveletekhez, a fastfetch, és a kedvenc parancsértelmeződ.</li>
+            <li>A támogatott disztribúciók mértékadó, mindig friss listája a forráskódban található: lásd a <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">GitHub-tárolót</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Galéria</p>
+          <h2>Nézd meg telepítés előtt</h2>
+          <p class="lead">
+            Mind a huszonnégy valódi oldal a futó alkalmazásból. Válassz ki egy képernyőképet a teljes méretű megnyitáshoz, majd a nyílbillentyűkkel lapozgathatsz.
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="Képernyőkép megnyitása teljes méretben: MI-eszközök"><img src="../assets/screenshots/att1.webp" alt="ATT oldal: MI-eszközök" width="1280" height="686" loading="lazy" /></button><figcaption>MI-eszközök</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="Képernyőkép megnyitása teljes méretben: Automatikus indítás"><img src="../assets/screenshots/att2.webp" alt="ATT oldal: Automatikus indítás" width="1280" height="686" loading="lazy" /></button><figcaption>Automatikus indítás</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="Képernyőkép megnyitása teljes méretben: Asztali környezet"><img src="../assets/screenshots/att3.webp" alt="ATT oldal: Asztali környezet" width="1280" height="686" loading="lazy" /></button><figcaption>Asztali környezet</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="Képernyőkép megnyitása teljes méretben: Fastfetch"><img src="../assets/screenshots/att4.webp" alt="ATT oldal: Fastfetch" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="Képernyőkép megnyitása teljes méretben: Ikonok"><img src="../assets/screenshots/att5.webp" alt="ATT oldal: Ikonok" width="1280" height="686" loading="lazy" /></button><figcaption>Ikonok</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="Képernyőkép megnyitása teljes méretben: Kernelek"><img src="../assets/screenshots/att6.webp" alt="ATT oldal: Kernelek" width="1280" height="686" loading="lazy" /></button><figcaption>Kernelek</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="Képernyőkép megnyitása teljes méretben: Nyelvi beállítások"><img src="../assets/screenshots/att7.webp" alt="ATT oldal: Nyelvi beállítások" width="1280" height="686" loading="lazy" /></button><figcaption>Nyelvi beállítások</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="Képernyőkép megnyitása teljes méretben: Naplózás"><img src="../assets/screenshots/att8.webp" alt="ATT oldal: Naplózás" width="1280" height="686" loading="lazy" /></button><figcaption>Naplózás</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="Képernyőkép megnyitása teljes méretben: Karbantartás"><img src="../assets/screenshots/att9.webp" alt="ATT oldal: Karbantartás" width="1280" height="686" loading="lazy" /></button><figcaption>Karbantartás</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="Képernyőkép megnyitása teljes méretben: Hálózat"><img src="../assets/screenshots/att10.webp" alt="ATT oldal: Hálózat" width="1280" height="686" loading="lazy" /></button><figcaption>Hálózat</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="Képernyőkép megnyitása teljes méretben: Csomagok"><img src="../assets/screenshots/att11.webp" alt="ATT oldal: Csomagok" width="1280" height="686" loading="lazy" /></button><figcaption>Csomagok</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="Képernyőkép megnyitása teljes méretben: Pacman"><img src="../assets/screenshots/att12.webp" alt="ATT oldal: Pacman" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="Képernyőkép megnyitása teljes méretben: Plymouth"><img src="../assets/screenshots/att13.webp" alt="ATT oldal: Plymouth" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="Képernyőkép megnyitása teljes méretben: Adatvédelem"><img src="../assets/screenshots/att14.webp" alt="ATT oldal: Adatvédelem" width="1280" height="686" loading="lazy" /></button><figcaption>Adatvédelem</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="Képernyőkép megnyitása teljes méretben: Teljesítmény"><img src="../assets/screenshots/att15.webp" alt="ATT oldal: Teljesítmény" width="1280" height="686" loading="lazy" /></button><figcaption>Teljesítmény</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="Képernyőkép megnyitása teljes méretben: Sddm"><img src="../assets/screenshots/att16.webp" alt="ATT oldal: Sddm" width="1280" height="686" loading="lazy" /></button><figcaption>Sddm</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="Képernyőkép megnyitása teljes méretben: Szolgáltatások"><img src="../assets/screenshots/att17.webp" alt="ATT oldal: Szolgáltatások" width="1280" height="686" loading="lazy" /></button><figcaption>Szolgáltatások</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="Képernyőkép megnyitása teljes méretben: Parancsértelmezők"><img src="../assets/screenshots/att18.webp" alt="ATT oldal: Parancsértelmezők" width="1280" height="686" loading="lazy" /></button><figcaption>Parancsértelmezők</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="Képernyőkép megnyitása teljes méretben: Szoftver"><img src="../assets/screenshots/att19.webp" alt="ATT oldal: Szoftver" width="1280" height="686" loading="lazy" /></button><figcaption>Szoftver</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="Képernyőkép megnyitása teljes méretben: Rendszer"><img src="../assets/screenshots/att20.webp" alt="ATT oldal: Rendszer" width="1280" height="686" loading="lazy" /></button><figcaption>Rendszer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="Képernyőkép megnyitása teljes méretben: Themer"><img src="../assets/screenshots/att21.webp" alt="ATT oldal: Themer" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="Képernyőkép megnyitása teljes méretben: Arc témák"><img src="../assets/screenshots/att22.webp" alt="ATT oldal: Arc témák" width="1280" height="686" loading="lazy" /></button><figcaption>Arc témák</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="Képernyőkép megnyitása teljes méretben: Felhasználó"><img src="../assets/screenshots/att23.webp" alt="ATT oldal: Felhasználó" width="1280" height="686" loading="lazy" /></button><figcaption>Felhasználó</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="Képernyőkép megnyitása teljes méretben: Háttérkép"><img src="../assets/screenshots/att24.webp" alt="ATT oldal: Háttérkép" width="1280" height="686" loading="lazy" /></button><figcaption>Háttérkép</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Megnézem</p>
+          <h2>Inkább látnád, ahogy valaki használja?</h2>
+          <p class="lead">
+            Van egy teljes lejátszási lista, amely oldalról oldalra végigvezet az ATT-n: mit csinál az egyes oldal, miért úgy, és melyek a parancsok a háttérben. Ha videóból tanulsz jobban, kezdd ott.
+          </p>
+          <div class="watch-card">
+            <p><b>ArchLinux Tweak Tool lejátszási lista</b>: oktatóvideók Erik Dubois YouTube-csatornáján, ingyen megnézhetők, fiók nélkül.</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              Lejátszási lista megnyitása
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Adományozás</p>
+          <h2>Köszönjük, hogy az ATT-t használod</h2>
+          <p class="lead">
+            Az ATT ingyenes és az is marad, ez nem fog változni. Ha időt spórolt neked vagy tanultál belőle valamit, és szívesen hozzájárulnál, itt megteheted. Egyik esetben sincs kötelezettség: az ingyenes rész a tiéd marad, és nélküle is ugyanúgy szívesen látunk.
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>A tranzakciós díjat a GitHub állja, így szinte minden a fejlesztésre jut.</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>Borravalónál nincs platformjutalék: egyszeri kávé, amikor kedved tartja.</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>Közvetlen egyszeri adomány, csak a fizetésfeldolgozás díjával.</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>Havi tagság: a teljes tanfolyamsorozat, szavazati jog arról, mi legyen a következő téma, és a tagi közösség.</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>YouTube-tagság</b>
+              <span>Ugyanez a tagság, ha a YouTube-on érzed otthon magad. Ugyanazok a szintek, ugyanazok az előnyök.</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>Vagy járulj hozzá másképp</b>
+              <span>Hibajelentések, egy támogatandó disztribúció, egy pull request: mind ugyanennyire értékes.</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Készítették: <b>Brad Heffernan</b>, <b>Erik Dubois</b> és <b>Cameron Percival</b>, mindazokkal együtt, akik valaha hibát jelentettek.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="Képernyőkép-megjelenítő">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="Előző képernyőkép">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="Következő képernyőkép">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="Megjelenítő bezárása">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="Vissza az oldal tetejére">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>Fel</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; Készítette: Erik Dubois</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">Beszélgetések</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>

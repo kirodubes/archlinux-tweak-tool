@@ -1,0 +1,1270 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. id 88d70fd5
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool &mdash; tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | Arch sisteminizi terminalsiz ayarlayın"
+
+#. id 12790b37
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool (ATT) is a GTK4 application for Arch-based systems: 31 "
+"pages covering desktops, kernels, Plymouth, SDDM, themes, packages, "
+"services, performance and maintenance. Free, open, and never a black box."
+msgstr ""
+"ArchLinux Tweak Tool (ATT), Arch tabanlı sistemler için bir GTK4 "
+"uygulamasıdır: masaüstleri, çekirdekler, Plymouth, SDDM, temalar, paketler, "
+"hizmetler, performans ve bakımı kapsayan 31 sayfa. Ücretsiz, açık ve asla "
+"bir kara kutu değil."
+
+#. id 1882c748
+#: index.html
+msgid "ArchLinux Tweak Tool — tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | Arch sisteminizi terminalsiz ayarlayın"
+
+#. id 4dd4490a
+#: index.html
+msgid ""
+"A GTK4 tool for Arch-based systems: desktops, kernels, Plymouth, SDDM, "
+"themes, packages, services and maintenance in one place."
+msgstr ""
+"Arch tabanlı sistemler için bir GTK4 aracı: masaüstleri, çekirdekler, "
+"Plymouth, SDDM, temalar, paketler, hizmetler ve bakım tek bir yerde."
+
+#. id 9bff4a85
+#: index.html
+msgid "A GTK4 tool for Arch-based systems, by Erik Dubois."
+msgstr ""
+"Erik Dubois tarafından hazırlanan, Arch tabanlı sistemler için bir GTK4 "
+"aracı."
+
+#. id b7c3ca0e
+#: index.html
+msgid "Copied!"
+msgstr "Kopyalandı!"
+
+#. id 0a4470d6
+#: index.html
+msgid "Skip to content"
+msgstr "İçeriğe geçin"
+
+#. id fde1411c
+#: index.html
+msgid "ArchLinux Tweak Tool home"
+msgstr "ArchLinux Tweak Tool ana sayfası"
+
+#. id 3796b6e6
+#: index.html
+msgid "ArchLinux Tweak Tool"
+msgstr "ArchLinux Tweak Tool"
+
+#. id a9a96ec0
+#: index.html
+msgid "Primary"
+msgstr "Birincil"
+
+#. id fc338f87
+#: index.html
+msgid "Features"
+msgstr "Özellikler"
+
+#. id fd6c3ebf
+#: index.html
+msgid "Install"
+msgstr "Yükleyin"
+
+#. id 9c30a348
+#: index.html
+msgid "Gallery"
+msgstr "Galeri"
+
+#. id d91ebf58
+#: index.html
+msgid "Watch"
+msgstr "İzleyin"
+
+#. id f32d5a3b
+#: index.html
+msgid "Support"
+msgstr "Destek olun"
+
+#. id 08e8d270
+#: index.html
+msgid "Support Erik Dubois"
+msgstr "Destek olun: Erik Dubois"
+
+#. id f22fdf3f
+#: index.html
+msgid "Sponsor on GitHub"
+msgstr "GitHub'da sponsor olun"
+
+#. id eeb0398b
+#: index.html
+msgid "Support on Ko-fi"
+msgstr "Ko-fi üzerinden destek olun"
+
+#. id fd0b743b
+#: index.html
+msgid "Sponsor"
+msgstr "Sponsor olun"
+
+#. id 564bb00f
+#: index.html
+msgid "Join on Patreon"
+msgstr "Patreon'da katılın"
+
+#. id 24e27f13
+#: index.html
+msgid "Donate with PayPal"
+msgstr "PayPal ile bağış yapın"
+
+#. id 67fef93d
+#: index.html
+msgid "Patreon"
+msgstr "Patreon"
+
+#. id 559ef554
+#: index.html
+msgid "PayPal"
+msgstr "PayPal"
+
+#. id a797e309
+#: index.html
+msgid "Theme"
+msgstr "Tema"
+
+#. id 7304d292
+#: index.html
+msgid "Page theme"
+msgstr "Sayfa teması"
+
+#. id d10c4096
+#: index.html
+msgid "Nordic"
+msgstr "Nordic"
+
+#. id 26d7b218
+#: index.html
+msgid "Slate"
+msgstr "Slate"
+
+#. id 60975637
+#: index.html
+msgid "Carbon"
+msgstr "Carbon"
+
+#. id 20632bc3
+#: index.html
+msgid "Ember"
+msgstr "Ember"
+
+#. id 32bb0b3e
+#: index.html
+msgid "Sepia (light)"
+msgstr "Sepia (açık)"
+
+#. id c9455d38
+#: index.html
+msgid "Paper (light)"
+msgstr "Paper (açık)"
+
+#. id 8ba7c3fb
+#: index.html
+msgid "Accent colour"
+msgstr "Vurgu rengi"
+
+#. id b3d97fd6
+#: index.html
+msgid "Sky"
+msgstr "Gök mavisi"
+
+#. id 0717c0b8
+#: index.html
+msgid "Sky accent"
+msgstr "Gök mavisi vurgu"
+
+#. id c57604db
+#: index.html
+msgid "Gold"
+msgstr "Altın rengi"
+
+#. id 7b8e578e
+#: index.html
+msgid "Gold accent"
+msgstr "Altın rengi vurgu"
+
+#. id da32ecab
+#: index.html
+msgid "Emerald"
+msgstr "Zümrüt yeşili"
+
+#. id adcbb5d6
+#: index.html
+msgid "Emerald accent"
+msgstr "Zümrüt yeşili vurgu"
+
+#. id ddcd2f2e
+#: index.html
+msgid "Violet"
+msgstr "Mor"
+
+#. id 54a17bde
+#: index.html
+msgid "Violet accent"
+msgstr "Mor vurgu"
+
+#. id 51ad0eae
+#: index.html
+msgid "Rose"
+msgstr "Gül kurusu"
+
+#. id 98ca471d
+#: index.html
+msgid "Rose accent"
+msgstr "Gül kurusu vurgu"
+
+#. id 662f267f
+#: index.html
+msgid ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 pages &middot; Arch-based "
+"systems"
+msgstr ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 sayfa &middot; Arch tabanlı "
+"sistemler"
+
+#. id 8362c13e
+#: index.html
+msgid ""
+"Tweak your Arch system<br /><span class=\"accent\">without the terminal</"
+"span>"
+msgstr ""
+"Arch sisteminizi<br /><span class=\"accent\">terminalsiz ayarlayın</span>"
+
+#. id 5ff01c17
+#: index.html
+msgid ""
+"You know what you want your system to do &mdash; a different kernel, a nicer "
+"login screen, a theme that matches, services cleaned up. ATT puts all of it "
+"behind one window, and it tells you exactly what it is about to do before it "
+"does it. Nothing hidden, nothing magic, and the commands stay yours to learn."
+msgstr ""
+"Sisteminizden ne istediğinizi biliyorsunuz: farklı bir çekirdek, daha güzel "
+"bir giriş ekranı, uyumlu bir tema, düzenlenmiş hizmetler. ATT bunların "
+"hepsini tek bir pencerede toplar ve yapmadan önce tam olarak ne yapacağını "
+"size söyler. Gizli hiçbir şey, büyü yok; komutları öğrenmek de size kalır."
+
+#. id b7029c5a
+#: index.html
+msgid "Install ATT"
+msgstr "ATT'yi yükleyin"
+
+#. id c60f2f81
+#: index.html
+msgid "Source on GitHub"
+msgstr "GitHub'daki kaynak kod"
+
+#. id 32be03cf
+#: index.html
+msgid ""
+"Free and open &middot; installs from <code class=\"chip\">nemesis_repo</"
+"code> &middot; works on Arch and Arch-based systems"
+msgstr ""
+"Ücretsiz ve açık &middot; <code class=\"chip\">nemesis_repo</code> "
+"deposundan yüklenir &middot; Arch'ta ve Arch tabanlı sistemlerde çalışır"
+
+#. id 016d87ba
+#: index.html
+msgid "Why ATT"
+msgstr "Neden ATT"
+
+#. id 7e535def
+#: index.html
+msgid "Never a black box"
+msgstr "Asla bir kara kutu değil"
+
+#. id 0f52b25c
+#: index.html
+msgid ""
+"The most frustrating thing about a system tool is not knowing what it did to "
+"your machine. ATT is built the other way round &mdash; every action explains "
+"itself, and the console output is there for you to read, learn from, and run "
+"yourself next time."
+msgstr ""
+"Bir sistem aracının en sinir bozucu yanı, makinenize ne yaptığını "
+"bilmemektir. ATT bunun tersine tasarlandı: her eylem kendini açıklar, konsol "
+"çıktısı da okumanız, ondan öğrenmeniz ve bir dahaki sefere kendiniz "
+"çalıştırmanız için orada durur."
+
+#. id 74f39697
+#: index.html
+msgid "Before"
+msgstr "Önce"
+
+#. id 1f1a6200
+#: index.html
+msgid ""
+"You see what an action will change &mdash; a confirmation dialog or a plain "
+"label &mdash; before anything is touched."
+msgstr ""
+"Hiçbir şeye dokunulmadan önce, bir onay iletişim kutusu ya da düz bir "
+"etiketle, bir eylemin neyi değiştireceğini görürsünüz."
+
+#. id b47565e2
+#: index.html
+msgid "During"
+msgstr "Sırasında"
+
+#. id 105e3577
+#: index.html
+msgid ""
+"You watch it happen: progress, the current step, and live console output "
+"while it runs."
+msgstr ""
+"Olanları izlersiniz: çalışırken ilerleme, o anki adım ve canlı konsol "
+"çıktısı."
+
+#. id 79ba5e1b
+#: index.html
+msgid "After"
+msgstr "Sonra"
+
+#. id 17546d3f
+#: index.html
+msgid ""
+"You get a summary of what actually changed &mdash; files written, packages "
+"installed, services touched."
+msgstr ""
+"Gerçekte neyin değiştiğine dair bir özet alırsınız: yazılan dosyalar, "
+"yüklenen paketler, dokunulan hizmetler."
+
+#. id 51deeac9
+#: index.html
+msgid "pages of settings"
+msgstr "ayar sayfası"
+
+#. id fc9a772c
+#: index.html
+msgid "command to install"
+msgstr "yüklemek için komut"
+
+#. id 9aa97bbb
+#: index.html
+msgid "native, Python 3"
+msgstr "yerel, Python 3"
+
+#. id 75f52718
+#: index.html
+msgid "Free"
+msgstr "Ücretsiz"
+
+#. id 3337b259
+#: index.html
+msgid "and open source"
+msgstr "ve açık kaynak"
+
+#. id 810b980c
+#: index.html
+msgid "Everything in one window"
+msgstr "Her şey tek pencerede"
+
+#. id 935dddb0
+#: index.html
+msgid ""
+"Thirty-one pages in the sidebar, each one a job you would otherwise do by "
+"hand across half a dozen config files. Here is what you get."
+msgstr ""
+"Kenar çubuğunda otuz bir sayfa var; her biri, aksi halde yarım düzine "
+"yapılandırma dosyasında elle yapacağınız bir iş. İşte sizi bekleyenler."
+
+#. id 3352fd2f
+#: index.html
+msgid "Desktops and window managers"
+msgstr "Masaüstleri ve pencere yöneticileri"
+
+#. id f5895c60
+#: index.html
+msgid ""
+"Install and switch desktop environments &mdash; KDE, GNOME, Xfce, Hyprland, "
+"dwm and more &mdash; on both X11 and Wayland sessions."
+msgstr ""
+"Masaüstü ortamlarını yükleyin ve değiştirin (KDE, GNOME, Xfce, Hyprland, dwm "
+"ve daha fazlası), hem X11 hem de Wayland oturumlarında."
+
+#. id 532c67fe
+#: index.html
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#. id 2f5a8e73
+#: index.html
+msgid "Desktop - Wayland"
+msgstr "Masaüstü - Wayland"
+
+#. id 4a435af6
+#: index.html
+msgid "Kernels and initramfs"
+msgstr "Çekirdekler ve initramfs"
+
+#. id dd55a487
+#: index.html
+msgid ""
+"Add or remove kernels in one click. Works with mkinitcpio and dracut, and "
+"updates your GRUB entries for you."
+msgstr ""
+"Çekirdekleri tek tıkla ekleyin ya da kaldırın. mkinitcpio ve dracut ile "
+"çalışır, GRUB girdilerinizi de sizin için günceller."
+
+#. id d5617d27
+#: index.html
+msgid "Kernels"
+msgstr "Çekirdekler"
+
+#. id 6f8072ca
+#: index.html
+msgid "Boot splash"
+msgstr "Açılış ekranı"
+
+#. id 31031931
+#: index.html
+msgid ""
+"Install and switch Plymouth themes, with bootloader wiring for systemd-boot, "
+"GRUB, limine and rEFInd &mdash; and a fix for broken initramfs hooks."
+msgstr ""
+"Plymouth temalarını yükleyin ve değiştirin; systemd-boot, GRUB, limine ve "
+"rEFInd için önyükleyici bağlantısı ile bozuk initramfs kancaları için bir "
+"düzeltme de dahil."
+
+#. id 679fe35a
+#: index.html
+msgid "Plymouth"
+msgstr "Plymouth"
+
+#. id c8e5ffe6
+#: index.html
+msgid "Login manager"
+msgstr "Giriş yöneticisi"
+
+#. id c12ca421
+#: index.html
+msgid ""
+"Preview and install SDDM themes; set cursor, wallpaper, session and display "
+"options, then apply or repair the configuration."
+msgstr ""
+"SDDM temalarını önizleyin ve yükleyin; imleci, duvar kâğıdını, oturumu ve "
+"ekran seçeneklerini ayarlayın, ardından yapılandırmayı uygulayın ya da "
+"onarın."
+
+#. id 71bb1e47
+#: index.html
+msgid "Sddm"
+msgstr "Sddm"
+
+#. id 67a7de83
+#: index.html
+msgid "Themes and icons"
+msgstr "Temalar ve simgeler"
+
+#. id bf6f8fc9
+#: index.html
+msgid ""
+"GTK and Plasma themes, the full Arc family, and the Neo Candy, Surfn and "
+"Horst icon sets &mdash; or apply a coordinated set in one go with the Themer."
+msgstr ""
+"GTK ve Plasma temaları, Arc ailesinin tamamı ile Neo Candy, Surfn ve Horst "
+"simge setleri; ya da Themer ile uyumlu bir seti tek seferde uygulayın."
+
+#. id 3170c313
+#: index.html
+msgid "Themer"
+msgstr "Themer"
+
+#. id 7a26e54a
+#: index.html
+msgid "Arc themes"
+msgstr "Arc temaları"
+
+#. id edb8f6c1
+#: index.html
+msgid "Icons"
+msgstr "Simgeler"
+
+#. id 65826c69
+#: index.html
+msgid "Celestial themes"
+msgstr "Celestial temaları"
+
+#. id 8477952c
+#: index.html
+msgid "Wallpapers"
+msgstr "Duvar kâğıtları"
+
+#. id 8c45effc
+#: index.html
+msgid ""
+"Browse any folder and set your wallpaper across every supported desktop and "
+"window manager."
+msgstr ""
+"Herhangi bir klasöre göz atın ve duvar kâğıdınızı desteklenen her masaüstü "
+"ve pencere yöneticisinde ayarlayın."
+
+#. id 466891e2
+#: index.html
+msgid "Wallpaper"
+msgstr "Duvar kâğıdı"
+
+#. id afd92ae8
+#: index.html
+msgid "Packages and pacman"
+msgstr "Paketler ve pacman"
+
+#. id 5029c622
+#: index.html
+msgid ""
+"Export your installed packages, import them on a fresh machine, and tune "
+"pacman itself &mdash; repositories, parallel downloads, and the rest of "
+"<code class=\"chip\">pacman.conf</code>."
+msgstr ""
+"Yüklü paketlerinizi dışa aktarın, yeni bir makinede içe aktarın ve pacman'ın "
+"kendisini ayarlayın: depolar, paralel indirmeler ve <code "
+"class=\"chip\">pacman.conf</code> dosyasının geri kalanı."
+
+#. id 0a999012
+#: index.html
+msgid "Packages"
+msgstr "Paketler"
+
+#. id 4b529bbc
+#: index.html
+msgid "Pacman"
+msgstr "Pacman"
+
+#. id 9ad05227
+#: index.html
+msgid "Software"
+msgstr "Yazılım"
+
+#. id 7ab4a69a
+#: index.html
+msgid "Services and autostart"
+msgstr "Hizmetler ve otomatik başlatma"
+
+#. id 5d2c4326
+#: index.html
+msgid ""
+"Enable or disable systemd services, and decide what actually launches when "
+"you log in."
+msgstr ""
+"systemd hizmetlerini etkinleştirin ya da devre dışı bırakın ve oturum "
+"açtığınızda gerçekte neyin başlayacağına karar verin."
+
+#. id 5cbd5840
+#: index.html
+msgid "Services"
+msgstr "Hizmetler"
+
+#. id 516dfe15
+#: index.html
+msgid "Autostart"
+msgstr "Otomatik başlatma"
+
+#. id 63c90455
+#: index.html
+msgid "Performance"
+msgstr "Performans"
+
+#. id 9cd0b101
+#: index.html
+msgid ""
+"CPU governor, I/O scheduler and the tuning knobs that decide whether your "
+"machine feels quick or sluggish."
+msgstr ""
+"CPU yöneticisi, G/Ç zamanlayıcısı ve makinenizin hızlı mı yoksa yavaş mı "
+"hissettireceğini belirleyen ayar düğmeleri."
+
+#. id 94de303b
+#: index.html
+msgid "Maintenance"
+msgstr "Bakım"
+
+#. id ef55513c
+#: index.html
+msgid ""
+"Rank the fastest mirrors, clear orphaned packages, empty the pacman cache "
+"and remove a stale lock file &mdash; the housekeeping, without the man pages."
+msgstr ""
+"En hızlı yansıları sıralayın, sahipsiz paketleri temizleyin, pacman "
+"önbelleğini boşaltın ve eski bir kilit dosyasını kaldırın: man sayfalarına "
+"gerek kalmadan ev işleri."
+
+#. id dd96994d
+#: index.html
+msgid "Backup"
+msgstr "Yedekleme"
+
+#. id 77195972
+#: index.html
+msgid "Btrfs"
+msgstr "Btrfs"
+
+#. id e1ea8c9f
+#: index.html
+msgid "Shells and terminal"
+msgstr "Kabuklar ve terminal"
+
+#. id f43ec14b
+#: index.html
+msgid ""
+"Switch your default shell between bash, zsh and fish, and configure the "
+"environment, themes and zsh plugins that come with it."
+msgstr ""
+"Varsayılan kabuğunuzu bash, zsh ve fish arasında değiştirin; onlarla gelen "
+"ortamı, temaları ve zsh eklentilerini yapılandırın."
+
+#. id df65df83
+#: index.html
+msgid "Shells"
+msgstr "Kabuklar"
+
+#. id 19d605c8
+#: index.html
+msgid "Fastfetch"
+msgstr "Fastfetch"
+
+#. id 3f00c1e3
+#: index.html
+msgid "System and network"
+msgstr "Sistem ve ağ"
+
+#. id ad535078
+#: index.html
+msgid ""
+"Hardware overview, running services and journal at a glance, plus network "
+"tools and Samba shares."
+msgstr ""
+"Donanım genel bakışı, çalışan hizmetler ve günlük tek bakışta; ayrıca ağ "
+"araçları ve Samba paylaşımları."
+
+#. id bc0792d8
+#: index.html
+msgid "System"
+msgstr "Sistem"
+
+#. id 53ebc572
+#: index.html
+msgid "Network"
+msgstr "Ağ"
+
+#. id 57003616
+#: index.html
+msgid "Logging"
+msgstr "Günlük kaydı"
+
+#. id 391f30ce
+#: index.html
+msgid "Users, locale and access"
+msgstr "Kullanıcılar, yerel ayar ve erişim"
+
+#. id 55f7d50e
+#: index.html
+msgid ""
+"Create and configure user accounts, set locale, keyboard layout and "
+"timezone, and turn on accessibility options."
+msgstr ""
+"Kullanıcı hesapları oluşturun ve yapılandırın, yerel ayarı, klavye düzenini "
+"ve saat dilimini belirleyin, erişilebilirlik seçeneklerini açın."
+
+#. id 9f8a2389
+#: index.html
+msgid "User"
+msgstr "Kullanıcı"
+
+#. id 8970f0e6
+#: index.html
+msgid "Locale"
+msgstr "Yerel ayar"
+
+#. id d660049b
+#: index.html
+msgid "Accessibility"
+msgstr "Erişilebilirlik"
+
+#. id cf01481f
+#: index.html
+msgid "Privacy"
+msgstr "Gizlilik"
+
+#. id 54796043
+#: index.html
+msgid ""
+"hBlock DNS-level ad blocking and a handful of settings that keep your system "
+"to yourself."
+msgstr ""
+"hBlock ile DNS düzeyinde reklam engelleme ve sisteminizi sizde tutan bir "
+"avuç ayar."
+
+#. id 1d2042b6
+#: index.html
+msgid "AI tools and extras"
+msgstr "Yapay zekâ araçları ve ekstralar"
+
+#. id 8a7ad178
+#: index.html
+msgid ""
+"Claude AI integration for help with your own system, office software "
+"installers, and the ISO tooling if you build your own."
+msgstr ""
+"Kendi sisteminizle ilgili yardım için Claude AI entegrasyonu, ofis yazılımı "
+"yükleyicileri ve kendi ISO'nuzu üretiyorsanız ISO araçları."
+
+#. id 58d44d0c
+#: index.html
+msgid "AI Tools"
+msgstr "Yapay Zekâ Araçları"
+
+#. id 6c3a72ea
+#: index.html
+msgid "Office"
+msgstr "Ofis"
+
+#. id 4f325d99
+#: index.html
+msgid "ISO"
+msgstr "ISO"
+
+#. id 32cf39eb
+#: index.html
+msgid "Two steps and you are running"
+msgstr "İki adımda hazırsınız"
+
+#. id 6264a9e9
+#: index.html
+msgid ""
+"ATT ships from <code class=\"chip\">nemesis_repo</code>, a signed pacman "
+"repository. Add the repo once, then install ATT like any other package. "
+"Everything below is a normal command you can read before you run it."
+msgstr ""
+"ATT, imzalı bir pacman deposu olan <code class=\"chip\">nemesis_repo</code> "
+"üzerinden dağıtılır. Depoyu bir kez ekleyin, ardından ATT'yi diğer paketler "
+"gibi yükleyin. Aşağıdaki her şey, çalıştırmadan önce okuyabileceğiniz "
+"sıradan bir komuttur."
+
+#. id 903e89f7
+#: index.html
+msgid "Step 1 &mdash; add the repo to <code>/etc/pacman.conf</code>"
+msgstr "1. adım: depoyu <code>/etc/pacman.conf</code> dosyasına ekleyin"
+
+#. id af74f7c5
+#: index.html
+msgid "Copy"
+msgstr "Kopyalayın"
+
+#. id bce18d41
+#: index.html
+msgid "Prefer a script? This does the same thing"
+msgstr "Betik mi tercih edersiniz? Aynı işi yapar"
+
+#. id 1d28ba54
+#: index.html
+msgid ""
+"<b>About the signature.</b> <code>nemesis_repo</code> is PGP-signed by the "
+"Kiro key, trusted through <code>kiro-keyring</code>, and it inherits your "
+"global <code>SigLevel</code>. If you are adding the repo by hand before that "
+"keyring is installed, set <code>SigLevel = Optional</code> for this repo "
+"until it is in place."
+msgstr ""
+"<b>İmza hakkında.</b> <code>nemesis_repo</code>, Kiro anahtarıyla PGP "
+"imzalıdır, <code>kiro-keyring</code> aracılığıyla güvenilir sayılır ve genel "
+"<code>SigLevel</code> ayarınızı devralır. Depoyu bu anahtarlık yüklenmeden "
+"elle ekliyorsanız, anahtarlık yerine gelene kadar bu depo için "
+"<code>SigLevel = Optional</code> ayarlayın."
+
+#. id 0f795ccf
+#: index.html
+msgid "Step 2 &mdash; update and install"
+msgstr "2. adım: güncelleyin ve yükleyin"
+
+#. id bf20bc7a
+#: index.html
+msgid ""
+"Then launch <b>ArchLinux Tweak Tool</b> from your application menu. It asks "
+"for administrative rights only when an action genuinely needs them."
+msgstr ""
+"Ardından uygulama menünüzden <b>ArchLinux Tweak Tool</b> uygulamasını "
+"başlatın. Yönetici haklarını yalnızca bir eylem gerçekten gerektirdiğinde "
+"ister."
+
+#. id 5d60c7dd
+#: index.html
+msgid "Compatibility"
+msgstr "Uyumluluk"
+
+#. id 09edb1e9
+#: index.html
+msgid "Built for Arch, at home on Arch-based systems"
+msgstr "Arch için yapıldı, Arch tabanlı sistemlerde de evinde"
+
+#. id bf51db4f
+#: index.html
+msgid ""
+"ATT started life on ArcoLinux and now runs on plain Arch and on the Arch-"
+"based systems people actually use &mdash; Artix, Manjaro, CachyOS, Kiro and "
+"many more. Where a distribution does things its own way, ATT detects it and "
+"adapts the interface instead of fighting it."
+msgstr ""
+"ATT, ArcoLinux üzerinde doğdu ve bugün saf Arch'ta ve insanların gerçekten "
+"kullandığı Arch tabanlı sistemlerde çalışır: Artix, Manjaro, CachyOS, Kiro "
+"ve daha niceleri. Bir dağıtım işleri kendi yöntemiyle yapıyorsa, ATT bunu "
+"algılar ve onunla uğraşmak yerine arayüzü uyarlar."
+
+#. id 4a3014d2
+#: index.html
+msgid ""
+"<b>You need:</b> an Arch or Arch-based system, Python 3.8 or later, GTK 4.6 "
+"or later, and pacman."
+msgstr ""
+"<b>Gerekenler:</b> bir Arch ya da Arch tabanlı sistem, Python 3.8 veya "
+"üzeri, GTK 4.6 veya üzeri ve pacman."
+
+#. id a9a631e7
+#: index.html
+msgid ""
+"<b>Optional, for some pages:</b> alacritty for package operations, "
+"fastfetch, and your shell of choice."
+msgstr ""
+"<b>İsteğe bağlı, bazı sayfalar için:</b> paket işlemleri için alacritty, "
+"fastfetch ve tercih ettiğiniz kabuk."
+
+#. id f5fb13b9
+#: index.html
+msgid ""
+"The authoritative, always-current list of supported distributions lives in "
+"the source &mdash; see the <a href=\"https://github.com/kirodubes/archlinux-"
+"tweak-tool\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub "
+"repository</a>."
+msgstr ""
+"Desteklenen dağıtımların yetkili ve her zaman güncel listesi kaynak kodda "
+"bulunur: <a href=\"https://github.com/kirodubes/archlinux-tweak-tool\" "
+"target=\"_blank\" rel=\"noopener noreferrer\">GitHub deposuna</a> bakın."
+
+#. id d615ebe8
+#: index.html
+msgid "See it before you install it"
+msgstr "Yüklemeden önce görün"
+
+#. id 8c8b5046
+#: index.html
+msgid ""
+"All twenty-four of these are real pages in the running application. Select "
+"any screenshot to open it full size, then use the arrow keys to browse."
+msgstr ""
+"Bu yirmi dördün hepsi çalışan uygulamadaki gerçek sayfalardır. Tam boyutta "
+"açmak için bir ekran görüntüsünü seçin, ardından gezinmek için ok tuşlarını "
+"kullanın."
+
+#. id e494be98
+#: index.html
+msgid "Open the AI Tools screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Yapay Zekâ Araçları"
+
+#. id b45d17af
+#: index.html
+msgid "ATT AI Tools page"
+msgstr "ATT sayfası: Yapay Zekâ Araçları"
+
+#. id d8fa07ab
+#: index.html
+msgid "Open the Autostart screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Otomatik başlatma"
+
+#. id 067cea2f
+#: index.html
+msgid "ATT Autostart page"
+msgstr "ATT sayfası: Otomatik başlatma"
+
+#. id 474c973a
+#: index.html
+msgid "Open the Desktop screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Masaüstü"
+
+#. id b3a18264
+#: index.html
+msgid "ATT Desktop page"
+msgstr "ATT sayfası: Masaüstü"
+
+#. id 332ecbd3
+#: index.html
+msgid "Open the Fastfetch screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Fastfetch"
+
+#. id 717338ec
+#: index.html
+msgid "ATT Fastfetch page"
+msgstr "ATT sayfası: Fastfetch"
+
+#. id 791d8966
+#: index.html
+msgid "Open the Icons screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Simgeler"
+
+#. id 149960d9
+#: index.html
+msgid "ATT Icons page"
+msgstr "ATT sayfası: Simgeler"
+
+#. id 4543b5b5
+#: index.html
+msgid "Open the Kernels screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Çekirdekler"
+
+#. id 1de46bb9
+#: index.html
+msgid "ATT Kernels page"
+msgstr "ATT sayfası: Çekirdekler"
+
+#. id 7e80befc
+#: index.html
+msgid "Open the Locale screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Yerel ayar"
+
+#. id d10dfd61
+#: index.html
+msgid "ATT Locale page"
+msgstr "ATT sayfası: Yerel ayar"
+
+#. id db008684
+#: index.html
+msgid "Open the Logging screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Günlük kaydı"
+
+#. id aabcebb9
+#: index.html
+msgid "ATT Logging page"
+msgstr "ATT sayfası: Günlük kaydı"
+
+#. id 7c20b689
+#: index.html
+msgid "Open the Maintenance screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Bakım"
+
+#. id 6624d6df
+#: index.html
+msgid "ATT Maintenance page"
+msgstr "ATT sayfası: Bakım"
+
+#. id 56aeac42
+#: index.html
+msgid "Open the Network screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Ağ"
+
+#. id 1d846a5b
+#: index.html
+msgid "ATT Network page"
+msgstr "ATT sayfası: Ağ"
+
+#. id 8d616249
+#: index.html
+msgid "Open the Packages screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Paketler"
+
+#. id 68718269
+#: index.html
+msgid "ATT Packages page"
+msgstr "ATT sayfası: Paketler"
+
+#. id 74d3e160
+#: index.html
+msgid "Open the Pacman screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Pacman"
+
+#. id 5f177ce7
+#: index.html
+msgid "ATT Pacman page"
+msgstr "ATT sayfası: Pacman"
+
+#. id c978bada
+#: index.html
+msgid "Open the Plymouth screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Plymouth"
+
+#. id d9c0b11a
+#: index.html
+msgid "ATT Plymouth page"
+msgstr "ATT sayfası: Plymouth"
+
+#. id 09778c16
+#: index.html
+msgid "Open the Privacy screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Gizlilik"
+
+#. id 9344c32f
+#: index.html
+msgid "ATT Privacy page"
+msgstr "ATT sayfası: Gizlilik"
+
+#. id 228f9d49
+#: index.html
+msgid "Open the Performance screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Performans"
+
+#. id 9d906571
+#: index.html
+msgid "ATT Performance page"
+msgstr "ATT sayfası: Performans"
+
+#. id fd76fa25
+#: index.html
+msgid "Open the Sddm screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Sddm"
+
+#. id c73833c7
+#: index.html
+msgid "ATT Sddm page"
+msgstr "ATT sayfası: Sddm"
+
+#. id 5ab88a8f
+#: index.html
+msgid "Open the Services screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Hizmetler"
+
+#. id a0577e51
+#: index.html
+msgid "ATT Services page"
+msgstr "ATT sayfası: Hizmetler"
+
+#. id 531f3a9e
+#: index.html
+msgid "Open the Shells screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Kabuklar"
+
+#. id 1a74e7a8
+#: index.html
+msgid "ATT Shells page"
+msgstr "ATT sayfası: Kabuklar"
+
+#. id e37ca86f
+#: index.html
+msgid "Open the Software screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Yazılım"
+
+#. id 04bff430
+#: index.html
+msgid "ATT Software page"
+msgstr "ATT sayfası: Yazılım"
+
+#. id 2b1b081f
+#: index.html
+msgid "Open the System screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Sistem"
+
+#. id 5985d010
+#: index.html
+msgid "ATT System page"
+msgstr "ATT sayfası: Sistem"
+
+#. id 2b3819fa
+#: index.html
+msgid "Open the Themer screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Themer"
+
+#. id dee76db2
+#: index.html
+msgid "ATT Themer page"
+msgstr "ATT sayfası: Themer"
+
+#. id 129f8ff4
+#: index.html
+msgid "Open the Arc themes screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Arc temaları"
+
+#. id fa1add35
+#: index.html
+msgid "ATT Arc themes page"
+msgstr "ATT sayfası: Arc temaları"
+
+#. id 4c22862c
+#: index.html
+msgid "Open the User screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Kullanıcı"
+
+#. id a14f824e
+#: index.html
+msgid "ATT User page"
+msgstr "ATT sayfası: Kullanıcı"
+
+#. id 07ec4dc4
+#: index.html
+msgid "Open the Wallpaper screenshot full size"
+msgstr "Ekran görüntüsünü tam boyutta açın: Duvar kâğıdı"
+
+#. id 76693871
+#: index.html
+msgid "ATT Wallpaper page"
+msgstr "ATT sayfası: Duvar kâğıdı"
+
+#. id 059268fb
+#: index.html
+msgid "Prefer to see someone use it?"
+msgstr "Birinin kullanışını görmeyi mi tercih edersiniz?"
+
+#. id 2f6e4bdb
+#: index.html
+msgid ""
+"There is a full playlist walking through ATT page by page &mdash; what each "
+"one does, why it does it that way, and the commands underneath. If you learn "
+"better by watching, start there."
+msgstr ""
+"ATT'yi sayfa sayfa gezen tam bir oynatma listesi var: her sayfanın ne "
+"yaptığı, neden öyle yaptığı ve altındaki komutlar. İzleyerek daha iyi "
+"öğreniyorsanız oradan başlayın."
+
+#. id 9a15f113
+#: index.html
+msgid ""
+"<b>ArchLinux Tweak Tool playlist</b> &mdash; tutorials on the Erik Dubois "
+"YouTube channel, free to watch, no account needed."
+msgstr ""
+"<b>ArchLinux Tweak Tool oynatma listesi</b>: Erik Dubois YouTube kanalındaki "
+"eğitimler, izlemesi ücretsiz, hesap gerekmez."
+
+#. id 04ff8f78
+#: index.html
+msgid "Open the playlist"
+msgstr "Oynatma listesini açın"
+
+#. id 674b63de
+#: index.html
+msgid "Thank you for using ATT"
+msgstr "ATT'yi kullandığınız için teşekkürler"
+
+#. id 47dd7fae
+#: index.html
+msgid ""
+"ATT is free and stays free &mdash; that is not going to change. If it has "
+"saved you time or taught you something and you would like to chip in, here "
+"is where. No pressure either way: the free part is yours to keep, and you "
+"are just as welcome without it."
+msgstr ""
+"ATT ücretsizdir ve ücretsiz kalacak; bu değişmeyecek. Size zaman "
+"kazandırdıysa ya da bir şey öğrettiyse ve katkıda bulunmak isterseniz, işte "
+"yolları. Hiçbir şekilde baskı yok: ücretsiz kısım sizin, siz de bunlar "
+"olmadan aynı ölçüde hoş geldiniz."
+
+#. id 2bdab7e5
+#: index.html
+msgid "GitHub Sponsors"
+msgstr "GitHub Sponsors"
+
+#. id e12df3b0
+#: index.html
+msgid "Processing is covered, so close to all of it reaches development."
+msgstr ""
+"İşlem ücretleri karşılanıyor, bu yüzden neredeyse tamamı geliştirmeye "
+"gidiyor."
+
+#. id 2edf198b
+#: index.html
+msgid ""
+"No platform cut on tips &mdash; a one-off coffee, whenever you feel like it."
+msgstr ""
+"Bahşişlerden platform payı alınmaz: canınız istediğinde tek seferlik bir "
+"kahve."
+
+#. id f9002832
+#: index.html
+msgid "A direct one-off donation, payment processing only."
+msgstr "Doğrudan tek seferlik bir bağış, yalnızca ödeme işleme ücreti kesilir."
+
+#. id fe02d5ce
+#: index.html
+msgid ""
+"Monthly membership: the full course series, a vote on what gets covered "
+"next, and the members community."
+msgstr ""
+"Aylık üyelik: tam kurs serisi, sıradaki konuya oy hakkı ve üye topluluğu."
+
+#. id 6ff7d720
+#: index.html
+msgid "YouTube membership"
+msgstr "YouTube kanal üyeliği"
+
+#. id 02cb5f39
+#: index.html
+msgid ""
+"The identical membership, if YouTube is where you already are. Same tiers, "
+"same perks."
+msgstr "Aynı üyelik, zaten YouTube'daysanız. Aynı kademeler, aynı avantajlar."
+
+#. id bfa39502
+#: index.html
+msgid "Or contribute instead"
+msgstr "Ya da bunun yerine katkıda bulunun"
+
+#. id 1510cf1c
+#: index.html
+msgid ""
+"Bug reports, a distribution we should support, a pull request &mdash; all "
+"just as valuable."
+msgstr ""
+"Hata raporları, desteklememiz gereken bir dağıtım, bir çekme isteği: hepsi "
+"aynı derecede değerlidir."
+
+#. id 3d5f4fd4
+#: index.html
+msgid ""
+"Built by <b>Brad Heffernan</b>, <b>Erik Dubois</b> and <b>Cameron Percival</"
+"b>, with everyone who has ever filed a bug report."
+msgstr ""
+"<b>Brad Heffernan</b>, <b>Erik Dubois</b> ve <b>Cameron Percival</b> "
+"tarafından, şimdiye kadar hata bildiren herkesle birlikte geliştirildi."
+
+#. id f8178ce2
+#: index.html
+msgid "Screenshot viewer"
+msgstr "Ekran görüntüsü görüntüleyici"
+
+#. id 0cd6661b
+#: index.html
+msgid "Previous screenshot"
+msgstr "Önceki ekran görüntüsü"
+
+#. id ea23b3e8
+#: index.html
+msgid "Next screenshot"
+msgstr "Sonraki ekran görüntüsü"
+
+#. id b9fbfc7e
+#: index.html
+msgid "Close viewer"
+msgstr "Görüntüleyiciyi kapat"
+
+#. id d9c883a9
+#: index.html
+msgid "Back to top"
+msgstr "Başa dön"
+
+#. id cae0435c
+#: index.html
+msgid "Top"
+msgstr "Yukarı"
+
+#. id 5210c901
+#: index.html
+msgid "&copy; 2026 ArchLinux Tweak Tool &middot; Built by Erik Dubois"
+msgstr ""
+"&copy; 2026 ArchLinux Tweak Tool &middot; Erik Dubois tarafından geliştirildi"
+
+#. id 558865a1
+#: index.html
+msgid "YouTube"
+msgstr "YouTube"
+
+#. id 0474a6c6
+#: index.html
+msgid "Discussions"
+msgstr "Discussions"

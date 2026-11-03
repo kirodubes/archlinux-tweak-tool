@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | Arch sisteminizi terminalsiz ayarlayın</title>
+    <meta name="description" content="ArchLinux Tweak Tool (ATT), Arch tabanlı sistemler için bir GTK4 uygulamasıdır: masaüstleri, çekirdekler, Plymouth, SDDM, temalar, paketler, hizmetler, performans ve bakımı kapsayan 31 sayfa. Ücretsiz, açık ve asla bir kara kutu değil." />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | Arch sisteminizi terminalsiz ayarlayın" />
+    <meta property="og:description" content="Arch tabanlı sistemler için bir GTK4 aracı: masaüstleri, çekirdekler, Plymouth, SDDM, temalar, paketler, hizmetler ve bakım tek bir yerde." />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | Arch sisteminizi terminalsiz ayarlayın" />
+    <meta name="twitter:description" content="Erik Dubois tarafından hazırlanan, Arch tabanlı sistemler için bir GTK4 aracı." />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'Kopyalandı!';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">İçeriğe geçin</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="ArchLinux Tweak Tool ana sayfası">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="Birincil">
+            <a href="#features">Özellikler</a>
+            <a href="#install">Yükleyin</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#watch">İzleyin</a>
+            <a href="#support">Destek olun</a>
+          </nav>
+
+          <div class="support" aria-label="Destek olun: Erik Dubois">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="GitHub'da sponsor olun">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">Sponsor olun</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="Ko-fi üzerinden destek olun">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="Patreon'da katılın">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="PayPal ile bağış yapın">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>TR</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="../nl/index.html" lang="nl" hreflang="nl">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="../ru/index.html" lang="ru" hreflang="ru">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="../hu/index.html" lang="hu" hreflang="hu">Magyar</a>
+              <a href="index.html" lang="tr" hreflang="tr" aria-current="page">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="../ja/index.html" lang="ja" hreflang="ja">日本語</a>
+              <a href="../zh/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">Tema</span>
+            <select id="theme-select" class="theme-select" aria-label="Sayfa teması">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia (açık)</option>
+              <option value="paper">Paper (açık)</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="Vurgu rengi">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="Gök mavisi" aria-label="Gök mavisi vurgu" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="Altın rengi" aria-label="Altın rengi vurgu" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="Zümrüt yeşili" aria-label="Zümrüt yeşili vurgu" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="Mor" aria-label="Mor vurgu" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="Gül kurusu" aria-label="Gül kurusu vurgu" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 sayfa &middot; Arch tabanlı sistemler
+          </a>
+          <h1>Arch sisteminizi<br /><span class="accent">terminalsiz ayarlayın</span></h1>
+          <p class="lead">
+            Sisteminizden ne istediğinizi biliyorsunuz: farklı bir çekirdek, daha güzel bir giriş ekranı, uyumlu bir tema, düzenlenmiş hizmetler. ATT bunların hepsini tek bir pencerede toplar ve yapmadan önce tam olarak ne yapacağını size söyler. Gizli hiçbir şey, büyü yok; komutları öğrenmek de size kalır.
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ATT'yi yükleyin
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              GitHub'daki kaynak kod
+            </a>
+          </div>
+          <p class="hero-foot">Ücretsiz ve açık &middot; <code class="chip">nemesis_repo</code> deposundan yüklenir &middot; Arch'ta ve Arch tabanlı sistemlerde çalışır</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Neden ATT</p>
+          <h2>Asla bir kara kutu değil</h2>
+          <p class="lead">
+            Bir sistem aracının en sinir bozucu yanı, makinenize ne yaptığını bilmemektir. ATT bunun tersine tasarlandı: her eylem kendini açıklar, konsol çıktısı da okumanız, ondan öğrenmeniz ve bir dahaki sefere kendiniz çalıştırmanız için orada durur.
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>Önce</b>
+              <span>Hiçbir şeye dokunulmadan önce, bir onay iletişim kutusu ya da düz bir etiketle, bir eylemin neyi değiştireceğini görürsünüz.</span>
+            </li>
+            <li>
+              <b>Sırasında</b>
+              <span>Olanları izlersiniz: çalışırken ilerleme, o anki adım ve canlı konsol çıktısı.</span>
+            </li>
+            <li>
+              <b>Sonra</b>
+              <span>Gerçekte neyin değiştiğine dair bir özet alırsınız: yazılan dosyalar, yüklenen paketler, dokunulan hizmetler.</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">ayar sayfası</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">yüklemek için komut</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">yerel, Python 3</span></div>
+            <div class="stat"><span class="value">Ücretsiz</span><span class="label">ve açık kaynak</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Özellikler</p>
+          <h2>Her şey tek pencerede</h2>
+          <p class="lead">
+            Kenar çubuğunda otuz bir sayfa var; her biri, aksi halde yarım düzine yapılandırma dosyasında elle yapacağınız bir iş. İşte sizi bekleyenler.
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>Masaüstleri ve pencere yöneticileri</h3>
+              <p>Masaüstü ortamlarını yükleyin ve değiştirin (KDE, GNOME, Xfce, Hyprland, dwm ve daha fazlası), hem X11 hem de Wayland oturumlarında.</p>
+              <div class="pages"><span>Masaüstü</span><span>Masaüstü - Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Çekirdekler ve initramfs</h3>
+              <p>Çekirdekleri tek tıkla ekleyin ya da kaldırın. mkinitcpio ve dracut ile çalışır, GRUB girdilerinizi de sizin için günceller.</p>
+              <div class="pages"><span>Çekirdekler</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Açılış ekranı</h3>
+              <p>Plymouth temalarını yükleyin ve değiştirin; systemd-boot, GRUB, limine ve rEFInd için önyükleyici bağlantısı ile bozuk initramfs kancaları için bir düzeltme de dahil.</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Giriş yöneticisi</h3>
+              <p>SDDM temalarını önizleyin ve yükleyin; imleci, duvar kâğıdını, oturumu ve ekran seçeneklerini ayarlayın, ardından yapılandırmayı uygulayın ya da onarın.</p>
+              <div class="pages"><span>Sddm</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Temalar ve simgeler</h3>
+              <p>GTK ve Plasma temaları, Arc ailesinin tamamı ile Neo Candy, Surfn ve Horst simge setleri; ya da Themer ile uyumlu bir seti tek seferde uygulayın.</p>
+              <div class="pages"><span>Themer</span><span>Arc temaları</span><span>Simgeler</span><span>Celestial temaları</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Duvar kâğıtları</h3>
+              <p>Herhangi bir klasöre göz atın ve duvar kâğıdınızı desteklenen her masaüstü ve pencere yöneticisinde ayarlayın.</p>
+              <div class="pages"><span>Duvar kâğıdı</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Paketler ve pacman</h3>
+              <p>Yüklü paketlerinizi dışa aktarın, yeni bir makinede içe aktarın ve pacman'ın kendisini ayarlayın: depolar, paralel indirmeler ve <code class="chip">pacman.conf</code> dosyasının geri kalanı.</p>
+              <div class="pages"><span>Paketler</span><span>Pacman</span><span>Yazılım</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Hizmetler ve otomatik başlatma</h3>
+              <p>systemd hizmetlerini etkinleştirin ya da devre dışı bırakın ve oturum açtığınızda gerçekte neyin başlayacağına karar verin.</p>
+              <div class="pages"><span>Hizmetler</span><span>Otomatik başlatma</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Performans</h3>
+              <p>CPU yöneticisi, G/Ç zamanlayıcısı ve makinenizin hızlı mı yoksa yavaş mı hissettireceğini belirleyen ayar düğmeleri.</p>
+              <div class="pages"><span>Performans</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Bakım</h3>
+              <p>En hızlı yansıları sıralayın, sahipsiz paketleri temizleyin, pacman önbelleğini boşaltın ve eski bir kilit dosyasını kaldırın: man sayfalarına gerek kalmadan ev işleri.</p>
+              <div class="pages"><span>Bakım</span><span>Yedekleme</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Kabuklar ve terminal</h3>
+              <p>Varsayılan kabuğunuzu bash, zsh ve fish arasında değiştirin; onlarla gelen ortamı, temaları ve zsh eklentilerini yapılandırın.</p>
+              <div class="pages"><span>Kabuklar</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Sistem ve ağ</h3>
+              <p>Donanım genel bakışı, çalışan hizmetler ve günlük tek bakışta; ayrıca ağ araçları ve Samba paylaşımları.</p>
+              <div class="pages"><span>Sistem</span><span>Ağ</span><span>Günlük kaydı</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Kullanıcılar, yerel ayar ve erişim</h3>
+              <p>Kullanıcı hesapları oluşturun ve yapılandırın, yerel ayarı, klavye düzenini ve saat dilimini belirleyin, erişilebilirlik seçeneklerini açın.</p>
+              <div class="pages"><span>Kullanıcı</span><span>Yerel ayar</span><span>Erişilebilirlik</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Gizlilik</h3>
+              <p>hBlock ile DNS düzeyinde reklam engelleme ve sisteminizi sizde tutan bir avuç ayar.</p>
+              <div class="pages"><span>Gizlilik</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Yapay zekâ araçları ve ekstralar</h3>
+              <p>Kendi sisteminizle ilgili yardım için Claude AI entegrasyonu, ofis yazılımı yükleyicileri ve kendi ISO'nuzu üretiyorsanız ISO araçları.</p>
+              <div class="pages"><span>Yapay Zekâ Araçları</span><span>Ofis</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Yükleyin</p>
+          <h2>İki adımda hazırsınız</h2>
+          <p class="lead">
+            ATT, imzalı bir pacman deposu olan <code class="chip">nemesis_repo</code> üzerinden dağıtılır. Depoyu bir kez ekleyin, ardından ATT'yi diğer paketler gibi yükleyin. Aşağıdaki her şey, çalıştırmadan önce okuyabileceğiniz sıradan bir komuttur.
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>1. adım: depoyu <code>/etc/pacman.conf</code> dosyasına ekleyin</h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">Kopyalayın</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Betik mi tercih edersiniz? Aynı işi yapar</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">Kopyalayın</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>İmza hakkında.</b> <code>nemesis_repo</code>, Kiro anahtarıyla PGP imzalıdır, <code>kiro-keyring</code> aracılığıyla güvenilir sayılır ve genel <code>SigLevel</code> ayarınızı devralır. Depoyu bu anahtarlık yüklenmeden elle ekliyorsanız, anahtarlık yerine gelene kadar bu depo için <code>SigLevel = Optional</code> ayarlayın.
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>2. adım: güncelleyin ve yükleyin</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">Kopyalayın</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Ardından uygulama menünüzden <b>ArchLinux Tweak Tool</b> uygulamasını başlatın. Yönetici haklarını yalnızca bir eylem gerçekten gerektirdiğinde ister.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Uyumluluk</p>
+          <h2>Arch için yapıldı, Arch tabanlı sistemlerde de evinde</h2>
+          <p class="lead">
+            ATT, ArcoLinux üzerinde doğdu ve bugün saf Arch'ta ve insanların gerçekten kullandığı Arch tabanlı sistemlerde çalışır: Artix, Manjaro, CachyOS, Kiro ve daha niceleri. Bir dağıtım işleri kendi yöntemiyle yapıyorsa, ATT bunu algılar ve onunla uğraşmak yerine arayüzü uyarlar.
+          </p>
+          <ul class="prose-list">
+            <li><b>Gerekenler:</b> bir Arch ya da Arch tabanlı sistem, Python 3.8 veya üzeri, GTK 4.6 veya üzeri ve pacman.</li>
+            <li><b>İsteğe bağlı, bazı sayfalar için:</b> paket işlemleri için alacritty, fastfetch ve tercih ettiğiniz kabuk.</li>
+            <li>Desteklenen dağıtımların yetkili ve her zaman güncel listesi kaynak kodda bulunur: <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">GitHub deposuna</a> bakın.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Galeri</p>
+          <h2>Yüklemeden önce görün</h2>
+          <p class="lead">
+            Bu yirmi dördün hepsi çalışan uygulamadaki gerçek sayfalardır. Tam boyutta açmak için bir ekran görüntüsünü seçin, ardından gezinmek için ok tuşlarını kullanın.
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="Ekran görüntüsünü tam boyutta açın: Yapay Zekâ Araçları"><img src="../assets/screenshots/att1.webp" alt="ATT sayfası: Yapay Zekâ Araçları" width="1280" height="686" loading="lazy" /></button><figcaption>Yapay Zekâ Araçları</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="Ekran görüntüsünü tam boyutta açın: Otomatik başlatma"><img src="../assets/screenshots/att2.webp" alt="ATT sayfası: Otomatik başlatma" width="1280" height="686" loading="lazy" /></button><figcaption>Otomatik başlatma</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="Ekran görüntüsünü tam boyutta açın: Masaüstü"><img src="../assets/screenshots/att3.webp" alt="ATT sayfası: Masaüstü" width="1280" height="686" loading="lazy" /></button><figcaption>Masaüstü</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="Ekran görüntüsünü tam boyutta açın: Fastfetch"><img src="../assets/screenshots/att4.webp" alt="ATT sayfası: Fastfetch" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="Ekran görüntüsünü tam boyutta açın: Simgeler"><img src="../assets/screenshots/att5.webp" alt="ATT sayfası: Simgeler" width="1280" height="686" loading="lazy" /></button><figcaption>Simgeler</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="Ekran görüntüsünü tam boyutta açın: Çekirdekler"><img src="../assets/screenshots/att6.webp" alt="ATT sayfası: Çekirdekler" width="1280" height="686" loading="lazy" /></button><figcaption>Çekirdekler</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="Ekran görüntüsünü tam boyutta açın: Yerel ayar"><img src="../assets/screenshots/att7.webp" alt="ATT sayfası: Yerel ayar" width="1280" height="686" loading="lazy" /></button><figcaption>Yerel ayar</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="Ekran görüntüsünü tam boyutta açın: Günlük kaydı"><img src="../assets/screenshots/att8.webp" alt="ATT sayfası: Günlük kaydı" width="1280" height="686" loading="lazy" /></button><figcaption>Günlük kaydı</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="Ekran görüntüsünü tam boyutta açın: Bakım"><img src="../assets/screenshots/att9.webp" alt="ATT sayfası: Bakım" width="1280" height="686" loading="lazy" /></button><figcaption>Bakım</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="Ekran görüntüsünü tam boyutta açın: Ağ"><img src="../assets/screenshots/att10.webp" alt="ATT sayfası: Ağ" width="1280" height="686" loading="lazy" /></button><figcaption>Ağ</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="Ekran görüntüsünü tam boyutta açın: Paketler"><img src="../assets/screenshots/att11.webp" alt="ATT sayfası: Paketler" width="1280" height="686" loading="lazy" /></button><figcaption>Paketler</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="Ekran görüntüsünü tam boyutta açın: Pacman"><img src="../assets/screenshots/att12.webp" alt="ATT sayfası: Pacman" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="Ekran görüntüsünü tam boyutta açın: Plymouth"><img src="../assets/screenshots/att13.webp" alt="ATT sayfası: Plymouth" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="Ekran görüntüsünü tam boyutta açın: Gizlilik"><img src="../assets/screenshots/att14.webp" alt="ATT sayfası: Gizlilik" width="1280" height="686" loading="lazy" /></button><figcaption>Gizlilik</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="Ekran görüntüsünü tam boyutta açın: Performans"><img src="../assets/screenshots/att15.webp" alt="ATT sayfası: Performans" width="1280" height="686" loading="lazy" /></button><figcaption>Performans</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="Ekran görüntüsünü tam boyutta açın: Sddm"><img src="../assets/screenshots/att16.webp" alt="ATT sayfası: Sddm" width="1280" height="686" loading="lazy" /></button><figcaption>Sddm</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="Ekran görüntüsünü tam boyutta açın: Hizmetler"><img src="../assets/screenshots/att17.webp" alt="ATT sayfası: Hizmetler" width="1280" height="686" loading="lazy" /></button><figcaption>Hizmetler</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="Ekran görüntüsünü tam boyutta açın: Kabuklar"><img src="../assets/screenshots/att18.webp" alt="ATT sayfası: Kabuklar" width="1280" height="686" loading="lazy" /></button><figcaption>Kabuklar</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="Ekran görüntüsünü tam boyutta açın: Yazılım"><img src="../assets/screenshots/att19.webp" alt="ATT sayfası: Yazılım" width="1280" height="686" loading="lazy" /></button><figcaption>Yazılım</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="Ekran görüntüsünü tam boyutta açın: Sistem"><img src="../assets/screenshots/att20.webp" alt="ATT sayfası: Sistem" width="1280" height="686" loading="lazy" /></button><figcaption>Sistem</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="Ekran görüntüsünü tam boyutta açın: Themer"><img src="../assets/screenshots/att21.webp" alt="ATT sayfası: Themer" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="Ekran görüntüsünü tam boyutta açın: Arc temaları"><img src="../assets/screenshots/att22.webp" alt="ATT sayfası: Arc temaları" width="1280" height="686" loading="lazy" /></button><figcaption>Arc temaları</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="Ekran görüntüsünü tam boyutta açın: Kullanıcı"><img src="../assets/screenshots/att23.webp" alt="ATT sayfası: Kullanıcı" width="1280" height="686" loading="lazy" /></button><figcaption>Kullanıcı</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="Ekran görüntüsünü tam boyutta açın: Duvar kâğıdı"><img src="../assets/screenshots/att24.webp" alt="ATT sayfası: Duvar kâğıdı" width="1280" height="686" loading="lazy" /></button><figcaption>Duvar kâğıdı</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">İzleyin</p>
+          <h2>Birinin kullanışını görmeyi mi tercih edersiniz?</h2>
+          <p class="lead">
+            ATT'yi sayfa sayfa gezen tam bir oynatma listesi var: her sayfanın ne yaptığı, neden öyle yaptığı ve altındaki komutlar. İzleyerek daha iyi öğreniyorsanız oradan başlayın.
+          </p>
+          <div class="watch-card">
+            <p><b>ArchLinux Tweak Tool oynatma listesi</b>: Erik Dubois YouTube kanalındaki eğitimler, izlemesi ücretsiz, hesap gerekmez.</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              Oynatma listesini açın
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Destek olun</p>
+          <h2>ATT'yi kullandığınız için teşekkürler</h2>
+          <p class="lead">
+            ATT ücretsizdir ve ücretsiz kalacak; bu değişmeyecek. Size zaman kazandırdıysa ya da bir şey öğrettiyse ve katkıda bulunmak isterseniz, işte yolları. Hiçbir şekilde baskı yok: ücretsiz kısım sizin, siz de bunlar olmadan aynı ölçüde hoş geldiniz.
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>İşlem ücretleri karşılanıyor, bu yüzden neredeyse tamamı geliştirmeye gidiyor.</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>Bahşişlerden platform payı alınmaz: canınız istediğinde tek seferlik bir kahve.</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>Doğrudan tek seferlik bir bağış, yalnızca ödeme işleme ücreti kesilir.</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>Aylık üyelik: tam kurs serisi, sıradaki konuya oy hakkı ve üye topluluğu.</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>YouTube kanal üyeliği</b>
+              <span>Aynı üyelik, zaten YouTube'daysanız. Aynı kademeler, aynı avantajlar.</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>Ya da bunun yerine katkıda bulunun</b>
+              <span>Hata raporları, desteklememiz gereken bir dağıtım, bir çekme isteği: hepsi aynı derecede değerlidir.</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            <b>Brad Heffernan</b>, <b>Erik Dubois</b> ve <b>Cameron Percival</b> tarafından, şimdiye kadar hata bildiren herkesle birlikte geliştirildi.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="Ekran görüntüsü görüntüleyici">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="Önceki ekran görüntüsü">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="Sonraki ekran görüntüsü">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="Görüntüleyiciyi kapat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="Başa dön">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>Yukarı</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; Erik Dubois tarafından geliştirildi</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">Discussions</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>

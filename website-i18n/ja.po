@@ -1,0 +1,1263 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. id 88d70fd5
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool &mdash; tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | ターミナルなしで Arch システムを調整"
+
+#. id 12790b37
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool (ATT) is a GTK4 application for Arch-based systems: 31 "
+"pages covering desktops, kernels, Plymouth, SDDM, themes, packages, "
+"services, performance and maintenance. Free, open, and never a black box."
+msgstr ""
+"ArchLinux Tweak Tool (ATT) は Arch ベースのシステム向けの GTK4 アプリケーショ"
+"ンです。デスクトップ、カーネル、Plymouth、SDDM、テーマ、パッケージ、サービ"
+"ス、パフォーマンス、メンテナンスをカバーする 31 ページを備えています。無料で"
+"オープン、ブラックボックスではありません。"
+
+#. id 1882c748
+#: index.html
+msgid "ArchLinux Tweak Tool — tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | ターミナルなしで Arch システムを調整"
+
+#. id 4dd4490a
+#: index.html
+msgid ""
+"A GTK4 tool for Arch-based systems: desktops, kernels, Plymouth, SDDM, "
+"themes, packages, services and maintenance in one place."
+msgstr ""
+"Arch ベースのシステム向けの GTK4 ツール。デスクトップ、カーネル、Plymouth、"
+"SDDM、テーマ、パッケージ、サービス、メンテナンスをひとつにまとめています。"
+
+#. id 9bff4a85
+#: index.html
+msgid "A GTK4 tool for Arch-based systems, by Erik Dubois."
+msgstr "Erik Dubois による、Arch ベースのシステム向けの GTK4 ツールです。"
+
+#. id b7c3ca0e
+#: index.html
+msgid "Copied!"
+msgstr "コピーしました！"
+
+#. id 0a4470d6
+#: index.html
+msgid "Skip to content"
+msgstr "コンテンツへスキップ"
+
+#. id fde1411c
+#: index.html
+msgid "ArchLinux Tweak Tool home"
+msgstr "ArchLinux Tweak Tool ホーム"
+
+#. id 3796b6e6
+#: index.html
+msgid "ArchLinux Tweak Tool"
+msgstr "ArchLinux Tweak Tool"
+
+#. id a9a96ec0
+#: index.html
+msgid "Primary"
+msgstr "メイン"
+
+#. id fc338f87
+#: index.html
+msgid "Features"
+msgstr "機能"
+
+#. id fd6c3ebf
+#: index.html
+msgid "Install"
+msgstr "インストール"
+
+#. id 9c30a348
+#: index.html
+msgid "Gallery"
+msgstr "ギャラリー"
+
+#. id d91ebf58
+#: index.html
+msgid "Watch"
+msgstr "視聴する"
+
+#. id f32d5a3b
+#: index.html
+msgid "Support"
+msgstr "支援"
+
+#. id 08e8d270
+#: index.html
+msgid "Support Erik Dubois"
+msgstr "Erik Dubois を支援する"
+
+#. id f22fdf3f
+#: index.html
+msgid "Sponsor on GitHub"
+msgstr "GitHubでスポンサーになる"
+
+#. id eeb0398b
+#: index.html
+msgid "Support on Ko-fi"
+msgstr "Ko-fiで支援する"
+
+#. id fd0b743b
+#: index.html
+msgid "Sponsor"
+msgstr "スポンサーになる"
+
+#. id 564bb00f
+#: index.html
+msgid "Join on Patreon"
+msgstr "Patreonで参加"
+
+#. id 24e27f13
+#: index.html
+msgid "Donate with PayPal"
+msgstr "PayPal で寄付する"
+
+#. id 67fef93d
+#: index.html
+msgid "Patreon"
+msgstr "Patreon"
+
+#. id 559ef554
+#: index.html
+msgid "PayPal"
+msgstr "PayPal"
+
+#. id a797e309
+#: index.html
+msgid "Theme"
+msgstr "テーマ"
+
+#. id 7304d292
+#: index.html
+msgid "Page theme"
+msgstr "ページテーマ"
+
+#. id d10c4096
+#: index.html
+msgid "Nordic"
+msgstr "Nordic"
+
+#. id 26d7b218
+#: index.html
+msgid "Slate"
+msgstr "Slate"
+
+#. id 60975637
+#: index.html
+msgid "Carbon"
+msgstr "Carbon"
+
+#. id 20632bc3
+#: index.html
+msgid "Ember"
+msgstr "Ember"
+
+#. id 32bb0b3e
+#: index.html
+msgid "Sepia (light)"
+msgstr "Sepia（ライト）"
+
+#. id c9455d38
+#: index.html
+msgid "Paper (light)"
+msgstr "Paper（ライト）"
+
+#. id 8ba7c3fb
+#: index.html
+msgid "Accent colour"
+msgstr "アクセントカラー"
+
+#. id b3d97fd6
+#: index.html
+msgid "Sky"
+msgstr "スカイブルー"
+
+#. id 0717c0b8
+#: index.html
+msgid "Sky accent"
+msgstr "スカイブルー"
+
+#. id c57604db
+#: index.html
+msgid "Gold"
+msgstr "ゴールド"
+
+#. id 7b8e578e
+#: index.html
+msgid "Gold accent"
+msgstr "ゴールド"
+
+#. id da32ecab
+#: index.html
+msgid "Emerald"
+msgstr "エメラルドグリーン"
+
+#. id adcbb5d6
+#: index.html
+msgid "Emerald accent"
+msgstr "エメラルドグリーン"
+
+#. id ddcd2f2e
+#: index.html
+msgid "Violet"
+msgstr "バイオレット"
+
+#. id 54a17bde
+#: index.html
+msgid "Violet accent"
+msgstr "バイオレット"
+
+#. id 51ad0eae
+#: index.html
+msgid "Rose"
+msgstr "ローズ"
+
+#. id 98ca471d
+#: index.html
+msgid "Rose accent"
+msgstr "ローズ"
+
+#. id 662f267f
+#: index.html
+msgid ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 pages &middot; Arch-based "
+"systems"
+msgstr ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 ページ &middot; Arch ベースの"
+"システム"
+
+#. id 8362c13e
+#: index.html
+msgid ""
+"Tweak your Arch system<br /><span class=\"accent\">without the terminal</"
+"span>"
+msgstr ""
+"ターミナルなしで<br /><span class=\"accent\">Arch システムを調整</span>"
+
+#. id 5ff01c17
+#: index.html
+msgid ""
+"You know what you want your system to do &mdash; a different kernel, a nicer "
+"login screen, a theme that matches, services cleaned up. ATT puts all of it "
+"behind one window, and it tells you exactly what it is about to do before it "
+"does it. Nothing hidden, nothing magic, and the commands stay yours to learn."
+msgstr ""
+"システムにさせたいことは決まっていますよね。別のカーネル、見栄えのよいログイ"
+"ン画面、統一感のあるテーマ、整理されたサービス。ATT はそのすべてをひとつの"
+"ウィンドウにまとめ、実行する前に何をするのかを正確にお伝えします。隠しごとも"
+"魔法もなく、コマンドはあなたが学べるように手元に残ります。"
+
+#. id b7029c5a
+#: index.html
+msgid "Install ATT"
+msgstr "ATT をインストール"
+
+#. id c60f2f81
+#: index.html
+msgid "Source on GitHub"
+msgstr "GitHub でソースを見る"
+
+#. id 32be03cf
+#: index.html
+msgid ""
+"Free and open &middot; installs from <code class=\"chip\">nemesis_repo</"
+"code> &middot; works on Arch and Arch-based systems"
+msgstr ""
+"無料でオープン &middot; <code class=\"chip\">nemesis_repo</code> からインス"
+"トール &middot; Arch および Arch ベースのシステムで動作"
+
+#. id 016d87ba
+#: index.html
+msgid "Why ATT"
+msgstr "ATT が選ばれる理由"
+
+#. id 7e535def
+#: index.html
+msgid "Never a black box"
+msgstr "ブラックボックスにはしません"
+
+#. id 0f52b25c
+#: index.html
+msgid ""
+"The most frustrating thing about a system tool is not knowing what it did to "
+"your machine. ATT is built the other way round &mdash; every action explains "
+"itself, and the console output is there for you to read, learn from, and run "
+"yourself next time."
+msgstr ""
+"システムツールで何より困るのは、マシンに何をされたのか分からないことです。"
+"ATT はその逆で、すべての操作が自らを説明し、コンソールの出力は読んで学び、次"
+"回は自分で実行できるように表示されます。"
+
+#. id 74f39697
+#: index.html
+msgid "Before"
+msgstr "実行前"
+
+#. id 1f1a6200
+#: index.html
+msgid ""
+"You see what an action will change &mdash; a confirmation dialog or a plain "
+"label &mdash; before anything is touched."
+msgstr ""
+"何かに手を加える前に、その操作で何が変わるのかを、確認ダイアログや分かりやす"
+"いラベルで確認できます。"
+
+#. id b47565e2
+#: index.html
+msgid "During"
+msgstr "実行中"
+
+#. id 105e3577
+#: index.html
+msgid ""
+"You watch it happen: progress, the current step, and live console output "
+"while it runs."
+msgstr ""
+"進行状況、現在のステップ、リアルタイムのコンソール出力と、実行の様子をその場"
+"で見られます。"
+
+#. id 79ba5e1b
+#: index.html
+msgid "After"
+msgstr "実行後"
+
+#. id 17546d3f
+#: index.html
+msgid ""
+"You get a summary of what actually changed &mdash; files written, packages "
+"installed, services touched."
+msgstr ""
+"実際に何が変わったのか、書き込まれたファイル、インストールされたパッケージ、"
+"操作されたサービスの概要が表示されます。"
+
+#. id 51deeac9
+#: index.html
+msgid "pages of settings"
+msgstr "設定ページ"
+
+#. id fc9a772c
+#: index.html
+msgid "command to install"
+msgstr "インストールコマンド"
+
+#. id 9aa97bbb
+#: index.html
+msgid "native, Python 3"
+msgstr "ネイティブ、Python 3"
+
+#. id 75f52718
+#: index.html
+msgid "Free"
+msgstr "無料"
+
+#. id 3337b259
+#: index.html
+msgid "and open source"
+msgstr "でオープンソース"
+
+#. id 810b980c
+#: index.html
+msgid "Everything in one window"
+msgstr "すべてをひとつのウィンドウで"
+
+#. id 935dddb0
+#: index.html
+msgid ""
+"Thirty-one pages in the sidebar, each one a job you would otherwise do by "
+"hand across half a dozen config files. Here is what you get."
+msgstr ""
+"サイドバーには 31 ページ。それぞれが、本来なら複数の設定ファイルを手作業で編"
+"集して行う作業です。ここでは、できることをご紹介します。"
+
+#. id 3352fd2f
+#: index.html
+msgid "Desktops and window managers"
+msgstr "デスクトップとウィンドウマネージャー"
+
+#. id f5895c60
+#: index.html
+msgid ""
+"Install and switch desktop environments &mdash; KDE, GNOME, Xfce, Hyprland, "
+"dwm and more &mdash; on both X11 and Wayland sessions."
+msgstr ""
+"KDE、GNOME、Xfce、Hyprland、dwm などのデスクトップ環境を、X11 と Wayland の両"
+"方のセッションでインストール・切り替えできます。"
+
+#. id 532c67fe
+#: index.html
+msgid "Desktop"
+msgstr "デスクトップ"
+
+#. id 2f5a8e73
+#: index.html
+msgid "Desktop - Wayland"
+msgstr "デスクトップ - Wayland"
+
+#. id 4a435af6
+#: index.html
+msgid "Kernels and initramfs"
+msgstr "カーネルと initramfs"
+
+#. id dd55a487
+#: index.html
+msgid ""
+"Add or remove kernels in one click. Works with mkinitcpio and dracut, and "
+"updates your GRUB entries for you."
+msgstr ""
+"ワンクリックでカーネルを追加・削除できます。mkinitcpio と dracut に対応し、"
+"GRUB のエントリも自動で更新します。"
+
+#. id d5617d27
+#: index.html
+msgid "Kernels"
+msgstr "カーネル"
+
+#. id 6f8072ca
+#: index.html
+msgid "Boot splash"
+msgstr "ブートスプラッシュ"
+
+#. id 31031931
+#: index.html
+msgid ""
+"Install and switch Plymouth themes, with bootloader wiring for systemd-boot, "
+"GRUB, limine and rEFInd &mdash; and a fix for broken initramfs hooks."
+msgstr ""
+"Plymouth テーマのインストールと切り替えに対応し、systemd-boot、GRUB、limine、"
+"rEFInd のブートローダー連携や、壊れた initramfs フックの修復も行えます。"
+
+#. id 679fe35a
+#: index.html
+msgid "Plymouth"
+msgstr "Plymouth"
+
+#. id c8e5ffe6
+#: index.html
+msgid "Login manager"
+msgstr "ログインマネージャー"
+
+#. id c12ca421
+#: index.html
+msgid ""
+"Preview and install SDDM themes; set cursor, wallpaper, session and display "
+"options, then apply or repair the configuration."
+msgstr ""
+"SDDM テーマのプレビューとインストール、カーソル・壁紙・セッション・ディスプレ"
+"イの設定を行い、設定の適用や修復もできます。"
+
+#. id 71bb1e47
+#: index.html
+msgid "Sddm"
+msgstr "SDDM"
+
+#. id 67a7de83
+#: index.html
+msgid "Themes and icons"
+msgstr "テーマとアイコン"
+
+#. id bf6f8fc9
+#: index.html
+msgid ""
+"GTK and Plasma themes, the full Arc family, and the Neo Candy, Surfn and "
+"Horst icon sets &mdash; or apply a coordinated set in one go with the Themer."
+msgstr ""
+"GTK と Plasma のテーマ、Arc ファミリー全体、Neo Candy・Surfn・Horst のアイコ"
+"ンセットに対応。Themer を使えば、統一されたセットを一度に適用することもできま"
+"す。"
+
+#. id 3170c313
+#: index.html
+msgid "Themer"
+msgstr "Themer"
+
+#. id 7a26e54a
+#: index.html
+msgid "Arc themes"
+msgstr "Arc テーマ"
+
+#. id edb8f6c1
+#: index.html
+msgid "Icons"
+msgstr "アイコン"
+
+#. id 65826c69
+#: index.html
+msgid "Celestial themes"
+msgstr "Celestial テーマ"
+
+#. id 8477952c
+#: index.html
+msgid "Wallpapers"
+msgstr "壁紙"
+
+#. id 8c45effc
+#: index.html
+msgid ""
+"Browse any folder and set your wallpaper across every supported desktop and "
+"window manager."
+msgstr ""
+"任意のフォルダーを参照して、対応するすべてのデスクトップとウィンドウマネー"
+"ジャーで壁紙を設定できます。"
+
+#. id 466891e2
+#: index.html
+msgid "Wallpaper"
+msgstr "壁紙"
+
+#. id afd92ae8
+#: index.html
+msgid "Packages and pacman"
+msgstr "パッケージと pacman"
+
+#. id 5029c622
+#: index.html
+msgid ""
+"Export your installed packages, import them on a fresh machine, and tune "
+"pacman itself &mdash; repositories, parallel downloads, and the rest of "
+"<code class=\"chip\">pacman.conf</code>."
+msgstr ""
+"インストール済みパッケージをエクスポートして新しいマシンにインポートし、"
+"pacman 自体も調整できます。リポジトリ、並列ダウンロード、そして <code "
+"class=\"chip\">pacman.conf</code> のその他の設定です。"
+
+#. id 0a999012
+#: index.html
+msgid "Packages"
+msgstr "パッケージ"
+
+#. id 4b529bbc
+#: index.html
+msgid "Pacman"
+msgstr "Pacman"
+
+#. id 9ad05227
+#: index.html
+msgid "Software"
+msgstr "ソフトウェア"
+
+#. id 7ab4a69a
+#: index.html
+msgid "Services and autostart"
+msgstr "サービスと自動起動"
+
+#. id 5d2c4326
+#: index.html
+msgid ""
+"Enable or disable systemd services, and decide what actually launches when "
+"you log in."
+msgstr ""
+"systemd サービスの有効化・無効化と、ログイン時に実際に何を起動するかを設定で"
+"きます。"
+
+#. id 5cbd5840
+#: index.html
+msgid "Services"
+msgstr "サービス"
+
+#. id 516dfe15
+#: index.html
+msgid "Autostart"
+msgstr "自動起動"
+
+#. id 63c90455
+#: index.html
+msgid "Performance"
+msgstr "パフォーマンス"
+
+#. id 9cd0b101
+#: index.html
+msgid ""
+"CPU governor, I/O scheduler and the tuning knobs that decide whether your "
+"machine feels quick or sluggish."
+msgstr ""
+"CPU ガバナー、I/O スケジューラー、そしてマシンの快適さを左右するチューニング"
+"項目です。"
+
+#. id 94de303b
+#: index.html
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+#. id ef55513c
+#: index.html
+msgid ""
+"Rank the fastest mirrors, clear orphaned packages, empty the pacman cache "
+"and remove a stale lock file &mdash; the housekeeping, without the man pages."
+msgstr ""
+"最速のミラーの選択、孤立したパッケージの削除、pacman キャッシュの消去、古い"
+"ロックファイルの削除など、man ページを読まずに済む後片付けができます。"
+
+#. id dd96994d
+#: index.html
+msgid "Backup"
+msgstr "バックアップ"
+
+#. id 77195972
+#: index.html
+msgid "Btrfs"
+msgstr "Btrfs"
+
+#. id e1ea8c9f
+#: index.html
+msgid "Shells and terminal"
+msgstr "シェルとターミナル"
+
+#. id f43ec14b
+#: index.html
+msgid ""
+"Switch your default shell between bash, zsh and fish, and configure the "
+"environment, themes and zsh plugins that come with it."
+msgstr ""
+"デフォルトのシェルを bash、zsh、fish の間で切り替え、それに付随する環境、テー"
+"マ、zsh プラグインを設定できます。"
+
+#. id df65df83
+#: index.html
+msgid "Shells"
+msgstr "シェル"
+
+#. id 19d605c8
+#: index.html
+msgid "Fastfetch"
+msgstr "Fastfetch"
+
+#. id 3f00c1e3
+#: index.html
+msgid "System and network"
+msgstr "システムとネットワーク"
+
+#. id ad535078
+#: index.html
+msgid ""
+"Hardware overview, running services and journal at a glance, plus network "
+"tools and Samba shares."
+msgstr ""
+"ハードウェアの概要、稼働中のサービスとジャーナルをひと目で確認でき、ネット"
+"ワークツールや Samba 共有も利用できます。"
+
+#. id bc0792d8
+#: index.html
+msgid "System"
+msgstr "システム"
+
+#. id 53ebc572
+#: index.html
+msgid "Network"
+msgstr "ネットワーク"
+
+#. id 57003616
+#: index.html
+msgid "Logging"
+msgstr "ログ記録"
+
+#. id 391f30ce
+#: index.html
+msgid "Users, locale and access"
+msgstr "ユーザー、ロケール、アクセス"
+
+#. id 55f7d50e
+#: index.html
+msgid ""
+"Create and configure user accounts, set locale, keyboard layout and "
+"timezone, and turn on accessibility options."
+msgstr ""
+"ユーザーアカウントの作成と設定、ロケール、キーボードレイアウト、タイムゾーン"
+"の設定、アクセシビリティオプションの有効化ができます。"
+
+#. id 9f8a2389
+#: index.html
+msgid "User"
+msgstr "ユーザー"
+
+#. id 8970f0e6
+#: index.html
+msgid "Locale"
+msgstr "ロケール"
+
+#. id d660049b
+#: index.html
+msgid "Accessibility"
+msgstr "アクセシビリティ"
+
+#. id cf01481f
+#: index.html
+msgid "Privacy"
+msgstr "プライバシー"
+
+#. id 54796043
+#: index.html
+msgid ""
+"hBlock DNS-level ad blocking and a handful of settings that keep your system "
+"to yourself."
+msgstr ""
+"hBlock による DNS レベルの広告ブロックと、システムの情報を外に出さないための"
+"いくつかの設定です。"
+
+#. id 1d2042b6
+#: index.html
+msgid "AI tools and extras"
+msgstr "AI ツールとその他"
+
+#. id 8a7ad178
+#: index.html
+msgid ""
+"Claude AI integration for help with your own system, office software "
+"installers, and the ISO tooling if you build your own."
+msgstr ""
+"自分のシステムについて助けてくれる Claude AI との連携、オフィスソフトのインス"
+"トーラー、そして自分で ISO を作る場合のための ISO ツールです。"
+
+#. id 58d44d0c
+#: index.html
+msgid "AI Tools"
+msgstr "AI ツール"
+
+#. id 6c3a72ea
+#: index.html
+msgid "Office"
+msgstr "オフィス"
+
+#. id 4f325d99
+#: index.html
+msgid "ISO"
+msgstr "ISO"
+
+#. id 32cf39eb
+#: index.html
+msgid "Two steps and you are running"
+msgstr "2 ステップで準備完了"
+
+#. id 6264a9e9
+#: index.html
+msgid ""
+"ATT ships from <code class=\"chip\">nemesis_repo</code>, a signed pacman "
+"repository. Add the repo once, then install ATT like any other package. "
+"Everything below is a normal command you can read before you run it."
+msgstr ""
+"ATT は、署名付きの pacman リポジトリ <code class=\"chip\">nemesis_repo</"
+"code> から配布されています。リポジトリを一度追加すれば、あとは他のパッケージ"
+"と同じようにインストールできます。以下はすべて通常のコマンドで、実行前に内容"
+"を確認できます。"
+
+#. id 903e89f7
+#: index.html
+msgid "Step 1 &mdash; add the repo to <code>/etc/pacman.conf</code>"
+msgstr "ステップ 1：<code>/etc/pacman.conf</code> にリポジトリを追加"
+
+#. id af74f7c5
+#: index.html
+msgid "Copy"
+msgstr "コピー"
+
+#. id bce18d41
+#: index.html
+msgid "Prefer a script? This does the same thing"
+msgstr "スクリプトの方がよいですか？ 同じことを行います"
+
+#. id 1d28ba54
+#: index.html
+msgid ""
+"<b>About the signature.</b> <code>nemesis_repo</code> is PGP-signed by the "
+"Kiro key, trusted through <code>kiro-keyring</code>, and it inherits your "
+"global <code>SigLevel</code>. If you are adding the repo by hand before that "
+"keyring is installed, set <code>SigLevel = Optional</code> for this repo "
+"until it is in place."
+msgstr ""
+"<b>署名について。</b> <code>nemesis_repo</code> は Kiro の鍵で PGP 署名されて"
+"おり、<code>kiro-keyring</code> を通じて信頼され、グローバルな "
+"<code>SigLevel</code> を継承します。キーリングをインストールする前にリポジト"
+"リを手動で追加する場合は、キーリングが入るまでの間、このリポジトリに "
+"<code>SigLevel = Optional</code> を設定してください。"
+
+#. id 0f795ccf
+#: index.html
+msgid "Step 2 &mdash; update and install"
+msgstr "ステップ 2：更新してインストール"
+
+#. id bf20bc7a
+#: index.html
+msgid ""
+"Then launch <b>ArchLinux Tweak Tool</b> from your application menu. It asks "
+"for administrative rights only when an action genuinely needs them."
+msgstr ""
+"あとはアプリケーションメニューから <b>ArchLinux Tweak Tool</b> を起動するだけ"
+"です。管理者権限を求めるのは、操作が本当に必要とするときだけです。"
+
+#. id 5d60c7dd
+#: index.html
+msgid "Compatibility"
+msgstr "互換性"
+
+#. id 09edb1e9
+#: index.html
+msgid "Built for Arch, at home on Arch-based systems"
+msgstr "Arch のために作られ、Arch ベースのシステムにもなじみます"
+
+#. id bf51db4f
+#: index.html
+msgid ""
+"ATT started life on ArcoLinux and now runs on plain Arch and on the Arch-"
+"based systems people actually use &mdash; Artix, Manjaro, CachyOS, Kiro and "
+"many more. Where a distribution does things its own way, ATT detects it and "
+"adapts the interface instead of fighting it."
+msgstr ""
+"ATT は ArcoLinux で生まれ、現在は素の Arch と、Artix、Manjaro、CachyOS、Kiro "
+"など、人々が実際に使っている Arch ベースのシステムで動作します。ディストリ"
+"ビューションが独自のやり方をしている場合でも、ATT はそれを検出してインター"
+"フェースを合わせます。"
+
+#. id 4a3014d2
+#: index.html
+msgid ""
+"<b>You need:</b> an Arch or Arch-based system, Python 3.8 or later, GTK 4.6 "
+"or later, and pacman."
+msgstr ""
+"<b>必要なもの：</b> Arch または Arch ベースのシステム、Python 3.8 以降、GTK "
+"4.6 以降、そして pacman。"
+
+#. id a9a631e7
+#: index.html
+msgid ""
+"<b>Optional, for some pages:</b> alacritty for package operations, "
+"fastfetch, and your shell of choice."
+msgstr ""
+"<b>一部のページでは任意：</b> パッケージ操作用の alacritty、fastfetch、そして"
+"お好みのシェル。"
+
+#. id f5fb13b9
+#: index.html
+msgid ""
+"The authoritative, always-current list of supported distributions lives in "
+"the source &mdash; see the <a href=\"https://github.com/kirodubes/archlinux-"
+"tweak-tool\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub "
+"repository</a>."
+msgstr ""
+"対応ディストリビューションの正式で常に最新の一覧はソースコードにあります。<a "
+"href=\"https://github.com/kirodubes/archlinux-tweak-tool\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">GitHub リポジトリ</a>をご覧ください。"
+
+#. id d615ebe8
+#: index.html
+msgid "See it before you install it"
+msgstr "インストール前に見てみましょう"
+
+#. id 8c8b5046
+#: index.html
+msgid ""
+"All twenty-four of these are real pages in the running application. Select "
+"any screenshot to open it full size, then use the arrow keys to browse."
+msgstr ""
+"この 24 枚はすべて、実際に動作しているアプリケーションのページです。スクリー"
+"ンショットを選ぶと原寸で開き、矢印キーで次々に見られます。"
+
+#. id e494be98
+#: index.html
+msgid "Open the AI Tools screenshot full size"
+msgstr "「AI ツール」のスクリーンショットを原寸で開く"
+
+#. id b45d17af
+#: index.html
+msgid "ATT AI Tools page"
+msgstr "ATT の「AI ツール」ページ"
+
+#. id d8fa07ab
+#: index.html
+msgid "Open the Autostart screenshot full size"
+msgstr "「自動起動」のスクリーンショットを原寸で開く"
+
+#. id 067cea2f
+#: index.html
+msgid "ATT Autostart page"
+msgstr "ATT の「自動起動」ページ"
+
+#. id 474c973a
+#: index.html
+msgid "Open the Desktop screenshot full size"
+msgstr "「デスクトップ」のスクリーンショットを原寸で開く"
+
+#. id b3a18264
+#: index.html
+msgid "ATT Desktop page"
+msgstr "ATT の「デスクトップ」ページ"
+
+#. id 332ecbd3
+#: index.html
+msgid "Open the Fastfetch screenshot full size"
+msgstr "「Fastfetch」のスクリーンショットを原寸で開く"
+
+#. id 717338ec
+#: index.html
+msgid "ATT Fastfetch page"
+msgstr "ATT の「Fastfetch」ページ"
+
+#. id 791d8966
+#: index.html
+msgid "Open the Icons screenshot full size"
+msgstr "「アイコン」のスクリーンショットを原寸で開く"
+
+#. id 149960d9
+#: index.html
+msgid "ATT Icons page"
+msgstr "ATT の「アイコン」ページ"
+
+#. id 4543b5b5
+#: index.html
+msgid "Open the Kernels screenshot full size"
+msgstr "「カーネル」のスクリーンショットを原寸で開く"
+
+#. id 1de46bb9
+#: index.html
+msgid "ATT Kernels page"
+msgstr "ATT の「カーネル」ページ"
+
+#. id 7e80befc
+#: index.html
+msgid "Open the Locale screenshot full size"
+msgstr "「ロケール」のスクリーンショットを原寸で開く"
+
+#. id d10dfd61
+#: index.html
+msgid "ATT Locale page"
+msgstr "ATT の「ロケール」ページ"
+
+#. id db008684
+#: index.html
+msgid "Open the Logging screenshot full size"
+msgstr "「ログ記録」のスクリーンショットを原寸で開く"
+
+#. id aabcebb9
+#: index.html
+msgid "ATT Logging page"
+msgstr "ATT の「ログ記録」ページ"
+
+#. id 7c20b689
+#: index.html
+msgid "Open the Maintenance screenshot full size"
+msgstr "「メンテナンス」のスクリーンショットを原寸で開く"
+
+#. id 6624d6df
+#: index.html
+msgid "ATT Maintenance page"
+msgstr "ATT の「メンテナンス」ページ"
+
+#. id 56aeac42
+#: index.html
+msgid "Open the Network screenshot full size"
+msgstr "「ネットワーク」のスクリーンショットを原寸で開く"
+
+#. id 1d846a5b
+#: index.html
+msgid "ATT Network page"
+msgstr "ATT の「ネットワーク」ページ"
+
+#. id 8d616249
+#: index.html
+msgid "Open the Packages screenshot full size"
+msgstr "「パッケージ」のスクリーンショットを原寸で開く"
+
+#. id 68718269
+#: index.html
+msgid "ATT Packages page"
+msgstr "ATT の「パッケージ」ページ"
+
+#. id 74d3e160
+#: index.html
+msgid "Open the Pacman screenshot full size"
+msgstr "「Pacman」のスクリーンショットを原寸で開く"
+
+#. id 5f177ce7
+#: index.html
+msgid "ATT Pacman page"
+msgstr "ATT の「Pacman」ページ"
+
+#. id c978bada
+#: index.html
+msgid "Open the Plymouth screenshot full size"
+msgstr "「Plymouth」のスクリーンショットを原寸で開く"
+
+#. id d9c0b11a
+#: index.html
+msgid "ATT Plymouth page"
+msgstr "ATT の「Plymouth」ページ"
+
+#. id 09778c16
+#: index.html
+msgid "Open the Privacy screenshot full size"
+msgstr "「プライバシー」のスクリーンショットを原寸で開く"
+
+#. id 9344c32f
+#: index.html
+msgid "ATT Privacy page"
+msgstr "ATT の「プライバシー」ページ"
+
+#. id 228f9d49
+#: index.html
+msgid "Open the Performance screenshot full size"
+msgstr "「パフォーマンス」のスクリーンショットを原寸で開く"
+
+#. id 9d906571
+#: index.html
+msgid "ATT Performance page"
+msgstr "ATT の「パフォーマンス」ページ"
+
+#. id fd76fa25
+#: index.html
+msgid "Open the Sddm screenshot full size"
+msgstr "「SDDM」のスクリーンショットを原寸で開く"
+
+#. id c73833c7
+#: index.html
+msgid "ATT Sddm page"
+msgstr "ATT の「SDDM」ページ"
+
+#. id 5ab88a8f
+#: index.html
+msgid "Open the Services screenshot full size"
+msgstr "「サービス」のスクリーンショットを原寸で開く"
+
+#. id a0577e51
+#: index.html
+msgid "ATT Services page"
+msgstr "ATT の「サービス」ページ"
+
+#. id 531f3a9e
+#: index.html
+msgid "Open the Shells screenshot full size"
+msgstr "「シェル」のスクリーンショットを原寸で開く"
+
+#. id 1a74e7a8
+#: index.html
+msgid "ATT Shells page"
+msgstr "ATT の「シェル」ページ"
+
+#. id e37ca86f
+#: index.html
+msgid "Open the Software screenshot full size"
+msgstr "「ソフトウェア」のスクリーンショットを原寸で開く"
+
+#. id 04bff430
+#: index.html
+msgid "ATT Software page"
+msgstr "ATT の「ソフトウェア」ページ"
+
+#. id 2b1b081f
+#: index.html
+msgid "Open the System screenshot full size"
+msgstr "「システム」のスクリーンショットを原寸で開く"
+
+#. id 5985d010
+#: index.html
+msgid "ATT System page"
+msgstr "ATT の「システム」ページ"
+
+#. id 2b3819fa
+#: index.html
+msgid "Open the Themer screenshot full size"
+msgstr "「Themer」のスクリーンショットを原寸で開く"
+
+#. id dee76db2
+#: index.html
+msgid "ATT Themer page"
+msgstr "ATT の「Themer」ページ"
+
+#. id 129f8ff4
+#: index.html
+msgid "Open the Arc themes screenshot full size"
+msgstr "「Arc テーマ」のスクリーンショットを原寸で開く"
+
+#. id fa1add35
+#: index.html
+msgid "ATT Arc themes page"
+msgstr "ATT の「Arc テーマ」ページ"
+
+#. id 4c22862c
+#: index.html
+msgid "Open the User screenshot full size"
+msgstr "「ユーザー」のスクリーンショットを原寸で開く"
+
+#. id a14f824e
+#: index.html
+msgid "ATT User page"
+msgstr "ATT の「ユーザー」ページ"
+
+#. id 07ec4dc4
+#: index.html
+msgid "Open the Wallpaper screenshot full size"
+msgstr "「壁紙」のスクリーンショットを原寸で開く"
+
+#. id 76693871
+#: index.html
+msgid "ATT Wallpaper page"
+msgstr "ATT の「壁紙」ページ"
+
+#. id 059268fb
+#: index.html
+msgid "Prefer to see someone use it?"
+msgstr "使っているところを見てみたいですか？"
+
+#. id 2f6e4bdb
+#: index.html
+msgid ""
+"There is a full playlist walking through ATT page by page &mdash; what each "
+"one does, why it does it that way, and the commands underneath. If you learn "
+"better by watching, start there."
+msgstr ""
+"ATT をページごとに順を追って解説するプレイリストがあります。各ページが何をす"
+"るのか、なぜそうなっているのか、その裏にあるコマンドは何か。見て学ぶ方が得意"
+"なら、ここから始めてください。"
+
+#. id 9a15f113
+#: index.html
+msgid ""
+"<b>ArchLinux Tweak Tool playlist</b> &mdash; tutorials on the Erik Dubois "
+"YouTube channel, free to watch, no account needed."
+msgstr ""
+"<b>ArchLinux Tweak Tool プレイリスト</b>：Erik Dubois の YouTube チャンネルの"
+"チュートリアルです。無料で、アカウントも不要です。"
+
+#. id 04ff8f78
+#: index.html
+msgid "Open the playlist"
+msgstr "プレイリストを開く"
+
+#. id 674b63de
+#: index.html
+msgid "Thank you for using ATT"
+msgstr "ATT をご利用いただきありがとうございます"
+
+#. id 47dd7fae
+#: index.html
+msgid ""
+"ATT is free and stays free &mdash; that is not going to change. If it has "
+"saved you time or taught you something and you would like to chip in, here "
+"is where. No pressure either way: the free part is yours to keep, and you "
+"are just as welcome without it."
+msgstr ""
+"ATT は無料で、これからも無料です。それは変わりません。時間の節約になった、何"
+"かを学べたと感じて、少し応援してもよいと思われたら、こちらからどうぞ。どちら"
+"でも構いません。無料の部分はずっとあなたのものですし、支援がなくても同じよう"
+"に歓迎します。"
+
+#. id 2bdab7e5
+#: index.html
+msgid "GitHub Sponsors"
+msgstr "GitHub Sponsors"
+
+#. id e12df3b0
+#: index.html
+msgid "Processing is covered, so close to all of it reaches development."
+msgstr "決済手数料はカバーされるため、ほぼ全額が開発に使われます。"
+
+#. id 2edf198b
+#: index.html
+msgid ""
+"No platform cut on tips &mdash; a one-off coffee, whenever you feel like it."
+msgstr ""
+"チップにはプラットフォーム手数料がかかりません。気が向いたときに、一杯のコー"
+"ヒーを一度だけ。"
+
+#. id f9002832
+#: index.html
+msgid "A direct one-off donation, payment processing only."
+msgstr "一回限りの直接寄付です。かかるのは決済手数料のみです。"
+
+#. id fe02d5ce
+#: index.html
+msgid ""
+"Monthly membership: the full course series, a vote on what gets covered "
+"next, and the members community."
+msgstr ""
+"月額メンバーシップ：コースシリーズ全編、次に取り上げる内容への投票、そしてメ"
+"ンバーコミュニティが含まれます。"
+
+#. id 6ff7d720
+#: index.html
+msgid "YouTube membership"
+msgstr "YouTube メンバーシップ"
+
+#. id 02cb5f39
+#: index.html
+msgid ""
+"The identical membership, if YouTube is where you already are. Same tiers, "
+"same perks."
+msgstr ""
+"普段から YouTube を使っているなら、同じメンバーシップをこちらでも。ティアも特"
+"典も同じです。"
+
+#. id bfa39502
+#: index.html
+msgid "Or contribute instead"
+msgstr "ほかの形で貢献する"
+
+#. id 1510cf1c
+#: index.html
+msgid ""
+"Bug reports, a distribution we should support, a pull request &mdash; all "
+"just as valuable."
+msgstr ""
+"バグ報告、対応してほしいディストリビューション、プルリクエスト。どれも同じよ"
+"うに価値があります。"
+
+#. id 3d5f4fd4
+#: index.html
+msgid ""
+"Built by <b>Brad Heffernan</b>, <b>Erik Dubois</b> and <b>Cameron Percival</"
+"b>, with everyone who has ever filed a bug report."
+msgstr ""
+"<b>Brad Heffernan</b>、<b>Erik Dubois</b>、<b>Cameron Percival</b> が開発し、"
+"これまでにバグを報告してくださったすべての方々とともに作っています。"
+
+#. id f8178ce2
+#: index.html
+msgid "Screenshot viewer"
+msgstr "スクリーンショットビューアー"
+
+#. id 0cd6661b
+#: index.html
+msgid "Previous screenshot"
+msgstr "前のスクリーンショット"
+
+#. id ea23b3e8
+#: index.html
+msgid "Next screenshot"
+msgstr "次のスクリーンショット"
+
+#. id b9fbfc7e
+#: index.html
+msgid "Close viewer"
+msgstr "ビューアーを閉じる"
+
+#. id d9c883a9
+#: index.html
+msgid "Back to top"
+msgstr "ページの先頭へ"
+
+#. id cae0435c
+#: index.html
+msgid "Top"
+msgstr "トップへ"
+
+#. id 5210c901
+#: index.html
+msgid "&copy; 2026 ArchLinux Tweak Tool &middot; Built by Erik Dubois"
+msgstr "&copy; 2026 ArchLinux Tweak Tool &middot; 制作：Erik Dubois"
+
+#. id 558865a1
+#: index.html
+msgid "YouTube"
+msgstr "YouTube"
+
+#. id 0474a6c6
+#: index.html
+msgid "Discussions"
+msgstr "Discussions"

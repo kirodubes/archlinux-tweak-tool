@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | pas je Arch-systeem aan zonder de terminal</title>
+    <meta name="description" content="ArchLinux Tweak Tool (ATT) is een GTK4-toepassing voor systemen op basis van Arch: 31 pagina's over desktops, kernels, Plymouth, SDDM, thema's, pakketten, diensten, prestaties en onderhoud. Gratis, open en nooit een black box." />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | pas je Arch-systeem aan zonder de terminal" />
+    <meta property="og:description" content="Een GTK4-tool voor systemen op basis van Arch: desktops, kernels, Plymouth, SDDM, thema's, pakketten, diensten en onderhoud op één plek." />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | pas je Arch-systeem aan zonder de terminal" />
+    <meta name="twitter:description" content="Een GTK4-tool voor systemen op basis van Arch, van Erik Dubois." />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'Gekopieerd!';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Naar de inhoud</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="Startpagina van ArchLinux Tweak Tool">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="Primair">
+            <a href="#features">Functies</a>
+            <a href="#install">Installeren</a>
+            <a href="#gallery">Galerij</a>
+            <a href="#watch">Bekijken</a>
+            <a href="#support">Steun</a>
+          </nav>
+
+          <div class="support" aria-label="Steun Erik Dubois">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="Sponsor op GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">Sponsor</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="Steun via Ko-fi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="Word lid op Patreon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="Doneer via PayPal">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>NL</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="index.html" lang="nl" hreflang="nl" aria-current="page">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="../ru/index.html" lang="ru" hreflang="ru">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="../hu/index.html" lang="hu" hreflang="hu">Magyar</a>
+              <a href="../tr/index.html" lang="tr" hreflang="tr">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="../ja/index.html" lang="ja" hreflang="ja">日本語</a>
+              <a href="../zh/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">Thema</span>
+            <select id="theme-select" class="theme-select" aria-label="Paginathema">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia (licht)</option>
+              <option value="paper">Paper (licht)</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="Accentkleur">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="Hemelsblauw" aria-label="Hemelsblauw accent" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="Goud" aria-label="Goud accent" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="Smaragd" aria-label="Smaragd accent" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="Violet" aria-label="Violet accent" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="Roze" aria-label="Roze accent" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 pagina's &middot; Systemen op basis van Arch
+          </a>
+          <h1>Pas je Arch-systeem aan<br /><span class="accent">zonder de terminal</span></h1>
+          <p class="lead">
+            Je weet wat je systeem moet doen: een andere kernel, een mooiere inlogpagina, een bijpassend thema, opgeruimde diensten. ATT zet dat allemaal in één venster en vertelt je precies wat het gaat doen voordat het dat doet. Niets verborgen, niets magisch, en de commando's blijven van jou om te leren.
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ATT installeren
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              Broncode op GitHub
+            </a>
+          </div>
+          <p class="hero-foot">Gratis en open &middot; installeert vanuit <code class="chip">nemesis_repo</code> &middot; werkt op Arch en systemen op basis van Arch</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Waarom ATT</p>
+          <h2>Nooit een black box</h2>
+          <p class="lead">
+            Het meest frustrerende aan een systeemtool is niet weten wat die met je machine heeft gedaan. ATT is omgekeerd opgebouwd: elke actie legt zichzelf uit, en de console-uitvoer staat er zodat je die kunt lezen, ervan kunt leren en de volgende keer zelf kunt uitvoeren.
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>Voor</b>
+              <span>Je ziet wat een actie gaat wijzigen, in een bevestigingsvenster of op een duidelijk label, voordat er iets wordt aangeraakt.</span>
+            </li>
+            <li>
+              <b>Tijdens</b>
+              <span>Je ziet het gebeuren: de voortgang, de huidige stap en live console-uitvoer terwijl het loopt.</span>
+            </li>
+            <li>
+              <b>Na</b>
+              <span>Je krijgt een samenvatting van wat er echt is gewijzigd: geschreven bestanden, geïnstalleerde pakketten, aangepaste diensten.</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">pagina's met instellingen</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">commando om te installeren</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">native, Python 3</span></div>
+            <div class="stat"><span class="value">Gratis</span><span class="label">en open source</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Functies</p>
+          <h2>Alles in één venster</h2>
+          <p class="lead">
+            Eenendertig pagina's in de zijbalk, elk een klus die je anders met de hand zou doen in een half dozijn configuratiebestanden. Dit krijg je.
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>Desktops en vensterbeheerders</h3>
+              <p>Installeer en wissel van desktopomgeving (KDE, GNOME, Xfce, Hyprland, dwm en meer), zowel in X11- als in Wayland-sessies.</p>
+              <div class="pages"><span>Desktop</span><span>Desktop - Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Kernels en initramfs</h3>
+              <p>Voeg kernels toe of verwijder ze met één klik. Werkt met mkinitcpio en dracut en past je GRUB-items voor je aan.</p>
+              <div class="pages"><span>Kernels</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Opstartscherm</h3>
+              <p>Installeer en wissel van Plymouth-thema's, met koppeling aan de bootloader voor systemd-boot, GRUB, limine en rEFInd, plus een oplossing voor kapotte initramfs-hooks.</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Inlogbeheer</h3>
+              <p>Bekijk een voorbeeld van SDDM-thema's en installeer ze; stel cursor, achtergrond, sessie en beeldscherminstellingen in en pas de configuratie dan toe of herstel ze.</p>
+              <div class="pages"><span>SDDM</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Thema's en pictogrammen</h3>
+              <p>GTK- en Plasma-thema's, de volledige Arc-familie en de pictogramsets Neo Candy, Surfn en Horst, of pas in één keer een afgestemde set toe met de Themer.</p>
+              <div class="pages"><span>Themer</span><span>Arc-thema's</span><span>Pictogrammen</span><span>Celestial-thema's</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Achtergronden</h3>
+              <p>Blader door een map en stel je achtergrond in voor elke ondersteunde desktop en vensterbeheerder.</p>
+              <div class="pages"><span>Achtergrond</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Pakketten en pacman</h3>
+              <p>Exporteer je geïnstalleerde pakketten, importeer ze op een nieuwe machine en stem pacman zelf af: repositories, parallelle downloads en de rest van <code class="chip">pacman.conf</code>.</p>
+              <div class="pages"><span>Pakketten</span><span>Pacman</span><span>Software</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Diensten en autostart</h3>
+              <p>Schakel systemd-diensten in of uit en bepaal wat er echt start als je inlogt.</p>
+              <div class="pages"><span>Diensten</span><span>Autostart</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Prestaties</h3>
+              <p>CPU-governor, I/O-scheduler en de instelknoppen die bepalen of je machine vlot of traag aanvoelt.</p>
+              <div class="pages"><span>Prestaties</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Onderhoud</h3>
+              <p>Rangschik de snelste mirrors, ruim verweesde pakketten op, maak de pacman-cache leeg en verwijder een verouderd lock-bestand: het onderhoudswerk, zonder de man-pagina's.</p>
+              <div class="pages"><span>Onderhoud</span><span>Back-up</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Shells en terminal</h3>
+              <p>Wissel je standaardshell tussen bash, zsh en fish en stel de omgeving, thema's en zsh-plugins in die erbij horen.</p>
+              <div class="pages"><span>Shells</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Systeem en netwerk</h3>
+              <p>Een hardware-overzicht, draaiende diensten en het journal in één blik, plus netwerktools en Samba-shares.</p>
+              <div class="pages"><span>Systeem</span><span>Netwerk</span><span>Logboek</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Gebruikers, taal en toegang</h3>
+              <p>Maak gebruikersaccounts aan en configureer ze, stel taal, toetsenbordindeling en tijdzone in en schakel toegankelijkheidsopties in.</p>
+              <div class="pages"><span>Gebruiker</span><span>Taal en regio</span><span>Toegankelijkheid</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Privacy</h3>
+              <p>hBlock voor advertentieblokkering op DNS-niveau en een handvol instellingen die je systeem voor jezelf houden.</p>
+              <div class="pages"><span>Privacy</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>AI-tools en extra's</h3>
+              <p>Claude AI-integratie voor hulp bij je eigen systeem, installers voor kantoorsoftware en de ISO-tools als je er zelf een bouwt.</p>
+              <div class="pages"><span>AI-tools</span><span>Kantoor</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Installeren</p>
+          <h2>Twee stappen en je bent klaar</h2>
+          <p class="lead">
+            ATT wordt geleverd via <code class="chip">nemesis_repo</code>, een ondertekende pacman-repository. Voeg de repo één keer toe en installeer ATT daarna zoals elk ander pakket. Alles hieronder is een gewoon commando dat je kunt lezen voordat je het uitvoert.
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Stap 1: voeg de repo toe aan <code>/etc/pacman.conf</code></h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">Kopiëren</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Liever een script? Dat doet hetzelfde</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">Kopiëren</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>Over de handtekening.</b> <code>nemesis_repo</code> is PGP-ondertekend met de Kiro-sleutel, vertrouwd via <code>kiro-keyring</code> en erft je globale <code>SigLevel</code>. Voeg je de repo met de hand toe voordat die keyring is geïnstalleerd, zet dan <code>SigLevel = Optional</code> voor deze repo tot het zover is.
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Stap 2: bijwerken en installeren</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">Kopiëren</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Start daarna <b>ArchLinux Tweak Tool</b> vanuit je toepassingsmenu. Het vraagt alleen om beheerdersrechten als een actie ze echt nodig heeft.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Compatibiliteit</p>
+          <h2>Gebouwd voor Arch, thuis op systemen op basis van Arch</h2>
+          <p class="lead">
+            ATT begon op ArcoLinux en draait nu op gewoon Arch en op de systemen op basis van Arch die mensen echt gebruiken: Artix, Manjaro, CachyOS, Kiro en vele andere. Waar een distributie dingen op haar eigen manier doet, herkent ATT dat en past het de interface aan in plaats van ertegen te vechten.
+          </p>
+          <ul class="prose-list">
+            <li><b>Je hebt nodig:</b> een Arch- of Arch-gebaseerd systeem, Python 3.8 of nieuwer, GTK 4.6 of nieuwer en pacman.</li>
+            <li><b>Optioneel, voor sommige pagina's:</b> alacritty voor pakketacties, fastfetch en de shell van je keuze.</li>
+            <li>De betrouwbare, altijd actuele lijst met ondersteunde distributies staat in de broncode: zie de <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">GitHub-repository</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Galerij</p>
+          <h2>Bekijk het voordat je het installeert</h2>
+          <p class="lead">
+            Alle vierentwintig zijn echte pagina's in de draaiende toepassing. Selecteer een schermafbeelding om die op volledige grootte te openen en blader dan met de pijltoetsen.
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="Open de schermafbeelding van AI-tools op volledige grootte"><img src="../assets/screenshots/att1.webp" alt="ATT-pagina AI-tools" width="1280" height="686" loading="lazy" /></button><figcaption>AI-tools</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="Open de schermafbeelding van Autostart op volledige grootte"><img src="../assets/screenshots/att2.webp" alt="ATT-pagina Autostart" width="1280" height="686" loading="lazy" /></button><figcaption>Autostart</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="Open de schermafbeelding van Desktop op volledige grootte"><img src="../assets/screenshots/att3.webp" alt="ATT-pagina Desktop" width="1280" height="686" loading="lazy" /></button><figcaption>Desktop</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="Open de schermafbeelding van Fastfetch op volledige grootte"><img src="../assets/screenshots/att4.webp" alt="ATT-pagina Fastfetch" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="Open de schermafbeelding van Pictogrammen op volledige grootte"><img src="../assets/screenshots/att5.webp" alt="ATT-pagina Pictogrammen" width="1280" height="686" loading="lazy" /></button><figcaption>Pictogrammen</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="Open de schermafbeelding van Kernels op volledige grootte"><img src="../assets/screenshots/att6.webp" alt="ATT-pagina Kernels" width="1280" height="686" loading="lazy" /></button><figcaption>Kernels</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="Open de schermafbeelding van Taal en regio op volledige grootte"><img src="../assets/screenshots/att7.webp" alt="ATT-pagina Taal en regio" width="1280" height="686" loading="lazy" /></button><figcaption>Taal en regio</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="Open de schermafbeelding van Logboek op volledige grootte"><img src="../assets/screenshots/att8.webp" alt="ATT-pagina Logboek" width="1280" height="686" loading="lazy" /></button><figcaption>Logboek</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="Open de schermafbeelding van Onderhoud op volledige grootte"><img src="../assets/screenshots/att9.webp" alt="ATT-pagina Onderhoud" width="1280" height="686" loading="lazy" /></button><figcaption>Onderhoud</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="Open de schermafbeelding van Netwerk op volledige grootte"><img src="../assets/screenshots/att10.webp" alt="ATT-pagina Netwerk" width="1280" height="686" loading="lazy" /></button><figcaption>Netwerk</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="Open de schermafbeelding van Pakketten op volledige grootte"><img src="../assets/screenshots/att11.webp" alt="ATT-pagina Pakketten" width="1280" height="686" loading="lazy" /></button><figcaption>Pakketten</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="Open de schermafbeelding van Pacman op volledige grootte"><img src="../assets/screenshots/att12.webp" alt="ATT-pagina Pacman" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="Open de schermafbeelding van Plymouth op volledige grootte"><img src="../assets/screenshots/att13.webp" alt="ATT-pagina Plymouth" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="Open de schermafbeelding van Privacy op volledige grootte"><img src="../assets/screenshots/att14.webp" alt="ATT-pagina Privacy" width="1280" height="686" loading="lazy" /></button><figcaption>Privacy</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="Open de schermafbeelding van Prestaties op volledige grootte"><img src="../assets/screenshots/att15.webp" alt="ATT-pagina Prestaties" width="1280" height="686" loading="lazy" /></button><figcaption>Prestaties</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="Open de schermafbeelding van SDDM op volledige grootte"><img src="../assets/screenshots/att16.webp" alt="ATT-pagina SDDM" width="1280" height="686" loading="lazy" /></button><figcaption>SDDM</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="Open de schermafbeelding van Diensten op volledige grootte"><img src="../assets/screenshots/att17.webp" alt="ATT-pagina Diensten" width="1280" height="686" loading="lazy" /></button><figcaption>Diensten</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="Open de schermafbeelding van Shells op volledige grootte"><img src="../assets/screenshots/att18.webp" alt="ATT-pagina Shells" width="1280" height="686" loading="lazy" /></button><figcaption>Shells</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="Open de schermafbeelding van Software op volledige grootte"><img src="../assets/screenshots/att19.webp" alt="ATT-pagina Software" width="1280" height="686" loading="lazy" /></button><figcaption>Software</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="Open de schermafbeelding van Systeem op volledige grootte"><img src="../assets/screenshots/att20.webp" alt="ATT-pagina Systeem" width="1280" height="686" loading="lazy" /></button><figcaption>Systeem</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="Open de schermafbeelding van Themer op volledige grootte"><img src="../assets/screenshots/att21.webp" alt="ATT-pagina Themer" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="Open de schermafbeelding van Arc-thema's op volledige grootte"><img src="../assets/screenshots/att22.webp" alt="ATT-pagina Arc-thema's" width="1280" height="686" loading="lazy" /></button><figcaption>Arc-thema's</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="Open de schermafbeelding van Gebruiker op volledige grootte"><img src="../assets/screenshots/att23.webp" alt="ATT-pagina Gebruiker" width="1280" height="686" loading="lazy" /></button><figcaption>Gebruiker</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="Open de schermafbeelding van Achtergrond op volledige grootte"><img src="../assets/screenshots/att24.webp" alt="ATT-pagina Achtergrond" width="1280" height="686" loading="lazy" /></button><figcaption>Achtergrond</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Bekijken</p>
+          <h2>Liever iemand het zien gebruiken?</h2>
+          <p class="lead">
+            Er is een volledige afspeellijst die ATT pagina voor pagina doorloopt: wat elke pagina doet, waarom het zo werkt en de commando's eronder. Leer je beter door te kijken, begin dan daar.
+          </p>
+          <div class="watch-card">
+            <p><b>ArchLinux Tweak Tool-afspeellijst</b>: tutorials op het YouTube-kanaal van Erik Dubois, gratis te bekijken, geen account nodig.</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              Open de afspeellijst
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Steun</p>
+          <h2>Bedankt dat je ATT gebruikt</h2>
+          <p class="lead">
+            ATT is gratis en blijft gratis: dat verandert niet. Heeft het je tijd bespaard of iets geleerd en wil je iets bijdragen, dan vind je hier hoe. Geen druk, in beide gevallen: het gratis deel blijft van jou en je bent ook zonder bijdrage net zo welkom.
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>De verwerking is gedekt, dus bijna alles gaat naar de ontwikkeling.</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>Geen platformaandeel op fooien: een eenmalig kopje koffie, wanneer je er zin in hebt.</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>Een directe eenmalige donatie, alleen de betalingsverwerking wordt afgetrokken.</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>Maandelijks lidmaatschap: de volledige cursusreeks, een stem in wat er hierna aan bod komt en de ledengemeenschap.</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>YouTube-lidmaatschap</b>
+              <span>Hetzelfde lidmaatschap, als YouTube je thuisbasis is. Dezelfde niveaus, dezelfde voordelen.</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>Of draag op een andere manier bij</b>
+              <span>Bugmeldingen, een distributie die we zouden moeten ondersteunen, een pull request: allemaal even waardevol.</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Gebouwd door <b>Brad Heffernan</b>, <b>Erik Dubois</b> en <b>Cameron Percival</b>, samen met iedereen die ooit een bugmelding heeft ingediend.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="Schermafbeeldingsviewer">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="Vorige schermafbeelding">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="Volgende schermafbeelding">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="Viewer sluiten">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="Terug naar boven">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>Naar boven</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; Gebouwd door Erik Dubois</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">Discussions</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>

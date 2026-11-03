@@ -1,0 +1,1229 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. id 88d70fd5
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool &mdash; tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | 无需终端即可调整你的 Arch 系统"
+
+#. id 12790b37
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool (ATT) is a GTK4 application for Arch-based systems: 31 "
+"pages covering desktops, kernels, Plymouth, SDDM, themes, packages, "
+"services, performance and maintenance. Free, open, and never a black box."
+msgstr ""
+"ArchLinux Tweak Tool (ATT) 是面向 Arch 系统的 GTK4 应用程序：31 个页面涵盖桌"
+"面、内核、Plymouth、SDDM、主题、软件包、服务、性能和维护。免费、开放，绝不是"
+"黑盒。"
+
+#. id 1882c748
+#: index.html
+msgid "ArchLinux Tweak Tool — tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | 无需终端即可调整你的 Arch 系统"
+
+#. id 4dd4490a
+#: index.html
+msgid ""
+"A GTK4 tool for Arch-based systems: desktops, kernels, Plymouth, SDDM, "
+"themes, packages, services and maintenance in one place."
+msgstr ""
+"面向 Arch 系统的 GTK4 工具：桌面、内核、Plymouth、SDDM、主题、软件包、服务和"
+"维护，一站式搞定。"
+
+#. id 9bff4a85
+#: index.html
+msgid "A GTK4 tool for Arch-based systems, by Erik Dubois."
+msgstr "由 Erik Dubois 开发的面向 Arch 系统的 GTK4 工具。"
+
+#. id b7c3ca0e
+#: index.html
+msgid "Copied!"
+msgstr "已复制！"
+
+#. id 0a4470d6
+#: index.html
+msgid "Skip to content"
+msgstr "跳转到内容"
+
+#. id fde1411c
+#: index.html
+msgid "ArchLinux Tweak Tool home"
+msgstr "ArchLinux Tweak Tool 首页"
+
+#. id 3796b6e6
+#: index.html
+msgid "ArchLinux Tweak Tool"
+msgstr "ArchLinux Tweak Tool"
+
+#. id a9a96ec0
+#: index.html
+msgid "Primary"
+msgstr "主导航"
+
+#. id fc338f87
+#: index.html
+msgid "Features"
+msgstr "功能"
+
+#. id fd6c3ebf
+#: index.html
+msgid "Install"
+msgstr "安装"
+
+#. id 9c30a348
+#: index.html
+msgid "Gallery"
+msgstr "图库"
+
+#. id d91ebf58
+#: index.html
+msgid "Watch"
+msgstr "观看"
+
+#. id f32d5a3b
+#: index.html
+msgid "Support"
+msgstr "捐赠"
+
+#. id 08e8d270
+#: index.html
+msgid "Support Erik Dubois"
+msgstr "支持 Erik Dubois"
+
+#. id f22fdf3f
+#: index.html
+msgid "Sponsor on GitHub"
+msgstr "在 GitHub 上赞助"
+
+#. id eeb0398b
+#: index.html
+msgid "Support on Ko-fi"
+msgstr "通过 Ko-fi 捐赠"
+
+#. id fd0b743b
+#: index.html
+msgid "Sponsor"
+msgstr "赞助"
+
+#. id 564bb00f
+#: index.html
+msgid "Join on Patreon"
+msgstr "加入 Patreon 会员"
+
+#. id 24e27f13
+#: index.html
+msgid "Donate with PayPal"
+msgstr "通过 PayPal 捐赠"
+
+#. id 67fef93d
+#: index.html
+msgid "Patreon"
+msgstr "Patreon"
+
+#. id 559ef554
+#: index.html
+msgid "PayPal"
+msgstr "PayPal"
+
+#. id a797e309
+#: index.html
+msgid "Theme"
+msgstr "主题"
+
+#. id 7304d292
+#: index.html
+msgid "Page theme"
+msgstr "页面主题"
+
+#. id d10c4096
+#: index.html
+msgid "Nordic"
+msgstr "Nordic"
+
+#. id 26d7b218
+#: index.html
+msgid "Slate"
+msgstr "Slate"
+
+#. id 60975637
+#: index.html
+msgid "Carbon"
+msgstr "Carbon"
+
+#. id 20632bc3
+#: index.html
+msgid "Ember"
+msgstr "Ember"
+
+#. id 32bb0b3e
+#: index.html
+msgid "Sepia (light)"
+msgstr "Sepia（浅色）"
+
+#. id c9455d38
+#: index.html
+msgid "Paper (light)"
+msgstr "Paper（浅色）"
+
+#. id 8ba7c3fb
+#: index.html
+msgid "Accent colour"
+msgstr "强调色"
+
+#. id b3d97fd6
+#: index.html
+msgid "Sky"
+msgstr "天空蓝"
+
+#. id 0717c0b8
+#: index.html
+msgid "Sky accent"
+msgstr "天空蓝"
+
+#. id c57604db
+#: index.html
+msgid "Gold"
+msgstr "金色"
+
+#. id 7b8e578e
+#: index.html
+msgid "Gold accent"
+msgstr "金色"
+
+#. id da32ecab
+#: index.html
+msgid "Emerald"
+msgstr "翡翠绿"
+
+#. id adcbb5d6
+#: index.html
+msgid "Emerald accent"
+msgstr "翡翠绿"
+
+#. id ddcd2f2e
+#: index.html
+msgid "Violet"
+msgstr "紫罗兰色"
+
+#. id 54a17bde
+#: index.html
+msgid "Violet accent"
+msgstr "紫罗兰色"
+
+#. id 51ad0eae
+#: index.html
+msgid "Rose"
+msgstr "玫瑰色"
+
+#. id 98ca471d
+#: index.html
+msgid "Rose accent"
+msgstr "玫瑰色"
+
+#. id 662f267f
+#: index.html
+msgid ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 pages &middot; Arch-based "
+"systems"
+msgstr ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 个页面 &middot; Arch 系系统"
+
+#. id 8362c13e
+#: index.html
+msgid ""
+"Tweak your Arch system<br /><span class=\"accent\">without the terminal</"
+"span>"
+msgstr "无需终端，<br /><span class=\"accent\">即可调整你的 Arch 系统</span>"
+
+#. id 5ff01c17
+#: index.html
+msgid ""
+"You know what you want your system to do &mdash; a different kernel, a nicer "
+"login screen, a theme that matches, services cleaned up. ATT puts all of it "
+"behind one window, and it tells you exactly what it is about to do before it "
+"does it. Nothing hidden, nothing magic, and the commands stay yours to learn."
+msgstr ""
+"你清楚自己想让系统做什么：换一个内核、一个更好看的登录界面、一套协调的主题、"
+"整理好的服务。ATT 把这一切放进一个窗口，并且在动手之前，会准确告诉你它要做什"
+"么。没有隐藏，没有魔法，命令始终留给你去学习。"
+
+#. id b7029c5a
+#: index.html
+msgid "Install ATT"
+msgstr "安装 ATT"
+
+#. id c60f2f81
+#: index.html
+msgid "Source on GitHub"
+msgstr "在 GitHub 上查看源码"
+
+#. id 32be03cf
+#: index.html
+msgid ""
+"Free and open &middot; installs from <code class=\"chip\">nemesis_repo</"
+"code> &middot; works on Arch and Arch-based systems"
+msgstr ""
+"免费开源 &middot; 从 <code class=\"chip\">nemesis_repo</code> 安装 &middot; "
+"适用于 Arch 及 Arch 系系统"
+
+#. id 016d87ba
+#: index.html
+msgid "Why ATT"
+msgstr "为什么选择 ATT"
+
+#. id 7e535def
+#: index.html
+msgid "Never a black box"
+msgstr "绝不是黑盒"
+
+#. id 0f52b25c
+#: index.html
+msgid ""
+"The most frustrating thing about a system tool is not knowing what it did to "
+"your machine. ATT is built the other way round &mdash; every action explains "
+"itself, and the console output is there for you to read, learn from, and run "
+"yourself next time."
+msgstr ""
+"系统工具最让人沮丧的，就是不知道它对你的机器做了什么。ATT 反其道而行：每个操"
+"作都会自我说明，控制台输出就在那里，供你阅读、学习，下次自己动手运行。"
+
+#. id 74f39697
+#: index.html
+msgid "Before"
+msgstr "之前"
+
+#. id 1f1a6200
+#: index.html
+msgid ""
+"You see what an action will change &mdash; a confirmation dialog or a plain "
+"label &mdash; before anything is touched."
+msgstr ""
+"在动任何东西之前，你都能先看到这个操作会改变什么，可能是确认对话框，也可能是"
+"一行简单的说明。"
+
+#. id b47565e2
+#: index.html
+msgid "During"
+msgstr "期间"
+
+#. id 105e3577
+#: index.html
+msgid ""
+"You watch it happen: progress, the current step, and live console output "
+"while it runs."
+msgstr "你可以实时看着它进行：进度、当前步骤，以及运行时的控制台实时输出。"
+
+#. id 79ba5e1b
+#: index.html
+msgid "After"
+msgstr "之后"
+
+#. id 17546d3f
+#: index.html
+msgid ""
+"You get a summary of what actually changed &mdash; files written, packages "
+"installed, services touched."
+msgstr ""
+"你会得到一份实际改动的摘要：写入了哪些文件、安装了哪些软件包、动了哪些服务。"
+
+#. id 51deeac9
+#: index.html
+msgid "pages of settings"
+msgstr "个设置页面"
+
+#. id fc9a772c
+#: index.html
+msgid "command to install"
+msgstr "条安装命令"
+
+#. id 9aa97bbb
+#: index.html
+msgid "native, Python 3"
+msgstr "原生，Python 3"
+
+#. id 75f52718
+#: index.html
+msgid "Free"
+msgstr "免费"
+
+#. id 3337b259
+#: index.html
+msgid "and open source"
+msgstr "且开源"
+
+#. id 810b980c
+#: index.html
+msgid "Everything in one window"
+msgstr "一切尽在一个窗口"
+
+#. id 935dddb0
+#: index.html
+msgid ""
+"Thirty-one pages in the sidebar, each one a job you would otherwise do by "
+"hand across half a dozen config files. Here is what you get."
+msgstr ""
+"侧边栏里有三十一个页面，每个页面都对应一项原本要在好几个配置文件之间手动完成"
+"的工作。下面是你能得到的功能。"
+
+#. id 3352fd2f
+#: index.html
+msgid "Desktops and window managers"
+msgstr "桌面与窗口管理器"
+
+#. id f5895c60
+#: index.html
+msgid ""
+"Install and switch desktop environments &mdash; KDE, GNOME, Xfce, Hyprland, "
+"dwm and more &mdash; on both X11 and Wayland sessions."
+msgstr ""
+"安装并切换桌面环境，包括 KDE、GNOME、Xfce、Hyprland、dwm 等，X11 和 Wayland "
+"会话都支持。"
+
+#. id 532c67fe
+#: index.html
+msgid "Desktop"
+msgstr "桌面"
+
+#. id 2f5a8e73
+#: index.html
+msgid "Desktop - Wayland"
+msgstr "桌面：Wayland"
+
+#. id 4a435af6
+#: index.html
+msgid "Kernels and initramfs"
+msgstr "内核与 initramfs"
+
+#. id dd55a487
+#: index.html
+msgid ""
+"Add or remove kernels in one click. Works with mkinitcpio and dracut, and "
+"updates your GRUB entries for you."
+msgstr ""
+"一键添加或移除内核。支持 mkinitcpio 和 dracut，并会自动为你更新 GRUB 条目。"
+
+#. id d5617d27
+#: index.html
+msgid "Kernels"
+msgstr "内核"
+
+#. id 6f8072ca
+#: index.html
+msgid "Boot splash"
+msgstr "启动画面"
+
+#. id 31031931
+#: index.html
+msgid ""
+"Install and switch Plymouth themes, with bootloader wiring for systemd-boot, "
+"GRUB, limine and rEFInd &mdash; and a fix for broken initramfs hooks."
+msgstr ""
+"安装并切换 Plymouth 主题，支持 systemd-boot、GRUB、limine 和 rEFInd 引导程序"
+"的对接，还能修复损坏的 initramfs 钩子。"
+
+#. id 679fe35a
+#: index.html
+msgid "Plymouth"
+msgstr "Plymouth"
+
+#. id c8e5ffe6
+#: index.html
+msgid "Login manager"
+msgstr "登录管理器"
+
+#. id c12ca421
+#: index.html
+msgid ""
+"Preview and install SDDM themes; set cursor, wallpaper, session and display "
+"options, then apply or repair the configuration."
+msgstr ""
+"预览并安装 SDDM 主题；设置光标、壁纸、会话和显示选项，然后应用或修复配置。"
+
+#. id 71bb1e47
+#: index.html
+msgid "Sddm"
+msgstr "SDDM"
+
+#. id 67a7de83
+#: index.html
+msgid "Themes and icons"
+msgstr "主题与图标"
+
+#. id bf6f8fc9
+#: index.html
+msgid ""
+"GTK and Plasma themes, the full Arc family, and the Neo Candy, Surfn and "
+"Horst icon sets &mdash; or apply a coordinated set in one go with the Themer."
+msgstr ""
+"GTK 和 Plasma 主题、完整的 Arc 系列，以及 Neo Candy、Surfn 和 Horst 图标集；"
+"也可以用 Themer 一次应用一整套协调的搭配。"
+
+#. id 3170c313
+#: index.html
+msgid "Themer"
+msgstr "Themer"
+
+#. id 7a26e54a
+#: index.html
+msgid "Arc themes"
+msgstr "Arc 主题"
+
+#. id edb8f6c1
+#: index.html
+msgid "Icons"
+msgstr "图标"
+
+#. id 65826c69
+#: index.html
+msgid "Celestial themes"
+msgstr "Celestial 主题"
+
+#. id 8477952c
+#: index.html
+msgid "Wallpapers"
+msgstr "壁纸"
+
+#. id 8c45effc
+#: index.html
+msgid ""
+"Browse any folder and set your wallpaper across every supported desktop and "
+"window manager."
+msgstr "浏览任意文件夹，并在所有受支持的桌面和窗口管理器上设置壁纸。"
+
+#. id 466891e2
+#: index.html
+msgid "Wallpaper"
+msgstr "壁纸"
+
+#. id afd92ae8
+#: index.html
+msgid "Packages and pacman"
+msgstr "软件包与 pacman"
+
+#. id 5029c622
+#: index.html
+msgid ""
+"Export your installed packages, import them on a fresh machine, and tune "
+"pacman itself &mdash; repositories, parallel downloads, and the rest of "
+"<code class=\"chip\">pacman.conf</code>."
+msgstr ""
+"导出已安装的软件包，在新机器上导入，并调整 pacman 本身：软件源、并行下载，以"
+"及 <code class=\"chip\">pacman.conf</code> 里的其他设置。"
+
+#. id 0a999012
+#: index.html
+msgid "Packages"
+msgstr "软件包"
+
+#. id 4b529bbc
+#: index.html
+msgid "Pacman"
+msgstr "Pacman"
+
+#. id 9ad05227
+#: index.html
+msgid "Software"
+msgstr "软件"
+
+#. id 7ab4a69a
+#: index.html
+msgid "Services and autostart"
+msgstr "服务与自启动"
+
+#. id 5d2c4326
+#: index.html
+msgid ""
+"Enable or disable systemd services, and decide what actually launches when "
+"you log in."
+msgstr "启用或禁用 systemd 服务，并决定登录时到底启动哪些程序。"
+
+#. id 5cbd5840
+#: index.html
+msgid "Services"
+msgstr "服务"
+
+#. id 516dfe15
+#: index.html
+msgid "Autostart"
+msgstr "自启动"
+
+#. id 63c90455
+#: index.html
+msgid "Performance"
+msgstr "性能"
+
+#. id 9cd0b101
+#: index.html
+msgid ""
+"CPU governor, I/O scheduler and the tuning knobs that decide whether your "
+"machine feels quick or sluggish."
+msgstr ""
+"CPU 调速器、I/O 调度器，以及决定机器用起来是流畅还是迟缓的各种调优选项。"
+
+#. id 94de303b
+#: index.html
+msgid "Maintenance"
+msgstr "维护"
+
+#. id ef55513c
+#: index.html
+msgid ""
+"Rank the fastest mirrors, clear orphaned packages, empty the pacman cache "
+"and remove a stale lock file &mdash; the housekeeping, without the man pages."
+msgstr ""
+"为镜像测速并排序、清理孤立软件包、清空 pacman 缓存、移除过期的锁文件，日常清"
+"理无需翻看 man 手册。"
+
+#. id dd96994d
+#: index.html
+msgid "Backup"
+msgstr "备份"
+
+#. id 77195972
+#: index.html
+msgid "Btrfs"
+msgstr "Btrfs"
+
+#. id e1ea8c9f
+#: index.html
+msgid "Shells and terminal"
+msgstr "Shell 与终端"
+
+#. id f43ec14b
+#: index.html
+msgid ""
+"Switch your default shell between bash, zsh and fish, and configure the "
+"environment, themes and zsh plugins that come with it."
+msgstr ""
+"在 bash、zsh 和 fish 之间切换默认 Shell，并配置随之而来的环境、主题和 zsh 插"
+"件。"
+
+#. id df65df83
+#: index.html
+msgid "Shells"
+msgstr "Shell"
+
+#. id 19d605c8
+#: index.html
+msgid "Fastfetch"
+msgstr "Fastfetch"
+
+#. id 3f00c1e3
+#: index.html
+msgid "System and network"
+msgstr "系统与网络"
+
+#. id ad535078
+#: index.html
+msgid ""
+"Hardware overview, running services and journal at a glance, plus network "
+"tools and Samba shares."
+msgstr "一览硬件概况、运行中的服务和日志，另外还有网络工具和 Samba 共享。"
+
+#. id bc0792d8
+#: index.html
+msgid "System"
+msgstr "系统"
+
+#. id 53ebc572
+#: index.html
+msgid "Network"
+msgstr "网络"
+
+#. id 57003616
+#: index.html
+msgid "Logging"
+msgstr "日志记录"
+
+#. id 391f30ce
+#: index.html
+msgid "Users, locale and access"
+msgstr "用户、区域设置与访问"
+
+#. id 55f7d50e
+#: index.html
+msgid ""
+"Create and configure user accounts, set locale, keyboard layout and "
+"timezone, and turn on accessibility options."
+msgstr "创建并配置用户账户，设置区域、键盘布局和时区，并开启无障碍选项。"
+
+#. id 9f8a2389
+#: index.html
+msgid "User"
+msgstr "用户"
+
+#. id 8970f0e6
+#: index.html
+msgid "Locale"
+msgstr "区域设置"
+
+#. id d660049b
+#: index.html
+msgid "Accessibility"
+msgstr "无障碍功能"
+
+#. id cf01481f
+#: index.html
+msgid "Privacy"
+msgstr "隐私"
+
+#. id 54796043
+#: index.html
+msgid ""
+"hBlock DNS-level ad blocking and a handful of settings that keep your system "
+"to yourself."
+msgstr "通过 hBlock 在 DNS 层面屏蔽广告，外加一些让你的系统保护隐私的设置。"
+
+#. id 1d2042b6
+#: index.html
+msgid "AI tools and extras"
+msgstr "AI 工具与更多"
+
+#. id 8a7ad178
+#: index.html
+msgid ""
+"Claude AI integration for help with your own system, office software "
+"installers, and the ISO tooling if you build your own."
+msgstr ""
+"与 Claude AI 集成，帮你处理自己系统上的事务；还有办公软件安装器，以及自己构"
+"建 ISO 时用到的 ISO 工具。"
+
+#. id 58d44d0c
+#: index.html
+msgid "AI Tools"
+msgstr "AI 工具"
+
+#. id 6c3a72ea
+#: index.html
+msgid "Office"
+msgstr "办公"
+
+#. id 4f325d99
+#: index.html
+msgid "ISO"
+msgstr "ISO"
+
+#. id 32cf39eb
+#: index.html
+msgid "Two steps and you are running"
+msgstr "两步即可开始使用"
+
+#. id 6264a9e9
+#: index.html
+msgid ""
+"ATT ships from <code class=\"chip\">nemesis_repo</code>, a signed pacman "
+"repository. Add the repo once, then install ATT like any other package. "
+"Everything below is a normal command you can read before you run it."
+msgstr ""
+"ATT 通过 <code class=\"chip\">nemesis_repo</code> 发布，这是一个带签名的 "
+"pacman 软件源。只需添加一次软件源，然后像安装其他软件包一样安装 ATT。下面都是"
+"普通命令，运行前你可以先读一遍。"
+
+#. id 903e89f7
+#: index.html
+msgid "Step 1 &mdash; add the repo to <code>/etc/pacman.conf</code>"
+msgstr "第 1 步：把软件源添加到 <code>/etc/pacman.conf</code>"
+
+#. id af74f7c5
+#: index.html
+msgid "Copy"
+msgstr "复制"
+
+#. id bce18d41
+#: index.html
+msgid "Prefer a script? This does the same thing"
+msgstr "更喜欢脚本？它做的是同样的事"
+
+#. id 1d28ba54
+#: index.html
+msgid ""
+"<b>About the signature.</b> <code>nemesis_repo</code> is PGP-signed by the "
+"Kiro key, trusted through <code>kiro-keyring</code>, and it inherits your "
+"global <code>SigLevel</code>. If you are adding the repo by hand before that "
+"keyring is installed, set <code>SigLevel = Optional</code> for this repo "
+"until it is in place."
+msgstr ""
+"<b>关于签名。</b> <code>nemesis_repo</code> 由 Kiro 密钥进行 PGP 签名，通过 "
+"<code>kiro-keyring</code> 建立信任，并继承你的全局 <code>SigLevel</code>。如"
+"果你在安装该密钥环之前就手动添加软件源，请先为这个软件源设置 <code>SigLevel "
+"= Optional</code>，等密钥环装好后再改回来。"
+
+#. id 0f795ccf
+#: index.html
+msgid "Step 2 &mdash; update and install"
+msgstr "第 2 步：更新并安装"
+
+#. id bf20bc7a
+#: index.html
+msgid ""
+"Then launch <b>ArchLinux Tweak Tool</b> from your application menu. It asks "
+"for administrative rights only when an action genuinely needs them."
+msgstr ""
+"然后从应用程序菜单启动 <b>ArchLinux Tweak Tool</b>。只有在某个操作确实需要"
+"时，它才会请求管理员权限。"
+
+#. id 5d60c7dd
+#: index.html
+msgid "Compatibility"
+msgstr "兼容性"
+
+#. id 09edb1e9
+#: index.html
+msgid "Built for Arch, at home on Arch-based systems"
+msgstr "为 Arch 而生，在 Arch 系系统上同样如鱼得水"
+
+#. id bf51db4f
+#: index.html
+msgid ""
+"ATT started life on ArcoLinux and now runs on plain Arch and on the Arch-"
+"based systems people actually use &mdash; Artix, Manjaro, CachyOS, Kiro and "
+"many more. Where a distribution does things its own way, ATT detects it and "
+"adapts the interface instead of fighting it."
+msgstr ""
+"ATT 诞生于 ArcoLinux，如今可以在原版 Arch 以及人们实际在用的 Arch 系系统上运"
+"行，比如 Artix、Manjaro、CachyOS、Kiro 等等。当某个发行版有自己的做法时，ATT "
+"会检测到并调整界面去适应，而不是与之对抗。"
+
+#. id 4a3014d2
+#: index.html
+msgid ""
+"<b>You need:</b> an Arch or Arch-based system, Python 3.8 or later, GTK 4.6 "
+"or later, and pacman."
+msgstr ""
+"<b>你需要：</b> 一个 Arch 或 Arch 系系统、Python 3.8 或更高版本、GTK 4.6 或更"
+"高版本，以及 pacman。"
+
+#. id a9a631e7
+#: index.html
+msgid ""
+"<b>Optional, for some pages:</b> alacritty for package operations, "
+"fastfetch, and your shell of choice."
+msgstr ""
+"<b>部分页面可选：</b> 用于软件包操作的 alacritty、fastfetch，以及你常用的 "
+"Shell。"
+
+#. id f5fb13b9
+#: index.html
+msgid ""
+"The authoritative, always-current list of supported distributions lives in "
+"the source &mdash; see the <a href=\"https://github.com/kirodubes/archlinux-"
+"tweak-tool\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub "
+"repository</a>."
+msgstr ""
+"受支持发行版的权威且始终最新的列表在源码中，请查看 <a href=\"https://"
+"github.com/kirodubes/archlinux-tweak-tool\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">GitHub 仓库</a>。"
+
+#. id d615ebe8
+#: index.html
+msgid "See it before you install it"
+msgstr "安装之前，先看看"
+
+#. id 8c8b5046
+#: index.html
+msgid ""
+"All twenty-four of these are real pages in the running application. Select "
+"any screenshot to open it full size, then use the arrow keys to browse."
+msgstr ""
+"这二十四张都是正在运行的应用程序中的真实页面。选择任意截图即可查看原图，然后"
+"用方向键浏览。"
+
+#. id e494be98
+#: index.html
+msgid "Open the AI Tools screenshot full size"
+msgstr "打开“AI 工具”截图原图"
+
+#. id b45d17af
+#: index.html
+msgid "ATT AI Tools page"
+msgstr "ATT 的“AI 工具”页面"
+
+#. id d8fa07ab
+#: index.html
+msgid "Open the Autostart screenshot full size"
+msgstr "打开“自启动”截图原图"
+
+#. id 067cea2f
+#: index.html
+msgid "ATT Autostart page"
+msgstr "ATT 的“自启动”页面"
+
+#. id 474c973a
+#: index.html
+msgid "Open the Desktop screenshot full size"
+msgstr "打开“桌面”截图原图"
+
+#. id b3a18264
+#: index.html
+msgid "ATT Desktop page"
+msgstr "ATT 的“桌面”页面"
+
+#. id 332ecbd3
+#: index.html
+msgid "Open the Fastfetch screenshot full size"
+msgstr "打开“Fastfetch”截图原图"
+
+#. id 717338ec
+#: index.html
+msgid "ATT Fastfetch page"
+msgstr "ATT 的“Fastfetch”页面"
+
+#. id 791d8966
+#: index.html
+msgid "Open the Icons screenshot full size"
+msgstr "打开“图标”截图原图"
+
+#. id 149960d9
+#: index.html
+msgid "ATT Icons page"
+msgstr "ATT 的“图标”页面"
+
+#. id 4543b5b5
+#: index.html
+msgid "Open the Kernels screenshot full size"
+msgstr "打开“内核”截图原图"
+
+#. id 1de46bb9
+#: index.html
+msgid "ATT Kernels page"
+msgstr "ATT 的“内核”页面"
+
+#. id 7e80befc
+#: index.html
+msgid "Open the Locale screenshot full size"
+msgstr "打开“区域设置”截图原图"
+
+#. id d10dfd61
+#: index.html
+msgid "ATT Locale page"
+msgstr "ATT 的“区域设置”页面"
+
+#. id db008684
+#: index.html
+msgid "Open the Logging screenshot full size"
+msgstr "打开“日志记录”截图原图"
+
+#. id aabcebb9
+#: index.html
+msgid "ATT Logging page"
+msgstr "ATT 的“日志记录”页面"
+
+#. id 7c20b689
+#: index.html
+msgid "Open the Maintenance screenshot full size"
+msgstr "打开“维护”截图原图"
+
+#. id 6624d6df
+#: index.html
+msgid "ATT Maintenance page"
+msgstr "ATT 的“维护”页面"
+
+#. id 56aeac42
+#: index.html
+msgid "Open the Network screenshot full size"
+msgstr "打开“网络”截图原图"
+
+#. id 1d846a5b
+#: index.html
+msgid "ATT Network page"
+msgstr "ATT 的“网络”页面"
+
+#. id 8d616249
+#: index.html
+msgid "Open the Packages screenshot full size"
+msgstr "打开“软件包”截图原图"
+
+#. id 68718269
+#: index.html
+msgid "ATT Packages page"
+msgstr "ATT 的“软件包”页面"
+
+#. id 74d3e160
+#: index.html
+msgid "Open the Pacman screenshot full size"
+msgstr "打开“Pacman”截图原图"
+
+#. id 5f177ce7
+#: index.html
+msgid "ATT Pacman page"
+msgstr "ATT 的“Pacman”页面"
+
+#. id c978bada
+#: index.html
+msgid "Open the Plymouth screenshot full size"
+msgstr "打开“Plymouth”截图原图"
+
+#. id d9c0b11a
+#: index.html
+msgid "ATT Plymouth page"
+msgstr "ATT 的“Plymouth”页面"
+
+#. id 09778c16
+#: index.html
+msgid "Open the Privacy screenshot full size"
+msgstr "打开“隐私”截图原图"
+
+#. id 9344c32f
+#: index.html
+msgid "ATT Privacy page"
+msgstr "ATT 的“隐私”页面"
+
+#. id 228f9d49
+#: index.html
+msgid "Open the Performance screenshot full size"
+msgstr "打开“性能”截图原图"
+
+#. id 9d906571
+#: index.html
+msgid "ATT Performance page"
+msgstr "ATT 的“性能”页面"
+
+#. id fd76fa25
+#: index.html
+msgid "Open the Sddm screenshot full size"
+msgstr "打开“SDDM”截图原图"
+
+#. id c73833c7
+#: index.html
+msgid "ATT Sddm page"
+msgstr "ATT 的“SDDM”页面"
+
+#. id 5ab88a8f
+#: index.html
+msgid "Open the Services screenshot full size"
+msgstr "打开“服务”截图原图"
+
+#. id a0577e51
+#: index.html
+msgid "ATT Services page"
+msgstr "ATT 的“服务”页面"
+
+#. id 531f3a9e
+#: index.html
+msgid "Open the Shells screenshot full size"
+msgstr "打开“Shell”截图原图"
+
+#. id 1a74e7a8
+#: index.html
+msgid "ATT Shells page"
+msgstr "ATT 的“Shell”页面"
+
+#. id e37ca86f
+#: index.html
+msgid "Open the Software screenshot full size"
+msgstr "打开“软件”截图原图"
+
+#. id 04bff430
+#: index.html
+msgid "ATT Software page"
+msgstr "ATT 的“软件”页面"
+
+#. id 2b1b081f
+#: index.html
+msgid "Open the System screenshot full size"
+msgstr "打开“系统”截图原图"
+
+#. id 5985d010
+#: index.html
+msgid "ATT System page"
+msgstr "ATT 的“系统”页面"
+
+#. id 2b3819fa
+#: index.html
+msgid "Open the Themer screenshot full size"
+msgstr "打开“Themer”截图原图"
+
+#. id dee76db2
+#: index.html
+msgid "ATT Themer page"
+msgstr "ATT 的“Themer”页面"
+
+#. id 129f8ff4
+#: index.html
+msgid "Open the Arc themes screenshot full size"
+msgstr "打开“Arc 主题”截图原图"
+
+#. id fa1add35
+#: index.html
+msgid "ATT Arc themes page"
+msgstr "ATT 的“Arc 主题”页面"
+
+#. id 4c22862c
+#: index.html
+msgid "Open the User screenshot full size"
+msgstr "打开“用户”截图原图"
+
+#. id a14f824e
+#: index.html
+msgid "ATT User page"
+msgstr "ATT 的“用户”页面"
+
+#. id 07ec4dc4
+#: index.html
+msgid "Open the Wallpaper screenshot full size"
+msgstr "打开“壁纸”截图原图"
+
+#. id 76693871
+#: index.html
+msgid "ATT Wallpaper page"
+msgstr "ATT 的“壁纸”页面"
+
+#. id 059268fb
+#: index.html
+msgid "Prefer to see someone use it?"
+msgstr "想看看别人是怎么用的吗？"
+
+#. id 2f6e4bdb
+#: index.html
+msgid ""
+"There is a full playlist walking through ATT page by page &mdash; what each "
+"one does, why it does it that way, and the commands underneath. If you learn "
+"better by watching, start there."
+msgstr ""
+"有一个完整的播放列表，逐页讲解 ATT：每一页做什么、为什么这样做，以及背后的命"
+"令。如果你看视频学得更好，就从这里开始吧。"
+
+#. id 9a15f113
+#: index.html
+msgid ""
+"<b>ArchLinux Tweak Tool playlist</b> &mdash; tutorials on the Erik Dubois "
+"YouTube channel, free to watch, no account needed."
+msgstr ""
+"<b>ArchLinux Tweak Tool 播放列表</b>：Erik Dubois YouTube 频道上的教程，免费"
+"观看，无需账号。"
+
+#. id 04ff8f78
+#: index.html
+msgid "Open the playlist"
+msgstr "打开播放列表"
+
+#. id 674b63de
+#: index.html
+msgid "Thank you for using ATT"
+msgstr "感谢你使用 ATT"
+
+#. id 47dd7fae
+#: index.html
+msgid ""
+"ATT is free and stays free &mdash; that is not going to change. If it has "
+"saved you time or taught you something and you would like to chip in, here "
+"is where. No pressure either way: the free part is yours to keep, and you "
+"are just as welcome without it."
+msgstr ""
+"ATT 是免费的，而且会一直免费，这一点不会改变。如果它帮你节省了时间，或者让你"
+"学到了东西，你也愿意出一份力，可以从下面的方式开始。不勉强：免费的部分永远属"
+"于你，不支持也同样欢迎你。"
+
+#. id 2bdab7e5
+#: index.html
+msgid "GitHub Sponsors"
+msgstr "GitHub Sponsors"
+
+#. id e12df3b0
+#: index.html
+msgid "Processing is covered, so close to all of it reaches development."
+msgstr "手续费已另行承担，所以几乎全部都会用于开发。"
+
+#. id 2edf198b
+#: index.html
+msgid ""
+"No platform cut on tips &mdash; a one-off coffee, whenever you feel like it."
+msgstr "小额打赏不收平台抽成：想请喝杯咖啡的时候，随时一次就好。"
+
+#. id f9002832
+#: index.html
+msgid "A direct one-off donation, payment processing only."
+msgstr "一次性直接捐赠，只收取支付处理费用。"
+
+#. id fe02d5ce
+#: index.html
+msgid ""
+"Monthly membership: the full course series, a vote on what gets covered "
+"next, and the members community."
+msgstr "按月会员：完整的课程系列、对下一步讲什么的投票权，以及会员社区。"
+
+#. id 6ff7d720
+#: index.html
+msgid "YouTube membership"
+msgstr "YouTube 会员"
+
+#. id 02cb5f39
+#: index.html
+msgid ""
+"The identical membership, if YouTube is where you already are. Same tiers, "
+"same perks."
+msgstr ""
+"同样的会员，如果你本来就常用 YouTube，也可以在那里加入。等级相同，福利相同。"
+
+#. id bfa39502
+#: index.html
+msgid "Or contribute instead"
+msgstr "或者换一种方式参与"
+
+#. id 1510cf1c
+#: index.html
+msgid ""
+"Bug reports, a distribution we should support, a pull request &mdash; all "
+"just as valuable."
+msgstr ""
+"提交错误报告、提议我们支持某个发行版、发起 pull request，同样都很有价值。"
+
+#. id 3d5f4fd4
+#: index.html
+msgid ""
+"Built by <b>Brad Heffernan</b>, <b>Erik Dubois</b> and <b>Cameron Percival</"
+"b>, with everyone who has ever filed a bug report."
+msgstr ""
+"由 <b>Brad Heffernan</b>、<b>Erik Dubois</b> 和 <b>Cameron Percival</b> 开"
+"发，并感谢每一位提交过错误报告的人。"
+
+#. id f8178ce2
+#: index.html
+msgid "Screenshot viewer"
+msgstr "截图查看器"
+
+#. id 0cd6661b
+#: index.html
+msgid "Previous screenshot"
+msgstr "上一张截图"
+
+#. id ea23b3e8
+#: index.html
+msgid "Next screenshot"
+msgstr "下一张截图"
+
+#. id b9fbfc7e
+#: index.html
+msgid "Close viewer"
+msgstr "关闭查看器"
+
+#. id d9c883a9
+#: index.html
+msgid "Back to top"
+msgstr "返回顶部"
+
+#. id cae0435c
+#: index.html
+msgid "Top"
+msgstr "返回顶部"
+
+#. id 5210c901
+#: index.html
+msgid "&copy; 2026 ArchLinux Tweak Tool &middot; Built by Erik Dubois"
+msgstr "&copy; 2026 ArchLinux Tweak Tool &middot; 作者：Erik Dubois"
+
+#. id 558865a1
+#: index.html
+msgid "YouTube"
+msgstr "YouTube"
+
+#. id 0474a6c6
+#: index.html
+msgid "Discussions"
+msgstr "讨论"

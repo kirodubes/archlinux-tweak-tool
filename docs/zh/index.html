@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | 无需终端即可调整你的 Arch 系统</title>
+    <meta name="description" content="ArchLinux Tweak Tool (ATT) 是面向 Arch 系统的 GTK4 应用程序：31 个页面涵盖桌面、内核、Plymouth、SDDM、主题、软件包、服务、性能和维护。免费、开放，绝不是黑盒。" />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | 无需终端即可调整你的 Arch 系统" />
+    <meta property="og:description" content="面向 Arch 系统的 GTK4 工具：桌面、内核、Plymouth、SDDM、主题、软件包、服务和维护，一站式搞定。" />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | 无需终端即可调整你的 Arch 系统" />
+    <meta name="twitter:description" content="由 Erik Dubois 开发的面向 Arch 系统的 GTK4 工具。" />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = '已复制！';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">跳转到内容</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="ArchLinux Tweak Tool 首页">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="主导航">
+            <a href="#features">功能</a>
+            <a href="#install">安装</a>
+            <a href="#gallery">图库</a>
+            <a href="#watch">观看</a>
+            <a href="#support">捐赠</a>
+          </nav>
+
+          <div class="support" aria-label="支持 Erik Dubois">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="在 GitHub 上赞助">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">赞助</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="通过 Ko-fi 捐赠">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="加入 Patreon 会员">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="通过 PayPal 捐赠">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>ZH</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="../nl/index.html" lang="nl" hreflang="nl">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="../ru/index.html" lang="ru" hreflang="ru">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="../hu/index.html" lang="hu" hreflang="hu">Magyar</a>
+              <a href="../tr/index.html" lang="tr" hreflang="tr">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="../ja/index.html" lang="ja" hreflang="ja">日本語</a>
+              <a href="index.html" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">主题</span>
+            <select id="theme-select" class="theme-select" aria-label="页面主题">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia（浅色）</option>
+              <option value="paper">Paper（浅色）</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="强调色">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="天空蓝" aria-label="天空蓝" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="金色" aria-label="金色" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="翡翠绿" aria-label="翡翠绿" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="紫罗兰色" aria-label="紫罗兰色" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="玫瑰色" aria-label="玫瑰色" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 个页面 &middot; Arch 系系统
+          </a>
+          <h1>无需终端，<br /><span class="accent">即可调整你的 Arch 系统</span></h1>
+          <p class="lead">
+            你清楚自己想让系统做什么：换一个内核、一个更好看的登录界面、一套协调的主题、整理好的服务。ATT 把这一切放进一个窗口，并且在动手之前，会准确告诉你它要做什么。没有隐藏，没有魔法，命令始终留给你去学习。
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              安装 ATT
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              在 GitHub 上查看源码
+            </a>
+          </div>
+          <p class="hero-foot">免费开源 &middot; 从 <code class="chip">nemesis_repo</code> 安装 &middot; 适用于 Arch 及 Arch 系系统</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">为什么选择 ATT</p>
+          <h2>绝不是黑盒</h2>
+          <p class="lead">
+            系统工具最让人沮丧的，就是不知道它对你的机器做了什么。ATT 反其道而行：每个操作都会自我说明，控制台输出就在那里，供你阅读、学习，下次自己动手运行。
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>之前</b>
+              <span>在动任何东西之前，你都能先看到这个操作会改变什么，可能是确认对话框，也可能是一行简单的说明。</span>
+            </li>
+            <li>
+              <b>期间</b>
+              <span>你可以实时看着它进行：进度、当前步骤，以及运行时的控制台实时输出。</span>
+            </li>
+            <li>
+              <b>之后</b>
+              <span>你会得到一份实际改动的摘要：写入了哪些文件、安装了哪些软件包、动了哪些服务。</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">个设置页面</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">条安装命令</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">原生，Python 3</span></div>
+            <div class="stat"><span class="value">免费</span><span class="label">且开源</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">功能</p>
+          <h2>一切尽在一个窗口</h2>
+          <p class="lead">
+            侧边栏里有三十一个页面，每个页面都对应一项原本要在好几个配置文件之间手动完成的工作。下面是你能得到的功能。
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>桌面与窗口管理器</h3>
+              <p>安装并切换桌面环境，包括 KDE、GNOME、Xfce、Hyprland、dwm 等，X11 和 Wayland 会话都支持。</p>
+              <div class="pages"><span>桌面</span><span>桌面：Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>内核与 initramfs</h3>
+              <p>一键添加或移除内核。支持 mkinitcpio 和 dracut，并会自动为你更新 GRUB 条目。</p>
+              <div class="pages"><span>内核</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>启动画面</h3>
+              <p>安装并切换 Plymouth 主题，支持 systemd-boot、GRUB、limine 和 rEFInd 引导程序的对接，还能修复损坏的 initramfs 钩子。</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>登录管理器</h3>
+              <p>预览并安装 SDDM 主题；设置光标、壁纸、会话和显示选项，然后应用或修复配置。</p>
+              <div class="pages"><span>SDDM</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>主题与图标</h3>
+              <p>GTK 和 Plasma 主题、完整的 Arc 系列，以及 Neo Candy、Surfn 和 Horst 图标集；也可以用 Themer 一次应用一整套协调的搭配。</p>
+              <div class="pages"><span>Themer</span><span>Arc 主题</span><span>图标</span><span>Celestial 主题</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>壁纸</h3>
+              <p>浏览任意文件夹，并在所有受支持的桌面和窗口管理器上设置壁纸。</p>
+              <div class="pages"><span>壁纸</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>软件包与 pacman</h3>
+              <p>导出已安装的软件包，在新机器上导入，并调整 pacman 本身：软件源、并行下载，以及 <code class="chip">pacman.conf</code> 里的其他设置。</p>
+              <div class="pages"><span>软件包</span><span>Pacman</span><span>软件</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>服务与自启动</h3>
+              <p>启用或禁用 systemd 服务，并决定登录时到底启动哪些程序。</p>
+              <div class="pages"><span>服务</span><span>自启动</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>性能</h3>
+              <p>CPU 调速器、I/O 调度器，以及决定机器用起来是流畅还是迟缓的各种调优选项。</p>
+              <div class="pages"><span>性能</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>维护</h3>
+              <p>为镜像测速并排序、清理孤立软件包、清空 pacman 缓存、移除过期的锁文件，日常清理无需翻看 man 手册。</p>
+              <div class="pages"><span>维护</span><span>备份</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Shell 与终端</h3>
+              <p>在 bash、zsh 和 fish 之间切换默认 Shell，并配置随之而来的环境、主题和 zsh 插件。</p>
+              <div class="pages"><span>Shell</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>系统与网络</h3>
+              <p>一览硬件概况、运行中的服务和日志，另外还有网络工具和 Samba 共享。</p>
+              <div class="pages"><span>系统</span><span>网络</span><span>日志记录</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>用户、区域设置与访问</h3>
+              <p>创建并配置用户账户，设置区域、键盘布局和时区，并开启无障碍选项。</p>
+              <div class="pages"><span>用户</span><span>区域设置</span><span>无障碍功能</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>隐私</h3>
+              <p>通过 hBlock 在 DNS 层面屏蔽广告，外加一些让你的系统保护隐私的设置。</p>
+              <div class="pages"><span>隐私</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>AI 工具与更多</h3>
+              <p>与 Claude AI 集成，帮你处理自己系统上的事务；还有办公软件安装器，以及自己构建 ISO 时用到的 ISO 工具。</p>
+              <div class="pages"><span>AI 工具</span><span>办公</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">安装</p>
+          <h2>两步即可开始使用</h2>
+          <p class="lead">
+            ATT 通过 <code class="chip">nemesis_repo</code> 发布，这是一个带签名的 pacman 软件源。只需添加一次软件源，然后像安装其他软件包一样安装 ATT。下面都是普通命令，运行前你可以先读一遍。
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>第 1 步：把软件源添加到 <code>/etc/pacman.conf</code></h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">复制</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>更喜欢脚本？它做的是同样的事</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">复制</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>关于签名。</b> <code>nemesis_repo</code> 由 Kiro 密钥进行 PGP 签名，通过 <code>kiro-keyring</code> 建立信任，并继承你的全局 <code>SigLevel</code>。如果你在安装该密钥环之前就手动添加软件源，请先为这个软件源设置 <code>SigLevel = Optional</code>，等密钥环装好后再改回来。
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>第 2 步：更新并安装</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">复制</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            然后从应用程序菜单启动 <b>ArchLinux Tweak Tool</b>。只有在某个操作确实需要时，它才会请求管理员权限。
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">兼容性</p>
+          <h2>为 Arch 而生，在 Arch 系系统上同样如鱼得水</h2>
+          <p class="lead">
+            ATT 诞生于 ArcoLinux，如今可以在原版 Arch 以及人们实际在用的 Arch 系系统上运行，比如 Artix、Manjaro、CachyOS、Kiro 等等。当某个发行版有自己的做法时，ATT 会检测到并调整界面去适应，而不是与之对抗。
+          </p>
+          <ul class="prose-list">
+            <li><b>你需要：</b> 一个 Arch 或 Arch 系系统、Python 3.8 或更高版本、GTK 4.6 或更高版本，以及 pacman。</li>
+            <li><b>部分页面可选：</b> 用于软件包操作的 alacritty、fastfetch，以及你常用的 Shell。</li>
+            <li>受支持发行版的权威且始终最新的列表在源码中，请查看 <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">图库</p>
+          <h2>安装之前，先看看</h2>
+          <p class="lead">
+            这二十四张都是正在运行的应用程序中的真实页面。选择任意截图即可查看原图，然后用方向键浏览。
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="打开“AI 工具”截图原图"><img src="../assets/screenshots/att1.webp" alt="ATT 的“AI 工具”页面" width="1280" height="686" loading="lazy" /></button><figcaption>AI 工具</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="打开“自启动”截图原图"><img src="../assets/screenshots/att2.webp" alt="ATT 的“自启动”页面" width="1280" height="686" loading="lazy" /></button><figcaption>自启动</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="打开“桌面”截图原图"><img src="../assets/screenshots/att3.webp" alt="ATT 的“桌面”页面" width="1280" height="686" loading="lazy" /></button><figcaption>桌面</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="打开“Fastfetch”截图原图"><img src="../assets/screenshots/att4.webp" alt="ATT 的“Fastfetch”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="打开“图标”截图原图"><img src="../assets/screenshots/att5.webp" alt="ATT 的“图标”页面" width="1280" height="686" loading="lazy" /></button><figcaption>图标</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="打开“内核”截图原图"><img src="../assets/screenshots/att6.webp" alt="ATT 的“内核”页面" width="1280" height="686" loading="lazy" /></button><figcaption>内核</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="打开“区域设置”截图原图"><img src="../assets/screenshots/att7.webp" alt="ATT 的“区域设置”页面" width="1280" height="686" loading="lazy" /></button><figcaption>区域设置</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="打开“日志记录”截图原图"><img src="../assets/screenshots/att8.webp" alt="ATT 的“日志记录”页面" width="1280" height="686" loading="lazy" /></button><figcaption>日志记录</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="打开“维护”截图原图"><img src="../assets/screenshots/att9.webp" alt="ATT 的“维护”页面" width="1280" height="686" loading="lazy" /></button><figcaption>维护</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="打开“网络”截图原图"><img src="../assets/screenshots/att10.webp" alt="ATT 的“网络”页面" width="1280" height="686" loading="lazy" /></button><figcaption>网络</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="打开“软件包”截图原图"><img src="../assets/screenshots/att11.webp" alt="ATT 的“软件包”页面" width="1280" height="686" loading="lazy" /></button><figcaption>软件包</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="打开“Pacman”截图原图"><img src="../assets/screenshots/att12.webp" alt="ATT 的“Pacman”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="打开“Plymouth”截图原图"><img src="../assets/screenshots/att13.webp" alt="ATT 的“Plymouth”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="打开“隐私”截图原图"><img src="../assets/screenshots/att14.webp" alt="ATT 的“隐私”页面" width="1280" height="686" loading="lazy" /></button><figcaption>隐私</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="打开“性能”截图原图"><img src="../assets/screenshots/att15.webp" alt="ATT 的“性能”页面" width="1280" height="686" loading="lazy" /></button><figcaption>性能</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="打开“SDDM”截图原图"><img src="../assets/screenshots/att16.webp" alt="ATT 的“SDDM”页面" width="1280" height="686" loading="lazy" /></button><figcaption>SDDM</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="打开“服务”截图原图"><img src="../assets/screenshots/att17.webp" alt="ATT 的“服务”页面" width="1280" height="686" loading="lazy" /></button><figcaption>服务</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="打开“Shell”截图原图"><img src="../assets/screenshots/att18.webp" alt="ATT 的“Shell”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Shell</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="打开“软件”截图原图"><img src="../assets/screenshots/att19.webp" alt="ATT 的“软件”页面" width="1280" height="686" loading="lazy" /></button><figcaption>软件</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="打开“系统”截图原图"><img src="../assets/screenshots/att20.webp" alt="ATT 的“系统”页面" width="1280" height="686" loading="lazy" /></button><figcaption>系统</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="打开“Themer”截图原图"><img src="../assets/screenshots/att21.webp" alt="ATT 的“Themer”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="打开“Arc 主题”截图原图"><img src="../assets/screenshots/att22.webp" alt="ATT 的“Arc 主题”页面" width="1280" height="686" loading="lazy" /></button><figcaption>Arc 主题</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="打开“用户”截图原图"><img src="../assets/screenshots/att23.webp" alt="ATT 的“用户”页面" width="1280" height="686" loading="lazy" /></button><figcaption>用户</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="打开“壁纸”截图原图"><img src="../assets/screenshots/att24.webp" alt="ATT 的“壁纸”页面" width="1280" height="686" loading="lazy" /></button><figcaption>壁纸</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">观看</p>
+          <h2>想看看别人是怎么用的吗？</h2>
+          <p class="lead">
+            有一个完整的播放列表，逐页讲解 ATT：每一页做什么、为什么这样做，以及背后的命令。如果你看视频学得更好，就从这里开始吧。
+          </p>
+          <div class="watch-card">
+            <p><b>ArchLinux Tweak Tool 播放列表</b>：Erik Dubois YouTube 频道上的教程，免费观看，无需账号。</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              打开播放列表
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">捐赠</p>
+          <h2>感谢你使用 ATT</h2>
+          <p class="lead">
+            ATT 是免费的，而且会一直免费，这一点不会改变。如果它帮你节省了时间，或者让你学到了东西，你也愿意出一份力，可以从下面的方式开始。不勉强：免费的部分永远属于你，不支持也同样欢迎你。
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>手续费已另行承担，所以几乎全部都会用于开发。</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>小额打赏不收平台抽成：想请喝杯咖啡的时候，随时一次就好。</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>一次性直接捐赠，只收取支付处理费用。</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>按月会员：完整的课程系列、对下一步讲什么的投票权，以及会员社区。</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>YouTube 会员</b>
+              <span>同样的会员，如果你本来就常用 YouTube，也可以在那里加入。等级相同，福利相同。</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>或者换一种方式参与</b>
+              <span>提交错误报告、提议我们支持某个发行版、发起 pull request，同样都很有价值。</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            由 <b>Brad Heffernan</b>、<b>Erik Dubois</b> 和 <b>Cameron Percival</b> 开发，并感谢每一位提交过错误报告的人。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="截图查看器">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="上一张截图">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="下一张截图">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="关闭查看器">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="返回顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>返回顶部</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; 作者：Erik Dubois</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">讨论</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>

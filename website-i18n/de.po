@@ -1,0 +1,1277 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. id 88d70fd5
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool &mdash; tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | dein Arch-System anpassen, ohne das Terminal"
+
+#. id 12790b37
+#: index.html
+msgid ""
+"ArchLinux Tweak Tool (ATT) is a GTK4 application for Arch-based systems: 31 "
+"pages covering desktops, kernels, Plymouth, SDDM, themes, packages, "
+"services, performance and maintenance. Free, open, and never a black box."
+msgstr ""
+"ArchLinux Tweak Tool (ATT) ist eine GTK4-Anwendung für Arch-basierte "
+"Systeme: 31 Seiten für Desktops, Kernel, Plymouth, SDDM, Themes, Pakete, "
+"Dienste, Leistung und Wartung. Kostenlos, offen und nie eine Blackbox."
+
+#. id 1882c748
+#: index.html
+msgid "ArchLinux Tweak Tool — tweak your Arch system without the terminal"
+msgstr "ArchLinux Tweak Tool | dein Arch-System anpassen, ohne das Terminal"
+
+#. id 4dd4490a
+#: index.html
+msgid ""
+"A GTK4 tool for Arch-based systems: desktops, kernels, Plymouth, SDDM, "
+"themes, packages, services and maintenance in one place."
+msgstr ""
+"Ein GTK4-Tool für Arch-basierte Systeme: Desktops, Kernel, Plymouth, SDDM, "
+"Themes, Pakete, Dienste und Wartung an einem Ort."
+
+#. id 9bff4a85
+#: index.html
+msgid "A GTK4 tool for Arch-based systems, by Erik Dubois."
+msgstr "Ein GTK4-Tool für Arch-basierte Systeme, von Erik Dubois."
+
+#. id b7c3ca0e
+#: index.html
+msgid "Copied!"
+msgstr "Kopiert!"
+
+#. id 0a4470d6
+#: index.html
+msgid "Skip to content"
+msgstr "Zum Inhalt springen"
+
+#. id fde1411c
+#: index.html
+msgid "ArchLinux Tweak Tool home"
+msgstr "Startseite von ArchLinux Tweak Tool"
+
+#. id 3796b6e6
+#: index.html
+msgid "ArchLinux Tweak Tool"
+msgstr "ArchLinux Tweak Tool"
+
+#. id a9a96ec0
+#: index.html
+msgid "Primary"
+msgstr "Primär"
+
+#. id fc338f87
+#: index.html
+msgid "Features"
+msgstr "Funktionen"
+
+#. id fd6c3ebf
+#: index.html
+msgid "Install"
+msgstr "Installieren"
+
+#. id 9c30a348
+#: index.html
+msgid "Gallery"
+msgstr "Galerie"
+
+#. id d91ebf58
+#: index.html
+msgid "Watch"
+msgstr "Ansehen"
+
+#. id f32d5a3b
+#: index.html
+msgid "Support"
+msgstr "Unterstützen"
+
+#. id 08e8d270
+#: index.html
+msgid "Support Erik Dubois"
+msgstr "Erik Dubois unterstützen"
+
+#. id f22fdf3f
+#: index.html
+msgid "Sponsor on GitHub"
+msgstr "Auf GitHub sponsern"
+
+#. id eeb0398b
+#: index.html
+msgid "Support on Ko-fi"
+msgstr "Über Ko-fi unterstützen"
+
+#. id fd0b743b
+#: index.html
+msgid "Sponsor"
+msgstr "Sponsern"
+
+#. id 564bb00f
+#: index.html
+msgid "Join on Patreon"
+msgstr "Auf Patreon beitreten"
+
+#. id 24e27f13
+#: index.html
+msgid "Donate with PayPal"
+msgstr "Mit PayPal spenden"
+
+#. id 67fef93d
+#: index.html
+msgid "Patreon"
+msgstr "Patreon"
+
+#. id 559ef554
+#: index.html
+msgid "PayPal"
+msgstr "PayPal"
+
+#. id a797e309
+#: index.html
+msgid "Theme"
+msgstr "Theme"
+
+#. id 7304d292
+#: index.html
+msgid "Page theme"
+msgstr "Seiten-Theme"
+
+#. id d10c4096
+#: index.html
+msgid "Nordic"
+msgstr "Nordic"
+
+#. id 26d7b218
+#: index.html
+msgid "Slate"
+msgstr "Slate"
+
+#. id 60975637
+#: index.html
+msgid "Carbon"
+msgstr "Carbon"
+
+#. id 20632bc3
+#: index.html
+msgid "Ember"
+msgstr "Ember"
+
+#. id 32bb0b3e
+#: index.html
+msgid "Sepia (light)"
+msgstr "Sepia (hell)"
+
+#. id c9455d38
+#: index.html
+msgid "Paper (light)"
+msgstr "Paper (hell)"
+
+#. id 8ba7c3fb
+#: index.html
+msgid "Accent colour"
+msgstr "Akzentfarbe"
+
+#. id b3d97fd6
+#: index.html
+msgid "Sky"
+msgstr "Himmelblau"
+
+#. id 0717c0b8
+#: index.html
+msgid "Sky accent"
+msgstr "Himmelblau als Akzent"
+
+#. id c57604db
+#: index.html
+msgid "Gold"
+msgstr "Gold"
+
+#. id 7b8e578e
+#: index.html
+msgid "Gold accent"
+msgstr "Gold als Akzent"
+
+#. id da32ecab
+#: index.html
+msgid "Emerald"
+msgstr "Smaragd"
+
+#. id adcbb5d6
+#: index.html
+msgid "Emerald accent"
+msgstr "Smaragd als Akzent"
+
+#. id ddcd2f2e
+#: index.html
+msgid "Violet"
+msgstr "Violett"
+
+#. id 54a17bde
+#: index.html
+msgid "Violet accent"
+msgstr "Violett als Akzent"
+
+#. id 51ad0eae
+#: index.html
+msgid "Rose"
+msgstr "Rosé"
+
+#. id 98ca471d
+#: index.html
+msgid "Rose accent"
+msgstr "Rosé als Akzent"
+
+#. id 662f267f
+#: index.html
+msgid ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 pages &middot; Arch-based "
+"systems"
+msgstr ""
+"<span class=\"dot\" aria-hidden=\"true\"><span class=\"ping\"></span><span "
+"class=\"core\"></span></span> GTK4 &middot; 31 Seiten &middot; Arch-basierte "
+"Systeme"
+
+#. id 8362c13e
+#: index.html
+msgid ""
+"Tweak your Arch system<br /><span class=\"accent\">without the terminal</"
+"span>"
+msgstr ""
+"Passe dein Arch-System an<br /><span class=\"accent\">ohne das Terminal</"
+"span>"
+
+#. id 5ff01c17
+#: index.html
+msgid ""
+"You know what you want your system to do &mdash; a different kernel, a nicer "
+"login screen, a theme that matches, services cleaned up. ATT puts all of it "
+"behind one window, and it tells you exactly what it is about to do before it "
+"does it. Nothing hidden, nothing magic, and the commands stay yours to learn."
+msgstr ""
+"Du weißt, was dein System tun soll: ein anderer Kernel, ein schönerer "
+"Anmeldebildschirm, ein passendes Theme, aufgeräumte Dienste. ATT packt all "
+"das in ein einziges Fenster und sagt dir genau, was es tun wird, bevor es es "
+"tut. Nichts ist versteckt, nichts ist Magie, und die Befehle bleiben deine "
+"zum Lernen."
+
+#. id b7029c5a
+#: index.html
+msgid "Install ATT"
+msgstr "ATT installieren"
+
+#. id c60f2f81
+#: index.html
+msgid "Source on GitHub"
+msgstr "Quellcode auf GitHub"
+
+#. id 32be03cf
+#: index.html
+msgid ""
+"Free and open &middot; installs from <code class=\"chip\">nemesis_repo</"
+"code> &middot; works on Arch and Arch-based systems"
+msgstr ""
+"Kostenlos und offen &middot; Installation aus <code "
+"class=\"chip\">nemesis_repo</code> &middot; läuft auf Arch und Arch-"
+"basierten Systemen"
+
+#. id 016d87ba
+#: index.html
+msgid "Why ATT"
+msgstr "Warum ATT"
+
+#. id 7e535def
+#: index.html
+msgid "Never a black box"
+msgstr "Nie eine Blackbox"
+
+#. id 0f52b25c
+#: index.html
+msgid ""
+"The most frustrating thing about a system tool is not knowing what it did to "
+"your machine. ATT is built the other way round &mdash; every action explains "
+"itself, and the console output is there for you to read, learn from, and run "
+"yourself next time."
+msgstr ""
+"Das Frustrierendste an einem Systemwerkzeug ist, nicht zu wissen, was es mit "
+"deinem Rechner gemacht hat. ATT ist genau andersherum gebaut: Jede Aktion "
+"erklärt sich selbst, und die Konsolenausgabe steht zum Lesen bereit, damit "
+"du daraus lernst und es beim nächsten Mal selbst ausführen kannst."
+
+#. id 74f39697
+#: index.html
+msgid "Before"
+msgstr "Vorher"
+
+#. id 1f1a6200
+#: index.html
+msgid ""
+"You see what an action will change &mdash; a confirmation dialog or a plain "
+"label &mdash; before anything is touched."
+msgstr ""
+"Du siehst, was eine Aktion ändern wird, in einem Bestätigungsdialog oder auf "
+"einem klaren Label, bevor irgendetwas angefasst wird."
+
+#. id b47565e2
+#: index.html
+msgid "During"
+msgstr "Währenddessen"
+
+#. id 105e3577
+#: index.html
+msgid ""
+"You watch it happen: progress, the current step, and live console output "
+"while it runs."
+msgstr ""
+"Du siehst zu, wie es passiert: Fortschritt, aktueller Schritt und Live-"
+"Konsolenausgabe, während es läuft."
+
+#. id 79ba5e1b
+#: index.html
+msgid "After"
+msgstr "Danach"
+
+#. id 17546d3f
+#: index.html
+msgid ""
+"You get a summary of what actually changed &mdash; files written, packages "
+"installed, services touched."
+msgstr ""
+"Du bekommst eine Zusammenfassung dessen, was sich tatsächlich geändert hat: "
+"geschriebene Dateien, installierte Pakete, berührte Dienste."
+
+#. id 51deeac9
+#: index.html
+msgid "pages of settings"
+msgstr "Einstellungsseiten"
+
+#. id fc9a772c
+#: index.html
+msgid "command to install"
+msgstr "Befehl zur Installation"
+
+#. id 9aa97bbb
+#: index.html
+msgid "native, Python 3"
+msgstr "nativ, Python 3"
+
+#. id 75f52718
+#: index.html
+msgid "Free"
+msgstr "Kostenlos"
+
+#. id 3337b259
+#: index.html
+msgid "and open source"
+msgstr "und Open Source"
+
+#. id 810b980c
+#: index.html
+msgid "Everything in one window"
+msgstr "Alles in einem Fenster"
+
+#. id 935dddb0
+#: index.html
+msgid ""
+"Thirty-one pages in the sidebar, each one a job you would otherwise do by "
+"hand across half a dozen config files. Here is what you get."
+msgstr ""
+"Einunddreißig Seiten in der Seitenleiste, jede ein Job, den du sonst von "
+"Hand in einem halben Dutzend Konfigurationsdateien erledigen würdest. Das "
+"bekommst du."
+
+#. id 3352fd2f
+#: index.html
+msgid "Desktops and window managers"
+msgstr "Desktops und Fenstermanager"
+
+#. id f5895c60
+#: index.html
+msgid ""
+"Install and switch desktop environments &mdash; KDE, GNOME, Xfce, Hyprland, "
+"dwm and more &mdash; on both X11 and Wayland sessions."
+msgstr ""
+"Installiere Desktop-Umgebungen und wechsle zwischen ihnen (KDE, GNOME, Xfce, "
+"Hyprland, dwm und mehr), sowohl in X11- als auch in Wayland-Sitzungen."
+
+#. id 532c67fe
+#: index.html
+msgid "Desktop"
+msgstr "Desktop"
+
+#. id 2f5a8e73
+#: index.html
+msgid "Desktop - Wayland"
+msgstr "Desktop - Wayland"
+
+#. id 4a435af6
+#: index.html
+msgid "Kernels and initramfs"
+msgstr "Kernel und initramfs"
+
+#. id dd55a487
+#: index.html
+msgid ""
+"Add or remove kernels in one click. Works with mkinitcpio and dracut, and "
+"updates your GRUB entries for you."
+msgstr ""
+"Füge Kernel mit einem Klick hinzu oder entferne sie. Funktioniert mit "
+"mkinitcpio und dracut und aktualisiert deine GRUB-Einträge für dich."
+
+#. id d5617d27
+#: index.html
+msgid "Kernels"
+msgstr "Kernel"
+
+#. id 6f8072ca
+#: index.html
+msgid "Boot splash"
+msgstr "Boot-Splash"
+
+#. id 31031931
+#: index.html
+msgid ""
+"Install and switch Plymouth themes, with bootloader wiring for systemd-boot, "
+"GRUB, limine and rEFInd &mdash; and a fix for broken initramfs hooks."
+msgstr ""
+"Installiere Plymouth-Themes und wechsle zwischen ihnen, mit Bootloader-"
+"Anbindung für systemd-boot, GRUB, limine und rEFInd, plus einer Korrektur "
+"für defekte initramfs-Hooks."
+
+#. id 679fe35a
+#: index.html
+msgid "Plymouth"
+msgstr "Plymouth"
+
+#. id c8e5ffe6
+#: index.html
+msgid "Login manager"
+msgstr "Anmeldemanager"
+
+#. id c12ca421
+#: index.html
+msgid ""
+"Preview and install SDDM themes; set cursor, wallpaper, session and display "
+"options, then apply or repair the configuration."
+msgstr ""
+"Zeige SDDM-Themes in der Vorschau an und installiere sie; lege Cursor, "
+"Hintergrundbild, Sitzung und Anzeigeoptionen fest und wende die "
+"Konfiguration dann an oder repariere sie."
+
+#. id 71bb1e47
+#: index.html
+msgid "Sddm"
+msgstr "SDDM"
+
+#. id 67a7de83
+#: index.html
+msgid "Themes and icons"
+msgstr "Themes und Symbole"
+
+#. id bf6f8fc9
+#: index.html
+msgid ""
+"GTK and Plasma themes, the full Arc family, and the Neo Candy, Surfn and "
+"Horst icon sets &mdash; or apply a coordinated set in one go with the Themer."
+msgstr ""
+"GTK- und Plasma-Themes, die komplette Arc-Familie sowie die Symbolsätze Neo "
+"Candy, Surfn und Horst, oder wende mit dem Themer in einem Zug ein "
+"abgestimmtes Set an."
+
+#. id 3170c313
+#: index.html
+msgid "Themer"
+msgstr "Themer"
+
+#. id 7a26e54a
+#: index.html
+msgid "Arc themes"
+msgstr "Arc themes"
+
+#. id edb8f6c1
+#: index.html
+msgid "Icons"
+msgstr "Symbole"
+
+#. id 65826c69
+#: index.html
+msgid "Celestial themes"
+msgstr "Celestial themes"
+
+#. id 8477952c
+#: index.html
+msgid "Wallpapers"
+msgstr "Hintergrundbilder"
+
+#. id 8c45effc
+#: index.html
+msgid ""
+"Browse any folder and set your wallpaper across every supported desktop and "
+"window manager."
+msgstr ""
+"Durchsuche einen beliebigen Ordner und setze dein Hintergrundbild für jeden "
+"unterstützten Desktop und Fenstermanager."
+
+#. id 466891e2
+#: index.html
+msgid "Wallpaper"
+msgstr "Hintergrund"
+
+#. id afd92ae8
+#: index.html
+msgid "Packages and pacman"
+msgstr "Pakete und pacman"
+
+#. id 5029c622
+#: index.html
+msgid ""
+"Export your installed packages, import them on a fresh machine, and tune "
+"pacman itself &mdash; repositories, parallel downloads, and the rest of "
+"<code class=\"chip\">pacman.conf</code>."
+msgstr ""
+"Exportiere deine installierten Pakete, importiere sie auf einem frischen "
+"Rechner und passe pacman selbst an: Repositories, parallele Downloads und "
+"den Rest von <code class=\"chip\">pacman.conf</code>."
+
+#. id 0a999012
+#: index.html
+msgid "Packages"
+msgstr "Pakete"
+
+#. id 4b529bbc
+#: index.html
+msgid "Pacman"
+msgstr "Pacman"
+
+#. id 9ad05227
+#: index.html
+msgid "Software"
+msgstr "Software"
+
+#. id 7ab4a69a
+#: index.html
+msgid "Services and autostart"
+msgstr "Dienste und Autostart"
+
+#. id 5d2c4326
+#: index.html
+msgid ""
+"Enable or disable systemd services, and decide what actually launches when "
+"you log in."
+msgstr ""
+"Aktiviere oder deaktiviere systemd-Dienste und entscheide, was beim Anmelden "
+"tatsächlich startet."
+
+#. id 5cbd5840
+#: index.html
+msgid "Services"
+msgstr "Dienste"
+
+#. id 516dfe15
+#: index.html
+msgid "Autostart"
+msgstr "Autostart"
+
+#. id 63c90455
+#: index.html
+msgid "Performance"
+msgstr "Leistung"
+
+#. id 9cd0b101
+#: index.html
+msgid ""
+"CPU governor, I/O scheduler and the tuning knobs that decide whether your "
+"machine feels quick or sluggish."
+msgstr ""
+"CPU-Governor, I/O-Scheduler und die Stellschrauben, die entscheiden, ob sich "
+"dein Rechner flott oder träge anfühlt."
+
+#. id 94de303b
+#: index.html
+msgid "Maintenance"
+msgstr "Wartung"
+
+#. id ef55513c
+#: index.html
+msgid ""
+"Rank the fastest mirrors, clear orphaned packages, empty the pacman cache "
+"and remove a stale lock file &mdash; the housekeeping, without the man pages."
+msgstr ""
+"Sortiere die schnellsten Mirrors, entferne verwaiste Pakete, leere den "
+"pacman-Cache und lösche eine veraltete Sperrdatei: die Hausarbeit, ohne die "
+"Man-Pages."
+
+#. id dd96994d
+#: index.html
+msgid "Backup"
+msgstr "Backup"
+
+#. id 77195972
+#: index.html
+msgid "Btrfs"
+msgstr "Btrfs"
+
+#. id e1ea8c9f
+#: index.html
+msgid "Shells and terminal"
+msgstr "Shells und Terminal"
+
+#. id f43ec14b
+#: index.html
+msgid ""
+"Switch your default shell between bash, zsh and fish, and configure the "
+"environment, themes and zsh plugins that come with it."
+msgstr ""
+"Wechsle deine Standard-Shell zwischen bash, zsh und fish und konfiguriere "
+"die Umgebung, die Themes und die zsh-Plugins, die dazugehören."
+
+#. id df65df83
+#: index.html
+msgid "Shells"
+msgstr "Shells"
+
+#. id 19d605c8
+#: index.html
+msgid "Fastfetch"
+msgstr "Fastfetch"
+
+#. id 3f00c1e3
+#: index.html
+msgid "System and network"
+msgstr "System und Netzwerk"
+
+#. id ad535078
+#: index.html
+msgid ""
+"Hardware overview, running services and journal at a glance, plus network "
+"tools and Samba shares."
+msgstr ""
+"Hardware-Übersicht, laufende Dienste und Journal auf einen Blick, dazu "
+"Netzwerkwerkzeuge und Samba-Freigaben."
+
+#. id bc0792d8
+#: index.html
+msgid "System"
+msgstr "System"
+
+#. id 53ebc572
+#: index.html
+msgid "Network"
+msgstr "Netzwerk"
+
+#. id 57003616
+#: index.html
+msgid "Logging"
+msgstr "Logging"
+
+#. id 391f30ce
+#: index.html
+msgid "Users, locale and access"
+msgstr "Benutzer, Locale und Zugriff"
+
+#. id 55f7d50e
+#: index.html
+msgid ""
+"Create and configure user accounts, set locale, keyboard layout and "
+"timezone, and turn on accessibility options."
+msgstr ""
+"Erstelle und konfiguriere Benutzerkonten, lege Locale, Tastaturlayout und "
+"Zeitzone fest und aktiviere Barrierefreiheitsoptionen."
+
+#. id 9f8a2389
+#: index.html
+msgid "User"
+msgstr "Benutzer"
+
+#. id 8970f0e6
+#: index.html
+msgid "Locale"
+msgstr "Locale"
+
+#. id d660049b
+#: index.html
+msgid "Accessibility"
+msgstr "Barrierefreiheit"
+
+#. id cf01481f
+#: index.html
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#. id 54796043
+#: index.html
+msgid ""
+"hBlock DNS-level ad blocking and a handful of settings that keep your system "
+"to yourself."
+msgstr ""
+"hBlock für Werbeblockierung auf DNS-Ebene und eine Handvoll Einstellungen, "
+"die dein System für sich behalten."
+
+#. id 1d2042b6
+#: index.html
+msgid "AI tools and extras"
+msgstr "KI-Tools und Extras"
+
+#. id 8a7ad178
+#: index.html
+msgid ""
+"Claude AI integration for help with your own system, office software "
+"installers, and the ISO tooling if you build your own."
+msgstr ""
+"Claude-KI-Integration für Hilfe bei deinem eigenen System, Installer für "
+"Office-Software und die ISO-Werkzeuge, falls du selbst eine baust."
+
+#. id 58d44d0c
+#: index.html
+msgid "AI Tools"
+msgstr "KI-Tools"
+
+#. id 6c3a72ea
+#: index.html
+msgid "Office"
+msgstr "Office"
+
+#. id 4f325d99
+#: index.html
+msgid "ISO"
+msgstr "ISO"
+
+#. id 32cf39eb
+#: index.html
+msgid "Two steps and you are running"
+msgstr "Zwei Schritte und du bist startklar"
+
+#. id 6264a9e9
+#: index.html
+msgid ""
+"ATT ships from <code class=\"chip\">nemesis_repo</code>, a signed pacman "
+"repository. Add the repo once, then install ATT like any other package. "
+"Everything below is a normal command you can read before you run it."
+msgstr ""
+"ATT kommt aus <code class=\"chip\">nemesis_repo</code>, einem signierten "
+"pacman-Repository. Füge das Repo einmal hinzu und installiere ATT dann wie "
+"jedes andere Paket. Alles unten ist ein normaler Befehl, den du lesen "
+"kannst, bevor du ihn ausführst."
+
+#. id 903e89f7
+#: index.html
+msgid "Step 1 &mdash; add the repo to <code>/etc/pacman.conf</code>"
+msgstr "Schritt 1: das Repo zu <code>/etc/pacman.conf</code> hinzufügen"
+
+#. id af74f7c5
+#: index.html
+msgid "Copy"
+msgstr "Kopieren"
+
+#. id bce18d41
+#: index.html
+msgid "Prefer a script? This does the same thing"
+msgstr "Lieber ein Skript? Das macht dasselbe"
+
+#. id 1d28ba54
+#: index.html
+msgid ""
+"<b>About the signature.</b> <code>nemesis_repo</code> is PGP-signed by the "
+"Kiro key, trusted through <code>kiro-keyring</code>, and it inherits your "
+"global <code>SigLevel</code>. If you are adding the repo by hand before that "
+"keyring is installed, set <code>SigLevel = Optional</code> for this repo "
+"until it is in place."
+msgstr ""
+"<b>Zur Signatur.</b> <code>nemesis_repo</code> ist mit dem Kiro-Schlüssel "
+"PGP-signiert, wird über <code>kiro-keyring</code> als vertrauenswürdig "
+"eingestuft und übernimmt dein globales <code>SigLevel</code>. Wenn du das "
+"Repo von Hand hinzufügst, bevor dieser Schlüsselbund installiert ist, setze "
+"für dieses Repo <code>SigLevel = Optional</code>, bis er vorhanden ist."
+
+#. id 0f795ccf
+#: index.html
+msgid "Step 2 &mdash; update and install"
+msgstr "Schritt 2: aktualisieren und installieren"
+
+#. id bf20bc7a
+#: index.html
+msgid ""
+"Then launch <b>ArchLinux Tweak Tool</b> from your application menu. It asks "
+"for administrative rights only when an action genuinely needs them."
+msgstr ""
+"Starte danach <b>ArchLinux Tweak Tool</b> aus deinem Anwendungsmenü. Es "
+"fragt nur dann nach Administratorrechten, wenn eine Aktion sie wirklich "
+"braucht."
+
+#. id 5d60c7dd
+#: index.html
+msgid "Compatibility"
+msgstr "Kompatibilität"
+
+#. id 09edb1e9
+#: index.html
+msgid "Built for Arch, at home on Arch-based systems"
+msgstr "Für Arch gebaut, zu Hause auf Arch-basierten Systemen"
+
+#. id bf51db4f
+#: index.html
+msgid ""
+"ATT started life on ArcoLinux and now runs on plain Arch and on the Arch-"
+"based systems people actually use &mdash; Artix, Manjaro, CachyOS, Kiro and "
+"many more. Where a distribution does things its own way, ATT detects it and "
+"adapts the interface instead of fighting it."
+msgstr ""
+"ATT begann auf ArcoLinux und läuft heute auf reinem Arch und auf den Arch-"
+"basierten Systemen, die Menschen tatsächlich nutzen: Artix, Manjaro, "
+"CachyOS, Kiro und viele mehr. Wo eine Distribution Dinge auf ihre eigene Art "
+"macht, erkennt ATT das und passt die Oberfläche an, statt dagegen "
+"anzukämpfen."
+
+#. id 4a3014d2
+#: index.html
+msgid ""
+"<b>You need:</b> an Arch or Arch-based system, Python 3.8 or later, GTK 4.6 "
+"or later, and pacman."
+msgstr ""
+"<b>Du brauchst:</b> ein Arch- oder Arch-basiertes System, Python 3.8 oder "
+"neuer, GTK 4.6 oder neuer und pacman."
+
+#. id a9a631e7
+#: index.html
+msgid ""
+"<b>Optional, for some pages:</b> alacritty for package operations, "
+"fastfetch, and your shell of choice."
+msgstr ""
+"<b>Optional, für einige Seiten:</b> alacritty für Paketoperationen, "
+"fastfetch und die Shell deiner Wahl."
+
+#. id f5fb13b9
+#: index.html
+msgid ""
+"The authoritative, always-current list of supported distributions lives in "
+"the source &mdash; see the <a href=\"https://github.com/kirodubes/archlinux-"
+"tweak-tool\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub "
+"repository</a>."
+msgstr ""
+"Die maßgebliche, stets aktuelle Liste der unterstützten Distributionen steht "
+"im Quellcode: siehe das <a href=\"https://github.com/kirodubes/archlinux-"
+"tweak-tool\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub-"
+"Repository</a>."
+
+#. id d615ebe8
+#: index.html
+msgid "See it before you install it"
+msgstr "Sieh es dir an, bevor du es installierst"
+
+#. id 8c8b5046
+#: index.html
+msgid ""
+"All twenty-four of these are real pages in the running application. Select "
+"any screenshot to open it full size, then use the arrow keys to browse."
+msgstr ""
+"Alle vierundzwanzig sind echte Seiten der laufenden Anwendung. Wähle einen "
+"Screenshot, um ihn in voller Größe zu öffnen, und blättere dann mit den "
+"Pfeiltasten."
+
+#. id e494be98
+#: index.html
+msgid "Open the AI Tools screenshot full size"
+msgstr "Screenshot KI-Tools in voller Größe öffnen"
+
+#. id b45d17af
+#: index.html
+msgid "ATT AI Tools page"
+msgstr "ATT-Seite KI-Tools"
+
+#. id d8fa07ab
+#: index.html
+msgid "Open the Autostart screenshot full size"
+msgstr "Screenshot Autostart in voller Größe öffnen"
+
+#. id 067cea2f
+#: index.html
+msgid "ATT Autostart page"
+msgstr "ATT-Seite Autostart"
+
+#. id 474c973a
+#: index.html
+msgid "Open the Desktop screenshot full size"
+msgstr "Screenshot Desktop in voller Größe öffnen"
+
+#. id b3a18264
+#: index.html
+msgid "ATT Desktop page"
+msgstr "ATT-Seite Desktop"
+
+#. id 332ecbd3
+#: index.html
+msgid "Open the Fastfetch screenshot full size"
+msgstr "Screenshot Fastfetch in voller Größe öffnen"
+
+#. id 717338ec
+#: index.html
+msgid "ATT Fastfetch page"
+msgstr "ATT-Seite Fastfetch"
+
+#. id 791d8966
+#: index.html
+msgid "Open the Icons screenshot full size"
+msgstr "Screenshot Symbole in voller Größe öffnen"
+
+#. id 149960d9
+#: index.html
+msgid "ATT Icons page"
+msgstr "ATT-Seite Symbole"
+
+#. id 4543b5b5
+#: index.html
+msgid "Open the Kernels screenshot full size"
+msgstr "Screenshot Kernel in voller Größe öffnen"
+
+#. id 1de46bb9
+#: index.html
+msgid "ATT Kernels page"
+msgstr "ATT-Seite Kernel"
+
+#. id 7e80befc
+#: index.html
+msgid "Open the Locale screenshot full size"
+msgstr "Screenshot Locale in voller Größe öffnen"
+
+#. id d10dfd61
+#: index.html
+msgid "ATT Locale page"
+msgstr "ATT-Seite Locale"
+
+#. id db008684
+#: index.html
+msgid "Open the Logging screenshot full size"
+msgstr "Screenshot Logging in voller Größe öffnen"
+
+#. id aabcebb9
+#: index.html
+msgid "ATT Logging page"
+msgstr "ATT-Seite Logging"
+
+#. id 7c20b689
+#: index.html
+msgid "Open the Maintenance screenshot full size"
+msgstr "Screenshot Wartung in voller Größe öffnen"
+
+#. id 6624d6df
+#: index.html
+msgid "ATT Maintenance page"
+msgstr "ATT-Seite Wartung"
+
+#. id 56aeac42
+#: index.html
+msgid "Open the Network screenshot full size"
+msgstr "Screenshot Netzwerk in voller Größe öffnen"
+
+#. id 1d846a5b
+#: index.html
+msgid "ATT Network page"
+msgstr "ATT-Seite Netzwerk"
+
+#. id 8d616249
+#: index.html
+msgid "Open the Packages screenshot full size"
+msgstr "Screenshot Pakete in voller Größe öffnen"
+
+#. id 68718269
+#: index.html
+msgid "ATT Packages page"
+msgstr "ATT-Seite Pakete"
+
+#. id 74d3e160
+#: index.html
+msgid "Open the Pacman screenshot full size"
+msgstr "Screenshot Pacman in voller Größe öffnen"
+
+#. id 5f177ce7
+#: index.html
+msgid "ATT Pacman page"
+msgstr "ATT-Seite Pacman"
+
+#. id c978bada
+#: index.html
+msgid "Open the Plymouth screenshot full size"
+msgstr "Screenshot Plymouth in voller Größe öffnen"
+
+#. id d9c0b11a
+#: index.html
+msgid "ATT Plymouth page"
+msgstr "ATT-Seite Plymouth"
+
+#. id 09778c16
+#: index.html
+msgid "Open the Privacy screenshot full size"
+msgstr "Screenshot Datenschutz in voller Größe öffnen"
+
+#. id 9344c32f
+#: index.html
+msgid "ATT Privacy page"
+msgstr "ATT-Seite Datenschutz"
+
+#. id 228f9d49
+#: index.html
+msgid "Open the Performance screenshot full size"
+msgstr "Screenshot Leistung in voller Größe öffnen"
+
+#. id 9d906571
+#: index.html
+msgid "ATT Performance page"
+msgstr "ATT-Seite Leistung"
+
+#. id fd76fa25
+#: index.html
+msgid "Open the Sddm screenshot full size"
+msgstr "Screenshot SDDM in voller Größe öffnen"
+
+#. id c73833c7
+#: index.html
+msgid "ATT Sddm page"
+msgstr "ATT-Seite SDDM"
+
+#. id 5ab88a8f
+#: index.html
+msgid "Open the Services screenshot full size"
+msgstr "Screenshot Dienste in voller Größe öffnen"
+
+#. id a0577e51
+#: index.html
+msgid "ATT Services page"
+msgstr "ATT-Seite Dienste"
+
+#. id 531f3a9e
+#: index.html
+msgid "Open the Shells screenshot full size"
+msgstr "Screenshot Shells in voller Größe öffnen"
+
+#. id 1a74e7a8
+#: index.html
+msgid "ATT Shells page"
+msgstr "ATT-Seite Shells"
+
+#. id e37ca86f
+#: index.html
+msgid "Open the Software screenshot full size"
+msgstr "Screenshot Software in voller Größe öffnen"
+
+#. id 04bff430
+#: index.html
+msgid "ATT Software page"
+msgstr "ATT-Seite Software"
+
+#. id 2b1b081f
+#: index.html
+msgid "Open the System screenshot full size"
+msgstr "Screenshot System in voller Größe öffnen"
+
+#. id 5985d010
+#: index.html
+msgid "ATT System page"
+msgstr "ATT-Seite System"
+
+#. id 2b3819fa
+#: index.html
+msgid "Open the Themer screenshot full size"
+msgstr "Screenshot Themer in voller Größe öffnen"
+
+#. id dee76db2
+#: index.html
+msgid "ATT Themer page"
+msgstr "ATT-Seite Themer"
+
+#. id 129f8ff4
+#: index.html
+msgid "Open the Arc themes screenshot full size"
+msgstr "Screenshot Arc themes in voller Größe öffnen"
+
+#. id fa1add35
+#: index.html
+msgid "ATT Arc themes page"
+msgstr "ATT-Seite Arc themes"
+
+#. id 4c22862c
+#: index.html
+msgid "Open the User screenshot full size"
+msgstr "Screenshot Benutzer in voller Größe öffnen"
+
+#. id a14f824e
+#: index.html
+msgid "ATT User page"
+msgstr "ATT-Seite Benutzer"
+
+#. id 07ec4dc4
+#: index.html
+msgid "Open the Wallpaper screenshot full size"
+msgstr "Screenshot Hintergrund in voller Größe öffnen"
+
+#. id 76693871
+#: index.html
+msgid "ATT Wallpaper page"
+msgstr "ATT-Seite Hintergrund"
+
+#. id 059268fb
+#: index.html
+msgid "Prefer to see someone use it?"
+msgstr "Lieber jemandem beim Benutzen zusehen?"
+
+#. id 2f6e4bdb
+#: index.html
+msgid ""
+"There is a full playlist walking through ATT page by page &mdash; what each "
+"one does, why it does it that way, and the commands underneath. If you learn "
+"better by watching, start there."
+msgstr ""
+"Es gibt eine vollständige Playlist, die ATT Seite für Seite durchgeht: was "
+"jede Seite tut, warum sie es so tut und welche Befehle darunter liegen. Wenn "
+"du besser lernst, indem du zuschaust, fang dort an."
+
+#. id 9a15f113
+#: index.html
+msgid ""
+"<b>ArchLinux Tweak Tool playlist</b> &mdash; tutorials on the Erik Dubois "
+"YouTube channel, free to watch, no account needed."
+msgstr ""
+"<b>ArchLinux Tweak Tool Playlist</b>: Tutorials auf dem YouTube-Kanal von "
+"Erik Dubois, kostenlos anzusehen, kein Konto nötig."
+
+#. id 04ff8f78
+#: index.html
+msgid "Open the playlist"
+msgstr "Playlist öffnen"
+
+#. id 674b63de
+#: index.html
+msgid "Thank you for using ATT"
+msgstr "Danke, dass du ATT nutzt"
+
+#. id 47dd7fae
+#: index.html
+msgid ""
+"ATT is free and stays free &mdash; that is not going to change. If it has "
+"saved you time or taught you something and you would like to chip in, here "
+"is where. No pressure either way: the free part is yours to keep, and you "
+"are just as welcome without it."
+msgstr ""
+"ATT ist kostenlos und bleibt kostenlos, das ändert sich nicht. Wenn es dir "
+"Zeit gespart oder etwas beigebracht hat und du etwas beitragen möchtest, "
+"findest du hier, wie. Kein Druck in beide Richtungen: Der kostenlose Teil "
+"gehört dir, und du bist auch ohne Beitrag genauso willkommen."
+
+#. id 2bdab7e5
+#: index.html
+msgid "GitHub Sponsors"
+msgstr "GitHub Sponsors"
+
+#. id e12df3b0
+#: index.html
+msgid "Processing is covered, so close to all of it reaches development."
+msgstr ""
+"Die Abwicklung ist abgedeckt, daher kommt fast alles der Entwicklung zugute."
+
+#. id 2edf198b
+#: index.html
+msgid ""
+"No platform cut on tips &mdash; a one-off coffee, whenever you feel like it."
+msgstr ""
+"Kein Plattformanteil bei Trinkgeldern: ein einmaliger Kaffee, wann immer du "
+"Lust hast."
+
+#. id f9002832
+#: index.html
+msgid "A direct one-off donation, payment processing only."
+msgstr ""
+"Eine direkte einmalige Spende, nur die Zahlungsabwicklung wird abgezogen."
+
+#. id fe02d5ce
+#: index.html
+msgid ""
+"Monthly membership: the full course series, a vote on what gets covered "
+"next, and the members community."
+msgstr ""
+"Monatliche Mitgliedschaft: die komplette Kursreihe, ein Mitspracherecht, was "
+"als Nächstes behandelt wird, und die Mitgliedergemeinschaft."
+
+#. id 6ff7d720
+#: index.html
+msgid "YouTube membership"
+msgstr "YouTube-Mitgliedschaft"
+
+#. id 02cb5f39
+#: index.html
+msgid ""
+"The identical membership, if YouTube is where you already are. Same tiers, "
+"same perks."
+msgstr ""
+"Dieselbe Mitgliedschaft, falls YouTube ohnehin dein Ort ist. Gleiche Stufen, "
+"gleiche Vorteile."
+
+#. id bfa39502
+#: index.html
+msgid "Or contribute instead"
+msgstr "Oder trage anders bei"
+
+#. id 1510cf1c
+#: index.html
+msgid ""
+"Bug reports, a distribution we should support, a pull request &mdash; all "
+"just as valuable."
+msgstr ""
+"Fehlerberichte, eine Distribution, die wir unterstützen sollten, ein Pull-"
+"Request: alles ist genauso wertvoll."
+
+#. id 3d5f4fd4
+#: index.html
+msgid ""
+"Built by <b>Brad Heffernan</b>, <b>Erik Dubois</b> and <b>Cameron Percival</"
+"b>, with everyone who has ever filed a bug report."
+msgstr ""
+"Gebaut von <b>Brad Heffernan</b>, <b>Erik Dubois</b> und <b>Cameron "
+"Percival</b>, zusammen mit allen, die je einen Fehlerbericht eingereicht "
+"haben."
+
+#. id f8178ce2
+#: index.html
+msgid "Screenshot viewer"
+msgstr "Screenshot-Betrachter"
+
+#. id 0cd6661b
+#: index.html
+msgid "Previous screenshot"
+msgstr "Vorheriger Screenshot"
+
+#. id ea23b3e8
+#: index.html
+msgid "Next screenshot"
+msgstr "Nächster Screenshot"
+
+#. id b9fbfc7e
+#: index.html
+msgid "Close viewer"
+msgstr "Betrachter schließen"
+
+#. id d9c883a9
+#: index.html
+msgid "Back to top"
+msgstr "Nach oben"
+
+#. id cae0435c
+#: index.html
+msgid "Top"
+msgstr "Nach oben"
+
+#. id 5210c901
+#: index.html
+msgid "&copy; 2026 ArchLinux Tweak Tool &middot; Built by Erik Dubois"
+msgstr "&copy; 2026 ArchLinux Tweak Tool &middot; Gebaut von Erik Dubois"
+
+#. id 558865a1
+#: index.html
+msgid "YouTube"
+msgstr "YouTube"
+
+#. id 0474a6c6
+#: index.html
+msgid "Discussions"
+msgstr "Discussions"

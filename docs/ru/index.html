@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | настройте систему Arch без терминала</title>
+    <meta name="description" content="ArchLinux Tweak Tool (ATT) — это приложение GTK4 для систем на базе Arch: 31 страница с настройками рабочих столов, ядер, Plymouth, SDDM, тем, пакетов, служб, производительности и обслуживания. Бесплатное, открытое и без «чёрных ящиков»." />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | настройте систему Arch без терминала" />
+    <meta property="og:description" content="Приложение GTK4 для систем на базе Arch: рабочие столы, ядра, Plymouth, SDDM, темы, пакеты, службы и обслуживание в одном месте." />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | настройте систему Arch без терминала" />
+    <meta name="twitter:description" content="Приложение GTK4 для систем на базе Arch от Erik Dubois." />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'Скопировано!';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="Главная страница ArchLinux Tweak Tool">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="Основной">
+            <a href="#features">Возможности</a>
+            <a href="#install">Установка</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#watch">Смотреть</a>
+            <a href="#support">Поддержать</a>
+          </nav>
+
+          <div class="support" aria-label="Поддержать Erik Dubois">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="Поддержать на GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">Спонсировать</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="Поддержать на Ko-fi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="Вступить на Patreon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="Пожертвовать через PayPal">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>RU</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="../nl/index.html" lang="nl" hreflang="nl">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="index.html" lang="ru" hreflang="ru" aria-current="page">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="../hu/index.html" lang="hu" hreflang="hu">Magyar</a>
+              <a href="../tr/index.html" lang="tr" hreflang="tr">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="../ja/index.html" lang="ja" hreflang="ja">日本語</a>
+              <a href="../zh/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">Тема</span>
+            <select id="theme-select" class="theme-select" aria-label="Тема страницы">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia (светлая)</option>
+              <option value="paper">Paper (светлая)</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="Цвет акцента">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="Небесно-голубой" aria-label="Небесно-голубой" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="Золотой" aria-label="Золотой" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="Изумрудный" aria-label="Изумрудный" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="Фиолетовый" aria-label="Фиолетовый" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="Розовый" aria-label="Розовый" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 страница &middot; системы на базе Arch
+          </a>
+          <h1>Настройте систему Arch<br /><span class="accent">без терминала</span></h1>
+          <p class="lead">
+            Вы знаете, чего хотите от своей системы: другое ядро, красивый экран входа, подходящая тема, порядок в службах. ATT собирает всё это в одном окне и заранее сообщает, что именно собирается сделать. Ничего скрытого, никакой магии, а команды остаются вам, чтобы их изучать.
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Установить ATT
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              Исходный код на GitHub
+            </a>
+          </div>
+          <p class="hero-foot">Бесплатно и открыто &middot; устанавливается из <code class="chip">nemesis_repo</code> &middot; работает в Arch и системах на базе Arch</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Почему ATT</p>
+          <h2>Никаких «чёрных ящиков»</h2>
+          <p class="lead">
+            Самое неприятное в системном инструменте то, что не знаешь, что он сделал с вашей машиной. ATT устроен наоборот: каждое действие объясняет себя, а вывод консоли доступен, чтобы вы читали его, учились и в следующий раз запускали команды сами.
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>До</b>
+              <span>Вы видите, что изменит действие, в диалоге подтверждения или в обычной подписи, прежде чем что-либо будет затронуто.</span>
+            </li>
+            <li>
+              <b>Во время</b>
+              <span>Вы наблюдаете за процессом: прогресс, текущий шаг и вывод консоли в реальном времени.</span>
+            </li>
+            <li>
+              <b>После</b>
+              <span>Вы получаете сводку того, что действительно изменилось: записанные файлы, установленные пакеты, затронутые службы.</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">страниц настроек</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">команда для установки</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">нативное, Python 3</span></div>
+            <div class="stat"><span class="value">Бесплатное</span><span class="label">и с открытым исходным кодом</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Возможности</p>
+          <h2>Всё в одном окне</h2>
+          <p class="lead">
+            Тридцать одна страница в боковой панели, и каждая заменяет работу, которую иначе пришлось бы делать вручную в полудюжине конфигурационных файлов. Вот что вы получаете.
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>Рабочие столы и оконные менеджеры</h3>
+              <p>Устанавливайте и переключайте среды рабочего стола (KDE, GNOME, Xfce, Hyprland, dwm и другие) как в сеансах X11, так и в Wayland.</p>
+              <div class="pages"><span>Рабочий стол</span><span>Рабочий стол - Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Ядра и initramfs</h3>
+              <p>Добавляйте и удаляйте ядра одним щелчком. Работает с mkinitcpio и dracut, а записи GRUB обновляет за вас.</p>
+              <div class="pages"><span>Ядра</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Экран загрузки</h3>
+              <p>Устанавливайте и переключайте темы Plymouth: настройка загрузчиков systemd-boot, GRUB, limine и rEFInd входит в комплект, как и исправление сломанных хуков initramfs.</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Менеджер входа</h3>
+              <p>Просматривайте и устанавливайте темы SDDM; задавайте курсор, обои, сеанс и параметры экрана, затем применяйте или восстанавливайте конфигурацию.</p>
+              <div class="pages"><span>SDDM</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Темы и значки</h3>
+              <p>Темы GTK и Plasma, всё семейство Arc, наборы значков Neo Candy, Surfn и Horst, а также согласованный набор, который применяется за один раз через Themer.</p>
+              <div class="pages"><span>Themer</span><span>Темы Arc</span><span>Значки</span><span>Темы celestial</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Обои</h3>
+              <p>Выберите любую папку и установите обои сразу для всех поддерживаемых рабочих столов и оконных менеджеров.</p>
+              <div class="pages"><span>Обои</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Пакеты и pacman</h3>
+              <p>Экспортируйте установленные пакеты, импортируйте их на новой машине и настраивайте сам pacman: репозитории, параллельные загрузки и остальное в <code class="chip">pacman.conf</code>.</p>
+              <div class="pages"><span>Пакеты</span><span>Pacman</span><span>Программы</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Службы и автозапуск</h3>
+              <p>Включайте и отключайте службы systemd и решайте, что именно запускается при входе в систему.</p>
+              <div class="pages"><span>Службы</span><span>Автозапуск</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Производительность</h3>
+              <p>Задайте регулятор частоты процессора, планировщик ввода-вывода и другие параметры, от которых зависит, будет ли система отзывчивой или вялой.</p>
+              <div class="pages"><span>Производительность</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Обслуживание</h3>
+              <p>Выбирайте самые быстрые зеркала, удаляйте пакеты-сироты, очищайте кэш pacman и убирайте устаревший файл блокировки: рутина без чтения man-страниц.</p>
+              <div class="pages"><span>Обслуживание</span><span>Резервное копирование</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Оболочки и терминал</h3>
+              <p>Переключайте оболочку по умолчанию между bash, zsh и fish и настраивайте окружение, темы и плагины zsh, которые к ней прилагаются.</p>
+              <div class="pages"><span>Оболочки</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Система и сеть</h3>
+              <p>Обзор оборудования, работающие службы и журнал на одном экране, а также сетевые инструменты и общие папки Samba.</p>
+              <div class="pages"><span>Система</span><span>Сеть</span><span>Журналирование</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Пользователи, локаль и доступ</h3>
+              <p>Создавайте и настраивайте учётные записи, задавайте локаль, раскладку клавиатуры и часовой пояс, включайте функции специальных возможностей.</p>
+              <div class="pages"><span>Пользователь</span><span>Локаль</span><span>Специальные возможности</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Конфиденциальность</h3>
+              <p>Блокировка рекламы на уровне DNS с помощью hBlock и несколько параметров, чтобы ваша система оставалась только вашей.</p>
+              <div class="pages"><span>Конфиденциальность</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>Инструменты ИИ и дополнения</h3>
+              <p>Интеграция Claude AI для помощи с вашей системой, установщики офисных программ и инструменты для ISO, если вы собираете свой образ.</p>
+              <div class="pages"><span>Инструменты ИИ</span><span>Офис</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Установка</p>
+          <h2>Всего два шага, и всё работает</h2>
+          <p class="lead">
+            ATT поставляется из <code class="chip">nemesis_repo</code>, подписанного репозитория pacman. Добавьте репозиторий один раз, затем устанавливайте ATT как любой другой пакет. Всё ниже представляет собой обычные команды, которые можно прочитать до запуска.
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Шаг 1: добавьте репозиторий в <code>/etc/pacman.conf</code></h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">Скопировать</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Предпочитаете скрипт? Он делает то же самое</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">Скопировать</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>О подписи.</b> <code>nemesis_repo</code> подписан PGP-ключом Kiro, которому доверяют через <code>kiro-keyring</code>, и наследует ваш глобальный <code>SigLevel</code>. Если вы добавляете репозиторий вручную до установки этого набора ключей, задайте для него <code>SigLevel = Optional</code>, пока набор ключей не будет на месте.
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>Шаг 2: обновите систему и установите ATT</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">Скопировать</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Затем запустите <b>ArchLinux Tweak Tool</b> из меню приложений. Права администратора запрашиваются только тогда, когда действию они действительно нужны.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Совместимость</p>
+          <h2>Создан для Arch, как дома в системах на базе Arch</h2>
+          <p class="lead">
+            ATT появился в ArcoLinux, а теперь работает в чистом Arch и в системах на его основе, которыми люди пользуются на самом деле: Artix, Manjaro, CachyOS, Kiro и многих других. Если дистрибутив делает что-то по-своему, ATT замечает это и подстраивает интерфейс, а не борется с системой.
+          </p>
+          <ul class="prose-list">
+            <li><b>Вам понадобится:</b> система Arch или на базе Arch, Python 3.8 или новее, GTK 4.6 или новее и pacman.</li>
+            <li><b>По желанию, для некоторых страниц:</b> alacritty для операций с пакетами, fastfetch и оболочка на ваш выбор.</li>
+            <li>Полный и всегда актуальный список поддерживаемых дистрибутивов находится в исходном коде, см. <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">репозиторий на GitHub</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Галерея</p>
+          <h2>Посмотрите, прежде чем устанавливать</h2>
+          <p class="lead">
+            Все двадцать четыре снимка сделаны на настоящих страницах работающего приложения. Выберите любой снимок экрана, чтобы открыть его в полном размере, затем листайте стрелками на клавиатуре.
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="Открыть снимок экрана «Инструменты ИИ» в полном размере"><img src="../assets/screenshots/att1.webp" alt="Страница «Инструменты ИИ» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Инструменты ИИ</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="Открыть снимок экрана «Автозапуск» в полном размере"><img src="../assets/screenshots/att2.webp" alt="Страница «Автозапуск» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Автозапуск</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="Открыть снимок экрана «Рабочий стол» в полном размере"><img src="../assets/screenshots/att3.webp" alt="Страница «Рабочий стол» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Рабочий стол</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="Открыть снимок экрана «Fastfetch» в полном размере"><img src="../assets/screenshots/att4.webp" alt="Страница «Fastfetch» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="Открыть снимок экрана «Значки» в полном размере"><img src="../assets/screenshots/att5.webp" alt="Страница «Значки» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Значки</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="Открыть снимок экрана «Ядра» в полном размере"><img src="../assets/screenshots/att6.webp" alt="Страница «Ядра» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Ядра</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="Открыть снимок экрана «Локаль» в полном размере"><img src="../assets/screenshots/att7.webp" alt="Страница «Локаль» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Локаль</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="Открыть снимок экрана «Журналирование» в полном размере"><img src="../assets/screenshots/att8.webp" alt="Страница «Журналирование» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Журналирование</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="Открыть снимок экрана «Обслуживание» в полном размере"><img src="../assets/screenshots/att9.webp" alt="Страница «Обслуживание» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Обслуживание</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="Открыть снимок экрана «Сеть» в полном размере"><img src="../assets/screenshots/att10.webp" alt="Страница «Сеть» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Сеть</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="Открыть снимок экрана «Пакеты» в полном размере"><img src="../assets/screenshots/att11.webp" alt="Страница «Пакеты» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Пакеты</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="Открыть снимок экрана «Pacman» в полном размере"><img src="../assets/screenshots/att12.webp" alt="Страница «Pacman» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="Открыть снимок экрана «Plymouth» в полном размере"><img src="../assets/screenshots/att13.webp" alt="Страница «Plymouth» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="Открыть снимок экрана «Конфиденциальность» в полном размере"><img src="../assets/screenshots/att14.webp" alt="Страница «Конфиденциальность» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Конфиденциальность</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="Открыть снимок экрана «Производительность» в полном размере"><img src="../assets/screenshots/att15.webp" alt="Страница «Производительность» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Производительность</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="Открыть снимок экрана «SDDM» в полном размере"><img src="../assets/screenshots/att16.webp" alt="Страница «SDDM» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>SDDM</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="Открыть снимок экрана «Службы» в полном размере"><img src="../assets/screenshots/att17.webp" alt="Страница «Службы» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Службы</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="Открыть снимок экрана «Оболочки» в полном размере"><img src="../assets/screenshots/att18.webp" alt="Страница «Оболочки» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Оболочки</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="Открыть снимок экрана «Программы» в полном размере"><img src="../assets/screenshots/att19.webp" alt="Страница «Программы» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Программы</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="Открыть снимок экрана «Система» в полном размере"><img src="../assets/screenshots/att20.webp" alt="Страница «Система» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Система</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="Открыть снимок экрана «Themer» в полном размере"><img src="../assets/screenshots/att21.webp" alt="Страница «Themer» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="Открыть снимок экрана «Темы Arc» в полном размере"><img src="../assets/screenshots/att22.webp" alt="Страница «Темы Arc» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Темы Arc</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="Открыть снимок экрана «Пользователь» в полном размере"><img src="../assets/screenshots/att23.webp" alt="Страница «Пользователь» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Пользователь</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="Открыть снимок экрана «Обои» в полном размере"><img src="../assets/screenshots/att24.webp" alt="Страница «Обои» в ATT" width="1280" height="686" loading="lazy" /></button><figcaption>Обои</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Смотреть</p>
+          <h2>Хотите посмотреть, как это делает другой человек?</h2>
+          <p class="lead">
+            Есть полный плейлист, где ATT разбирается страница за страницей: что делает каждая, почему именно так и какие команды работают под капотом. Если вам лучше учиться, наблюдая, начните с него.
+          </p>
+          <div class="watch-card">
+            <p><b>Плейлист ArchLinux Tweak Tool</b>: уроки на YouTube-канале Erik Dubois, смотреть бесплатно, аккаунт не нужен.</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              Открыть плейлист
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">Поддержать</p>
+          <h2>Спасибо, что пользуетесь ATT</h2>
+          <p class="lead">
+            ATT бесплатен и останется таким, это не изменится. Если он сэкономил вам время или чему-то вас научил и вы хотите помочь, вот куда можно обратиться. Никакого давления: бесплатная часть остаётся вам, и вам рады точно так же и без поддержки.
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>Комиссию за обработку платежа покрывает сервис, поэтому почти всё достаётся разработке.</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>Без комиссии платформы на чаевых: разовая чашка кофе, когда захочется.</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>Прямое разовое пожертвование, удерживается только плата за обработку платежа.</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>Ежемесячное членство: полная серия курсов, голос в выборе следующих тем и сообщество участников.</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>Членство на YouTube</b>
+              <span>То же самое членство, если вы привыкли пользоваться YouTube. Те же уровни, те же преимущества.</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>Или помогите иначе</b>
+              <span>Отчёты об ошибках, предложение поддержать новый дистрибутив, pull request: всё это так же ценно.</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            Создано <b>Brad Heffernan</b>, <b>Erik Dubois</b> и <b>Cameron Percival</b> вместе со всеми, кто когда-либо отправлял отчёт об ошибке.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="Просмотр снимков экрана">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="Предыдущий снимок экрана">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="Следующий снимок экрана">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="Закрыть просмотр">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="Наверх">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>Наверх</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; Создал Erik Dubois</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">Обсуждения</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>

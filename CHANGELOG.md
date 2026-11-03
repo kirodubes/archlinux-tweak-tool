@@ -2,6 +2,14 @@
 
 ## 2026.11.03
 
+### The website in 13 languages
+
+**What Changed.** The ATT website (GitHub Pages, `docs/`) was the last English-only piece now that the app itself speaks 13 languages. It now has a page in every one of them (`docs/nl/` … `docs/zh/`), with a language menu next to the theme picker and `hreflang` links, so search engines send a visitor to their own language. The page names on the site are the ones the app uses in that language.
+
+**Technical Details.** `website-i18n.py` is a trimmed copy of kiroproject.be's `build-i18n.py` for a one-page site: same sentence-level unit extraction (text with inline markup, alt/title/aria-label, meta descriptions, the copy button's "Copied!"), `website.pot` → `msgmerge` → `.mo`, `--todo`/`--fill`/`--strict`. Dropped: episodes.json, release-version placeholders, the Tailwind switcher (the menu is plain `<details>` styled in `docs/css/att.css`, on theme tokens and `--accent-ink` so it reads on all six themes). The script and catalogs (`website-i18n/`) sit outside `docs/` so Pages does not serve them; the rendered `docs/<lang>/` pages are committed, because Pages has no build step. 211 units: 56 per language pre-filled from the app catalogs (`po/`) and kiroproject.be's (`msgmerge -C`), the remaining 155 drafted by Claude Sonnet. Commands, `<code>` and `data-copy` values are opaque to the extractor and stay byte-identical. `docs/` is not packaged (PKGBUILD copies only `usr/`), so no rebuild.
+
+**Files Modified.** `website-i18n.py` (new), `website-i18n/website.pot`, `website-i18n/<lang>.po` (13, new), `docs/<lang>/index.html` (13, new), `docs/index.html` (two marker pairs, filled), `docs/css/att.css` (language menu), `docs/README.md`
+
 ### Nsswitch presets work in every language
 
 **What Changed.** In any language other than English, the Network page's nsswitch preset did nothing: the preview showed an empty `hosts:` line and Apply only logged "Unknown nsswitch preset", leaving `/etc/nsswitch.conf` untouched. Found by a targeted read of the i18n code for translated text used as a lookup key.

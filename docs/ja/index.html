@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchLinux Tweak Tool | ターミナルなしで Arch システムを調整</title>
+    <meta name="description" content="ArchLinux Tweak Tool (ATT) は Arch ベースのシステム向けの GTK4 アプリケーションです。デスクトップ、カーネル、Plymouth、SDDM、テーマ、パッケージ、サービス、パフォーマンス、メンテナンスをカバーする 31 ページを備えています。無料でオープン、ブラックボックスではありません。" />
+    <meta name="theme-color" content="#242933" />
+    <link rel="canonical" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <link rel="alternate" hreflang="nl" href="https://kirodubes.github.io/archlinux-tweak-tool/nl/" />
+    <link rel="alternate" hreflang="de" href="https://kirodubes.github.io/archlinux-tweak-tool/de/" />
+    <link rel="alternate" hreflang="es" href="https://kirodubes.github.io/archlinux-tweak-tool/es/" />
+    <link rel="alternate" hreflang="ru" href="https://kirodubes.github.io/archlinux-tweak-tool/ru/" />
+    <link rel="alternate" hreflang="fr" href="https://kirodubes.github.io/archlinux-tweak-tool/fr/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://kirodubes.github.io/archlinux-tweak-tool/pt-br/" />
+    <link rel="alternate" hreflang="it" href="https://kirodubes.github.io/archlinux-tweak-tool/it/" />
+    <link rel="alternate" hreflang="hu" href="https://kirodubes.github.io/archlinux-tweak-tool/hu/" />
+    <link rel="alternate" hreflang="tr" href="https://kirodubes.github.io/archlinux-tweak-tool/tr/" />
+    <link rel="alternate" hreflang="pl" href="https://kirodubes.github.io/archlinux-tweak-tool/pl/" />
+    <link rel="alternate" hreflang="ro" href="https://kirodubes.github.io/archlinux-tweak-tool/ro/" />
+    <link rel="alternate" hreflang="ja" href="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://kirodubes.github.io/archlinux-tweak-tool/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://kirodubes.github.io/archlinux-tweak-tool/" />
+    <!-- /i18n:alternates -->
+
+    <!-- Favicons (shared Kiro branding) -->
+    <link rel="icon" href="../assets/branding/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/branding/favicon-192.png" />
+    <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png" />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kirodubes.github.io/archlinux-tweak-tool/ja/" />
+    <meta property="og:title" content="ArchLinux Tweak Tool | ターミナルなしで Arch システムを調整" />
+    <meta property="og:description" content="Arch ベースのシステム向けの GTK4 ツール。デスクトップ、カーネル、Plymouth、SDDM、テーマ、パッケージ、サービス、メンテナンスをひとつにまとめています。" />
+    <meta property="og:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArchLinux Tweak Tool | ターミナルなしで Arch システムを調整" />
+    <meta name="twitter:description" content="Erik Dubois による、Arch ベースのシステム向けの GTK4 ツールです。" />
+    <meta name="twitter:image" content="https://kirodubes.github.io/archlinux-tweak-tool/assets/screenshots/att21.webp" />
+
+    <!-- ============================================================
+         Accent palette — visitor-switchable (mirrors kiro-website).
+         Boots before paint so the chosen colour never flashes.
+         The CSS tokens (--accent-200..500) live in css/style.css.
+         ============================================================ -->
+    <script>
+      const DEFAULT_ACCENT = 'sky';
+
+      // RGB triplets (space-separated) — required by rgb(... / <alpha>) usage.
+      const PALETTES = {
+        sky:     { 200: '186 230 253', 300: '125 211 252', 400: '56 189 248',  500: '14 165 233' },
+        gold:    { 200: '253 230 138', 300: '252 211 77',  400: '251 191 36',  500: '245 158 11' },
+        emerald: { 200: '167 243 208', 300: '110 231 183', 400: '52 211 153',  500: '16 185 129' },
+        violet:  { 200: '221 214 254', 300: '196 181 253', 400: '167 139 250', 500: '139 92 246' },
+        rose:    { 200: '254 205 211', 300: '253 164 175', 400: '251 113 133', 500: '244 63 94'  },
+      };
+
+      function applyAccent(name) {
+        const p = PALETTES[name];
+        if (!p) return;
+        for (const [k, v] of Object.entries(p)) {
+          document.documentElement.style.setProperty(`--accent-${k}`, v);
+        }
+        try { localStorage.setItem('att-accent', name); } catch (e) { /* private mode */ }
+        document.querySelectorAll('[data-accent]').forEach(btn => {
+          btn.setAttribute('aria-pressed', btn.dataset.accent === name ? 'true' : 'false');
+        });
+      }
+
+      const saved = (() => { try { return localStorage.getItem('att-accent'); } catch (e) { return null; } })();
+      applyAccent(saved && PALETTES[saved] ? saved : DEFAULT_ACCENT);
+
+      // Base theme — the surface palette, independent of the accent above.
+      // 'slate' is the house look; the others are defined in css/att.css.
+      const THEMES = ['nordic', 'slate', 'carbon', 'ember', 'sepia', 'paper'];
+      // Light grounds share one set of component overrides in css/att.css,
+      // keyed off data-mode rather than each theme name.
+      const LIGHT_THEMES = ['paper', 'sepia'];
+      const DEFAULT_THEME = 'nordic';
+
+      function applyTheme(name) {
+        if (!THEMES.includes(name)) return;
+        document.documentElement.setAttribute('data-theme', name);
+        document.documentElement.setAttribute('data-mode', LIGHT_THEMES.includes(name) ? 'light' : 'dark');
+        try { localStorage.setItem('att-theme', name); } catch (e) { /* private mode */ }
+        const select = document.getElementById('theme-select');
+        if (select) select.value = name;
+      }
+
+      const savedTheme = (() => { try { return localStorage.getItem('att-theme'); } catch (e) { return null; } })();
+      applyTheme(THEMES.includes(savedTheme) ? savedTheme : DEFAULT_THEME);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('theme-select');
+        select.value = document.documentElement.getAttribute('data-theme');
+        select.addEventListener('change', e => applyTheme(e.target.value));
+      });
+
+      // Click delegation — accent swatches and copy buttons in one pass.
+      document.addEventListener('click', async e => {
+        const accentBtn = e.target.closest('[data-accent]');
+        if (accentBtn) { applyAccent(accentBtn.dataset.accent); return; }
+
+        const copyBtn = e.target.closest('[data-copy]');
+        if (copyBtn) {
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.copy);
+            const original = copyBtn.textContent;
+            copyBtn.textContent = 'コピーしました！';
+            setTimeout(() => { copyBtn.textContent = original; }, 1500);
+          } catch (err) {
+            console.error('Clipboard write failed:', err);
+          }
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/att.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">コンテンツへスキップ</a>
+
+    <!-- ── Header ───────────────────────────────────────────────── -->
+    <header class="site-header" id="top">
+      <div class="container header-bar">
+        <a href="#top" class="brand" aria-label="ArchLinux Tweak Tool ホーム">
+          <img src="../assets/branding/logo.png" alt="" width="28" height="28" />
+          <span>ArchLinux Tweak Tool</span>
+        </a>
+        <div class="header-right">
+          <nav class="nav" aria-label="メイン">
+            <a href="#features">機能</a>
+            <a href="#install">インストール</a>
+            <a href="#gallery">ギャラリー</a>
+            <a href="#watch">視聴する</a>
+            <a href="#support">支援</a>
+          </nav>
+
+          <div class="support" aria-label="Erik Dubois を支援する">
+            <a href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-sponsor" aria-label="GitHubでスポンサーになる">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="label">スポンサーになる</span>
+            </a>
+            <a href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-kofi" aria-label="Ko-fiで支援する">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/><path d="M16 11h2a3 3 0 0 1 0 6h-2"/><path d="M8 4v2"/><path d="M11 3v3"/><path d="M14 4v2"/></svg>
+              <span class="label">Ko-fi</span>
+            </a>
+            <a href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer"
+               class="pill pill-patreon" aria-label="Patreonで参加">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.4 3.2c-3.9 0-7 3.1-7 7s3.1 7 7 7 7-3.2 7-7-3.1-7-7-7zM2 20.8h3.4V3.2H2v17.6z"/></svg>
+              <span class="label">Patreon</span>
+            </a>
+            <a href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer"
+               class="pill pill-paypal" aria-label="PayPal で寄付する">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.1 21.3H3.9c-.4 0-.7-.4-.6-.8L6.1 3.4c.1-.4.4-.6.8-.6h6.4c3.3 0 5.5 1.7 5 5-.5 3.6-3.2 5.4-6.8 5.4H9.2l-1.3 7.5c0 .3-.4.6-.8.6zm5.6-15.1H10L9.1 11h1.9c2 0 3.6-.8 3.9-2.6.2-1.6-.7-2.2-2.2-2.2z"/><path d="M18.9 8.5c.3 2.9-1.9 5.4-5.4 5.4h-1.7l-1.1 6.4c0 .3.2.6.5.6h2.6c.3 0 .6-.2.7-.6l.9-5.2h1.5c3 0 5.3-1.5 5.7-4.6.2-1.4-.4-2.4-1.4-3-.7-.4-1.5-.6-2.3-.6z" opacity=".55"/></svg>
+              <span class="label">PayPal</span>
+            </a>
+          </div>
+
+          <!-- i18n:switch -->
+          <details class="lang-menu">
+            <summary aria-label="Language" title="Language">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>JA</span>
+            </summary>
+            <div class="lang-list">
+              <a href="../index.html" lang="en" hreflang="en">English</a>
+              <a href="../nl/index.html" lang="nl" hreflang="nl">Nederlands</a>
+              <a href="../de/index.html" lang="de" hreflang="de">Deutsch</a>
+              <a href="../es/index.html" lang="es" hreflang="es">Español</a>
+              <a href="../ru/index.html" lang="ru" hreflang="ru">Русский</a>
+              <a href="../fr/index.html" lang="fr" hreflang="fr">Français</a>
+              <a href="../pt-br/index.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a>
+              <a href="../it/index.html" lang="it" hreflang="it">Italiano</a>
+              <a href="../hu/index.html" lang="hu" hreflang="hu">Magyar</a>
+              <a href="../tr/index.html" lang="tr" hreflang="tr">Türkçe</a>
+              <a href="../pl/index.html" lang="pl" hreflang="pl">Polski</a>
+              <a href="../ro/index.html" lang="ro" hreflang="ro">Română</a>
+              <a href="index.html" lang="ja" hreflang="ja" aria-current="page">日本語</a>
+              <a href="../zh/index.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </div>
+          </details>
+          <!-- /i18n:switch -->
+
+          <label class="theme-picker">
+            <span class="visually-hidden">テーマ</span>
+            <select id="theme-select" class="theme-select" aria-label="ページテーマ">
+              <option value="nordic">Nordic</option>
+              <option value="slate">Slate</option>
+              <option value="carbon">Carbon</option>
+              <option value="ember">Ember</option>
+              <option value="sepia">Sepia（ライト）</option>
+              <option value="paper">Paper（ライト）</option>
+            </select>
+          </label>
+
+          <div class="swatches" role="group" aria-label="アクセントカラー">
+            <button class="swatch" data-accent="sky" aria-pressed="true" title="スカイブルー" aria-label="スカイブルー" style="background:#38bdf8"></button>
+            <button class="swatch" data-accent="gold" aria-pressed="false" title="ゴールド" aria-label="ゴールド" style="background:#fbbf24"></button>
+            <button class="swatch" data-accent="emerald" aria-pressed="false" title="エメラルドグリーン" aria-label="エメラルドグリーン" style="background:#34d399"></button>
+            <button class="swatch" data-accent="violet" aria-pressed="false" title="バイオレット" aria-label="バイオレット" style="background:#a78bfa"></button>
+            <button class="swatch" data-accent="rose" aria-pressed="false" title="ローズ" aria-label="ローズ" style="background:#fb7185"></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ── Hero ───────────────────────────────────────────────── -->
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <a class="badge" href="#features">
+            <span class="dot" aria-hidden="true"><span class="ping"></span><span class="core"></span></span> GTK4 &middot; 31 ページ &middot; Arch ベースのシステム
+          </a>
+          <h1>ターミナルなしで<br /><span class="accent">Arch システムを調整</span></h1>
+          <p class="lead">
+            システムにさせたいことは決まっていますよね。別のカーネル、見栄えのよいログイン画面、統一感のあるテーマ、整理されたサービス。ATT はそのすべてをひとつのウィンドウにまとめ、実行する前に何をするのかを正確にお伝えします。隠しごとも魔法もなく、コマンドはあなたが学べるように手元に残ります。
+          </p>
+          <div class="cta-row">
+            <a href="#install" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ATT をインストール
+            </a>
+            <a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.570 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              GitHub でソースを見る
+            </a>
+          </div>
+          <p class="hero-foot">無料でオープン &middot; <code class="chip">nemesis_repo</code> からインストール &middot; Arch および Arch ベースのシステムで動作</p>
+        </div>
+      </section>
+
+      <!-- ── Why ATT ────────────────────────────────────────────── -->
+      <section id="why" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">ATT が選ばれる理由</p>
+          <h2>ブラックボックスにはしません</h2>
+          <p class="lead">
+            システムツールで何より困るのは、マシンに何をされたのか分からないことです。ATT はその逆で、すべての操作が自らを説明し、コンソールの出力は読んで学び、次回は自分で実行できるように表示されます。
+          </p>
+
+          <ul class="promise">
+            <li>
+              <b>実行前</b>
+              <span>何かに手を加える前に、その操作で何が変わるのかを、確認ダイアログや分かりやすいラベルで確認できます。</span>
+            </li>
+            <li>
+              <b>実行中</b>
+              <span>進行状況、現在のステップ、リアルタイムのコンソール出力と、実行の様子をその場で見られます。</span>
+            </li>
+            <li>
+              <b>実行後</b>
+              <span>実際に何が変わったのか、書き込まれたファイル、インストールされたパッケージ、操作されたサービスの概要が表示されます。</span>
+            </li>
+          </ul>
+
+          <div class="stat-row">
+            <div class="stat"><span class="value">31</span><span class="label">設定ページ</span></div>
+            <div class="stat"><span class="value">1</span><span class="label">インストールコマンド</span></div>
+            <div class="stat"><span class="value">GTK4</span><span class="label">ネイティブ、Python 3</span></div>
+            <div class="stat"><span class="value">無料</span><span class="label">でオープンソース</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Features ───────────────────────────────────────────── -->
+      <section id="features" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">機能</p>
+          <h2>すべてをひとつのウィンドウで</h2>
+          <p class="lead">
+            サイドバーには 31 ページ。それぞれが、本来なら複数の設定ファイルを手作業で編集して行う作業です。ここでは、できることをご紹介します。
+          </p>
+
+          <div class="pkg-grid">
+            <div class="pkg-card">
+              <h3>デスクトップとウィンドウマネージャー</h3>
+              <p>KDE、GNOME、Xfce、Hyprland、dwm などのデスクトップ環境を、X11 と Wayland の両方のセッションでインストール・切り替えできます。</p>
+              <div class="pages"><span>デスクトップ</span><span>デスクトップ - Wayland</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>カーネルと initramfs</h3>
+              <p>ワンクリックでカーネルを追加・削除できます。mkinitcpio と dracut に対応し、GRUB のエントリも自動で更新します。</p>
+              <div class="pages"><span>カーネル</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>ブートスプラッシュ</h3>
+              <p>Plymouth テーマのインストールと切り替えに対応し、systemd-boot、GRUB、limine、rEFInd のブートローダー連携や、壊れた initramfs フックの修復も行えます。</p>
+              <div class="pages"><span>Plymouth</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>ログインマネージャー</h3>
+              <p>SDDM テーマのプレビューとインストール、カーソル・壁紙・セッション・ディスプレイの設定を行い、設定の適用や修復もできます。</p>
+              <div class="pages"><span>SDDM</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>テーマとアイコン</h3>
+              <p>GTK と Plasma のテーマ、Arc ファミリー全体、Neo Candy・Surfn・Horst のアイコンセットに対応。Themer を使えば、統一されたセットを一度に適用することもできます。</p>
+              <div class="pages"><span>Themer</span><span>Arc テーマ</span><span>アイコン</span><span>Celestial テーマ</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>壁紙</h3>
+              <p>任意のフォルダーを参照して、対応するすべてのデスクトップとウィンドウマネージャーで壁紙を設定できます。</p>
+              <div class="pages"><span>壁紙</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>パッケージと pacman</h3>
+              <p>インストール済みパッケージをエクスポートして新しいマシンにインポートし、pacman 自体も調整できます。リポジトリ、並列ダウンロード、そして <code class="chip">pacman.conf</code> のその他の設定です。</p>
+              <div class="pages"><span>パッケージ</span><span>Pacman</span><span>ソフトウェア</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>サービスと自動起動</h3>
+              <p>systemd サービスの有効化・無効化と、ログイン時に実際に何を起動するかを設定できます。</p>
+              <div class="pages"><span>サービス</span><span>自動起動</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>パフォーマンス</h3>
+              <p>CPU ガバナー、I/O スケジューラー、そしてマシンの快適さを左右するチューニング項目です。</p>
+              <div class="pages"><span>パフォーマンス</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>メンテナンス</h3>
+              <p>最速のミラーの選択、孤立したパッケージの削除、pacman キャッシュの消去、古いロックファイルの削除など、man ページを読まずに済む後片付けができます。</p>
+              <div class="pages"><span>メンテナンス</span><span>バックアップ</span><span>Btrfs</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>シェルとターミナル</h3>
+              <p>デフォルトのシェルを bash、zsh、fish の間で切り替え、それに付随する環境、テーマ、zsh プラグインを設定できます。</p>
+              <div class="pages"><span>シェル</span><span>Fastfetch</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>システムとネットワーク</h3>
+              <p>ハードウェアの概要、稼働中のサービスとジャーナルをひと目で確認でき、ネットワークツールや Samba 共有も利用できます。</p>
+              <div class="pages"><span>システム</span><span>ネットワーク</span><span>ログ記録</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>ユーザー、ロケール、アクセス</h3>
+              <p>ユーザーアカウントの作成と設定、ロケール、キーボードレイアウト、タイムゾーンの設定、アクセシビリティオプションの有効化ができます。</p>
+              <div class="pages"><span>ユーザー</span><span>ロケール</span><span>アクセシビリティ</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>プライバシー</h3>
+              <p>hBlock による DNS レベルの広告ブロックと、システムの情報を外に出さないためのいくつかの設定です。</p>
+              <div class="pages"><span>プライバシー</span></div>
+            </div>
+            <div class="pkg-card">
+              <h3>AI ツールとその他</h3>
+              <p>自分のシステムについて助けてくれる Claude AI との連携、オフィスソフトのインストーラー、そして自分で ISO を作る場合のための ISO ツールです。</p>
+              <div class="pages"><span>AI ツール</span><span>オフィス</span><span>ISO</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Install ────────────────────────────────────────────── -->
+      <section id="install" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">インストール</p>
+          <h2>2 ステップで準備完了</h2>
+          <p class="lead">
+            ATT は、署名付きの pacman リポジトリ <code class="chip">nemesis_repo</code> から配布されています。リポジトリを一度追加すれば、あとは他のパッケージと同じようにインストールできます。以下はすべて通常のコマンドで、実行前に内容を確認できます。
+          </p>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>ステップ 1：<code>/etc/pacman.conf</code> にリポジトリを追加</h3>
+              <button class="copy-btn" data-copy="[nemesis_repo]
+Server = https://erikdubois.github.io/$repo/$arch">コピー</button>
+            </div>
+            <pre class="code-block"><span class="c-section">[nemesis_repo]</span>
+<span class="c-key">Server</span> <span class="c-op">=</span> <span class="c-val">https://erikdubois.github.io/$repo/$arch</span></pre>
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>スクリプトの方がよいですか？ 同じことを行います</h3>
+              <button class="copy-btn" data-copy="curl -sL bit.ly/nemesis-repo | sudo bash">コピー</button>
+            </div>
+            <pre class="code-block compact"><span class="c-prompt">$</span> curl -sL bit.ly/nemesis-repo | sudo bash</pre>
+          </div>
+
+          <div class="note">
+            <b>署名について。</b> <code>nemesis_repo</code> は Kiro の鍵で PGP 署名されており、<code>kiro-keyring</code> を通じて信頼され、グローバルな <code>SigLevel</code> を継承します。キーリングをインストールする前にリポジトリを手動で追加する場合は、キーリングが入るまでの間、このリポジトリに <code>SigLevel = Optional</code> を設定してください。
+          </div>
+
+          <div class="step">
+            <div class="step-head">
+              <h3>ステップ 2：更新してインストール</h3>
+              <button class="copy-btn" data-copy="sudo pacman -Sy
+sudo pacman -S archlinux-tweak-tool">コピー</button>
+            </div>
+            <pre class="code-block"><span class="c-prompt">$</span> sudo pacman -Sy
+<span class="c-prompt">$</span> sudo pacman -S archlinux-tweak-tool</pre>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            あとはアプリケーションメニューから <b>ArchLinux Tweak Tool</b> を起動するだけです。管理者権限を求めるのは、操作が本当に必要とするときだけです。
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Supported systems ──────────────────────────────────── -->
+      <section id="systems" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">互換性</p>
+          <h2>Arch のために作られ、Arch ベースのシステムにもなじみます</h2>
+          <p class="lead">
+            ATT は ArcoLinux で生まれ、現在は素の Arch と、Artix、Manjaro、CachyOS、Kiro など、人々が実際に使っている Arch ベースのシステムで動作します。ディストリビューションが独自のやり方をしている場合でも、ATT はそれを検出してインターフェースを合わせます。
+          </p>
+          <ul class="prose-list">
+            <li><b>必要なもの：</b> Arch または Arch ベースのシステム、Python 3.8 以降、GTK 4.6 以降、そして pacman。</li>
+            <li><b>一部のページでは任意：</b> パッケージ操作用の alacritty、fastfetch、そしてお好みのシェル。</li>
+            <li>対応ディストリビューションの正式で常に最新の一覧はソースコードにあります。<a href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">GitHub リポジトリ</a>をご覧ください。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Gallery ────────────────────────────────────────────── -->
+      <section id="gallery" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">ギャラリー</p>
+          <h2>インストール前に見てみましょう</h2>
+          <p class="lead">
+            この 24 枚はすべて、実際に動作しているアプリケーションのページです。スクリーンショットを選ぶと原寸で開き、矢印キーで次々に見られます。
+          </p>
+
+          <div class="shot-grid" id="shot-grid">
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="0" aria-label="「AI ツール」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att1.webp" alt="ATT の「AI ツール」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>AI ツール</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="1" aria-label="「自動起動」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att2.webp" alt="ATT の「自動起動」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>自動起動</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="2" aria-label="「デスクトップ」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att3.webp" alt="ATT の「デスクトップ」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>デスクトップ</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="3" aria-label="「Fastfetch」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att4.webp" alt="ATT の「Fastfetch」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>Fastfetch</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="4" aria-label="「アイコン」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att5.webp" alt="ATT の「アイコン」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>アイコン</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="5" aria-label="「カーネル」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att6.webp" alt="ATT の「カーネル」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>カーネル</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="6" aria-label="「ロケール」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att7.webp" alt="ATT の「ロケール」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>ロケール</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="7" aria-label="「ログ記録」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att8.webp" alt="ATT の「ログ記録」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>ログ記録</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="8" aria-label="「メンテナンス」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att9.webp" alt="ATT の「メンテナンス」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>メンテナンス</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="9" aria-label="「ネットワーク」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att10.webp" alt="ATT の「ネットワーク」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>ネットワーク</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="10" aria-label="「パッケージ」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att11.webp" alt="ATT の「パッケージ」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>パッケージ</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="11" aria-label="「Pacman」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att12.webp" alt="ATT の「Pacman」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>Pacman</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="12" aria-label="「Plymouth」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att13.webp" alt="ATT の「Plymouth」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>Plymouth</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="13" aria-label="「プライバシー」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att14.webp" alt="ATT の「プライバシー」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>プライバシー</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="14" aria-label="「パフォーマンス」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att15.webp" alt="ATT の「パフォーマンス」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>パフォーマンス</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="15" aria-label="「SDDM」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att16.webp" alt="ATT の「SDDM」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>SDDM</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="16" aria-label="「サービス」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att17.webp" alt="ATT の「サービス」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>サービス</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="17" aria-label="「シェル」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att18.webp" alt="ATT の「シェル」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>シェル</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="18" aria-label="「ソフトウェア」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att19.webp" alt="ATT の「ソフトウェア」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>ソフトウェア</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="19" aria-label="「システム」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att20.webp" alt="ATT の「システム」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>システム</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="20" aria-label="「Themer」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att21.webp" alt="ATT の「Themer」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>Themer</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="21" aria-label="「Arc テーマ」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att22.webp" alt="ATT の「Arc テーマ」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>Arc テーマ</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="22" aria-label="「ユーザー」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att23.webp" alt="ATT の「ユーザー」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>ユーザー</figcaption></figure>
+            <figure class="shot"><button type="button" class="shot-btn" data-shot="23" aria-label="「壁紙」のスクリーンショットを原寸で開く"><img src="../assets/screenshots/att24.webp" alt="ATT の「壁紙」ページ" width="1280" height="686" loading="lazy" /></button><figcaption>壁紙</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Watch ──────────────────────────────────────────────── -->
+      <section id="watch" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">視聴する</p>
+          <h2>使っているところを見てみたいですか？</h2>
+          <p class="lead">
+            ATT をページごとに順を追って解説するプレイリストがあります。各ページが何をするのか、なぜそうなっているのか、その裏にあるコマンドは何か。見て学ぶ方が得意なら、ここから始めてください。
+          </p>
+          <div class="watch-card">
+            <p><b>ArchLinux Tweak Tool プレイリスト</b>：Erik Dubois の YouTube チャンネルのチュートリアルです。無料で、アカウントも不要です。</p>
+            <a href="https://www.youtube.com/playlist?list=PLlloYVGq5pS5nvFc_LYRE82Gh3XWA6rVH" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z"/></svg>
+              プレイリストを開く
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Support ────────────────────────────────────────────── -->
+      <section id="support" class="section">
+        <div class="container section-inner">
+          <p class="eyebrow">支援</p>
+          <h2>ATT をご利用いただきありがとうございます</h2>
+          <p class="lead">
+            ATT は無料で、これからも無料です。それは変わりません。時間の節約になった、何かを学べたと感じて、少し応援してもよいと思われたら、こちらからどうぞ。どちらでも構いません。無料の部分はずっとあなたのものですし、支援がなくても同じように歓迎します。
+          </p>
+
+          <div class="fund-grid">
+            <a class="fund-card" href="https://github.com/sponsors/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>GitHub Sponsors</b>
+              <span>決済手数料はカバーされるため、ほぼ全額が開発に使われます。</span>
+            </a>
+            <a class="fund-card" href="https://ko-fi.com/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>Ko-fi</b>
+              <span>チップにはプラットフォーム手数料がかかりません。気が向いたときに、一杯のコーヒーを一度だけ。</span>
+            </a>
+            <a class="fund-card" href="https://www.paypal.me/erikdubois" target="_blank" rel="noopener noreferrer">
+              <b>PayPal</b>
+              <span>一回限りの直接寄付です。かかるのは決済手数料のみです。</span>
+            </a>
+            <a class="fund-card" href="https://www.patreon.com/c/kiroproject" target="_blank" rel="noopener noreferrer">
+              <b>Patreon</b>
+              <span>月額メンバーシップ：コースシリーズ全編、次に取り上げる内容への投票、そしてメンバーコミュニティが含まれます。</span>
+            </a>
+            <a class="fund-card" href="https://www.youtube.com/@ErikDubois/join" target="_blank" rel="noopener noreferrer">
+              <b>YouTube メンバーシップ</b>
+              <span>普段から YouTube を使っているなら、同じメンバーシップをこちらでも。ティアも特典も同じです。</span>
+            </a>
+            <a class="fund-card" href="https://github.com/kirodubes/archlinux-tweak-tool" target="_blank" rel="noopener noreferrer">
+              <b>ほかの形で貢献する</b>
+              <span>バグ報告、対応してほしいディストリビューション、プルリクエスト。どれも同じように価値があります。</span>
+            </a>
+          </div>
+
+          <p class="lead" style="margin-top:2rem;">
+            <b>Brad Heffernan</b>、<b>Erik Dubois</b>、<b>Cameron Percival</b> が開発し、これまでにバグを報告してくださったすべての方々とともに作っています。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Lightbox ─────────────────────────────────────────────── -->
+    <dialog class="lightbox" id="lightbox" aria-label="スクリーンショットビューアー">
+      <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-bar">
+        <div>
+          <span class="lightbox-caption" id="lightbox-caption"></span>
+          <span class="lightbox-count" id="lightbox-count"></span>
+        </div>
+        <div class="lightbox-nav">
+          <button type="button" class="icon-btn" id="lightbox-prev" aria-label="前のスクリーンショット">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-next" aria-label="次のスクリーンショット">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="lightbox-close" aria-label="ビューアーを閉じる">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      // Gallery lightbox — no dependencies. Reads the thumbnails already in the
+      // DOM so the markup stays the single source of truth for order/captions.
+      (() => {
+        const dialog = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        const count = document.getElementById('lightbox-count');
+        const buttons = [...document.querySelectorAll('.shot-btn')];
+        const shots = buttons.map(btn => {
+          const thumb = btn.firstElementChild;
+          return { src: thumb.getAttribute('src'), alt: thumb.alt, caption: btn.closest('.shot').querySelector('figcaption').textContent };
+        });
+
+        let index = 0;
+        let opener = null;
+
+        function show(i) {
+          index = (i + shots.length) % shots.length;
+          const shot = shots[index];
+          img.src = shot.src;
+          img.alt = shot.alt;
+          caption.textContent = shot.caption;
+          count.textContent = ` ${index + 1} / ${shots.length}`;
+        }
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => {
+          opener = btn;
+          show(i);
+          dialog.showModal();
+        }));
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => show(index - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => show(index + 1));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+
+        dialog.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+        });
+
+        // Clicking the backdrop closes: the dialog element itself is the backdrop
+        // area, its children are the content.
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+        dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+      })();
+    </script>
+
+    <a href="#top" class="to-top" id="to-top" hidden aria-label="ページの先頭へ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+      <span>トップへ</span>
+    </a>
+
+    <script>
+      // Back-to-top — a plain #top anchor, so the jump works without JS and
+      // uses the page's own smooth scrolling. JS only reveals it once the
+      // reader is past the hero.
+      (() => {
+        const link = document.getElementById('to-top');
+        const toggle = () => { link.hidden = window.scrollY < 600; };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+      })();
+    </script>
+
+    <!-- ── Footer ───────────────────────────────────────────────── -->
+    <!-- KIRO:FOOTER START — managed by Kiro-HQ/propagate-web-shared.sh; do not edit by hand -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 ArchLinux Tweak Tool &middot; 制作：Erik Dubois</span>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://kiroproject.be" target="_blank" rel="noopener noreferrer">kiroproject.be</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.youtube.com/erikdubois" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/kirodubes/kiro-discussions/discussions" target="_blank" rel="noopener noreferrer">Discussions</a>
+      </div>
+    </footer>
+    <!-- KIRO:FOOTER END -->
+  </body>
+</html>
