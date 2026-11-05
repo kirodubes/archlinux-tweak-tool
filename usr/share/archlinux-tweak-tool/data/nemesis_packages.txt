@@ -82,6 +82,8 @@ fish-tweak-tool
 flameshot-git
 gnome-bluetooth
 hardcode-fixer-git
+hypr-dynamic-cursors
+hyprglass
 hyprland-tweak-tool
 kiro-arc-aqua
 kiro-arc-archlinux-blue
@@ -159,6 +161,7 @@ kiro-hlwm
 kiro-hwd
 kiro-hyprland
 kiro-hyprland-dms
+kiro-hyprland-impasto
 kiro-hyprland-noctalia
 kiro-hyprland-noctura
 kiro-i3
