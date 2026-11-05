@@ -2,6 +2,14 @@
 
 ## 2026.11.05
 
+### Variety: XFCE wallpaper no longer resets at login
+
+**What Changed.** On XFCE, a wallpaper set through Variety went back to the Kiro default after every reboot or new login. `get_wallpaper_kiro` read a fixed key (`monitor0/workspace0/last-image`) that the shipped `xfce4-desktop.xml` pre-seeds with the default, while `set_wallpaper_kiro` only updates the connected monitors' keys; at start Variety asked for the current wallpaper, got the default and set it again. Same fix as kiro-variety-config (the two copies stay identical).
+
+**Technical Details.** The XFCE branch now reads the `workspace0/last-image` key of the first active monitor (`xrandr --listactivemonitors`), falling back to the old key. Tested on a test box with a fresh Kiro XFCE install (two monitors, HDMI-0 + DVI-D-0): log out and in, the painting stayed (XFCE shows its default for a moment until Variety starts).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/variety/scripts/get_wallpaper_kiro`
+
 ### Variety's get-wallpaper script synced with kiro-variety-config
 
 **What Changed.** In tiling WMs that set the wallpaper with feh, Variety could not read the current wallpaper back, so History → Back stalled. ATT's `get_wallpaper_kiro` printed the GNOME gsettings fallback **and** the `~/.fehbg` path, and split paths with spaces in two; Variety then put half a path in its history. The script is now an exact copy of the tested kiro-variety-config version.

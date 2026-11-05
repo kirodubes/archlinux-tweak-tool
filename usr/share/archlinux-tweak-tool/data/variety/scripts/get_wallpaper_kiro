@@ -12,7 +12,13 @@ if [ "$desktop" == "ubuntu" ] || [ "$XDG_CURRENT_DESKTOP" == "Unity" ]; then
 
 # XFCE
 elif [ "$desktop" == "xubuntu" ] || [ "$XDG_CURRENT_DESKTOP" == "XFCE" ]; then
-        xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image
+        # The key set_wallpaper_kiro writes: a connected monitor's. The shipped xfce4-desktop.xml pre-seeds many
+        # connector names with the default image, so the fixed monitor0 key always read back the default, and
+        # Variety re-applied that at login (the wallpaper reset to the default after every reboot).
+        monitor=$(xrandr --listactivemonitors 2>/dev/null | awk 'NR == 2 {print $NF}')
+        prop=""
+        [ -n "$monitor" ] && prop=$(xfconf-query -c xfce4-desktop -p /backdrop -l 2>/dev/null | grep -E "/monitor${monitor}/workspace0/last-image$" | head -1)
+        xfconf-query -c xfce4-desktop -p "${prop:-/backdrop/screen0/monitor0/workspace0/last-image}"
 
 # LXDE/PCManFM
 elif [ "$XDG_CURRENT_DESKTOP" == "LXDE" ]; then
