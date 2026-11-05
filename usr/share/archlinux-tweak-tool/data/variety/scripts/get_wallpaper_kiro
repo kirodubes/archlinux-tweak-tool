@@ -34,8 +34,8 @@ elif [ "$XDG_CURRENT_DESKTOP" == "MATE" ]; then
 elif [ "$desktop" == "Cinnamon" ] || [ "$XDG_CURRENT_DESKTOP" == "X-Cinnamon" ]; then
         gsettings get org.cinnamon.desktop.background picture-uri
 
-# KDE Plasma 5 / 6 — appletsrc layout is identical across versions
-elif [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
+# KDE Plasma 5 and 6 (same appletsrc layout; Kiro Plasma is Wayland Plasma 6)
+elif [ "$XDG_CURRENT_DESKTOP" == "KDE" ] && [ "${KDE_SESSION_VERSION:-0}" -ge 5 ]; then
         grep 'Image=' ~/.config/plasma-org.kde.plasma.desktop-appletsrc | sed 's/Image=//'
 
 # Trinity
@@ -43,16 +43,26 @@ elif [ "$XDG_CURRENT_DESKTOP" == "Trinity" ]; then
         # The "1" refers to the virtual desktop number
         dcop kdesktop KBackgroundIface currentWallpaper 1 2> /dev/null
 
+# Wayland compositors that set_wallpaper drives via swaybg (Hyprland, Sway, niri, wayfire):
+# read the current image back from the running swaybg's "-i <path>" argument.
+elif pidof swaybg >/dev/null 2>&1; then
+        swaybg_pid=$(pidof swaybg | tr ' ' '\n' | head -1)
+        tr '\0' '\n' < "/proc/$swaybg_pid/cmdline" | grep -A1 '^-i$' | tail -1
+
+# Tiling WMs that set their wallpaper with feh (chadwm, dwm, qtile, i3, bspwm):
+# feh writes the restore command to ~/.fehbg, quoted path last. Take what is between the quotes:
+# splitting on spaces broke paths with spaces and put half a path in Variety's history.
+elif [ -f "$HOME/.fehbg" ]; then
+        sed -n "s/.*'\(.*\)'.*/\1/p" "$HOME/.fehbg" | tail -1
+
 # All above fails => fallback to the Gnome 3 way
 else
         gsettings get org.gnome.desktop.background picture-uri
 fi
 
-# Feh — only if ~/.fehbg exists; otherwise this would exit 1 and Variety
-# would log a CalledProcessError on startup for non-feh desktops.
-if [ -f ~/.fehbg ]; then
-        sed "s/\ /\n/g" ~/.fehbg | grep \'
-fi
-
 # Gnome 2
 # gconftool-2 --get /desktop/gnome/background/picture_filename
+
+# Never fail: Variety runs this via check_output() and a non-zero exit
+# raises CalledProcessError, which breaks History->Back.
+exit 0

@@ -2,6 +2,14 @@
 
 ## 2026.11.05
 
+### Variety's get-wallpaper script synced with kiro-variety-config
+
+**What Changed.** In tiling WMs that set the wallpaper with feh, Variety could not read the current wallpaper back, so History → Back stalled. ATT's `get_wallpaper_kiro` printed the GNOME gsettings fallback **and** the `~/.fehbg` path, and split paths with spaces in two; Variety then put half a path in its history. The script is now an exact copy of the tested kiro-variety-config version.
+
+**Technical Details.** ATT's copy was older: the feh block ran after the if/elif chain instead of inside it, the swaybg branch (Hyprland, Sway, niri, wayfire) was missing, and there was no `exit 0` (a non-zero exit raises `CalledProcessError` in Variety and breaks History → Back). The feh branch now takes the text between the quotes (`sed -n "s/.*'\(.*\)'.*/\1/p" ~/.fehbg | tail -1`) instead of splitting on spaces. The KDE branch gains the `KDE_SESSION_VERSION >= 5` check from the Kiro version. The ATT Script Standard (rule 29) is deliberately not applied: Variety reads the script's stdout as the wallpaper path, so it must print nothing else. Tested in the Kiro VM in ohmychadwm: cold start after `feh` with a spaced path, history clean, previous works. The old `get_wallpaper` is untouched (its feh line is commented out).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/variety/scripts/get_wallpaper_kiro`
+
 ### Solaar on the System page
 
 **What Changed.** The System page's Hardware section has a new **Logitech devices (Solaar)** row with Launch/Install and Remove, like GParted. Solaar pairs and unpairs devices on Logitech Unifying, Bolt, Lightspeed and Nano receivers, shows battery levels and remaps buttons on most HID++ mice and keyboards. It covers only Logitech hardware, so it goes in ATT instead of being preinstalled on the ISO.
