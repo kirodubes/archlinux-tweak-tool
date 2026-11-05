@@ -3011,7 +3011,13 @@
         "lvfs",
         "flash firmware",
         "update firmware",
-        "firmware update"
+        "firmware update",
+        "solaar",
+        "logitech",
+        "unifying",
+        "bolt receiver",
+        "mouse",
+        "keyboard"
       ],
       "labels": [
         "bat",

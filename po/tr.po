@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 16:38+0100\n"
+"POT-Creation-Date: 2026-11-05 06:16+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -172,7 +172,8 @@ msgstr "Yardımcı araçlar"
 #: usr/share/archlinux-tweak-tool/software_gui.py:431
 #: usr/share/archlinux-tweak-tool/system_gui.py:272
 #: usr/share/archlinux-tweak-tool/system_gui.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:351
+#: usr/share/archlinux-tweak-tool/system_gui.py:318
+#: usr/share/archlinux-tweak-tool/system_gui.py:374
 msgid "Launch/Install"
 msgstr "Başlat/Yükle"
 
@@ -234,7 +235,8 @@ msgstr "Başlat/Yükle"
 #: usr/share/archlinux-tweak-tool/software_gui.py:494
 #: usr/share/archlinux-tweak-tool/system_gui.py:274
 #: usr/share/archlinux-tweak-tool/system_gui.py:297
-#: usr/share/archlinux-tweak-tool/system_gui.py:353
+#: usr/share/archlinux-tweak-tool/system_gui.py:320
+#: usr/share/archlinux-tweak-tool/system_gui.py:376
 msgid "Remove"
 msgstr "Kaldır"
 
@@ -6290,13 +6292,13 @@ msgid "zram : …"
 msgstr "zram: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:277
-#: usr/share/archlinux-tweak-tool/system_gui.py:370
+#: usr/share/archlinux-tweak-tool/system_gui.py:393
 msgid "Enable"
 msgstr "Etkinleştir"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:279
 #: usr/share/archlinux-tweak-tool/performance_gui.py:314
-#: usr/share/archlinux-tweak-tool/system_gui.py:374
+#: usr/share/archlinux-tweak-tool/system_gui.py:397
 msgid "Disable"
 msgstr "Devre dışı bırak"
 
@@ -9502,22 +9504,22 @@ msgid "inxi installation failed or was cancelled"
 msgstr "inxi yüklemesi başarısız oldu veya iptal edildi"
 
 #: usr/share/archlinux-tweak-tool/system.py:293
-#: usr/share/archlinux-tweak-tool/system_gui.py:268
+#: usr/share/archlinux-tweak-tool/system_gui.py:291
 msgid "Inspect with GParted <b>installed</b>"
 msgstr "GParted ile incele <b>yüklü</b>"
 
 #: usr/share/archlinux-tweak-tool/system.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:270
+#: usr/share/archlinux-tweak-tool/system_gui.py:293
 msgid "Inspect with GParted"
 msgstr "GParted ile incele"
 
 #: usr/share/archlinux-tweak-tool/system.py:301
-#: usr/share/archlinux-tweak-tool/system_gui.py:291
+#: usr/share/archlinux-tweak-tool/system_gui.py:314
 msgid "Inspect with Partition Manager <b>installed</b>"
 msgstr "Partition Manager ile incele <b>yüklü</b>"
 
 #: usr/share/archlinux-tweak-tool/system.py:303
-#: usr/share/archlinux-tweak-tool/system_gui.py:293
+#: usr/share/archlinux-tweak-tool/system_gui.py:316
 msgid "Inspect with Partition Manager"
 msgstr "Partition Manager ile incele"
 
@@ -9563,54 +9565,84 @@ msgid "gparted removal started"
 msgstr "gparted kaldırma işlemi başladı"
 
 #: usr/share/archlinux-tweak-tool/system.py:439
+#: usr/share/archlinux-tweak-tool/system_gui.py:268
+msgid "Logitech devices (Solaar) <b>installed</b>"
+msgstr "Logitech aygıtları (Solaar) <b>kurulu</b>"
+
+#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system_gui.py:270
+msgid "Logitech devices (Solaar)"
+msgstr "Logitech aygıtları (Solaar)"
+
+#: usr/share/archlinux-tweak-tool/system.py:450
+msgid "Solaar launched"
+msgstr "Solaar başlatıldı"
+
+#: usr/share/archlinux-tweak-tool/system.py:461
+msgid "solaar installation started"
+msgstr "solaar yüklemesi başladı"
+
+#: usr/share/archlinux-tweak-tool/system.py:472
+msgid "Solaar installed - replug the receiver if no device shows up"
+msgstr "Solaar kuruldu - aygıt görünmezse alıcıyı çıkarıp yeniden takın"
+
+#: usr/share/archlinux-tweak-tool/system.py:491
+msgid "solaar is not installed"
+msgstr "solaar yüklü değil"
+
+#: usr/share/archlinux-tweak-tool/system.py:495
+msgid "solaar removal started"
+msgstr "solaar kaldırma işlemi başladı"
+
+#: usr/share/archlinux-tweak-tool/system.py:514
 msgid "Update firmware (GNOME Firmware) <b>installed</b>"
 msgstr "Ürün yazılımını güncelle (GNOME Firmware) <b>yüklü</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system.py:516
 msgid "Update firmware (GNOME Firmware)"
 msgstr "Ürün yazılımını güncelle (GNOME Firmware)"
 
-#: usr/share/archlinux-tweak-tool/system.py:450
+#: usr/share/archlinux-tweak-tool/system.py:525
 msgid "GNOME Firmware launched"
 msgstr "GNOME Firmware başlatıldı"
 
-#: usr/share/archlinux-tweak-tool/system.py:461
+#: usr/share/archlinux-tweak-tool/system.py:536
 msgid "gnome-firmware installation started"
 msgstr "gnome-firmware yüklemesi başladı"
 
-#: usr/share/archlinux-tweak-tool/system.py:468
+#: usr/share/archlinux-tweak-tool/system.py:543
 msgid "gnome-firmware installed"
 msgstr "gnome-firmware yüklendi"
 
-#: usr/share/archlinux-tweak-tool/system.py:486
+#: usr/share/archlinux-tweak-tool/system.py:561
 msgid "gnome-firmware is not installed"
 msgstr "gnome-firmware yüklü değil"
 
-#: usr/share/archlinux-tweak-tool/system.py:490
+#: usr/share/archlinux-tweak-tool/system.py:565
 msgid "gnome-firmware removal started"
 msgstr "gnome-firmware kaldırma işlemi başladı"
 
-#: usr/share/archlinux-tweak-tool/system.py:530
+#: usr/share/archlinux-tweak-tool/system.py:605
 msgid "Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>"
 msgstr "Üstveri yenileme zamanlayıcısı (fwupd-refresh.timer) <b>etkin</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:532
+#: usr/share/archlinux-tweak-tool/system.py:607
 msgid "Metadata refresh timer (fwupd-refresh.timer)"
 msgstr "Üstveri yenileme zamanlayıcısı (fwupd-refresh.timer)"
 
-#: usr/share/archlinux-tweak-tool/system.py:541
+#: usr/share/archlinux-tweak-tool/system.py:616
 msgid "Enabling firmware metadata timer..."
 msgstr "Ürün yazılımı üstveri zamanlayıcısı etkinleştiriliyor..."
 
-#: usr/share/archlinux-tweak-tool/system.py:552
+#: usr/share/archlinux-tweak-tool/system.py:627
 msgid "Firmware metadata timer enabled"
 msgstr "Ürün yazılımı üstveri zamanlayıcısı etkinleştirildi"
 
-#: usr/share/archlinux-tweak-tool/system.py:562
+#: usr/share/archlinux-tweak-tool/system.py:637
 msgid "Disabling firmware metadata timer..."
 msgstr "Ürün yazılımı üstveri zamanlayıcısı devre dışı bırakılıyor..."
 
-#: usr/share/archlinux-tweak-tool/system.py:573
+#: usr/share/archlinux-tweak-tool/system.py:648
 msgid "Firmware metadata timer disabled"
 msgstr "Ürün yazılımı üstveri zamanlayıcısı devre dışı bırakıldı"
 
@@ -9706,11 +9738,11 @@ msgstr "Etkin Systemd Zamanlayıcıları"
 msgid "Kernel Ring Buffer (dmesg)"
 msgstr "Çekirdek Halka Tamponu (dmesg)"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:315
+#: usr/share/archlinux-tweak-tool/system_gui.py:338
 msgid "<b>Firmware</b>"
 msgstr "<b>Ürün Yazılımı</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:327
+#: usr/share/archlinux-tweak-tool/system_gui.py:350
 msgid ""
 "<span foreground=\"#FFA500\"><b>⚠ Firmware updates can permanently brick a "
 "device. No warranty, no disclaimer — only continue if you know what you are "
@@ -9720,7 +9752,7 @@ msgstr ""
 "kalıcı olarak bozabilir. Garanti yok, sorumluluk reddi yok: yalnızca ne "
 "yaptığınızı biliyorsanız devam edin.</b></span>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:339
+#: usr/share/archlinux-tweak-tool/system_gui.py:362
 msgid ""
 "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
 "devices your vendor publishes to LVFS will show updates."
@@ -9729,19 +9761,19 @@ msgstr ""
 "günceller. Yalnızca üreticinizin LVFS'ye yayımladığı aygıtlar için "
 "güncelleme gösterilir."
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:395
+#: usr/share/archlinux-tweak-tool/system_gui.py:418
 msgid "<b>Hardware</b>"
 msgstr "<b>Donanım</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:406
+#: usr/share/archlinux-tweak-tool/system_gui.py:429
 msgid "<b>Storage</b>"
 msgstr "<b>Depolama</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:417
+#: usr/share/archlinux-tweak-tool/system_gui.py:440
 msgid "<b>System</b>"
 msgstr "<b>Sistem</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:428
+#: usr/share/archlinux-tweak-tool/system_gui.py:451
 msgid "<b>Systemd</b>"
 msgstr "<b>Systemd</b>"
 

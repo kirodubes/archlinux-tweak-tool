@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 16:38+0100\n"
+"POT-Creation-Date: 2026-11-05 06:16+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -170,7 +170,8 @@ msgstr "辅助工具"
 #: usr/share/archlinux-tweak-tool/software_gui.py:431
 #: usr/share/archlinux-tweak-tool/system_gui.py:272
 #: usr/share/archlinux-tweak-tool/system_gui.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:351
+#: usr/share/archlinux-tweak-tool/system_gui.py:318
+#: usr/share/archlinux-tweak-tool/system_gui.py:374
 msgid "Launch/Install"
 msgstr "启动/安装"
 
@@ -232,7 +233,8 @@ msgstr "启动/安装"
 #: usr/share/archlinux-tweak-tool/software_gui.py:494
 #: usr/share/archlinux-tweak-tool/system_gui.py:274
 #: usr/share/archlinux-tweak-tool/system_gui.py:297
-#: usr/share/archlinux-tweak-tool/system_gui.py:353
+#: usr/share/archlinux-tweak-tool/system_gui.py:320
+#: usr/share/archlinux-tweak-tool/system_gui.py:376
 msgid "Remove"
 msgstr "移除"
 
@@ -2785,8 +2787,8 @@ msgid ""
 "<b>Status</b> below."
 msgstr ""
 "对于配有两块显卡（例如 Intel + NVIDIA）的笔记本电脑，此页面可让你选择在\n"
-"速度更快的独立显卡上运行应用。此页面需要<b>两块显卡</b> — 请查看下方的<b>状"
-"态</b>。"
+"速度更快的独立显卡上运行应用。此页面需要<b>两块显卡</b> — 请查看下方的<b>状态"
+"</b>。"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:177
 msgid ""
@@ -2818,7 +2820,8 @@ msgstr "安装缺少的软件包"
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
-msgstr "在终端中安装 nvidia-prime 和 switcheroo-control，然后启用 switcheroo-control"
+msgstr ""
+"在终端中安装 nvidia-prime 和 switcheroo-control，然后启用 switcheroo-control"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:200
 msgid "<b>Run an app on the discrete GPU</b>"
@@ -6105,13 +6108,13 @@ msgid "zram : …"
 msgstr "zram：…"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:277
-#: usr/share/archlinux-tweak-tool/system_gui.py:370
+#: usr/share/archlinux-tweak-tool/system_gui.py:393
 msgid "Enable"
 msgstr "启用"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:279
 #: usr/share/archlinux-tweak-tool/performance_gui.py:314
-#: usr/share/archlinux-tweak-tool/system_gui.py:374
+#: usr/share/archlinux-tweak-tool/system_gui.py:397
 msgid "Disable"
 msgstr "禁用"
 
@@ -9248,22 +9251,22 @@ msgid "inxi installation failed or was cancelled"
 msgstr "inxi 安装失败或已取消"
 
 #: usr/share/archlinux-tweak-tool/system.py:293
-#: usr/share/archlinux-tweak-tool/system_gui.py:268
+#: usr/share/archlinux-tweak-tool/system_gui.py:291
 msgid "Inspect with GParted <b>installed</b>"
 msgstr "使用 GParted 检查（<b>已安装</b>）"
 
 #: usr/share/archlinux-tweak-tool/system.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:270
+#: usr/share/archlinux-tweak-tool/system_gui.py:293
 msgid "Inspect with GParted"
 msgstr "使用 GParted 检查"
 
 #: usr/share/archlinux-tweak-tool/system.py:301
-#: usr/share/archlinux-tweak-tool/system_gui.py:291
+#: usr/share/archlinux-tweak-tool/system_gui.py:314
 msgid "Inspect with Partition Manager <b>installed</b>"
 msgstr "使用 Partition Manager 检查（<b>已安装</b>）"
 
 #: usr/share/archlinux-tweak-tool/system.py:303
-#: usr/share/archlinux-tweak-tool/system_gui.py:293
+#: usr/share/archlinux-tweak-tool/system_gui.py:316
 msgid "Inspect with Partition Manager"
 msgstr "使用 Partition Manager 检查"
 
@@ -9309,54 +9312,84 @@ msgid "gparted removal started"
 msgstr "gparted 已开始移除"
 
 #: usr/share/archlinux-tweak-tool/system.py:439
+#: usr/share/archlinux-tweak-tool/system_gui.py:268
+msgid "Logitech devices (Solaar) <b>installed</b>"
+msgstr "罗技设备 (Solaar) <b>已安装</b>"
+
+#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system_gui.py:270
+msgid "Logitech devices (Solaar)"
+msgstr "罗技设备 (Solaar)"
+
+#: usr/share/archlinux-tweak-tool/system.py:450
+msgid "Solaar launched"
+msgstr "Solaar 已启动"
+
+#: usr/share/archlinux-tweak-tool/system.py:461
+msgid "solaar installation started"
+msgstr "solaar 已开始安装"
+
+#: usr/share/archlinux-tweak-tool/system.py:472
+msgid "Solaar installed - replug the receiver if no device shows up"
+msgstr "Solaar 已安装 - 如果没有显示设备，请重新插拔接收器"
+
+#: usr/share/archlinux-tweak-tool/system.py:491
+msgid "solaar is not installed"
+msgstr "solaar 未安装"
+
+#: usr/share/archlinux-tweak-tool/system.py:495
+msgid "solaar removal started"
+msgstr "solaar 已开始移除"
+
+#: usr/share/archlinux-tweak-tool/system.py:514
 msgid "Update firmware (GNOME Firmware) <b>installed</b>"
 msgstr "更新固件 (GNOME Firmware) <b>已安装</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system.py:516
 msgid "Update firmware (GNOME Firmware)"
 msgstr "更新固件 (GNOME Firmware)"
 
-#: usr/share/archlinux-tweak-tool/system.py:450
+#: usr/share/archlinux-tweak-tool/system.py:525
 msgid "GNOME Firmware launched"
 msgstr "GNOME Firmware 已启动"
 
-#: usr/share/archlinux-tweak-tool/system.py:461
+#: usr/share/archlinux-tweak-tool/system.py:536
 msgid "gnome-firmware installation started"
 msgstr "gnome-firmware 已开始安装"
 
-#: usr/share/archlinux-tweak-tool/system.py:468
+#: usr/share/archlinux-tweak-tool/system.py:543
 msgid "gnome-firmware installed"
 msgstr "gnome-firmware 已安装"
 
-#: usr/share/archlinux-tweak-tool/system.py:486
+#: usr/share/archlinux-tweak-tool/system.py:561
 msgid "gnome-firmware is not installed"
 msgstr "gnome-firmware 未安装"
 
-#: usr/share/archlinux-tweak-tool/system.py:490
+#: usr/share/archlinux-tweak-tool/system.py:565
 msgid "gnome-firmware removal started"
 msgstr "gnome-firmware 已开始移除"
 
-#: usr/share/archlinux-tweak-tool/system.py:530
+#: usr/share/archlinux-tweak-tool/system.py:605
 msgid "Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>"
 msgstr "元数据刷新定时器 (fwupd-refresh.timer) <b>已启用</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:532
+#: usr/share/archlinux-tweak-tool/system.py:607
 msgid "Metadata refresh timer (fwupd-refresh.timer)"
 msgstr "元数据刷新定时器 (fwupd-refresh.timer)"
 
-#: usr/share/archlinux-tweak-tool/system.py:541
+#: usr/share/archlinux-tweak-tool/system.py:616
 msgid "Enabling firmware metadata timer..."
 msgstr "正在启用固件元数据定时器..."
 
-#: usr/share/archlinux-tweak-tool/system.py:552
+#: usr/share/archlinux-tweak-tool/system.py:627
 msgid "Firmware metadata timer enabled"
 msgstr "固件元数据定时器已启用"
 
-#: usr/share/archlinux-tweak-tool/system.py:562
+#: usr/share/archlinux-tweak-tool/system.py:637
 msgid "Disabling firmware metadata timer..."
 msgstr "正在禁用固件元数据定时器..."
 
-#: usr/share/archlinux-tweak-tool/system.py:573
+#: usr/share/archlinux-tweak-tool/system.py:648
 msgid "Firmware metadata timer disabled"
 msgstr "固件元数据定时器已禁用"
 
@@ -9452,11 +9485,11 @@ msgstr "已启用的 Systemd 定时器"
 msgid "Kernel Ring Buffer (dmesg)"
 msgstr "内核环形缓冲区 (dmesg)"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:315
+#: usr/share/archlinux-tweak-tool/system_gui.py:338
 msgid "<b>Firmware</b>"
 msgstr "<b>固件</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:327
+#: usr/share/archlinux-tweak-tool/system_gui.py:350
 msgid ""
 "<span foreground=\"#FFA500\"><b>⚠ Firmware updates can permanently brick a "
 "device. No warranty, no disclaimer — only continue if you know what you are "
@@ -9465,7 +9498,7 @@ msgstr ""
 "<span foreground=\"#FFA500\"><b>⚠ 固件更新可能会永久损坏设备。不提供任何保"
 "修，也不作任何免责声明，只有在你清楚自己在做什么时才继续。</b></span>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:339
+#: usr/share/archlinux-tweak-tool/system_gui.py:362
 msgid ""
 "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
 "devices your vendor publishes to LVFS will show updates."
@@ -9473,19 +9506,19 @@ msgstr ""
 "GNOME Firmware 通过 fwupd/LVFS 更新 BIOS/UEFI、SSD、扩展坞等。只有你的厂商发"
 "布到 LVFS 的设备才会显示更新。"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:395
+#: usr/share/archlinux-tweak-tool/system_gui.py:418
 msgid "<b>Hardware</b>"
 msgstr "<b>硬件</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:406
+#: usr/share/archlinux-tweak-tool/system_gui.py:429
 msgid "<b>Storage</b>"
 msgstr "<b>存储</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:417
+#: usr/share/archlinux-tweak-tool/system_gui.py:440
 msgid "<b>System</b>"
 msgstr "<b>系统</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:428
+#: usr/share/archlinux-tweak-tool/system_gui.py:451
 msgid "<b>Systemd</b>"
 msgstr "<b>Systemd</b>"
 

@@ -27,7 +27,7 @@
   "Services": ["systemd", "systemctl", "bluetooth", "audio", "printing", "cups", "daemon"],
   "Shells": ["bash", "zsh", "fish", "shell", "terminal shell", "default shell"],
   "Software": ["apps", "applications", "install software", "installers"],
-  "System": ["inspector", "hardware", "system info", "specs", "overview", "gparted", "partition", "partitions", "disk", "disks", "fdisk", "fstab", "lsblk", "lspci", "lsusb", "dmesg", "inxi", "hwinfo", "pamac", "octopi", "bazaar", "package manager", "firmware", "fwupd", "gnome-firmware", "gnome firmware", "bios", "uefi", "lvfs", "flash firmware", "update firmware", "firmware update"],
+  "System": ["inspector", "hardware", "system info", "specs", "overview", "gparted", "partition", "partitions", "disk", "disks", "fdisk", "fstab", "lsblk", "lspci", "lsusb", "dmesg", "inxi", "hwinfo", "pamac", "octopi", "bazaar", "package manager", "firmware", "fwupd", "gnome-firmware", "gnome firmware", "bios", "uefi", "lvfs", "flash firmware", "update firmware", "firmware update", "solaar", "logitech", "unifying", "bolt receiver", "mouse", "keyboard"],
   "Themer": ["customize theme", "color scheme", "gtk theme builder"],
   "User": ["accounts", "add user", "password", "sudo", "groups"],
   "Wallpaper": ["background", "desktop background", "wall", "image"],

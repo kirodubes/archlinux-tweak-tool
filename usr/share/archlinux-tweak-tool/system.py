@@ -431,6 +431,81 @@ def on_click_system_gparted_remove(self, _widget):
         fn.log_error(f"Error removing gparted: {error}")
 
 
+# ── Solaar (Logitech receivers and devices) ──────────────────────────────────
+
+
+def _refresh_solaar_label(self):
+    self.lbl_solaar.set_markup(
+        _("Logitech devices (Solaar) <b>installed</b>")
+        if fn.path.exists("/usr/bin/solaar")
+        else _("Logitech devices (Solaar)")
+    )
+
+
+def _launch_solaar(self):
+    fn.log_subsection("Launching solaar...")
+    # Solaar talks to the receiver through its udev rule as the real user; as root it
+    # would also miss the user's tray and session bus.
+    _run_cmd(_partition_tool_launch_cmd("solaar"))
+    GLib.idle_add(fn.show_in_app_notification, self, _("Solaar launched"))
+
+
+def on_click_system_solaar(self, _widget):
+    """Launch Solaar or install it if not present."""
+    try:
+        if fn.path.exists("/usr/bin/solaar"):
+            _launch_solaar(self)
+            return
+        fn.log_subsection("Installing solaar...")
+        process = fn.launch_pacman_install_in_terminal("solaar")
+        GLib.idle_add(fn.show_in_app_notification, self, _("solaar installation started"))
+
+        def wait_install():
+            try:
+                process.wait()
+                if fn.path.exists("/usr/bin/solaar"):
+                    fn.log_success("solaar installed successfully")
+                    fn.log_info("If no device shows up, unplug and replug the receiver so the new udev rule applies")
+                    GLib.idle_add(
+                        fn.show_in_app_notification,
+                        self,
+                        _("Solaar installed - replug the receiver if no device shows up"),
+                    )
+                    GLib.idle_add(_refresh_solaar_label, self)
+                    _launch_solaar(self)
+                else:
+                    fn.log_warn("solaar binary NOT found, installation may have failed")
+            except Exception as e:
+                fn.log_error(f"Error during installation: {e}")
+
+        fn.threading.Thread(target=wait_install, daemon=True).start()
+    except Exception as error:
+        fn.log_error(f"Error with solaar: {error}")
+
+
+def on_click_system_solaar_remove(self, _widget):
+    """Remove the solaar package."""
+    try:
+        if not fn.path.exists("/usr/bin/solaar"):
+            fn.log_info("solaar is not installed")
+            fn.show_in_app_notification(self, _("solaar is not installed"))
+            return
+        fn.log_subsection("Removing solaar...")
+        process = fn.launch_pacman_remove_in_terminal("solaar")
+        GLib.idle_add(fn.show_in_app_notification, self, _("solaar removal started"))
+
+        def wait_remove():
+            try:
+                process.wait()
+                GLib.idle_add(_refresh_solaar_label, self)
+            except Exception as e:
+                fn.log_error(f"Error waiting for solaar removal: {e}")
+
+        fn.threading.Thread(target=wait_remove, daemon=True).start()
+    except Exception as error:
+        fn.log_error(f"Error removing solaar: {error}")
+
+
 # ── Firmware (GNOME Firmware + fwupd) ────────────────────────────────────────
 
 

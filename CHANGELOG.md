@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.05
+
+### Solaar on the System page
+
+**What Changed.** The System page's Hardware section has a new **Logitech devices (Solaar)** row with Launch/Install and Remove, like GParted. Solaar pairs and unpairs devices on Logitech Unifying, Bolt, Lightspeed and Nano receivers, shows battery levels and remaps buttons on most HID++ mice and keyboards. It covers only Logitech hardware, so it goes in ATT instead of being preinstalled on the ISO.
+
+**Technical Details.** `solaar` comes from Arch `extra`, so there is no `fn.distr` guard. Install and remove run in a terminal popup (`fn.launch_pacman_install_in_terminal` / `fn.launch_pacman_remove_in_terminal`), each waiting in a daemon thread, the same as the GParted handlers. Solaar is started as the real user through `_partition_tool_launch_cmd`: as root it would miss the user's session bus and tray, and the udev rule it ships grants device access to the logged-in user. That rule only applies to devices plugged in after the install, so the success notification says to replug the receiver. `search_synonyms.json` gets solaar/logitech/unifying/bolt receiver/mouse/keyboard, and `search_index.json` was regenerated. 7 new strings in all 13 catalogs (0 fuzzy, 0 untranslated): the four that match existing GParted strings reuse those translations with the name swapped, and the other three were translated by hand.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/system.py`, `usr/share/archlinux-tweak-tool/system_gui.py`, `search_synonyms.json`, `usr/share/archlinux-tweak-tool/search_index.json`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
+
 ## 2026.11.03
 
 ### New Hybrid graphics page

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 16:38+0100\n"
+"POT-Creation-Date: 2026-11-05 06:16+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -173,7 +173,8 @@ msgstr "支援ツール"
 #: usr/share/archlinux-tweak-tool/software_gui.py:431
 #: usr/share/archlinux-tweak-tool/system_gui.py:272
 #: usr/share/archlinux-tweak-tool/system_gui.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:351
+#: usr/share/archlinux-tweak-tool/system_gui.py:318
+#: usr/share/archlinux-tweak-tool/system_gui.py:374
 msgid "Launch/Install"
 msgstr "起動/インストール"
 
@@ -235,7 +236,8 @@ msgstr "起動/インストール"
 #: usr/share/archlinux-tweak-tool/software_gui.py:494
 #: usr/share/archlinux-tweak-tool/system_gui.py:274
 #: usr/share/archlinux-tweak-tool/system_gui.py:297
-#: usr/share/archlinux-tweak-tool/system_gui.py:353
+#: usr/share/archlinux-tweak-tool/system_gui.py:320
+#: usr/share/archlinux-tweak-tool/system_gui.py:376
 msgid "Remove"
 msgstr "削除"
 
@@ -2699,7 +2701,8 @@ msgstr "検索（Enter）"
 #: usr/share/archlinux-tweak-tool/hybrid.py:176
 #, python-brace-format
 msgid "{path} already exists (your own copy) — ATT leaves it alone"
-msgstr "{path} はすでに存在します（ご自身で作成したコピーです） — ATT は変更しません"
+msgstr ""
+"{path} はすでに存在します（ご自身で作成したコピーです） — ATT は変更しません"
 
 #: usr/share/archlinux-tweak-tool/hybrid.py:188
 #: usr/share/archlinux-tweak-tool/themes.py:305
@@ -2835,8 +2838,8 @@ msgid ""
 "tt>"
 msgstr ""
 "端末またはランチャーから:   <tt><b>{prefix} &lt;app&gt;</b></tt>\n"
-"Steam → ゲーム → プロパティ → 起動オプション:   <tt><b>{prefix} %command%</b>"
-"</tt>"
+"Steam → ゲーム → プロパティ → 起動オプション:   <tt><b>{prefix} %command%</"
+"b></tt>"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:120
 msgid ""
@@ -2862,8 +2865,8 @@ msgid_plural ""
 "Not available — this machine has {count} graphics cards; hybrid graphics "
 "needs two"
 msgstr[0] ""
-"利用できません — このマシンにはグラフィックスカードが {count} 基あります。"
-"ハイブリッドグラフィックスには 2 基必要です"
+"利用できません — このマシンにはグラフィックスカードが {count} 基あります。ハ"
+"イブリッドグラフィックスには 2 基必要です"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:168
 msgid ""
@@ -2874,8 +2877,8 @@ msgid ""
 msgstr ""
 "このマシンには<b>グラフィックスカードが 2 基</b>あります。省電力のカードが画"
 "面を駆動し、\n"
-"より高速なディスクリートカードも搭載されています。アプリは"
-"ディスクリートカードを指定しない限り、省電力カードで起動します。"
+"より高速なディスクリートカードも搭載されています。アプリはディスクリートカー"
+"ドを指定しない限り、省電力カードで起動します。"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:173
 msgid ""
@@ -2886,8 +2889,8 @@ msgid ""
 msgstr ""
 "Intel + NVIDIA など、グラフィックスカードを 2 基搭載したノート PC では、この"
 "ページから選んだアプリを\n"
-"より高速なディスクリートカードで実行できます。このページには<b>"
-"グラフィックスカードが 2 基</b>必要です — 下の<b>状態</b>を確認してください。"
+"より高速なディスクリートカードで実行できます。このページには<b>グラフィックス"
+"カードが 2 基</b>必要です — 下の<b>状態</b>を確認してください。"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:177
 msgid ""
@@ -2898,8 +2901,8 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"デスクトップのアプリメニュー（右クリック）にも <b>"
-"ディスクリートグラフィックスで起動</b>があります。"
+"デスクトップのアプリメニュー（右クリック）にも <b>ディスクリートグラフィック"
+"スで起動</b>があります。"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:179
 msgid ""
@@ -6276,13 +6279,13 @@ msgid "zram : …"
 msgstr "zram: …"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:277
-#: usr/share/archlinux-tweak-tool/system_gui.py:370
+#: usr/share/archlinux-tweak-tool/system_gui.py:393
 msgid "Enable"
 msgstr "有効にする"
 
 #: usr/share/archlinux-tweak-tool/performance_gui.py:279
 #: usr/share/archlinux-tweak-tool/performance_gui.py:314
-#: usr/share/archlinux-tweak-tool/system_gui.py:374
+#: usr/share/archlinux-tweak-tool/system_gui.py:397
 msgid "Disable"
 msgstr "無効にする"
 
@@ -9500,22 +9503,22 @@ msgid "inxi installation failed or was cancelled"
 msgstr "inxi のインストールに失敗したか、キャンセルされました"
 
 #: usr/share/archlinux-tweak-tool/system.py:293
-#: usr/share/archlinux-tweak-tool/system_gui.py:268
+#: usr/share/archlinux-tweak-tool/system_gui.py:291
 msgid "Inspect with GParted <b>installed</b>"
 msgstr "GParted で調べる <b>インストール済み</b>"
 
 #: usr/share/archlinux-tweak-tool/system.py:295
-#: usr/share/archlinux-tweak-tool/system_gui.py:270
+#: usr/share/archlinux-tweak-tool/system_gui.py:293
 msgid "Inspect with GParted"
 msgstr "GParted で調べる"
 
 #: usr/share/archlinux-tweak-tool/system.py:301
-#: usr/share/archlinux-tweak-tool/system_gui.py:291
+#: usr/share/archlinux-tweak-tool/system_gui.py:314
 msgid "Inspect with Partition Manager <b>installed</b>"
 msgstr "Partition Manager で調べる <b>インストール済み</b>"
 
 #: usr/share/archlinux-tweak-tool/system.py:303
-#: usr/share/archlinux-tweak-tool/system_gui.py:293
+#: usr/share/archlinux-tweak-tool/system_gui.py:316
 msgid "Inspect with Partition Manager"
 msgstr "Partition Manager で調べる"
 
@@ -9561,54 +9564,84 @@ msgid "gparted removal started"
 msgstr "gparted の削除を開始しました"
 
 #: usr/share/archlinux-tweak-tool/system.py:439
+#: usr/share/archlinux-tweak-tool/system_gui.py:268
+msgid "Logitech devices (Solaar) <b>installed</b>"
+msgstr "Logitech デバイス (Solaar) <b>インストール済み</b>"
+
+#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system_gui.py:270
+msgid "Logitech devices (Solaar)"
+msgstr "Logitech デバイス (Solaar)"
+
+#: usr/share/archlinux-tweak-tool/system.py:450
+msgid "Solaar launched"
+msgstr "Solaar を起動しました"
+
+#: usr/share/archlinux-tweak-tool/system.py:461
+msgid "solaar installation started"
+msgstr "solaar のインストールを開始しました"
+
+#: usr/share/archlinux-tweak-tool/system.py:472
+msgid "Solaar installed - replug the receiver if no device shows up"
+msgstr "Solaar をインストールしました - デバイスが表示されない場合はレシーバーを挿し直してください"
+
+#: usr/share/archlinux-tweak-tool/system.py:491
+msgid "solaar is not installed"
+msgstr "solaar はインストールされていません"
+
+#: usr/share/archlinux-tweak-tool/system.py:495
+msgid "solaar removal started"
+msgstr "solaar の削除を開始しました"
+
+#: usr/share/archlinux-tweak-tool/system.py:514
 msgid "Update firmware (GNOME Firmware) <b>installed</b>"
 msgstr "ファームウェアを更新（GNOME Firmware） <b>インストール済み</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:441
+#: usr/share/archlinux-tweak-tool/system.py:516
 msgid "Update firmware (GNOME Firmware)"
 msgstr "ファームウェアを更新（GNOME Firmware）"
 
-#: usr/share/archlinux-tweak-tool/system.py:450
+#: usr/share/archlinux-tweak-tool/system.py:525
 msgid "GNOME Firmware launched"
 msgstr "GNOME Firmware を起動しました"
 
-#: usr/share/archlinux-tweak-tool/system.py:461
+#: usr/share/archlinux-tweak-tool/system.py:536
 msgid "gnome-firmware installation started"
 msgstr "gnome-firmware のインストールを開始しました"
 
-#: usr/share/archlinux-tweak-tool/system.py:468
+#: usr/share/archlinux-tweak-tool/system.py:543
 msgid "gnome-firmware installed"
 msgstr "gnome-firmware をインストールしました"
 
-#: usr/share/archlinux-tweak-tool/system.py:486
+#: usr/share/archlinux-tweak-tool/system.py:561
 msgid "gnome-firmware is not installed"
 msgstr "gnome-firmware はインストールされていません"
 
-#: usr/share/archlinux-tweak-tool/system.py:490
+#: usr/share/archlinux-tweak-tool/system.py:565
 msgid "gnome-firmware removal started"
 msgstr "gnome-firmware の削除を開始しました"
 
-#: usr/share/archlinux-tweak-tool/system.py:530
+#: usr/share/archlinux-tweak-tool/system.py:605
 msgid "Metadata refresh timer (fwupd-refresh.timer) <b>enabled</b>"
 msgstr "メタデータ更新タイマー（fwupd-refresh.timer） <b>有効</b>"
 
-#: usr/share/archlinux-tweak-tool/system.py:532
+#: usr/share/archlinux-tweak-tool/system.py:607
 msgid "Metadata refresh timer (fwupd-refresh.timer)"
 msgstr "メタデータ更新タイマー（fwupd-refresh.timer）"
 
-#: usr/share/archlinux-tweak-tool/system.py:541
+#: usr/share/archlinux-tweak-tool/system.py:616
 msgid "Enabling firmware metadata timer..."
 msgstr "ファームウェアのメタデータタイマーを有効にしています..."
 
-#: usr/share/archlinux-tweak-tool/system.py:552
+#: usr/share/archlinux-tweak-tool/system.py:627
 msgid "Firmware metadata timer enabled"
 msgstr "ファームウェアのメタデータタイマーを有効にしました"
 
-#: usr/share/archlinux-tweak-tool/system.py:562
+#: usr/share/archlinux-tweak-tool/system.py:637
 msgid "Disabling firmware metadata timer..."
 msgstr "ファームウェアのメタデータタイマーを無効にしています..."
 
-#: usr/share/archlinux-tweak-tool/system.py:573
+#: usr/share/archlinux-tweak-tool/system.py:648
 msgid "Firmware metadata timer disabled"
 msgstr "ファームウェアのメタデータタイマーを無効にしました"
 
@@ -9704,11 +9737,11 @@ msgstr "有効な Systemd タイマー"
 msgid "Kernel Ring Buffer (dmesg)"
 msgstr "カーネルリングバッファ（dmesg）"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:315
+#: usr/share/archlinux-tweak-tool/system_gui.py:338
 msgid "<b>Firmware</b>"
 msgstr "<b>ファームウェア</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:327
+#: usr/share/archlinux-tweak-tool/system_gui.py:350
 msgid ""
 "<span foreground=\"#FFA500\"><b>⚠ Firmware updates can permanently brick a "
 "device. No warranty, no disclaimer — only continue if you know what you are "
@@ -9718,7 +9751,7 @@ msgstr ""
 "全に使用できなくなる可能性があります。保証も免責もありません。内容を理解して"
 "いる場合にのみ続行してください。</b></span>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:339
+#: usr/share/archlinux-tweak-tool/system_gui.py:362
 msgid ""
 "GNOME Firmware updates BIOS/UEFI, SSDs, docks and more via fwupd/LVFS. Only "
 "devices your vendor publishes to LVFS will show updates."
@@ -9726,19 +9759,19 @@ msgstr ""
 "GNOME Firmware は、fwupd/LVFS を介して BIOS/UEFI、SSD、ドックなどを更新しま"
 "す。ベンダーが LVFS に公開しているデバイスのみ、更新が表示されます。"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:395
+#: usr/share/archlinux-tweak-tool/system_gui.py:418
 msgid "<b>Hardware</b>"
 msgstr "<b>ハードウェア</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:406
+#: usr/share/archlinux-tweak-tool/system_gui.py:429
 msgid "<b>Storage</b>"
 msgstr "<b>ストレージ</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:417
+#: usr/share/archlinux-tweak-tool/system_gui.py:440
 msgid "<b>System</b>"
 msgstr "<b>システム</b>"
 
-#: usr/share/archlinux-tweak-tool/system_gui.py:428
+#: usr/share/archlinux-tweak-tool/system_gui.py:451
 msgid "<b>Systemd</b>"
 msgstr "<b>Systemd</b>"
 

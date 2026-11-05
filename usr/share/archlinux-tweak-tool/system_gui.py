@@ -261,6 +261,29 @@ def gui(self, Gtk, vboxstack_system, fn):
     btn_dmesg.set_margin_end(10)
     hbox_dmesg.append(btn_dmesg)
 
+    # Solaar
+    hbox_solaar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    self.lbl_solaar = Gtk.Label(xalign=0)
+    self.lbl_solaar.set_markup(
+        _("Logitech devices (Solaar) <b>installed</b>")
+        if fn.path.exists("/usr/bin/solaar")
+        else _("Logitech devices (Solaar)")
+    )
+    btn_solaar = Gtk.Button(label=_("Launch/Install"))
+    btn_solaar.connect("clicked", functools.partial(system.on_click_system_solaar, self))
+    btn_solaar_remove = Gtk.Button(label=_("Remove"))
+    btn_solaar_remove.connect("clicked", functools.partial(system.on_click_system_solaar_remove, self))
+    self.lbl_solaar.set_margin_start(10)
+    self.lbl_solaar.set_margin_end(10)
+    self.lbl_solaar.set_hexpand(True)
+    hbox_solaar.append(self.lbl_solaar)
+    btn_solaar.set_margin_start(10)
+    btn_solaar.set_margin_end(10)
+    hbox_solaar.append(btn_solaar)
+    btn_solaar_remove.set_margin_start(10)
+    btn_solaar_remove.set_margin_end(10)
+    hbox_solaar.append(btn_solaar_remove)
+
     # GParted
     hbox_gparted = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     self.lbl_gparted = Gtk.Label(xalign=0)
@@ -452,6 +475,7 @@ def gui(self, Gtk, vboxstack_system, fn):
     vboxstack_system.append(hbox_lsmod)
     vboxstack_system.append(hbox_inxi)
     vboxstack_system.append(hbox_hwinfo)
+    vboxstack_system.append(hbox_solaar)
 
     vboxstack_system.append(hbox_section_storage)
     vboxstack_system.append(hbox_lsblk)
