@@ -2,7 +2,7 @@
 """Generate the Surfn + Neo Candy icon-theme tables and folder thumbnails for the Icons page.
 
 Run automatically by up.sh. Both families are standalone colour-variant packages with the
-same shape (sources in ~/EDU/<set>-*, build recipes in ~/KIRO-PKG-BUILD-ICONS); the Icons
+same shape (sources in ~/EDU/<set>-* plus ~/KIRO for surfn-kiro, build recipes in ~/KIRO-PKG-BUILD-ICONS); the Icons
 Surfn / Icons Neo Candy pages stay in sync without hand-editing icons.py for every variant.
 
 For each variant this records token / package / family, and renders a small folder preview
@@ -34,6 +34,8 @@ THUMB_SIZE = 28
 
 HOME = path.expanduser("~")
 SRC_ROOT = os.environ.get("SURFN_SRC_ROOT", path.join(HOME, "EDU"))
+# Kiro-owned themes (surfn-kiro) live in ~/KIRO; ~/EDU wins when a token exists in both.
+EXTRA_SRC_ROOTS = [os.environ.get("SURFN_KIRO_SRC_ROOT", path.join(HOME, "KIRO"))]
 PKG_ROOT = os.environ.get("SURFN_PKG_ROOT", path.join(HOME, "KIRO-PKG-BUILD-ICONS"))
 
 # Display order of the families; tokens within a family are sorted alphabetically.
@@ -47,6 +49,7 @@ ICON_SETS = [
 ]
 
 _THEME_DIR_INDEX = {}
+_TOKEN_ROOT = {}
 
 
 def _classify(token, prefix):
@@ -71,7 +74,7 @@ def _classify(token, prefix):
 
 
 def _theme_dir(token):
-    icons_root = path.join(SRC_ROOT, token, "usr/share/icons")
+    icons_root = path.join(_TOKEN_ROOT.get(token, SRC_ROOT), token, "usr/share/icons")
     if not path.isdir(icons_root):
         return None
     for name in sorted(os.listdir(icons_root)):
@@ -126,7 +129,7 @@ def _canonical_folder(token, theme_dir, _seen=None):
         return None
     _seen.add(theme_dir)
 
-    theme_root = path.join(SRC_ROOT, token, "usr/share/icons", theme_dir)
+    theme_root = path.join(_TOKEN_ROOT.get(token, SRC_ROOT), token, "usr/share/icons", theme_dir)
     found = _folder_in_root(theme_root)
     if found:
         return found
@@ -159,11 +162,14 @@ def _generate_set(label, prefix, base_token, data_filename, thumb_subdir):
     data_out = path.join(DATA_DIR, data_filename)
     os.makedirs(thumb_dir, exist_ok=True)
 
-    tokens = [
-        name
-        for name in sorted(os.listdir(SRC_ROOT))
-        if (name == base_token or name.startswith(prefix)) and path.isdir(path.join(SRC_ROOT, name, "usr/share/icons"))
-    ]
+    _TOKEN_ROOT.clear()
+    for root in [SRC_ROOT] + [r for r in EXTRA_SRC_ROOTS if path.isdir(r)]:
+        for name in os.listdir(root):
+            if name in _TOKEN_ROOT or not (name == base_token or name.startswith(prefix)):
+                continue
+            if path.isdir(path.join(root, name, "usr/share/icons")):
+                _TOKEN_ROOT[name] = root
+    tokens = sorted(_TOKEN_ROOT)
 
     _THEME_DIR_INDEX.clear()
     for token in tokens:

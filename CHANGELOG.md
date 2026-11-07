@@ -18,6 +18,14 @@
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/icons.py`
 
+### Icons Surfn page: Surfn Kiro is listed
+
+**What Changed.** `surfn-kiro-icons-git` (Surfn Kiro, Kiro's Plasma-tuned Surfn) can now be installed and removed from the Icons Surfn page. It sits in the Other group of the Surfn tab, with a folder preview.
+
+**Technical Details.** `gen-icons-list.py` only scanned `~/EDU`, but Surfn Kiro's source lives in `~/KIRO/surfn-kiro`. The script now also scans `~/KIRO` (`EXTRA_SRC_ROOTS`, can be changed with `SURFN_KIRO_SRC_ROOT`). A `_TOKEN_ROOT` map remembers which folder each theme came from, and `~/EDU` wins if a name exists in both. Only `surfn-kiro` in `~/KIRO` matches a set prefix; the `kiro-neo-candy-*` folders do not match `neo-candy-`. The package name comes from the `surfn-kiro-icons-git` recipe. `surfn_families.json` was regenerated; Neo Candy is unchanged. No new UI text.
+
+**Files Modified.** `gen-icons-list.py`, `usr/share/archlinux-tweak-tool/data/surfn_families.json`, `usr/share/archlinux-tweak-tool/images/surfn/surfn-kiro.png`
+
 ## 2026.11.05
 
 ### Variety: XFCE wallpaper no longer resets at login

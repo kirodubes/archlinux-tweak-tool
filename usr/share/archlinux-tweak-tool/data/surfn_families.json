@@ -397,6 +397,10 @@
       "package": "surfn-dracul-icons-git"
     },
     {
+      "token": "surfn-kiro",
+      "package": "surfn-kiro-icons-git"
+    },
+    {
       "token": "surfn-luv",
       "package": "surfn-luv-icons-git"
     },
