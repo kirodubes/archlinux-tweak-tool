@@ -11,7 +11,7 @@
   "Hybrid graphics": ["prime", "prime-run", "nvidia prime", "optimus", "dgpu", "discrete gpu", "dedicated gpu", "dual gpu", "two gpus", "switcheroo", "dri_prime", "gpu offload", "graphics card", "laptop gpu"],
   "Icons Horst": ["icon theme", "horst", "folder", "colour folders", "color folders", "mint-y", "surfn", "neo candy"],
   "Icons Neo Candy": ["icon theme", "neo candy", "candy", "mint", "tela", "numix", "papirus", "qogir", "arc", "breeze"],
-  "Icons Surfn": ["icon theme", "surfn", "mint", "tela", "numix", "papirus", "plasma", "arc", "breeze"],
+  "Icons Surfn": ["icon theme", "surfn", "surfn kiro", "surfn-kiro", "mint", "tela", "numix", "papirus", "plasma", "arc", "breeze"],
   "ISO": ["iso", "kiro iso builder", "kib", "build iso", "image", "live", "installer", "archiso", "spin", "distro"],
   "Kernels": ["kernel", "linux-zen", "linux-cachyos", "lts", "initramfs", "mkinitcpio", "dracut", "boot menu"],
   "Locale": ["language", "keyboard", "timezone", "region", "keymap", "clock", "language pack", "translation", "spell check", "dictionary", "hunspell", "firefox language"],
