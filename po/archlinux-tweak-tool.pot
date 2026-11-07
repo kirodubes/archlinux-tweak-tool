@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 06:16+0100\n"
+"POT-Creation-Date: 2026-11-07 11:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -900,7 +900,7 @@ msgid "Failed to apply ATT nanorc"
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
-#: usr/share/archlinux-tweak-tool/desktopr.py:604
+#: usr/share/archlinux-tweak-tool/desktopr.py:628
 msgid "Lock File Found"
 msgstr ""
 
@@ -1520,12 +1520,19 @@ msgstr ""
 msgid "Uninstall the selected themes"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:581
+#: usr/share/archlinux-tweak-tool/desktopr.py:34
+#, python-brace-format
+msgid ""
+"Tip: install {package} from {repo} for extra {name} features and Kiro "
+"theming, the easy way"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:593
 #, python-brace-format
 msgid "{name} installed — one more step for correct theming"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:584
+#: usr/share/archlinux-tweak-tool/desktopr.py:596
 #, python-brace-format
 msgid ""
 "Your /etc/environment sets variables that override {name}'s own theme. Left "
@@ -1536,93 +1543,94 @@ msgid ""
 "{lines}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:606
-#, python-brace-format
-msgid "{name} lock file found, do you want to remove it and continue?"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/desktopr.py:648
-#, python-brace-format
-msgid "Opening terminal for {desktop} installation..."
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/desktopr.py:820
-#: usr/share/archlinux-tweak-tool/desktopr.py:1163
-msgid "This desktop is installed"
-msgstr ""
-
-#: usr/share/archlinux-tweak-tool/desktopr.py:833
+#: usr/share/archlinux-tweak-tool/desktopr.py:610
+#: usr/share/archlinux-tweak-tool/desktopr.py:857
 #, python-brace-format
 msgid "{desktop} has been installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:864
+#: usr/share/archlinux-tweak-tool/desktopr.py:630
+#, python-brace-format
+msgid "{name} lock file found, do you want to remove it and continue?"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:672
+#, python-brace-format
+msgid "Opening terminal for {desktop} installation..."
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:844
+#: usr/share/archlinux-tweak-tool/desktopr.py:1187
+msgid "This desktop is installed"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/desktopr.py:888
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:868
+#: usr/share/archlinux-tweak-tool/desktopr.py:892
 #, python-brace-format
 msgid "{desktop} installation failed — check console for details"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:872
-#: usr/share/archlinux-tweak-tool/desktopr.py:1117
-#: usr/share/archlinux-tweak-tool/desktopr.py:1166
+#: usr/share/archlinux-tweak-tool/desktopr.py:896
+#: usr/share/archlinux-tweak-tool/desktopr.py:1141
+#: usr/share/archlinux-tweak-tool/desktopr.py:1190
 msgid "This desktop is NOT installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:894
+#: usr/share/archlinux-tweak-tool/desktopr.py:918
 #, python-brace-format
 msgid "Starting removal of {desktop}..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1003
+#: usr/share/archlinux-tweak-tool/desktopr.py:1027
 #, python-brace-format
 msgid "No packages to safely remove for {desktop}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1094
-#: usr/share/archlinux-tweak-tool/desktopr.py:1109
+#: usr/share/archlinux-tweak-tool/desktopr.py:1118
+#: usr/share/archlinux-tweak-tool/desktopr.py:1133
 #, python-brace-format
 msgid "{desktop} has been removed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1095
+#: usr/share/archlinux-tweak-tool/desktopr.py:1119
 msgid ""
 "We do not remove code from your home directory,\n"
 "only packages without dependencies"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1143
+#: usr/share/archlinux-tweak-tool/desktopr.py:1167
 #, python-brace-format
 msgid "Installed: {desktops}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1143
+#: usr/share/archlinux-tweak-tool/desktopr.py:1167
 msgid "No desktops installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1175
+#: usr/share/archlinux-tweak-tool/desktopr.py:1199
 #, python-brace-format
 msgid "Enable {repos} before installing a desktop"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1187
+#: usr/share/archlinux-tweak-tool/desktopr.py:1211
 #, python-brace-format
 msgid "Installing {name} is a one-way operation"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1190
+#: usr/share/archlinux-tweak-tool/desktopr.py:1214
 #, python-brace-format
 msgid "{name} cannot be removed through {app} once installed."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1192
+#: usr/share/archlinux-tweak-tool/desktopr.py:1216
 msgid "A fresh system reinstall is required to completely remove it."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1201
+#: usr/share/archlinux-tweak-tool/desktopr.py:1225
 #, python-brace-format
 msgid ""
 "IMPORTANT — {name} theming:\n"
@@ -1633,51 +1641,51 @@ msgid ""
 "{lines}"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1216
+#: usr/share/archlinux-tweak-tool/desktopr.py:1240
 #, python-brace-format
 msgid ""
 "{name}: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid "
 "theming issues"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1220
+#: usr/share/archlinux-tweak-tool/desktopr.py:1244
 msgid "Do you want to continue?"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1250
+#: usr/share/archlinux-tweak-tool/desktopr.py:1274
 #, python-brace-format
 msgid "{name} cannot be removed — reinstall system to switch DEs"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1256
+#: usr/share/archlinux-tweak-tool/desktopr.py:1280
 #, python-brace-format
 msgid "{desktop} is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1274
+#: usr/share/archlinux-tweak-tool/desktopr.py:1298
 msgid "That desktop is not installed"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1339
-#: usr/share/archlinux-tweak-tool/desktopr.py:1360
+#: usr/share/archlinux-tweak-tool/desktopr.py:1363
+#: usr/share/archlinux-tweak-tool/desktopr.py:1384
 #, python-brace-format
 msgid "Starting {desktop} installation..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1345
+#: usr/share/archlinux-tweak-tool/desktopr.py:1369
 msgid "All desktops install sequence complete"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1366
+#: usr/share/archlinux-tweak-tool/desktopr.py:1390
 msgid "All TWMs install sequence complete"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1381
+#: usr/share/archlinux-tweak-tool/desktopr.py:1405
 #, python-brace-format
 msgid "Starting {desktop} removal..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1387
+#: usr/share/archlinux-tweak-tool/desktopr.py:1411
 msgid "All desktops removed"
 msgstr ""
 
@@ -1721,36 +1729,36 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:176
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:189
 msgid "Backing up the configs this desktop will overwrite to ~/.config-att ..."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:209
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:223
 msgid "Install all desktops"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:214
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:228
 msgid "Install all twms"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:217
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:231
 msgid "Remove all desktops"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:253
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:268
 #, python-brace-format
 msgid "Enable {repo1} and {repo2} in the Pacman tab to install this desktop"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:263
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:278
 #, python-brace-format
 msgid ""
 "{name} cannot be safely removed — reinstall the system to switch desktop "
 "environments"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:276
-#: usr/share/archlinux-tweak-tool/desktopr_gui.py:285
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:291
+#: usr/share/archlinux-tweak-tool/desktopr_gui.py:300
 #, python-brace-format
 msgid ""
 "WARNING: Installing {name} is a one-way operation — removal requires a "

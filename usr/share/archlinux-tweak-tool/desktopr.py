@@ -24,6 +24,16 @@ def desktop_display_name(desktop):
 # popup), and GTK_THEME forces GTK apps dark regardless of Plasma's settings.
 _PLASMA_CONFLICTING_ENV_VARS = ("QT_QPA_PLATFORMTHEME", "QT_STYLE_OVERRIDE", "GTK_THEME")
 
+# Deliberately not in the Plasma install list: it stays an opt-in extra, so we only point users to it.
+PLASMA_META_PKG = "kiro-plasma-meta"
+
+
+def plasma_meta_tip():
+    """Return the hint pointing Plasma users to the Kiro Plasma meta package."""
+    return _(
+        "Tip: install {package} from {repo} for extra {name} features and Kiro theming, the easy way"
+    ).format(package=PLASMA_META_PKG, repo="nemesis_repo", name="Plasma")
+
 
 def conflicting_plasma_env_lines():
     """Return uncommented /etc/environment lines that clash with Plasma theming."""
@@ -569,29 +579,43 @@ def check_desktop(desktop):
 
 
 def show_plasma_env_dialog(self):
-    """Post-install dialog telling the user to comment out Plasma-conflicting /etc/environment vars."""
+    """Post-install dialog: comment out Plasma-conflicting /etc/environment vars and point to kiro-plasma-meta."""
     conflicting_lines = conflicting_plasma_env_lines()
-    if not conflicting_lines:
+    show_tip = not fn.check_package_installed(PLASMA_META_PKG)
+    if not conflicting_lines and not show_tip:
         return False
-    lines_block = "\n".join(f"    {line}" for line in conflicting_lines)
-    dialog = Gtk.MessageDialog(
-        transient_for=self,
-        message_type=Gtk.MessageType.WARNING,
-        buttons=Gtk.ButtonsType.OK,
-        text=_("{name} installed — one more step for correct theming").format(name="Plasma"),
-    )
-    dialog.props.secondary_text = _(
-        "Your /etc/environment sets variables that override {name}'s own theme. "
-        "Left active, {name} shows dark elements and a yellow warning notification/popup.\n\n"
-        "Edit /etc/environment, put a '#' in front of these lines, then log out and back in:\n"
-        "{lines}"
-    ).format(name="Plasma", lines=lines_block)
+    if conflicting_lines:
+        lines_block = "\n".join(f"    {line}" for line in conflicting_lines)
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            message_type=Gtk.MessageType.WARNING,
+            buttons=Gtk.ButtonsType.OK,
+            text=_("{name} installed — one more step for correct theming").format(name="Plasma"),
+        )
+        secondary = _(
+            "Your /etc/environment sets variables that override {name}'s own theme. "
+            "Left active, {name} shows dark elements and a yellow warning notification/popup.\n\n"
+            "Edit /etc/environment, put a '#' in front of these lines, then log out and back in:\n"
+            "{lines}"
+        ).format(name="Plasma", lines=lines_block)
+        fn.log_warn(
+            "Plasma installed — reminder shown to comment out /etc/environment theme overrides: "
+            + ", ".join(conflicting_lines)
+        )
+    else:
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text=_("{desktop} has been installed").format(desktop="Plasma"),
+        )
+        secondary = ""
+    if show_tip:
+        secondary = (secondary + "\n\n" if secondary else "") + plasma_meta_tip()
+        fn.log_info(f"Plasma installed — tip shown to install {PLASMA_META_PKG}")
+    dialog.props.secondary_text = secondary
     dialog.connect("response", lambda d, _r: d.destroy())
     dialog.show()
-    fn.log_warn(
-        "Plasma installed — reminder shown to comment out /etc/environment theme overrides: "
-        + ", ".join(conflicting_lines)
-    )
     return False
 
 

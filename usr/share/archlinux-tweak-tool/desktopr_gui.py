@@ -164,6 +164,19 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     self.hbox_oneway_warning.set_visible(False)
 
     # =======================================
+    #        PLASMA META PACKAGE TIP
+    # =======================================
+
+    self.hbox_plasma_tip = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
+    self.hbox_plasma_tip.set_halign(Gtk.Align.CENTER)
+    self.hbox_plasma_tip.set_margin_top(4)
+    self.lbl_plasma_tip = Gtk.Label()
+    self.lbl_plasma_tip.set_halign(Gtk.Align.CENTER)
+    self.lbl_plasma_tip.set_wrap(True)
+    self.hbox_plasma_tip.append(self.lbl_plasma_tip)
+    self.hbox_plasma_tip.set_visible(False)
+
+    # =======================================
     #           BACKUP NOTICE LABEL
     # =======================================
 
@@ -191,6 +204,7 @@ def gui(self, Gtk, GdkPixbuf, vboxstack_desktop, desktopr, fn, base_dir):
     vbox.append(frame)
     vbox.append(checkbox)
     vbox.append(self.hbox_oneway_warning)
+    vbox.append(self.hbox_plasma_tip)
     vbox.append(buttonbox)
     vbox.append(uninstall_hbox)
     vbox.append(vboxprog)
@@ -241,6 +255,7 @@ def update_button_state(self, fn):
     if not hasattr(self, "d_combo"):
         return
     import desktopr
+    from gi.repository import GLib
 
     selected = fn.get_combo_text(self.d_combo)
     nemesis_active = fn.check_nemesis_repo_active()
@@ -288,3 +303,12 @@ def update_button_state(self, fn):
             )
         else:
             self.hbox_oneway_warning.set_visible(False)
+
+    if hasattr(self, "hbox_plasma_tip"):
+        if selected == "plasma" and not fn.check_package_installed(desktopr.PLASMA_META_PKG):
+            self.lbl_plasma_tip.set_markup(
+                '<span foreground="#7FDBFF">{}</span>'.format(GLib.markup_escape_text(desktopr.plasma_meta_tip()))
+            )
+            self.hbox_plasma_tip.set_visible(True)
+        else:
+            self.hbox_plasma_tip.set_visible(False)

@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.07
+
+### Desktop page: Plasma users are pointed to kiro-plasma-meta
+
+**What Changed.** Installing Plasma from the Desktop page installs only `plasma`, `kde-system-meta` and `konsole`. `kiro-plasma-meta` adds more features and Kiro theming, but users had no way to find out about it. ATT now mentions it in two places, as text only. It stays out of the Plasma install list on purpose, as an opt-in extra. The Desktop page shows a tip under the one-way warning when Plasma is selected. The post-install Plasma dialog ends with the same sentence. Neither shows once `kiro-plasma-meta` is installed.
+
+**Technical Details.** `desktopr.PLASMA_META_PKG` and `desktopr.plasma_meta_tip()` hold the package name and the translated sentence, so both places use the same text. `desktopr_gui.update_button_state` shows `hbox_plasma_tip` (light blue, markup-escaped, wraps) when the selection is `plasma` and `fn.check_package_installed` says the package is missing. `show_plasma_env_dialog` used to return early when `/etc/environment` had no conflicting variables. It now shows an INFO dialog ("Plasma has been installed", an existing string) with only the tip in that case. When conflicts exist, the tip is added after the instructions in the existing WARNING dialog. 1 new string in all 13 catalogs (0 fuzzy, 0 untranslated), translated by hand.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`, `usr/share/archlinux-tweak-tool/desktopr_gui.py`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
+
 ## 2026.11.05
 
 ### Variety: XFCE wallpaper no longer resets at login
