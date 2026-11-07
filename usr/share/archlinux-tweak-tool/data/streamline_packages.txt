@@ -78,7 +78,6 @@ lm_sensors
 lshw
 pciutils
 redshift
-resources
 
 ###  ACCESSIBILITY  (on-screen keyboard for the desktop session)
 onboard

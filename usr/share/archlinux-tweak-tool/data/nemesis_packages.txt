@@ -388,6 +388,7 @@ surfn-horst-teal-icons-git
 surfn-horst-yellow-icons-git
 surfn-icons-git
 surfn-icons-meta
+surfn-kiro-icons-git
 surfn-luv-icons-git
 surfn-luv-red-icons-git
 surfn-majestic-icons-git
