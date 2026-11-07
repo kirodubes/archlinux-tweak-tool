@@ -6,7 +6,7 @@ import json
 import os
 
 import functions as fn
-from att_i18n import _, ngettext
+from att_i18n import N_, _, ngettext
 
 _SARDI_COUNT = 24
 
@@ -67,6 +67,9 @@ NEOCANDY_TABS = {
     "Neo Candy Papirus": ["Papirus"],
     "Neo Candy Tela": ["Tela"],
 }
+
+# Families shown in their own block at the top of a page, above the sub-tabs: (family, note).
+SURFN_TOP = [("Surfn Kiro", N_("Default Kiro theme"))]
 
 # The Icons Horst page mixes both sets: each sub-tab is (title, set_key, [families]).
 HORST_TABS = [

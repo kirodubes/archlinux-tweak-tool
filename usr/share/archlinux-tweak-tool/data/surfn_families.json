@@ -1,4 +1,10 @@
 {
+  "Surfn Kiro": [
+    {
+      "token": "surfn-kiro",
+      "package": "surfn-kiro-icons-git"
+    }
+  ],
   "Mint-X": [
     {
       "token": "surfn-mint-x-aqua",
@@ -395,10 +401,6 @@
     {
       "token": "surfn-dracul",
       "package": "surfn-dracul-icons-git"
-    },
-    {
-      "token": "surfn-kiro",
-      "package": "surfn-kiro-icons-git"
     },
     {
       "token": "surfn-luv",

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 11:47+0100\n"
+"POT-Creation-Date: 2026-11-07 13:12+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1577,14 +1577,14 @@ msgstr "Kies met een knop wat je wilt selecteren"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:131
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:114
-#: usr/share/archlinux-tweak-tool/icons_gui.py:106
+#: usr/share/archlinux-tweak-tool/icons_gui.py:107
 #: usr/share/archlinux-tweak-tool/themes_gui.py:234
 msgid "All"
 msgstr "Alle"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:133
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:120
-#: usr/share/archlinux-tweak-tool/icons_gui.py:108
+#: usr/share/archlinux-tweak-tool/icons_gui.py:109
 #: usr/share/archlinux-tweak-tool/themes_gui.py:238
 msgid "None"
 msgstr "Geen"
@@ -1671,7 +1671,9 @@ msgstr "De geselecteerde thema's verwijderen"
 msgid ""
 "Tip: install {package} from {repo} for extra {name} features and Kiro "
 "theming, the easy way"
-msgstr "Tip: installeer {package} uit {repo} voor extra {name}-functies en Kiro-thema's, op de makkelijke manier"
+msgstr ""
+"Tip: installeer {package} uit {repo} voor extra {name}-functies en Kiro-"
+"thema's, op de makkelijke manier"
 
 #: usr/share/archlinux-tweak-tool/desktopr.py:593
 #, python-brace-format
@@ -2989,11 +2991,15 @@ msgstr "<b>Huidige overrides</b>"
 msgid "Remove all overrides"
 msgstr "Alle overrides verwijderen"
 
-#: usr/share/archlinux-tweak-tool/icons.py:76
+#: usr/share/archlinux-tweak-tool/icons.py:72
+msgid "Default Kiro theme"
+msgstr "Standaardthema van Kiro"
+
+#: usr/share/archlinux-tweak-tool/icons.py:83
 msgid "Other"
 msgstr "Overig"
 
-#: usr/share/archlinux-tweak-tool/icons.py:117
+#: usr/share/archlinux-tweak-tool/icons.py:124
 #, python-brace-format
 msgid ""
 "Neither {repo1} nor {repo2} is enabled — add them in the Pacman tab before "
@@ -3002,8 +3008,8 @@ msgstr ""
 "Noch {repo1} noch {repo2} is ingeschakeld. Voeg ze toe op het tabblad Pacman "
 "voordat je installeert"
 
-#: usr/share/archlinux-tweak-tool/icons.py:127
-#: usr/share/archlinux-tweak-tool/icons.py:136
+#: usr/share/archlinux-tweak-tool/icons.py:134
+#: usr/share/archlinux-tweak-tool/icons.py:143
 #, python-brace-format
 msgid ""
 "{repo} is not enabled — enable it in the Pacman tab for full icon theme "
@@ -3012,138 +3018,138 @@ msgstr ""
 "{repo} is niet ingeschakeld. Schakel hem in op het tabblad Pacman voor "
 "volledige ondersteuning van icoonthema's"
 
-#: usr/share/archlinux-tweak-tool/icons.py:145
-#: usr/share/archlinux-tweak-tool/icons.py:211
+#: usr/share/archlinux-tweak-tool/icons.py:152
+#: usr/share/archlinux-tweak-tool/icons.py:218
 #, python-brace-format
 msgid "We have selected all {name} icons"
 msgstr "We hebben alle {name}-iconen geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:151
+#: usr/share/archlinux-tweak-tool/icons.py:158
 #, python-brace-format
 msgid "We have selected the mint selection - {name} icons"
 msgstr "We hebben de mint-selectie geselecteerd: {name}-iconen"
 
-#: usr/share/archlinux-tweak-tool/icons.py:157
+#: usr/share/archlinux-tweak-tool/icons.py:164
 #, python-brace-format
 msgid "We have selected the mixing selection - {name} icons"
 msgstr "We hebben de mix-selectie geselecteerd: {name}-iconen"
 
-#: usr/share/archlinux-tweak-tool/icons.py:163
+#: usr/share/archlinux-tweak-tool/icons.py:170
 #, python-brace-format
 msgid "We have selected the variation selection - {name} icons"
 msgstr "We hebben de variatieselectie geselecteerd: {name}-iconen"
 
-#: usr/share/archlinux-tweak-tool/icons.py:169
-#: usr/share/archlinux-tweak-tool/icons.py:217
+#: usr/share/archlinux-tweak-tool/icons.py:176
+#: usr/share/archlinux-tweak-tool/icons.py:224
 #, python-brace-format
 msgid "We have selected no {name} icons"
 msgstr "We hebben geen {name}-iconen geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:175
+#: usr/share/archlinux-tweak-tool/icons.py:182
 #, python-brace-format
 msgid "We have selected the {name} family themes"
 msgstr "We hebben de themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:181
+#: usr/share/archlinux-tweak-tool/icons.py:188
 #, python-brace-format
 msgid "We have selected the {name} flexible family themes"
 msgstr "We hebben de flexibele themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:187
+#: usr/share/archlinux-tweak-tool/icons.py:194
 #, python-brace-format
 msgid "We have selected the {name} mono family themes"
 msgstr "We hebben de mono-themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:193
+#: usr/share/archlinux-tweak-tool/icons.py:200
 #, python-brace-format
 msgid "We have selected the {name} flat family themes"
 msgstr "We hebben de vlakke themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:199
+#: usr/share/archlinux-tweak-tool/icons.py:206
 #, python-brace-format
 msgid "We have selected the {name} ghost family themes"
 msgstr "We hebben de ghost-themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:205
+#: usr/share/archlinux-tweak-tool/icons.py:212
 #, python-brace-format
 msgid "We have selected the {name} orb family themes"
 msgstr "We hebben de orb-themafamilie {name} geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:224
+#: usr/share/archlinux-tweak-tool/icons.py:231
 #, python-brace-format
 msgid "We have selected the {family} icons"
 msgstr "We hebben de {family}-iconen geselecteerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:240
-#: usr/share/archlinux-tweak-tool/icons.py:256
+#: usr/share/archlinux-tweak-tool/icons.py:247
+#: usr/share/archlinux-tweak-tool/icons.py:263
 msgid "We show the installed icon themes"
 msgstr "We tonen de geïnstalleerde icoonthema's"
 
-#: usr/share/archlinux-tweak-tool/icons.py:593
-#: usr/share/archlinux-tweak-tool/icons.py:720
+#: usr/share/archlinux-tweak-tool/icons.py:600
+#: usr/share/archlinux-tweak-tool/icons.py:727
 #, python-brace-format
 msgid "No {name} icons selected for installation"
 msgstr "Geen {name}-iconen geselecteerd om te installeren"
 
-#: usr/share/archlinux-tweak-tool/icons.py:601
-#: usr/share/archlinux-tweak-tool/icons.py:728
+#: usr/share/archlinux-tweak-tool/icons.py:608
+#: usr/share/archlinux-tweak-tool/icons.py:747
 #, python-brace-format
 msgid "Installing {count} {name} icon package..."
 msgid_plural "Installing {count} {name} icon packages..."
 msgstr[0] "{count} {name}-iconenpakket wordt geïnstalleerd..."
 msgstr[1] "{count} {name}-iconenpakketten worden geïnstalleerd..."
 
-#: usr/share/archlinux-tweak-tool/icons.py:604
-#: usr/share/archlinux-tweak-tool/icons.py:731
+#: usr/share/archlinux-tweak-tool/icons.py:611
+#: usr/share/archlinux-tweak-tool/icons.py:750
 #, python-brace-format
 msgid "{name} icons installation complete"
 msgstr "Installatie van {name}-iconen voltooid"
 
-#: usr/share/archlinux-tweak-tool/icons.py:611
-#: usr/share/archlinux-tweak-tool/icons.py:740
+#: usr/share/archlinux-tweak-tool/icons.py:618
+#: usr/share/archlinux-tweak-tool/icons.py:759
 #, python-brace-format
 msgid "No {name} icons selected for removal"
 msgstr "Geen {name}-iconen geselecteerd om te verwijderen"
 
-#: usr/share/archlinux-tweak-tool/icons.py:619
-#: usr/share/archlinux-tweak-tool/icons.py:754
+#: usr/share/archlinux-tweak-tool/icons.py:626
+#: usr/share/archlinux-tweak-tool/icons.py:773
 #, python-brace-format
 msgid "Removing {count} {name} icon package..."
 msgid_plural "Removing {count} {name} icon packages..."
 msgstr[0] "{count} {name}-iconenpakket wordt verwijderd..."
 msgstr[1] "{count} {name}-iconenpakketten worden verwijderd..."
 
-#: usr/share/archlinux-tweak-tool/icons.py:622
-#: usr/share/archlinux-tweak-tool/icons.py:757
+#: usr/share/archlinux-tweak-tool/icons.py:629
+#: usr/share/archlinux-tweak-tool/icons.py:776
 #, python-brace-format
 msgid "{name} icons removal complete"
 msgstr "Verwijderen van {name}-iconen voltooid"
 
-#: usr/share/archlinux-tweak-tool/icons.py:684
-#: usr/share/archlinux-tweak-tool/icons.py:777
+#: usr/share/archlinux-tweak-tool/icons.py:691
+#: usr/share/archlinux-tweak-tool/icons.py:796
 #, python-brace-format
 msgid "{count} {name} icon package installed"
 msgid_plural "{count} {name} icon packages installed"
 msgstr[0] "{count} {name}-iconenpakket geïnstalleerd"
 msgstr[1] "{count} {name}-iconenpakketten geïnstalleerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:689
-#: usr/share/archlinux-tweak-tool/icons.py:782
+#: usr/share/archlinux-tweak-tool/icons.py:696
+#: usr/share/archlinux-tweak-tool/icons.py:801
 #, python-brace-format
 msgid "No {name} icon packages installed"
 msgstr "Geen {name}-iconenpakketten geïnstalleerd"
 
-#: usr/share/archlinux-tweak-tool/icons.py:747
+#: usr/share/archlinux-tweak-tool/icons.py:766
 #, python-brace-format
 msgid "Kept {name} (variants depend on it)"
 msgstr "{name} behouden (varianten zijn ervan afhankelijk)"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:29
+#: usr/share/archlinux-tweak-tool/icons_gui.py:30
 #, python-brace-format
 msgid "{name} (base)"
 msgstr "{name} (basis)"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:45
+#: usr/share/archlinux-tweak-tool/icons_gui.py:46
 #: usr/share/archlinux-tweak-tool/themes_gui.py:132
 msgid ""
 "Select the packages you want to install or remove, then click the "
@@ -3156,23 +3162,26 @@ msgstr ""
 "Zorg dat de <b>Nemesis-repository is ingeschakeld</b>. Zie het tabblad "
 "\"Pacman\" voor details."
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:56
+#: usr/share/archlinux-tweak-tool/icons_gui.py:57
 msgid "<i>Coming soon — to be added later.</i>"
 msgstr "<i>Komt binnenkort beschikbaar.</i>"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:97
+#: usr/share/archlinux-tweak-tool/icons_gui.py:98
 msgid "Choose the icon theme(s)"
 msgstr "Kies het icoonthema (of de icoonthema's)"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:132
+#: usr/share/archlinux-tweak-tool/icons_gui.py:133
+#: usr/share/archlinux-tweak-tool/icons_gui.py:194
 msgid "Show the installed icon themes"
 msgstr "De geïnstalleerde icoonthema's tonen"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:134
+#: usr/share/archlinux-tweak-tool/icons_gui.py:135
+#: usr/share/archlinux-tweak-tool/icons_gui.py:195
 msgid "Install the selected icon themes"
 msgstr "De geselecteerde icoonthema's installeren"
 
-#: usr/share/archlinux-tweak-tool/icons_gui.py:144
+#: usr/share/archlinux-tweak-tool/icons_gui.py:145
+#: usr/share/archlinux-tweak-tool/icons_gui.py:196
 msgid "Uninstall the selected icon themes"
 msgstr "De geselecteerde icoonthema's verwijderen"
 

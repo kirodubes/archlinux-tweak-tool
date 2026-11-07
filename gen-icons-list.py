@@ -39,7 +39,7 @@ EXTRA_SRC_ROOTS = [os.environ.get("SURFN_KIRO_SRC_ROOT", path.join(HOME, "KIRO")
 PKG_ROOT = os.environ.get("SURFN_PKG_ROOT", path.join(HOME, "KIRO-PKG-BUILD-ICONS"))
 
 # Display order of the families; tokens within a family are sorted alphabetically.
-FAMILY_ORDER = ["Mint-X", "Mint-Y", "Tela", "Plasma", "Numix", "Papirus", "Arc / Breeze", "Horst", "Other"]
+FAMILY_ORDER = ["Surfn Kiro", "Mint-X", "Mint-Y", "Tela", "Plasma", "Numix", "Papirus", "Arc / Breeze", "Horst", "Other"]
 ARC_BREEZE = {"arc-breeze", "breeze-arc", "breeze-dark"}
 
 # (label, source prefix, base token, output json, thumbnail subdir)
@@ -54,6 +54,8 @@ _TOKEN_ROOT = {}
 
 def _classify(token, prefix):
     rest = token[len(prefix):] if token.startswith(prefix) else token
+    if token == "surfn-kiro":
+        return "Surfn Kiro"
     if rest.startswith("mint-x"):
         return "Mint-X"
     if rest.startswith("mint-y"):

@@ -4,6 +4,7 @@
 
 import functools
 
+import functions as fn
 import icons
 from att_i18n import _
 
@@ -151,6 +152,58 @@ def _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
     return vbox
 
 
+def _build_top_block(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, top_families):
+    """Build the block above the sub-tabs: each family with its note, its own checkboxes and buttons."""
+    families = icons.ICON_SETS[set_key]["families"]
+    checks = getattr(self, icons.ICON_SETS[set_key]["checks"])
+    vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+    top_tokens = []
+    for family_label, note in top_families:
+        entries = families.get(family_label, [])
+        if not entries:
+            continue
+        lbl_family = Gtk.Label(xalign=0)
+        lbl_family.set_markup(
+            "<b>{label}</b>  <i>{note}</i>".format(
+                label=fn.GLib.markup_escape_text(family_label), note=fn.GLib.markup_escape_text(_(note))
+            )
+        )
+        lbl_family.set_margin_start(10)
+        lbl_family.set_margin_top(6)
+        vbox.append(lbl_family)
+
+        hbox_rows = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        hbox_rows.set_margin_start(10)
+        for entry in entries:
+            token = entry["token"]
+            row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+            row.append(_make_folder_preview(Gtk, GdkPixbuf, Gdk, base_dir, set_key, token))
+            checkbox = Gtk.CheckButton(label=token)
+            checks[token] = checkbox
+            row.append(checkbox)
+            hbox_rows.append(row)
+            top_tokens.append(token)
+        vbox.append(hbox_rows)
+
+    if not top_tokens:
+        return None
+
+    hbox_actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox_actions.set_halign(Gtk.Align.CENTER)
+    for label, callback in (
+        (_("Show the installed icon themes"), icons.on_icons_find),
+        (_("Install the selected icon themes"), icons.on_icons_install),
+        (_("Uninstall the selected icon themes"), icons.on_icons_remove),
+    ):
+        btn = Gtk.Button(label=label)
+        btn.connect("clicked", functools.partial(callback, self, set_key, top_tokens))
+        hbox_actions.append(btn)
+    vbox.append(hbox_actions)
+    vbox.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+    fn.debug_print(f"Icons {set_key}: top block with {', '.join(top_tokens)}")
+    return vbox
+
+
 def _new_icon_stack(Gtk, title):
     """Return (hbox_title, hbox_separator, vbox_main, stack, stack_switcher) for an Icons page."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -191,11 +244,14 @@ def _init_checks(self, set_key):
         setattr(self, icons.ICON_SETS[set_key]["checks"], {})
 
 
-def _build_icon_page(self, Gtk, GdkPixbuf, Gdk, vboxstack, base_dir, set_key, title, tabs):
-    """Build a full Icons page: title + separator + a StackSwitcher of family sub-tabs."""
+def _build_icon_page(self, Gtk, GdkPixbuf, Gdk, vboxstack, base_dir, set_key, title, tabs, top_families=()):
+    """Build a full Icons page: title + separator + optional top block + a StackSwitcher of family sub-tabs."""
     hbox_title, hbox_separator, vbox_main, stack, stack_switcher = _new_icon_stack(Gtk, title)
 
     _init_checks(self, set_key)
+    top_block = _build_top_block(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, top_families)
+    if top_block:
+        vbox_main.append(top_block)
     for index, (tab_title, family_labels) in enumerate(tabs.items()):
         child = _build_icon_tab(self, Gtk, GdkPixbuf, Gdk, base_dir, set_key, family_labels)
         stack.add_titled(child, f"{set_key}_{index}", tab_title)
@@ -230,7 +286,9 @@ def gui_surfn(self, Gtk, GdkPixbuf, vboxstack, _att, fn, base_dir):
     """Build the Icons Surfn page: Surfn / Surfn-Mint / Surfn-Tela sub-tabs."""
     from gi.repository import Gdk
 
-    _build_icon_page(self, Gtk, GdkPixbuf, Gdk, vboxstack, base_dir, "surfn", "Surfn", icons.SURFN_TABS)
+    _build_icon_page(
+        self, Gtk, GdkPixbuf, Gdk, vboxstack, base_dir, "surfn", "Surfn", icons.SURFN_TABS, icons.SURFN_TOP
+    )
 
 
 def gui_neocandy(self, Gtk, GdkPixbuf, vboxstack, _att, fn, base_dir):
