@@ -51,6 +51,8 @@ ICON_SETS = {
 }
 
 NUMIX_FALLBACK = "numix-circle-icon-theme-git"
+# Surfn Kiro is a full copy that inherits breeze, not Numix.
+NUMIX_FREE = {"surfn-kiro-icons-git"}
 
 # Which families live under each sub-tab of the Icons Surfn / Icons Neo Candy pages.
 SURFN_TABS = {
@@ -726,7 +728,13 @@ def install_icons(self, set_key, tokens=None):
     # Surfn falls back on Numix but its packages don't pull it in, and the Kiro ISO no longer ships it
     # (Surfn Kiro carries its own copies since 2026-11-07). numix-circle pulls numix in; both live in chaotic-aur.
     extra = []
-    if set_key == "surfn" and fn.check_chaotic_aur_active() and not fn.check_package_installed(NUMIX_FALLBACK):
+    needs_numix = any(pkg not in NUMIX_FREE for pkg in packages)
+    if (
+        set_key == "surfn"
+        and needs_numix
+        and fn.check_chaotic_aur_active()
+        and not fn.check_package_installed(NUMIX_FALLBACK)
+    ):
         extra = [NUMIX_FALLBACK]
         fn.log_info(f"  + {NUMIX_FALLBACK} (Surfn falls back on Numix for icons it does not have)")
     process = fn.launch_pacman_install_in_terminal(" ".join(packages + extra))
