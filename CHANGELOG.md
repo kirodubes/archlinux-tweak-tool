@@ -10,6 +10,14 @@
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`, `usr/share/archlinux-tweak-tool/desktopr_gui.py`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
 
+### Icons Surfn page: Numix comes along with Surfn
+
+**What Changed.** Every Surfn icon theme falls back on Numix and Numix Circle for icons it does not draw itself, but the Surfn packages do not pull them in. The Kiro ISO used to ship both; it no longer does, because Kiro's default theme Surfn Kiro now carries its own copies. Installing Surfn icons from ATT now adds `numix-circle-icon-theme-git` (which pulls in `numix-icon-theme-git`) to the same install, so Surfn keeps its full icon set on any system. Neo Candy is unchanged: none of its 96 variants falls back on Numix.
+
+**Technical Details.** `icons.NUMIX_FALLBACK`; `install_icons()` appends it for `set_key == "surfn"` when chaotic-aur (where Numix lives) is active and the package is not installed yet, and logs why. Removing Surfn icons leaves Numix in place. No new UI text.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/icons.py`
+
 ## 2026.11.05
 
 ### Variety: XFCE wallpaper no longer resets at login
