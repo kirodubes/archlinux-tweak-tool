@@ -3,6 +3,7 @@
 # ============================================================
 
 import os
+import shutil
 import stat
 import tempfile
 import threading
@@ -16,6 +17,8 @@ from att_i18n import _
 # or carry its own generated locale, e.g. English system + European formatting.
 LC_SENTINEL = _("Use LANG (default)")
 LC_CATEGORIES = ["LC_NUMERIC", "LC_MONETARY", "LC_TIME"]
+X11_NO_SECOND = _("(none)")
+X11_SWITCH_OPTION = "grp:alt_shift_toggle"
 
 
 def set_result(label, message, state="ok"):
@@ -136,7 +139,7 @@ def refresh_status(self):
     vc_keymap = status.get("VC Keymap", "—")
     x11_layout = status.get("X11 Layout", "—")
     x11_variant = status.get("X11 Variant", "")
-    x11_display = x11_layout + (f" ({x11_variant})" if x11_variant else "")
+    x11_display = x11_layout + (f" ({x11_variant})" if x11_variant.strip(",") else "")
 
     tz_result = subprocess.run(
         ["timedatectl", "show", "--property=Timezone", "--value"], capture_output=True, text=True
@@ -163,14 +166,18 @@ def populate_dropdowns(self):
         status = _parse_localectl()
         current_locale = status.get("System Locale", "LANG=en_US.UTF-8").replace("LANG=", "")
         current_keymap = status.get("VC Keymap", "")
-        current_x11_layout = status.get("X11 Layout", "")
-        current_x11_variant = status.get("X11 Variant", "")
+        x11_layout_raw = status.get("X11 Layout", "")
+        x11_variant_raw = status.get("X11 Variant", "")
+        layout_parts = x11_layout_raw.split(",")
+        current_x11_layout = layout_parts[0]
+        current_x11_second = layout_parts[1] if len(layout_parts) > 1 else X11_NO_SECOND
+        current_x11_variant = x11_variant_raw.split(",")[0]
         current_tz = subprocess.run(
             ["timedatectl", "show", "--property=Timezone", "--value"], capture_output=True, text=True
         ).stdout.strip()
 
         variants = get_x11_variants(current_x11_layout) if current_x11_layout else [""]
-        x11_display = current_x11_layout + (f" ({current_x11_variant})" if current_x11_variant else "")
+        x11_display = x11_layout_raw + (f" ({x11_variant_raw})" if x11_variant_raw.strip(",") else "")
 
         conf = _read_locale_conf()
         lc_items = [LC_SENTINEL] + locales
@@ -182,6 +189,7 @@ def populate_dropdowns(self):
             _set_dropdown(self.timezone_dropdown, timezones, current_tz)
             _set_dropdown(self.x11_layout_dropdown, x11_layouts, current_x11_layout)
             _set_dropdown(self.x11_variant_dropdown, variants, current_x11_variant)
+            _set_dropdown(self.x11_second_dropdown, [X11_NO_SECOND] + x11_layouts, current_x11_second)
             for cat in LC_CATEGORIES:
                 _set_dropdown(self.lc_dropdowns[cat], lc_items, lc_current[cat] or LC_SENTINEL)
             self._locale_populating[0] = False
@@ -490,7 +498,8 @@ def on_sync_keymap(self, _widget):
 
     def _sync():
         status = _parse_localectl()
-        x11_layout = status.get("X11 Layout", "")
+        # A two-layout setup ("us,ara") syncs its first layout; the TTY has no layout switching
+        x11_layout = status.get("X11 Layout", "").split(",")[0]
         if not x11_layout:
             fn.log_warn("No X11 layout set, cannot sync")
             set_result(self.lbl_keymap_result, _("No X11 layout set — cannot sync"), "fail")
@@ -514,7 +523,20 @@ def on_sync_keymap(self, _widget):
     threading.Thread(target=_sync, daemon=True).start()
 
 
+def _follow_locale1_on_plasma():
+    # KWin on Plasma Wayland ignores localectl unless kwinrc says FollowLocale1=true
+    if not (shutil.which("kwin_wayland") and shutil.which("kwriteconfig6")):
+        return False
+    subprocess.run(
+        ["runuser", "-u", fn.sudo_username, "--", "env", "HOME=" + fn.home,
+         "kwriteconfig6", "--file", "kwinrc", "--group", "Wayland", "--key", "FollowLocale1", "true"],
+        check=True,
+    )
+    return True
+
+
 def on_apply_x11(self, _widget):
+    """Set the X11/Wayland keyboard layout, optionally with a second layout toggled by Alt+Shift."""
     fn.log_subsection("Locale - Apply X11 Keyboard Layout")
     layout_obj = self.x11_layout_dropdown.get_selected_item()
     if layout_obj is None:
@@ -522,19 +544,28 @@ def on_apply_x11(self, _widget):
     layout = layout_obj.get_string()
     variant_obj = self.x11_variant_dropdown.get_selected_item()
     variant = variant_obj.get_string() if variant_obj else ""
-    fn.log_info(f"Setting X11 layout: {layout} variant: {variant or '(none)'}")
+    second_obj = self.x11_second_dropdown.get_selected_item()
+    second = second_obj.get_string() if second_obj else X11_NO_SECOND
+    if second in (X11_NO_SECOND, layout):
+        layouts, variants, options = layout, variant, ""
+    else:
+        layouts, variants, options = f"{layout},{second}", f"{variant}," if variant else "", X11_SWITCH_OPTION
+    shown = f"{layouts} {variants.strip(',')}".strip()
+    fn.log_info(f"Setting X11 layout: {layouts} variant: {variants or '(none)'} options: {options or '(none)'}")
     set_result(self.lbl_x11_result, _("Applying…"), "pending")
 
     def _apply():
         try:
-            cmd = ["localectl", "set-x11-keymap", layout]
-            if variant:
-                cmd.append(variant)
-            subprocess.run(cmd, check=True)
-            summary = _("X11 layout set to {layout}").format(layout=f"{layout} {variant}".strip())
-            fn.log_success(f"X11 layout set to {layout} {variant}".strip())
+            # localectl takes LAYOUT MODEL VARIANT OPTIONS in that order, so the model must come before the variant
+            model = _parse_localectl().get("X11 Model", "") or "pc105"
+            subprocess.run(["localectl", "set-x11-keymap", layouts, model, variants, options], check=True)
+            fn.log_success(f"X11 layout set to {shown}")
+            summary = _("X11 layout set to {layout}").format(layout=shown)
+            if _follow_locale1_on_plasma():
+                fn.log_success("Plasma: set FollowLocale1=true in ~/.config/kwinrc")
+                summary += " — " + _("Plasma: log out and back in to use it")
             set_result(self.lbl_x11_result, summary, "ok")
-            GLib.idle_add(fn.show_in_app_notification, self, _("X11 layout set to {layout}").format(layout=layout))
+            GLib.idle_add(fn.show_in_app_notification, self, _("X11 layout set to {layout}").format(layout=shown))
         except subprocess.CalledProcessError as e:
             fn.log_error(f"Failed to set X11 layout: {e}")
             set_result(self.lbl_x11_result, _("Failed: {error}").format(error=e), "fail")

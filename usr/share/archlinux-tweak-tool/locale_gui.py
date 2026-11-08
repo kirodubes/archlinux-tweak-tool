@@ -258,6 +258,24 @@ def gui(self, Gtk, vboxstack_locale, fn):
     hbox_x11_variant_ctrl.append(lbl_x11_variant)
     hbox_x11_variant_ctrl.append(self.x11_variant_dropdown)
 
+    hbox_x11_second_ctrl = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    lbl_x11_second = Gtk.Label(xalign=0)
+    lbl_x11_second.set_text(_("Second layout:"))
+    lbl_x11_second.set_margin_start(10)
+    lbl_x11_second.set_size_request(70, -1)
+    self.x11_second_dropdown = Gtk.DropDown.new_from_strings([locale.X11_NO_SECOND])
+    self.x11_second_dropdown.set_size_request(250, -1)
+    lbl_x11_switch = Gtk.Label(xalign=0)
+    lbl_x11_switch.set_text(_("Switch between the two layouts with Alt+Shift"))
+    hbox_x11_second_ctrl.append(lbl_x11_second)
+    hbox_x11_second_ctrl.append(self.x11_second_dropdown)
+    hbox_x11_second_ctrl.append(lbl_x11_switch)
+
+    # Translations of "Second layout:" are wider than the other labels; keep the dropdowns aligned in every language
+    x11_label_group = Gtk.SizeGroup(mode=Gtk.SizeGroupMode.HORIZONTAL)
+    for lbl in (lbl_x11_layout, lbl_x11_variant, lbl_x11_second):
+        x11_label_group.add_widget(lbl)
+
     hbox_x11_apply = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     btn_x11_apply = Gtk.Button(label=_("Apply"))
     btn_x11_apply.set_margin_start(10)
@@ -381,7 +399,7 @@ def gui(self, Gtk, vboxstack_locale, fn):
         ]),
         ("stack_locale_keyboard", _("Keyboard"), [
             hbox_keymap_header, hbox_keymap_ctrl, hbox_x11_header, hbox_x11_layout_ctrl, hbox_x11_variant_ctrl,
-            hbox_x11_apply,
+            hbox_x11_second_ctrl, hbox_x11_apply,
         ]),
         ("stack_locale_timezone", _("Timezone"), [hbox_tz_header, hbox_tz_ctrl]),
         ("stack_locale_langpacks", _("Language Packs"), [

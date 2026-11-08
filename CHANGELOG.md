@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.08
+
+### Locale page: two keyboard layouts with Alt+Shift, and Plasma Wayland follows them
+
+**What Changed.** The Keyboard tab could only set one layout, so picking Arabic replaced `us` entirely. It now has a "Second layout" dropdown: choose one and ATT sets both (for example `us,ara`), switched with Alt+Shift. Picking a variant also failed before: ATT passed it where `localectl` expects the keyboard model. On Plasma Wayland, KWin ignores the system layout unless `FollowLocale1` is on, so applying a layout there now also turns that on for the user (log out and back in). Prompted by a user on a Plasma install who could not add Arabic.
+
+**Technical Details.** `on_apply_x11` now calls `localectl set-x11-keymap LAYOUTS MODEL VARIANTS OPTIONS` with all four arguments. MODEL is the current `X11 Model`, or `pc105` when none is set. Two layouts get `variant,` and `grp:alt_shift_toggle` (`X11_SWITCH_OPTION`). One layout gets empty options, which clears an old toggle. `_follow_locale1_on_plasma()` runs `kwriteconfig6 --file kwinrc --group Wayland --key FollowLocale1 true` as the real user via `runuser` when `kwin_wayland` and `kwriteconfig6` exist. `populate_dropdowns` splits a comma list from `localectl status` across the first and second dropdowns. "Sync from X11" uses the first layout, because the TTY has no layout switching. A `Gtk.SizeGroup` keeps the three label columns the same width, since translations of "Second layout:" are wider. Checked off-screen with Broadway. 4 new strings in all 13 catalogs (0 fuzzy, 0 untranslated).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/locale_gui.py`, `usr/share/archlinux-tweak-tool/locale_settings.py`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
+
 ## 2026.11.07
 
 ### Desktop page: Plasma users are pointed to kiro-plasma-meta
