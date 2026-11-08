@@ -143,6 +143,7 @@ kiro-arc-twilight
 kiro-arc-vampire
 kiro-arc-warm-pink
 kiro-assistant
+kiro-atelier-check
 kiro-awesome
 kiro-bash-config
 kiro-bootloader-grub
