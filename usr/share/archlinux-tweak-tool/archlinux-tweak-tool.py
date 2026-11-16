@@ -837,6 +837,10 @@ if __name__ == "__main__":
         if _theme_src == "gsettings":
             fn.log_info(f"Theme follows the user's gsettings: {_theme_name}{' (dark)' if _prefer_dark else ''}")
 
+    # As root (pkexec) there is no session bus, so GTK cannot register the application id and names the window after
+    # the program: "archlinux-tweak-tool.py" on Wayland (app_id) and X11 (WM_CLASS). Name it after the desktop file,
+    # so window rules (KiroTux App placement) and taskbar icons find it.
+    GLib.set_prgname("archlinux-tweak-tool")
     signal.signal(signal.SIGINT, signal_handler)
     app = ATTApplication()
     _app_ref = app

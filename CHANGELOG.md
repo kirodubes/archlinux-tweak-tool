@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.16
+
+### ATT's window is called archlinux-tweak-tool, also when it runs as root
+
+**What Changed.** Run as root (pkexec, the normal way), ATT's window was named after its script, `archlinux-tweak-tool.py`, instead of its application id. Window rules for ATT could not find it by its desktop name: the KiroTux App placement page (wayfire, Hyprland, Niri) lists ATT as `archlinux-tweak-tool`, so "open ATT floating / on workspace 2 / see-through" did nothing. The window is now called `archlinux-tweak-tool`, like its desktop file and icon, on Wayland and X11. Found with a 25-app placement test on picard.
+
+**Technical Details.** GTK names a window after the registered application id, but as root there is no session bus, so `Gtk.Application` cannot register and GTK falls back to `g_get_prgname()` (the script file name) for the Wayland app_id and the X11 WM_CLASS. `GLib.set_prgname("archlinux-tweak-tool")` before the application is created fixes both; as the user the app_id stays `org.kiro.archlinux-tweak-tool` (registered). The process command line is unchanged, so the launcher's "already open" check (`pgrep -f '^python3 …archlinux-tweak-tool.py'`) still works. Old name only in commented-out rules (kiro-bspwm, kiro-i3). Checked live: picard (wayfire, root on Wayland): app_id `archlinux-tweak-tool`, App placement rule put it on workspace 2, floating at the rule's size, see-through. riker (niri, root on Wayland and on X11): app_id `archlinux-tweak-tool`, floating by the rule.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py`
+
 ## 2026.11.08
 
 ### Locale page: two keyboard layouts with Alt+Shift, and Plasma Wayland follows them
