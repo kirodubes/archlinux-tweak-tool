@@ -5,6 +5,8 @@ archlinux-tweak-tool
 blueberry
 cachyos-keyring
 cachyos-mirrorlist
+caelestia-cli
+caelestia-shell
 celestial-aliz
 celestial-aqua
 celestial-archlinux-blue
@@ -34,6 +36,7 @@ celestial-fire
 celestial-froly
 celestial-havelock
 celestial-hibiscus
+celestial-indigo
 celestial-jasmine
 celestial-light-blue-grey
 celestial-light-blue-surfn
@@ -144,6 +147,7 @@ kiro-arc-vampire
 kiro-arc-warm-pink
 kiro-assistant
 kiro-atelier-check
+kiro-atelier-wallpapers
 kiro-awesome
 kiro-bash-config
 kiro-bootloader-grub
@@ -161,6 +165,7 @@ kiro-grub-theme
 kiro-hlwm
 kiro-hwd
 kiro-hyprland
+kiro-hyprland-caelestia
 kiro-hyprland-dms
 kiro-hyprland-impasto
 kiro-hyprland-noctalia
@@ -337,6 +342,7 @@ plymouth-theme-kiro-logo-nemesis
 plymouth-theme-startrek
 python-pywal16
 qt5-virtualkeyboard
+qt6-m3shapes-git
 sardi-colora-variations-icons-git
 sardi-flat-colora-variations-icons-git
 sardi-flat-mint-y-icons-git
@@ -479,6 +485,7 @@ sway-scroll
 sysz
 tinty-git
 ttf-material-design-iconic-font
+ttf-rubik-vf
 vimix-cursors
 vimix-icon-theme-git
 volctl

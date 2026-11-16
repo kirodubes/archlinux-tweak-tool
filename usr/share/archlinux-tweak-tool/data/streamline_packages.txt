@@ -39,6 +39,7 @@ xcolor
 ###  WALLPAPER
 variety
 kiro-variety-config
+kiro-atelier-wallpapers
 
 ###  PRODUCTIVITY / EDITORS
 baobab
