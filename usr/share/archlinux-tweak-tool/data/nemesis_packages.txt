@@ -481,7 +481,6 @@ surfn-tela-ubuntu-icons-git
 surfn-tela-yellow-icons-git
 surfn-vertexed-icons-git
 surfn-vimix-black-icons-git
-sway-scroll
 sysz
 tinty-git
 ttf-material-design-iconic-font

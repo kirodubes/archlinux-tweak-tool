@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.17
+
+### sway-scroll no longer listed as a nemesis_repo package
+
+**What Changed.** sway-scroll moved from nemesis_repo to chaotic-aur, so it is dropped from ATT's nemesis package list.
+
+**Technical Details.** One line removed from `nemesis_packages.txt`; `up.sh` would regenerate the same result from the repo.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+
 ## 2026.11.16
 
 ### ATT's window is called archlinux-tweak-tool, also when it runs as root
