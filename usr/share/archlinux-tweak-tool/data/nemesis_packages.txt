@@ -488,7 +488,6 @@ ttf-rubik-vf
 vimix-cursors
 vimix-icon-theme-git
 volctl
-wlroots0.18
 wttr
 wvkbd
 xautolock

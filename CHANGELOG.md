@@ -2,11 +2,11 @@
 
 ## 2026.11.17
 
-### sway-scroll no longer listed as a nemesis_repo package
+### sway-scroll and wlroots0.18 no longer listed as nemesis_repo packages
 
-**What Changed.** sway-scroll moved from nemesis_repo to chaotic-aur, so it is dropped from ATT's nemesis package list.
+**What Changed.** sway-scroll moved from nemesis_repo to chaotic-aur, and wlroots0.18 (its only user) left nemesis_repo with it, so both are dropped from ATT's nemesis package list.
 
-**Technical Details.** One line removed from `nemesis_packages.txt`; `up.sh` would regenerate the same result from the repo.
+**Technical Details.** Two lines removed from `nemesis_packages.txt`; `up.sh` would regenerate the same result from the repo.
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
 
