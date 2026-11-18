@@ -10,6 +10,14 @@
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/kernel_distros.py`, `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`, `DISTRO_GUARDS.md`
 
+### xautolock dropped from the nemesis package list
+
+**What Changed.** chaotic-aur accepted xautolock (#4623) and it left nemesis_repo, so ATT no longer lists it as a nemesis_repo package.
+
+**Technical Details.** One line removed from `nemesis_packages.txt`; `find_package_repo()` falls back to chaotic-aur for it.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+
 ## 2026.11.17
 
 ### sway-scroll and wlroots0.18 no longer listed as nemesis_repo packages

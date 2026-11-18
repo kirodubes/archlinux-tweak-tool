@@ -480,4 +480,3 @@ tinty-git
 vimix-cursors
 vimix-icon-theme-git
 wttr
-xautolock
