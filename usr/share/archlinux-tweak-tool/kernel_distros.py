@@ -18,7 +18,7 @@ DISTRO_REQUIREMENTS = {
         {
             "pkg": "pacman-hook-kernel-install",
             "reason": "registers kernel-install hook for systemd-boot ESP layout",
-            "repo": "nemesis-repo",
+            "repo": "chaotic-aur",
             "condition": _is_systemd_boot,
         }
     ],

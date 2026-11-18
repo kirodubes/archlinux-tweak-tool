@@ -1,5 +1,15 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.18
+
+### pacman-hook-kernel-install now comes from chaotic-aur; nemesis package list caught up
+
+**What Changed.** chaotic-aur accepted pacman-hook-kernel-install (#4626) and it left nemesis_repo. On Arch with systemd-boot the Kernels page requires this hook, and it now tells users to enable chaotic-aur instead of nemesis_repo when the hook can't be found. Nine more packages that moved to chaotic-aur today (caelestia-cli, ckb-next-git, cpuid, dracula-colors-xfce4-terminal, sysz, ttf-material-design-iconic-font, ttf-rubik-vf, volctl, wvkbd) are also dropped from ATT's nemesis package list, so a "target not found" error no longer sends users to the wrong repo.
+
+**Technical Details.** `DISTRO_REQUIREMENTS["arch"]` in `kernel_distros.py` now names `chaotic-aur`, which `_check_repo_blocked` in `kernel_gui.py` already checks via `fn.check_chaotic_aur_active`. `find_package_repo()` reads `nemesis_packages.txt` and falls back to chaotic-aur for anything not listed, so removing the ten names is all it takes. desktopr.py and the other install lists use bare package names, so they need no change.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/kernel_distros.py`, `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`, `DISTRO_GUARDS.md`
+
 ## 2026.11.17
 
 ### sway-scroll and wlroots0.18 no longer listed as nemesis_repo packages

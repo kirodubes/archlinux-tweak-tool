@@ -45,7 +45,7 @@ These are not guards — they are identity corrections. `fn.distr` is normalized
 
 | Distro | Effect                                                                           |
 |--------|----------------------------------------------------------------------------------|
-| `arch` | Requires `pacman-hook-kernel-install` (nemesis-repo) when systemd-boot is active |
+| `arch` | Requires `pacman-hook-kernel-install` (chaotic-aur) when systemd-boot is active  |
 
 ### `plymouth_gui.py`
 

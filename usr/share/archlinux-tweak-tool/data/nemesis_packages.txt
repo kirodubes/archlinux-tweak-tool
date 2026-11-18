@@ -5,7 +5,6 @@ archlinux-tweak-tool
 blueberry
 cachyos-keyring
 cachyos-mirrorlist
-caelestia-cli
 caelestia-shell
 celestial-aliz
 celestial-aqua
@@ -77,9 +76,6 @@ celestial-warm-pink
 chaotic-keyring
 chaotic-mirrorlist
 chwd
-ckb-next-git
-cpuid
-dracula-colors-xfce4-terminal
 fastfetch-tweak-tool
 fish-tweak-tool
 flameshot-git
@@ -335,7 +331,6 @@ neo-candy-vertexed-icons-git
 neo-candy-vimix-black-icons-git
 ohmychadwm
 ohmychadwm-tweak-tool
-pacman-hook-kernel-install
 pamac-aur
 plymouth-theme-kiro-logo
 plymouth-theme-kiro-logo-nemesis
@@ -481,13 +476,8 @@ surfn-tela-ubuntu-icons-git
 surfn-tela-yellow-icons-git
 surfn-vertexed-icons-git
 surfn-vimix-black-icons-git
-sysz
 tinty-git
-ttf-material-design-iconic-font
-ttf-rubik-vf
 vimix-cursors
 vimix-icon-theme-git
-volctl
 wttr
-wvkbd
 xautolock
