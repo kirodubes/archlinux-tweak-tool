@@ -335,7 +335,6 @@ pamac-aur
 plymouth-theme-kiro-logo
 plymouth-theme-kiro-logo-nemesis
 plymouth-theme-startrek
-python-pywal16
 qt5-virtualkeyboard
 qt6-m3shapes-git
 sardi-colora-variations-icons-git
