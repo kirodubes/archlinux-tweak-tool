@@ -1,5 +1,21 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.20
+
+### What Changed
+- **chadwm, dusk, ohmychadwm and qtile installs now include `snixembed`.** Their sessions autostart volctl, whose
+  1.x tray icon only shows in their XEmbed systray through snixembed; without it the volume icon was invisible.
+
+### Technical Details
+- `desktopr.py`: `snixembed` added after `volctl` in the `chadwm`, `dusk`, `ohmychadwm` and `qtile` package lists.
+- `get-ohmychadwm-on-att`: `snixembed` added to its package list.
+- The other desktops that install volctl (awesome, bspwm, leftwm) do not autostart it, so they are left as they are.
+
+### Files Modified
+- `usr/share/archlinux-tweak-tool/desktopr.py`
+- `usr/bin/get-ohmychadwm-on-att`
+- `CHANGELOG.md`
+
 ## 2026.11.18
 
 ### pacman-hook-kernel-install now comes from chaotic-aur; nemesis package list caught up

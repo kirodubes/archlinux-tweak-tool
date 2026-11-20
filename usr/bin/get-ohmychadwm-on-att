@@ -42,6 +42,7 @@ packages=(
     ttf-hack
     ttf-jetbrains-mono-nerd
     volctl
+    snixembed
     xfce4-notifyd
     xfce4-power-manager
     xfce4-screenshooter
