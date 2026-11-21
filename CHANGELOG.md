@@ -2,6 +2,22 @@
 
 ## 2026.11.21
 
+### X11 desktop installs ask for `snixembed-kiro`
+
+**What Changed.** The chadwm, dusk, ohmychadwm and qtile installs (Desktop page and `get-ohmychadwm-on-att`) now
+install `snixembed-kiro` from nemesis_repo instead of stock `snixembed`. Stock snixembed forwards every wheel click
+as `Scroll(0)`, so scrolling over the volctl 1.x tray icon never changed the volume; the Kiro build fixes that
+(upstream ticket https://todo.sr.ht/~steef/snixembed/19).
+
+**Technical Details.** The package is renamed because `[extra]` sits above `[nemesis_repo]`: pacman stops at the
+first repo with a same-named package, so neither a nemesis `snixembed` nor `replaces=(snixembed)` would ever reach
+users. Asking for the new name is what makes the switch. The Desktop page already runs `pacman -S --ask=4`, which
+accepts removing a conflicting stock snixembed; `get-ohmychadwm-on-att` installs one package at a time with
+`--noconfirm`, whose default answer to a conflict is No, so it gains `--ask=4` too. `search_index.json`
+regenerates unchanged (it splits `snixembed-kiro` into two tokens).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/desktopr.py`, `usr/bin/get-ohmychadwm-on-att`
+
 ### chwd dropped from the nemesis package list
 
 **What Changed.** chwd left nemesis_repo today: Kiro's installer uses kiro-hwd instead since 2026-11-03, and the

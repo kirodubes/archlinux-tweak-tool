@@ -42,7 +42,7 @@ packages=(
     ttf-hack
     ttf-jetbrains-mono-nerd
     volctl
-    snixembed
+    snixembed-kiro
     xfce4-notifyd
     xfce4-power-manager
     xfce4-screenshooter
@@ -56,7 +56,8 @@ install_package() {
         info "Already installed: $1"
     else
         info "Installing: $1"
-        sudo pacman -S --noconfirm --needed "$1"
+        # --ask=4 accepts conflict removal: snixembed-kiro replaces an installed stock snixembed
+        sudo pacman -S --noconfirm --needed --ask=4 "$1"
         success "$1 installed"
     fi
 }
