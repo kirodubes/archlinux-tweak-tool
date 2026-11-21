@@ -1,5 +1,18 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.21
+
+### chwd dropped from the nemesis package list
+
+**What Changed.** chwd left nemesis_repo today: Kiro's installer uses kiro-hwd instead since 2026-11-03, and the
+patched 1.23.0 build had no users left. ATT's nemesis package list follows, so ATT no longer sends anyone to
+nemesis_repo for chwd. The `[cachyos]` repo still carries upstream chwd.
+
+**Technical Details.** `nemesis_packages.txt` regenerated with `gen-nemesis-list.py` (480 packages, -1). Text only:
+it rides along with the next ATT build.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+
 ## 2026.11.20
 
 ### What Changed

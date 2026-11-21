@@ -75,7 +75,6 @@ celestial-vampire
 celestial-warm-pink
 chaotic-keyring
 chaotic-mirrorlist
-chwd
 fastfetch-tweak-tool
 fish-tweak-tool
 flameshot-git
