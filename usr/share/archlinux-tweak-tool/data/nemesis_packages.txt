@@ -362,6 +362,7 @@ sardi-orb-colora-mixing-icons-git
 sardi-orb-colora-variations-icons-git
 scenefx0.5
 scx-manager
+snixembed-kiro
 sparklines-git
 surfing-icons-git
 surfn-arc-breeze-icons-git
