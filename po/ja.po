@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:51+0100\n"
+"POT-Creation-Date: 2026-11-26 07:21+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -783,16 +783,16 @@ msgstr "ChatGPT"
 #: usr/share/archlinux-tweak-tool/ai_gui.py:526
 #: usr/share/archlinux-tweak-tool/ai_gui.py:550
 #: usr/share/archlinux-tweak-tool/funding.py:68
-#: usr/share/archlinux-tweak-tool/logging_gui.py:37
-#: usr/share/archlinux-tweak-tool/logging_gui.py:50
-#: usr/share/archlinux-tweak-tool/logging_gui.py:63
-#: usr/share/archlinux-tweak-tool/logging_gui.py:76
-#: usr/share/archlinux-tweak-tool/logging_gui.py:97
-#: usr/share/archlinux-tweak-tool/logging_gui.py:110
-#: usr/share/archlinux-tweak-tool/logging_gui.py:123
-#: usr/share/archlinux-tweak-tool/logging_gui.py:136
-#: usr/share/archlinux-tweak-tool/logging_gui.py:157
-#: usr/share/archlinux-tweak-tool/logging_gui.py:170
+#: usr/share/archlinux-tweak-tool/logging_gui.py:38
+#: usr/share/archlinux-tweak-tool/logging_gui.py:51
+#: usr/share/archlinux-tweak-tool/logging_gui.py:64
+#: usr/share/archlinux-tweak-tool/logging_gui.py:77
+#: usr/share/archlinux-tweak-tool/logging_gui.py:98
+#: usr/share/archlinux-tweak-tool/logging_gui.py:111
+#: usr/share/archlinux-tweak-tool/logging_gui.py:124
+#: usr/share/archlinux-tweak-tool/logging_gui.py:137
+#: usr/share/archlinux-tweak-tool/logging_gui.py:158
+#: usr/share/archlinux-tweak-tool/logging_gui.py:171
 msgid "Open"
 msgstr "開く"
 
@@ -3294,6 +3294,160 @@ msgstr ""
 msgid "Build vanilla Arch ISO"
 msgstr "バニラ Arch ISO をビルド"
 
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:15
+msgid "Errors"
+msgstr "エラー"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:16
+msgid "Warnings and errors"
+msgstr "警告とエラー"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:17
+msgid "Everything"
+msgstr "すべて"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "alert"
+msgstr "警報"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "critical"
+msgstr "重大"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "emergency"
+msgstr "緊急"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "error"
+msgstr "エラー"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "notice"
+msgstr "通知"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "warning"
+msgstr "警告"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:34
+msgid "debug"
+msgstr "デバッグ"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:34
+msgid "info"
+msgstr "情報"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:80
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:211
+msgid "This boot"
+msgstr "今回の起動"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:82
+msgid "Previous boot"
+msgstr "前回の起動"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:102
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:216
+msgid "All services"
+msgstr "すべてのサービス"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:120
+#, python-brace-format
+msgid "{count} error"
+msgid_plural "{count} errors"
+msgstr[0] "{count} 件のエラー"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:121
+#, python-brace-format
+msgid "{count} warning"
+msgid_plural "{count} warnings"
+msgstr[0] "{count} 件の警告"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:122
+#, python-brace-format
+msgid "{boot}: {counts} from {services}"
+msgstr "{boot}: {services}から {counts}"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:124
+#, python-brace-format
+msgid "{count} service"
+msgid_plural "{count} services"
+msgstr[0] "{count} 個のサービス"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:126
+#, python-brace-format
+msgid "showing the newest {count}"
+msgstr "最新の {count} 件を表示"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:138
+msgid "Reading the journal…"
+msgstr "ジャーナルを読み込み中…"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:182
+msgid "Nothing to copy"
+msgstr "コピーするものがありません"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:185
+#, python-brace-format
+msgid "{count} line copied"
+msgid_plural "{count} lines copied"
+msgstr[0] "{count} 行をコピーしました"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:205
+msgid ""
+"What the system logged, newest first. Pick the previous boot to see what "
+"happened before a freeze or a crash; hover a message to read all of it."
+msgstr ""
+"システムが記録した内容を新しい順に表示します。フリーズやクラッシュの前に何が"
+"起きたかを見るには前回の起動を選択してください。メッセージにマウスを重ねると"
+"全文を読めます。"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:212
+msgid "Boot"
+msgstr "起動"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:215
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:237
+msgid "Level"
+msgstr "レベル"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:217
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:238
+msgid "Service"
+msgstr "サービス"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:219
+msgid "Search the messages…"
+msgstr "メッセージを検索…"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:222
+#: usr/share/archlinux-tweak-tool/services_gui.py:648
+msgid "Refresh"
+msgstr "更新"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:236
+msgid "Time"
+msgstr "時刻"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:239
+#: usr/share/archlinux-tweak-tool/user.py:65
+#: usr/share/archlinux-tweak-tool/user.py:69
+msgid "Message"
+msgstr "メッセージ"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:255
+msgid ""
+"Log lines can contain IP addresses and names — use Report a problem to share "
+"them safely."
+msgstr ""
+"ログには IP アドレスや名前が含まれることがあります — 安全に共有するには「問題"
+"を報告」を使ってください。"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:257
+msgid "Copy shown lines"
+msgstr "表示中の行をコピー"
+
 #: usr/share/archlinux-tweak-tool/kernel.py:17
 msgid "Vanilla Arch kernel"
 msgstr "バニラ Arch カーネル"
@@ -4207,61 +4361,69 @@ msgstr "ブートパフォーマンスアナライザーを開いています...
 msgid "Opening kernel ring buffer (dmesg)..."
 msgstr "カーネルリングバッファ（dmesg）を開いています..."
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:14
+#: usr/share/archlinux-tweak-tool/logging_gui.py:15
 msgid "Investigate your logs"
 msgstr "ログを調べる"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:28
+#: usr/share/archlinux-tweak-tool/logging_gui.py:29
 msgid "<b>Journal</b>"
 msgstr "<b>ジャーナル</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:36
+#: usr/share/archlinux-tweak-tool/logging_gui.py:37
 msgid "View current boot journal"
 msgstr "現在のブートのジャーナルを表示"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:49
+#: usr/share/archlinux-tweak-tool/logging_gui.py:50
 msgid "View previous boot journal"
 msgstr "前回のブートのジャーナルを表示"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:62
+#: usr/share/archlinux-tweak-tool/logging_gui.py:63
 msgid "View journal errors (current boot)"
 msgstr "ジャーナルのエラーを表示（現在のブート）"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:75
+#: usr/share/archlinux-tweak-tool/logging_gui.py:76
 msgid "View recent journal (last 20 minutes)"
 msgstr "最近のジャーナルを表示（直近 20 分）"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:88
+#: usr/share/archlinux-tweak-tool/logging_gui.py:89
 msgid "<b>System Logs</b>"
 msgstr "<b>システムログ</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:96
+#: usr/share/archlinux-tweak-tool/logging_gui.py:97
 msgid "View Xorg log"
 msgstr "Xorg ログを表示"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:109
+#: usr/share/archlinux-tweak-tool/logging_gui.py:110
 msgid "View Wayland compositor log"
 msgstr "Wayland コンポジターのログを表示"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:122
+#: usr/share/archlinux-tweak-tool/logging_gui.py:123
 msgid "View pacman log"
 msgstr "pacman ログを表示"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:135
+#: usr/share/archlinux-tweak-tool/logging_gui.py:136
 msgid "View X session errors (~/.xsession-errors or Xorg.0.log)"
 msgstr "X セッションのエラーを表示（~/.xsession-errors または Xorg.0.log）"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:148
+#: usr/share/archlinux-tweak-tool/logging_gui.py:149
 msgid "<b>Boot &amp; Kernel</b>"
 msgstr "<b>ブートとカーネル</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:156
+#: usr/share/archlinux-tweak-tool/logging_gui.py:157
 msgid "Analyze boot performance (systemd-analyze blame)"
 msgstr "ブートパフォーマンスを分析（systemd-analyze blame）"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:169
+#: usr/share/archlinux-tweak-tool/logging_gui.py:170
 msgid "View kernel ring buffer (dmesg)"
 msgstr "カーネルリングバッファを表示（dmesg）"
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:197
+msgid "Journal"
+msgstr "ジャーナル"
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:198
+msgid "Terminal views"
+msgstr "ターミナル表示"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:330
 msgid "Select a cursor theme first"
@@ -8169,10 +8331,6 @@ msgstr ""
 "<b>--user</b> セッションで動作中のサービス（読み取り専用）です。追加したカス"
 "タムユニットには印が付きます。"
 
-#: usr/share/archlinux-tweak-tool/services_gui.py:648
-msgid "Refresh"
-msgstr "更新"
-
 #: usr/share/archlinux-tweak-tool/services_gui.py:671
 msgid "Audio"
 msgstr "オーディオ"
@@ -10364,11 +10522,6 @@ msgstr "ユーザーを作成できませんでした: {error}"
 #: usr/share/archlinux-tweak-tool/user.py:65
 msgid "Passwords are not the same"
 msgstr "パスワードが一致しません"
-
-#: usr/share/archlinux-tweak-tool/user.py:65
-#: usr/share/archlinux-tweak-tool/user.py:69
-msgid "Message"
-msgstr "メッセージ"
 
 #: usr/share/archlinux-tweak-tool/user.py:68
 #: usr/share/archlinux-tweak-tool/user.py:69

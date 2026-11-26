@@ -2,6 +2,27 @@
 
 ## 2026.11.26
 
+### Logging: the system journal as a table
+
+**What Changed.** The Logging page has two tabs. The new **Journal** tab shows what the system logged as a table —
+time, level (coloured dot), service, message — newest first, with filters for the boot (this boot, previous boot,
+earlier boots by date: "what happened before it froze"), the level (errors / warnings and errors / everything),
+the service, and a text search. A summary line says e.g. "This boot: 99 errors, 648 warnings from 6 services".
+**Copy shown lines** puts the filtered lines on the clipboard; a note next to it says log lines can contain IP
+addresses and names and points to Report a problem for sharing. The old buttons that open a log in a terminal are
+unchanged under **Terminal views**. Idea from Proxmox VE 9.3's structured system-log view.
+
+**Technical Details.** New `journal_view.py` (no GTK): `journalctl -b <n> -p <level> -o json -r -n 5000` with
+`LC_ALL=C`, `--list-boots -o json` for the boot list; service = `_SYSTEMD_UNIT` → `SYSLOG_IDENTIFIER` → `_COMM`;
+non-UTF-8 `MESSAGE` (a byte list in JSON) decoded with replacement. 5000 entries read in 0.05 s. New
+`journal_view_gui.py`: a virtualised `Gtk.ColumnView` over a `Gio.ListStore` of `JournalRow` objects, filtered by a
+`Gtk.CustomFilter` (service + search, no reload); boot/level changes reload in a daemon thread. The journal is read
+the first time the tab is shown, not at ATT start. `logging_gui.py` wraps the old rows in a Stack + StackSwitcher.
+Checked off-screen (Broadway) with the main dev machine's journal: default view and Errors + search.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/journal_view.py`, `journal_view_gui.py` (new),
+`logging_gui.py`; `search_synonyms.json`, `search_index.json`; `po/*.po`, `usr/share/locale/*`
+
 ### Dialog buttons follow ATT's language
 
 **What Changed.** Yes / No / OK / Close in ATT's dialogs now speak the language chosen in ATT. Before, ATT in

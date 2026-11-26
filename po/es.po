@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:51+0100\n"
+"POT-Creation-Date: 2026-11-26 07:21+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -786,16 +786,16 @@ msgstr "ChatGPT"
 #: usr/share/archlinux-tweak-tool/ai_gui.py:526
 #: usr/share/archlinux-tweak-tool/ai_gui.py:550
 #: usr/share/archlinux-tweak-tool/funding.py:68
-#: usr/share/archlinux-tweak-tool/logging_gui.py:37
-#: usr/share/archlinux-tweak-tool/logging_gui.py:50
-#: usr/share/archlinux-tweak-tool/logging_gui.py:63
-#: usr/share/archlinux-tweak-tool/logging_gui.py:76
-#: usr/share/archlinux-tweak-tool/logging_gui.py:97
-#: usr/share/archlinux-tweak-tool/logging_gui.py:110
-#: usr/share/archlinux-tweak-tool/logging_gui.py:123
-#: usr/share/archlinux-tweak-tool/logging_gui.py:136
-#: usr/share/archlinux-tweak-tool/logging_gui.py:157
-#: usr/share/archlinux-tweak-tool/logging_gui.py:170
+#: usr/share/archlinux-tweak-tool/logging_gui.py:38
+#: usr/share/archlinux-tweak-tool/logging_gui.py:51
+#: usr/share/archlinux-tweak-tool/logging_gui.py:64
+#: usr/share/archlinux-tweak-tool/logging_gui.py:77
+#: usr/share/archlinux-tweak-tool/logging_gui.py:98
+#: usr/share/archlinux-tweak-tool/logging_gui.py:111
+#: usr/share/archlinux-tweak-tool/logging_gui.py:124
+#: usr/share/archlinux-tweak-tool/logging_gui.py:137
+#: usr/share/archlinux-tweak-tool/logging_gui.py:158
+#: usr/share/archlinux-tweak-tool/logging_gui.py:171
 msgid "Open"
 msgstr "Abrir"
 
@@ -3320,6 +3320,164 @@ msgstr ""
 msgid "Build vanilla Arch ISO"
 msgstr "Crear ISO de Arch estándar"
 
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:15
+msgid "Errors"
+msgstr "Errores"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:16
+msgid "Warnings and errors"
+msgstr "Advertencias y errores"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:17
+msgid "Everything"
+msgstr "Todo"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "alert"
+msgstr "alerta"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "critical"
+msgstr "crítico"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "emergency"
+msgstr "emergencia"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "error"
+msgstr "error"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "notice"
+msgstr "aviso"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:33
+msgid "warning"
+msgstr "advertencia"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:34
+msgid "debug"
+msgstr "depuración"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:34
+msgid "info"
+msgstr "info"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:80
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:211
+msgid "This boot"
+msgstr "Este arranque"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:82
+msgid "Previous boot"
+msgstr "Arranque anterior"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:102
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:216
+msgid "All services"
+msgstr "Todos los servicios"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:120
+#, python-brace-format
+msgid "{count} error"
+msgid_plural "{count} errors"
+msgstr[0] "{count} error"
+msgstr[1] "{count} errores"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:121
+#, python-brace-format
+msgid "{count} warning"
+msgid_plural "{count} warnings"
+msgstr[0] "{count} advertencia"
+msgstr[1] "{count} advertencias"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:122
+#, python-brace-format
+msgid "{boot}: {counts} from {services}"
+msgstr "{boot}: {counts} de {services}"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:124
+#, python-brace-format
+msgid "{count} service"
+msgid_plural "{count} services"
+msgstr[0] "{count} servicio"
+msgstr[1] "{count} servicios"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:126
+#, python-brace-format
+msgid "showing the newest {count}"
+msgstr "mostrando los {count} más recientes"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:138
+msgid "Reading the journal…"
+msgstr "Leyendo el diario…"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:182
+msgid "Nothing to copy"
+msgstr "Nada que copiar"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:185
+#, python-brace-format
+msgid "{count} line copied"
+msgid_plural "{count} lines copied"
+msgstr[0] "{count} línea copiada"
+msgstr[1] "{count} líneas copiadas"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:205
+msgid ""
+"What the system logged, newest first. Pick the previous boot to see what "
+"happened before a freeze or a crash; hover a message to read all of it."
+msgstr ""
+"Lo que el sistema ha registrado, lo más reciente primero. Elige el arranque "
+"anterior para ver qué pasó antes de un bloqueo o un fallo; pasa el ratón "
+"sobre un mensaje para leerlo completo."
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:212
+msgid "Boot"
+msgstr "Arranque"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:215
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:237
+msgid "Level"
+msgstr "Nivel"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:217
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:238
+msgid "Service"
+msgstr "Servicio"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:219
+msgid "Search the messages…"
+msgstr "Buscar en los mensajes…"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:222
+#: usr/share/archlinux-tweak-tool/services_gui.py:648
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:236
+msgid "Time"
+msgstr "Hora"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:239
+#: usr/share/archlinux-tweak-tool/user.py:65
+#: usr/share/archlinux-tweak-tool/user.py:69
+msgid "Message"
+msgstr "Mensaje"
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:255
+msgid ""
+"Log lines can contain IP addresses and names — use Report a problem to share "
+"them safely."
+msgstr ""
+"Las líneas del registro pueden contener direcciones IP y nombres: usa "
+"«Informar de un problema» para compartirlas de forma segura."
+
+#: usr/share/archlinux-tweak-tool/journal_view_gui.py:257
+msgid "Copy shown lines"
+msgstr "Copiar las líneas mostradas"
+
 #: usr/share/archlinux-tweak-tool/kernel.py:17
 msgid "Vanilla Arch kernel"
 msgstr "Kernel estándar de Arch"
@@ -4238,61 +4396,69 @@ msgstr "Abriendo el analizador de rendimiento del arranque..."
 msgid "Opening kernel ring buffer (dmesg)..."
 msgstr "Abriendo el búfer circular del kernel (dmesg)..."
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:14
+#: usr/share/archlinux-tweak-tool/logging_gui.py:15
 msgid "Investigate your logs"
 msgstr "Investiga tus registros"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:28
+#: usr/share/archlinux-tweak-tool/logging_gui.py:29
 msgid "<b>Journal</b>"
 msgstr "<b>Diario</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:36
+#: usr/share/archlinux-tweak-tool/logging_gui.py:37
 msgid "View current boot journal"
 msgstr "Ver el diario del arranque actual"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:49
+#: usr/share/archlinux-tweak-tool/logging_gui.py:50
 msgid "View previous boot journal"
 msgstr "Ver el diario del arranque anterior"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:62
+#: usr/share/archlinux-tweak-tool/logging_gui.py:63
 msgid "View journal errors (current boot)"
 msgstr "Ver los errores del diario (arranque actual)"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:75
+#: usr/share/archlinux-tweak-tool/logging_gui.py:76
 msgid "View recent journal (last 20 minutes)"
 msgstr "Ver el diario reciente (últimos 20 minutos)"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:88
+#: usr/share/archlinux-tweak-tool/logging_gui.py:89
 msgid "<b>System Logs</b>"
 msgstr "<b>Registros del sistema</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:96
+#: usr/share/archlinux-tweak-tool/logging_gui.py:97
 msgid "View Xorg log"
 msgstr "Ver el registro de Xorg"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:109
+#: usr/share/archlinux-tweak-tool/logging_gui.py:110
 msgid "View Wayland compositor log"
 msgstr "Ver el registro del compositor Wayland"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:122
+#: usr/share/archlinux-tweak-tool/logging_gui.py:123
 msgid "View pacman log"
 msgstr "Ver el registro de pacman"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:135
+#: usr/share/archlinux-tweak-tool/logging_gui.py:136
 msgid "View X session errors (~/.xsession-errors or Xorg.0.log)"
 msgstr "Ver los errores de la sesión X (~/.xsession-errors o Xorg.0.log)"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:148
+#: usr/share/archlinux-tweak-tool/logging_gui.py:149
 msgid "<b>Boot &amp; Kernel</b>"
 msgstr "<b>Arranque y kernel</b>"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:156
+#: usr/share/archlinux-tweak-tool/logging_gui.py:157
 msgid "Analyze boot performance (systemd-analyze blame)"
 msgstr "Analizar el rendimiento del arranque (systemd-analyze blame)"
 
-#: usr/share/archlinux-tweak-tool/logging_gui.py:169
+#: usr/share/archlinux-tweak-tool/logging_gui.py:170
 msgid "View kernel ring buffer (dmesg)"
 msgstr "Ver el búfer circular del kernel (dmesg)"
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:197
+msgid "Journal"
+msgstr "Diario"
+
+#: usr/share/archlinux-tweak-tool/logging_gui.py:198
+msgid "Terminal views"
+msgstr "Vistas de terminal"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:330
 msgid "Select a cursor theme first"
@@ -8235,10 +8401,6 @@ msgstr ""
 "Servicios activos en tu sesión <b>--user</b> (solo lectura). Las unidades "
 "personalizadas que añadiste aparecen marcadas."
 
-#: usr/share/archlinux-tweak-tool/services_gui.py:648
-msgid "Refresh"
-msgstr "Actualizar"
-
 #: usr/share/archlinux-tweak-tool/services_gui.py:671
 msgid "Audio"
 msgstr "Audio"
@@ -10434,11 +10596,6 @@ msgstr "No se pudo crear el usuario: {error}"
 #: usr/share/archlinux-tweak-tool/user.py:65
 msgid "Passwords are not the same"
 msgstr "Las contraseñas no coinciden"
-
-#: usr/share/archlinux-tweak-tool/user.py:65
-#: usr/share/archlinux-tweak-tool/user.py:69
-msgid "Message"
-msgstr "Mensaje"
 
 #: usr/share/archlinux-tweak-tool/user.py:68
 #: usr/share/archlinux-tweak-tool/user.py:69

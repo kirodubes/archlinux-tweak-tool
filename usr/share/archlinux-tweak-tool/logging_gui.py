@@ -3,12 +3,13 @@
 # ============================================================
 
 import functools
+import journal_view_gui
 import log_callbacks
 from att_i18n import _
 
 
 def gui(self, Gtk, vboxstack_logging, fn):
-    """Create the logging viewer GUI."""
+    """Create the logging page: Journal (table) and Terminal views tabs."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox_title_label = Gtk.Label(xalign=0)
     hbox_title_label.set_text(_("Investigate your logs"))
@@ -177,20 +178,30 @@ def gui(self, Gtk, vboxstack_logging, fn):
     btn_log_dmesg.set_margin_end(10)
     hbox_dmesg.append(btn_log_dmesg)
 
-    # ── Vbox stack ────────────────────────────────────────────────────────
+    # ── Tabs: Journal (table view) + Terminal views (the buttons above) ──────
+
+    vbox_terminal = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    for row in (hbox_section_journal, hbox_current_boot, hbox_prev_boot, hbox_journal_errors, hbox_recent_journal,
+                hbox_section_system_logs, hbox_xorg_log, hbox_wayland_log, hbox_pacman_log, hbox_xsession_errors,
+                hbox_section_boot_kernel, hbox_boot_performance, hbox_dmesg):
+        vbox_terminal.append(row)
+    vbox_journal = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    journal_view_gui.build(self, vbox_journal)
+
+    stack = Gtk.Stack()
+    stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+    stack.set_hhomogeneous(False)
+    stack.set_vhomogeneous(False)
+    stack.set_hexpand(True)
+    stack.set_vexpand(True)
+    stack.add_titled(vbox_journal, "journal", _("Journal"))
+    stack.add_titled(vbox_terminal, "terminal", _("Terminal views"))
+    stack_switcher = Gtk.StackSwitcher()
+    stack_switcher.set_halign(Gtk.Align.CENTER)
+    stack_switcher.set_stack(stack)
 
     vboxstack_logging.append(hbox_title)
     vboxstack_logging.append(hbox_sep)
-    vboxstack_logging.append(hbox_section_journal)
-    vboxstack_logging.append(hbox_current_boot)
-    vboxstack_logging.append(hbox_prev_boot)
-    vboxstack_logging.append(hbox_journal_errors)
-    vboxstack_logging.append(hbox_recent_journal)
-    vboxstack_logging.append(hbox_section_system_logs)
-    vboxstack_logging.append(hbox_xorg_log)
-    vboxstack_logging.append(hbox_wayland_log)
-    vboxstack_logging.append(hbox_pacman_log)
-    vboxstack_logging.append(hbox_xsession_errors)
-    vboxstack_logging.append(hbox_section_boot_kernel)
-    vboxstack_logging.append(hbox_boot_performance)
-    vboxstack_logging.append(hbox_dmesg)
+    vboxstack_logging.append(stack_switcher)
+    vboxstack_logging.append(stack)
+    fn.debug_print("Logging page built with Journal and Terminal views tabs")

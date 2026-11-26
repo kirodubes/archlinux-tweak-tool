@@ -116,6 +116,7 @@ usr/share/archlinux-tweak-tool/
 | **desktopr.py / desktopr_gui.py**       | Desktop/wallpaper configuration                                                                                                            |
 | **sddm.py / sddm_gui.py**               | SDDM login manager configuration                                                                                                           |
 | **maintenance.py / maintenance_gui.py** | System cleanup, orphan packages, mirrors                                                                                                   |
+| **journal_view.py / journal_view_gui.py** | Logging → Journal tab: `journalctl -o json` as a filtered `Gtk.ColumnView` (boot, level, service, search) |
 | **pkg_repair.py / pkg_history.py** (+ `_gui`) | Maintenance → Repair (`pacman -Qkk` scan, reinstall) and History (pacman log transactions, go back from cache) tabs |
 | **performance.py / performance_gui.py** | System optimization settings                                                                                                               |
 | **services.py / services_gui.py**       | systemd service management                                                                                                                 |

@@ -1828,7 +1828,14 @@
         "journal",
         "journalctl",
         "investigator",
-        "errors"
+        "errors",
+        "warnings",
+        "system log",
+        "boot log",
+        "previous boot",
+        "crash",
+        "freeze",
+        "what went wrong"
       ],
       "labels": [
         "amp",
