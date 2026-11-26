@@ -2,6 +2,50 @@
 
 ## 2026.11.26
 
+### Maintenance: new Repair and History tabs
+
+**What Changed.** Two tabs for a system that broke, ideas taken from AnduinOS (auto-repair) and Proxmox VE 9.3
+(APT history):
+- **Repair** scans every installed package with `pacman -Qkk` and lists the packages whose files are missing,
+  changed or have the wrong permissions. Tick them and press Reinstall; nothing changes before that. Packages
+  that are in no repo (AUR, local builds) are listed but can't be ticked — rebuild them with an AUR helper.
+- **History** shows the pacman log as transactions, newest first ("2026-11-25 13:46 · 23 upgraded · pacman -Syu"),
+  with a package search. An upgraded or removed package whose older version is still in the package cache gets a
+  **Go back to <version>** / **Reinstall <version>** button: one package per click, after a warning, through
+  pacman's own prompt.
+
+**Technical Details.**
+- The scan reads stderr only (pacman writes the warnings there). It skips what is changed on purpose, otherwise
+  every Kiro system would show a list of false alarms (the main dev machine went from 10 flagged packages to 2):
+  `backup file:` lines; anything under `/etc` and `/var` (settings and service state, e.g. tuned, gshadow);
+  modification-time-only differences; permission differences on directories (shared by many packages, whose
+  metadata disagree — opera flags `/usr`); `/usr/lib/os-release` (branding) and VLC's `plugins.dat` cache; and
+  every target of a `kiro-*` / `edu-*` pacman hook — by path (the hidden upstream niri/XFCE Wayland sessions) or
+  by package (`archlinux-appstream-data`, whose icons `kiro-appstream-jxl2png` converts). Stock and local hooks
+  are not used: they only react to their targets (systemd-boot update, icon caches), so skipping their targets
+  would stop checking unit files and icons. The known-noisy package list moved from the Dev page into
+  `pkg_repair.QK_IGNORE`; the Dev page imports it.
+- Tested on picard (fresh Kiro v26.11.24 XFCE, Dutch): the first run flagged **nothing**, not even a file deleted
+  on purpose — pacman translates its warnings, so the scan now runs with `LC_ALL=C`. After that the clean install
+  showed two false alarms, now skipped: `/boot` (Kiro's systemd-boot installs leave out `*-ucode.img` on purpose;
+  the microcode hook embeds it in the initramfs) and `/usr/lib/utempter/utempter` (its install script makes it
+  setgid utmp). Result: clean install = 0 packages; a deleted `nano` file is found, reinstalled, and gone from the
+  next scan. Going back was tested the same way: staged nano 9.2-1 → 9.3-1, History offered 9.2-1 from the cache,
+  `pacman -U` installed it, then nano was upgraded again and the cache restored.
+- Reinstall goes through the new `fn.launch_pacman_reinstall_in_terminal` — `pacman -S` **without** `--needed`,
+  which would skip installed packages — then rescans when the terminal closes.
+- History parses `[PACMAN] Running` + `[ALPM] transaction started/completed` blocks (last 300 transactions) when
+  the tab is shown. The cache is indexed once per load (`<pkg>-<pkgver>-<pkgrel>` → file, from `pacman-conf
+  CacheDir`): 6283 files in 0.05 s on the main dev machine, versus a glob per row. At most 60 transactions are drawn; older ones are
+  reached through the search. Headers put the counts before the command and ellipsize, because a `pacman -U` line
+  can be 1200 characters. Install goes through the new `fn.launch_pacman_install_file_in_terminal` (`pacman -U`
+  with pacman's own Proceed prompt).
+- Checked off-screen (Broadway + headless Chromium) with the main dev machine's real scan results and pacman log.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/pkg_repair.py`, `pkg_repair_gui.py`, `pkg_history.py`,
+`pkg_history_gui.py` (new); `maintenance_gui.py`, `functions.py`, `dev_gui.py`; `search_synonyms.json`,
+`search_index.json`; `po/*.po`, `usr/share/locale/*`
+
 ### Streamline offers `webapp-manager`
 
 **What Changed.** The Kiro ISO now ships **webapp-manager** (turns websites into desktop apps) in TIER 3, so the

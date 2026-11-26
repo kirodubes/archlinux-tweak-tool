@@ -1864,7 +1864,16 @@
         "mirrors",
         "cache",
         "paccache",
-        "update mirrors"
+        "update mirrors",
+        "repair",
+        "broken",
+        "integrity",
+        "reinstall",
+        "history",
+        "downgrade",
+        "rollback",
+        "go back",
+        "pacman log"
       ],
       "labels": [
         "absent",

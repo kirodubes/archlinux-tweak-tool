@@ -6,6 +6,8 @@ import functools
 from att_i18n import _
 import pacman
 import pacman_gui
+import pkg_history_gui
+import pkg_repair_gui
 
 
 def _update_cursor_preview(self, fn, Gdk):
@@ -46,7 +48,7 @@ def _refresh_boot_status(self, fn, maintenance):
 
 
 def gui(self, Gtk, Gdk, GdkPixbuf, vboxstack_maintenance, fn, maintenance):
-    """Create the maintenance GUI with a tabbed Stack: System / Mirrors / Keys & GPG / Pacman / Cursors / Boot."""
+    """Create the maintenance GUI: System / Mirrors / Keys & GPG / Pacman / Cursors / Boot / Repair / History tabs."""
     hbox_title = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     lbl_title = Gtk.Label(xalign=0)
     lbl_title.set_text(_("Maintenance"))
@@ -81,6 +83,8 @@ def gui(self, Gtk, Gdk, GdkPixbuf, vboxstack_maintenance, fn, maintenance):
     vbox_pacman = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vbox_cursors = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     vbox_initramfs = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    vbox_repair = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+    vbox_history = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
 
     # ── System tab rows ──────────────────────────────────────────
     hbox_update_system = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -508,6 +512,10 @@ def gui(self, Gtk, Gdk, GdkPixbuf, vboxstack_maintenance, fn, maintenance):
     stack.add_titled(vbox_pacman, "pacman", _("Pacman"))
     stack.add_titled(vbox_cursors, "cursors", _("Cursors"))
     stack.add_titled(vbox_initramfs, "initramfs", _("Boot / Initramfs"))
+    pkg_repair_gui.build(self, Gtk, vbox_repair)
+    stack.add_titled(vbox_repair, "repair", _("Repair"))
+    pkg_history_gui.build(self, Gtk, vbox_history)
+    stack.add_titled(vbox_history, "history", _("History"))
 
     vboxstack_maintenance.append(hbox_title)
     vboxstack_maintenance.append(hbox_separator)

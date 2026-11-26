@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 06:31+0100\n"
+"POT-Creation-Date: 2026-11-26 06:12+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -205,7 +205,7 @@ msgstr "Starten/Installieren"
 #: usr/share/archlinux-tweak-tool/autostart.py:161
 #: usr/share/archlinux-tweak-tool/backup_gui.py:38
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:66
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:115
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:119
 #: usr/share/archlinux-tweak-tool/office_gui.py:34
 #: usr/share/archlinux-tweak-tool/packages_gui.py:253
 #: usr/share/archlinux-tweak-tool/performance_gui.py:256
@@ -729,7 +729,7 @@ msgid "openclaw installation started"
 msgstr "Installation von openclaw gestartet"
 
 #: usr/share/archlinux-tweak-tool/ai_gui.py:13
-#: usr/share/archlinux-tweak-tool/dev_gui.py:531
+#: usr/share/archlinux-tweak-tool/dev_gui.py:532
 #: usr/share/archlinux-tweak-tool/gui.py:454
 msgid "AI Tools"
 msgstr "KI-Tools"
@@ -850,20 +850,20 @@ msgstr "wähle aus über 300 Alacritty-Themes oder erstelle neue"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
-#: usr/share/archlinux-tweak-tool/dev_gui.py:776
+#: usr/share/archlinux-tweak-tool/dev_gui.py:777
 #: usr/share/archlinux-tweak-tool/gui.py:517
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shells"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
-#: usr/share/archlinux-tweak-tool/dev_gui.py:784
+#: usr/share/archlinux-tweak-tool/dev_gui.py:785
 #: usr/share/archlinux-tweak-tool/gui.py:519
 msgid "Software"
 msgstr "Software"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
-#: usr/share/archlinux-tweak-tool/dev_gui.py:572
+#: usr/share/archlinux-tweak-tool/dev_gui.py:573
 #: usr/share/archlinux-tweak-tool/gui.py:475
 msgid "Fastfetch"
 msgstr "Fastfetch"
@@ -924,7 +924,7 @@ msgid "Failed to apply ATT nanorc"
 msgstr "ATT-nanorc konnte nicht angewendet werden"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
-#: usr/share/archlinux-tweak-tool/desktopr.py:628
+#: usr/share/archlinux-tweak-tool/desktopr.py:632
 msgid "Lock File Found"
 msgstr "Sperrdatei gefunden"
 
@@ -1013,7 +1013,7 @@ msgid "_Open"
 msgstr "_Öffnen"
 
 #: usr/share/archlinux-tweak-tool/autostart.py:245
-#: usr/share/archlinux-tweak-tool/dev_gui.py:539
+#: usr/share/archlinux-tweak-tool/dev_gui.py:540
 #: usr/share/archlinux-tweak-tool/gui.py:458
 msgid "Autostart"
 msgstr "Autostart"
@@ -1212,7 +1212,7 @@ msgid "<b>{pkg}</b> <small>— {blurb}</small>"
 msgstr "<b>{pkg}</b> <small>: {blurb}</small>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:36
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:28
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:30
 #: usr/share/archlinux-tweak-tool/performance.py:770
 msgid "unknown"
 msgstr "Unbekannt"
@@ -1247,6 +1247,7 @@ msgstr "<b>{pkg}</b> <small>: {blurb}</small>: {state}"
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
 msgid "installed"
 msgstr "installiert"
 
@@ -1276,7 +1277,7 @@ msgid "Cleanup timer (prunes snap-pac pairs): {state}"
 msgstr "Aufräum-Timer (bereinigt snap-pac-Paare): {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:82
-#: usr/share/archlinux-tweak-tool/functions.py:646
+#: usr/share/archlinux-tweak-tool/functions.py:647
 #: usr/share/archlinux-tweak-tool/performance.py:52
 #: usr/share/archlinux-tweak-tool/performance.py:727
 #: usr/share/archlinux-tweak-tool/performance.py:768
@@ -1672,12 +1673,12 @@ msgstr ""
 "Tipp: Installiere {package} aus {repo} für zusätzliche {name}-Funktionen und "
 "Kiro-Theming – ganz einfach"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:593
+#: usr/share/archlinux-tweak-tool/desktopr.py:597
 #, python-brace-format
 msgid "{name} installed — one more step for correct theming"
 msgstr "{name} installiert: ein weiterer Schritt für korrektes Theming"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:596
+#: usr/share/archlinux-tweak-tool/desktopr.py:600
 #, python-brace-format
 msgid ""
 "Your /etc/environment sets variables that override {name}'s own theme. Left "
@@ -1695,63 +1696,63 @@ msgstr ""
 "dann ab und wieder an:\n"
 "{lines}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:610
-#: usr/share/archlinux-tweak-tool/desktopr.py:857
+#: usr/share/archlinux-tweak-tool/desktopr.py:614
+#: usr/share/archlinux-tweak-tool/desktopr.py:861
 #, python-brace-format
 msgid "{desktop} has been installed"
 msgstr "{desktop} wurde installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:630
+#: usr/share/archlinux-tweak-tool/desktopr.py:634
 #, python-brace-format
 msgid "{name} lock file found, do you want to remove it and continue?"
 msgstr ""
 "Sperrdatei von {name} gefunden. Möchtest du sie entfernen und fortfahren?"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:672
+#: usr/share/archlinux-tweak-tool/desktopr.py:676
 #, python-brace-format
 msgid "Opening terminal for {desktop} installation..."
 msgstr "Terminal für die Installation von {desktop} wird geöffnet..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:844
-#: usr/share/archlinux-tweak-tool/desktopr.py:1187
+#: usr/share/archlinux-tweak-tool/desktopr.py:848
+#: usr/share/archlinux-tweak-tool/desktopr.py:1191
 msgid "This desktop is installed"
 msgstr "Dieser Desktop ist installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:888
+#: usr/share/archlinux-tweak-tool/desktopr.py:892
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
 "{desktop} fehlgeschlagen: nicht gefunden: {packages}. Aktiviere {repo} im "
 "Pacman-Tab"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:892
+#: usr/share/archlinux-tweak-tool/desktopr.py:896
 #, python-brace-format
 msgid "{desktop} installation failed — check console for details"
 msgstr "Installation von {desktop} fehlgeschlagen, Details in der Konsole"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:896
-#: usr/share/archlinux-tweak-tool/desktopr.py:1141
-#: usr/share/archlinux-tweak-tool/desktopr.py:1190
+#: usr/share/archlinux-tweak-tool/desktopr.py:900
+#: usr/share/archlinux-tweak-tool/desktopr.py:1145
+#: usr/share/archlinux-tweak-tool/desktopr.py:1194
 msgid "This desktop is NOT installed"
 msgstr "Dieser Desktop ist NICHT installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:918
+#: usr/share/archlinux-tweak-tool/desktopr.py:922
 #, python-brace-format
 msgid "Starting removal of {desktop}..."
 msgstr "Entfernen von {desktop} wird gestartet..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1027
+#: usr/share/archlinux-tweak-tool/desktopr.py:1031
 #, python-brace-format
 msgid "No packages to safely remove for {desktop}"
 msgstr "Keine Pakete, die sich für {desktop} sicher entfernen lassen"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1118
-#: usr/share/archlinux-tweak-tool/desktopr.py:1133
+#: usr/share/archlinux-tweak-tool/desktopr.py:1122
+#: usr/share/archlinux-tweak-tool/desktopr.py:1137
 #, python-brace-format
 msgid "{desktop} has been removed"
 msgstr "{desktop} wurde entfernt"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1119
+#: usr/share/archlinux-tweak-tool/desktopr.py:1123
 msgid ""
 "We do not remove code from your home directory,\n"
 "only packages without dependencies"
@@ -1759,36 +1760,36 @@ msgstr ""
 "Wir entfernen keinen Code aus deinem Home-Verzeichnis,\n"
 "nur Pakete ohne Abhängigkeiten"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1167
+#: usr/share/archlinux-tweak-tool/desktopr.py:1171
 #, python-brace-format
 msgid "Installed: {desktops}"
 msgstr "Installiert: {desktops}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1167
+#: usr/share/archlinux-tweak-tool/desktopr.py:1171
 msgid "No desktops installed"
 msgstr "Keine Desktops installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1199
+#: usr/share/archlinux-tweak-tool/desktopr.py:1203
 #, python-brace-format
 msgid "Enable {repos} before installing a desktop"
 msgstr "Aktiviere {repos}, bevor du einen Desktop installierst"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1211
+#: usr/share/archlinux-tweak-tool/desktopr.py:1215
 #, python-brace-format
 msgid "Installing {name} is a one-way operation"
 msgstr "Die Installation von {name} ist nicht umkehrbar"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1214
+#: usr/share/archlinux-tweak-tool/desktopr.py:1218
 #, python-brace-format
 msgid "{name} cannot be removed through {app} once installed."
 msgstr "{name} kann nach der Installation nicht über {app} entfernt werden."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1216
+#: usr/share/archlinux-tweak-tool/desktopr.py:1220
 msgid "A fresh system reinstall is required to completely remove it."
 msgstr ""
 "Zum vollständigen Entfernen ist eine Neuinstallation des Systems nötig."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1225
+#: usr/share/archlinux-tweak-tool/desktopr.py:1229
 #, python-brace-format
 msgid ""
 "IMPORTANT — {name} theming:\n"
@@ -1806,7 +1807,7 @@ msgstr ""
 "wieder an:\n"
 "{lines}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1240
+#: usr/share/archlinux-tweak-tool/desktopr.py:1244
 #, python-brace-format
 msgid ""
 "{name}: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid "
@@ -1815,51 +1816,51 @@ msgstr ""
 "{name}: Kommentiere die QT_*/GTK_THEME-Zeilen in /etc/environment aus, um "
 "Theming-Probleme zu vermeiden"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1244
+#: usr/share/archlinux-tweak-tool/desktopr.py:1248
 msgid "Do you want to continue?"
 msgstr "Möchtest du fortfahren?"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1274
+#: usr/share/archlinux-tweak-tool/desktopr.py:1278
 #, python-brace-format
 msgid "{name} cannot be removed — reinstall system to switch DEs"
 msgstr ""
 "{name} kann nicht entfernt werden: Installiere das System neu, um die DE zu "
 "wechseln"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1280
+#: usr/share/archlinux-tweak-tool/desktopr.py:1284
 #, python-brace-format
 msgid "{desktop} is not installed"
 msgstr "{desktop} ist nicht installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1298
+#: usr/share/archlinux-tweak-tool/desktopr.py:1302
 msgid "That desktop is not installed"
 msgstr "Dieser Desktop ist nicht installiert"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1363
-#: usr/share/archlinux-tweak-tool/desktopr.py:1384
+#: usr/share/archlinux-tweak-tool/desktopr.py:1367
+#: usr/share/archlinux-tweak-tool/desktopr.py:1388
 #, python-brace-format
 msgid "Starting {desktop} installation..."
 msgstr "Installation von {desktop} wird gestartet..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1369
+#: usr/share/archlinux-tweak-tool/desktopr.py:1373
 msgid "All desktops install sequence complete"
 msgstr "Installationssequenz für alle Desktops abgeschlossen"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1390
+#: usr/share/archlinux-tweak-tool/desktopr.py:1394
 msgid "All TWMs install sequence complete"
 msgstr "Installationssequenz für alle TWMs abgeschlossen"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1405
+#: usr/share/archlinux-tweak-tool/desktopr.py:1409
 #, python-brace-format
 msgid "Starting {desktop} removal..."
 msgstr "Entfernen von {desktop} wird gestartet..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1411
+#: usr/share/archlinux-tweak-tool/desktopr.py:1415
 msgid "All desktops removed"
 msgstr "Alle Desktops entfernt"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:30
-#: usr/share/archlinux-tweak-tool/dev_gui.py:549
+#: usr/share/archlinux-tweak-tool/dev_gui.py:550
 #: usr/share/archlinux-tweak-tool/gui.py:472
 msgid "Desktop"
 msgstr "Desktop"
@@ -1950,212 +1951,212 @@ msgstr ""
 "WARNUNG: Die Installation von {name} ist nicht umkehrbar: Zum Entfernen ist "
 "eine Neuinstallation des Systems nötig"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:321
+#: usr/share/archlinux-tweak-tool/dev_gui.py:322
 msgid "Dev Diagnostics"
 msgstr "Dev-Diagnose"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:343
+#: usr/share/archlinux-tweak-tool/dev_gui.py:344
 msgid "What do these rows mean? — read the Dev Page Glossary"
 msgstr "Was bedeuten diese Zeilen? Lies das Dev-Seiten-Glossar"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:404
+#: usr/share/archlinux-tweak-tool/dev_gui.py:405
 msgid "<span foreground='green'>yes</span>"
 msgstr "<span foreground='green'>ja</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:407
+#: usr/share/archlinux-tweak-tool/dev_gui.py:408
 msgid "<span foreground='green'>active</span>"
 msgstr "<span foreground='green'>aktiv</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:410
+#: usr/share/archlinux-tweak-tool/dev_gui.py:411
 msgid "<span foreground='green'>enabled</span>"
 msgstr "<span foreground='green'>aktiviert</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:451
+#: usr/share/archlinux-tweak-tool/dev_gui.py:452
 msgid "Session diagnostics"
 msgstr "Sitzungsdiagnose"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:454
+#: usr/share/archlinux-tweak-tool/dev_gui.py:455
 msgid "Distro Detection"
 msgstr "Distro-Erkennung"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:460
+#: usr/share/archlinux-tweak-tool/dev_gui.py:461
 msgid "<span foreground='green'>Arch-based (expected)</span>"
 msgstr "<span foreground='green'>Arch-basiert (erwartet)</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:464
+#: usr/share/archlinux-tweak-tool/dev_gui.py:465
 msgid "<span foreground='orange'>&#9888; mismatch</span>"
 msgstr "<span foreground='orange'>&#9888; Abweichung</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:470
+#: usr/share/archlinux-tweak-tool/dev_gui.py:471
 msgid "Environment"
 msgstr "Umgebung"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:478
+#: usr/share/archlinux-tweak-tool/dev_gui.py:479
 msgid "Session"
 msgstr "Sitzung"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:497
+#: usr/share/archlinux-tweak-tool/dev_gui.py:498
 #: usr/share/archlinux-tweak-tool/gui.py:525
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:505
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:509
 msgid "System"
 msgstr "System"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:527
+#: usr/share/archlinux-tweak-tool/dev_gui.py:528
 msgid "Per-tab status"
 msgstr "Status pro Seite"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:579
+#: usr/share/archlinux-tweak-tool/dev_gui.py:580
 msgid "Icons"
 msgstr "Symbole"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:592
+#: usr/share/archlinux-tweak-tool/dev_gui.py:593
 #: usr/share/archlinux-tweak-tool/gui.py:488
 msgid "Kernels"
 msgstr "Kernels"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:614
+#: usr/share/archlinux-tweak-tool/dev_gui.py:615
 #: usr/share/archlinux-tweak-tool/gui.py:490
 msgid "Locale"
 msgstr "Locale"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:621
+#: usr/share/archlinux-tweak-tool/dev_gui.py:622
 #: usr/share/archlinux-tweak-tool/gui.py:494
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:52
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:54
 msgid "Maintenance"
 msgstr "Wartung"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:628
+#: usr/share/archlinux-tweak-tool/dev_gui.py:629
 #: usr/share/archlinux-tweak-tool/gui.py:496
 #: usr/share/archlinux-tweak-tool/network_gui.py:65
 #: usr/share/archlinux-tweak-tool/network_gui.py:436
 msgid "Network"
 msgstr "Netzwerk"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:642
+#: usr/share/archlinux-tweak-tool/dev_gui.py:643
 #: usr/share/archlinux-tweak-tool/gui.py:500
 #: usr/share/archlinux-tweak-tool/iso_gui.py:84
 #: usr/share/archlinux-tweak-tool/packages_gui.py:20
 msgid "Packages"
 msgstr "Pakete"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:648
+#: usr/share/archlinux-tweak-tool/dev_gui.py:649
 #: usr/share/archlinux-tweak-tool/gui.py:502
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:508
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:512
 msgid "Pacman"
 msgstr "Pacman"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:655
+#: usr/share/archlinux-tweak-tool/dev_gui.py:656
 #: usr/share/archlinux-tweak-tool/gui.py:504
 msgid "Plymouth"
 msgstr "Plymouth"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:709
+#: usr/share/archlinux-tweak-tool/dev_gui.py:710
 #: usr/share/archlinux-tweak-tool/gui.py:506
 msgid "Privacy"
 msgstr "Datenschutz"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:716
+#: usr/share/archlinux-tweak-tool/dev_gui.py:717
 #: usr/share/archlinux-tweak-tool/gui.py:508
 #: usr/share/archlinux-tweak-tool/performance_gui.py:58
 msgid "Performance"
 msgstr "Performance"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:740
+#: usr/share/archlinux-tweak-tool/dev_gui.py:741
 msgid "<span foreground='orange'>&#9888; mismatch with tuned</span>"
 msgstr "<span foreground='orange'>&#9888; Abweichung von tuned</span>"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:754
+#: usr/share/archlinux-tweak-tool/dev_gui.py:755
 msgid "SDDM"
 msgstr "SDDM"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:767
+#: usr/share/archlinux-tweak-tool/dev_gui.py:768
 #: usr/share/archlinux-tweak-tool/gui.py:515
 #: usr/share/archlinux-tweak-tool/services_gui.py:77
 msgid "Services"
 msgstr "Dienste"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:803
+#: usr/share/archlinux-tweak-tool/dev_gui.py:804
 #: usr/share/archlinux-tweak-tool/gui.py:527
 msgid "Themer"
 msgstr "Themer"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:810
+#: usr/share/archlinux-tweak-tool/dev_gui.py:811
 #: usr/share/archlinux-tweak-tool/shell_gui.py:796
 msgid "Themes"
 msgstr "Themes"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:816
+#: usr/share/archlinux-tweak-tool/dev_gui.py:817
 #: usr/share/archlinux-tweak-tool/gui.py:529
 msgid "User"
 msgstr "Benutzer"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:822
+#: usr/share/archlinux-tweak-tool/dev_gui.py:823
 #: usr/share/archlinux-tweak-tool/gui.py:531
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
 msgid "Wallpaper"
 msgstr "Hintergrund"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:835
+#: usr/share/archlinux-tweak-tool/dev_gui.py:836
 msgid "Cross-cutting safeguards"
 msgstr "Übergreifende Schutzmaßnahmen"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:836
+#: usr/share/archlinux-tweak-tool/dev_gui.py:837
 msgid "Safeguards"
 msgstr "Schutzmaßnahmen"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:893
+#: usr/share/archlinux-tweak-tool/dev_gui.py:894
 msgid "System integrity (kiro-audit mirror)"
 msgstr "Systemintegrität (kiro-audit-Spiegel)"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:904
+#: usr/share/archlinux-tweak-tool/dev_gui.py:905
 msgid "Microcode"
 msgstr "Microcode"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:922
+#: usr/share/archlinux-tweak-tool/dev_gui.py:923
 msgid "Audio stack (PipeWire)"
 msgstr "Audio-Stack (PipeWire)"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:930
+#: usr/share/archlinux-tweak-tool/dev_gui.py:931
 msgid "ZRAM"
 msgstr "ZRAM"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:944
+#: usr/share/archlinux-tweak-tool/dev_gui.py:945
 msgid "Log rotation"
 msgstr "Log-Rotation"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:949
+#: usr/share/archlinux-tweak-tool/dev_gui.py:950
 msgid "Calamares cleanup"
 msgstr "Calamares-Aufräumen"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:962
+#: usr/share/archlinux-tweak-tool/dev_gui.py:963
 msgid "Package integrity (pacman -Qk)"
 msgstr "Paketintegrität (pacman -Qk)"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:972
+#: usr/share/archlinux-tweak-tool/dev_gui.py:973
 msgid "Failed systemd units"
 msgstr "Fehlgeschlagene systemd-Units"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:985
+#: usr/share/archlinux-tweak-tool/dev_gui.py:986
 msgid "Userspace tuning"
 msgstr "Userspace-Tuning"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:988
+#: usr/share/archlinux-tweak-tool/dev_gui.py:989
 msgid "OOM daemon (systemd-oomd)"
 msgstr "OOM-Daemon (systemd-oomd)"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:994
+#: usr/share/archlinux-tweak-tool/dev_gui.py:995
 msgid "Intel ME blacklist"
 msgstr "Intel-ME-Blacklist"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:1001
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1002
 msgid "Bluetooth USB reset"
 msgstr "Bluetooth-USB-Reset"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:1006
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1007
 msgid "Kernel zswap"
 msgstr "Kernel-zswap"
 
-#: usr/share/archlinux-tweak-tool/dev_gui.py:1015
+#: usr/share/archlinux-tweak-tool/dev_gui.py:1016
 msgid "NetworkManager loopback"
 msgstr "NetworkManager-Loopback"
 
@@ -2437,7 +2438,7 @@ msgstr ""
 "\n"
 "<i>Vor jedem Speichern wird ein Backup (config.jsonc.ftt-bak) angelegt.</i>"
 
-#: usr/share/archlinux-tweak-tool/functions.py:646
+#: usr/share/archlinux-tweak-tool/functions.py:647
 #: usr/share/archlinux-tweak-tool/performance.py:34
 #: usr/share/archlinux-tweak-tool/performance.py:46
 #: usr/share/archlinux-tweak-tool/performance.py:727
@@ -2446,117 +2447,117 @@ msgstr ""
 msgid "<b>enabled</b>"
 msgstr "<b>aktiviert</b>"
 
-#: usr/share/archlinux-tweak-tool/functions.py:648
 #: usr/share/archlinux-tweak-tool/functions.py:649
+#: usr/share/archlinux-tweak-tool/functions.py:650
 msgid "<b>allowed</b>"
 msgstr "<b>erlaubt</b>"
 
-#: usr/share/archlinux-tweak-tool/functions.py:648
 #: usr/share/archlinux-tweak-tool/functions.py:649
+#: usr/share/archlinux-tweak-tool/functions.py:650
 msgid "blocked"
 msgstr "blockiert"
 
-#: usr/share/archlinux-tweak-tool/functions.py:652
+#: usr/share/archlinux-tweak-tool/functions.py:653
 #, python-brace-format
 msgid ""
 "Firewall: {fw}    Network discovery: {mdns}    Samba file sharing: {samba}"
 msgstr ""
 "Firewall: {fw}    Netzwerkerkennung: {mdns}    Samba-Dateifreigabe: {samba}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1179
+#: usr/share/archlinux-tweak-tool/functions.py:1180
 #, python-brace-format
 msgid "Package not found. Please enable {repo} in pacman.conf"
 msgstr "Paket nicht gefunden. Bitte aktiviere {repo} in der pacman.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1181
+#: usr/share/archlinux-tweak-tool/functions.py:1182
 msgid ""
 "Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf"
 msgstr ""
 "Paket nicht gefunden. Bitte aktiviere nemesis_repo oder chaotic-aur in der "
 "pacman.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1209
+#: usr/share/archlinux-tweak-tool/functions.py:1210
 #, python-brace-format
 msgid "{package} installed"
 msgstr "{package} installiert"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1213
+#: usr/share/archlinux-tweak-tool/functions.py:1214
 #, python-brace-format
 msgid "Error installing {package}: {error}"
 msgstr "Fehler beim Installieren von {package}: {error}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1445
+#: usr/share/archlinux-tweak-tool/functions.py:1446
 #, python-brace-format
 msgid "File not found: {package}"
 msgstr "Datei nicht gefunden: {package}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1460
+#: usr/share/archlinux-tweak-tool/functions.py:1461
 #: usr/share/archlinux-tweak-tool/maintenance.py:604
 msgid "Installation started..."
 msgstr "Installation gestartet..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:1508
+#: usr/share/archlinux-tweak-tool/functions.py:1509
 #, python-brace-format
 msgid "Error removing {package}: {error}"
 msgstr "Fehler beim Entfernen von {package}: {error}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2265
+#: usr/share/archlinux-tweak-tool/functions.py:2321
 msgid "Installing network discovery..."
 msgstr "Netzwerkerkennung wird installiert..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2299
+#: usr/share/archlinux-tweak-tool/functions.py:2355
 msgid "Disabling network discovery..."
 msgstr "Netzwerkerkennung wird deaktiviert..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2330
+#: usr/share/archlinux-tweak-tool/functions.py:2386
 msgid "Installing samba..."
 msgstr "samba wird installiert..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2365
+#: usr/share/archlinux-tweak-tool/functions.py:2421
 msgid "Uninstalling samba..."
 msgstr "samba wird deinstalliert..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2408
+#: usr/share/archlinux-tweak-tool/functions.py:2464
 #, python-brace-format
 msgid "Allowing {label}..."
 msgstr "{label} wird erlaubt..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2410
+#: usr/share/archlinux-tweak-tool/functions.py:2466
 #, python-brace-format
 msgid "Blocking {label}..."
 msgstr "{label} wird blockiert..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2554
+#: usr/share/archlinux-tweak-tool/functions.py:2610
 msgid "Smb.conf has been saved"
 msgstr "Smb.conf wurde gespeichert"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2559
+#: usr/share/archlinux-tweak-tool/functions.py:2615
 msgid "Choose or create your own smb.conf"
 msgstr "Wähle deine eigene smb.conf aus oder erstelle sie"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2629
+#: usr/share/archlinux-tweak-tool/functions.py:2685
 #, python-brace-format
 msgid "Shell changed to {shell} for user - logout"
 msgstr "Shell für den Benutzer auf {shell} geändert, bitte abmelden"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3144
+#: usr/share/archlinux-tweak-tool/functions.py:3200
 msgid "URL copied to clipboard"
 msgstr "URL in die Zwischenablage kopiert"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3147
+#: usr/share/archlinux-tweak-tool/functions.py:3203
 msgid "Install xclip to enable copy"
 msgstr "Installiere xclip, um das Kopieren zu aktivieren"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3178
+#: usr/share/archlinux-tweak-tool/functions.py:3234
 #, python-brace-format
 msgid "Open with {name}"
 msgstr "Mit {name} öffnen"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3183
+#: usr/share/archlinux-tweak-tool/functions.py:3239
 msgid "No browsers detected"
 msgstr "Keine Browser gefunden"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3190
+#: usr/share/archlinux-tweak-tool/functions.py:3246
 msgid "Copy URL"
 msgstr "URL kopieren"
 
@@ -3880,8 +3881,8 @@ msgstr "<b>System-Locale</b>"
 #: usr/share/archlinux-tweak-tool/locale_gui.py:218
 #: usr/share/archlinux-tweak-tool/locale_gui.py:280
 #: usr/share/archlinux-tweak-tool/locale_gui.py:320
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:357
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:312
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:361
 #: usr/share/archlinux-tweak-tool/themes_gui.py:101
 msgid "Apply"
 msgstr "Anwenden"
@@ -4425,7 +4426,7 @@ msgid "Install reflector first."
 msgstr "Installiere zuerst reflector."
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:697
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:241
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:245
 msgid "Enable reflector timer"
 msgstr "Reflector-Timer aktivieren"
 
@@ -4434,7 +4435,7 @@ msgid "Reflector timer disabled"
 msgstr "Reflector-Timer deaktiviert"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:701
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:241
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:245
 msgid "Disable reflector timer"
 msgstr "Reflector-Timer deaktivieren"
 
@@ -4463,7 +4464,7 @@ msgid "reflector removed"
 msgstr "reflector entfernt"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:799
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:258
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:262
 msgid "Install reflector"
 msgstr "reflector installieren"
 
@@ -4476,7 +4477,7 @@ msgid "reflector installed"
 msgstr "reflector installiert"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:815
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:258
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:262
 msgid "Remove reflector"
 msgstr "reflector entfernen"
 
@@ -4489,7 +4490,7 @@ msgid "rate-mirrors removed"
 msgstr "rate-mirrors entfernt"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:833
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:262
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:266
 msgid "Install rate-mirrors"
 msgstr "rate-mirrors installieren"
 
@@ -4502,7 +4503,7 @@ msgid "rate-mirrors installed"
 msgstr "rate-mirrors installiert"
 
 #: usr/share/archlinux-tweak-tool/maintenance.py:849
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:262
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:266
 msgid "Remove rate-mirrors"
 msgstr "rate-mirrors entfernen"
 
@@ -4587,156 +4588,156 @@ msgstr "Initramfs neu erzeugt: Starte neu, um es anzuwenden"
 msgid "Initramfs regenerated"
 msgstr "Initramfs neu erzeugt"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:27
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:29
 msgid "HOOKS line not found in /etc/mkinitcpio.conf"
 msgstr "HOOKS-Zeile in /etc/mkinitcpio.conf nicht gefunden"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:31
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:33
 msgid "absent"
 msgstr "nicht vorhanden"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:31
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:33
 msgid "present"
 msgstr "vorhanden"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:35
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:37
 #, python-brace-format
 msgid "{swap}  (hibernation may be in use)"
 msgstr "{swap}  (Ruhezustand wird möglicherweise verwendet)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:37
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:39
 msgid "none (ZRAM-only or no swap)"
 msgstr "keiner (nur ZRAM oder kein Swap)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:42
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:44
 msgid "Resume hook already absent"
 msgstr "Resume-Hook fehlt bereits"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:45
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:443
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:47
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:447
 msgid "Remove resume hook"
 msgstr "Resume-Hook entfernen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:88
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:92
 msgid "Update system"
 msgstr "System aktualisieren"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:89
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:93
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:101
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:105
 msgid "Clean cache"
 msgstr "Cache bereinigen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:102
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:106
 msgid "Clean"
 msgstr "Bereinigen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:114
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:118
 msgid "Remove pacman lock"
 msgstr "Pacman-Sperre entfernen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:127
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:131
 msgid "Provide probe link (hardware diagnostics)"
 msgstr "Probe-Link bereitstellen (Hardware-Diagnose)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:128
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:132
 msgid "Get probe link"
 msgstr "Probe-Link abrufen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:141
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:145
 msgid "Re-install archlinux-keyring"
 msgstr "archlinux-keyring neu installieren"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:142
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:146
 msgid "Install keyring (local)"
 msgstr "Keyring installieren (lokal)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:144
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:148
 msgid "Install keyring (online)"
 msgstr "Keyring installieren (online)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:161
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:165
 msgid "Reset and reload pacman keys"
 msgstr "Pacman-Schlüssel zurücksetzen und neu laden"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:162
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:166
 msgid "Fix keys"
 msgstr "Schlüssel reparieren"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:174
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:178
 msgid "Get the best keyservers for /etc/pacman.d/gnupg/gpg.conf"
 msgstr "Die besten Keyserver für /etc/pacman.d/gnupg/gpg.conf ermitteln"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:175
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:188
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:179
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:192
 msgid "Backup and reset gpg.conf"
 msgstr "gpg.conf sichern und zurücksetzen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:187
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:191
 msgid "Get the best keyservers for ~/.gnupg/gpg.conf"
 msgstr "Die besten Keyserver für ~/.gnupg/gpg.conf ermitteln"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:203
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:207
 msgid "Set the mainstream servers from Arch Linux"
 msgstr "Die Standard-Server von Arch Linux setzen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:204
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:208
 msgid "Set mainstream"
 msgstr "Standard setzen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:206
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:210
 msgid "Reset your mirrorlist"
 msgstr "Mirrorlist zurücksetzen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:221
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:225
 msgid "Get the best Arch Linux servers (takes a while)"
 msgstr "Die besten Arch-Linux-Server ermitteln (dauert eine Weile)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:222
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:226
 msgid "Run reflector"
 msgstr "reflector ausführen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:224
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:228
 msgid "Run rate-mirrors"
 msgstr "rate-mirrors ausführen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:239
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:243
 msgid "Automatically refresh mirrors on a schedule (reflector.timer)"
 msgstr "Mirrors automatisch nach Zeitplan aktualisieren (reflector.timer)"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:257
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:261
 msgid "Install apps to find the best Arch Linux servers"
 msgstr "Apps installieren, um die besten Arch-Linux-Server zu finden"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:288
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:292
 msgid "Get the original ATT /etc/pacman.conf"
 msgstr "Die ursprüngliche ATT-/etc/pacman.conf holen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:289
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:293
 msgid "Reset pacman.conf"
 msgstr "pacman.conf zurücksetzen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:304
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:308
 msgid "Choose the number of parallel downloads for pacman"
 msgstr "Wähle die Anzahl paralleler Downloads für pacman"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:332
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:336
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:136
 msgid "Install Bibata cursors"
 msgstr "Bibata-Cursor installieren"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:336
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:340
 #: usr/share/archlinux-tweak-tool/sddm_gui.py:140
 msgid "Remove Bibata cursors"
 msgstr "Bibata-Cursor entfernen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:344
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:348
 msgid "Choose your cursor theme for installed desktops and SDDM"
 msgstr "Wähle dein Cursor-Theme für installierte Desktops und SDDM"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:376
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:380
 msgid ""
 "Applies cursor theme globally to: System & user xcursor, GTK2/3/4, XFCE, "
 "GNOME (gsettings), KDE Plasma, and SDDM login screen. Affects all "
@@ -4746,23 +4747,23 @@ msgstr ""
 "GTK2/3/4, XFCE, GNOME (gsettings), KDE Plasma und den SDDM-"
 "Anmeldebildschirm. Betrifft alle Anwendungen und den SDDM-Anmeldebildschirm."
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:388
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:392
 msgid "<b>Current state</b>"
 msgstr "<b>Aktueller Zustand</b>"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:396
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:400
 msgid "HOOKS:"
 msgstr "HOOKS:"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:407
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:411
 msgid "resume hook:"
 msgstr "Resume-Hook:"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:418
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:422
 msgid "Real swap:"
 msgstr "Echter Swap:"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:439
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:443
 msgid ""
 "Remove the 'resume' hook from /etc/mkinitcpio.conf — suppresses the 'no "
 "resume device' boot warning on systems without a hibernation swap partition. "
@@ -4773,7 +4774,7 @@ msgstr ""
 "Ruhezustand unterdrückt. Die Datei wird unter /etc/mkinitcpio.conf.bak "
 "gesichert und das Initramfs neu erstellt."
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:461
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:465
 msgid ""
 "Regenerate all initramfs images (mkinitcpio -P). Run after manual HOOKS "
 "changes or when troubleshooting boot."
@@ -4781,25 +4782,33 @@ msgstr ""
 "Alle Initramfs-Images neu erzeugen (mkinitcpio -P). Führe das nach manuellen "
 "HOOKS-Änderungen oder bei Boot-Problemen aus."
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:464
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:468
 msgid "Regenerate initramfs"
 msgstr "Initramfs neu erzeugen"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:506
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:510
 msgid "Mirrors"
 msgstr "Spiegelserver"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:507
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:511
 msgid "Keys & GPG"
 msgstr "Schlüssel & GPG"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:509
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:513
 msgid "Cursors"
 msgstr "Cursor"
 
-#: usr/share/archlinux-tweak-tool/maintenance_gui.py:510
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:514
 msgid "Boot / Initramfs"
 msgstr "Boot / Initramfs"
+
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:516
+msgid "Repair"
+msgstr "Reparatur"
+
+#: usr/share/archlinux-tweak-tool/maintenance_gui.py:518
+msgid "History"
+msgstr "Verlauf"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:12
 msgid "1. Install the samba server - <b>installed</b>"
@@ -6487,6 +6496,226 @@ msgstr "Reaktionsfähigkeit"
 #: usr/share/archlinux-tweak-tool/performance_gui.py:647
 msgid "Storage & Memory"
 msgstr "Speicher & Arbeitsspeicher"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:32
+#, python-brace-format
+msgid "{count} installed"
+msgid_plural "{count} installed"
+msgstr[0] "{count} installiert"
+msgstr[1] "{count} installiert"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:33
+#, python-brace-format
+msgid "{count} upgraded"
+msgid_plural "{count} upgraded"
+msgstr[0] "{count} aktualisiert"
+msgstr[1] "{count} aktualisiert"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:34
+#, python-brace-format
+msgid "{count} downgraded"
+msgid_plural "{count} downgraded"
+msgstr[0] "{count} zurückgestuft"
+msgstr[1] "{count} zurückgestuft"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:35
+#, python-brace-format
+msgid "{count} removed"
+msgid_plural "{count} removed"
+msgstr[0] "{count} entfernt"
+msgstr[1] "{count} entfernt"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:36
+#, python-brace-format
+msgid "{count} reinstalled"
+msgid_plural "{count} reinstalled"
+msgstr[0] "{count} neu installiert"
+msgstr[1] "{count} neu installiert"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+msgid "downgraded"
+msgstr "zurückgestuft"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+msgid "upgraded"
+msgstr "aktualisiert"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+msgid "reinstalled"
+msgstr "neu installiert"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+msgid "removed"
+msgstr "entfernt"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:52
+#, python-brace-format
+msgid "Reinstall {pkg} {version}?"
+msgstr "{pkg} {version} neu installieren?"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:54
+#, python-brace-format
+msgid "Go back to {pkg} {version}?"
+msgstr "Zurück zu {pkg} {version}?"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:55
+#, python-brace-format
+msgid ""
+"pacman installs this file from the package cache:\n"
+"\n"
+"{path}\n"
+"\n"
+"Going back one package can break packages that need the newer version — "
+"pacman stops and tells you when it can see that. The next full update "
+"upgrades it again."
+msgstr ""
+"pacman installiert diese Datei aus dem Paket-Cache:\n"
+"\n"
+"{path}\n"
+"\n"
+"Wenn du ein einzelnes Paket zurücksetzt, können Pakete kaputtgehen, die die "
+"neuere Version brauchen — pacman bricht ab und sagt dir Bescheid, wenn es "
+"das erkennt. Das nächste vollständige Update aktualisiert es wieder."
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:63
+msgid "Installing from the package cache in a terminal…"
+msgstr "Installation aus dem Paket-Cache in einem Terminal…"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#, python-brace-format
+msgid "Go back to {version}"
+msgstr "Zurück zu {version}"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#, python-brace-format
+msgid "Reinstall {version}"
+msgstr "{version} neu installieren"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:90
+#, python-brace-format
+msgid "{version} is not in the package cache"
+msgstr "{version} ist nicht im Paket-Cache"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:123
+msgid "No transactions match."
+msgstr "Keine passenden Transaktionen."
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:143
+msgid "Package history"
+msgstr "Paketverlauf"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:153
+msgid ""
+"Every install, update and removal from the pacman log, newest first. Did an "
+"update break something? Open it and go back to the previous version of one "
+"package, as long as that version is still in the package cache."
+msgstr ""
+"Jede Installation, Aktualisierung und Entfernung aus dem pacman-Log, die "
+"neueste zuerst. Hat ein Update etwas kaputt gemacht? Öffne es und setze ein "
+"Paket auf die vorherige Version zurück, solange diese Version noch im Paket-"
+"Cache liegt."
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:158
+msgid "Search a package…"
+msgstr "Pakete suchen…"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:28
+#, python-brace-format
+msgid "{count} file missing or changed"
+msgid_plural "{count} files missing or changed"
+msgstr[0] "{count} Datei fehlt oder wurde geändert"
+msgstr[1] "{count} Dateien fehlen oder wurden geändert"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:31
+#, python-brace-format
+msgid "{count} file with wrong permissions"
+msgid_plural "{count} files with wrong permissions"
+msgstr[0] "{count} Datei mit falschen Berechtigungen"
+msgstr[1] "{count} Dateien mit falschen Berechtigungen"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:50
+msgid "not in a repo — rebuild it with your AUR helper"
+msgstr "nicht in einem Repo — baue es mit deinem AUR-Helper neu"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:60
+#, python-brace-format
+msgid "… and {count} more"
+msgid_plural "… and {count} more"
+msgstr[0] "… und {count} weitere"
+msgstr[1] "… und {count} weitere"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:61
+msgid "Files"
+msgstr "Dateien"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:89
+msgid "No problems found — every package file is as pacman installed it."
+msgstr ""
+"Keine Probleme gefunden — jede Paketdatei ist so, wie pacman sie installiert "
+"hat."
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:93
+#, python-brace-format
+msgid "{count} package has missing or changed files."
+msgid_plural "{count} packages have missing or changed files."
+msgstr[0] "{count} Paket hat fehlende oder geänderte Dateien."
+msgstr[1] "{count} Pakete haben fehlende oder geänderte Dateien."
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:106
+msgid "Scanning every installed package — this takes one to three minutes…"
+msgstr ""
+"Alle installierten Pakete werden gescannt — das dauert ein bis drei Minuten…"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:123
+#, python-brace-format
+msgid ""
+"pacman reinstalls these packages, which rewrites their files:\n"
+"\n"
+"{packages}\n"
+"\n"
+"Your own settings in /etc are kept."
+msgstr ""
+"pacman installiert diese Pakete neu und schreibt dabei ihre Dateien neu:\n"
+"\n"
+"{packages}\n"
+"\n"
+"Deine eigenen Einstellungen in /etc bleiben erhalten."
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:125
+msgid "Reinstall packages?"
+msgstr "Pakete neu installieren?"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:129
+msgid "Reinstalling in a terminal…"
+msgstr "Neuinstallation in einem Terminal…"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:144
+msgid "Repair system files"
+msgstr "Systemdateien reparieren"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:153
+msgid ""
+"Checks every file of every installed package against what pacman installed: "
+"files that are missing, changed or have the wrong permissions. Settings and "
+"state in /etc and /var are skipped, and so are files that Kiro changes on "
+"purpose. The scan only reads — nothing changes until you press Reinstall "
+"selected."
+msgstr ""
+"Prüft jede Datei jedes installierten Pakets gegen das, was pacman "
+"installiert hat: Dateien, die fehlen, geändert wurden oder falsche "
+"Berechtigungen haben. Einstellungen und Zustandsdaten in /etc und /var "
+"werden übersprungen, ebenso Dateien, die Kiro absichtlich ändert. Der Scan "
+"liest nur — nichts ändert sich, bis du auf „Ausgewählte neu installieren“ "
+"klickst."
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:161
+msgid "Scan"
+msgstr "Scannen"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:182
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:373
+msgid "Reinstall selected"
+msgstr "Ausgewählte neu installieren"
 
 #: usr/share/archlinux-tweak-tool/plymouth_gui.py:39
 msgid "<b>Install / Remove Plymouth</b>"
@@ -9537,10 +9766,6 @@ msgstr "Ausgewählte entfernen"
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:371
 msgid "Save profile"
 msgstr "Profil speichern"
-
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:373
-msgid "Reinstall selected"
-msgstr "Ausgewählte neu installieren"
 
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:375
 msgid "Save removed list"

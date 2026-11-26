@@ -16,7 +16,7 @@
   "Kernels": ["kernel", "linux-zen", "linux-cachyos", "lts", "initramfs", "mkinitcpio", "dracut", "boot menu"],
   "Locale": ["language", "keyboard", "timezone", "region", "keymap", "clock", "language pack", "translation", "spell check", "dictionary", "hunspell", "firefox language"],
   "Logging": ["logs", "journal", "journalctl", "investigator", "errors"],
-  "Maintenance": ["cleanup", "orphans", "mirrors", "cache", "paccache", "update mirrors"],
+  "Maintenance": ["cleanup", "orphans", "mirrors", "cache", "paccache", "update mirrors", "repair", "broken", "integrity", "reinstall", "history", "downgrade", "rollback", "go back", "pacman log"],
   "Network": ["firewall", "firewalld", "samba", "wifi", "dns", "ip", "smb", "share", "ufw"],
   "Packages": ["install packages", "export", "import", "package list", "backup packages"],
   "Pacman": ["pacman.conf", "repos", "repositories", "chaotic", "multilib", "mirrorlist", "parallel downloads"],

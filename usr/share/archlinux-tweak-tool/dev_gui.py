@@ -16,6 +16,7 @@ import os
 import shutil
 
 from att_i18n import _
+import pkg_repair
 
 
 # ── module-level helpers ────────────────────────────────────────────
@@ -189,7 +190,7 @@ def _user_in_group(fn, group):
 # ATT for a fresh integrity scan. Everything else here is cheap and stays live.
 _QK_CACHE = None
 
-_QK_IGNORE = ("ohmychadwm-git:", "bind:", "cups:", "nfs-utils:")
+_QK_IGNORE = tuple(pkg + ":" for pkg in pkg_repair.QK_IGNORE)
 
 _INSTALLER_LEFTOVERS = (
     "/root/.automated_script.sh",

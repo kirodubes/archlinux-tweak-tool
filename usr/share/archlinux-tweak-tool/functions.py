@@ -30,6 +30,7 @@ import os
 from gi.repository import GLib, Gtk, Gdk, GdkPixbuf
 import sys
 import threading
+import shlex
 import shutil
 import struct
 import psutil
@@ -1715,6 +1716,61 @@ read -p 'Press Enter to close...'
     )
     process.temp_file = temp_path
     return process
+
+
+def _ensure_alacritty():
+    if shutil.which("alacritty"):
+        return True
+    log_info("alacritty not found, installing...")
+    install_proc = subprocess.run(["pacman", "-S", "--noconfirm", "--needed", "alacritty"], capture_output=True, text=True)
+    if install_proc.returncode != 0:
+        log_error(f"Failed to install alacritty: {install_proc.stderr}")
+        return False
+    return True
+
+
+def launch_pacman_reinstall_in_terminal(packages):
+    """Reinstall installed repo packages (no --needed, so the files are really rewritten); returns the Popen."""
+    if not _ensure_alacritty():
+        return None
+    script = f"""
+FAILED=()
+for pkg in {packages}; do
+    echo ""
+    echo "━━━ $pkg ━━━"
+    if pacman -S --noconfirm "$pkg"; then
+        echo "✓ $pkg reinstalled"
+    else
+        echo "✗ $pkg failed"
+        FAILED+=("$pkg")
+    fi
+done
+
+echo ''
+if [ ${{#FAILED[@]}} -eq 0 ]; then
+    echo '✓ All packages reinstalled'
+else
+    echo "✗ Failed: ${{FAILED[*]}}"
+fi
+
+echo ''
+echo '=== Operation Finished ==='
+read -p 'Press Enter to close...'
+"""
+    return subprocess.Popen(["alacritty", "-e", "bash", "-c", script], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+def launch_pacman_install_file_in_terminal(path):
+    """Install one local package file with pacman -U; pacman's own prompt stays so the user sees the change."""
+    if not _ensure_alacritty():
+        return None
+    script = f"""
+pacman -U {shlex.quote(path)}
+echo ''
+echo '=== Operation Finished ==='
+read -p 'Press Enter to close...'
+"""
+    return subprocess.Popen(["alacritty", "-e", "bash", "-c", script], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 def launch_pacman_remove_in_terminal(packages):
