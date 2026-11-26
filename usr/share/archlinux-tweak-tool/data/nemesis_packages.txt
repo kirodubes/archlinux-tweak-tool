@@ -5,6 +5,7 @@ archlinux-tweak-tool
 blueberry
 cachyos-keyring
 cachyos-mirrorlist
+cachyos-pi-scan
 caelestia-shell
 celestial-aliz
 celestial-aqua
