@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:35+0100\n"
+"POT-Creation-Date: 2026-11-26 06:51+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -6599,20 +6599,24 @@ msgstr "Terug naar {version}"
 msgid "Reinstall {version}"
 msgstr "{version} opnieuw installeren"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:90
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:91
 #, python-brace-format
 msgid "{version} is not in the package cache"
 msgstr "{version} staat niet in de pakketcache"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:123
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
+msgid "not in cache"
+msgstr "niet in de cache"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:129
 msgid "No transactions match."
 msgstr "Geen overeenkomende transacties."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:143
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:149
 msgid "Package history"
 msgstr "Pakketgeschiedenis"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:153
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:159
 msgid ""
 "Every install, update and removal from the pacman log, newest first. Did an "
 "update break something? Open it and go back to the previous version of one "
@@ -6622,7 +6626,7 @@ msgstr ""
 "Heeft een update iets stukgemaakt? Open die update en zet één pakket terug "
 "naar de vorige versie, zolang die versie nog in de pakketcache staat."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:158
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:164
 msgid "Search a package…"
 msgstr "Pakketten zoeken…"
 

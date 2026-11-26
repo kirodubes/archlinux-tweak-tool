@@ -75,6 +75,11 @@ and the clipboard holds the fenced report. Five new strings, translated in all 1
   can be 1200 characters. Install goes through the new `fn.launch_pacman_install_file_in_terminal` (`pacman -U`
   with pacman's own Proceed prompt).
 - Checked off-screen (Broadway + headless Chromium) with the main dev machine's real scan results and pacman log.
+- Rows without a cached older version show a dimmed **not in cache** (tooltip: the version that is missing).
+  On a fresh install every update after the first has none — the old versions came off the ISO, never through the
+  cache — so a tooltip alone left people wondering where the button was (seen on picard after the first `-Syu`).
+  Fetching old versions from the Arch Linux Archive was considered and left out: going back is tricky enough with
+  a version the system really had.
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/pkg_repair.py`, `pkg_repair_gui.py`, `pkg_history.py`,
 `pkg_history_gui.py` (new); `maintenance_gui.py`, `functions.py`, `dev_gui.py`; `search_synonyms.json`,

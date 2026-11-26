@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:35+0100\n"
+"POT-Creation-Date: 2026-11-26 06:51+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -6614,20 +6614,24 @@ msgstr "Wróć do {version}"
 msgid "Reinstall {version}"
 msgstr "Zainstaluj ponownie {version}"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:90
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:91
 #, python-brace-format
 msgid "{version} is not in the package cache"
 msgstr "Brak {version} w pamięci podręcznej pakietów"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:123
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
+msgid "not in cache"
+msgstr "brak w pamięci podręcznej"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:129
 msgid "No transactions match."
 msgstr "Brak pasujących transakcji."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:143
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:149
 msgid "Package history"
 msgstr "Historia pakietów"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:153
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:159
 msgid ""
 "Every install, update and removal from the pacman log, newest first. Did an "
 "update break something? Open it and go back to the previous version of one "
@@ -6637,7 +6641,7 @@ msgstr ""
 "Aktualizacja coś zepsuła? Otwórz ją i przywróć poprzednią wersję jednego "
 "pakietu, o ile ta wersja jest nadal w pamięci podręcznej pakietów."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:158
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:164
 msgid "Search a package…"
 msgstr "Szukaj pakietów…"
 

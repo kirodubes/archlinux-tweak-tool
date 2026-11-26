@@ -87,7 +87,13 @@ def _entry_row(Gtk, self, entry, index):
             btn.connect("clicked", _on_go_back, self, entry, path)
             row.append(btn)
         else:
-            lbl_entry.set_tooltip_text(_("{version} is not in the package cache").format(version=entry["old"]))
+            # visible, not only a tooltip: on a fresh install most rows have no button and users wonder why
+            tooltip = _("{version} is not in the package cache").format(version=entry["old"])
+            lbl_not_cached = Gtk.Label(label=_("not in cache"))
+            lbl_not_cached.add_css_class("dim-label")
+            lbl_not_cached.set_tooltip_text(tooltip)
+            lbl_entry.set_tooltip_text(tooltip)
+            row.append(lbl_not_cached)
     return row
 
 

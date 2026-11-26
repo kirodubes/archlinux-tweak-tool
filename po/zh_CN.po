@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:35+0100\n"
+"POT-Creation-Date: 2026-11-26 06:51+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -6397,20 +6397,24 @@ msgstr "回退到 {version}"
 msgid "Reinstall {version}"
 msgstr "重新安装 {version}"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:90
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:91
 #, python-brace-format
 msgid "{version} is not in the package cache"
 msgstr "{version} 不在软件包缓存中"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:123
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
+msgid "not in cache"
+msgstr "不在缓存中"
+
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:129
 msgid "No transactions match."
 msgstr "没有匹配的事务。"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:143
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:149
 msgid "Package history"
 msgstr "软件包历史"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:153
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:159
 msgid ""
 "Every install, update and removal from the pacman log, newest first. Did an "
 "update break something? Open it and go back to the previous version of one "
@@ -6419,7 +6423,7 @@ msgstr ""
 "pacman 日志中的每一次安装、更新和移除，最新的在前。更新弄坏了什么吗？打开它即"
 "可将某个软件包回退到上一个版本，前提是该版本仍在软件包缓存中。"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:158
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:164
 msgid "Search a package…"
 msgstr "搜索软件包…"
 
