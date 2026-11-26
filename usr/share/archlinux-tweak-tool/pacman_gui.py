@@ -64,14 +64,14 @@ def refresh_switches(self):
 
 
 def _build_aur_check(self, Gtk, vboxstack1):
-    """AUR check section (Kiro / KiroTux): kiro-aur-check as paru's PreBuildCommand."""
+    """AUR check section (Kiro / KiroTux): kiro-aur-check before paru or yay builds an AUR package."""
     title = Gtk.Label(xalign=0)
     title.set_markup(_("<b>AUR check</b>"))
     title.set_margin_start(10)
     title.set_margin_top(10)
 
     lbl_switch = Gtk.Label(xalign=0)
-    lbl_switch.set_text(_("Check AUR packages before paru builds them"))
+    lbl_switch.set_text(_("Check AUR packages before paru or yay builds them"))
     lbl_switch.set_hexpand(True)
     lbl_switch.set_margin_start(10)
     switch = Gtk.Switch()
@@ -100,12 +100,12 @@ def _build_aur_check(self, Gtk, vboxstack1):
         updating[0] = False
         switch.set_sensitive(state in ("on", "off"))
         btn_install.set_visible(not aur_check.scanner_installed())
-        if state == "no-paru":
-            lbl_status.set_text(_("paru is not installed."))
+        if state == "no-helper":
+            lbl_status.set_text(_("Neither paru nor yay is installed."))
         elif state == "other":
             lbl_status.set_text(_("Your paru.conf already runs another PreBuildCommand; ATT leaves it alone."))
         elif not aur_check.scanner_installed():
-            lbl_status.set_text(_("cachyos-pi-scan is not installed, so paru builds without the check."))
+            lbl_status.set_text(_("cachyos-pi-scan is not installed, so paru and yay build without the check."))
         else:
             lbl_status.set_text(
                 _(
@@ -125,9 +125,9 @@ def _build_aur_check(self, Gtk, vboxstack1):
             if left_alone:
                 message = _("Another PreBuildCommand is set in {files}; left alone.").format(files=", ".join(left_alone))
             elif enable:
-                message = _("AUR check switched on for paru")
+                message = _("AUR check switched on")
             else:
-                message = _("AUR check switched off for paru")
+                message = _("AUR check switched off")
             fn.GLib.idle_add(lambda: fn.show_in_app_notification(self, message))
             fn.GLib.idle_add(refresh)
 

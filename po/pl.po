@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 12:49+0100\n"
+"POT-Creation-Date: 2026-11-26 15:14+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -5642,28 +5642,28 @@ msgid "<b>AUR check</b>"
 msgstr "<b>Sprawdzanie AUR</b>"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:74
-msgid "Check AUR packages before paru builds them"
-msgstr "Sprawdzaj pakiety AUR, zanim paru je zbuduje"
+msgid "Check AUR packages before paru or yay builds them"
+msgstr "Sprawdzaj pakiety AUR, zanim paru lub yay je zbuduje"
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:87
 msgid "Install cachyos-pi-scan"
 msgstr "Zainstaluj cachyos-pi-scan"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:103
-msgid "paru is not installed."
-msgstr "paru nie jest zainstalowany."
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:104
+msgid "Neither paru nor yay is installed."
+msgstr "Nie zainstalowano ani paru, ani yay."
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:105
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:106
 msgid ""
 "Your paru.conf already runs another PreBuildCommand; ATT leaves it alone."
 msgstr "Twój paru.conf już uruchamia inne PreBuildCommand; ATT go nie zmienia."
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:107
-msgid "cachyos-pi-scan is not installed, so paru builds without the check."
-msgstr ""
-"cachyos-pi-scan nie jest zainstalowany, więc paru buduje bez sprawdzania."
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:108
+msgid ""
+"cachyos-pi-scan is not installed, so paru and yay build without the check."
+msgstr "cachyos-pi-scan nie jest zainstalowany, więc paru i yay budują bez sprawdzania."
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:111
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:112
 msgid ""
 "Shows the risky lines of a PKGBUILD (download-and-run, reading ~/.ssh, "
 "unverified sources) and asks before building when something is dangerous. A "
@@ -5673,153 +5673,153 @@ msgstr ""
 "niezweryfikowane źródła) i pyta przed budowaniem, gdy coś jest "
 "niebezpieczne. Pomoc w czytaniu, nie gwarancja."
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:125
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:126
 #, python-brace-format
 msgid "Another PreBuildCommand is set in {files}; left alone."
 msgstr ""
 "W {files} jest już ustawione inne PreBuildCommand; pozostawiono bez zmian."
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:127
-msgid "AUR check switched on for paru"
-msgstr "Sprawdzanie AUR włączone dla paru"
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:128
+msgid "AUR check switched on"
+msgstr "Sprawdzanie AUR włączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:129
-msgid "AUR check switched off for paru"
-msgstr "Sprawdzanie AUR wyłączone dla paru"
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:130
+msgid "AUR check switched off"
+msgstr "Sprawdzanie AUR wyłączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:161
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:162
 msgid "Pacman Config Editor"
 msgstr "Edytor konfiguracji pacmana"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:172
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:173
 msgid "Update pacman databases"
 msgstr "Zaktualizuj bazy danych pacmana"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:177
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:178
 #, python-brace-format
 msgid "ParallelDownloads: {value}"
 msgstr "ParallelDownloads: {value}"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:182
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:183
 msgid "Apply custom repo"
 msgstr "Zastosuj własne repozytorium"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:184
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:185
 msgid "Reset your pacman local"
 msgstr "Przywróć lokalną konfigurację pacmana"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:186
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:187
 msgid "Reset pacman ATT"
 msgstr "Zresetuj pacman ATT"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:188
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:189
 msgid "Blank pacman (auto reboot) and select"
 msgstr "Wyczyść konfigurację pacmana (automatyczny restart) i wybierz"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:190
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:191
 msgid "Edit pacman.conf in terminal"
 msgstr "Edytuj pacman.conf w terminalu"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:197
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:198
 msgid "<b>Arch Linux repos</b>"
 msgstr "<b>Repozytoria Arch Linux</b>"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:202
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:203
 msgid "# Enable Arch Linux core testing repo"
 msgstr "Włącz repozytorium core-testing Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:207
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:208
 msgid "Enable Arch Linux core repo"
 msgstr "Włącz repozytorium core Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:212
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:213
 msgid "# Enable Arch Linux extra-testing repo"
 msgstr "Włącz repozytorium extra-testing Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:217
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:218
 msgid "Enable Arch Linux extra repo"
 msgstr "Włącz repozytorium extra Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:222
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:223
 msgid "# Enable Arch Linux multilib testing repo"
 msgstr "Włącz repozytorium multilib-testing Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:227
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:228
 msgid "Enable Arch Linux multilib repo"
 msgstr "Włącz repozytorium multilib Arch Linux"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:233
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:234
 msgid "<b>Other repos</b>"
 msgstr "<b>Inne repozytoria</b>"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:238
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:239
 msgid "Enable Nemesis repo"
 msgstr "Włącz repozytorium Nemesis"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:243
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:244
 msgid "Enable Chaotic-Aur repo"
 msgstr "Włącz repozytorium Chaotic-Aur"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:248
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:249
 msgid "Enable CachyOS repo"
 msgstr "Włącz repozytorium CachyOS"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:253
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:254
 msgid "<b>Add custom repo to pacman.conf</b>"
 msgstr "<b>Dodaj własne repozytorium do pacman.conf</b>"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:420
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:421
 msgid "<b>AUR Helper</b>"
 msgstr "<b>Pomocnik AUR</b>"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:441
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:442
 msgid "Chaotic-Aur repo: disabled"
 msgstr "Repozytorium Chaotic-Aur: wyłączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:441
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:442
 msgid "Chaotic-Aur repo: enabled"
 msgstr "Repozytorium Chaotic-Aur: włączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:445
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:446
 msgid "Nemesis repo: disabled"
 msgstr "Repozytorium Nemesis: wyłączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:445
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:446
 msgid "Nemesis repo: enabled"
 msgstr "Repozytorium Nemesis: włączone"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:463
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:464
 msgid "Remove yay-git"
 msgstr "Usuń yay-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:468
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:469
 msgid "yay-git removed"
 msgstr "Usunięto yay-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:473
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:474
 msgid "Install yay-git"
 msgstr "Zainstaluj yay-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:479
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:488
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:480
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:489
 #: usr/share/archlinux-tweak-tool/software.py:441
 msgid "yay-git installed"
 msgstr "Zainstalowano yay-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:494
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:495
 msgid "Remove paru-git"
 msgstr "Usuń paru-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:499
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:500
 msgid "paru-git removed"
 msgstr "Usunięto paru-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:504
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:505
 msgid "Install paru-git"
 msgstr "Zainstaluj paru-git"
 
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:510
-#: usr/share/archlinux-tweak-tool/pacman_gui.py:519
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:511
+#: usr/share/archlinux-tweak-tool/pacman_gui.py:520
 #: usr/share/archlinux-tweak-tool/software.py:476
 msgid "paru-git installed"
 msgstr "Zainstalowano paru-git"

@@ -243,5 +243,29 @@ class TestAurCheckState(unittest.TestCase):
             self.assertEqual(files[-1], user_conf)
 
 
+class TestAurCheckCombined(unittest.TestCase):
+    """One switch covers paru and yay: on only when every installed helper has the check on."""
+
+    def test_both_on(self):
+        self.assertEqual(aur_check.combined_state("on", "on"), "on")
+
+    def test_one_off_shows_off(self):
+        self.assertEqual(aur_check.combined_state("on", "off"), "off")
+        self.assertEqual(aur_check.combined_state("off", "on"), "off")
+
+    def test_yay_without_init_lua_counts_as_off(self):
+        self.assertEqual(aur_check.combined_state("on", "no-file"), "off")
+
+    def test_only_one_helper(self):
+        self.assertEqual(aur_check.combined_state("on", None), "on")
+        self.assertEqual(aur_check.combined_state("no-paru", "on"), "on")
+
+    def test_no_helper(self):
+        self.assertEqual(aur_check.combined_state("no-paru", None), "no-helper")
+
+    def test_other_prebuildcommand_wins(self):
+        self.assertEqual(aur_check.combined_state("other", "on"), "other")
+
+
 if __name__ == "__main__":
     unittest.main()

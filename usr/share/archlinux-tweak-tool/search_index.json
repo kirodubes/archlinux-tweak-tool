@@ -2240,7 +2240,8 @@
         "aur check",
         "pkgbuild",
         "malware",
-        "paru"
+        "paru",
+        "yay"
       ],
       "labels": [
         "add",
@@ -2256,6 +2257,7 @@
         "auto",
         "before",
         "blank",
+        "build",
         "building",
         "builds",
         "cachyos",
@@ -2276,7 +2278,9 @@
         "linux",
         "local",
         "nano",
+        "neither",
         "nemesis",
+        "nor",
         "other",
         "packages",
         "paralleldownloads",

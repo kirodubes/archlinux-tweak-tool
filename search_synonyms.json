@@ -19,7 +19,7 @@
   "Maintenance": ["cleanup", "orphans", "mirrors", "cache", "paccache", "update mirrors", "repair", "broken", "integrity", "reinstall", "history", "downgrade", "rollback", "go back", "pacman log"],
   "Network": ["firewall", "firewalld", "samba", "wifi", "dns", "ip", "smb", "share", "ufw"],
   "Packages": ["install packages", "export", "import", "package list", "backup packages"],
-  "Pacman": ["pacman.conf", "repos", "repositories", "chaotic", "multilib", "mirrorlist", "parallel downloads", "aur check", "pkgbuild", "malware", "paru"],
+  "Pacman": ["pacman.conf", "repos", "repositories", "chaotic", "multilib", "mirrorlist", "parallel downloads", "aur check", "pkgbuild", "malware", "paru", "yay"],
   "Plymouth": ["boot splash", "splash", "boot logo", "bootsplash", "loading screen"],
   "Privacy": ["telemetry", "tracking", "hblock", "hosts", "block ads"],
   "Performance": ["speed", "tweaks", "sysctl", "swappiness", "zram", "optimize", "tuned"],
