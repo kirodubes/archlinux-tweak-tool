@@ -355,9 +355,10 @@ def _show_env_content_dialog(self, header):
     dialog = fn.Gtk.MessageDialog(
         transient_for=self,
         message_type=fn.Gtk.MessageType.INFO,
-        buttons=fn.Gtk.ButtonsType.OK,
+        buttons=fn.Gtk.ButtonsType.NONE,
         text=header,
     )
+    fn.add_dialog_buttons(dialog, "ok")
     dialog.props.secondary_text = body
     dialog.connect("response", lambda d, _r: d.destroy())
     dialog.show()

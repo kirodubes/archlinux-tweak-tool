@@ -926,9 +926,10 @@ def messagebox(self, title, message):
     md2 = Gtk.MessageDialog(
         transient_for=self,
         message_type=Gtk.MessageType.INFO,
-        buttons=Gtk.ButtonsType.OK,
+        buttons=Gtk.ButtonsType.NONE,
         text=title,
     )
+    add_dialog_buttons(md2, "ok")
     md2.props.secondary_text = message
     md2.props.secondary_use_markup = True
     loop = GLib.MainLoop()
@@ -942,15 +943,29 @@ def messagebox(self, title, message):
     loop.run()
 
 
+def add_dialog_buttons(dialog, kind):
+    """Add Yes/No, OK or Close buttons labelled in ATT's language (create the dialog with ButtonsType.NONE)."""
+    # GTK's stock ButtonsType labels follow the process locale, not ATT's language choice:
+    # an English ATT showed Ja/Nee on a Dutch system, a Dutch ATT run via pkexec shows Yes/No.
+    buttons = {
+        "yes_no": ((_("No"), Gtk.ResponseType.NO), (_("Yes"), Gtk.ResponseType.YES)),
+        "ok": ((_("OK"), Gtk.ResponseType.OK),),
+        "close": ((_("Close"), Gtk.ResponseType.CLOSE),),
+    }
+    for label, response in buttons[kind]:
+        dialog.add_button(label, response)
+
+
 def confirm_dialog(self, title, message):
     """Show confirmation dialog, return True if user clicked 'Yes'"""
     response_value = [False]
     md = Gtk.MessageDialog(
         transient_for=self,
         message_type=Gtk.MessageType.WARNING,
-        buttons=Gtk.ButtonsType.YES_NO,
+        buttons=Gtk.ButtonsType.NONE,
         text=title,
     )
+    add_dialog_buttons(md, "yes_no")
     md.props.secondary_text = message
     md.props.secondary_use_markup = True
     loop = GLib.MainLoop()

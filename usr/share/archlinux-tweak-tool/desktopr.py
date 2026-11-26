@@ -593,9 +593,10 @@ def show_plasma_env_dialog(self):
         dialog = Gtk.MessageDialog(
             transient_for=self,
             message_type=Gtk.MessageType.WARNING,
-            buttons=Gtk.ButtonsType.OK,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("{name} installed — one more step for correct theming").format(name="Plasma"),
         )
+        fn.add_dialog_buttons(dialog, "ok")
         secondary = _(
             "Your /etc/environment sets variables that override {name}'s own theme. "
             "Left active, {name} shows dark elements and a yellow warning notification/popup.\n\n"
@@ -610,9 +611,10 @@ def show_plasma_env_dialog(self):
         dialog = Gtk.MessageDialog(
             transient_for=self,
             message_type=Gtk.MessageType.INFO,
-            buttons=Gtk.ButtonsType.OK,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("{desktop} has been installed").format(desktop="Plasma"),
         )
+        fn.add_dialog_buttons(dialog, "ok")
         secondary = ""
     if show_tip:
         secondary = (secondary + "\n\n" if secondary else "") + plasma_meta_tip()
@@ -628,9 +630,10 @@ def check_lock(self, desktop):
         mess_dialog = Gtk.MessageDialog(
             transient_for=self,
             message_type=Gtk.MessageType.INFO,
-            buttons=Gtk.ButtonsType.YES_NO,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("Lock File Found"),
         )
+        fn.add_dialog_buttons(mess_dialog, "yes_no")
         mess_dialog.props.secondary_text = _("{name} lock file found, do you want to remove it and continue?").format(
             name="pacman"
         )
@@ -1211,9 +1214,10 @@ def on_install_clicked(self, _widget):
         dialog = Gtk.MessageDialog(
             transient_for=self,
             message_type=Gtk.MessageType.WARNING,
-            buttons=Gtk.ButtonsType.YES_NO,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("Installing {name} is a one-way operation").format(name=de_name),
         )
+        fn.add_dialog_buttons(dialog, "yes_no")
         secondary_text = (
             _("{name} cannot be removed through {app} once installed.").format(name=de_name, app="ATT")
             + "\n"

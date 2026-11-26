@@ -64,12 +64,13 @@ def choose_smb_conf(self):
         transient_for=self,
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
-        buttons=Gtk.ButtonsType.YES_NO,
+        buttons=Gtk.ButtonsType.NONE,
         text=_(
             "Create Shared folder?\n\nATT will create {path} as your samba share folder.\n"
             "If you choose No, create the folder yourself before connecting."
         ).format(path=shared_path),
     )
+    fn.add_dialog_buttons(dialog, "yes_no")
 
     def on_response(_dialog, response):
         _dialog.destroy()

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:26+0100\n"
+"POT-Creation-Date: 2026-11-26 06:35+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -893,6 +893,7 @@ msgid "Don't show this again"
 msgstr "Nie pokazuj tego ponownie"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:579
+#: usr/share/archlinux-tweak-tool/functions.py:953
 #: usr/share/archlinux-tweak-tool/funding.py:75
 msgid "Close"
 msgstr "Zamknij"
@@ -928,11 +929,11 @@ msgid "Failed to apply ATT nanorc"
 msgstr "Nie udało się zastosować nanorc ATT"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:748
-#: usr/share/archlinux-tweak-tool/desktopr.py:632
+#: usr/share/archlinux-tweak-tool/desktopr.py:634
 msgid "Lock File Found"
 msgstr "Znaleziono plik blokady"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:751
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:752
 msgid ""
 "The lock file has been found. This indicates there is already an instance of "
 "<b>ArchLinux Tweak Tool</b> running.\n"
@@ -944,11 +945,11 @@ msgstr ""
 "Kliknij „Tak”, aby usunąć plik blokady\n"
 "i spróbuj ponownie uruchomić ATT"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:762
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:763
 msgid "Kernel Not Supported"
 msgstr "Jądro nie jest obsługiwane"
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:765
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:767
 msgid ""
 "Your current kernel does not support basic os function calls. <b>ArchLinux "
 "Tweak Tool</b> requires these to work."
@@ -956,8 +957,8 @@ msgstr ""
 "Twoje obecne jądro nie obsługuje podstawowych wywołań funkcji systemu "
 "operacyjnego. <b>ArchLinux Tweak Tool</b> wymaga ich do działania."
 
-#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:794
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:796
+#: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:799
 msgid "You first need to close the existing application"
 msgstr "Najpierw musisz zamknąć istniejącą aplikację"
 
@@ -1005,13 +1006,13 @@ msgstr "Wybierz plik"
 
 #: usr/share/archlinux-tweak-tool/autostart.py:217
 #: usr/share/archlinux-tweak-tool/packages.py:635
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:338
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:340
 msgid "_Cancel"
 msgstr "_Anuluj"
 
 #: usr/share/archlinux-tweak-tool/autostart.py:218
 #: usr/share/archlinux-tweak-tool/packages.py:636
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:339
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:341
 msgid "_Open"
 msgstr "_Otwórz"
 
@@ -1252,7 +1253,7 @@ msgstr "zainstalowano"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:609
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:613
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
 msgid "not installed"
 msgstr "nie zainstalowano"
@@ -1675,7 +1676,7 @@ msgstr ""
 msgid "{name} installed — one more step for correct theming"
 msgstr "{name} zainstalowano: jeszcze jeden krok, aby motyw działał poprawnie"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:600
+#: usr/share/archlinux-tweak-tool/desktopr.py:601
 #, python-brace-format
 msgid ""
 "Your /etc/environment sets variables that override {name}'s own theme. Left "
@@ -1693,62 +1694,62 @@ msgstr ""
 "i zaloguj ponownie:\n"
 "{lines}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:614
-#: usr/share/archlinux-tweak-tool/desktopr.py:861
+#: usr/share/archlinux-tweak-tool/desktopr.py:615
+#: usr/share/archlinux-tweak-tool/desktopr.py:864
 #, python-brace-format
 msgid "{desktop} has been installed"
 msgstr "Zainstalowano {desktop}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:634
+#: usr/share/archlinux-tweak-tool/desktopr.py:637
 #, python-brace-format
 msgid "{name} lock file found, do you want to remove it and continue?"
 msgstr "Znaleziono plik blokady {name}. Czy chcesz go usunąć i kontynuować?"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:676
+#: usr/share/archlinux-tweak-tool/desktopr.py:679
 #, python-brace-format
 msgid "Opening terminal for {desktop} installation..."
 msgstr "Otwieranie terminala w celu instalacji {desktop}..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:848
-#: usr/share/archlinux-tweak-tool/desktopr.py:1191
+#: usr/share/archlinux-tweak-tool/desktopr.py:851
+#: usr/share/archlinux-tweak-tool/desktopr.py:1194
 msgid "This desktop is installed"
 msgstr "To środowisko jest zainstalowane"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:892
+#: usr/share/archlinux-tweak-tool/desktopr.py:895
 #, python-brace-format
 msgid "{desktop} failed — not found: {packages} — enable {repo} in Pacman tab"
 msgstr ""
 "Nie udało się zainstalować {desktop}: nie znaleziono {packages}. Włącz "
 "{repo} na karcie Pacman"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:896
+#: usr/share/archlinux-tweak-tool/desktopr.py:899
 #, python-brace-format
 msgid "{desktop} installation failed — check console for details"
 msgstr "Instalacja {desktop} nie powiodła się: szczegóły w konsoli"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:900
-#: usr/share/archlinux-tweak-tool/desktopr.py:1145
-#: usr/share/archlinux-tweak-tool/desktopr.py:1194
+#: usr/share/archlinux-tweak-tool/desktopr.py:903
+#: usr/share/archlinux-tweak-tool/desktopr.py:1148
+#: usr/share/archlinux-tweak-tool/desktopr.py:1197
 msgid "This desktop is NOT installed"
 msgstr "To środowisko NIE jest zainstalowane"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:922
+#: usr/share/archlinux-tweak-tool/desktopr.py:925
 #, python-brace-format
 msgid "Starting removal of {desktop}..."
 msgstr "Rozpoczynanie usuwania {desktop}..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1031
+#: usr/share/archlinux-tweak-tool/desktopr.py:1034
 #, python-brace-format
 msgid "No packages to safely remove for {desktop}"
 msgstr "Brak pakietów do bezpiecznego usunięcia dla {desktop}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1122
-#: usr/share/archlinux-tweak-tool/desktopr.py:1137
+#: usr/share/archlinux-tweak-tool/desktopr.py:1125
+#: usr/share/archlinux-tweak-tool/desktopr.py:1140
 #, python-brace-format
 msgid "{desktop} has been removed"
 msgstr "Usunięto {desktop}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1123
+#: usr/share/archlinux-tweak-tool/desktopr.py:1126
 msgid ""
 "We do not remove code from your home directory,\n"
 "only packages without dependencies"
@@ -1756,35 +1757,35 @@ msgstr ""
 "Nie usuwamy kodu z twojego katalogu domowego,\n"
 "tylko pakiety bez zależności"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1171
+#: usr/share/archlinux-tweak-tool/desktopr.py:1174
 #, python-brace-format
 msgid "Installed: {desktops}"
 msgstr "Zainstalowane: {desktops}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1171
+#: usr/share/archlinux-tweak-tool/desktopr.py:1174
 msgid "No desktops installed"
 msgstr "Brak zainstalowanych środowisk"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1203
+#: usr/share/archlinux-tweak-tool/desktopr.py:1206
 #, python-brace-format
 msgid "Enable {repos} before installing a desktop"
 msgstr "Włącz {repos} przed instalacją środowiska"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1215
+#: usr/share/archlinux-tweak-tool/desktopr.py:1218
 #, python-brace-format
 msgid "Installing {name} is a one-way operation"
 msgstr "Instalacja {name} jest operacją bez odwrotu"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1218
+#: usr/share/archlinux-tweak-tool/desktopr.py:1222
 #, python-brace-format
 msgid "{name} cannot be removed through {app} once installed."
 msgstr "Po zainstalowaniu {name} nie można usunąć przez {app}."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1220
+#: usr/share/archlinux-tweak-tool/desktopr.py:1224
 msgid "A fresh system reinstall is required to completely remove it."
 msgstr "Aby całkowicie je usunąć, potrzebna jest czysta reinstalacja systemu."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1229
+#: usr/share/archlinux-tweak-tool/desktopr.py:1233
 #, python-brace-format
 msgid ""
 "IMPORTANT — {name} theming:\n"
@@ -1802,7 +1803,7 @@ msgstr ""
 "i zaloguj ponownie:\n"
 "{lines}"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1244
+#: usr/share/archlinux-tweak-tool/desktopr.py:1248
 #, python-brace-format
 msgid ""
 "{name}: comment out the QT_*/GTK_THEME lines in /etc/environment to avoid "
@@ -1811,45 +1812,45 @@ msgstr ""
 "{name}: zakomentuj linie QT_*/GTK_THEME w /etc/environment, aby uniknąć "
 "problemów z motywem"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1248
+#: usr/share/archlinux-tweak-tool/desktopr.py:1252
 msgid "Do you want to continue?"
 msgstr "Czy chcesz kontynuować?"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1278
+#: usr/share/archlinux-tweak-tool/desktopr.py:1282
 #, python-brace-format
 msgid "{name} cannot be removed — reinstall system to switch DEs"
 msgstr ""
 "Nie można usunąć {name}: aby zmienić środowisko, zainstaluj system ponownie"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1284
+#: usr/share/archlinux-tweak-tool/desktopr.py:1288
 #, python-brace-format
 msgid "{desktop} is not installed"
 msgstr "{desktop} nie jest zainstalowane"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1302
+#: usr/share/archlinux-tweak-tool/desktopr.py:1306
 msgid "That desktop is not installed"
 msgstr "To środowisko nie jest zainstalowane"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1367
-#: usr/share/archlinux-tweak-tool/desktopr.py:1388
+#: usr/share/archlinux-tweak-tool/desktopr.py:1371
+#: usr/share/archlinux-tweak-tool/desktopr.py:1392
 #, python-brace-format
 msgid "Starting {desktop} installation..."
 msgstr "Rozpoczynanie instalacji {desktop}..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1373
+#: usr/share/archlinux-tweak-tool/desktopr.py:1377
 msgid "All desktops install sequence complete"
 msgstr "Zakończono sekwencję instalacji wszystkich środowisk"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1394
+#: usr/share/archlinux-tweak-tool/desktopr.py:1398
 msgid "All TWMs install sequence complete"
 msgstr "Zakończono instalowanie wszystkich menedżerów okien kafelkowych (TWM)"
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1409
+#: usr/share/archlinux-tweak-tool/desktopr.py:1413
 #, python-brace-format
 msgid "Starting {desktop} removal..."
 msgstr "Rozpoczynanie usuwania {desktop}..."
 
-#: usr/share/archlinux-tweak-tool/desktopr.py:1415
+#: usr/share/archlinux-tweak-tool/desktopr.py:1419
 msgid "All desktops removed"
 msgstr "Usunięto wszystkie środowiska"
 
@@ -2458,99 +2459,113 @@ msgstr ""
 "Zapora: {fw}    Wykrywanie sieci: {mdns}    Udostępnianie plików Samba: "
 "{samba}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1180
+#: usr/share/archlinux-tweak-tool/functions.py:951
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:36
+msgid "No"
+msgstr "Nie"
+
+#: usr/share/archlinux-tweak-tool/functions.py:951
+#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:31
+msgid "Yes"
+msgstr "Tak"
+
+#: usr/share/archlinux-tweak-tool/functions.py:952
+msgid "OK"
+msgstr "OK"
+
+#: usr/share/archlinux-tweak-tool/functions.py:1195
 #, python-brace-format
 msgid "Package not found. Please enable {repo} in pacman.conf"
 msgstr "Nie znaleziono pakietu. Włącz {repo} w pacman.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1182
+#: usr/share/archlinux-tweak-tool/functions.py:1197
 msgid ""
 "Package not found. Please enable nemesis_repo or chaotic-aur in pacman.conf"
 msgstr ""
 "Nie znaleziono pakietu. Włącz nemesis_repo lub chaotic-aur w pacman.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1210
+#: usr/share/archlinux-tweak-tool/functions.py:1225
 #, python-brace-format
 msgid "{package} installed"
 msgstr "Zainstalowano {package}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1214
+#: usr/share/archlinux-tweak-tool/functions.py:1229
 #, python-brace-format
 msgid "Error installing {package}: {error}"
 msgstr "Błąd podczas instalacji {package}: {error}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1446
+#: usr/share/archlinux-tweak-tool/functions.py:1461
 #, python-brace-format
 msgid "File not found: {package}"
 msgstr "Nie znaleziono pliku: {package}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:1461
+#: usr/share/archlinux-tweak-tool/functions.py:1476
 #: usr/share/archlinux-tweak-tool/maintenance.py:604
 msgid "Installation started..."
 msgstr "Rozpoczęto instalację..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:1509
+#: usr/share/archlinux-tweak-tool/functions.py:1524
 #, python-brace-format
 msgid "Error removing {package}: {error}"
 msgstr "Błąd podczas usuwania {package}: {error}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2321
+#: usr/share/archlinux-tweak-tool/functions.py:2336
 msgid "Installing network discovery..."
 msgstr "Instalowanie wykrywania sieci..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2355
+#: usr/share/archlinux-tweak-tool/functions.py:2370
 msgid "Disabling network discovery..."
 msgstr "Wyłączanie wykrywania sieci..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2386
+#: usr/share/archlinux-tweak-tool/functions.py:2401
 msgid "Installing samba..."
 msgstr "Instalowanie samba..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2421
+#: usr/share/archlinux-tweak-tool/functions.py:2436
 msgid "Uninstalling samba..."
 msgstr "Odinstalowywanie samba..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2464
+#: usr/share/archlinux-tweak-tool/functions.py:2479
 #, python-brace-format
 msgid "Allowing {label}..."
 msgstr "Zezwalanie na {label}..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2466
+#: usr/share/archlinux-tweak-tool/functions.py:2481
 #, python-brace-format
 msgid "Blocking {label}..."
 msgstr "Blokowanie: {label}..."
 
-#: usr/share/archlinux-tweak-tool/functions.py:2610
+#: usr/share/archlinux-tweak-tool/functions.py:2625
 msgid "Smb.conf has been saved"
 msgstr "Zapisano smb.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2615
+#: usr/share/archlinux-tweak-tool/functions.py:2630
 msgid "Choose or create your own smb.conf"
 msgstr "Wybierz lub utwórz własny smb.conf"
 
-#: usr/share/archlinux-tweak-tool/functions.py:2685
+#: usr/share/archlinux-tweak-tool/functions.py:2700
 #, python-brace-format
 msgid "Shell changed to {shell} for user - logout"
 msgstr "Zmieniono powłokę na {shell} dla użytkownika: wyloguj się"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3200
+#: usr/share/archlinux-tweak-tool/functions.py:3215
 msgid "URL copied to clipboard"
 msgstr "Skopiowano URL do schowka"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3203
+#: usr/share/archlinux-tweak-tool/functions.py:3218
 msgid "Install xclip to enable copy"
 msgstr "Zainstaluj xclip, aby włączyć kopiowanie"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3234
+#: usr/share/archlinux-tweak-tool/functions.py:3249
 #, python-brace-format
 msgid "Open with {name}"
 msgstr "Otwórz w {name}"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3239
+#: usr/share/archlinux-tweak-tool/functions.py:3254
 msgid "No browsers detected"
 msgstr "Nie wykryto przeglądarek"
 
-#: usr/share/archlinux-tweak-tool/functions.py:3246
+#: usr/share/archlinux-tweak-tool/functions.py:3261
 msgid "Copy URL"
 msgstr "Kopiuj URL"
 
@@ -2726,7 +2741,7 @@ msgstr "{path} już istnieje (to Twoja własna kopia) — ATT jej nie zmienia"
 
 #: usr/share/archlinux-tweak-tool/hybrid.py:188
 #: usr/share/archlinux-tweak-tool/themes.py:305
-#: usr/share/archlinux-tweak-tool/themes.py:506
+#: usr/share/archlinux-tweak-tool/themes.py:507
 #, python-brace-format
 msgid "Could not write {path}"
 msgstr "Nie udało się zapisać {path}"
@@ -3624,7 +3639,7 @@ msgid "Chaotic-AUR Kernels"
 msgstr "Jądra Chaotic-AUR"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:263
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:359
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:361
 #, python-brace-format
 msgid ""
 "  • {pkg}\n"
@@ -3634,12 +3649,12 @@ msgstr ""
 "    Powód: {reason}"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:270
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:366
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:368
 msgid "Repository not enabled — action blocked"
 msgstr "Repozytorium nie jest włączone: działanie zablokowane"
 
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:272
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:368
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:370
 #, python-brace-format
 msgid ""
 "ATT needs the following package(s) to manage kernels safely:\n"
@@ -3655,12 +3670,12 @@ msgstr ""
 "Rozwiązanie: włącz {repo_str} na stronie ATT > Pacman, a następnie spróbuj "
 "ponownie."
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:289
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:387
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:290
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:390
 msgid "Missing required packages"
 msgstr "Brakujące wymagane pakiety"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:291
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:292
 #, python-brace-format
 msgid ""
 "The following packages are needed for full kernel management:\n"
@@ -3681,12 +3696,12 @@ msgstr ""
 "\n"
 "Czy chcesz zainstalować je teraz?"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:346
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:348
 #, python-brace-format
 msgid "Installing {packages}..."
 msgstr "Instalowanie {packages}..."
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:389
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:392
 #, python-brace-format
 msgid ""
 "The following packages are needed for full kernel management:\n"
@@ -3708,108 +3723,108 @@ msgstr ""
 "\n"
 "ATT zainstaluje wymagane pakiety, a potem {pkg} w jednym terminalu."
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:458
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:462
 #, python-brace-format
 msgid "Installing {packages} and {pkg}..."
 msgstr "Instalowanie {packages} i {pkg}..."
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:567
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:571
 msgid "<i>more info</i>"
 msgstr "<i>więcej informacji</i>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:598
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:602
 #, python-brace-format
 msgid "<b>installed</b>{ver_str}  <small>(running)</small>"
 msgstr "<b>zainstalowano</b>{ver_str}  <small>(działa)</small>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:600
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:604
 #, python-brace-format
 msgid "<b>installed</b>{ver_str}"
 msgstr "<b>zainstalowano</b>{ver_str}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:601
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:605
 #, python-brace-format
 msgid "Remove {p}"
 msgstr "Usuń {p}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:604
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:608
 msgid "<small>not compatible with your CPU</small>"
 msgstr "<small>niezgodne z twoim procesorem</small>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:605
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:610
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:609
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:614
 #, python-brace-format
 msgid "Install {p}"
 msgstr "Zainstaluj {p}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:629
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:633
 #, python-brace-format
 msgid "{action} completed for {pkg_name}"
 msgstr "Zakończono {action} dla {pkg_name}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:663
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:667
 #, python-brace-format
 msgid "Installation completed for {pkg}"
 msgstr "Zakończono instalację {pkg}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:704
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:708
 msgid "<b>Default Boot Entry (systemd-boot)</b>"
 msgstr "<b>Domyślny wpis rozruchowy (systemd-boot)</b>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:735
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:782
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:830
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:869
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:936
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:995
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1045
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1085
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:739
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:786
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:834
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:873
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:940
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:999
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1049
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1089
 #, python-brace-format
 msgid "<small>Current: {current_label}</small>"
 msgstr "<small>Obecny: {current_label}</small>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:737
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:832
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:938
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1047
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:741
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:836
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:942
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1051
 msgid "<small>Current: unknown</small>"
 msgstr "<small>Obecny: nieznany</small>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:755
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:843
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:950
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1059
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:759
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:847
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:954
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1063
 #, python-brace-format
 msgid "Default boot entry set to: {label} — Reboot to verify"
 msgstr ""
 "Ustawiono domyślny wpis rozruchowy: {label}. Uruchom ponownie, aby sprawdzić"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:758
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:762
 #, python-brace-format
 msgid "Failed to set default boot entry: {label}"
 msgstr "Nie udało się ustawić domyślnego wpisu rozruchowego: {label}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:760
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:848
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:974
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1064
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:764
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:852
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:978
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1068
 msgid "Set as Default"
 msgstr "Ustaw jako domyślny"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:801
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:805
 msgid "<b>Default Boot Entry (limine)</b>"
 msgstr "<b>Domyślny wpis rozruchowy (limine)</b>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:846
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:850
 #, python-brace-format
 msgid "Failed to set limine default boot entry: {label}"
 msgstr "Nie udało się ustawić domyślnego wpisu rozruchowego limine: {label}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:892
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:896
 msgid "<b>Default Boot Entry (GRUB)</b>"
 msgstr "<b>Domyślny wpis rozruchowy (GRUB)</b>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:906
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:910
 msgid ""
 "<small><b>Note:</b> GRUB_DEFAULT is not set to \"saved\" in /etc/default/"
 "grub.\n"
@@ -3819,29 +3834,29 @@ msgstr ""
 "default/grub.\n"
 "ATT naprawi to automatycznie po kliknięciu Ustaw jako domyślny.</small>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:953
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:957
 #, python-brace-format
 msgid "Failed to set GRUB default boot entry: {label}"
 msgstr "Nie udało się ustawić domyślnego wpisu rozruchowego GRUB: {label}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:957
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:961
 msgid "Failed to fix GRUB_DEFAULT in /etc/default/grub"
 msgstr "Nie udało się naprawić GRUB_DEFAULT w /etc/default/grub"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1016
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1020
 msgid "<b>Default Boot Entry (rEFInd)</b>"
 msgstr "<b>Domyślny wpis rozruchowy (rEFInd)</b>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1062
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1066
 #, python-brace-format
 msgid "Failed to set rEFInd default boot entry: {label}"
 msgstr "Nie udało się ustawić domyślnego wpisu rozruchowego rEFInd: {label}"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1098
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1102
 msgid "<b>Default Boot Entry</b>"
 msgstr "<b>Domyślny wpis rozruchowy</b>"
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1106
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1110
 msgid ""
 "Setting a default boot entry is only available on systemd-boot, limine, "
 "GRUB, and rEFInd systems."
@@ -3849,7 +3864,7 @@ msgstr ""
 "Ustawienie domyślnego wpisu rozruchowego jest dostępne tylko w systemach z "
 "systemd-boot, limine, GRUB i rEFInd."
 
-#: usr/share/archlinux-tweak-tool/kernel_gui.py:1120
+#: usr/share/archlinux-tweak-tool/kernel_gui.py:1124
 #, python-brace-format
 msgid "<small>Current: {entry_id}</small>"
 msgstr "<small>Obecny: {entry_id}</small>"
@@ -4843,51 +4858,51 @@ msgstr "Wykrywaj inne komputery w swojej sieci"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:22
 #: usr/share/archlinux-tweak-tool/network_gui.py:302
-#: usr/share/archlinux-tweak-tool/services.py:801
-#: usr/share/archlinux-tweak-tool/services.py:921
+#: usr/share/archlinux-tweak-tool/services.py:802
+#: usr/share/archlinux-tweak-tool/services.py:922
 msgid "Disable Samba"
 msgstr "Wyłącz Sambę"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:22
 #: usr/share/archlinux-tweak-tool/network_gui.py:302
-#: usr/share/archlinux-tweak-tool/services.py:801
-#: usr/share/archlinux-tweak-tool/services.py:914
+#: usr/share/archlinux-tweak-tool/services.py:802
+#: usr/share/archlinux-tweak-tool/services.py:915
 msgid "Enable Samba"
 msgstr "Włącz Sambę"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:26
 #: usr/share/archlinux-tweak-tool/network_gui.py:364
-#: usr/share/archlinux-tweak-tool/services.py:814
+#: usr/share/archlinux-tweak-tool/services.py:815
 msgid "Block network discovery (mDNS)"
 msgstr "Blokuj wykrywanie sieci (mDNS)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:27
 #: usr/share/archlinux-tweak-tool/network_gui.py:365
-#: usr/share/archlinux-tweak-tool/services.py:814
+#: usr/share/archlinux-tweak-tool/services.py:815
 msgid "Allow network discovery (mDNS)"
 msgstr "Zezwalaj na wykrywanie sieci (mDNS)"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:32
 #: usr/share/archlinux-tweak-tool/network_gui.py:369
-#: usr/share/archlinux-tweak-tool/services.py:819
+#: usr/share/archlinux-tweak-tool/services.py:820
 msgid "Block Samba file sharing"
 msgstr "Blokuj udostępnianie plików Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:33
 #: usr/share/archlinux-tweak-tool/network_gui.py:370
-#: usr/share/archlinux-tweak-tool/services.py:819
+#: usr/share/archlinux-tweak-tool/services.py:820
 msgid "Allow Samba file sharing"
 msgstr "Zezwalaj na udostępnianie plików Samba"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:41
 #: usr/share/archlinux-tweak-tool/network_gui.py:389
-#: usr/share/archlinux-tweak-tool/services.py:979
+#: usr/share/archlinux-tweak-tool/services.py:980
 msgid "Graphical firewall editor (firewall-config) - <b>installed</b>"
 msgstr "Graficzny edytor zapory (firewall-config) - <b>zainstalowano</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:42
 #: usr/share/archlinux-tweak-tool/network_gui.py:396
-#: usr/share/archlinux-tweak-tool/services.py:981
+#: usr/share/archlinux-tweak-tool/services.py:982
 msgid "Launch firewall-config"
 msgstr "Uruchom firewall-config"
 
@@ -4902,12 +4917,12 @@ msgid "Install firewall-config"
 msgstr "Zainstaluj firewall-config"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:53
-#: usr/share/archlinux-tweak-tool/services.py:610
-#: usr/share/archlinux-tweak-tool/services.py:616
-#: usr/share/archlinux-tweak-tool/services.py:788
-#: usr/share/archlinux-tweak-tool/services.py:790
-#: usr/share/archlinux-tweak-tool/services.py:792
-#: usr/share/archlinux-tweak-tool/services.py:794
+#: usr/share/archlinux-tweak-tool/services.py:611
+#: usr/share/archlinux-tweak-tool/services.py:617
+#: usr/share/archlinux-tweak-tool/services.py:789
+#: usr/share/archlinux-tweak-tool/services.py:791
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:795
 #: usr/share/archlinux-tweak-tool/services_gui.py:269
 #: usr/share/archlinux-tweak-tool/services_gui.py:275
 #: usr/share/archlinux-tweak-tool/services_gui.py:335
@@ -4917,12 +4932,12 @@ msgid "<b>active</b>"
 msgstr "<b>aktywny</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:53
-#: usr/share/archlinux-tweak-tool/services.py:612
-#: usr/share/archlinux-tweak-tool/services.py:618
-#: usr/share/archlinux-tweak-tool/services.py:788
-#: usr/share/archlinux-tweak-tool/services.py:790
-#: usr/share/archlinux-tweak-tool/services.py:792
-#: usr/share/archlinux-tweak-tool/services.py:794
+#: usr/share/archlinux-tweak-tool/services.py:613
+#: usr/share/archlinux-tweak-tool/services.py:619
+#: usr/share/archlinux-tweak-tool/services.py:789
+#: usr/share/archlinux-tweak-tool/services.py:791
+#: usr/share/archlinux-tweak-tool/services.py:793
+#: usr/share/archlinux-tweak-tool/services.py:795
 #: usr/share/archlinux-tweak-tool/services_gui.py:271
 #: usr/share/archlinux-tweak-tool/services_gui.py:277
 #: usr/share/archlinux-tweak-tool/services_gui.py:337
@@ -4932,7 +4947,7 @@ msgid "inactive"
 msgstr "nieaktywny"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:55
-#: usr/share/archlinux-tweak-tool/services.py:796
+#: usr/share/archlinux-tweak-tool/services.py:797
 #, python-brace-format
 msgid "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Firewall: {firewall}"
 msgstr "Samba: {smb}   Nmb: {nmb}   Avahi: {avahi}   Zapora: {firewall}"
@@ -5055,7 +5070,7 @@ msgid "<b>Firewall</b>"
 msgstr "<b>Zapora</b>"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:352
-#: usr/share/archlinux-tweak-tool/services.py:807
+#: usr/share/archlinux-tweak-tool/services.py:808
 msgid ""
 "Firewall (firewalld) is <b>active</b> — Kiro enables it by default to keep "
 "you protected."
@@ -5064,17 +5079,17 @@ msgstr ""
 "chronić."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:354
-#: usr/share/archlinux-tweak-tool/services.py:809
+#: usr/share/archlinux-tweak-tool/services.py:810
 msgid "Firewall (firewalld) is <b>inactive</b>."
 msgstr "Zapora (firewalld) jest <b>nieaktywna</b>."
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:361
-#: usr/share/archlinux-tweak-tool/services.py:804
+#: usr/share/archlinux-tweak-tool/services.py:805
 msgid "Disable firewall"
 msgstr "Wyłącz zaporę"
 
 #: usr/share/archlinux-tweak-tool/network_gui.py:361
-#: usr/share/archlinux-tweak-tool/services.py:804
+#: usr/share/archlinux-tweak-tool/services.py:805
 msgid "Enable firewall"
 msgstr "Włącz zaporę"
 
@@ -5340,14 +5355,6 @@ msgstr "Ustawienie debug jest niepoprawne"
 #: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:22
 msgid "Arch Linux Tweak Tool: Confirm package installation"
 msgstr "Arch Linux Tweak Tool: potwierdź instalację pakietów"
-
-#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:31
-msgid "Yes"
-msgstr "Tak"
-
-#: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:36
-msgid "No"
-msgstr "Nie"
 
 #: usr/share/archlinux-tweak-tool/packages_prompt_gui.py:46
 #, python-brace-format
@@ -6732,7 +6739,7 @@ msgid "Scan"
 msgstr "Skanuj"
 
 #: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:182
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:373
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:375
 msgid "Reinstall selected"
 msgstr "Zainstaluj ponownie wybrane"
 
@@ -7692,188 +7699,188 @@ msgstr ""
 "ATT utworzy {path} jako folder udostępniany przez Sambę.\n"
 "Jeśli wybierzesz Nie, utwórz folder samodzielnie przed połączeniem."
 
-#: usr/share/archlinux-tweak-tool/services.py:131
+#: usr/share/archlinux-tweak-tool/services.py:132
 #, python-brace-format
 msgid "Setting samba password for {username}..."
 msgstr "Ustawianie hasła samba dla {username}..."
 
-#: usr/share/archlinux-tweak-tool/services.py:172
+#: usr/share/archlinux-tweak-tool/services.py:173
 msgid "✗ Samba is installed but the smb service is not running."
 msgstr "✗ Samba jest zainstalowana, ale usługa smb nie działa."
 
-#: usr/share/archlinux-tweak-tool/services.py:186
+#: usr/share/archlinux-tweak-tool/services.py:187
 msgid "✓ Samba restarted. Check other services in the status bar."
 msgstr "✓ Uruchomiono ponownie Sambę. Sprawdź inne usługi na pasku stanu."
 
-#: usr/share/archlinux-tweak-tool/services.py:207
+#: usr/share/archlinux-tweak-tool/services.py:208
 msgid "PulseAudio install completed"
 msgstr "Zakończono instalację PulseAudio"
 
-#: usr/share/archlinux-tweak-tool/services.py:226
+#: usr/share/archlinux-tweak-tool/services.py:227
 msgid "PipeWire install completed"
 msgstr "Zakończono instalację PipeWire"
 
-#: usr/share/archlinux-tweak-tool/services.py:243
+#: usr/share/archlinux-tweak-tool/services.py:244
 #: usr/share/archlinux-tweak-tool/services_gui.py:41
 msgid "Bluez packages are already <b>installed</b>"
 msgstr "Pakiety Bluez są już <b>zainstalowane</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:264
+#: usr/share/archlinux-tweak-tool/services.py:265
 #: usr/share/archlinux-tweak-tool/services_gui.py:43
 #: usr/share/archlinux-tweak-tool/services_gui.py:436
 msgid "Install bluetooth packages"
 msgstr "Zainstaluj pakiety Bluetooth"
 
-#: usr/share/archlinux-tweak-tool/services.py:285
+#: usr/share/archlinux-tweak-tool/services.py:286
 #: usr/share/archlinux-tweak-tool/services_gui.py:46
 msgid "   Blueberry is already <b>installed</b>"
 msgstr "   Blueberry jest już <b>zainstalowany</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:301
+#: usr/share/archlinux-tweak-tool/services.py:302
 #: usr/share/archlinux-tweak-tool/services_gui.py:48
 #: usr/share/archlinux-tweak-tool/services_gui.py:461
 msgid "   Install blueberry"
 msgstr "   Zainstaluj blueberry"
 
-#: usr/share/archlinux-tweak-tool/services.py:317
+#: usr/share/archlinux-tweak-tool/services.py:318
 #: usr/share/archlinux-tweak-tool/services_gui.py:51
 msgid "   Blueman is already <b>installed</b>"
 msgstr "   Blueman jest już <b>zainstalowany</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:333
+#: usr/share/archlinux-tweak-tool/services.py:334
 #: usr/share/archlinux-tweak-tool/services_gui.py:53
 #: usr/share/archlinux-tweak-tool/services_gui.py:479
 msgid "   Install blueman"
 msgstr "   Zainstaluj blueman"
 
-#: usr/share/archlinux-tweak-tool/services.py:349
+#: usr/share/archlinux-tweak-tool/services.py:350
 #: usr/share/archlinux-tweak-tool/services_gui.py:56
 msgid "   Bluedevil is already <b>installed</b>"
 msgstr "   Bluedevil jest już <b>zainstalowany</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:365
+#: usr/share/archlinux-tweak-tool/services.py:366
 #: usr/share/archlinux-tweak-tool/services_gui.py:58
 #: usr/share/archlinux-tweak-tool/services_gui.py:497
 msgid "   Install bluedevil (Plasma dependencies)"
 msgstr "   Zainstaluj bluedevil (zależności Plasma)"
 
-#: usr/share/archlinux-tweak-tool/services.py:431
+#: usr/share/archlinux-tweak-tool/services.py:432
 msgid "Auto-connect disabled"
 msgstr "Wyłączono automatyczne łączenie"
 
-#: usr/share/archlinux-tweak-tool/services.py:431
+#: usr/share/archlinux-tweak-tool/services.py:432
 msgid "Auto-connect enabled"
 msgstr "Włączono automatyczne łączenie"
 
-#: usr/share/archlinux-tweak-tool/services.py:439
+#: usr/share/archlinux-tweak-tool/services.py:440
 msgid "Opening terminal to install bluetooth-autoconnect..."
 msgstr "Otwieranie terminala w celu instalacji bluetooth-autoconnect..."
 
-#: usr/share/archlinux-tweak-tool/services.py:450
+#: usr/share/archlinux-tweak-tool/services.py:451
 #: usr/share/archlinux-tweak-tool/services_gui.py:61
 #: usr/share/archlinux-tweak-tool/services_gui.py:400
 msgid "   bluetooth-autoconnect is <b>installed</b> and enabled"
 msgstr "   bluetooth-autoconnect jest <b>zainstalowany</b> i włączony"
 
-#: usr/share/archlinux-tweak-tool/services.py:464
+#: usr/share/archlinux-tweak-tool/services.py:465
 msgid "bluetooth-autoconnect is not installed"
 msgstr "bluetooth-autoconnect nie jest zainstalowany"
 
-#: usr/share/archlinux-tweak-tool/services.py:476
+#: usr/share/archlinux-tweak-tool/services.py:477
 #: usr/share/archlinux-tweak-tool/services_gui.py:63
 #: usr/share/archlinux-tweak-tool/services_gui.py:402
 msgid "   Install bluetooth-autoconnect"
 msgstr "   Zainstaluj bluetooth-autoconnect"
 
-#: usr/share/archlinux-tweak-tool/services.py:489
+#: usr/share/archlinux-tweak-tool/services.py:490
 msgid "Bluetooth has been enabled"
 msgstr "Włączono Bluetooth"
 
-#: usr/share/archlinux-tweak-tool/services.py:500
+#: usr/share/archlinux-tweak-tool/services.py:501
 msgid "Bluetooth has been disabled"
 msgstr "Wyłączono Bluetooth"
 
-#: usr/share/archlinux-tweak-tool/services.py:511
+#: usr/share/archlinux-tweak-tool/services.py:512
 msgid "Bluetooth has been restarted"
 msgstr "Uruchomiono ponownie Bluetooth"
 
-#: usr/share/archlinux-tweak-tool/services.py:519
+#: usr/share/archlinux-tweak-tool/services.py:520
 msgid "Opening terminal to install cups..."
 msgstr "Otwieranie terminala w celu instalacji cups..."
 
-#: usr/share/archlinux-tweak-tool/services.py:529
+#: usr/share/archlinux-tweak-tool/services.py:530
 msgid "CUPS installed"
 msgstr "Zainstalowano CUPS"
 
-#: usr/share/archlinux-tweak-tool/services.py:530
+#: usr/share/archlinux-tweak-tool/services.py:531
 #: usr/share/archlinux-tweak-tool/services_gui.py:14
 msgid "Cups printing is <b>installed</b>"
 msgstr "Drukowanie Cups jest <b>zainstalowane</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:533
+#: usr/share/archlinux-tweak-tool/services.py:534
 msgid "CUPS installation failed or was cancelled"
 msgstr "Instalacja CUPS nie powiodła się lub została anulowana"
 
-#: usr/share/archlinux-tweak-tool/services.py:543
+#: usr/share/archlinux-tweak-tool/services.py:544
 msgid "Opening terminal to remove cups..."
 msgstr "Otwieranie terminala w celu usunięcia cups..."
 
-#: usr/share/archlinux-tweak-tool/services.py:553
+#: usr/share/archlinux-tweak-tool/services.py:554
 msgid "CUPS removed"
 msgstr "Usunięto CUPS"
 
-#: usr/share/archlinux-tweak-tool/services.py:554
+#: usr/share/archlinux-tweak-tool/services.py:555
 #: usr/share/archlinux-tweak-tool/services_gui.py:16
 #: usr/share/archlinux-tweak-tool/services_gui.py:118
 msgid "Install cups printing"
 msgstr "Zainstaluj drukowanie cups"
 
-#: usr/share/archlinux-tweak-tool/services.py:557
+#: usr/share/archlinux-tweak-tool/services.py:558
 msgid "CUPS removal failed or was cancelled"
 msgstr "Usuwanie CUPS nie powiodło się lub zostało anulowane"
 
-#: usr/share/archlinux-tweak-tool/services.py:567
+#: usr/share/archlinux-tweak-tool/services.py:568
 msgid "Opening terminal to install cups-pdf..."
 msgstr "Otwieranie terminala w celu instalacji cups-pdf..."
 
-#: usr/share/archlinux-tweak-tool/services.py:576
+#: usr/share/archlinux-tweak-tool/services.py:577
 msgid "cups-pdf installed"
 msgstr "Zainstalowano cups-pdf"
 
-#: usr/share/archlinux-tweak-tool/services.py:577
+#: usr/share/archlinux-tweak-tool/services.py:578
 #: usr/share/archlinux-tweak-tool/services_gui.py:19
 msgid "Cups-pdf is <b>installed</b>"
 msgstr "Cups-pdf jest <b>zainstalowany</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:580
+#: usr/share/archlinux-tweak-tool/services.py:581
 msgid "cups-pdf installation failed or was cancelled"
 msgstr "Instalacja cups-pdf nie powiodła się lub została anulowana"
 
-#: usr/share/archlinux-tweak-tool/services.py:588
+#: usr/share/archlinux-tweak-tool/services.py:589
 msgid "Opening terminal to remove cups-pdf..."
 msgstr "Otwieranie terminala w celu usunięcia cups-pdf..."
 
-#: usr/share/archlinux-tweak-tool/services.py:597
+#: usr/share/archlinux-tweak-tool/services.py:598
 msgid "cups-pdf removed"
 msgstr "Usunięto cups-pdf"
 
-#: usr/share/archlinux-tweak-tool/services.py:598
+#: usr/share/archlinux-tweak-tool/services.py:599
 #: usr/share/archlinux-tweak-tool/services_gui.py:21
 #: usr/share/archlinux-tweak-tool/services_gui.py:137
 msgid "Install cups-pdf printing"
 msgstr "Zainstaluj drukowanie cups-pdf"
 
-#: usr/share/archlinux-tweak-tool/services.py:601
+#: usr/share/archlinux-tweak-tool/services.py:602
 msgid "cups-pdf removal failed or was cancelled"
 msgstr "Usuwanie cups-pdf nie powiodło się lub zostało anulowane"
 
-#: usr/share/archlinux-tweak-tool/services.py:622
+#: usr/share/archlinux-tweak-tool/services.py:623
 #: usr/share/archlinux-tweak-tool/services_gui.py:280
 #, python-brace-format
 msgid "Cups service : {service}   Cups socket : {socket}"
 msgstr "Usługa Cups: {service}   Gniazdo Cups: {socket}"
 
-#: usr/share/archlinux-tweak-tool/services.py:676
+#: usr/share/archlinux-tweak-tool/services.py:677
 #: usr/share/archlinux-tweak-tool/services_gui.py:25
 msgid ""
 "   Install common printer drivers (foomatic, gutenprint, ...) - "
@@ -7882,127 +7889,127 @@ msgstr ""
 "Zainstaluj popularne sterowniki drukarek (foomatic, gutenprint, ...): "
 "<b>Zainstalowano</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:699
+#: usr/share/archlinux-tweak-tool/services.py:700
 #: usr/share/archlinux-tweak-tool/services_gui.py:28
 #: usr/share/archlinux-tweak-tool/services_gui.py:155
 msgid "   Install common printer drivers (foomatic, gutenprint, ...)"
 msgstr ""
 "   Zainstaluj popularne sterowniki drukarek (foomatic, gutenprint, ...)"
 
-#: usr/share/archlinux-tweak-tool/services.py:716
+#: usr/share/archlinux-tweak-tool/services.py:717
 #: usr/share/archlinux-tweak-tool/services_gui.py:31
 msgid "   HP drivers have been <b>installed</b>"
 msgstr "   Sterowniki HP zostały <b>zainstalowane</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:732
+#: usr/share/archlinux-tweak-tool/services.py:733
 #: usr/share/archlinux-tweak-tool/services_gui.py:33
 #: usr/share/archlinux-tweak-tool/services_gui.py:173
 msgid "   Install HP drivers"
 msgstr "   Zainstaluj sterowniki HP"
 
-#: usr/share/archlinux-tweak-tool/services.py:741
+#: usr/share/archlinux-tweak-tool/services.py:742
 msgid "Opening terminal to install system-config-printer..."
 msgstr "Otwieranie terminala w celu instalacji system-config-printer..."
 
-#: usr/share/archlinux-tweak-tool/services.py:750
+#: usr/share/archlinux-tweak-tool/services.py:751
 msgid "system-config-printer installed"
 msgstr "Zainstalowano system-config-printer"
 
-#: usr/share/archlinux-tweak-tool/services.py:752
+#: usr/share/archlinux-tweak-tool/services.py:753
 msgid "Install System-config-printer - <b>Installed</b>"
 msgstr "Zainstaluj System-config-printer: <b>Zainstalowano</b>"
 
-#: usr/share/archlinux-tweak-tool/services.py:757
+#: usr/share/archlinux-tweak-tool/services.py:758
 msgid "system-config-printer installation failed or was cancelled"
 msgstr ""
 "Instalacja system-config-printer nie powiodła się lub została anulowana"
 
-#: usr/share/archlinux-tweak-tool/services.py:766
+#: usr/share/archlinux-tweak-tool/services.py:767
 msgid "Opening terminal to remove system-config-printer..."
 msgstr "Otwieranie terminala w celu usunięcia system-config-printer..."
 
-#: usr/share/archlinux-tweak-tool/services.py:775
+#: usr/share/archlinux-tweak-tool/services.py:776
 msgid "system-config-printer removed"
 msgstr "Usunięto system-config-printer"
 
-#: usr/share/archlinux-tweak-tool/services.py:776
+#: usr/share/archlinux-tweak-tool/services.py:777
 msgid "Install System-config-printer"
 msgstr "Zainstaluj System-config-printer"
 
-#: usr/share/archlinux-tweak-tool/services.py:779
+#: usr/share/archlinux-tweak-tool/services.py:780
 msgid "system-config-printer removal failed or was cancelled"
 msgstr "Usuwanie system-config-printer nie powiodło się lub zostało anulowane"
 
-#: usr/share/archlinux-tweak-tool/services.py:865
+#: usr/share/archlinux-tweak-tool/services.py:866
 msgid "Nsswitch config reset"
 msgstr "Zresetowano konfigurację nsswitch"
 
-#: usr/share/archlinux-tweak-tool/services.py:870
+#: usr/share/archlinux-tweak-tool/services.py:871
 msgid "No nsswitch backup available"
 msgstr "Brak dostępnej kopii zapasowej nsswitch"
 
-#: usr/share/archlinux-tweak-tool/services.py:884
+#: usr/share/archlinux-tweak-tool/services.py:885
 msgid "nsswitch.conf opened in terminal"
 msgstr "Otwarto nsswitch.conf w terminalu"
 
-#: usr/share/archlinux-tweak-tool/services.py:906
-#: usr/share/archlinux-tweak-tool/services.py:1010
+#: usr/share/archlinux-tweak-tool/services.py:907
+#: usr/share/archlinux-tweak-tool/services.py:1011
 msgid "Samba is not yet installed."
 msgstr "Samba nie jest jeszcze zainstalowana."
 
-#: usr/share/archlinux-tweak-tool/services.py:912
+#: usr/share/archlinux-tweak-tool/services.py:913
 msgid "Samba disabled"
 msgstr "Samba wyłączona"
 
-#: usr/share/archlinux-tweak-tool/services.py:919
+#: usr/share/archlinux-tweak-tool/services.py:920
 msgid "Samba enabled"
 msgstr "Samba włączona"
 
-#: usr/share/archlinux-tweak-tool/services.py:928
+#: usr/share/archlinux-tweak-tool/services.py:929
 msgid "firewalld is not installed."
 msgstr "firewalld nie jest zainstalowany."
 
-#: usr/share/archlinux-tweak-tool/services.py:936
+#: usr/share/archlinux-tweak-tool/services.py:937
 msgid "Firewall disabled"
 msgstr "Zapora wyłączona"
 
-#: usr/share/archlinux-tweak-tool/services.py:940
+#: usr/share/archlinux-tweak-tool/services.py:941
 msgid "Firewall enabled"
 msgstr "Zapora włączona"
 
-#: usr/share/archlinux-tweak-tool/services.py:949
+#: usr/share/archlinux-tweak-tool/services.py:950
 msgid "network discovery (mDNS)"
 msgstr "wykrywanie sieci (mDNS)"
 
-#: usr/share/archlinux-tweak-tool/services.py:954
+#: usr/share/archlinux-tweak-tool/services.py:955
 msgid "Samba file sharing"
 msgstr "udostępnianie plików Samba"
 
-#: usr/share/archlinux-tweak-tool/services.py:964
+#: usr/share/archlinux-tweak-tool/services.py:965
 msgid "Launching firewall-config..."
 msgstr "Uruchamianie firewall-config..."
 
-#: usr/share/archlinux-tweak-tool/services.py:982
+#: usr/share/archlinux-tweak-tool/services.py:983
 msgid "firewall-config install finished"
 msgstr "Zakończono instalację firewall-config"
 
-#: usr/share/archlinux-tweak-tool/services.py:989
+#: usr/share/archlinux-tweak-tool/services.py:990
 msgid "Enable the firewall first."
 msgstr "Najpierw włącz zaporę."
 
-#: usr/share/archlinux-tweak-tool/services.py:1032
+#: usr/share/archlinux-tweak-tool/services.py:1033
 msgid "Samba configuration applied"
 msgstr "Zastosowano konfigurację Samba"
 
-#: usr/share/archlinux-tweak-tool/services.py:1047
+#: usr/share/archlinux-tweak-tool/services.py:1048
 msgid "Original smb.conf is applied"
 msgstr "Zastosowano oryginalny smb.conf"
 
-#: usr/share/archlinux-tweak-tool/services.py:1053
+#: usr/share/archlinux-tweak-tool/services.py:1054
 msgid "No backup configuration present"
 msgstr "Brak kopii zapasowej konfiguracji"
 
-#: usr/share/archlinux-tweak-tool/services.py:1067
+#: usr/share/archlinux-tweak-tool/services.py:1068
 msgid "Opening samba.conf in terminal with nano"
 msgstr "Otwieranie samba.conf w terminalu za pomocą nano"
 
@@ -8392,7 +8399,7 @@ msgstr "Zainstalowano oh-my-zsh-git"
 #: usr/share/archlinux-tweak-tool/shell.py:415
 #: usr/share/archlinux-tweak-tool/shell.py:462
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:232
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:292
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:294
 msgid "No packages selected"
 msgstr "Nie wybrano pakietów"
 
@@ -9749,7 +9756,7 @@ msgstr[0] "Usunąć {count} wybrany pakiet?"
 msgstr[1] "Usunąć {count} wybrane pakiety?"
 msgstr[2] "Usunąć {count} wybranych pakietów?"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:247
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:248
 #, python-brace-format
 msgid ""
 "This will remove:\n"
@@ -9760,7 +9767,7 @@ msgstr ""
 "\n"
 "{preview}"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:249
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:250
 #, python-brace-format
 msgid ""
 "pacman reported a problem with this selection:\n"
@@ -9771,11 +9778,11 @@ msgstr ""
 "\n"
 "{preview}"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:266
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:267
 msgid "No removed packages selected"
 msgstr "Nie wybrano usuniętych pakietów"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:274
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:275
 #, python-brace-format
 msgid "Reinstall {count} selected package?"
 msgid_plural "Reinstall {count} selected packages?"
@@ -9783,7 +9790,7 @@ msgstr[0] "Zainstalować ponownie {count} wybrany pakiet?"
 msgstr[1] "Zainstalować ponownie {count} wybrane pakiety?"
 msgstr[2] "Zainstalować ponownie {count} wybranych pakietów?"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:277
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:279
 #, python-brace-format
 msgid ""
 "This will install:\n"
@@ -9794,13 +9801,13 @@ msgstr ""
 "\n"
 "{packages}"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:300
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:302
 msgid "Nothing removed yet — every optional app is still installed"
 msgstr ""
 "Nic jeszcze nie usunięto: wszystkie opcjonalne aplikacje są nadal "
 "zainstalowane"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:320
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:322
 #, python-brace-format
 msgid "Profile imported — {count} installed app selected"
 msgid_plural "Profile imported — {count} installed apps selected"
@@ -9808,32 +9815,32 @@ msgstr[0] "Zaimportowano profil: wybrano {count} zainstalowaną aplikację"
 msgstr[1] "Zaimportowano profil: wybrano {count} zainstalowane aplikacje"
 msgstr[2] "Zaimportowano profil: wybrano {count} zainstalowanych aplikacji"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:334
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:336
 msgid "Select a Streamline profile to import"
 msgstr "Wybierz profil Streamline do zaimportowania"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:343
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:345
 msgid "Profile files (*.txt)"
 msgstr "Pliki profili (*.txt)"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:358
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:360
 msgid "Import cancelled"
 msgstr "Anulowano import"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:369
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:371
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:240
 msgid "Remove selected"
 msgstr "Usuń wybrane"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:371
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:373
 msgid "Save profile"
 msgstr "Zapisz profil"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:375
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:377
 msgid "Save removed list"
 msgstr "Zapisz listę usuniętych"
 
-#: usr/share/archlinux-tweak-tool/streamline_gui.py:377
+#: usr/share/archlinux-tweak-tool/streamline_gui.py:379
 msgid "Import profile"
 msgstr "Importuj profil"
 
@@ -10269,7 +10276,7 @@ msgid "Arc themes removal complete"
 msgstr "Zakończono usuwanie motywów Arc"
 
 #: usr/share/archlinux-tweak-tool/themes.py:275
-#: usr/share/archlinux-tweak-tool/themes.py:458
+#: usr/share/archlinux-tweak-tool/themes.py:459
 #, python-brace-format
 msgid "Could not read {path}"
 msgstr "Nie udało się odczytać {path}"
@@ -10293,55 +10300,55 @@ msgstr "{path} nie istnieje."
 msgid "{path} is empty."
 msgstr "{path} jest pusty."
 
-#: usr/share/archlinux-tweak-tool/themes.py:371
+#: usr/share/archlinux-tweak-tool/themes.py:372
 #, python-brace-format
 msgid "alacritty not found — open {path} manually"
 msgstr "Nie znaleziono alacritty: otwórz {path} ręcznie"
 
-#: usr/share/archlinux-tweak-tool/themes.py:382
+#: usr/share/archlinux-tweak-tool/themes.py:383
 #, python-brace-format
 msgid "Editing {path} in a terminal — log out and back in after saving"
 msgstr ""
 "Edytowanie {path} w terminalu: wyloguj się i zaloguj ponownie po zapisaniu"
 
-#: usr/share/archlinux-tweak-tool/themes.py:398
-#: usr/share/archlinux-tweak-tool/themes.py:568
+#: usr/share/archlinux-tweak-tool/themes.py:399
+#: usr/share/archlinux-tweak-tool/themes.py:569
 #, python-brace-format
 msgid "Updated {path}"
 msgstr "Zaktualizowano {path}"
 
-#: usr/share/archlinux-tweak-tool/themes.py:400
+#: usr/share/archlinux-tweak-tool/themes.py:401
 msgid "Qt overrides OFF — Plasma controls its theme; log out and back in"
 msgstr ""
 "Nadpisania Qt WYŁĄCZONE: Plasma steruje własnym motywem; wyloguj się i "
 "zaloguj ponownie"
 
-#: usr/share/archlinux-tweak-tool/themes.py:402
+#: usr/share/archlinux-tweak-tool/themes.py:403
 msgid "Qt overrides restored (qt5ct/Kvantum) — log out and back in"
 msgstr ""
 "Przywrócono nadpisania Qt (qt5ct/Kvantum): wyloguj się i zaloguj ponownie"
 
-#: usr/share/archlinux-tweak-tool/themes.py:408
+#: usr/share/archlinux-tweak-tool/themes.py:409
 msgid "None — no system-wide theme"
 msgstr "Brak: nie ustawiono motywu dla całego systemu"
 
-#: usr/share/archlinux-tweak-tool/themes.py:564
+#: usr/share/archlinux-tweak-tool/themes.py:565
 #, python-brace-format
 msgid "GTK theme already set to {theme}"
 msgstr "Motyw GTK jest już ustawiony na {theme}"
 
-#: usr/share/archlinux-tweak-tool/themes.py:566
+#: usr/share/archlinux-tweak-tool/themes.py:567
 msgid "No system-wide GTK theme was set"
 msgstr "Nie ustawiono ogólnosystemowego motywu GTK"
 
-#: usr/share/archlinux-tweak-tool/themes.py:573
+#: usr/share/archlinux-tweak-tool/themes.py:574
 #, python-brace-format
 msgid "GTK theme set to {theme} — log out and back in to apply"
 msgstr ""
 "Ustawiono motyw GTK na {theme}: wyloguj się i zaloguj ponownie, aby "
 "zastosować"
 
-#: usr/share/archlinux-tweak-tool/themes.py:578
+#: usr/share/archlinux-tweak-tool/themes.py:579
 msgid "System-wide GTK theme cleared — log out and back in"
 msgstr "Usunięto ogólnosystemowy motyw GTK: wyloguj się i zaloguj ponownie"
 

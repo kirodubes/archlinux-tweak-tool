@@ -238,11 +238,12 @@ def gui(self, Gtk, vbox_stack, fn):
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.QUESTION,
-            buttons=Gtk.ButtonsType.YES_NO,
+            buttons=Gtk.ButtonsType.NONE,
             text=ngettext(
                 "Remove {count} selected package?", "Remove {count} selected packages?", len(packages)
             ).format(count=len(packages)),
         )
+        fn.add_dialog_buttons(dialog, "yes_no")
         if returncode == 0:
             dialog.props.secondary_text = _("This will remove:\n\n{preview}").format(preview=preview)
         else:
@@ -269,11 +270,12 @@ def gui(self, Gtk, vbox_stack, fn):
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.QUESTION,
-            buttons=Gtk.ButtonsType.YES_NO,
+            buttons=Gtk.ButtonsType.NONE,
             text=ngettext(
                 "Reinstall {count} selected package?", "Reinstall {count} selected packages?", len(packages)
             ).format(count=len(packages)),
         )
+        fn.add_dialog_buttons(dialog, "yes_no")
         dialog.props.secondary_text = _("This will install:\n\n{packages}").format(packages="\n".join(packages))
         dialog.set_default_response(Gtk.ResponseType.NO)
 

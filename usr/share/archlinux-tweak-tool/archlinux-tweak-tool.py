@@ -744,9 +744,10 @@ class ATTApplication(Gtk.Application):
             md = Gtk.MessageDialog(
                 transient_for=None,
                 message_type=Gtk.MessageType.INFO,
-                buttons=Gtk.ButtonsType.YES_NO,
+                buttons=Gtk.ButtonsType.NONE,
                 text=_("Lock File Found"),
             )
+            fn.add_dialog_buttons(md, "yes_no")
             md.props.secondary_text = _(
                 "The lock file has been found. This indicates there is already an instance of"
                 " <b>ArchLinux Tweak Tool</b> running.\n"
@@ -758,9 +759,10 @@ class ATTApplication(Gtk.Application):
             md = Gtk.MessageDialog(
                 transient_for=None,
                 message_type=Gtk.MessageType.INFO,
-                buttons=Gtk.ButtonsType.CLOSE,
+                buttons=Gtk.ButtonsType.NONE,
                 text=_("Kernel Not Supported"),
             )
+            fn.add_dialog_buttons(md, "close")
             md.props.secondary_text = _(
                 "Your current kernel does not support basic os function calls. <b>ArchLinux Tweak Tool</b> "
                 "requires these to work."
@@ -790,9 +792,10 @@ class ATTApplication(Gtk.Application):
                     md2 = Gtk.MessageDialog(
                         transient_for=None,
                         message_type=Gtk.MessageType.INFO,
-                        buttons=Gtk.ButtonsType.CLOSE,
+                        buttons=Gtk.ButtonsType.NONE,
                         text=_("You first need to close the existing application"),
                     )
+                    fn.add_dialog_buttons(md2, "close")
                     md2.props.secondary_text = _("You first need to close the existing application")
 
                     md2.props.secondary_use_markup = True

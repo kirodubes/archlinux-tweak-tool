@@ -266,7 +266,7 @@ def _offer_install_packages(self, Gtk, fn, missing):
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.WARNING,
-            buttons=Gtk.ButtonsType.OK,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("Repository not enabled — action blocked"),
             secondary_text=_(
                 "ATT needs the following package(s) to manage kernels safely:\n\n"
@@ -274,6 +274,7 @@ def _offer_install_packages(self, Gtk, fn, missing):
                 "Fix: enable {repo_str} in ATT > Pacman page, then retry."
             ).format(pkg_lines=pkg_lines, repo_str=repo_str),
         )
+        fn.add_dialog_buttons(dialog, "ok")
         dialog.connect("response", lambda d, _r: d.destroy())
         dialog.present()
         return
@@ -285,7 +286,7 @@ def _offer_install_packages(self, Gtk, fn, missing):
         transient_for=self,
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
-        buttons=Gtk.ButtonsType.YES_NO,
+        buttons=Gtk.ButtonsType.NONE,
         text=_("Missing required packages"),
         secondary_text=_(
             "The following packages are needed for full kernel management:\n\n"
@@ -294,6 +295,7 @@ def _offer_install_packages(self, Gtk, fn, missing):
             "Would you like to install them now?"
         ).format(pkg_list=pkg_list, reasons=reasons),
     )
+    fn.add_dialog_buttons(dialog, "yes_no")
 
     def on_response(_dialog, response):
         _dialog.destroy()
@@ -362,7 +364,7 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
             transient_for=self,
             modal=True,
             message_type=Gtk.MessageType.WARNING,
-            buttons=Gtk.ButtonsType.OK,
+            buttons=Gtk.ButtonsType.NONE,
             text=_("Repository not enabled — action blocked"),
             secondary_text=_(
                 "ATT needs the following package(s) to manage kernels safely:\n\n"
@@ -370,6 +372,7 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
                 "Fix: enable {repo_str} in ATT > Pacman page, then retry."
             ).format(pkg_lines=pkg_lines, repo_str=repo_str),
         )
+        fn.add_dialog_buttons(dialog, "ok")
         dialog.connect("response", lambda d, _r: d.destroy())
         dialog.present()
         return
@@ -383,7 +386,7 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
         transient_for=self,
         modal=True,
         message_type=Gtk.MessageType.QUESTION,
-        buttons=Gtk.ButtonsType.YES_NO,
+        buttons=Gtk.ButtonsType.NONE,
         text=_("Missing required packages"),
         secondary_text=_(
             "The following packages are needed for full kernel management:\n\n"
@@ -392,6 +395,7 @@ def _install_packages_then_kernel(self, Gtk, fn, missing, pkg, headers, on_compl
             "ATT will install the required packages and then install {pkg} in one terminal."
         ).format(prereq_list=prereq_list, reasons=reasons, pkg=pkg),
     )
+    fn.add_dialog_buttons(dialog, "yes_no")
 
     def on_response(_dialog, response):
         _dialog.destroy()

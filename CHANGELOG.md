@@ -2,6 +2,22 @@
 
 ## 2026.11.26
 
+### Dialog buttons follow ATT's language
+
+**What Changed.** Yes / No / OK / Close in ATT's dialogs now speak the language chosen in ATT. Before, ATT in
+English on a Dutch system asked its questions in English with **Ja / Nee** buttons — and a Dutch ATT started the
+normal way (pkexec clears the locale) got English Yes / No.
+
+**Technical Details.** GTK translates its stock `Gtk.ButtonsType` labels from the process locale, which ATT never
+sets (it parses English command output). New `fn.add_dialog_buttons(dialog, kind)` adds the buttons with `_()`
+labels and the same response IDs (`NO`/`YES`, `OK`, `CLOSE`), so no response handler changed. All 17
+`Gtk.MessageDialog` calls switched to `ButtonsType.NONE` + the helper (converted by script, same pattern each time).
+"Yes", "No" and "Close" were already in the catalogs; "OK" is new in all 13. Checked on picard: English ATT on a
+Dutch system now shows No / Yes.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/functions.py`, `archlinux-tweak-tool.py`, `desktopr.py`,
+`kernel_gui.py`, `services.py`, `streamline_gui.py`, `themes.py`; `po/*.po`, `usr/share/locale/*`
+
 ### "Report a problem" button (Kiro / KiroTux)
 
 **What Changed.** A **Report a problem** button in the top bar, next to ♥ Support. It explains what is collected,
