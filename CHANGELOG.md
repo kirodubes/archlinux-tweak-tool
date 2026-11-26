@@ -2,6 +2,17 @@
 
 ## 2026.11.26
 
+### Fix: long History titles ran off the window
+
+**What Changed.** In Maintenance → History a long command (`pacman -U /var/cache/pacman/pkg/…`) was cut off at the
+window edge. Titles now end in "…" inside the window; the full command is in the tooltip. Seen and checked on picard.
+
+**Technical Details.** `set_ellipsize` alone let the widest expander title keep its full width, so it was clipped
+instead of ellipsized; `set_max_width_chars(MAX_TITLE_CHARS = 85)` caps it and the "…" shows (compared off-screen:
+plain / ellipsize / ellipsize + cap).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/pkg_history_gui.py`
+
 ### Fix: "Report a problem" missing in the installed ATT
 
 **What Changed.** In ATT 26.11-34 as users start it (through pkexec) the Report a problem button did not show.

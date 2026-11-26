@@ -15,6 +15,7 @@ from gi.repository import Pango
 # Building a few thousand rows at once stalls GTK; transactions past this are
 # reached by searching for the package.
 MAX_SHOWN = 60
+MAX_TITLE_CHARS = 85
 
 
 def _clear(box):
@@ -111,7 +112,9 @@ def _render(self):
         # counts before the command: a pacman -U with many files can be 1000+ characters
         header = f"{transaction['time']}  ·  {_counts(entries)}  ·  {transaction['command'] or 'pacman'}"
         lbl_header = Gtk.Label(label=header, xalign=0)
+        # ellipsize alone lets the widest title run off the window; capping the width makes the "…" show
         lbl_header.set_ellipsize(Pango.EllipsizeMode.END)
+        lbl_header.set_max_width_chars(MAX_TITLE_CHARS)
         lbl_header.set_tooltip_text(transaction["command"])
         expander = Gtk.Expander()
         expander.set_label_widget(lbl_header)
