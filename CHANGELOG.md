@@ -2,6 +2,21 @@
 
 ## 2026.11.26
 
+### Fix: "Report a problem" missing in the installed ATT
+
+**What Changed.** In ATT 26.11-34 as users start it (through pkexec) the Report a problem button did not show.
+Now it does, and the report runs: tested on picard with ATT started with pkexec's exact PATH — button shown,
+report saved and copied to the clipboard, Firefox opens the Discussions board after the terminal closes.
+
+**Technical Details.** pkexec starts ATT with `PATH=/usr/sbin:/usr/bin:/sbin:/bin:/root/bin`; kiro-system-files
+installs `kiro-report` (and the `kiro-diag` / `kiro-audit` it calls) in `/usr/local/bin`, so `shutil.which` found
+nothing and the button stayed hidden. Earlier tests started ATT through `sudo`, which keeps `/usr/local/bin`, so they
+never saw it. `report_problem._kiro_report()` now searches `/usr/local/sbin:/usr/local/bin` first, and the terminal
+script exports that PATH before `kiro-report --copy`. Other ATT calls into `/usr/local/bin` already use full paths.
+New test `TestReportProblemPath` (fails on the old code).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/report_problem.py`, `tests/test_parsers.py`
+
 ### Unit tests for the new parsers
 
 **What Changed.** `tests/test_parsers.py`: 14 tests for the text parsers behind Maintenance → Repair / History and

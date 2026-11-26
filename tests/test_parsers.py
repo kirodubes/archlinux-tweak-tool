@@ -17,7 +17,7 @@ sys.path.insert(0, APP_DIR)
 # functions.py pulls in GTK and reads the running system; the parsers only log through it
 sys.modules["functions"] = types.SimpleNamespace(
     log_info=lambda *a, **k: None, log_warn=lambda *a, **k: None, log_error=lambda *a, **k: None,
-    log_subsection=lambda *a, **k: None, debug_print=lambda *a, **k: None)
+    log_subsection=lambda *a, **k: None, debug_print=lambda *a, **k: None, GLib=None)
 
 import journal_view  # noqa: E402
 import pkg_history  # noqa: E402
@@ -175,6 +175,29 @@ class TestJournalParser(unittest.TestCase):
         # newest-first rows are copied oldest first, like journalctl prints them
         self.assertTrue(text[0].endswith("error one: a"))
         self.assertTrue(text[1].endswith("warning two: b"))
+
+
+class TestReportProblemPath(unittest.TestCase):
+    """kiro-report lives in /usr/local/bin, which pkexec leaves out of ATT's PATH (the button vanished on picard)."""
+
+    def test_found_outside_pkexec_path(self):
+        import report_problem
+        with tempfile.TemporaryDirectory() as local_bin:
+            script = os.path.join(local_bin, "kiro-report")
+            with open(script, "w") as fake:
+                fake.write("#!/bin/sh\n")
+            os.chmod(script, 0o755)
+            saved_path, saved_local = os.environ.get("PATH", ""), report_problem.LOCAL_PATH
+            os.environ["PATH"] = "/usr/sbin:/usr/bin:/sbin:/bin:/root/bin"
+            report_problem.LOCAL_PATH = local_bin
+            try:
+                self.assertEqual(report_problem._kiro_report(), script)
+            finally:
+                os.environ["PATH"], report_problem.LOCAL_PATH = saved_path, saved_local
+
+    def test_real_location_is_searched(self):
+        import report_problem
+        self.assertIn("/usr/local/bin", report_problem.LOCAL_PATH.split(":"))
 
 
 if __name__ == "__main__":

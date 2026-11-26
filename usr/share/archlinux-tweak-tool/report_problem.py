@@ -5,6 +5,7 @@
 # kiro-system-files: a diagnostic log with IP, MAC, UUID, machine-id, hostname and
 # username removed, copied to the clipboard ready for the Kiro Discussions board.
 
+import os
 import shutil
 import subprocess
 import threading
@@ -16,13 +17,23 @@ from functions import GLib
 DISCUSSIONS_URL = "https://github.com/kirodubes/kiro-discussions/discussions"
 
 
+# pkexec starts ATT with PATH=/usr/sbin:/usr/bin:/sbin:/bin, but kiro-system-files installs
+# kiro-report (and the kiro-diag / kiro-audit it calls) in /usr/local/bin
+LOCAL_PATH = "/usr/local/sbin:/usr/local/bin"
+
+
+def _kiro_report():
+    return shutil.which("kiro-report", path=f"{LOCAL_PATH}:{os.environ.get('PATH', '')}")
+
+
 def available():
     """True on Kiro / KiroTux with kiro-report installed."""
-    return fn.get_distro_label() in ("Kiro", "KiroTux") and shutil.which("kiro-report") is not None
+    return fn.get_distro_label() in ("Kiro", "KiroTux") and _kiro_report() is not None
 
 
 def _run_report():
-    script = """
+    script = f"""
+export PATH="{LOCAL_PATH}:$PATH"
 kiro-report --copy
 echo ''
 echo '=== When you close this window, the Kiro Discussions page opens in your browser ==='
