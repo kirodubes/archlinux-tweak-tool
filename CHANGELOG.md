@@ -26,7 +26,7 @@ or yay builds them" and turns the check on or off for both helpers at once. `aur
 `--enable` creates init.lua (owned by the user) when there is none. `combined_state()`: on only when every installed
 helper has the check on (a yay without init.lua counts as off); "other" still means a foreign paru
 `PreBuildCommand`; neither helper installed → "Neither paru nor yay is installed." Tested on picard as root and from
-the GUI: missing init.lua created erik:erik 644, off/on changes `/etc/paru.conf`, the user's paru.conf and init.lua
+the GUI: missing init.lua created user:user 644, off/on changes `/etc/paru.conf`, the user's paru.conf and init.lua
 together. 5 new strings in 13 languages (2091 each, 0 fuzzy), search synonym "yay", 6 more unit tests (28 OK).
 
 **Files Modified.** `usr/share/archlinux-tweak-tool/aur_check.py` (new), `pacman_gui.py`, `search_synonyms.json`,
