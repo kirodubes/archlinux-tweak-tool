@@ -2,6 +2,22 @@
 
 ## 2026.11.26
 
+### Maintenance → Repair: note on launchers changed by hardcode-fixer
+
+**What Changed.** On Kiro the Repair scan listed lshw because `/usr/share/applications/gtk-lshw.desktop` differs
+from the package: hardcode-fixer had turned `Icon=/usr/share/lshw/artwork/logo.svg` into `Icon=lshw`. A package
+row whose changed files include a launcher now explains this under the summary: probably harmless, hardcode-fixer
+rewrites fixed icon paths to icon names so the icon theme can show them, reinstalling restores the original, and
+hardcode-fixer only changes it again when it is run. The package stays ticked, so Reinstall still works.
+
+**Technical Details.** `_hardcode_fixer_touched()` in `pkg_repair_gui.py`: `/usr/bin/hardcode-fixer` exists and a
+damaged path is a `.desktop` under `/usr/share/applications/`. A shown note, not a skip rule in `pkg_repair.py`: a
+launcher can also be really broken. hardcode-fixer-git ships no pacman hook (checked), so the sentence "only if you
+run it" holds. 1 new string in 13 languages (2092 each, 0 fuzzy).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/pkg_repair_gui.py`, `po/*.po`, `po/archlinux-tweak-tool.pot`,
+`usr/share/locale/*/LC_MESSAGES/*.mo`
+
 ### Feature: AUR check switch on the Pacman page, paru and yay (Kiro / KiroTux)
 
 **What Changed.** kiro-system-files now has paru run `kiro-aur-check` before every AUR build: it shows the risky

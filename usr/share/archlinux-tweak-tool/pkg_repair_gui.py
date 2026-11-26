@@ -3,6 +3,7 @@
 # ============================================================
 # Maintenance → Repair tab — GUI. Scan → review the list → reinstall the ticked packages.
 
+import os
 import threading
 
 import functions as fn
@@ -11,6 +12,7 @@ from att_i18n import _, ngettext
 from functions import GLib
 
 MAX_PATHS_SHOWN = 40
+HARDCODE_FIXER = "/usr/bin/hardcode-fixer"
 
 
 def _clear(box):
@@ -33,6 +35,12 @@ def _summary(problems):
     return " · ".join(parts)
 
 
+def _hardcode_fixer_touched(paths):
+    # hardcode-fixer edits Icon= lines in /usr/share/applications, which pacman -Qkk then reports as changed
+    return os.path.exists(HARDCODE_FIXER) and any(
+        path.startswith("/usr/share/applications/") and path.endswith(".desktop") for path in paths)
+
+
 def _result_row(Gtk, self, pkg, problems, foreign):
     row = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
     row.set_margin_start(10)
@@ -52,6 +60,16 @@ def _result_row(Gtk, self, pkg, problems, foreign):
     line.append(check)
     line.append(lbl_summary)
     row.append(line)
+
+    if _hardcode_fixer_touched(problems["damaged"]):
+        lbl_launcher = Gtk.Label(xalign=0)
+        lbl_launcher.set_wrap(True)
+        lbl_launcher.set_margin_start(25)
+        lbl_launcher.set_text(_(
+            "Probably harmless: on Kiro, hardcode-fixer rewrites fixed icon paths in launchers to icon names, "
+            "so your icon theme can show them. Reinstalling restores the original launcher, and hardcode-fixer "
+            "only changes it again if you run it."))
+        row.append(lbl_launcher)
 
     paths = problems["damaged"] + problems["permissions"]
     shown = "\n".join(paths[:MAX_PATHS_SHOWN])

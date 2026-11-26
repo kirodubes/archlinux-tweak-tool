@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 15:14+0100\n"
+"POT-Creation-Date: 2026-11-26 16:14+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -5651,7 +5651,8 @@ msgstr ""
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:108
 msgid ""
 "cachyos-pi-scan is not installed, so paru and yay build without the check."
-msgstr "cachyos-pi-scan ist nicht installiert, daher bauen paru und yay ohne Prüfung."
+msgstr ""
+"cachyos-pi-scan ist nicht installiert, daher bauen paru und yay ohne Prüfung."
 
 #: usr/share/archlinux-tweak-tool/pacman_gui.py:112
 msgid ""
@@ -6853,54 +6854,62 @@ msgstr ""
 msgid "Search a package…"
 msgstr "Pakete suchen…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:28
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:30
 #, python-brace-format
 msgid "{count} file missing or changed"
 msgid_plural "{count} files missing or changed"
 msgstr[0] "{count} Datei fehlt oder wurde geändert"
 msgstr[1] "{count} Dateien fehlen oder wurden geändert"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:31
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:33
 #, python-brace-format
 msgid "{count} file with wrong permissions"
 msgid_plural "{count} files with wrong permissions"
 msgstr[0] "{count} Datei mit falschen Berechtigungen"
 msgstr[1] "{count} Dateien mit falschen Berechtigungen"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:50
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:58
 msgid "not in a repo — rebuild it with your AUR helper"
 msgstr "nicht in einem Repo — baue es mit deinem AUR-Helper neu"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:60
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:69
+msgid ""
+"Probably harmless: on Kiro, hardcode-fixer rewrites fixed icon paths in "
+"launchers to icon names, so your icon theme can show them. Reinstalling "
+"restores the original launcher, and hardcode-fixer only changes it again if "
+"you run it."
+msgstr "Wahrscheinlich harmlos: Auf Kiro ersetzt hardcode-fixer feste Symbolpfade in Startern durch Symbolnamen, damit dein Symbolthema sie anzeigen kann. Eine Neuinstallation stellt den ursprünglichen Starter wieder her, und hardcode-fixer ändert ihn erst wieder, wenn du es ausführst."
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:78
 #, python-brace-format
 msgid "… and {count} more"
 msgid_plural "… and {count} more"
 msgstr[0] "… und {count} weitere"
 msgstr[1] "… und {count} weitere"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:61
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:79
 msgid "Files"
 msgstr "Dateien"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:89
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:107
 msgid "No problems found — every package file is as pacman installed it."
 msgstr ""
 "Keine Probleme gefunden — jede Paketdatei ist so, wie pacman sie installiert "
 "hat."
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:93
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:111
 #, python-brace-format
 msgid "{count} package has missing or changed files."
 msgid_plural "{count} packages have missing or changed files."
 msgstr[0] "{count} Paket hat fehlende oder geänderte Dateien."
 msgstr[1] "{count} Pakete haben fehlende oder geänderte Dateien."
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:106
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:124
 msgid "Scanning every installed package — this takes one to three minutes…"
 msgstr ""
 "Alle installierten Pakete werden gescannt — das dauert ein bis drei Minuten…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:123
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:141
 #, python-brace-format
 msgid ""
 "pacman reinstalls these packages, which rewrites their files:\n"
@@ -6915,19 +6924,19 @@ msgstr ""
 "\n"
 "Deine eigenen Einstellungen in /etc bleiben erhalten."
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:125
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:143
 msgid "Reinstall packages?"
 msgstr "Pakete neu installieren?"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:129
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:147
 msgid "Reinstalling in a terminal…"
 msgstr "Neuinstallation in einem Terminal…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:144
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:162
 msgid "Repair system files"
 msgstr "Systemdateien reparieren"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:153
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:171
 msgid ""
 "Checks every file of every installed package against what pacman installed: "
 "files that are missing, changed or have the wrong permissions. Settings and "
@@ -6942,11 +6951,11 @@ msgstr ""
 "liest nur — nichts ändert sich, bis du auf „Ausgewählte neu installieren“ "
 "klickst."
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:161
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:179
 msgid "Scan"
 msgstr "Scannen"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:182
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:200
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:375
 msgid "Reinstall selected"
 msgstr "Ausgewählte neu installieren"

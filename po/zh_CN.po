@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 15:14+0100\n"
+"POT-Creation-Date: 2026-11-26 16:14+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -6630,47 +6630,55 @@ msgstr ""
 msgid "Search a package…"
 msgstr "搜索软件包…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:28
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:30
 #, python-brace-format
 msgid "{count} file missing or changed"
 msgid_plural "{count} files missing or changed"
 msgstr[0] "{count} 个文件缺失或已更改"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:31
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:33
 #, python-brace-format
 msgid "{count} file with wrong permissions"
 msgid_plural "{count} files with wrong permissions"
 msgstr[0] "{count} 个文件权限错误"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:50
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:58
 msgid "not in a repo — rebuild it with your AUR helper"
 msgstr "不在任何仓库中 — 请用你的 AUR 助手重新构建"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:60
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:69
+msgid ""
+"Probably harmless: on Kiro, hardcode-fixer rewrites fixed icon paths in "
+"launchers to icon names, so your icon theme can show them. Reinstalling "
+"restores the original launcher, and hardcode-fixer only changes it again if "
+"you run it."
+msgstr "可能无害：在 Kiro 上，hardcode-fixer 会把启动器中的固定图标路径改写为图标名称，以便图标主题能够显示它们。重新安装会恢复原始启动器，只有再次运行 hardcode-fixer 时它才会被重新修改。"
+
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:78
 #, python-brace-format
 msgid "… and {count} more"
 msgid_plural "… and {count} more"
 msgstr[0] "… 另外还有 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:61
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:79
 msgid "Files"
 msgstr "文件"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:89
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:107
 msgid "No problems found — every package file is as pacman installed it."
 msgstr "未发现问题 — 每个软件包文件都与 pacman 安装时一致。"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:93
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:111
 #, python-brace-format
 msgid "{count} package has missing or changed files."
 msgid_plural "{count} packages have missing or changed files."
 msgstr[0] "{count} 个软件包有缺失或已更改的文件。"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:106
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:124
 msgid "Scanning every installed package — this takes one to three minutes…"
 msgstr "正在扫描所有已安装的软件包 — 这需要一到三分钟…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:123
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:141
 #, python-brace-format
 msgid ""
 "pacman reinstalls these packages, which rewrites their files:\n"
@@ -6685,19 +6693,19 @@ msgstr ""
 "\n"
 "你在 /etc 中的自定义设置会被保留。"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:125
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:143
 msgid "Reinstall packages?"
 msgstr "重新安装软件包？"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:129
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:147
 msgid "Reinstalling in a terminal…"
 msgstr "正在终端中重新安装…"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:144
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:162
 msgid "Repair system files"
 msgstr "修复系统文件"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:153
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:171
 msgid ""
 "Checks every file of every installed package against what pacman installed: "
 "files that are missing, changed or have the wrong permissions. Settings and "
@@ -6709,11 +6717,11 @@ msgstr ""
 "或权限错误的文件。/etc 和 /var 中的设置和状态会被跳过，Kiro 有意修改的文件也"
 "会被跳过。扫描只读取 — 在你按下“重新安装所选”之前不会更改任何内容。"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:161
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:179
 msgid "Scan"
 msgstr "扫描"
 
-#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:182
+#: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:200
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:375
 msgid "Reinstall selected"
 msgstr "重新安装所选"
