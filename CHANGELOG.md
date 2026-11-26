@@ -2,6 +2,24 @@
 
 ## 2026.11.26
 
+### "Report a problem" button (Kiro / KiroTux)
+
+**What Changed.** A **Report a problem** button in the top bar, next to ♥ Support. It explains what is collected,
+runs `kiro-report --copy` in a terminal — a diagnostic report with IP and MAC addresses, disk IDs, machine ID,
+computer name and username removed, saved in the user's home folder and copied to the clipboard as a code block —
+and when the terminal closes it opens the Kiro Discussions board to paste it. The tool already existed in
+kiro-system-files; it was only reachable from a terminal.
+
+**Technical Details.** New `report_problem.py`. Shown only when `fn.get_distro_label()` is Kiro or KiroTux (same
+guard as Streamline) **and** `kiro-report` is installed, so other distros never see it. kiro-report finds the real
+user through `PKEXEC_UID`, which the alacritty child inherits, so the file and the clipboard belong to the user
+although ATT runs as root. The browser opens via `fn.open_url_as_user` after `process.wait()` in a daemon thread.
+Tested on picard: report written to the user's home (owner user, 644, 36 KB, no IP/hostname/username left in it)
+and the clipboard holds the fenced report. Five new strings, translated in all 13 catalogs.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/report_problem.py` (new), `gui.py`; `po/*.po`,
+`usr/share/locale/*`
+
 ### Maintenance: new Repair and History tabs
 
 **What Changed.** Two tabs for a system that broke, ideas taken from AnduinOS (auto-repair) and Proxmox VE 9.3

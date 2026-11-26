@@ -52,6 +52,7 @@ import system_gui
 import software_gui
 import streamline_gui
 import funding
+import report_problem
 import packages_gui
 import wallpaper
 import wallpaper_gui
@@ -563,6 +564,10 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
     btn_support_att.add_css_class("support-button")
     btn_support_att.set_tooltip_text(_("Support the project"))
     btn_support_att.connect("clicked", lambda _w: funding.show_support_dialog(self))
+    btn_report_att = Gtk.Button(label=_("Report a problem"))
+    btn_report_att.set_size_request(100, 30)
+    btn_report_att.set_tooltip_text(_("Send a privacy-safe system report to the Kiro Discussions board"))
+    btn_report_att.connect("clicked", lambda _w: report_problem.on_report_clicked(self, _w))
 
     # Action buttons live in the second header bar (built in the CONTAINER block).
     # ── Language dropdown ──────────────────────────────────
@@ -586,6 +591,8 @@ def gui(self, Gtk, Gdk, GdkPixbuf, base_dir, os, Pango, GLib):
 
     bar_actions.append(dropdown_language)
     bar_actions.append(btn_restart_att)
+    if report_problem.available():
+        bar_actions.append(btn_report_att)
     bar_actions.append(btn_support_att)
     bar_actions.append(btn_quit_att)
 

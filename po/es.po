@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 06:12+0100\n"
+"POT-Creation-Date: 2026-11-26 06:26+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -148,7 +148,7 @@ msgid "{name} disabled (current session)"
 msgstr "{name} desactivado (sesión actual)"
 
 #: usr/share/archlinux-tweak-tool/accessibility_gui.py:85
-#: usr/share/archlinux-tweak-tool/gui.py:452
+#: usr/share/archlinux-tweak-tool/gui.py:453
 msgid "Accessibility"
 msgstr "Accesibilidad"
 
@@ -734,7 +734,7 @@ msgstr "Instalación de openclaw iniciada"
 
 #: usr/share/archlinux-tweak-tool/ai_gui.py:13
 #: usr/share/archlinux-tweak-tool/dev_gui.py:532
-#: usr/share/archlinux-tweak-tool/gui.py:454
+#: usr/share/archlinux-tweak-tool/gui.py:455
 msgid "AI Tools"
 msgstr "Herramientas de IA"
 
@@ -856,20 +856,20 @@ msgstr "elige entre más de 300 temas de Alacritty o crea los tuyos"
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:554
 #: usr/share/archlinux-tweak-tool/dev_gui.py:777
-#: usr/share/archlinux-tweak-tool/gui.py:517
+#: usr/share/archlinux-tweak-tool/gui.py:518
 #: usr/share/archlinux-tweak-tool/shell_gui.py:227
 msgid "Shells"
 msgstr "Shells"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:551
 #: usr/share/archlinux-tweak-tool/dev_gui.py:785
-#: usr/share/archlinux-tweak-tool/gui.py:519
+#: usr/share/archlinux-tweak-tool/gui.py:520
 msgid "Software"
 msgstr "Software"
 
 #: usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py:553
 #: usr/share/archlinux-tweak-tool/dev_gui.py:573
-#: usr/share/archlinux-tweak-tool/gui.py:475
+#: usr/share/archlinux-tweak-tool/gui.py:476
 msgid "Fastfetch"
 msgstr "Fastfetch"
 
@@ -1018,7 +1018,7 @@ msgstr "_Abrir"
 
 #: usr/share/archlinux-tweak-tool/autostart.py:245
 #: usr/share/archlinux-tweak-tool/dev_gui.py:540
-#: usr/share/archlinux-tweak-tool/gui.py:458
+#: usr/share/archlinux-tweak-tool/gui.py:459
 msgid "Autostart"
 msgstr "Autoinicio"
 
@@ -1047,7 +1047,7 @@ msgid "Add"
 msgstr "Añadir"
 
 #: usr/share/archlinux-tweak-tool/backup_gui.py:55
-#: usr/share/archlinux-tweak-tool/gui.py:460
+#: usr/share/archlinux-tweak-tool/gui.py:461
 msgid "Backup"
 msgstr "Copia de seguridad"
 
@@ -1319,7 +1319,7 @@ msgid "Install {name}"
 msgstr "Instalar {name}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:126
-#: usr/share/archlinux-tweak-tool/gui.py:464
+#: usr/share/archlinux-tweak-tool/gui.py:465
 msgid "Btrfs"
 msgstr "Btrfs"
 
@@ -1544,7 +1544,7 @@ msgstr ""
 "Activa nemesis_repo en la página Pacman para instalar los temas Celestial"
 
 #: usr/share/archlinux-tweak-tool/celestial_gui.py:31
-#: usr/share/archlinux-tweak-tool/gui.py:466
+#: usr/share/archlinux-tweak-tool/gui.py:467
 msgid "Celestial themes"
 msgstr "Temas Celestial"
 
@@ -1862,7 +1862,7 @@ msgstr "Todos los escritorios desinstalados"
 
 #: usr/share/archlinux-tweak-tool/desktopr_gui.py:30
 #: usr/share/archlinux-tweak-tool/dev_gui.py:550
-#: usr/share/archlinux-tweak-tool/gui.py:472
+#: usr/share/archlinux-tweak-tool/gui.py:473
 msgid "Desktop"
 msgstr "Escritorio"
 
@@ -1995,7 +1995,7 @@ msgid "Session"
 msgstr "Sesión"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:498
-#: usr/share/archlinux-tweak-tool/gui.py:525
+#: usr/share/archlinux-tweak-tool/gui.py:526
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:509
 msgid "System"
 msgstr "Sistema"
@@ -2009,53 +2009,53 @@ msgid "Icons"
 msgstr "Iconos"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:593
-#: usr/share/archlinux-tweak-tool/gui.py:488
+#: usr/share/archlinux-tweak-tool/gui.py:489
 msgid "Kernels"
 msgstr "Kernels"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:615
-#: usr/share/archlinux-tweak-tool/gui.py:490
+#: usr/share/archlinux-tweak-tool/gui.py:491
 msgid "Locale"
 msgstr "Idioma y región"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:622
-#: usr/share/archlinux-tweak-tool/gui.py:494
+#: usr/share/archlinux-tweak-tool/gui.py:495
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:54
 msgid "Maintenance"
 msgstr "Mantenimiento"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:629
-#: usr/share/archlinux-tweak-tool/gui.py:496
+#: usr/share/archlinux-tweak-tool/gui.py:497
 #: usr/share/archlinux-tweak-tool/network_gui.py:65
 #: usr/share/archlinux-tweak-tool/network_gui.py:436
 msgid "Network"
 msgstr "Red"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:643
-#: usr/share/archlinux-tweak-tool/gui.py:500
+#: usr/share/archlinux-tweak-tool/gui.py:501
 #: usr/share/archlinux-tweak-tool/iso_gui.py:84
 #: usr/share/archlinux-tweak-tool/packages_gui.py:20
 msgid "Packages"
 msgstr "Paquetes"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:649
-#: usr/share/archlinux-tweak-tool/gui.py:502
+#: usr/share/archlinux-tweak-tool/gui.py:503
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:512
 msgid "Pacman"
 msgstr "Pacman"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:656
-#: usr/share/archlinux-tweak-tool/gui.py:504
+#: usr/share/archlinux-tweak-tool/gui.py:505
 msgid "Plymouth"
 msgstr "Plymouth"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:710
-#: usr/share/archlinux-tweak-tool/gui.py:506
+#: usr/share/archlinux-tweak-tool/gui.py:507
 msgid "Privacy"
 msgstr "Privacidad"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:717
-#: usr/share/archlinux-tweak-tool/gui.py:508
+#: usr/share/archlinux-tweak-tool/gui.py:509
 #: usr/share/archlinux-tweak-tool/performance_gui.py:58
 msgid "Performance"
 msgstr "Rendimiento"
@@ -2069,13 +2069,13 @@ msgid "SDDM"
 msgstr "SDDM"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:768
-#: usr/share/archlinux-tweak-tool/gui.py:515
+#: usr/share/archlinux-tweak-tool/gui.py:516
 #: usr/share/archlinux-tweak-tool/services_gui.py:77
 msgid "Services"
 msgstr "Servicios"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:804
-#: usr/share/archlinux-tweak-tool/gui.py:527
+#: usr/share/archlinux-tweak-tool/gui.py:528
 msgid "Themer"
 msgstr "Themer"
 
@@ -2085,12 +2085,12 @@ msgid "Themes"
 msgstr "Temas"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:817
-#: usr/share/archlinux-tweak-tool/gui.py:529
+#: usr/share/archlinux-tweak-tool/gui.py:530
 msgid "User"
 msgstr "Usuario"
 
 #: usr/share/archlinux-tweak-tool/dev_gui.py:823
-#: usr/share/archlinux-tweak-tool/gui.py:531
+#: usr/share/archlinux-tweak-tool/gui.py:532
 #: usr/share/archlinux-tweak-tool/wallpaper_gui.py:34
 msgid "Wallpaper"
 msgstr "Fondo de pantalla"
@@ -2226,7 +2226,7 @@ msgid "{name} is already installed"
 msgstr "{name} ya está instalado"
 
 #: usr/share/archlinux-tweak-tool/fastfetch_gui.py:41
-#: usr/share/archlinux-tweak-tool/gui.py:306
+#: usr/share/archlinux-tweak-tool/gui.py:307
 msgid "Fastfetch Editor"
 msgstr "Editor de Fastfetch"
 
@@ -2610,12 +2610,12 @@ msgstr ""
 "{project} es libre y de código abierto. Si te resulta útil, aquí tienes las "
 "formas de apoyar su desarrollo. Gracias."
 
-#: usr/share/archlinux-tweak-tool/gui.py:137
+#: usr/share/archlinux-tweak-tool/gui.py:138
 #, python-brace-format
 msgid "on {distro}"
 msgstr "en {distro}"
 
-#: usr/share/archlinux-tweak-tool/gui.py:318
+#: usr/share/archlinux-tweak-tool/gui.py:319
 msgid ""
 "fastfetch configuration file not found.\n"
 "Install <b>fastfetch</b> and enable it to use this tab."
@@ -2623,98 +2623,107 @@ msgstr ""
 "No se encontró el archivo de configuración de fastfetch.\n"
 "Instala <b>fastfetch</b> y actívalo para usar esta pestaña."
 
-#: usr/share/archlinux-tweak-tool/gui.py:450
+#: usr/share/archlinux-tweak-tool/gui.py:451
 msgid "Dev"
 msgstr "Desarrollo"
 
-#: usr/share/archlinux-tweak-tool/gui.py:456
+#: usr/share/archlinux-tweak-tool/gui.py:457
 #: usr/share/archlinux-tweak-tool/themes_gui.py:118
 msgid "Arc themes"
 msgstr "Temas Arc"
 
-#: usr/share/archlinux-tweak-tool/gui.py:473
+#: usr/share/archlinux-tweak-tool/gui.py:474
 #: usr/share/archlinux-tweak-tool/wayland_gui.py:156
 msgid "Desktop - Wayland"
 msgstr "Escritorio - Wayland"
 
-#: usr/share/archlinux-tweak-tool/gui.py:479
+#: usr/share/archlinux-tweak-tool/gui.py:480
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:154
 msgid "Hybrid graphics"
 msgstr "Gráficos híbridos"
 
-#: usr/share/archlinux-tweak-tool/gui.py:481
+#: usr/share/archlinux-tweak-tool/gui.py:482
 msgid "Icons Horst"
 msgstr "Iconos Horst"
 
-#: usr/share/archlinux-tweak-tool/gui.py:482
+#: usr/share/archlinux-tweak-tool/gui.py:483
 msgid "Icons Neo Candy"
 msgstr "Iconos Neo Candy"
 
-#: usr/share/archlinux-tweak-tool/gui.py:483
+#: usr/share/archlinux-tweak-tool/gui.py:484
 msgid "Icons Surfn"
 msgstr "Iconos Surfn"
 
-#: usr/share/archlinux-tweak-tool/gui.py:486
+#: usr/share/archlinux-tweak-tool/gui.py:487
 #: usr/share/archlinux-tweak-tool/iso_gui.py:31
 msgid "ISO"
 msgstr "ISO"
 
-#: usr/share/archlinux-tweak-tool/gui.py:492
+#: usr/share/archlinux-tweak-tool/gui.py:493
 msgid "Logging"
 msgstr "Registros"
 
-#: usr/share/archlinux-tweak-tool/gui.py:498
+#: usr/share/archlinux-tweak-tool/gui.py:499
 #: usr/share/archlinux-tweak-tool/office_gui.py:49
 msgid "Office"
 msgstr "Ofimática"
 
-#: usr/share/archlinux-tweak-tool/gui.py:513
+#: usr/share/archlinux-tweak-tool/gui.py:514
 msgid "Sddm"
 msgstr "SDDM"
 
-#: usr/share/archlinux-tweak-tool/gui.py:523
+#: usr/share/archlinux-tweak-tool/gui.py:524
 #: usr/share/archlinux-tweak-tool/streamline_gui.py:18
 msgid "Streamline"
 msgstr "Streamline"
 
-#: usr/share/archlinux-tweak-tool/gui.py:554
+#: usr/share/archlinux-tweak-tool/gui.py:555
 msgid "Restart ATT"
 msgstr "Reiniciar ATT"
 
-#: usr/share/archlinux-tweak-tool/gui.py:558
+#: usr/share/archlinux-tweak-tool/gui.py:559
 msgid "Quit ATT"
 msgstr "Salir de ATT"
 
-#: usr/share/archlinux-tweak-tool/gui.py:561
+#: usr/share/archlinux-tweak-tool/gui.py:562
 msgid "♥ Support"
 msgstr "♥ Apoyar"
 
-#: usr/share/archlinux-tweak-tool/gui.py:564
+#: usr/share/archlinux-tweak-tool/gui.py:565
 msgid "Support the project"
 msgstr "Apoya el proyecto"
 
-#: usr/share/archlinux-tweak-tool/gui.py:570
+#: usr/share/archlinux-tweak-tool/gui.py:567
+msgid "Report a problem"
+msgstr "Informar de un problema"
+
+#: usr/share/archlinux-tweak-tool/gui.py:569
+msgid "Send a privacy-safe system report to the Kiro Discussions board"
+msgstr ""
+"Enviar un informe del sistema sin datos privados al foro Kiro Discussions"
+
+#: usr/share/archlinux-tweak-tool/gui.py:575
 #: usr/share/archlinux-tweak-tool/locale_gui.py:346
 #, python-brace-format
 msgid "System ({language})"
 msgstr "Sistema ({language})"
 
-#: usr/share/archlinux-tweak-tool/gui.py:573
+#: usr/share/archlinux-tweak-tool/gui.py:578
 #: usr/share/archlinux-tweak-tool/locale_gui.py:342
 #: usr/share/archlinux-tweak-tool/locale_gui.py:396
 msgid "Language"
 msgstr "Idioma"
 
-#: usr/share/archlinux-tweak-tool/gui.py:582
+#: usr/share/archlinux-tweak-tool/gui.py:587
 msgid "Saved. ATT shows the new language when it starts again."
 msgstr "Guardado. ATT mostrará el nuevo idioma la próxima vez que se inicie."
 
-#: usr/share/archlinux-tweak-tool/gui.py:645
+#: usr/share/archlinux-tweak-tool/gui.py:652
 #, python-brace-format
 msgid "No page matches '{text}'"
 msgstr "Ninguna página coincide con «{text}»"
 
-#: usr/share/archlinux-tweak-tool/gui.py:649
+#: usr/share/archlinux-tweak-tool/gui.py:656
 msgid "Search (Enter)"
 msgstr "Buscar (Intro)"
 
@@ -7202,6 +7211,38 @@ msgstr "Pega una URL o un host, por ejemplo marketingplatform.google.com"
 #: usr/share/archlinux-tweak-tool/privacy_gui.py:136
 msgid "Add to whitelist"
 msgstr "Añadir a la lista blanca"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:39
+msgid ""
+"Kiro collects a report about this system: hardware, drivers, installed "
+"packages, failed services, recent errors and recent updates.\n"
+"\n"
+"Private details (IP and MAC addresses, disk IDs, machine ID, computer name "
+"and username) are removed. The report is saved in your home folder and "
+"copied to the clipboard.\n"
+"\n"
+"Then the Kiro Discussions page opens: start a new discussion, describe the "
+"problem and paste the report. Read it once before you post — it will be "
+"public. You need a GitHub account to post."
+msgstr ""
+"Kiro crea un informe sobre este sistema: hardware, controladores, paquetes "
+"instalados, servicios fallidos, errores y actualizaciones recientes.\n"
+"\n"
+"Los datos privados (direcciones IP y MAC, identificadores de disco, ID de la "
+"máquina, nombre del equipo y nombre de usuario) se eliminan. El informe se "
+"guarda en tu carpeta personal y se copia al portapapeles.\n"
+"\n"
+"Después se abre la página de Kiro Discussions: inicia una nueva discusión, "
+"describe el problema y pega el informe. Léelo una vez antes de publicarlo — "
+"será público. Necesitas una cuenta de GitHub para publicar."
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:45
+msgid "Report a problem?"
+msgstr "¿Informar de un problema?"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:54
+msgid "Collecting the report in a terminal…"
+msgstr "Creando el informe en una terminal…"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:347
 #: usr/share/archlinux-tweak-tool/sddm.py:371
