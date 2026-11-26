@@ -338,6 +338,13 @@ sudo python3 usr/share/archlinux-tweak-tool/archlinux-tweak-tool.py --debug
 
 Configuration files and scripts live in `usr/share/archlinux-tweak-tool/data/` in a flat topic-based structure (no distro subdirs). Use `up.sh` to pull/push updates and regenerate `nemesis_packages.txt`.
 
+### Unit tests
+
+`python3 -m unittest tests/test_parsers.py` — the text parsers of `pkg_repair`, `pkg_history` and `journal_view`
+(no root/GUI/network; `functions` is stubbed). Run before committing a change to those modules; add a case for
+every real-world input that broke them. `tests/live_att.py` / `install_all_desktops.py` are live GUI tests for a
+test box, not unit tests.
+
 ### Debugging
 
 Use the `--debug` flag to enable `fn.debug_print()` output:

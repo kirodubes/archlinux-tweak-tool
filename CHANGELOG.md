@@ -2,6 +2,22 @@
 
 ## 2026.11.26
 
+### Unit tests for the new parsers
+
+**What Changed.** `tests/test_parsers.py`: 14 tests for the text parsers behind Maintenance → Repair / History and
+Logging → Journal, so a later change can't quietly break them. Run from the repo root:
+`python3 -m unittest tests/test_parsers.py` (0.002 s, no root, no GUI, no network).
+
+**Technical Details.** Plain `unittest` (pytest is not installed on the dev box; no new dependency). `functions`
+is stubbed in `sys.modules`, since the parsers only log through it. Each case is a problem met today: real damage
+vs Kiro's intentional changes (backup files, `/etc`, `/var`, `/boot` ucode, os-release, utempter, directories,
+mtime-only, noisy packages), `kiro-*` hooks counted but stock/local hooks not, translated pacman output never read
+as findings, pacman.log transactions incl. a failed one, cache lookup for look-alike names (`python-requests` vs
+`python-requests-file`) and epochs, journal byte-list messages and service fallbacks. Mutation-checked: dropping
+the `/boot` skip, prefix-matching the cache, or removing the byte-list decode each fails a test.
+
+**Files Modified.** `tests/test_parsers.py` (new), `CLAUDE.md`
+
 ### Logging: the system journal as a table
 
 **What Changed.** The Logging page has two tabs. The new **Journal** tab shows what the system logged as a table —
