@@ -17,7 +17,7 @@ sys.path.insert(0, APP_DIR)
 # functions.py pulls in GTK and reads the running system; the parsers only log through it
 sys.modules["functions"] = types.SimpleNamespace(
     log_info=lambda *a, **k: None, log_warn=lambda *a, **k: None, log_error=lambda *a, **k: None,
-    log_subsection=lambda *a, **k: None, debug_print=lambda *a, **k: None, GLib=None)
+    log_subsection=lambda *a, **k: None, debug_print=lambda *a, **k: None, GLib=None, Gdk=None)
 
 import journal_view  # noqa: E402
 import pkg_history  # noqa: E402
@@ -198,6 +198,25 @@ class TestReportProblemPath(unittest.TestCase):
     def test_real_location_is_searched(self):
         import report_problem
         self.assertIn("/usr/local/bin", report_problem.LOCAL_PATH.split(":"))
+
+
+class TestReportRedaction(unittest.TestCase):
+    """att_report.redact() — the report is pasted on a public issue tracker."""
+
+    def redact(self, text):
+        import att_report
+        return att_report.redact(text, "archlinux", "alice")
+
+    def test_private_values_removed(self):
+        text = self.redact("alice@archlinux /home/alice/x 192.168.1.20 aa:bb:cc:dd:ee:ff fe80::1 "
+                           "4f2a9e1c-1111-2222-3333-444455556666 0123456789abcdef0123456789abcdef end 10.0.0.5.")
+        self.assertEqual(text, "<user>@<host> /home/<user>/x <ip> <mac> <ipv6> <uuid> <machine-id> end <ip>.")
+
+    def test_lookalikes_survive(self):
+        # Arch's default hostname is "archlinux": the package name must not become "<host>-tweak-tool"
+        for keep in ("archlinux-tweak-tool 26.11-35", "libva 2.23.0-1", "sddm-git 0.21.0.123.gd7f8b02-1",
+                     "0000:03:00.0 VGA", "Calamares::Job", "alicebob"):
+            self.assertEqual(self.redact(keep), keep)
 
 
 if __name__ == "__main__":

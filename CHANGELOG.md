@@ -2,6 +2,32 @@
 
 ## 2026.11.26
 
+### Feature: "Report a problem" on every Arch-based system
+
+**What Changed.** The Report a problem button was Kiro / KiroTux only — on Arch, EndeavourOS, CachyOS, Garuda,
+Manjaro and the rest it never showed, so ATT bugs there arrived with no system info. It now shows everywhere. Kiro /
+KiroTux keep `kiro-report` and the Kiro Discussions board. Everywhere else ATT builds its own report and opens ATT's
+GitHub issue page; the dialog says it is for problems with ATT, and that problems with the distro itself belong on
+that distro's forum.
+
+**Technical Details.** New `att_report.py`, ported from `kiro-report` (the bash script is not shipped outside Kiro):
+distro label + os-release, ATT package, kernel, boot mode, root fs, CPU, memory, desktop / session type (from the
+real user's session env, `fn.get_terminal_env()`), pacman repositories, failed units, graphics devices with driver
+in use (`lspci -nnk`), driver packages (same regex as kiro-report), journal and dmesg errors, last 30 pacman actions,
+the last 60 lines of this ATT session's log and `pacman -Qe`. Report text stays English (read by the maintainer).
+`redact()` uses kiro-report's rules (MAC, UUID, machine-id, IPv4 that skips package versions, IPv6 that keeps PCI
+addresses and `Calamares::Job`), but hostname / username use `(?<![\w.-])…(?![\w-])` instead of `\b`: vanilla Arch's
+default hostname is `archlinux`, and `\b` would turn `archlinux-tweak-tool` into `<host>-tweak-tool`. Built in a
+daemon thread, saved as `~/att-report-<stamp>.log` (`fn.permissions`), copied fenced to the clipboard through
+`Gdk.Clipboard` on the main thread, then `fn.open_url_as_user(ISSUES_URL)`. `report_problem.available()` replaced by
+`tooltip()`; a Kiro box without `kiro-report` now gets the ATT report instead of no button. Five new UI strings in
+all 13 catalogs (0 fuzzy, 0 untranslated). Two new tests `TestReportRedaction`; the `functions` stub gains `Gdk`.
+Test run on the main dev machine: 714-line report, no hostname or username left in it.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/att_report.py` (new),
+`usr/share/archlinux-tweak-tool/report_problem.py`, `usr/share/archlinux-tweak-tool/gui.py`, `tests/test_parsers.py`,
+`po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo`
+
 ### Fix: long History titles ran off the window
 
 **What Changed.** In Maintenance → History a long command (`pacman -U /var/cache/pacman/pkg/…`) was cut off at the

@@ -124,6 +124,7 @@ usr/share/archlinux-tweak-tool/
 | **shell.py / shell_gui.py**             | Shell configuration and switching                                                                                                          |
 | **user.py / user_gui.py**               | User account creation/management                                                                                                           |
 | **fastfetch.py / fastfetch_gui.py**     | System information display configuration                                                                                                   |
+| **report_problem.py / att_report.py**   | Header-bar "Report a problem": Kiro / KiroTux run `kiro-report` → Kiro Discussions; every other distro builds `att_report.build()` (redacted, English) → ATT GitHub issues |
 | **support.py**                          | Distro detection and support utilities                                                                                                     |
 | **settings.py**                         | Application settings                                                                                                                       |
 | **functions_backup.py**                 | GTK config backup: copies user's GTK 3/4 config to `/root/.config` so ATT (running as root) respects the desktop theme — called at startup |

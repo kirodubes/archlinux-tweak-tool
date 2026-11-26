@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 07:21+0100\n"
+"POT-Creation-Date: 2026-11-26 10:23+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1207,7 +1207,7 @@ msgstr "<b>{pkg}</b> <small>：{blurb}</small>：{state}"
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "installed"
 msgstr "已安装"
 
@@ -2609,10 +2609,6 @@ msgstr "支持本项目"
 msgid "Report a problem"
 msgstr "报告问题"
 
-#: usr/share/archlinux-tweak-tool/gui.py:569
-msgid "Send a privacy-safe system report to the Kiro Discussions board"
-msgstr "向 Kiro Discussions 论坛发送不含隐私信息的系统报告"
-
 #: usr/share/archlinux-tweak-tool/gui.py:575
 #: usr/share/archlinux-tweak-tool/locale_gui.py:346
 #, python-brace-format
@@ -2629,12 +2625,12 @@ msgstr "语言"
 msgid "Saved. ATT shows the new language when it starts again."
 msgstr "已保存。ATT 将在再次启动时显示新语言。"
 
-#: usr/share/archlinux-tweak-tool/gui.py:652
+#: usr/share/archlinux-tweak-tool/gui.py:651
 #, python-brace-format
 msgid "No page matches '{text}'"
 msgstr "没有与“{text}”匹配的页面"
 
-#: usr/share/archlinux-tweak-tool/gui.py:656
+#: usr/share/archlinux-tweak-tool/gui.py:655
 msgid "Search (Enter)"
 msgstr "搜索（Return）"
 
@@ -6468,63 +6464,63 @@ msgstr "响应能力"
 msgid "Storage & Memory"
 msgstr "存储和内存"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:32
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:33
 #, python-brace-format
 msgid "{count} installed"
 msgid_plural "{count} installed"
 msgstr[0] "已安装 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:33
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:34
 #, python-brace-format
 msgid "{count} upgraded"
 msgid_plural "{count} upgraded"
 msgstr[0] "已升级 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:34
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:35
 #, python-brace-format
 msgid "{count} downgraded"
 msgid_plural "{count} downgraded"
 msgstr[0] "已降级 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:35
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:36
 #, python-brace-format
 msgid "{count} removed"
 msgid_plural "{count} removed"
 msgstr[0] "已移除 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:36
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:37
 #, python-brace-format
 msgid "{count} reinstalled"
 msgid_plural "{count} reinstalled"
 msgstr[0] "已重新安装 {count} 个"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:45
 msgid "downgraded"
 msgstr "已降级"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:45
 msgid "upgraded"
 msgstr "已升级"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "reinstalled"
 msgstr "已重新安装"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "removed"
 msgstr "已移除"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:52
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:53
 #, python-brace-format
 msgid "Reinstall {pkg} {version}?"
 msgstr "重新安装 {pkg} {version}？"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:54
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:55
 #, python-brace-format
 msgid "Go back to {pkg} {version}?"
 msgstr "回退到 {pkg} {version}？"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:55
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:56
 #, python-brace-format
 msgid ""
 "pacman installs this file from the package cache:\n"
@@ -6542,38 +6538,38 @@ msgstr ""
 "只回退一个软件包可能会导致需要较新版本的软件包无法正常工作 — pacman 检测到这"
 "种情况时会停止并提示你。下一次完整更新会再次将其升级。"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:63
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:64
 msgid "Installing from the package cache in a terminal…"
 msgstr "正在终端中从软件包缓存安装…"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:86
 #, python-brace-format
 msgid "Go back to {version}"
 msgstr "回退到 {version}"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:86
 #, python-brace-format
 msgid "Reinstall {version}"
 msgstr "重新安装 {version}"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:91
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
 #, python-brace-format
 msgid "{version} is not in the package cache"
 msgstr "{version} 不在软件包缓存中"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:93
 msgid "not in cache"
 msgstr "不在缓存中"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:129
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:132
 msgid "No transactions match."
 msgstr "没有匹配的事务。"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:149
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:152
 msgid "Package history"
 msgstr "软件包历史"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:159
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:162
 msgid ""
 "Every install, update and removal from the pacman log, newest first. Did an "
 "update break something? Open it and go back to the previous version of one "
@@ -6582,7 +6578,7 @@ msgstr ""
 "pacman 日志中的每一次安装、更新和移除，最新的在前。更新弄坏了什么吗？打开它即"
 "可将某个软件包回退到上一个版本，前提是该版本仍在软件包缓存中。"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:164
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:167
 msgid "Search a package…"
 msgstr "搜索软件包…"
 
@@ -7126,7 +7122,15 @@ msgstr "粘贴 URL 或主机，例如 marketingplatform.google.com"
 msgid "Add to whitelist"
 msgstr "添加到白名单"
 
+#: usr/share/archlinux-tweak-tool/report_problem.py:38
+msgid "Send a privacy-safe system report to the Kiro Discussions board"
+msgstr "向 Kiro Discussions 论坛发送不含隐私信息的系统报告"
+
 #: usr/share/archlinux-tweak-tool/report_problem.py:39
+msgid "Send a privacy-safe system report to the ATT issue tracker on GitHub"
+msgstr "向 GitHub 上的 ATT 问题跟踪器发送不含隐私信息的系统报告"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:65
 msgid ""
 "Kiro collects a report about this system: hardware, drivers, installed "
 "packages, failed services, recent errors and recent updates.\n"
@@ -7148,13 +7152,54 @@ msgstr ""
 "随后会打开 Kiro Discussions 页面：新建一个讨论，描述问题并粘贴报告。发布前请"
 "先读一遍——它将会公开。发布需要一个 GitHub 账户。"
 
-#: usr/share/archlinux-tweak-tool/report_problem.py:45
+#: usr/share/archlinux-tweak-tool/report_problem.py:71
+#: usr/share/archlinux-tweak-tool/report_problem.py:100
 msgid "Report a problem?"
 msgstr "报告问题？"
 
-#: usr/share/archlinux-tweak-tool/report_problem.py:54
+#: usr/share/archlinux-tweak-tool/report_problem.py:80
 msgid "Collecting the report in a terminal…"
 msgstr "正在终端中生成报告…"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:92
+#, python-brace-format
+msgid ""
+"ATT collects a report about this system: hardware, drivers, repositories, "
+"installed packages, failed services, recent errors, recent updates and the "
+"ATT log of this session.\n"
+"\n"
+"Private details (IP and MAC addresses, disk IDs, machine ID, computer name "
+"and username) are removed. The report is saved in your home folder and "
+"copied to the clipboard.\n"
+"\n"
+"Then the ATT issue page on GitHub opens: describe the problem with ATT and "
+"paste the report. Problems with {distro} itself belong on the {distro} "
+"forum. Read the report once before you post — it will be public. You need a "
+"GitHub account to post."
+msgstr ""
+"ATT 会生成一份关于本系统的报告：硬件、驱动、软件仓库、已安装的软件包、失败的"
+"服务、最近的错误、最近的更新以及本次会话的 ATT 日志。\n"
+"\n"
+"隐私信息（IP 和 MAC 地址、磁盘 ID、机器 ID、计算机名和用户名）会被删除。报告"
+"会保存在你的主文件夹中，并复制到剪贴板。\n"
+"\n"
+"随后会打开 GitHub 上的 ATT 问题页面：描述 ATT 的问题并粘贴报告。{distro} 本身"
+"的问题请到 {distro} 论坛反馈。发布前请先把报告读一遍——它将会公开。发布需要一"
+"个 GitHub 账户。"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:104
+msgid "Collecting the report…"
+msgstr "正在生成报告…"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:111
+#, python-brace-format
+msgid "Could not write the report: {error}"
+msgstr "无法写入报告：{error}"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:124
+#, python-brace-format
+msgid "Report saved as {path} and copied to the clipboard"
+msgstr "报告已保存为 {path} 并复制到剪贴板"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:347
 #: usr/share/archlinux-tweak-tool/sddm.py:371

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 07:21+0100\n"
+"POT-Creation-Date: 2026-11-26 10:23+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1249,7 +1249,7 @@ msgstr "<b>{pkg}</b> <small>: {blurb}</small>: {state}"
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "installed"
 msgstr "geïnstalleerd"
 
@@ -2712,10 +2712,6 @@ msgstr "Steun het project"
 msgid "Report a problem"
 msgstr "Probleem melden"
 
-#: usr/share/archlinux-tweak-tool/gui.py:569
-msgid "Send a privacy-safe system report to the Kiro Discussions board"
-msgstr "Stuur een privacyveilig systeemrapport naar het Kiro Discussions-forum"
-
 #: usr/share/archlinux-tweak-tool/gui.py:575
 #: usr/share/archlinux-tweak-tool/locale_gui.py:346
 #, python-brace-format
@@ -2732,12 +2728,12 @@ msgstr "Taal"
 msgid "Saved. ATT shows the new language when it starts again."
 msgstr "Opgeslagen. ATT toont de nieuwe taal wanneer het opnieuw start."
 
-#: usr/share/archlinux-tweak-tool/gui.py:652
+#: usr/share/archlinux-tweak-tool/gui.py:651
 #, python-brace-format
 msgid "No page matches '{text}'"
 msgstr "Geen pagina komt overeen met '{text}'"
 
-#: usr/share/archlinux-tweak-tool/gui.py:656
+#: usr/share/archlinux-tweak-tool/gui.py:655
 msgid "Search (Enter)"
 msgstr "Zoeken (Enter)"
 
@@ -6671,68 +6667,68 @@ msgstr "Reactiesnelheid"
 msgid "Storage & Memory"
 msgstr "Opslag en geheugen"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:32
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:33
 #, python-brace-format
 msgid "{count} installed"
 msgid_plural "{count} installed"
 msgstr[0] "{count} geïnstalleerd"
 msgstr[1] "{count} geïnstalleerd"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:33
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:34
 #, python-brace-format
 msgid "{count} upgraded"
 msgid_plural "{count} upgraded"
 msgstr[0] "{count} bijgewerkt"
 msgstr[1] "{count} bijgewerkt"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:34
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:35
 #, python-brace-format
 msgid "{count} downgraded"
 msgid_plural "{count} downgraded"
 msgstr[0] "{count} teruggezet"
 msgstr[1] "{count} teruggezet"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:35
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:36
 #, python-brace-format
 msgid "{count} removed"
 msgid_plural "{count} removed"
 msgstr[0] "{count} verwijderd"
 msgstr[1] "{count} verwijderd"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:36
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:37
 #, python-brace-format
 msgid "{count} reinstalled"
 msgid_plural "{count} reinstalled"
 msgstr[0] "{count} opnieuw geïnstalleerd"
 msgstr[1] "{count} opnieuw geïnstalleerd"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:45
 msgid "downgraded"
 msgstr "teruggezet"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:44
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:45
 msgid "upgraded"
 msgstr "bijgewerkt"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "reinstalled"
 msgstr "opnieuw geïnstalleerd"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:46
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "removed"
 msgstr "verwijderd"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:52
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:53
 #, python-brace-format
 msgid "Reinstall {pkg} {version}?"
 msgstr "{pkg} {version} opnieuw installeren?"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:54
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:55
 #, python-brace-format
 msgid "Go back to {pkg} {version}?"
 msgstr "Terug naar {pkg} {version}?"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:55
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:56
 #, python-brace-format
 msgid ""
 "pacman installs this file from the package cache:\n"
@@ -6751,38 +6747,38 @@ msgstr ""
 "hebben stukgaan — pacman stopt en meldt het als het dat kan zien. De "
 "volgende volledige update werkt het weer bij."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:63
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:64
 msgid "Installing from the package cache in a terminal…"
 msgstr "Installeren uit de pakketcache in een terminal…"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:86
 #, python-brace-format
 msgid "Go back to {version}"
 msgstr "Terug naar {version}"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:85
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:86
 #, python-brace-format
 msgid "Reinstall {version}"
 msgstr "{version} opnieuw installeren"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:91
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
 #, python-brace-format
 msgid "{version} is not in the package cache"
 msgstr "{version} staat niet in de pakketcache"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:92
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:93
 msgid "not in cache"
 msgstr "niet in de cache"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:129
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:132
 msgid "No transactions match."
 msgstr "Geen overeenkomende transacties."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:149
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:152
 msgid "Package history"
 msgstr "Pakketgeschiedenis"
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:159
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:162
 msgid ""
 "Every install, update and removal from the pacman log, newest first. Did an "
 "update break something? Open it and go back to the previous version of one "
@@ -6792,7 +6788,7 @@ msgstr ""
 "Heeft een update iets stukgemaakt? Open die update en zet één pakket terug "
 "naar de vorige versie, zolang die versie nog in de pakketcache staat."
 
-#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:164
+#: usr/share/archlinux-tweak-tool/pkg_history_gui.py:167
 msgid "Search a package…"
 msgstr "Pakketten zoeken…"
 
@@ -7363,7 +7359,16 @@ msgstr "Plak een URL of host, bijv. marketingplatform.google.com"
 msgid "Add to whitelist"
 msgstr "Toevoegen aan whitelist"
 
+#: usr/share/archlinux-tweak-tool/report_problem.py:38
+msgid "Send a privacy-safe system report to the Kiro Discussions board"
+msgstr "Stuur een privacyveilig systeemrapport naar het Kiro Discussions-forum"
+
 #: usr/share/archlinux-tweak-tool/report_problem.py:39
+msgid "Send a privacy-safe system report to the ATT issue tracker on GitHub"
+msgstr ""
+"Stuur een privacyveilig systeemrapport naar de ATT-issuetracker op GitHub"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:65
 msgid ""
 "Kiro collects a report about this system: hardware, drivers, installed "
 "packages, failed services, recent errors and recent updates.\n"
@@ -7388,13 +7393,57 @@ msgstr ""
 "beschrijf het probleem en plak het rapport. Lees het één keer na voor je het "
 "plaatst — het wordt openbaar. Om te posten heb je een GitHub-account nodig."
 
-#: usr/share/archlinux-tweak-tool/report_problem.py:45
+#: usr/share/archlinux-tweak-tool/report_problem.py:71
+#: usr/share/archlinux-tweak-tool/report_problem.py:100
 msgid "Report a problem?"
 msgstr "Een probleem melden?"
 
-#: usr/share/archlinux-tweak-tool/report_problem.py:54
+#: usr/share/archlinux-tweak-tool/report_problem.py:80
 msgid "Collecting the report in a terminal…"
 msgstr "Het rapport wordt verzameld in een terminal…"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:92
+#, python-brace-format
+msgid ""
+"ATT collects a report about this system: hardware, drivers, repositories, "
+"installed packages, failed services, recent errors, recent updates and the "
+"ATT log of this session.\n"
+"\n"
+"Private details (IP and MAC addresses, disk IDs, machine ID, computer name "
+"and username) are removed. The report is saved in your home folder and "
+"copied to the clipboard.\n"
+"\n"
+"Then the ATT issue page on GitHub opens: describe the problem with ATT and "
+"paste the report. Problems with {distro} itself belong on the {distro} "
+"forum. Read the report once before you post — it will be public. You need a "
+"GitHub account to post."
+msgstr ""
+"ATT verzamelt een rapport over dit systeem: hardware, drivers, repositories, "
+"geïnstalleerde pakketten, mislukte services, recente fouten, recente updates "
+"en het ATT-logboek van deze sessie.\n"
+"\n"
+"Privégegevens (IP- en MAC-adressen, schijf-ID's, machine-ID, computernaam en "
+"gebruikersnaam) worden verwijderd. Het rapport wordt in je persoonlijke map "
+"bewaard en naar het klembord gekopieerd.\n"
+"\n"
+"Daarna opent de ATT-issuepagina op GitHub: beschrijf het probleem met ATT en "
+"plak het rapport. Problemen met {distro} zelf horen thuis op het forum van "
+"{distro}. Lees het rapport één keer na voor je het plaatst — het wordt "
+"openbaar. Om te posten heb je een GitHub-account nodig."
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:104
+msgid "Collecting the report…"
+msgstr "Het rapport wordt verzameld…"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:111
+#, python-brace-format
+msgid "Could not write the report: {error}"
+msgstr "Het rapport kon niet worden weggeschreven: {error}"
+
+#: usr/share/archlinux-tweak-tool/report_problem.py:124
+#, python-brace-format
+msgid "Report saved as {path} and copied to the clipboard"
+msgstr "Rapport bewaard als {path} en naar het klembord gekopieerd"
 
 #: usr/share/archlinux-tweak-tool/sddm.py:347
 #: usr/share/archlinux-tweak-tool/sddm.py:371
