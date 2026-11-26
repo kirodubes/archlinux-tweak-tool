@@ -104,6 +104,7 @@ system-config-printer
 timeshift
 
 ###  PACKAGE / SYSTEM TOOLS
+cachyos-pi-scan
 devtools
 downgrade
 expac
