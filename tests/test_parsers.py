@@ -19,6 +19,7 @@ sys.modules["functions"] = types.SimpleNamespace(
     log_info=lambda *a, **k: None, log_warn=lambda *a, **k: None, log_error=lambda *a, **k: None,
     log_subsection=lambda *a, **k: None, debug_print=lambda *a, **k: None, GLib=None, Gdk=None)
 
+import aur_check  # noqa: E402
 import journal_view  # noqa: E402
 import pkg_history  # noqa: E402
 import pkg_repair  # noqa: E402
@@ -217,6 +218,29 @@ class TestReportRedaction(unittest.TestCase):
         for keep in ("archlinux-tweak-tool 26.11-35", "libva 2.23.0-1", "sddm-git 0.21.0.123.gd7f8b02-1",
                      "0000:03:00.0 VGA", "Calamares::Job", "alicebob"):
             self.assertEqual(self.redact(keep), keep)
+
+
+class TestAurCheckState(unittest.TestCase):
+    """paru reads ~/.config/paru/paru.conf before /etc/paru.conf: the user's file decides the switch."""
+
+    def test_user_file_wins(self):
+        self.assertEqual(aur_check.effective_state(["on", "off"]), "off")
+        self.assertEqual(aur_check.effective_state(["off", "on"]), "on")
+
+    def test_only_system_file(self):
+        self.assertEqual(aur_check.effective_state(["on"]), "on")
+
+    def test_no_paru(self):
+        self.assertEqual(aur_check.effective_state([]), "no-paru")
+
+    def test_user_file_listed_last(self):
+        with tempfile.TemporaryDirectory() as home:
+            os.makedirs(os.path.join(home, ".config", "paru"))
+            user_conf = os.path.join(home, ".config", "paru", "paru.conf")
+            open(user_conf, "w").close()
+            sys.modules["functions"].home = home
+            files = aur_check.config_files()
+            self.assertEqual(files[-1], user_conf)
 
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ from att_i18n import _, N_
 import pacman_functions
 import pacman
 import maintenance
+import aur_check
 import functions as fn
 
 
@@ -60,6 +61,98 @@ def refresh_switches(self):
     """Invalidate cache and re-populate repo toggle switches."""
     fn.invalidate_pacman_conf_cache()
     init_repos_lazy_load(self)
+
+
+def _build_aur_check(self, Gtk, vboxstack1):
+    """AUR check section (Kiro / KiroTux): kiro-aur-check as paru's PreBuildCommand."""
+    title = Gtk.Label(xalign=0)
+    title.set_markup(_("<b>AUR check</b>"))
+    title.set_margin_start(10)
+    title.set_margin_top(10)
+
+    lbl_switch = Gtk.Label(xalign=0)
+    lbl_switch.set_text(_("Check AUR packages before paru builds them"))
+    lbl_switch.set_hexpand(True)
+    lbl_switch.set_margin_start(10)
+    switch = Gtk.Switch()
+    switch.set_margin_end(10)
+    hbox_switch = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+    hbox_switch.append(lbl_switch)
+    hbox_switch.append(switch)
+
+    lbl_status = Gtk.Label(xalign=0)
+    lbl_status.set_wrap(True)
+    lbl_status.set_hexpand(True)
+    lbl_status.set_margin_start(10)
+    btn_install = Gtk.Button(label=_("Install cachyos-pi-scan"))
+    btn_install.set_margin_end(10)
+    hbox_status = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+    hbox_status.set_margin_bottom(10)
+    hbox_status.append(lbl_status)
+    hbox_status.append(btn_install)
+
+    updating = [False]
+
+    def refresh():
+        state = aur_check.current_state()
+        updating[0] = True
+        switch.set_active(state == "on")
+        updating[0] = False
+        switch.set_sensitive(state in ("on", "off"))
+        btn_install.set_visible(not aur_check.scanner_installed())
+        if state == "no-paru":
+            lbl_status.set_text(_("paru is not installed."))
+        elif state == "other":
+            lbl_status.set_text(_("Your paru.conf already runs another PreBuildCommand; ATT leaves it alone."))
+        elif not aur_check.scanner_installed():
+            lbl_status.set_text(_("cachyos-pi-scan is not installed, so paru builds without the check."))
+        else:
+            lbl_status.set_text(
+                _(
+                    "Shows the risky lines of a PKGBUILD (download-and-run, reading ~/.ssh, unverified sources) "
+                    "and asks before building when something is dangerous. A reading aid, not a guarantee."
+                )
+            )
+        return False
+
+    def on_toggled(_widget, _pspec):
+        if updating[0]:
+            return
+        enable = switch.get_active()
+
+        def work():
+            left_alone = aur_check.set_enabled(enable)
+            if left_alone:
+                message = _("Another PreBuildCommand is set in {files}; left alone.").format(files=", ".join(left_alone))
+            elif enable:
+                message = _("AUR check switched on for paru")
+            else:
+                message = _("AUR check switched off for paru")
+            fn.GLib.idle_add(lambda: fn.show_in_app_notification(self, message))
+            fn.GLib.idle_add(refresh)
+
+        fn.threading.Thread(target=work, daemon=True).start()
+
+    def on_install(_widget):
+        fn.log_subsection("Installing cachyos-pi-scan")
+        process = fn.launch_pacman_install_in_terminal("cachyos-pi-scan")
+
+        def wait():
+            if process is not None:
+                process.wait()
+            fn.invalidate_pkg_cache()
+            fn.GLib.idle_add(refresh)
+
+        fn.threading.Thread(target=wait, daemon=True).start()
+
+    switch.connect("notify::active", on_toggled)
+    btn_install.connect("clicked", on_install)
+    refresh()
+    self.refresh_aur_check = refresh
+
+    vboxstack1.append(title)
+    vboxstack1.append(hbox_switch)
+    vboxstack1.append(hbox_status)
 
 
 def gui(self, Gtk, vboxstack1, fn):
@@ -365,6 +458,7 @@ def gui(self, Gtk, vboxstack1, fn):
             fn.GLib.idle_add(lambda: fn.show_in_app_notification(self, _(success_msg)))
             fn.GLib.idle_add(refresh_aur_buttons)
             fn.GLib.idle_add(getattr(self, "refresh_software_aur_labels", lambda: None))
+            fn.GLib.idle_add(getattr(self, "refresh_aur_check", lambda: None))
 
         if fn.path.exists("/usr/bin/yay"):
             btn_aur_yay.set_label(_("Remove yay-git"))
@@ -442,6 +536,9 @@ def gui(self, Gtk, vboxstack1, fn):
     vboxstack1.append(hbox_aur_sep)
     vboxstack1.append(hbox_aur_title)
     vboxstack1.append(hbox_aur_buttons)
+
+    if aur_check.available():
+        _build_aur_check(self, Gtk, vboxstack1)
 
     # ── Arch repos frame ───────────────────────────────────────────────────
 

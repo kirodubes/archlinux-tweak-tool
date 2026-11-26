@@ -2,6 +2,26 @@
 
 ## 2026.11.26
 
+### Feature: AUR check switch on the Pacman page (Kiro / KiroTux)
+
+**What Changed.** kiro-system-files now has paru run `kiro-aur-check` before every AUR build: it shows the risky
+lines of a PKGBUILD (download-and-run, reading `~/.ssh`, unverified sources) and asks y/N on a dangerous one. It is
+on by default; the Pacman page gets an **AUR check** section under AUR Helper with a switch to turn it off (or back
+on), a status line ("a reading aid, not a guarantee"), and an Install button when the scanner `cachyos-pi-scan` is
+missing.
+
+**Technical Details.** `aur_check.py` calls `/usr/local/bin/kiro-paru-aur-check --status/--enable/--disable
+--file <conf>` (absolute path: pkexec's PATH has no `/usr/local/bin`) for `/etc/paru.conf` and the user's
+`~/.config/paru/paru.conf` — paru reads only one, the user's first, so the switch writes both and shows the user's
+(`effective_state`). The script keeps the user file's owner and mode. A paru.conf with someone else's
+`PreBuildCommand` is left alone and the switch goes insensitive. Shown only when `get_distro_label()` is Kiro /
+KiroTux and the script exists. Refreshed after paru is installed/removed from the same page. Tested on picard (dev
+copy via pkexec PATH): off → both lines commented, on → both back, owner/mode kept, no traceback. 10 new strings in
+13 languages; Pacman search synonyms gain "aur check", "pkgbuild", "malware", "paru"; 4 unit tests.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/aur_check.py` (new), `pacman_gui.py`, `search_synonyms.json`,
+`tests/test_parsers.py`, `search_index.json`, `po/*.po`, `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/*.mo`
+
 ### Feature: "Report a problem" on every Arch-based system
 
 **What Changed.** The Report a problem button was Kiro / KiroTux only — on Arch, EndeavourOS, CachyOS, Garuda,
