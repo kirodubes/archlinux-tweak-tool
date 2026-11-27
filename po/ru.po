@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 19:49+0100\n"
+"POT-Creation-Date: 2026-11-27 21:26+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -207,7 +207,7 @@ msgstr "Запустить/установить"
 #: usr/share/archlinux-tweak-tool/ai_gui.py:342
 #: usr/share/archlinux-tweak-tool/autostart.py:161
 #: usr/share/archlinux-tweak-tool/backup_gui.py:38
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:66
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:69
 #: usr/share/archlinux-tweak-tool/maintenance_gui.py:119
 #: usr/share/archlinux-tweak-tool/office_gui.py:34
 #: usr/share/archlinux-tweak-tool/packages_gui.py:253
@@ -1241,20 +1241,20 @@ msgstr ""
 "пользоваться этой страницей.</small>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:64
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:101
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:107
 #, python-brace-format
 msgid "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 msgstr "<b>{pkg}</b> <small>— {blurb}</small> — {state}"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:108
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
 #: usr/share/archlinux-tweak-tool/pkg_history_gui.py:47
 msgid "installed"
 msgstr "установлен"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:67
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:102
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:108
 #: usr/share/archlinux-tweak-tool/kernel_gui.py:613
 #: usr/share/archlinux-tweak-tool/locale_settings.py:348
 msgid "not installed"
@@ -1367,7 +1367,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>Инструменты для снимков (нет на ISO)</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:184
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2645,7 +2645,7 @@ msgid "Desktop - Wayland"
 msgstr "Рабочий стол - Wayland"
 
 #: usr/share/archlinux-tweak-tool/gui.py:480
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:154
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:164
 msgid "Hybrid graphics"
 msgstr "Гибридная графика"
 
@@ -2729,38 +2729,38 @@ msgstr "Нет страниц, соответствующих «{text}»"
 msgid "Search (Enter)"
 msgstr "Поиск (Enter)"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:176
+#: usr/share/archlinux-tweak-tool/hybrid.py:190
 #, python-brace-format
 msgid "{path} already exists (your own copy) — ATT leaves it alone"
 msgstr "{path} уже существует (это ваша копия) — ATT не будет её менять"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:188
+#: usr/share/archlinux-tweak-tool/hybrid.py:202
 #: usr/share/archlinux-tweak-tool/themes.py:305
 #: usr/share/archlinux-tweak-tool/themes.py:507
 #, python-brace-format
 msgid "Could not write {path}"
 msgstr "Не удалось записать {path}"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:191
+#: usr/share/archlinux-tweak-tool/hybrid.py:205
 #, python-brace-format
 msgid "Wrote {path}"
 msgstr "Записан файл {path}"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:224
+#: usr/share/archlinux-tweak-tool/hybrid.py:238
 #, python-brace-format
 msgid "Opening terminal to install {packages}..."
 msgstr "Открываем терминал для установки {packages}..."
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:256
+#: usr/share/archlinux-tweak-tool/hybrid.py:270
 #, python-brace-format
 msgid "Removed {path}"
 msgstr "Удалён файл {path}"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:257
+#: usr/share/archlinux-tweak-tool/hybrid.py:271
 msgid "Nothing removed"
 msgstr "Ничего не удалено"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:267
+#: usr/share/archlinux-tweak-tool/hybrid.py:281
 #, python-brace-format
 msgid ""
 "This deletes the launcher copy ATT wrote in\n"
@@ -2793,11 +2793,11 @@ msgstr[2] ""
 "Эти приложения снова будут запускаться на GPU по умолчанию и получать "
 "обновления вместе с пакетом. Ярлыки, созданные вами, не будут затронуты."
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:275
+#: usr/share/archlinux-tweak-tool/hybrid.py:289
 msgid "Remove all GPU overrides?"
 msgstr "Удалить все переопределения GPU?"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:281
+#: usr/share/archlinux-tweak-tool/hybrid.py:295
 #, python-brace-format
 msgid "Removed {count} override"
 msgid_plural "Removed {count} overrides"
@@ -2817,19 +2817,24 @@ msgstr "список GPU и пункт меню рабочего стола"
 msgid "other"
 msgstr "другое"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:48
-msgid "discrete — offload target"
-msgstr "дискретный — целевой GPU для запуска приложений"
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:49
+msgid "discrete — renders every app already"
+msgstr "дискретный — уже отрисовывает все приложения"
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:49
-msgid "drives the display"
-msgstr "управляет дисплеем"
-
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:49
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:52
 msgid "secondary"
 msgstr "вторичный"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:50
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:51
+msgid "discrete — offload target"
+msgstr "дискретный — целевой GPU для запуска приложений"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:52
+msgid "drives the display"
+msgstr "управляет дисплеем"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:53
 #, python-brace-format
 msgid ""
 "<b>{card}</b>  {vendor} · driver <b>{driver}</b> · {role}\n"
@@ -2838,20 +2843,20 @@ msgstr ""
 "<b>{card}</b>  {vendor} · драйвер <b>{driver}</b> · {role}\n"
 "<small>{name}</small>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:51
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:54
 msgid "none"
 msgstr "нет"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:60
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:63
 msgid "<i>No overrides yet.</i>"
 msgstr "<i>Переопределений пока нет.</i>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:63
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:66
 #, python-brace-format
 msgid "<b>{name}</b>  <small>{path}</small>"
 msgstr "<b>{name}</b>  <small>{path}</small>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:84
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:90
 #, python-brace-format
 msgid "Hybrid graphics detected — {count} GPU"
 msgid_plural "Hybrid graphics detected — {count} GPUs"
@@ -2859,25 +2864,25 @@ msgstr[0] "Обнаружена гибридная графика — {count} GP
 msgstr[1] "Обнаружена гибридная графика — {count} GPU"
 msgstr[2] "Обнаружена гибридная графика — {count} GPU"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:88
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:94
 msgid "--dev: page forced on with fewer than two GPUs"
 msgstr ""
 "--dev: принудительно показывать страницу, если обнаружено меньше двух GPU"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:104
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:110
 #, python-brace-format
 msgid "switcheroo-control service: {state}"
 msgstr "Служба switcheroo-control: {state}"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:105
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:111
 msgid "not running"
 msgstr "не запущена"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:105
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:111
 msgid "running"
 msgstr "запущена"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:114
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:120
 #, python-brace-format
 msgid ""
 "From a terminal or a launcher:   <tt><b>{prefix} &lt;app&gt;</b></tt>\n"
@@ -2888,14 +2893,24 @@ msgstr ""
 "Steam → игра → Свойства → Параметры запуска:   <tt><b>{prefix} %command%</"
 "b></tt>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:120
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:127
+#, python-brace-format
+msgid ""
+"<span foreground='{color}'>X already runs on the NVIDIA card here, so every "
+"app uses it: the commands and overrides on this page change nothing.</span>"
+msgstr ""
+"<span foreground='{color}'>Здесь X уже работает на видеокарте NVIDIA, "
+"поэтому её используют все приложения: команды и переопределения на этой "
+"странице ничего не меняют.</span>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:130
 msgid ""
 "<small>prime-run comes with <b>nvidia-prime</b> — install it below.</small>"
 msgstr ""
 "<small>prime-run входит в состав <b>nvidia-prime</b> — установите этот пакет "
 "с помощью кнопки ниже.</small>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:124
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:134
 msgid ""
 "<small>The discrete GPU does not use the proprietary NVIDIA driver, so "
 "Mesa's <b>DRI_PRIME=1</b> is used instead of prime-run.</small>"
@@ -2903,7 +2918,7 @@ msgstr ""
 "<small>На дискретном GPU используется не проприетарный драйвер NVIDIA, "
 "поэтому вместо prime-run применяется <b>DRI_PRIME=1</b> из Mesa.</small>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:136
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:146
 #, python-brace-format
 msgid ""
 "Not available — this machine has {count} graphics card; hybrid graphics "
@@ -2921,7 +2936,7 @@ msgstr[2] ""
 "Недоступно — для гибридной графики нужны две видеокарты, а на этом "
 "компьютере их {count}"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:168
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:178
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2933,7 +2948,7 @@ msgstr ""
 "более быстрая дискретная. По умолчанию приложения запускаются на "
 "энергосберегающей, если не выбрать дискретную."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:173
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2945,7 +2960,7 @@ msgstr ""
 "более быстрой дискретной видеокарте. Для работы страницы нужны <b>две "
 "видеокарты</b> — см. <b>Состояние</b> ниже."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:177
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
 msgid ""
 "\n"
 "\n"
@@ -2957,7 +2972,7 @@ msgstr ""
 "В меню приложений рабочего стола также есть пункт <b>Запустить с "
 "использованием дискретной графики</b> (правый щелчок)."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:179
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:189
 msgid ""
 "\n"
 "\n"
@@ -2969,11 +2984,11 @@ msgstr ""
 "В меню приложений рабочего стола нет пункта <b>Запустить с использованием "
 "дискретной графики</b> — используйте команды или переопределения ниже."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:192
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:202
 msgid "Install missing packages"
 msgstr "Установить недостающие пакеты"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:204
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
@@ -2981,15 +2996,15 @@ msgstr ""
 "Установите nvidia-prime и switcheroo-control в терминале, затем включите "
 "switcheroo-control"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:200
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:210
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>Запустить приложение на дискретном GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:205
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>Всегда запускать приложение на дискретном GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:207
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -3002,7 +3017,7 @@ msgstr ""
 "<span foreground='{color}'>Копия ярлыка не обновляется вместе с пакетом "
 "приложения</span> — удалите её, чтобы вернуться к исходному ярлыку."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:213
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -3017,15 +3032,15 @@ msgstr ""
 "сочетанием клавиш, обходит копию: её используют только меню приложений и "
 "ярлыки запуска."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
 msgid "Always use discrete GPU"
 msgstr "Всегда использовать дискретный GPU"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:232
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:242
 msgid "<b>Current overrides</b>"
 msgstr "<b>Текущие переопределения</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:235
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:245
 msgid "Remove all overrides"
 msgstr "Удалить все переопределения"
 

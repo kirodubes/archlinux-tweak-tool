@@ -80,6 +80,20 @@ def discrete_gpu(gpus):
     return (nvidia or candidates or gpus[1:])[0]
 
 
+def x_runs_on_nvidia():
+    """Return True when X's first provider is the proprietary NVIDIA driver, so every app already renders there."""
+    # boot_vga only says which GPU the BIOS started. A desktop with a screen on the motherboard port starts the iGPU,
+    # while X runs on the NVIDIA card (riker, 2026-11-27: PrimaryGPU); then offloading has nothing left to move.
+    if not os.environ.get("DISPLAY") or not shutil.which("xrandr"):
+        return False
+    try:
+        out = subprocess.run(["xrandr", "--listproviders"], capture_output=True, text=True, timeout=5).stdout
+    except (OSError, subprocess.SubprocessError):
+        return False
+    first = re.search(r"^Provider 0:.*name:(\S+)", out, re.MULTILINE)
+    return bool(first and first[1].startswith("NVIDIA"))
+
+
 def offload_prefix(gpu):
     """Return the command prefix that runs an app on this GPU."""
     # prime-run only sets NVIDIA-proprietary env vars; nouveau/amdgpu/i915 use Mesa's DRI_PRIME.

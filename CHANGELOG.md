@@ -2,6 +2,23 @@
 
 ## 2026.11.27
 
+### Hybrid graphics page: right roles when X runs on the NVIDIA card
+
+**What Changed.** On a desktop with a screen on the motherboard port, the BIOS starts the Intel iGPU, but X can still
+run on the NVIDIA card (riker: two screens on an RTX 2060, one on the motherboard HDMI, X kept on NVIDIA). The page
+picked the roles from the BIOS (`boot_vga`), so it called the Intel card "drives the display", the RTX 2060 the
+offload target, and suggested `prime-run`, while `glxinfo -B` already rendered on the RTX 2060. Now the NVIDIA card
+is shown as "discrete — renders every app already", the Intel card as secondary, and an orange note says the
+commands and overrides change nothing on this machine. Laptops (Intel first, NVIDIA as offload target) are unchanged.
+
+**Technical Details.** `hybrid.x_runs_on_nvidia()`: true when `xrandr --listproviders` lists an `NVIDIA*` provider
+first (riker: `NVIDIA-0`; a laptop shows `modesetting` first and `NVIDIA-G0` second). Only used together with a
+discrete GPU on the `nvidia` driver. Checked against riker's real provider list and a laptop, single-GPU and no-X
+sample. Two new units in all 13 catalogs (2095/2095).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid.py`, `hybrid_gui.py`, `po/*.po` (13),
+`po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo` (13), `CHANGELOG.md`
+
 ### Hybrid graphics page: what the override can and cannot move
 
 **What Changed.** The page now says, under "Always run an app on the discrete GPU", that with the NVIDIA driver the

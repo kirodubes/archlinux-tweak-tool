@@ -43,10 +43,13 @@ def _label(Gtk, markup, margin=20, selectable=False):
     return label
 
 
-def _gpu_line(gpu, discrete):
+def _gpu_line(gpu, discrete, discrete_is_default=False):
     vendor = {"intel": "Intel", "amd": "AMD", "nvidia": "NVIDIA"}.get(gpu["vendor"], _("other"))
-    role = _("discrete — offload target") if gpu is discrete else (
-        _("drives the display") if gpu["boot_vga"] else _("secondary"))
+    if discrete_is_default:
+        role = _("discrete — renders every app already") if gpu is discrete else _("secondary")
+    else:
+        role = _("discrete — offload target") if gpu is discrete else (
+            _("drives the display") if gpu["boot_vga"] else _("secondary"))
     return _("<b>{card}</b>  {vendor} · driver <b>{driver}</b> · {role}\n<small>{name}</small>").format(
         card=gpu["card"], vendor=vendor, driver=_escape(gpu["driver"] or _("none")), role=role,
         name=_escape(gpu["name"] or gpu["slot"]),
@@ -79,6 +82,9 @@ def refresh(self, fn):
     gpus = hybrid.list_gpus(with_names=True)
     discrete = hybrid.discrete_gpu(gpus)
     self.hybrid_prefix = hybrid.offload_prefix(discrete)
+    discrete_is_default = bool(discrete and discrete["driver"] == "nvidia" and hybrid.x_runs_on_nvidia())
+    if discrete_is_default:
+        fn.log_info("Hybrid graphics: X runs on the NVIDIA card, offloading changes nothing here")
 
     if self.hybrid_available and len(gpus) >= 2:
         detected = ngettext("Hybrid graphics detected — {count} GPU", "Hybrid graphics detected — {count} GPUs",
@@ -92,7 +98,7 @@ def refresh(self, fn):
 
     _clear(self.hybrid_gpu_box)
     for gpu in gpus:
-        self.hybrid_gpu_box.append(_label(Gtk, _gpu_line(gpu, discrete), margin=30))
+        self.hybrid_gpu_box.append(_label(Gtk, _gpu_line(gpu, discrete, discrete_is_default), margin=30))
 
     any_missing = False
     for pkg in hybrid.PACKAGES:
@@ -116,6 +122,10 @@ def refresh(self, fn):
     ).format(prefix=_escape(prefix)))
     if discrete is None:
         self.hybrid_prefix_note.set_text("")
+    elif discrete_is_default:
+        self.hybrid_prefix_note.set_markup(_(
+            "<span foreground='{color}'>X already runs on the NVIDIA card here, so every app uses it: the commands "
+            "and overrides on this page change nothing.</span>").format(color=_ORANGE))
     elif prefix == "prime-run" and not fn.check_package_installed("nvidia-prime"):
         self.hybrid_prefix_note.set_markup(_("<small>prime-run comes with <b>nvidia-prime</b> — install it below."
                                              "</small>"))
