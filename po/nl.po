@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 21:26+0100\n"
+"POT-Creation-Date: 2026-11-27 21:28+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1370,7 +1370,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>Snapshottools (niet op de ISO)</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:201
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2933,7 +2933,11 @@ msgstr[1] ""
 "Niet beschikbaar — deze computer heeft {count} grafische kaarten; voor een "
 "hybride GPU-configuratie zijn twee kaarten nodig"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:178
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:171
+msgid "BETA"
+msgstr "BÈTA"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:182
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2945,7 +2949,7 @@ msgstr ""
 "snellere discrete kaart. Apps starten op de energiezuinige kaart, tenzij je "
 "de discrete kaart kiest."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2957,7 +2961,7 @@ msgstr ""
 "snellere discrete kaart. Deze pagina vereist <b>twee grafische kaarten</b> — "
 "zie <b>Status</b> hieronder."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:191
 msgid ""
 "\n"
 "\n"
@@ -2969,7 +2973,7 @@ msgstr ""
 "Je bureaublad biedt ook <b>Starten met discrete grafische kaart</b> in het "
 "appmenu (rechtermuisknop)."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:189
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
 msgid ""
 "\n"
 "\n"
@@ -2981,11 +2985,22 @@ msgstr ""
 "Je bureaublad heeft geen menuoptie <b>Starten met discrete grafische kaart</"
 "b> — gebruik de opdrachten of de overrides hieronder."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:202
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
+#, python-brace-format
+msgid ""
+"<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both "
+"Intel + NVIDIA. On other hardware, AMD especially, the result can differ.</"
+"span>"
+msgstr ""
+"<span foreground='{color}'><b>Bèta:</b> tot nu toe getest op twee computers, "
+"allebei Intel + NVIDIA. Op andere hardware, vooral AMD, kan het resultaat "
+"anders zijn.</span>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:209
 msgid "Install missing packages"
 msgstr "Ontbrekende pakketten installeren"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:204
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:211
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
@@ -2993,15 +3008,15 @@ msgstr ""
 "Installeer nvidia-prime en switcheroo-control in een terminal en schakel "
 "daarna switcheroo-control in"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:210
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>Een app starten op de discrete GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:222
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>Een app altijd starten op de discrete GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:224
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -3014,7 +3029,7 @@ msgstr ""
 "<span foreground='{color}'>Een kopie ontvangt geen pakketupdates voor die "
 "app</span> — verwijder deze om terug te gaan naar de oorspronkelijke starter."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -3028,15 +3043,15 @@ msgstr ""
 "die je met een sneltoets start,\n"
 "slaat de kopie over: alleen het app-menu en starters gebruiken ze."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:243
 msgid "Always use discrete GPU"
 msgstr "Altijd de discrete GPU gebruiken"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:242
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
 msgid "<b>Current overrides</b>"
 msgstr "<b>Huidige overrides</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:245
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:252
 msgid "Remove all overrides"
 msgstr "Alle overrides verwijderen"
 

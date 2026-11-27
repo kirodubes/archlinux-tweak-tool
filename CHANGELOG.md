@@ -2,6 +2,19 @@
 
 ## 2026.11.27
 
+### Hybrid graphics page marked BETA
+
+**What Changed.** Erik: "I would add BETA somewhere on that page". An orange **BETA** next to the page title and one
+orange line under the intro: tested on two machines so far, both Intel + NVIDIA; on other hardware, AMD especially,
+the result can differ. The sidebar name stays "Hybrid graphics" (the page search reads it).
+
+**Technical Details.** The first beta badge in ATT: a `Gtk.Label` with `_ORANGE` markup appended to `hbox_title`,
+plus a note label after `intro_label`. Two new units in all 13 catalogs (2097/2097); "BETA" uses each language's own
+spelling where it has one (BÈTA, BÊTA, БЕТА, BÉTA, ベータ, 测试版). Remove both once AMD hardware is tested.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid_gui.py`, `po/*.po` (13), `po/archlinux-tweak-tool.pot`,
+`usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo` (13), `CHANGELOG.md`
+
 ### Hybrid graphics page: right roles when X runs on the NVIDIA card
 
 **What Changed.** On a desktop with a screen on the motherboard port, the BIOS starts the Intel iGPU, but X can still

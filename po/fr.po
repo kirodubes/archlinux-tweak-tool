@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 21:26+0100\n"
+"POT-Creation-Date: 2026-11-27 21:28+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1369,7 +1369,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>Outils d’instantanés (pas sur l’ISO)</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:201
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2940,7 +2940,11 @@ msgstr[1] ""
 "Indisponible — cette machine dispose de {count} cartes graphiques ; une "
 "configuration graphique hybride nécessite deux cartes"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:178
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:171
+msgid "BETA"
+msgstr "BÊTA"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:182
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2952,7 +2956,7 @@ msgstr ""
 "carte dédiée plus rapide. Les applications démarrent sur la carte économe en "
 "énergie, sauf si vous leur demandez d’utiliser la carte dédiée."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2965,7 +2969,7 @@ msgstr ""
 "plus rapide. Cette page nécessite <b>deux cartes graphiques</b> — voir "
 "<b>État</b> ci-dessous."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:191
 msgid ""
 "\n"
 "\n"
@@ -2977,7 +2981,7 @@ msgstr ""
 "Votre environnement de bureau propose aussi l’entrée de menu <b>Lancer sur "
 "le GPU dédié</b> dans le menu des applications (clic droit)."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:189
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
 msgid ""
 "\n"
 "\n"
@@ -2989,11 +2993,22 @@ msgstr ""
 "Votre environnement de bureau ne propose pas l’entrée de menu <b>Lancer sur "
 "le GPU dédié</b> — utilisez les commandes ou les surcharges ci-dessous."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:202
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
+#, python-brace-format
+msgid ""
+"<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both "
+"Intel + NVIDIA. On other hardware, AMD especially, the result can differ.</"
+"span>"
+msgstr ""
+"<span foreground='{color}'><b>Bêta:</b> testé pour l’instant sur deux "
+"machines, toutes deux Intel + NVIDIA. Sur un autre matériel, surtout AMD, le "
+"résultat peut différer.</span>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:209
 msgid "Install missing packages"
 msgstr "Installer les paquets manquants"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:204
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:211
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
@@ -3001,15 +3016,15 @@ msgstr ""
 "Installez nvidia-prime et switcheroo-control dans un terminal, puis activez "
 "switcheroo-control"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:210
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>Exécuter une application sur le GPU dédié</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:222
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>Toujours exécuter une application sur le GPU dédié</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:224
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -3022,7 +3037,7 @@ msgstr ""
 "<span foreground='{color}'>La copie ne suit pas les mises à jour du paquet "
 "de cette application</span> — supprimez-la pour revenir au lanceur d’origine."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -3037,15 +3052,15 @@ msgstr ""
 "clavier ignore la copie : seuls le menu des applications et les lanceurs "
 "l’utilisent."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:243
 msgid "Always use discrete GPU"
 msgstr "Toujours utiliser le GPU dédié"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:242
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
 msgid "<b>Current overrides</b>"
 msgstr "<b>Surcharges actuelles</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:245
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:252
 msgid "Remove all overrides"
 msgstr "Supprimer toutes les surcharges"
 

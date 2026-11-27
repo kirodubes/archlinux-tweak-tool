@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 21:26+0100\n"
+"POT-Creation-Date: 2026-11-27 21:28+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1367,7 +1367,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>Narzędzia do migawek (nie ma ich na ISO)</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:194
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:201
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2937,7 +2937,11 @@ msgstr[2] ""
 "Niedostępne — ten komputer ma {count} kart graficznych; grafika hybrydowa "
 "wymaga dwóch"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:178
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:171
+msgid "BETA"
+msgstr "BETA"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:182
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2949,7 +2953,7 @@ msgstr ""
 "szybszą, dyskretną. Aplikacje uruchamiają się na energooszczędnej karcie, "
 "chyba że wybierzesz dyskretną."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2961,7 +2965,7 @@ msgstr ""
 "szybszej, dyskretnej karcie. Ta strona wymaga <b>dwóch kart graficznych</b> "
 "— zobacz <b>Status</b> poniżej."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:191
 msgid ""
 "\n"
 "\n"
@@ -2973,7 +2977,7 @@ msgstr ""
 "Twój pulpit oferuje też opcję <b>Uruchom przy użyciu dyskretnej karty "
 "graficznej</b> w menu aplikacji (kliknij prawym przyciskiem)."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:189
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
 msgid ""
 "\n"
 "\n"
@@ -2985,11 +2989,22 @@ msgstr ""
 "Twój pulpit nie ma pozycji <b>Uruchom przy użyciu dyskretnej karty "
 "graficznej</b> w menu — użyj poniższych poleceń lub nadpisań."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:202
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
+#, python-brace-format
+msgid ""
+"<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both "
+"Intel + NVIDIA. On other hardware, AMD especially, the result can differ.</"
+"span>"
+msgstr ""
+"<span foreground='{color}'><b>Beta:</b> na razie przetestowano na dwóch "
+"komputerach, oba Intel + NVIDIA. Na innym sprzęcie, zwłaszcza AMD, wynik "
+"może być inny.</span>"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:209
 msgid "Install missing packages"
 msgstr "Zainstaluj brakujące pakiety"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:204
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:211
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
@@ -2997,15 +3012,15 @@ msgstr ""
 "Zainstaluj nvidia-prime i switcheroo-control w terminalu, a następnie włącz "
 "switcheroo-control"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:210
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>Uruchom aplikację na dyskretnej karcie GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:222
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>Zawsze uruchamiaj aplikację na dyskretnej karcie GPU</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:224
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -3018,7 +3033,7 @@ msgstr ""
 "<span foreground='{color}'>Kopia nie jest aktualizowana wraz z pakietem tej "
 "aplikacji</span> — usuń ją, aby wrócić do oryginalnego pliku uruchamiającego."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -3032,15 +3047,15 @@ msgstr ""
 "Aplikacja uruchomiona skrótem klawiszowym\n"
 "pomija kopię: używają jej tylko menu aplikacji i programy uruchamiające."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:243
 msgid "Always use discrete GPU"
 msgstr "Zawsze używaj dyskretnej karty GPU"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:242
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
 msgid "<b>Current overrides</b>"
 msgstr "<b>Obecne nadpisania</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:245
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:252
 msgid "Remove all overrides"
 msgstr "Usuń wszystkie nadpisania"
 

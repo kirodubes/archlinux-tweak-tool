@@ -166,6 +166,10 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
     title_label.set_margin_start(10)
     title_label.set_margin_end(10)
     hbox_title.append(title_label)
+    # Tested on two Intel + NVIDIA machines only (msi, riker; 2026-11-27); remove the badge once AMD is covered.
+    beta_label = Gtk.Label()
+    beta_label.set_markup(f"<span foreground='{_ORANGE}'><b>{_escape(_('BETA'))}</b></span>")
+    hbox_title.append(beta_label)
 
     hbox_sep = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hseparator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
@@ -189,6 +193,9 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
         intro += _("\n\nYour desktop has no <b>Launch using Discrete Graphics</b> menu entry — use the commands "
                    "or the overrides below.")
     intro_label = _label(Gtk, intro)
+    beta_note = _label(Gtk, _(
+        "<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both Intel + NVIDIA. On other "
+        "hardware, AMD especially, the result can differ.</span>").format(color=_ORANGE))
 
     # ── Status ───────────────────────────────────────────────────────
     status_header = _label(Gtk, _("<b>Status</b>"), margin=10)
@@ -248,7 +255,7 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
     hbox_remove_all.append(self.btn_hybrid_remove_all)
 
     for widget in (
-        hbox_title, hbox_sep, intro_label,
+        hbox_title, hbox_sep, intro_label, beta_note,
         status_header, self.hybrid_summary_label, self.hybrid_gpu_box,
         *self.hybrid_pkg_labels.values(), self.hybrid_service_label, self.hybrid_switcheroo_label, hbox_install,
         commands_header, self.hybrid_commands_label, self.hybrid_prefix_note,
