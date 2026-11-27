@@ -1,5 +1,18 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.27
+
+### Nemesis package list: blueberry and gnome-bluetooth moved to chaotic-aur
+
+**What Changed.** chaotic-aur accepted #4638 and now builds blueberry and gnome-bluetooth, so both left nemesis_repo
+(482 → 480). They are dropped from ATT's nemesis package list. The Services page still installs blueberry by name,
+which now resolves from chaotic-aur.
+
+**Technical Details.** Two lines removed by hand; the remaining list was diffed against the live `nemesis_repo.db` and
+matches it exactly (no other drift).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/data/nemesis_packages.txt`
+
 ## 2026.11.26
 
 ### Maintenance → Repair: note on launchers changed by hardcode-fixer

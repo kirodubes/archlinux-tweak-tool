@@ -2,7 +2,6 @@ alacritty-tweak-tool
 arc-gtk-theme
 archlinux-logout
 archlinux-tweak-tool
-blueberry
 cachyos-keyring
 cachyos-mirrorlist
 cachyos-pi-scan
@@ -79,7 +78,6 @@ chaotic-mirrorlist
 fastfetch-tweak-tool
 fish-tweak-tool
 flameshot-git
-gnome-bluetooth
 hardcode-fixer-git
 hypr-dynamic-cursors
 hyprglass
