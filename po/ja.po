@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 16:14+0100\n"
+"POT-Creation-Date: 2026-11-27 19:49+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -2979,15 +2979,29 @@ msgstr ""
 "<span foreground='{color}'>コピーにはアプリのパッケージ更新が反映されません</"
 "span> — 元のランチャーに戻すにはコピーを削除してください。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:220
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:213
+msgid ""
+"With the NVIDIA driver this works for games and other apps that use GLX or "
+"Vulkan. On X11, browsers,\n"
+"OBS and other apps that draw with EGL stay on the power-saving card. An app "
+"started from a keybinding\n"
+"skips the copy: only the app menu and launchers use it."
+msgstr ""
+"NVIDIA ドライバーでは、GLX または Vulkan を使うゲームやその他のアプリで機能し"
+"ます。X11 では、ブラウザーや\n"
+"OBS など EGL で描画するアプリは省電力カードのままです。キーボードショートカッ"
+"トで起動したアプリは\n"
+"コピーを使いません。コピーを使うのはアプリメニューとランチャーだけです。"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
 msgid "Always use discrete GPU"
 msgstr "常にディスクリート GPU を使用"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:232
 msgid "<b>Current overrides</b>"
 msgstr "<b>現在のオーバーライド</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:229
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:235
 msgid "Remove all overrides"
 msgstr "オーバーライドをすべて削除"
 
@@ -6835,7 +6849,11 @@ msgid ""
 "launchers to icon names, so your icon theme can show them. Reinstalling "
 "restores the original launcher, and hardcode-fixer only changes it again if "
 "you run it."
-msgstr "おそらく問題ありません: Kiro では hardcode-fixer がランチャー内の固定アイコンパスをアイコン名に書き換え、アイコンテーマで表示できるようにします。再インストールすると元のランチャーに戻り、hardcode-fixer を実行しない限り再び変更されることはありません。"
+msgstr ""
+"おそらく問題ありません: Kiro では hardcode-fixer がランチャー内の固定アイコン"
+"パスをアイコン名に書き換え、アイコンテーマで表示できるようにします。再インス"
+"トールすると元のランチャーに戻り、hardcode-fixer を実行しない限り再び変更され"
+"ることはありません。"
 
 #: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:78
 #, python-brace-format

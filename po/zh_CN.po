@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 16:14+0100\n"
+"POT-Creation-Date: 2026-11-27 19:49+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -2873,15 +2873,28 @@ msgstr ""
 "<span foreground='{color}'>副本不会随该应用的软件包更新</span> — 移除副本即可"
 "恢复使用原始启动器。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:220
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:213
+msgid ""
+"With the NVIDIA driver this works for games and other apps that use GLX or "
+"Vulkan. On X11, browsers,\n"
+"OBS and other apps that draw with EGL stay on the power-saving card. An app "
+"started from a keybinding\n"
+"skips the copy: only the app menu and launchers use it."
+msgstr ""
+"使用 NVIDIA 驱动时，这适用于使用 GLX 或 Vulkan 的游戏和其他应用。在 X11 上，"
+"浏览器、\n"
+"OBS 以及其他使用 EGL 绘图的应用仍会使用省电显卡。通过快捷键启动的应用\n"
+"不会使用这份副本：只有应用菜单和启动器会使用它。"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
 msgid "Always use discrete GPU"
 msgstr "始终使用独立显卡"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:232
 msgid "<b>Current overrides</b>"
 msgstr "<b>当前覆盖项</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:229
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:235
 msgid "Remove all overrides"
 msgstr "移除所有覆盖项"
 
@@ -6652,7 +6665,10 @@ msgid ""
 "launchers to icon names, so your icon theme can show them. Reinstalling "
 "restores the original launcher, and hardcode-fixer only changes it again if "
 "you run it."
-msgstr "可能无害：在 Kiro 上，hardcode-fixer 会把启动器中的固定图标路径改写为图标名称，以便图标主题能够显示它们。重新安装会恢复原始启动器，只有再次运行 hardcode-fixer 时它才会被重新修改。"
+msgstr ""
+"可能无害：在 Kiro 上，hardcode-fixer 会把启动器中的固定图标路径改写为图标名"
+"称，以便图标主题能够显示它们。重新安装会恢复原始启动器，只有再次运行 "
+"hardcode-fixer 时它才会被重新修改。"
 
 #: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:78
 #, python-brace-format

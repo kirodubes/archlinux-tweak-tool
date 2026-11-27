@@ -2,6 +2,24 @@
 
 ## 2026.11.27
 
+### Hybrid graphics page: what the override can and cannot move
+
+**What Changed.** The page now says, under "Always run an app on the discrete GPU", that with the NVIDIA driver the
+override works for games and other GLX or Vulkan apps, that browsers, OBS and other apps that draw with EGL stay on
+the power-saving card on X11, and that an app started from a keybinding skips the copy. Found in the first hardware
+test of the page (open since 2026-11-03): on msi (Intel UHD 630 + GTX 1050 Ti, nvidia-580xx) and riker (Intel HD
+630 + RTX 2060, nvidia-open 620), `prime-run` put `glxinfo` and `vkcube` on NVIDIA, but `eglinfo -p x11`, OBS,
+Firefox and Chromium stayed on Mesa/Intel. Everything else passed on both boxes: both GPUs listed with the right
+target and prefix, Install missing packages, overrides owned by the user, Remove all removing only ATT's copies.
+
+**Technical Details.** A new label (`overrides_limits`) below the existing intro instead of a longer intro string,
+so the 13 existing translations of the intro stay valid; one new unit, translated into all 13 catalogs through
+`msgmerge --compendium` (2093/2093 each). The NVIDIA-only wording is deliberate: Mesa's `DRI_PRIME` offload
+(nouveau, amdgpu) does move EGL apps.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid_gui.py`, `po/*.po` (13), `po/archlinux-tweak-tool.pot`,
+`usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo` (13), `CHANGELOG.md`
+
 ### Nemesis package list: blueberry and gnome-bluetooth moved to chaotic-aur
 
 **What Changed.** chaotic-aur accepted #4638 and now builds blueberry and gnome-bluetooth, so both left nemesis_repo

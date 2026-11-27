@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 16:15+0100\n"
+"POT-Creation-Date: 2026-11-27 19:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2743,15 +2743,24 @@ msgid ""
 "app</span> — remove it to go back to the original launcher."
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:220
-msgid "Always use discrete GPU"
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:213
+msgid ""
+"With the NVIDIA driver this works for games and other apps that use GLX or "
+"Vulkan. On X11, browsers,\n"
+"OBS and other apps that draw with EGL stay on the power-saving card. An app "
+"started from a keybinding\n"
+"skips the copy: only the app menu and launchers use it."
 msgstr ""
 
 #: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+msgid "Always use discrete GPU"
+msgstr ""
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:232
 msgid "<b>Current overrides</b>"
 msgstr ""
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:229
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:235
 msgid "Remove all overrides"
 msgstr ""
 

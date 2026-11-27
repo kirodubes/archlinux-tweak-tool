@@ -208,6 +208,12 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
         "<span foreground='{color}'>A copy does not follow package updates of that app</span> — remove it to "
         "go back to the original launcher."
     ).format(color=_ORANGE))
+    # Tested 2026-11-27 (msi 580xx, riker nvidia-open): prime-run moves GLX and Vulkan, but EGL on X11 stays on Mesa.
+    overrides_limits = _label(Gtk, _(
+        "With the NVIDIA driver this works for games and other apps that use GLX or Vulkan. On X11, browsers,\n"
+        "OBS and other apps that draw with EGL stay on the power-saving card. An app started from a keybinding\n"
+        "skips the copy: only the app menu and launchers use it."
+    ))
 
     self.hybrid_apps = hybrid.list_system_apps()
     hbox_add = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
@@ -236,7 +242,7 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
         status_header, self.hybrid_summary_label, self.hybrid_gpu_box,
         *self.hybrid_pkg_labels.values(), self.hybrid_service_label, self.hybrid_switcheroo_label, hbox_install,
         commands_header, self.hybrid_commands_label, self.hybrid_prefix_note,
-        overrides_header, overrides_intro, hbox_add, current_header, self.hybrid_overrides_box, hbox_remove_all,
+        overrides_header, overrides_intro, overrides_limits, hbox_add, current_header, self.hybrid_overrides_box, hbox_remove_all,
     ):
         vboxstack_hybrid.append(widget)
 

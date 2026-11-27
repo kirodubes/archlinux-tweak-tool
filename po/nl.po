@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 16:14+0100\n"
+"POT-Creation-Date: 2026-11-27 19:49+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -2999,15 +2999,29 @@ msgstr ""
 "<span foreground='{color}'>Een kopie ontvangt geen pakketupdates voor die "
 "app</span> — verwijder deze om terug te gaan naar de oorspronkelijke starter."
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:220
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:213
+msgid ""
+"With the NVIDIA driver this works for games and other apps that use GLX or "
+"Vulkan. On X11, browsers,\n"
+"OBS and other apps that draw with EGL stay on the power-saving card. An app "
+"started from a keybinding\n"
+"skips the copy: only the app menu and launchers use it."
+msgstr ""
+"Met de NVIDIA-driver werkt dit voor games en andere apps die GLX of Vulkan "
+"gebruiken. Op X11 blijven browsers,\n"
+"OBS en andere apps die met EGL tekenen op de energiezuinige kaart. Een app "
+"die je met een sneltoets start,\n"
+"slaat de kopie over: alleen het app-menu en starters gebruiken ze."
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
 msgid "Always use discrete GPU"
 msgstr "Altijd de discrete GPU gebruiken"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:226
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:232
 msgid "<b>Current overrides</b>"
 msgstr "<b>Huidige overrides</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:229
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:235
 msgid "Remove all overrides"
 msgstr "Alle overrides verwijderen"
 
@@ -6868,7 +6882,11 @@ msgid ""
 "launchers to icon names, so your icon theme can show them. Reinstalling "
 "restores the original launcher, and hardcode-fixer only changes it again if "
 "you run it."
-msgstr "Waarschijnlijk onschuldig: op Kiro herschrijft hardcode-fixer vaste pictogrampaden in starters naar pictogramnamen, zodat je pictogramthema ze kan tonen. Herinstalleren zet de oorspronkelijke starter terug, en hardcode-fixer verandert hem pas opnieuw als je het uitvoert."
+msgstr ""
+"Waarschijnlijk onschuldig: op Kiro herschrijft hardcode-fixer vaste "
+"pictogrampaden in starters naar pictogramnamen, zodat je pictogramthema ze "
+"kan tonen. Herinstalleren zet de oorspronkelijke starter terug, en hardcode-"
+"fixer verandert hem pas opnieuw als je het uitvoert."
 
 #: usr/share/archlinux-tweak-tool/pkg_repair_gui.py:78
 #, python-brace-format
