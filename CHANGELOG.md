@@ -15,6 +15,11 @@ checking. The intro gets its own sentence when the discrete GPU is on the `nvidi
 `hybrid.x_runs_on_nvidia()` is true. One new unit in all 13 catalogs (2098/2098). On the msi in the morning the
 service only looked started because its enable link was left from an earlier install (`pacman -R` keeps it).
 
+A **Start the service** button (next to Install missing packages, shown only when switcheroo-control is installed
+but not running) runs `systemctl enable --now` in a daemon thread and refreshes the page. Erik on riker: "the service
+is not launched but I can not enable or disable it": with both packages installed the install button is greyed out,
+so there was no way to start it from the page. Four new units, 2102/2102 in all 13 catalogs.
+
 **Files Modified.** `usr/share/archlinux-tweak-tool/hybrid.py`, `hybrid_gui.py`, `po/*.po` (13),
 `po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo` (13), `CHANGELOG.md`
 

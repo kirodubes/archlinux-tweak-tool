@@ -114,6 +114,8 @@ def refresh(self, fn):
         f"<tt><small>{_escape(switcheroo)}</small></tt>" if switcheroo else "")
     self.hybrid_switcheroo_label.set_visible(bool(switcheroo))
     self.btn_hybrid_install.set_sensitive(self.hybrid_available and any_missing)
+    self.btn_hybrid_service.set_visible(
+        self.hybrid_available and fn.check_package_installed(hybrid.SWITCHEROO_SERVICE) and not service_ok)
 
     prefix = self.hybrid_prefix
     self.hybrid_commands_label.set_markup(_(
@@ -218,6 +220,11 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
     self.btn_hybrid_install.connect("clicked", functools.partial(hybrid.on_click_install, self))
     self.btn_hybrid_install.set_margin_start(20)
     hbox_install.append(self.btn_hybrid_install)
+    # Shown only when switcheroo-control is installed but stopped: the install button has nothing left to do then.
+    self.btn_hybrid_service = Gtk.Button(label=_("Start the service"))
+    self.btn_hybrid_service.set_tooltip_text(_("Enable switcheroo-control and start it now (systemctl enable --now)"))
+    self.btn_hybrid_service.connect("clicked", functools.partial(hybrid.on_click_enable_service, self))
+    hbox_install.append(self.btn_hybrid_service)
 
     # ── Run once on the discrete GPU ─────────────────────────────────
     commands_header = _label(Gtk, _("<b>Run an app on the discrete GPU</b>"), margin=10)

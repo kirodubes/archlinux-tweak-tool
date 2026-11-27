@@ -254,6 +254,26 @@ def on_click_install(self, _widget):
     fn.threading.Thread(target=wait_and_refresh, daemon=True).start()
 
 
+def on_click_enable_service(self, _widget):
+    """Enable switcheroo-control and start it now, then refresh the page."""
+    fn.log_subsection(f"Enabling {SWITCHEROO_SERVICE}.service")
+    self.btn_hybrid_service.set_sensitive(False)
+
+    def enable():
+        result = subprocess.run(["systemctl", "enable", "--now", SWITCHEROO_SERVICE + ".service"],
+                                capture_output=True, text=True)
+        if result.returncode == 0:
+            fn.log_success(f"{SWITCHEROO_SERVICE}.service enabled and started")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("switcheroo-control is running"))
+        else:
+            fn.log_error(f"systemctl enable --now {SWITCHEROO_SERVICE} failed: {result.stderr.strip()}")
+            fn.GLib.idle_add(fn.show_in_app_notification, self, _("Could not start switcheroo-control — see the log"))
+        fn.GLib.idle_add(self.btn_hybrid_service.set_sensitive, True)
+        fn.GLib.idle_add(_refresh_page, self)
+
+    fn.threading.Thread(target=enable, daemon=True).start()
+
+
 def on_click_add_override(self, _widget):
     """Write an override for the app selected in the dropdown."""
     index = self.hybrid_app_dropdown.get_selected()
