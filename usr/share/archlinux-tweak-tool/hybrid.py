@@ -241,6 +241,9 @@ def on_click_install(self, _widget):
     def wait_and_refresh():
         if process is not None:
             process.wait()
+        # check_package_installed caches; without this it keeps the "not installed" read before the install, the
+        # service is never enabled, and the page goes on saying "not running" (riker, 2026-11-27)
+        fn.invalidate_pkg_cache()
         if fn.check_package_installed(SWITCHEROO_SERVICE):
             subprocess.run(["systemctl", "enable", "--now", SWITCHEROO_SERVICE + ".service"],
                            capture_output=True, text=True)

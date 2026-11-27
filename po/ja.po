@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 21:28+0100\n"
+"POT-Creation-Date: 2026-11-27 21:54+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1362,7 +1362,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>スナップショットツール（ISO には含まれません）</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:201
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:207
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2751,16 +2751,16 @@ msgstr "{path} に書き込みました"
 msgid "Opening terminal to install {packages}..."
 msgstr "パッケージ {packages} をインストールするため、端末を開いています..."
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:270
+#: usr/share/archlinux-tweak-tool/hybrid.py:273
 #, python-brace-format
 msgid "Removed {path}"
 msgstr "{path} を削除しました"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:271
+#: usr/share/archlinux-tweak-tool/hybrid.py:274
 msgid "Nothing removed"
 msgstr "削除するものはありません"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:281
+#: usr/share/archlinux-tweak-tool/hybrid.py:284
 #, python-brace-format
 msgid ""
 "This deletes the launcher copy ATT wrote in\n"
@@ -2781,11 +2781,11 @@ msgstr[0] ""
 "対象のアプリは再びデフォルトの GPU で起動し、パッケージの更新も反映されます。"
 "自分で作成したランチャーは削除されません。"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:289
+#: usr/share/archlinux-tweak-tool/hybrid.py:292
 msgid "Remove all GPU overrides?"
 msgstr "GPU のオーバーライドをすべて削除しますか？"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:295
+#: usr/share/archlinux-tweak-tool/hybrid.py:298
 #, python-brace-format
 msgid "Removed {count} override"
 msgid_plural "Removed {count} overrides"
@@ -2917,7 +2917,15 @@ msgstr[0] ""
 msgid "BETA"
 msgstr "ベータ"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:182
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
+msgid ""
+"This machine has <b>two graphics cards</b>, and the desktop already runs on "
+"the faster NVIDIA card:\n"
+"every app uses it. The other card only shows a picture on the screens "
+"connected to it."
+msgstr "このマシンには<b>グラフィックスカードが 2 基</b>あり、デスクトップはすでに高速な NVIDIA カードで動作しています。\nすべてのアプリがそれを使います。もう一方のカードは、接続された画面に映像を表示するだけです。"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:188
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2929,7 +2937,7 @@ msgstr ""
 "より高速なディスクリートカードも搭載されています。アプリはディスクリートカー"
 "ドを指定しない限り、省電力カードで起動します。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2941,7 +2949,7 @@ msgstr ""
 "より高速なディスクリートカードで実行できます。このページには<b>グラフィックス"
 "カードが 2 基</b>必要です — 下の<b>状態</b>を確認してください。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:191
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
 msgid ""
 "\n"
 "\n"
@@ -2953,7 +2961,7 @@ msgstr ""
 "デスクトップのアプリメニュー（右クリック）にも <b>ディスクリートグラフィック"
 "スで起動</b>があります。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:199
 msgid ""
 "\n"
 "\n"
@@ -2965,7 +2973,7 @@ msgstr ""
 "デスクトップに <b>ディスクリートグラフィックスで起動</b>メニュー項目がありま"
 "せん — 下のコマンドかオーバーライドを使ってください。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:203
 #, python-brace-format
 msgid ""
 "<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both "
@@ -2976,11 +2984,11 @@ msgstr ""
 "NVIDIA）でテストしました。ほかのハードウェア、特に AMD では結果が異なる場合が"
 "あります。</span>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:209
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
 msgid "Install missing packages"
 msgstr "不足しているパッケージをインストール"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:211
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
@@ -2988,15 +2996,15 @@ msgstr ""
 "端末で nvidia-prime と switcheroo-control をインストールし、switcheroo-"
 "control を有効にしてください"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>アプリをディスクリート GPU で実行</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:222
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:228
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>アプリを常にディスクリート GPU で実行</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:224
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -3009,7 +3017,7 @@ msgstr ""
 "<span foreground='{color}'>コピーにはアプリのパッケージ更新が反映されません</"
 "span> — 元のランチャーに戻すにはコピーを削除してください。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -3023,15 +3031,15 @@ msgstr ""
 "トで起動したアプリは\n"
 "コピーを使いません。コピーを使うのはアプリメニューとランチャーだけです。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:243
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
 msgid "Always use discrete GPU"
 msgstr "常にディスクリート GPU を使用"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:255
 msgid "<b>Current overrides</b>"
 msgstr "<b>現在のオーバーライド</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:252
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:258
 msgid "Remove all overrides"
 msgstr "オーバーライドをすべて削除"
 

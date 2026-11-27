@@ -2,6 +2,22 @@
 
 ## 2026.11.27
 
+### Hybrid graphics page: switcheroo-control really starts, and the intro fits riker
+
+**What Changed.** Tested on riker with 26.11-44: "Install missing packages" installed nvidia-prime and
+switcheroo-control, but the service stayed "not running". The session log shows "install finished" without
+"Enabled switcheroo-control.service": `fn.check_package_installed()` caches, and still returned the "not installed"
+it read before the install, so the enable step was skipped. Also, when X runs on the NVIDIA card the intro still said
+"a power-saving one that drives the screen … apps start on the power-saving card", the opposite of the new note.
+
+**Technical Details.** `wait_and_refresh()` calls `fn.invalidate_pkg_cache()` after the terminal closes, before
+checking. The intro gets its own sentence when the discrete GPU is on the `nvidia` driver and
+`hybrid.x_runs_on_nvidia()` is true. One new unit in all 13 catalogs (2098/2098). On the msi in the morning the
+service only looked started because its enable link was left from an earlier install (`pacman -R` keeps it).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid.py`, `hybrid_gui.py`, `po/*.po` (13),
+`po/archlinux-tweak-tool.pot`, `usr/share/locale/*/LC_MESSAGES/archlinux-tweak-tool.mo` (13), `CHANGELOG.md`
+
 ### Hybrid graphics page marked BETA
 
 **What Changed.** Erik: "I would add BETA somewhere on that page". An orange **BETA** next to the page title and one

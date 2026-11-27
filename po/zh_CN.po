@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: archlinux-tweak-tool\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 21:28+0100\n"
+"POT-Creation-Date: 2026-11-27 21:54+0100\n"
 "PO-Revision-Date: 2026-11-01 08:26+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Kiro translations\n"
@@ -1320,7 +1320,7 @@ msgid "<b>Snapshot tools (not on the ISO)</b>"
 msgstr "<b>快照工具（不在 ISO 中）</b>"
 
 #: usr/share/archlinux-tweak-tool/btrfs_gui.py:176
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:201
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:207
 #: usr/share/archlinux-tweak-tool/services_gui.py:240
 #: usr/share/archlinux-tweak-tool/services_gui.py:420
 msgid "<b>Status</b>"
@@ -2656,16 +2656,16 @@ msgstr "已写入 {path}"
 msgid "Opening terminal to install {packages}..."
 msgstr "正在打开终端以安装 {packages}..."
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:270
+#: usr/share/archlinux-tweak-tool/hybrid.py:273
 #, python-brace-format
 msgid "Removed {path}"
 msgstr "已移除 {path}"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:271
+#: usr/share/archlinux-tweak-tool/hybrid.py:274
 msgid "Nothing removed"
 msgstr "未移除任何内容"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:281
+#: usr/share/archlinux-tweak-tool/hybrid.py:284
 #, python-brace-format
 msgid ""
 "This deletes the launcher copy ATT wrote in\n"
@@ -2686,11 +2686,11 @@ msgstr[0] ""
 "相关应用将再次使用默认 GPU 启动，并再次随软件包更新。你自己创建的启动器不会受"
 "到影响。"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:289
+#: usr/share/archlinux-tweak-tool/hybrid.py:292
 msgid "Remove all GPU overrides?"
 msgstr "移除所有 GPU 覆盖项？"
 
-#: usr/share/archlinux-tweak-tool/hybrid.py:295
+#: usr/share/archlinux-tweak-tool/hybrid.py:298
 #, python-brace-format
 msgid "Removed {count} override"
 msgid_plural "Removed {count} overrides"
@@ -2816,7 +2816,15 @@ msgstr[0] "不可用 — 此设备有 {count} 个显卡；混合显卡需要两�
 msgid "BETA"
 msgstr "测试版"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:182
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:183
+msgid ""
+"This machine has <b>two graphics cards</b>, and the desktop already runs on "
+"the faster NVIDIA card:\n"
+"every app uses it. The other card only shows a picture on the screens "
+"connected to it."
+msgstr "此设备有<b>两块显卡</b>，桌面已在速度更快的 NVIDIA 显卡上运行：\n所有应用都会使用它。另一块显卡只在连接到它的屏幕上显示画面。"
+
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:188
 msgid ""
 "This machine has <b>two graphics cards</b>: a power-saving one that drives "
 "the screen and a\n"
@@ -2826,7 +2834,7 @@ msgstr ""
 "此设备有<b>两块显卡</b>：一块省电显卡负责驱动屏幕，另一块是\n"
 "速度更快的独立显卡。除非你指定使用独立显卡，否则应用会使用省电显卡启动。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:187
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
 msgid ""
 "On laptops with two graphics cards (e.g. Intel + NVIDIA) this page runs "
 "chosen apps on the\n"
@@ -2837,7 +2845,7 @@ msgstr ""
 "速度更快的独立显卡上运行应用。此页面需要<b>两块显卡</b> — 请查看下方的<b>状态"
 "</b>。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:191
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
 msgid ""
 "\n"
 "\n"
@@ -2848,7 +2856,7 @@ msgstr ""
 "\n"
 "你的桌面环境还会在应用菜单（右键菜单）中提供<b>使用独立显卡启动</b>选项。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:193
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:199
 msgid ""
 "\n"
 "\n"
@@ -2859,7 +2867,7 @@ msgstr ""
 "\n"
 "你的桌面环境没有<b>使用独立显卡启动</b>菜单项 — 请使用下方的命令或覆盖项。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:197
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:203
 #, python-brace-format
 msgid ""
 "<span foreground='{color}'><b>Beta:</b> tested on two machines so far, both "
@@ -2869,26 +2877,26 @@ msgstr ""
 "<span foreground='{color}'><b>测试版:</b> 目前仅在两台电脑上测试过，均为 "
 "Intel + NVIDIA。在其他硬件上，尤其是 AMD，结果可能不同。</span>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:209
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:215
 msgid "Install missing packages"
 msgstr "安装缺少的软件包"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:211
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
 msgid ""
 "Install nvidia-prime and switcheroo-control in a terminal, then enable "
 "switcheroo-control"
 msgstr ""
 "在终端中安装 nvidia-prime 和 switcheroo-control，然后启用 switcheroo-control"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:217
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:223
 msgid "<b>Run an app on the discrete GPU</b>"
 msgstr "<b>在独立显卡上运行应用</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:222
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:228
 msgid "<b>Always run an app on the discrete GPU</b>"
 msgstr "<b>始终在独立显卡上运行应用</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:224
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
 #, python-brace-format
 msgid ""
 "ATT copies the app's launcher to <b>~/.local/share/applications</b> with the "
@@ -2901,7 +2909,7 @@ msgstr ""
 "<span foreground='{color}'>副本不会随该应用的软件包更新</span> — 移除副本即可"
 "恢复使用原始启动器。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:230
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:236
 msgid ""
 "With the NVIDIA driver this works for games and other apps that use GLX or "
 "Vulkan. On X11, browsers,\n"
@@ -2914,15 +2922,15 @@ msgstr ""
 "OBS 以及其他使用 EGL 绘图的应用仍会使用省电显卡。通过快捷键启动的应用\n"
 "不会使用这份副本：只有应用菜单和启动器会使用它。"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:243
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
 msgid "Always use discrete GPU"
 msgstr "始终使用独立显卡"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:249
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:255
 msgid "<b>Current overrides</b>"
 msgstr "<b>当前覆盖项</b>"
 
-#: usr/share/archlinux-tweak-tool/hybrid_gui.py:252
+#: usr/share/archlinux-tweak-tool/hybrid_gui.py:258
 msgid "Remove all overrides"
 msgstr "移除所有覆盖项"
 

@@ -177,7 +177,13 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
     hbox_sep.append(hseparator)
 
     # ── Intro ────────────────────────────────────────────────────────
-    if self.hybrid_available:
+    discrete = hybrid.discrete_gpu(hybrid.list_gpus())
+    if self.hybrid_available and discrete and discrete["driver"] == "nvidia" and hybrid.x_runs_on_nvidia():
+        intro = _(
+            "This machine has <b>two graphics cards</b>, and the desktop already runs on the faster NVIDIA card:\n"
+            "every app uses it. The other card only shows a picture on the screens connected to it."
+        )
+    elif self.hybrid_available:
         intro = _(
             "This machine has <b>two graphics cards</b>: a power-saving one that drives the screen and a\n"
             "faster discrete one. Apps start on the power-saving card unless you ask for the discrete one."
