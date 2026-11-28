@@ -158,6 +158,7 @@ kiro-ghostty
 kiro-grub-theme
 kiro-hlwm
 kiro-hwd
+kiro-hwd-nemesis
 kiro-hyprland
 kiro-hyprland-caelestia
 kiro-hyprland-dms
@@ -477,4 +478,5 @@ surfn-vimix-black-icons-git
 tinty-git
 vimix-cursors
 vimix-icon-theme-git
+wlroots0.18
 wttr
