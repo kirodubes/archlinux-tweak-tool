@@ -143,6 +143,12 @@ def refresh(self, fn):
     _refresh_overrides(self, Gtk, fn)
 
 
+def _on_page_shown(self, fn, _widget):
+    fn.log_info("Hybrid graphics page shown: re-reading GPU, package and service state")
+    fn.invalidate_pkg_cache()
+    refresh(self, fn)
+
+
 def _not_available(count):
     return ngettext(
         "Not available — this machine has {count} graphics card; hybrid graphics needs two",
@@ -251,6 +257,8 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
     # Search needs to know which property holds the text of each StringList item.
     self.hybrid_app_dropdown.set_expression(Gtk.PropertyExpression.new(Gtk.StringObject, None, "string"))
     self.hybrid_app_dropdown.set_enable_search(True)
+    # GTK's default is prefix: "image" would never find "GNU Image Manipulation Program".
+    self.hybrid_app_dropdown.set_search_match_mode(Gtk.StringFilterMatchMode.SUBSTRING)
     self.hybrid_app_dropdown.set_hexpand(True)
     self.hybrid_app_dropdown.set_margin_start(20)
     self.btn_hybrid_add = Gtk.Button(label=_("Always use discrete GPU"))
@@ -277,3 +285,5 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
         vboxstack_hybrid.append(widget)
 
     refresh(self, fn)
+    # The service or packages can change while ATT is open (systemctl, a pacman run): re-read on every visit.
+    vboxstack_hybrid.connect("map", functools.partial(_on_page_shown, self, fn))

@@ -1,5 +1,26 @@
 # Arch Linux Tweak Tool — Changelog
 
+## 2026.11.28
+
+### Hybrid graphics page: status re-read on every visit, app search matches anywhere in the name
+
+**What Changed.** Found during the msi hardware re-check (Kiro -next v26.11.28, nvidia-580xx, all other checks
+passed, including a real game, Chromium B.S.U., started through an override on the GTX 1050 Ti). (1) The page read
+its status only when it was built and after its own buttons, so a service stopped while ATT was open still showed
+"running", and the Start the service button never appeared until ATT was restarted. It now re-reads GPUs, packages,
+service and overrides every time the page is shown. (2) The app search in the override dropdown matched only the
+start of a name, so "vkcube" did not find "ZZ Test vkcube" and "image" did not find "GNU Image Manipulation
+Program". It now matches anywhere in the name.
+
+**Technical Details.** `hybrid_gui.gui()` connects the page box's `map` signal (fires each time the stack shows the
+page) to `_on_page_shown`, which clears `fn.invalidate_pkg_cache()` and calls `refresh()`; the build-time
+`refresh()` stays, per the deferred-page pattern. The dropdown gets
+`set_search_match_mode(Gtk.StringFilterMatchMode.SUBSTRING)` (GTK 4.12+; the default is PREFIX). Both seen working
+on msi from a working-copy run: service stopped from ssh → leave and return → "not running" + Start the service;
+"manipul" → GNU Image Manipulation Program. No new UI strings.
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid_gui.py`
+
 ## 2026.11.27
 
 ### Hybrid graphics page: switcheroo-control really starts, and the intro fits riker
