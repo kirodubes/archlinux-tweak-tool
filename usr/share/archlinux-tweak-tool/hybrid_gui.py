@@ -4,6 +4,7 @@
 # Hybrid graphics page — GUI.
 
 import functools
+import os
 
 import hybrid
 from att_i18n import N_, _, ngettext
@@ -143,6 +144,20 @@ def refresh(self, fn):
     _refresh_overrides(self, Gtk, fn)
 
 
+def _name_only_factory(Gtk):
+    factory = Gtk.SignalListItemFactory()
+
+    def setup(_factory, list_item):
+        list_item.set_child(Gtk.Label(xalign=0))
+
+    def bind(_factory, list_item):
+        list_item.get_child().set_text(list_item.get_item().get_string().split("\n", 1)[0])
+
+    factory.connect("setup", setup)
+    factory.connect("bind", bind)
+    return factory
+
+
 def _on_page_shown(self, fn, _widget):
     fn.log_info("Hybrid graphics page shown: re-reading GPU, package and service state")
     fn.invalidate_pkg_cache()
@@ -253,9 +268,14 @@ def gui(self, Gtk, vboxstack_hybrid, hybrid, fn):
 
     self.hybrid_apps = hybrid.list_system_apps()
     hbox_add = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-    self.hybrid_app_dropdown = Gtk.DropDown.new_from_strings([name for _id, name in self.hybrid_apps])
+    # Each item is "Name\nprogram desktop-id": search sees all of it, the factory shows only the name,
+    # so "gimp" or "vkcube" finds an app whose menu name doesn't contain the program name.
+    self.hybrid_app_dropdown = Gtk.DropDown.new_from_strings(
+        [f"{name}\n{program} {os.path.splitext(desktop_id)[0]}" for desktop_id, name, program in self.hybrid_apps])
     # Search needs to know which property holds the text of each StringList item.
     self.hybrid_app_dropdown.set_expression(Gtk.PropertyExpression.new(Gtk.StringObject, None, "string"))
+    # After set_expression: that call puts GTK's default factory back, which shows the whole string (msi, 2026-11-28).
+    self.hybrid_app_dropdown.set_factory(_name_only_factory(Gtk))
     self.hybrid_app_dropdown.set_enable_search(True)
     # GTK's default is prefix: "image" would never find "GNU Image Manipulation Program".
     self.hybrid_app_dropdown.set_search_match_mode(Gtk.StringFilterMatchMode.SUBSTRING)

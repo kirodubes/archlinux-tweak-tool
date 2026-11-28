@@ -135,8 +135,15 @@ def _desktop_fields(path):
     return fields
 
 
+def _program_name(exec_line):
+    for token in exec_line.split():
+        if token != "env" and "=" not in token:
+            return os.path.basename(token)
+    return ""
+
+
 def list_system_apps():
-    """Return [(desktop_id, name)] for visible applications in /usr/share/applications, sorted by name."""
+    """Return [(desktop_id, name, program)] for visible applications in /usr/share/applications, sorted by name."""
     apps = []
     for path in glob.glob(os.path.join(SYSTEM_APPS_DIR, "*.desktop")):
         fields = _desktop_fields(path)
@@ -144,7 +151,8 @@ def list_system_apps():
             continue
         if fields.get("NoDisplay", "").lower() == "true" or fields.get("Hidden", "").lower() == "true":
             continue
-        apps.append((os.path.basename(path), fields.get("Name", os.path.basename(path))))
+        desktop_id = os.path.basename(path)
+        apps.append((desktop_id, fields.get("Name", desktop_id), _program_name(fields["Exec"])))
     return sorted(apps, key=lambda app: app[1].lower())
 
 
@@ -279,7 +287,7 @@ def on_click_add_override(self, _widget):
     index = self.hybrid_app_dropdown.get_selected()
     if index >= len(self.hybrid_apps):
         return
-    desktop_id, name = self.hybrid_apps[index]
+    desktop_id = self.hybrid_apps[index][0]
     fn.log_subsection(f"Hybrid graphics: always run {desktop_id} on the discrete GPU")
     _ok, message = make_override(desktop_id, self.hybrid_prefix)
     fn.show_in_app_notification(self, message)

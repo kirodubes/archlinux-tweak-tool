@@ -2,6 +2,21 @@
 
 ## 2026.11.28
 
+### Hybrid graphics page: app search also matches the program name
+
+**What Changed.** Erik: "also match on the program name". The override search now also finds an app by its program
+or launcher file name, so "gimp" finds "GNU Image Manipulation Program" and "vkcube" a launcher named otherwise.
+
+**Technical Details.** `hybrid.list_system_apps()` returns `(desktop_id, name, program)`; `_program_name()` takes the
+first `Exec` token that is not `env` or a `VAR=value`, basename only. Each dropdown string is
+`"Name\nprogram desktop-id"`: the search expression sees all of it, and `hybrid_gui._name_only_factory()` (a
+`SignalListItemFactory`) shows only the first line, in the button and the popup. `set_factory()` must come **after**
+`set_expression()`: that call puts GTK's default factory back, which showed both lines (seen on msi).
+`on_click_add_override` takes `[0]` of the tuple. Seen on msi: "gimp" → GNU Image Manipulation Program, the override
+written to `gimp.desktop` (`Exec=prime-run gimp-3.2 %U`).
+
+**Files Modified.** `usr/share/archlinux-tweak-tool/hybrid.py`, `usr/share/archlinux-tweak-tool/hybrid_gui.py`
+
 ### Hybrid graphics page: status re-read on every visit, app search matches anywhere in the name
 
 **What Changed.** Found during the msi hardware re-check (Kiro -next v26.11.28, nvidia-580xx, all other checks
